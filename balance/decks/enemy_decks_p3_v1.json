@@ -1,0 +1,23 @@
+{
+  "note": "Enemy themed decks for NORMAL battles, by map (proposal P3 v1, to be tested in the run stage). Elites keep using player decks. Order fights keep their order decks. Only always-available characters (no Blackfang/Dawncrest units).",
+  "maps": {
+    "1": [
+      { "id": "e1_patrol", "name": "Patrulha da Estrada", "idea": "básico, sem sinergia forte", "counts": { "warrior": 3, "fighter": 3, "ranger": 3, "lancer": 3, "bastion": 2, "archer": 2, "miner": 2, "kinoichi": 2 } },
+      { "id": "e1_raiders", "name": "Saqueadores", "idea": "piratas baratos, 2 do mesmo trait", "counts": { "pirate": 3, "shackled_pirate": 3, "miner": 3, "fighter": 3, "gunner": 2, "archer": 2, "warrior": 2, "lancer": 2 } },
+      { "id": "e1_hunters", "name": "Caçadores", "idea": "atiradores frágeis", "counts": { "ranger": 3, "archer": 3, "eagle_druid": 3, "lancer": 3, "crossbowman": 2, "huntress": 2, "fighter": 2, "bastion": 2 } },
+      { "id": "e1_militia", "name": "Milícia do Vale", "idea": "corpo a corpo misto", "counts": { "martial_artist": 3, "warrior": 3, "lancer": 3, "glutton": 3, "samurai": 2, "shieldmaiden": 2, "ranger": 2, "archer": 2 } }
+    ],
+    "2": [
+      { "id": "e2_garrison", "name": "Guarnição da Aurora", "idea": "Dawnward 4 + um suporte", "counts": { "gladiator": 3, "swordsman": 3, "warrior": 3, "musketeer": 3, "bastion": 2, "lancer": 2, "cavalier": 2, "priestess": 2 } },
+      { "id": "e2_north", "name": "Bando do Norte", "idea": "Frostborn 4 + Shaman", "counts": { "viking": 3, "berserker": 3, "shieldmaiden": 3, "huntress": 3, "glutton": 2, "fighter": 2, "warrior": 2, "shaman": 2 } },
+      { "id": "e2_gunmen", "name": "Pistoleiros", "idea": "Wild West 4 + Predador", "counts": { "cowboy": 3, "gunner": 3, "miner": 3, "fighter": 3, "sheriff": 2, "crossbowman": 2, "shackled_pirate": 2, "bastion": 2 } },
+      { "id": "e2_dojo", "name": "Dojô", "idea": "Legends of the East 4", "counts": { "shinobi": 3, "samurai": 3, "fighter": 3, "martial_artist": 3, "omnamusha": 2, "kinoichi": 2, "ronin": 2, "shaolin": 2 } }
+    ],
+    "3": [
+      { "id": "e3_armada", "name": "Armada", "idea": "Seasalt 4 + Barda", "counts": { "pirate_captain": 3, "pirate": 3, "shackled_pirate": 3, "miner": 3, "cannoneer": 2, "pirate_admiral": 2, "gunner": 2, "bard": 2 } },
+      { "id": "e3_conclave", "name": "Conclave", "idea": "Arcane 4 com frente", "counts": { "bastion": 3, "gladiator": 3, "mage": 3, "sorceress": 3, "sage": 2, "priestess": 2, "bard": 2, "ranger": 2 } },
+      { "id": "e3_grove", "name": "Bosque Antigo", "idea": "Verdant 4 + dois suportes", "counts": { "bear_druid": 3, "ranger": 3, "archer": 3, "lancer": 3, "eagle_druid": 2, "crossbowman": 2, "priestess": 2, "shaman": 2 } },
+      { "id": "e3_imperial", "name": "Elite Imperial", "idea": "melhores de várias facções + Barda", "counts": { "duelist": 3, "swordsman": 3, "samurai": 3, "musketeer": 3, "cavalier": 2, "ronin": 2, "shieldmaiden": 2, "bard": 2 } }
+    ]
+  }
+}

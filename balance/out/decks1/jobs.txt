@@ -1,0 +1,42 @@
+GJ_ROOT=game node balance/sim/run.cjs --decks vanguard --seeds 1-40 --out balance/out/decks1/old_vanguard.jsonl > /dev/null 2>&1
+GJ_ROOT=game node balance/sim/run.cjs --decks balanced --seeds 1-40 --out balance/out/decks1/old_balanced.jsonl > /dev/null 2>&1
+GJ_ROOT=game node balance/sim/run.cjs --decks swift --seeds 1-40 --out balance/out/decks1/old_swift.jsonl > /dev/null 2>&1
+GJ_ROOT=game node balance/sim/run.cjs --decks arcane --seeds 1-40 --out balance/out/decks1/old_arcane.jsonl > /dev/null 2>&1
+GJ_ROOT=game node balance/sim/run.cjs --decks outlaws --seeds 1-40 --out balance/out/decks1/old_outlaws.jsonl > /dev/null 2>&1
+GJ_ROOT=game node balance/sim/run.cjs --decks fortress --seeds 1-40 --out balance/out/decks1/old_fortress.jsonl > /dev/null 2>&1
+GJ_ROOT=game node balance/sim/run.cjs --decks blades --seeds 1-40 --out balance/out/decks1/old_blades.jsonl > /dev/null 2>&1
+GJ_ROOT=game node balance/sim/run.cjs --decks fireline --seeds 1-40 --out balance/out/decks1/old_fireline.jsonl > /dev/null 2>&1
+GJ_ROOT=game node balance/sim/run.cjs --decks astral --seeds 1-40 --out balance/out/decks1/old_astral.jsonl > /dev/null 2>&1
+GJ_ROOT=game node balance/sim/run.cjs --decks corsair --seeds 1-40 --out balance/out/decks1/old_corsair.jsonl > /dev/null 2>&1
+GJ_ROOT=game GJ_DECKS=balance/decks/decks_p3_v1.json node balance/sim/run.cjs --decks vanguard --seeds 1-40 --out balance/out/decks1/new_vanguard.jsonl > /dev/null 2>&1
+GJ_ROOT=game GJ_DECKS=balance/decks/decks_p3_v1.json node balance/sim/run.cjs --decks balanced --seeds 1-40 --out balance/out/decks1/new_balanced.jsonl > /dev/null 2>&1
+GJ_ROOT=game GJ_DECKS=balance/decks/decks_p3_v1.json node balance/sim/run.cjs --decks swift --seeds 1-40 --out balance/out/decks1/new_swift.jsonl > /dev/null 2>&1
+GJ_ROOT=game GJ_DECKS=balance/decks/decks_p3_v1.json node balance/sim/run.cjs --decks arcane --seeds 1-40 --out balance/out/decks1/new_arcane.jsonl > /dev/null 2>&1
+GJ_ROOT=game GJ_DECKS=balance/decks/decks_p3_v1.json node balance/sim/run.cjs --decks outlaws --seeds 1-40 --out balance/out/decks1/new_outlaws.jsonl > /dev/null 2>&1
+GJ_ROOT=game GJ_DECKS=balance/decks/decks_p3_v1.json node balance/sim/run.cjs --decks fortress --seeds 1-40 --out balance/out/decks1/new_fortress.jsonl > /dev/null 2>&1
+GJ_ROOT=game GJ_DECKS=balance/decks/decks_p3_v1.json node balance/sim/run.cjs --decks blades --seeds 1-40 --out balance/out/decks1/new_blades.jsonl > /dev/null 2>&1
+GJ_ROOT=game GJ_DECKS=balance/decks/decks_p3_v1.json node balance/sim/run.cjs --decks fireline --seeds 1-40 --out balance/out/decks1/new_fireline.jsonl > /dev/null 2>&1
+GJ_ROOT=game GJ_DECKS=balance/decks/decks_p3_v1.json node balance/sim/run.cjs --decks astral --seeds 1-40 --out balance/out/decks1/new_astral.jsonl > /dev/null 2>&1
+GJ_ROOT=game GJ_DECKS=balance/decks/decks_p3_v1.json node balance/sim/run.cjs --decks corsair --seeds 1-40 --out balance/out/decks1/new_corsair.jsonl > /dev/null 2>&1
+GJ_ROOT=game GJ_DECKS=balance/decks/decks_p3_v1.json node balance/sim/run.cjs --decks north --seeds 1-40 --out balance/out/decks1/new_north.jsonl > /dev/null 2>&1
+GJ_ROOT=game GJ_DECKS=balance/decks/decks_p3_v1.json node balance/sim/run.cjs --decks verdant --seeds 1-40 --out balance/out/decks1/new_verdant.jsonl > /dev/null 2>&1
+GJ_ROOT=game GJ_DECKS=balance/decks/decks_p3_v1.json node balance/sim/run.cjs --decks keen --seeds 1-40 --out balance/out/decks1/new_keen.jsonl > /dev/null 2>&1
+GJ_ROOT=game GJ_DECKS=balance/decks/decks_p3_v1.json node balance/sim/run.cjs --decks quake --seeds 1-40 --out balance/out/decks1/new_quake.jsonl > /dev/null 2>&1
+GJ_ROOT=game GJ_DECKS=balance/decks/decks_p3_v1.json node balance/sim/run.cjs --decks executioners --seeds 1-40 --out balance/out/decks1/new_executioners.jsonl > /dev/null 2>&1
+GJ_ROOT=game GJ_DECKS=balance/decks/decks_p3_v1.json node balance/sim/run.cjs --decks goblin_horde --seeds 1-40 --out balance/out/decks1/new_goblin_horde.jsonl > /dev/null 2>&1
+GJ_ROOT=game GJ_DECKS=balance/decks/decks_p3_v1.json node balance/sim/run.cjs --decks greenskins --seeds 1-40 --out balance/out/decks1/new_greenskins.jsonl > /dev/null 2>&1
+GJ_ROOT=game GJ_DECKS=balance/decks/decks_p3_v1.json node balance/sim/run.cjs --decks dark_court --seeds 1-40 --out balance/out/decks1/new_dark_court.jsonl > /dev/null 2>&1
+GJ_ROOT=game GJ_DECKS=balance/decks/decks_p3_v1.json node balance/sim/run.cjs --decks blackfang_war --seeds 1-40 --out balance/out/decks1/new_blackfang_war.jsonl > /dev/null 2>&1
+GJ_ROOT=game GJ_DECKS=balance/decks/decks_p3_v1.json node balance/sim/run.cjs --decks meowri_band --seeds 1-40 --out balance/out/decks1/new_meowri_band.jsonl > /dev/null 2>&1
+GJ_ROOT=game GJ_DECKS=balance/decks/decks_p3_v1.json node balance/sim/run.cjs --decks high_court --seeds 1-40 --out balance/out/decks1/new_high_court.jsonl > /dev/null 2>&1
+GJ_ROOT=game GJ_DECKS=balance/decks/decks_p3_v1.json node balance/sim/run.cjs --decks forest_guard --seeds 1-40 --out balance/out/decks1/new_forest_guard.jsonl > /dev/null 2>&1
+GJ_ROOT=game GJ_DECKS=balance/decks/decks_p3_v1.json node balance/sim/run.cjs --decks centaur_charge --seeds 1-40 --out balance/out/decks1/new_centaur_charge.jsonl > /dev/null 2>&1
+GJ_ROOT=game GJ_DECKS=balance/decks/decks_p3_v1.json node balance/sim/run.cjs --decks dawncrest_choir --seeds 1-40 --out balance/out/decks1/new_dawncrest_choir.jsonl > /dev/null 2>&1
+GJ_ROOT=game node balance/sim/matrix.cjs --decks balance/decks/decks_p3_v1.json --seeds 6 --only vanguard,balanced,swift --out balance/out/decks1/matrix_0.jsonl 2>/dev/null
+GJ_ROOT=game node balance/sim/matrix.cjs --decks balance/decks/decks_p3_v1.json --seeds 6 --only arcane,outlaws,fortress --out balance/out/decks1/matrix_3.jsonl 2>/dev/null
+GJ_ROOT=game node balance/sim/matrix.cjs --decks balance/decks/decks_p3_v1.json --seeds 6 --only blades,fireline,astral --out balance/out/decks1/matrix_6.jsonl 2>/dev/null
+GJ_ROOT=game node balance/sim/matrix.cjs --decks balance/decks/decks_p3_v1.json --seeds 6 --only corsair,north,verdant --out balance/out/decks1/matrix_9.jsonl 2>/dev/null
+GJ_ROOT=game node balance/sim/matrix.cjs --decks balance/decks/decks_p3_v1.json --seeds 6 --only keen,quake,executioners --out balance/out/decks1/matrix_12.jsonl 2>/dev/null
+GJ_ROOT=game node balance/sim/matrix.cjs --decks balance/decks/decks_p3_v1.json --seeds 6 --only goblin_horde,greenskins,dark_court --out balance/out/decks1/matrix_15.jsonl 2>/dev/null
+GJ_ROOT=game node balance/sim/matrix.cjs --decks balance/decks/decks_p3_v1.json --seeds 6 --only blackfang_war,meowri_band,high_court --out balance/out/decks1/matrix_18.jsonl 2>/dev/null
+GJ_ROOT=game node balance/sim/matrix.cjs --decks balance/decks/decks_p3_v1.json --seeds 6 --only forest_guard,centaur_charge,dawncrest_choir --out balance/out/decks1/matrix_21.jsonl 2>/dev/null

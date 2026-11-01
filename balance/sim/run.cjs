@@ -123,10 +123,19 @@ function resolvePending(s, rec) {
   }
 }
 
+/* Proposal decks: GJ_DECKS=path.json ({decks:[{id,counts,startRelic,order}]}) */
+const CUSTOM = process.env.GJ_DECKS ? Object.fromEntries(JSON.parse(fs.readFileSync(process.env.GJ_DECKS, 'utf8')).decks.map(d => [d.id, d])) : {};
 function playRun(deck, seed, pol, opt) {
   P.load(P.freshProfile()); P.completeTutorial();
   const prof = Tree.profile(); prof.unlocked = [...(TREE_PRESETS[pol.tree] || [])];
-  const s = G.fresh(deck, seed);
+  const custom = CUSTOM[deck];
+  const s = G.fresh(custom ? 'vanguard' : deck, seed);
+  if (custom) { // proposal deck (testing): same fresh run, cards and starting relic replaced; its order is considered unlocked
+    s.cards = []; s.serial = 0; s.deck = deck;
+    for (const [type, n] of Object.entries(custom.counts)) for (let i = 0; i < n; i++) G.newCard(s, type);
+    s.artifacts = [custom.startRelic]; s.reserve = []; s.bag = null; G.ensureBag(s);
+    if (custom.order === 'blackfang') s.blackfangAvailable = true; if (custom.order === 'dawncrest') s.dawncrestAvailable = true;
+  }
   const rnd = G.rng(seed ^ 0x5eed);
   const rec = { deck, seed, policy: pol, fights: [], events: [], spent: {}, goldIn: 0, nodes: [], treeBought: [], result: null };
   let lastGold = s.gold, steps = 0;
