@@ -1,0 +1,1281 @@
+{
+  "units": [
+    {
+      "id": "feline_swordsman",
+      "index": 56,
+      "name": "Espadachim Felino",
+      "family": "warrior",
+      "faction": "dawncrest",
+      "variant": 0,
+      "color": "#d7b86c",
+      "rarity": 0,
+      "cost": 2,
+      "hp": 230,
+      "atk": 27,
+      "defense": 26,
+      "rate": 0.8620689655172414,
+      "speed": 60,
+      "crit": 0.12,
+      "range": 34,
+      "area": 0,
+      "traits": [
+        "Atacante",
+        "Ágil",
+        "Aventureiro"
+      ],
+      "kind": "active",
+      "charge": 5,
+      "ability": "Estocada audaz",
+      "detail": "Causa 160% do ataque ao alvo e ganha 20% de velocidade de ataque por 3 segundos.",
+      "rangeLabel": "Corpo a corpo",
+      "areaLabel": "Alvo único",
+      "ratings": {
+        "hp": 3,
+        "atk": 3,
+        "defense": 3,
+        "attackSpeed": 4,
+        "speed": 4,
+        "crit": 3,
+        "skill": 4
+      },
+      "order": "dawncrest"
+    },
+    {
+      "id": "feline_rogue",
+      "index": 57,
+      "name": "Gatuno Felino",
+      "family": "warrior",
+      "faction": "dawncrest",
+      "variant": 0,
+      "color": "#d7b86c",
+      "rarity": 1,
+      "cost": 3,
+      "hp": 180,
+      "atk": 35,
+      "defense": 8,
+      "rate": 0.6802721088435374,
+      "speed": 74,
+      "crit": 0.25,
+      "range": 34,
+      "area": 0,
+      "traits": [
+        "Atacante",
+        "Ágil",
+        "Disciplinado"
+      ],
+      "kind": "active",
+      "charge": 6,
+      "ability": "Salto traiçoeiro",
+      "detail": "Salta atrás do alvo e desfere dois golpes de 90% do ataque; cada golpe causa 110% se o alvo estiver mirando outro aliado.",
+      "rangeLabel": "Corpo a corpo",
+      "areaLabel": "Alvo único",
+      "ratings": {
+        "hp": 2,
+        "atk": 4,
+        "defense": 1,
+        "attackSpeed": 5,
+        "speed": 5,
+        "crit": 5,
+        "skill": 4
+      },
+      "order": "dawncrest"
+    },
+    {
+      "id": "feline_arcanist",
+      "index": 58,
+      "name": "Arcanista Felino",
+      "family": "mage",
+      "faction": "dawncrest",
+      "variant": 0,
+      "color": "#d7b86c",
+      "rarity": 2,
+      "cost": 3,
+      "hp": 180,
+      "atk": 20,
+      "defense": 16,
+      "rate": 1.075268817204301,
+      "speed": 49,
+      "crit": 0.07,
+      "range": 145,
+      "area": 0,
+      "traits": [
+        "Arcano",
+        "Guardião",
+        "Disciplinado"
+      ],
+      "kind": "active",
+      "charge": 7,
+      "ability": "Égide esmeralda",
+      "detail": "Protege o aliado com menor percentual de vida com escudo de 20% da vida máxima do conjurador por 4 segundos. Enquanto o escudo durar, o protegido ganha 15% de velocidade de ataque.",
+      "rangeLabel": "Longo",
+      "areaLabel": "Alvo único",
+      "ratings": {
+        "hp": 2,
+        "atk": 2,
+        "defense": 2,
+        "attackSpeed": 3,
+        "speed": 3,
+        "crit": 2,
+        "skill": 4
+      },
+      "order": "dawncrest"
+    },
+    {
+      "id": "feline_drummer",
+      "index": 59,
+      "name": "Percussionista Felino",
+      "family": "mage",
+      "faction": "dawncrest",
+      "variant": 0,
+      "color": "#d7b86c",
+      "rarity": 2,
+      "cost": 3,
+      "hp": 230,
+      "atk": 14,
+      "defense": 16,
+      "rate": 1.3513513513513513,
+      "speed": 49,
+      "crit": 0.03,
+      "range": 145,
+      "area": 0,
+      "traits": [
+        "Arcano",
+        "Ágil",
+        "Aventureiro"
+      ],
+      "kind": "active",
+      "charge": 8,
+      "ability": "Ritmo da marcha",
+      "detail": "Aliados em raio de 110, incluindo o conjurador, ganham 15% de velocidade de ataque e 20% de movimento por 4 segundos.",
+      "rangeLabel": "Longo",
+      "areaLabel": "Alvo único",
+      "ratings": {
+        "hp": 3,
+        "atk": 1,
+        "defense": 2,
+        "attackSpeed": 2,
+        "speed": 3,
+        "crit": 1,
+        "skill": 4
+      },
+      "order": "dawncrest"
+    },
+    {
+      "id": "feline_fighter",
+      "index": 60,
+      "name": "Lutador Felino",
+      "family": "fighter",
+      "faction": "dawncrest",
+      "variant": 0,
+      "color": "#d7b86c",
+      "rarity": 0,
+      "cost": 2,
+      "hp": 230,
+      "atk": 27,
+      "defense": 16,
+      "rate": 0.6802721088435374,
+      "speed": 60,
+      "crit": 0.12,
+      "range": 34,
+      "area": 0,
+      "traits": [
+        "Atacante",
+        "Ágil",
+        "Guardião"
+      ],
+      "kind": "active",
+      "charge": 6,
+      "ability": "Sequência de garras",
+      "detail": "Desfere três golpes de 65% do ataque. O último empurra o alvo 30 unidades e o lutador o acompanha.",
+      "rangeLabel": "Corpo a corpo",
+      "areaLabel": "Alvo único",
+      "ratings": {
+        "hp": 3,
+        "atk": 3,
+        "defense": 2,
+        "attackSpeed": 5,
+        "speed": 4,
+        "crit": 3,
+        "skill": 4
+      },
+      "order": "dawncrest"
+    },
+    {
+      "id": "elf_noble",
+      "index": 61,
+      "name": "Nobre Élfico",
+      "family": "cowboy",
+      "faction": "dawncrest",
+      "variant": 0,
+      "color": "#d7b86c",
+      "rarity": 2,
+      "cost": 3,
+      "hp": 230,
+      "atk": 35,
+      "defense": 16,
+      "rate": 1.075268817204301,
+      "speed": 49,
+      "crit": 0.18,
+      "range": 145,
+      "area": 0,
+      "traits": [
+        "Atirador",
+        "Disciplinado",
+        "Aventureiro"
+      ],
+      "kind": "active",
+      "charge": 5,
+      "ability": "Disparo de comando",
+      "detail": "Dispara por 180% do ataque. Os dois outros aliados mais próximos ganham 15% de ataque por 3 segundos, sem mudar seus alvos.",
+      "rangeLabel": "Longo",
+      "areaLabel": "Alvo único",
+      "ratings": {
+        "hp": 3,
+        "atk": 4,
+        "defense": 2,
+        "attackSpeed": 3,
+        "speed": 3,
+        "crit": 4,
+        "skill": 4
+      },
+      "order": "dawncrest"
+    },
+    {
+      "id": "elf_guardian",
+      "index": 62,
+      "name": "Guardião Élfico",
+      "family": "warrior",
+      "faction": "dawncrest",
+      "variant": 0,
+      "color": "#d7b86c",
+      "rarity": 1,
+      "cost": 3,
+      "hp": 360,
+      "atk": 20,
+      "defense": 38,
+      "rate": 1.3513513513513513,
+      "speed": 39,
+      "crit": 0.07,
+      "range": 34,
+      "area": 0,
+      "traits": [
+        "Defensor",
+        "Guardião",
+        "Disciplinado"
+      ],
+      "kind": "active",
+      "charge": 5,
+      "ability": "Muralha rubra",
+      "detail": "Após receber 5 ataques básicos, reduz o próprio dano recebido em 25% e o dos outros aliados em raio de 85 em 15%, por 3 segundos.",
+      "rangeLabel": "Corpo a corpo",
+      "areaLabel": "Alvo único",
+      "ratings": {
+        "hp": 5,
+        "atk": 2,
+        "defense": 4,
+        "attackSpeed": 2,
+        "speed": 2,
+        "crit": 2,
+        "skill": 4
+      },
+      "order": "dawncrest"
+    },
+    {
+      "id": "elf_archer",
+      "index": 63,
+      "name": "Arqueiro Élfico",
+      "family": "archer",
+      "faction": "dawncrest",
+      "variant": 0,
+      "color": "#d7b86c",
+      "rarity": 0,
+      "cost": 2,
+      "hp": 180,
+      "atk": 27,
+      "defense": 8,
+      "rate": 0.8620689655172414,
+      "speed": 60,
+      "crit": 0.12,
+      "range": 180,
+      "area": 0,
+      "traits": [
+        "Atirador",
+        "Atacante",
+        "Disciplinado"
+      ],
+      "kind": "active",
+      "charge": 6,
+      "ability": "Flecha solar",
+      "detail": "Atinge até três inimigos em linha: o primeiro recebe 170% do ataque e os demais, 100%.",
+      "rangeLabel": "Longo",
+      "areaLabel": "Alvo único",
+      "ratings": {
+        "hp": 2,
+        "atk": 3,
+        "defense": 1,
+        "attackSpeed": 4,
+        "speed": 4,
+        "crit": 3,
+        "skill": 4
+      },
+      "order": "dawncrest"
+    },
+    {
+      "id": "elf_halberdier",
+      "index": 64,
+      "name": "Alabardeira Élfica",
+      "family": "warrior",
+      "faction": "dawncrest",
+      "variant": 0,
+      "color": "#d7b86c",
+      "rarity": 1,
+      "cost": 3,
+      "hp": 290,
+      "atk": 35,
+      "defense": 26,
+      "rate": 1.075268817204301,
+      "speed": 49,
+      "crit": 0.07,
+      "range": 62,
+      "area": 0,
+      "traits": [
+        "Atacante",
+        "Defensor",
+        "Disciplinado"
+      ],
+      "kind": "active",
+      "charge": 5,
+      "ability": "Varredura da aurora",
+      "detail": "Causa 160% do ataque em cone frontal de alcance 85 e empurra os alvos 35 unidades. Permanece no lugar.",
+      "rangeLabel": "Curto",
+      "areaLabel": "Alvo único",
+      "ratings": {
+        "hp": 4,
+        "atk": 4,
+        "defense": 3,
+        "attackSpeed": 3,
+        "speed": 3,
+        "crit": 2,
+        "skill": 4
+      },
+      "order": "dawncrest"
+    },
+    {
+      "id": "woodland_predator",
+      "index": 65,
+      "name": "Predador Silvestre",
+      "family": "warrior",
+      "faction": "dawncrest",
+      "variant": 0,
+      "color": "#d7b86c",
+      "rarity": 2,
+      "cost": 3,
+      "hp": 230,
+      "atk": 27,
+      "defense": 16,
+      "rate": 0.6802721088435374,
+      "speed": 74,
+      "crit": 0.18,
+      "range": 34,
+      "area": 0,
+      "traits": [
+        "Atacante",
+        "Ágil",
+        "Aventureiro"
+      ],
+      "kind": "passive",
+      "charge": 0,
+      "ability": "Caçada implacável",
+      "detail": "Cada ataque básico consecutivo no mesmo alvo concede 5% de velocidade de ataque, até 30%. Trocar de alvo reinicia o bônus.",
+      "rangeLabel": "Corpo a corpo",
+      "areaLabel": "Alvo único",
+      "ratings": {
+        "hp": 3,
+        "atk": 3,
+        "defense": 2,
+        "attackSpeed": 5,
+        "speed": 5,
+        "crit": 4,
+        "skill": 4
+      },
+      "order": "dawncrest"
+    },
+    {
+      "id": "woodland_lancer",
+      "index": 66,
+      "name": "Lanceiro Silvestre",
+      "family": "warrior",
+      "faction": "dawncrest",
+      "variant": 0,
+      "color": "#d7b86c",
+      "rarity": 0,
+      "cost": 2,
+      "hp": 230,
+      "atk": 27,
+      "defense": 26,
+      "rate": 1.075268817204301,
+      "speed": 60,
+      "crit": 0.07,
+      "range": 62,
+      "area": 0,
+      "traits": [
+        "Atacante",
+        "Defensor",
+        "Ágil"
+      ],
+      "kind": "active",
+      "charge": 5,
+      "ability": "Ponta dupla",
+      "detail": "Causa 150% do ataque ao alvo principal e 100% a um segundo inimigo próximo. Sem segundo alvo, não há golpe adicional.",
+      "rangeLabel": "Curto",
+      "areaLabel": "Alvo único",
+      "ratings": {
+        "hp": 3,
+        "atk": 3,
+        "defense": 3,
+        "attackSpeed": 3,
+        "speed": 4,
+        "crit": 2,
+        "skill": 4
+      },
+      "order": "dawncrest"
+    },
+    {
+      "id": "woodland_scout",
+      "index": 67,
+      "name": "Batedor Silvestre",
+      "family": "archer",
+      "faction": "dawncrest",
+      "variant": 0,
+      "color": "#d7b86c",
+      "rarity": 1,
+      "cost": 3,
+      "hp": 180,
+      "atk": 27,
+      "defense": 8,
+      "rate": 0.8620689655172414,
+      "speed": 74,
+      "crit": 0.18,
+      "range": 180,
+      "area": 0,
+      "traits": [
+        "Atirador",
+        "Ágil",
+        "Aventureiro"
+      ],
+      "kind": "active",
+      "charge": 6,
+      "ability": "Disparo evasivo",
+      "detail": "Recua 45 unidades e dispara por 150% do ataque, reduzindo o movimento do alvo em 30% por 3 segundos.",
+      "rangeLabel": "Longo",
+      "areaLabel": "Alvo único",
+      "ratings": {
+        "hp": 2,
+        "atk": 3,
+        "defense": 1,
+        "attackSpeed": 4,
+        "speed": 5,
+        "crit": 4,
+        "skill": 4
+      },
+      "order": "dawncrest"
+    },
+    {
+      "id": "woodland_flailer",
+      "index": 68,
+      "name": "Flagelador Silvestre",
+      "family": "warrior",
+      "faction": "dawncrest",
+      "variant": 0,
+      "color": "#d7b86c",
+      "rarity": 1,
+      "cost": 3,
+      "hp": 290,
+      "atk": 35,
+      "defense": 26,
+      "rate": 1.3513513513513513,
+      "speed": 49,
+      "crit": 0.12,
+      "range": 62,
+      "area": 0,
+      "traits": [
+        "Atacante",
+        "Defensor",
+        "Aventureiro"
+      ],
+      "kind": "active",
+      "charge": 5,
+      "ability": "Quebra-guarda",
+      "detail": "Causa 180% do ataque e reduz a defesa em 25% por 4 segundos. O golpe causa 50% de dano adicional somente à parcela absorvida por escudos.",
+      "rangeLabel": "Curto",
+      "areaLabel": "Alvo único",
+      "ratings": {
+        "hp": 4,
+        "atk": 4,
+        "defense": 3,
+        "attackSpeed": 2,
+        "speed": 3,
+        "crit": 3,
+        "skill": 4
+      },
+      "order": "dawncrest"
+    },
+    {
+      "id": "flower_fairy",
+      "index": 69,
+      "name": "Fada das Flores",
+      "family": "mage",
+      "faction": "dawncrest",
+      "variant": 0,
+      "color": "#d7b86c",
+      "rarity": 2,
+      "cost": 3,
+      "hp": 180,
+      "atk": 14,
+      "defense": 8,
+      "rate": 1.075268817204301,
+      "speed": 74,
+      "crit": 0.03,
+      "range": 145,
+      "area": 0,
+      "traits": [
+        "Arcano",
+        "Ágil",
+        "Guardião"
+      ],
+      "kind": "active",
+      "charge": 7,
+      "ability": "Pólen restaurador",
+      "detail": "Move-se para perto do aliado com menor percentual de vida, cura 12% da vida máxima dele e remove lentidão e enraizamento. Não remove atordoamento nem revive.",
+      "rangeLabel": "Longo",
+      "areaLabel": "Alvo único",
+      "ratings": {
+        "hp": 2,
+        "atk": 1,
+        "defense": 1,
+        "attackSpeed": 3,
+        "speed": 5,
+        "crit": 1,
+        "skill": 4
+      },
+      "order": "dawncrest"
+    },
+    {
+      "id": "elf_harpist",
+      "index": 70,
+      "name": "Harpista Élfica",
+      "family": "mage",
+      "faction": "dawncrest",
+      "variant": 0,
+      "color": "#d7b86c",
+      "rarity": 3,
+      "cost": 4,
+      "hp": 230,
+      "atk": 14,
+      "defense": 16,
+      "rate": 1.3513513513513513,
+      "speed": 49,
+      "crit": 0.03,
+      "range": 145,
+      "area": 0,
+      "traits": [
+        "Arcano",
+        "Guardião",
+        "Disciplinado"
+      ],
+      "kind": "active",
+      "charge": 9,
+      "ability": "Canção do alvorecer",
+      "detail": "Canaliza três pulsos durante 3 segundos. Cada pulso cura 4% da vida máxima dos aliados em raio de 110. Atordoamento ou morte interrompem os pulsos restantes.",
+      "rangeLabel": "Longo",
+      "areaLabel": "Alvo único",
+      "ratings": {
+        "hp": 3,
+        "atk": 1,
+        "defense": 2,
+        "attackSpeed": 2,
+        "speed": 3,
+        "crit": 1,
+        "skill": 4
+      },
+      "order": "dawncrest"
+    },
+    {
+      "id": "centaur_crossbow",
+      "index": 71,
+      "name": "Besteira Centaura",
+      "family": "archer",
+      "faction": "dawncrest",
+      "variant": 0,
+      "color": "#d7b86c",
+      "rarity": 1,
+      "cost": 3,
+      "hp": 230,
+      "atk": 35,
+      "defense": 16,
+      "rate": 1.075268817204301,
+      "speed": 74,
+      "crit": 0.12,
+      "range": 180,
+      "area": 0,
+      "traits": [
+        "Atirador",
+        "Ágil",
+        "Disciplinado"
+      ],
+      "kind": "active",
+      "charge": 5,
+      "ability": "Rajada a galope",
+      "detail": "Desloca-se 50 unidades lateralmente enquanto dispara três tiros de 70% do ataque no alvo. Continua vulnerável durante o movimento.",
+      "rangeLabel": "Longo",
+      "areaLabel": "Alvo único",
+      "ratings": {
+        "hp": 3,
+        "atk": 4,
+        "defense": 2,
+        "attackSpeed": 3,
+        "speed": 5,
+        "crit": 3,
+        "skill": 4
+      },
+      "order": "dawncrest"
+    },
+    {
+      "id": "centaur_lancer",
+      "index": 72,
+      "name": "Lanceiro Centauro",
+      "family": "warrior",
+      "faction": "dawncrest",
+      "variant": 0,
+      "color": "#d7b86c",
+      "rarity": 2,
+      "cost": 4,
+      "hp": 360,
+      "atk": 35,
+      "defense": 38,
+      "rate": 1.3513513513513513,
+      "speed": 74,
+      "crit": 0.07,
+      "range": 62,
+      "area": 0,
+      "traits": [
+        "Atacante",
+        "Defensor",
+        "Guardião"
+      ],
+      "kind": "active",
+      "charge": 8,
+      "ability": "Investida protetora",
+      "detail": "Avança até 120 unidades contra o inimigo próximo do outro aliado com menor percentual de vida, causa 170% do ataque e provoca por 2 segundos. Sem alvo elegível, busca o alvo atual.",
+      "rangeLabel": "Curto",
+      "areaLabel": "Alvo único",
+      "ratings": {
+        "hp": 5,
+        "atk": 4,
+        "defense": 4,
+        "attackSpeed": 2,
+        "speed": 5,
+        "crit": 2,
+        "skill": 4
+      },
+      "order": "dawncrest"
+    },
+    {
+      "id": "centaur_swordsman",
+      "index": 73,
+      "name": "Espadachim Centauro",
+      "family": "warrior",
+      "faction": "dawncrest",
+      "variant": 0,
+      "color": "#d7b86c",
+      "rarity": 0,
+      "cost": 3,
+      "hp": 290,
+      "atk": 35,
+      "defense": 26,
+      "rate": 1.075268817204301,
+      "speed": 74,
+      "crit": 0.12,
+      "range": 34,
+      "area": 0,
+      "traits": [
+        "Atacante",
+        "Ágil",
+        "Aventureiro"
+      ],
+      "kind": "active",
+      "charge": 6,
+      "ability": "Corte de passagem",
+      "detail": "Atravessa o alvo, causa 170% do ataque e termina 45 unidades atrás dele, em espaço livre. Atinge apenas esse alvo.",
+      "rangeLabel": "Corpo a corpo",
+      "areaLabel": "Alvo único",
+      "ratings": {
+        "hp": 4,
+        "atk": 4,
+        "defense": 3,
+        "attackSpeed": 3,
+        "speed": 5,
+        "crit": 3,
+        "skill": 4
+      },
+      "order": "dawncrest"
+    },
+    {
+      "id": "sheriff",
+      "index": 74,
+      "name": "Xerife",
+      "family": "cowboy",
+      "faction": "west",
+      "variant": 0,
+      "color": "#d7b86c",
+      "rarity": 2,
+      "cost": 4,
+      "hp": 290,
+      "atk": 35,
+      "defense": 26,
+      "rate": 1.075268817204301,
+      "speed": 74,
+      "crit": 0.18,
+      "range": 145,
+      "area": 0,
+      "traits": [
+        "Atirador",
+        "Disciplinado",
+        "Aventureiro"
+      ],
+      "kind": "active",
+      "charge": 7,
+      "ability": "Laço da lei",
+      "detail": "Laça o inimigo mais distante em alcance 180, puxa até 60 unidades, dispara por 160% do ataque e enraíza por 1 segundo. Cavalo e cavaleiro são uma unidade.",
+      "rangeLabel": "Longo",
+      "areaLabel": "Alvo único",
+      "ratings": {
+        "hp": 4,
+        "atk": 4,
+        "defense": 3,
+        "attackSpeed": 3,
+        "speed": 5,
+        "crit": 4,
+        "skill": 4
+      }
+    },
+    {
+      "id": "bard",
+      "index": 75,
+      "name": "Barda",
+      "family": "mage",
+      "faction": "arcane",
+      "variant": 0,
+      "color": "#d7b86c",
+      "rarity": 1,
+      "cost": 3,
+      "hp": 230,
+      "atk": 14,
+      "defense": 16,
+      "rate": 1.3513513513513513,
+      "speed": 49,
+      "crit": 0.03,
+      "range": 145,
+      "area": 0,
+      "traits": [
+        "Arcano",
+        "Guardião",
+        "Aventureiro"
+      ],
+      "kind": "active",
+      "charge": 8,
+      "ability": "Balada heroica",
+      "detail": "Aliados em raio de 110, incluindo a Barda, ganham 15% de ataque e 20% de poder de habilidade por 4 segundos. Ataques básicos são notas musicais.",
+      "rangeLabel": "Longo",
+      "areaLabel": "Alvo único",
+      "ratings": {
+        "hp": 3,
+        "atk": 1,
+        "defense": 2,
+        "attackSpeed": 2,
+        "speed": 3,
+        "crit": 1,
+        "skill": 4
+      }
+    },
+    {
+      "id": "gladiator",
+      "index": 76,
+      "name": "Gladiador",
+      "family": "warrior",
+      "faction": "dawn",
+      "variant": 0,
+      "color": "#d7b86c",
+      "rarity": 1,
+      "cost": 3,
+      "hp": 290,
+      "atk": 27,
+      "defense": 38,
+      "rate": 1.075268817204301,
+      "speed": 39,
+      "crit": 0.07,
+      "range": 62,
+      "area": 0,
+      "traits": [
+        "Atacante",
+        "Defensor",
+        "Disciplinado"
+      ],
+      "kind": "active",
+      "charge": 5,
+      "ability": "Resposta da arena",
+      "detail": "Após receber 5 ataques básicos, contra-ataca o agressor em alcance 62, ou o alvo atual nesse alcance, por 180% do ataque e reduz seu ataque em 20% por 3 segundos.",
+      "rangeLabel": "Curto",
+      "areaLabel": "Alvo único",
+      "ratings": {
+        "hp": 4,
+        "atk": 3,
+        "defense": 4,
+        "attackSpeed": 3,
+        "speed": 2,
+        "crit": 2,
+        "skill": 4
+      }
+    },
+    {
+      "id": "blackfang_guardian",
+      "index": 77,
+      "name": "Guardião Blackfang",
+      "family": "warrior",
+      "faction": "blackfang",
+      "variant": 0,
+      "color": "#d7b86c",
+      "rarity": 2,
+      "cost": 4,
+      "hp": 360,
+      "atk": 27,
+      "defense": 38,
+      "rate": 1.3513513513513513,
+      "speed": 30,
+      "crit": 0.07,
+      "range": 62,
+      "area": 0,
+      "traits": [
+        "Defensor",
+        "Guardião",
+        "Disciplinado"
+      ],
+      "kind": "active",
+      "charge": 6,
+      "ability": "Bastião sombrio",
+      "detail": "Após receber 6 ataques básicos, causa 140% do ataque em cone frontal de alcance 85 e provoca os atingidos por 2 segundos. Recebe escudo de 20% da própria vida máxima por 4 segundos.",
+      "rangeLabel": "Curto",
+      "areaLabel": "Alvo único",
+      "ratings": {
+        "hp": 5,
+        "atk": 3,
+        "defense": 4,
+        "attackSpeed": 2,
+        "speed": 1,
+        "crit": 2,
+        "skill": 4
+      },
+      "order": "blackfang"
+    }
+  ],
+  "triggers": {
+    "feline_swordsman": [
+      "attacks",
+      5
+    ],
+    "feline_rogue": [
+      "attacks",
+      6
+    ],
+    "feline_arcanist": [
+      "time",
+      7
+    ],
+    "feline_drummer": [
+      "time",
+      8
+    ],
+    "feline_fighter": [
+      "attacks",
+      6
+    ],
+    "elf_noble": [
+      "attacks",
+      5
+    ],
+    "elf_guardian": [
+      "received",
+      5
+    ],
+    "elf_archer": [
+      "attacks",
+      6
+    ],
+    "elf_halberdier": [
+      "attacks",
+      5
+    ],
+    "woodland_predator": [
+      "passive",
+      0
+    ],
+    "woodland_lancer": [
+      "attacks",
+      5
+    ],
+    "woodland_scout": [
+      "time",
+      6
+    ],
+    "woodland_flailer": [
+      "attacks",
+      5
+    ],
+    "flower_fairy": [
+      "time",
+      7
+    ],
+    "elf_harpist": [
+      "time",
+      9
+    ],
+    "centaur_crossbow": [
+      "attacks",
+      5
+    ],
+    "centaur_lancer": [
+      "time",
+      8
+    ],
+    "centaur_swordsman": [
+      "attacks",
+      6
+    ],
+    "sheriff": [
+      "time",
+      7
+    ],
+    "bard": [
+      "time",
+      8
+    ],
+    "gladiator": [
+      "received",
+      5
+    ],
+    "blackfang_guardian": [
+      "received",
+      6
+    ]
+  },
+  "assets": {
+    "feline_swordsman": {
+      "size": [
+        1271,
+        1238
+      ],
+      "anchor": [
+        647.5,
+        1238
+      ],
+      "scale": 0.0827129859387924,
+      "art": "assets/v37-feline_swordsman-art.png",
+      "portrait": "assets/v37-feline_swordsman-portrait.png",
+      "sprite": "assets/v37-feline_swordsman-sprite.png"
+    },
+    "feline_rogue": {
+      "size": [
+        1292,
+        1218
+      ],
+      "anchor": [
+        646.0,
+        1218
+      ],
+      "scale": 0.0835421888053467,
+      "art": "assets/v37-feline_rogue-art.png",
+      "portrait": "assets/v37-feline_rogue-portrait.png",
+      "sprite": "assets/v37-feline_rogue-sprite.png"
+    },
+    "feline_arcanist": {
+      "size": [
+        1212,
+        1298
+      ],
+      "anchor": [
+        606.0,
+        1298
+      ],
+      "scale": 0.07722007722007722,
+      "art": "assets/v37-feline_arcanist-art.png",
+      "portrait": "assets/v37-feline_arcanist-portrait.png",
+      "sprite": "assets/v37-feline_arcanist-sprite.png"
+    },
+    "feline_drummer": {
+      "size": [
+        1312,
+        1199
+      ],
+      "anchor": [
+        647.0,
+        1199
+      ],
+      "scale": 0.08375209380234507,
+      "art": "assets/v37-feline_drummer-art.png",
+      "portrait": "assets/v37-feline_drummer-portrait.png",
+      "sprite": "assets/v37-feline_drummer-sprite.png"
+    },
+    "feline_fighter": {
+      "size": [
+        1212,
+        1298
+      ],
+      "anchor": [
+        606.0,
+        1298
+      ],
+      "scale": 0.07763975155279502,
+      "art": "assets/v37-feline_fighter-art.png",
+      "portrait": "assets/v37-feline_fighter-portrait.png",
+      "sprite": "assets/v37-feline_fighter-sprite.png"
+    },
+    "elf_noble": {
+      "size": [
+        1312,
+        1199
+      ],
+      "anchor": [
+        649.0,
+        1199
+      ],
+      "scale": 0.08539709649871904,
+      "art": "assets/v37-elf_noble-art.png",
+      "portrait": "assets/v37-elf_noble-portrait.png",
+      "sprite": "assets/v37-elf_noble-sprite.png"
+    },
+    "elf_guardian": {
+      "size": [
+        1298,
+        1212
+      ],
+      "anchor": [
+        640.0,
+        1192
+      ],
+      "scale": 0.0856898029134533,
+      "art": "assets/v37-elf_guardian-art.png",
+      "portrait": "assets/v37-elf_guardian-portrait.png",
+      "sprite": "assets/v37-elf_guardian-sprite.png"
+    },
+    "elf_archer": {
+      "size": [
+        1213,
+        1296
+      ],
+      "anchor": [
+        604.5,
+        1296
+      ],
+      "scale": 0.07830853563038372,
+      "art": "assets/v37-elf_archer-art.png",
+      "portrait": "assets/v37-elf_archer-portrait.png",
+      "sprite": "assets/v37-elf_archer-sprite.png"
+    },
+    "elf_halberdier": {
+      "size": [
+        1212,
+        1298
+      ],
+      "anchor": [
+        597.5,
+        1278
+      ],
+      "scale": 0.07930214115781126,
+      "art": "assets/v37-elf_halberdier-art.png",
+      "portrait": "assets/v37-elf_halberdier-portrait.png",
+      "sprite": "assets/v37-elf_halberdier-sprite.png"
+    },
+    "woodland_predator": {
+      "size": [
+        1212,
+        1298
+      ],
+      "anchor": [
+        598.0,
+        1298
+      ],
+      "scale": 0.0779423226812159,
+      "art": "assets/v37-woodland_predator-art.png",
+      "portrait": "assets/v37-woodland_predator-portrait.png",
+      "sprite": "assets/v37-woodland_predator-sprite.png"
+    },
+    "woodland_lancer": {
+      "size": [
+        1212,
+        1298
+      ],
+      "anchor": [
+        590.0,
+        1298
+      ],
+      "scale": 0.078064012490242,
+      "art": "assets/v37-woodland_lancer-art.png",
+      "portrait": "assets/v37-woodland_lancer-portrait.png",
+      "sprite": "assets/v37-woodland_lancer-sprite.png"
+    },
+    "woodland_scout": {
+      "size": [
+        1212,
+        1298
+      ],
+      "anchor": [
+        592.0,
+        1298
+      ],
+      "scale": 0.07757951900698215,
+      "art": "assets/v37-woodland_scout-art.png",
+      "portrait": "assets/v37-woodland_scout-portrait.png",
+      "sprite": "assets/v37-woodland_scout-sprite.png"
+    },
+    "woodland_flailer": {
+      "size": [
+        1212,
+        1298
+      ],
+      "anchor": [
+        606.0,
+        1298
+      ],
+      "scale": 0.07751937984496124,
+      "art": "assets/v37-woodland_flailer-art.png",
+      "portrait": "assets/v37-woodland_flailer-portrait.png",
+      "sprite": "assets/v37-woodland_flailer-sprite.png"
+    },
+    "flower_fairy": {
+      "size": [
+        1241,
+        1267
+      ],
+      "anchor": [
+        626.0,
+        1267
+      ],
+      "scale": 0.08103727714748785,
+      "art": "assets/v37-flower_fairy-art.png",
+      "portrait": "assets/v37-flower_fairy-portrait.png",
+      "sprite": "assets/v37-flower_fairy-sprite.png"
+    },
+    "elf_harpist": {
+      "size": [
+        1212,
+        1298
+      ],
+      "anchor": [
+        597.0,
+        1298
+      ],
+      "scale": 0.07763975155279502,
+      "art": "assets/v37-elf_harpist-art.png",
+      "portrait": "assets/v37-elf_harpist-portrait.png",
+      "sprite": "assets/v37-elf_harpist-sprite.png"
+    },
+    "centaur_crossbow": {
+      "size": [
+        1312,
+        1199
+      ],
+      "anchor": [
+        650.5,
+        1199
+      ],
+      "scale": 0.08403361344537816,
+      "art": "assets/v37-centaur_crossbow-art.png",
+      "portrait": "assets/v37-centaur_crossbow-portrait.png",
+      "sprite": "assets/v37-centaur_crossbow-sprite.png"
+    },
+    "centaur_lancer": {
+      "size": [
+        1212,
+        1298
+      ],
+      "anchor": [
+        622.0,
+        1298
+      ],
+      "scale": 0.078064012490242,
+      "art": "assets/v37-centaur_lancer-art.png",
+      "portrait": "assets/v37-centaur_lancer-portrait.png",
+      "sprite": "assets/v37-centaur_lancer-sprite.png"
+    },
+    "centaur_swordsman": {
+      "size": [
+        1212,
+        1298
+      ],
+      "anchor": [
+        591.0,
+        1298
+      ],
+      "scale": 0.07757951900698215,
+      "art": "assets/v37-centaur_swordsman-art.png",
+      "portrait": "assets/v37-centaur_swordsman-portrait.png",
+      "sprite": "assets/v37-centaur_swordsman-sprite.png"
+    },
+    "sheriff": {
+      "size": [
+        1212,
+        1298
+      ],
+      "anchor": [
+        622.5,
+        1298
+      ],
+      "scale": 0.07955449482895784,
+      "art": "assets/v37-sheriff-art.png",
+      "portrait": "assets/v37-sheriff-portrait.png",
+      "sprite": "assets/v37-sheriff-sprite.png"
+    },
+    "bard": {
+      "size": [
+        1212,
+        1298
+      ],
+      "anchor": [
+        592.0,
+        1283
+      ],
+      "scale": 0.07898894154818326,
+      "art": "assets/v37-bard-art.png",
+      "portrait": "assets/v37-bard-portrait.png",
+      "sprite": "assets/v37-bard-sprite.png"
+    },
+    "gladiator": {
+      "size": [
+        1212,
+        1298
+      ],
+      "anchor": [
+        600.5,
+        1298
+      ],
+      "scale": 0.07757951900698215,
+      "art": "assets/v37-gladiator-art.png",
+      "portrait": "assets/v37-gladiator-portrait.png",
+      "sprite": "assets/v37-gladiator-sprite.png"
+    },
+    "blackfang_guardian": {
+      "size": [
+        1145,
+        1374
+      ],
+      "anchor": [
+        561.5,
+        1374
+      ],
+      "scale": 0.072992700729927,
+      "art": "assets/v37-blackfang_guardian-art.png",
+      "portrait": "assets/v37-blackfang_guardian-portrait.png",
+      "sprite": "assets/v37-blackfang_guardian-sprite.png"
+    }
+  }
+}

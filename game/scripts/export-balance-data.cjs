@@ -1,0 +1,7 @@
+const fs=require('node:fs'),path=require('node:path');
+for(const f of ['game-0','training-engine','raid-engine','monster-engine','acts-engine','boss-engine','map-variety','tree-data','tree-engine','journey-debug','content-v53','traits-v54'])require('../dist/'+f+'.js');
+const G=globalThis.Game,P=globalThis.Progress,C=globalThis.JourneyContent;
+P.load(P.freshProfile());P.completeTutorial();const s=G.fresh('balanced',54);
+const eventOptions=Object.entries(C.titles).map(([id,n])=>{s.offers={eventId:id,content:{selection:{}}};return{id,en:n[0],pt:n[1],options:C.options(s)};});
+const data={base:{contentVersion:54,commit:'9b8bff1085f72112d492fd40ffba6c1ab63011b7',note:'Static records and unselected event options. Source code is authoritative for dynamic logic and all simulation.'},units:G.UNITS,traits:JourneyTraits.D,assignments:JourneyTraits.assignments,nerfs:JourneyTraits.nerfs,relics:G.ARTIFACTS,relicShapes:G.RELIC_FORMATS,curses:C.curses,events:eventOptions,tree:JourneyTreeData,acts:JourneyActs.SPEC,bosses:JourneyBosses.D,raids:JourneyRaid.SPECS,decks:G.DECKS,enemyDecks:G.ENEMY_DECKS,blackfangDecks:G.BLACKFANG_DECKS,dawncrestDecks:G.DAWNCREST_DECKS,rarities:P.RARITIES,boosters:P.BOOSTERS};
+const dir=path.resolve(__dirname,'../balanceamento');fs.mkdirSync(dir,{recursive:true});const target=path.join(dir,'dados_base_v54.json');fs.writeFileSync(target,JSON.stringify(data,null,2)+'\n');console.log(target);

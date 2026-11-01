@@ -7,6 +7,8 @@ const ROOT = path.resolve(process.env.GJ_ROOT || path.join(__dirname, '../../v54
 // Same relative order as dist/index.html (UI/asset-only scripts omitted).
 const MODULES = ['game-0', 'training-engine', 'raid-engine', 'monster-engine', 'acts-engine', 'boss-engine',
   'map-variety', 'tree-data', 'tree-engine', 'journey-debug', 'content-v53', 'traits-v54', 'map-notes', 'cycle-data'];
+// Optional approved balance data module (present in the balanced copy, absent in v54).
+if (require('node:fs').existsSync(path.join(ROOT, 'dist', 'balance-p1.js'))) MODULES.splice(1, 0, 'balance-p1');
 for (const m of MODULES) require(path.join(ROOT, 'dist', m + '.js'));
 const g = globalThis;
 module.exports = {

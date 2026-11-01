@@ -15,5 +15,6 @@ const R = [["val(u,'Meowri',.75,1.5)", "val(u,'Meowri',.25,.5)", 1],
 ["case'Unyielding':st.hp*=v?1.3:1.15", "case'Unyielding':st.hp*=v?1.3:1.2", 1],
 ["st.crit+(v?.4:.2)", "st.crit+(v?.4:.25)", 1],
 ["case'Lookout':st.range*=v?1.2:1.1", "case'Lookout':st.range*=v?1.2:1.15", 1]];
-for (const [a, b, n] of R) { const k = s.split(a).length - 1; if (k !== n) throw Error('match ' + k + ' ' + a); s = s.split(a).join(b); }
-fs.writeFileSync(f, s); console.log('applied', R.length);
+const only = process.argv[3] ? process.argv[3].split(',') : null; // optional filter: trait names
+for (const [a, b, n] of R) { if (only && !only.some(t => a.includes("'" + t + "'") || a.includes("case'" + t + "'") || (t === 'Predator' && a.includes('st.crit+(v?')))) continue; const k = s.split(a).length - 1; if (k !== n) throw Error('match ' + k + ' ' + a); s = s.split(a).join(b); }
+fs.writeFileSync(f, s); console.log('applied', R.filter(([a]) => !only || only.some(t => a.includes("'" + t + "'") || a.includes("case'" + t + "'") || (t === 'Predator' && a.includes('st.crit+(v?')))).length);
