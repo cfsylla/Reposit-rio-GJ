@@ -1,0 +1,3 @@
+{"id":"priestess","keys":["supportB"],"base":{},"target":1.1,"before":1.03,"m":1.58,"after":1.09,"tries":[[1.583333333333334,1.09],[1,1.03]]}
+{"id":"shaman","keys":["supportB"],"base":{},"target":1.12,"before":1.01,"m":2.26,"after":1.11,"tries":[[2.260416666666668,1.11],[1.9166666666666674,1.09],[1,1.01]]}
+{"id":"goblin_king","keys":["supportB"],"base":{},"target":1.14,"before":1.03,"m":2.68,"after":1.14,"tries":[[2.6805555555555505,1.14],[1.9166666666666656,1.09],[1,1.03]]}

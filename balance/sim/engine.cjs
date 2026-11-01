@@ -9,6 +9,8 @@ const MODULES = ['game-0', 'training-engine', 'raid-engine', 'monster-engine', '
   'map-variety', 'tree-data', 'tree-engine', 'journey-debug', 'content-v53', 'traits-v54', 'map-notes', 'cycle-data'];
 // Optional approved balance data module (present in the balanced copy, absent in v54).
 if (require('node:fs').existsSync(path.join(ROOT, 'dist', 'balance-p1.js'))) MODULES.splice(1, 0, 'balance-p1');
+// Optional prototype module (support model B), loaded after traits-v54 when present.
+if (require('node:fs').existsSync(path.join(ROOT, 'dist', 'supports-b.js'))) MODULES.splice(MODULES.indexOf('traits-v54') + 1, 0, 'supports-b');
 for (const m of MODULES) require(path.join(ROOT, 'dist', m + '.js'));
 const g = globalThis;
 module.exports = {
@@ -24,7 +26,7 @@ module.exports = {
 if (process.env.GJ_OVERRIDES) {
   const ov = JSON.parse(require('node:fs').readFileSync(process.env.GJ_OVERRIDES, 'utf8'));
   const units = ov.units || {}, both = ov.side === 'both';
-  for (const [id, o] of Object.entries(units)) { const u = g.Game.BY[id]; if (!u) throw Error('override: unknown unit ' + id); if (o.cost) u.cost = o.cost; if (o.rarity !== undefined) u.rarity = o.rarity; if (o.trigger) u.trigger = { ...u.trigger, ...o.trigger }; if (o.area !== undefined) u.area = o.area; }
+  for (const [id, o] of Object.entries(units)) { const u = g.Game.BY[id]; if (!u) throw Error('override: unknown unit ' + id); if (o.cost) u.cost = o.cost; if (o.rarity !== undefined) u.rarity = o.rarity; if (o.trigger) u.trigger = { ...u.trigger, ...o.trigger }; if (o.area !== undefined) u.area = o.area; if (o.supportB) (g.SUPPORT_B_TUNE ??= {})[id] = o.supportB; }
   const base = g.JourneyTree.stats;
   g.JourneyTree.stats = function (st, c, s, enemy) {
     st = base(st, c, s, enemy) || st; const o = units[c.type];
