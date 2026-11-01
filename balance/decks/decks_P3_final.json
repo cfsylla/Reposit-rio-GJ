@@ -79,15 +79,16 @@
    "counts": {
     "cowboy": 3,
     "gunner": 3,
-    "miner": 3,
+    "miner": 2,
     "fighter": 3,
     "sheriff": 2,
     "crossbowman": 2,
     "bastion": 2,
-    "gladiator": 2
+    "gladiator": 3
    },
    "v2": "Shackled Pirate → Gladiador: frente mais resistente",
-   "v4": "Huntress → Bastion"
+   "v4": "Huntress → Bastion",
+   "v6": "Miner 3→2, Gladiador 2→3"
   },
   {
    "id": "fortress",
@@ -114,14 +115,15 @@
    "startRelic": "precision",
    "counts": {
     "shinobi": 3,
-    "omnamusha": 3,
+    "omnamusha": 2,
     "samurai": 3,
     "fighter": 3,
     "ronin": 2,
-    "martial_artist": 2,
+    "martial_artist": 3,
     "kinoichi": 2,
     "shaolin": 2
-   }
+   },
+   "v6": "OmnaMusha 3→2, Martial Artist 2→3"
   },
   {
    "id": "fireline",
@@ -244,14 +246,16 @@
    "counts": {
     "kinoichi": 3,
     "cowboy": 3,
-    "musketeer": 3,
+    "musketeer": 2,
     "gladiator": 3,
     "bastion": 2,
     "crossbowman": 2,
     "huntress": 2,
-    "sheriff": 2
+    "sheriff": 2,
+    "fighter": 1
    },
-   "v3": "Fighter → Bastion"
+   "v3": "Fighter → Bastion",
+   "v6": "Musketeer 3→2, Bastion mantido, Warrior→Fighter 1 (versão B)"
   },
   {
    "id": "goblin_horde",

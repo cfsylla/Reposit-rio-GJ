@@ -12,7 +12,8 @@ const D = JSON.parse(fs.readFileSync(a.decks, 'utf8')).decks, SEEDS = Number(a.s
 const only = a.only ? a.only.split(',') : D.map(d => d.id);
 const side = d => ({ source: 'custom', cards: Object.entries(d.counts).flatMap(([type, n]) => Array(n).fill(0).map(() => ({ type, level: 0 }))), relics: [d.startRelic] });
 const visible = G.UNITS.map(u => u.id);
-for (const A of D.filter(d => only.includes(d.id))) for (const B of D) {
+const opp = a.opponents ? a.opponents.split(',') : D.map(d => d.id); // optional: restrict opponents (e.g. exclude candidate variants)
+for (const A of D.filter(d => only.includes(d.id))) for (const B of D.filter(d => opp.includes(d.id))) {
   let wins = 0, rounds = 0, roundWins = 0;
   for (let sd = 1; sd <= SEEDS; sd++) {
     const cfg = { difficulty: 'elite', wins: 3, player: side(A), enemy: side(B) };
