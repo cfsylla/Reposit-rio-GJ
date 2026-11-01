@@ -1,0 +1,95 @@
+[
+ {
+  "id": "eagle_druid",
+  "target": 1.08,
+  "keys": [
+   "hp",
+   "atk",
+   "skill"
+  ],
+  "base": {},
+  "elastic": 0.25
+ },
+ {
+  "id": "kinoichi",
+  "target": 1.06,
+  "keys": [
+   "hp",
+   "atk",
+   "skill"
+  ],
+  "base": {},
+  "elastic": 0.25
+ },
+ {
+  "id": "pirate_captain",
+  "target": 1.12,
+  "keys": [
+   "hp",
+   "atk"
+  ],
+  "base": {},
+  "elastic": 0.3
+ },
+ {
+  "id": "mage",
+  "target": 1.08,
+  "keys": [
+   "hp",
+   "atk",
+   "skill"
+  ],
+  "base": {},
+  "elastic": 0.25
+ },
+ {
+  "id": "dark_elf_noble",
+  "target": 1.08,
+  "keys": [
+   "hp",
+   "atk"
+  ],
+  "base": {},
+  "elastic": 0.3
+ },
+ {
+  "id": "orc_warrior",
+  "target": 1.04,
+  "keys": [
+   "hp",
+   "atk"
+  ],
+  "base": {},
+  "elastic": 0.3
+ },
+ {
+  "id": "shieldmaiden",
+  "target": 1.06,
+  "keys": [
+   "hp",
+   "atk"
+  ],
+  "base": {},
+  "elastic": 0.3
+ },
+ {
+  "id": "elf_archer",
+  "target": 1,
+  "keys": [
+   "hp",
+   "atk"
+  ],
+  "base": {},
+  "elastic": 0.3
+ },
+ {
+  "id": "cowboy",
+  "target": 1,
+  "keys": [
+   "hp",
+   "atk"
+  ],
+  "base": {},
+  "elastic": 0.3
+ }
+]

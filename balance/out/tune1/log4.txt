@@ -1,0 +1,9 @@
+dark_elf_mage      target 1.12 before 0.98 m 1.87 after 1.13
+shinobi            target 1.08 before 0.98 m 1.33 after 1.09
+bard               target 1.06 before 0.99 m 2.71 after 1.07
+feline_rogue       target 1.06 before 0.98 m 1.21 after 1.07
+goblin_rider       target 1.06 before 0.99 m 1.23 after 1.05
+elf_guardian       target 1.06 before 1.00 m 1.2 after 1.06
+mountain_troll     target 1.12 before 1.07 m 1.17 after 1.13
+archer             target 1.00 before 1.05 m 0.68 after 1.01
+cannoneer          target 1.12 before 1.24 m 0.84 after 1.13

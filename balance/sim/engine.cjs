@@ -14,3 +14,20 @@ module.exports = {
   G: g.Game, P: g.Progress, C: g.JourneyContent, T: g.JourneyTraits, A: g.JourneyActs, R: g.JourneyRaid,
   B: g.JourneyBosses, Tree: g.JourneyTree, TreeData: g.JourneyTreeData, Training: g.Training,
 };
+
+/* PROPOSAL OVERRIDES (testing only; the game files are not modified).
+ * GJ_OVERRIDES=path.json with { units: { id: { hp, atk, defense, rate, skill, cost, rarity } }, side: 'player'|'both' }
+ * hp/atk/defense/skill are multipliers on the computed stats; rate>1 = attacks faster (interval / rate).
+ * cost/rarity replace the card data value. Applied through the JourneyTree.stats hook (called for every card). */
+if (process.env.GJ_OVERRIDES) {
+  const ov = JSON.parse(require('node:fs').readFileSync(process.env.GJ_OVERRIDES, 'utf8'));
+  const units = ov.units || {}, both = ov.side === 'both';
+  for (const [id, o] of Object.entries(units)) { const u = g.Game.BY[id]; if (!u) throw Error('override: unknown unit ' + id); if (o.cost) u.cost = o.cost; if (o.rarity !== undefined) u.rarity = o.rarity; if (o.trigger) u.trigger = { ...u.trigger, ...o.trigger }; if (o.area !== undefined) u.area = o.area; }
+  const base = g.JourneyTree.stats;
+  g.JourneyTree.stats = function (st, c, s, enemy) {
+    st = base(st, c, s, enemy) || st; const o = units[c.type];
+    if (o && (both || !enemy) && (!process.env.GJ_OV_ONLY || process.env.GJ_OV_ONLY === c.type)) { for (const k of ['hp', 'atk', 'defense', 'skill']) if (o[k]) st[k] *= o[k]; if (o.rate) st.rate /= o.rate; }
+    return st;
+  };
+  module.exports.OVERRIDES = ov;
+}

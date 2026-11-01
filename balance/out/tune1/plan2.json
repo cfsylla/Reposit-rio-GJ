@@ -1,0 +1,96 @@
+[
+ {
+  "id": "sorceress",
+  "target": 1.12,
+  "keys": [
+   "hp",
+   "atk",
+   "skill"
+  ],
+  "base": {},
+  "elastic": 0.25
+ },
+ {
+  "id": "feline_drummer",
+  "target": 1.08,
+  "keys": [
+   "skill"
+  ],
+  "base": {
+   "trigger": {
+    "limit": 5
+   }
+  },
+  "elastic": 0.15
+ },
+ {
+  "id": "ronin",
+  "target": 1.08,
+  "keys": [
+   "hp",
+   "atk"
+  ],
+  "base": {},
+  "elastic": 0.3
+ },
+ {
+  "id": "centaur_lancer",
+  "target": 1.12,
+  "keys": [
+   "hp",
+   "atk"
+  ],
+  "base": {},
+  "elastic": 0.3
+ },
+ {
+  "id": "woodland_predator",
+  "target": 1.08,
+  "keys": [
+   "hp",
+   "atk"
+  ],
+  "base": {},
+  "elastic": 0.3
+ },
+ {
+  "id": "gladiator",
+  "target": 1.06,
+  "keys": [
+   "hp",
+   "atk"
+  ],
+  "base": {},
+  "elastic": 0.3
+ },
+ {
+  "id": "goblin_bomber",
+  "target": 1.08,
+  "keys": [
+   "hp",
+   "atk"
+  ],
+  "base": {},
+  "elastic": 0.3
+ },
+ {
+  "id": "samurai",
+  "target": 1.06,
+  "keys": [
+   "hp",
+   "atk"
+  ],
+  "base": {},
+  "elastic": 0.3
+ },
+ {
+  "id": "fighter",
+  "target": 1,
+  "keys": [
+   "hp",
+   "atk"
+  ],
+  "base": {},
+  "elastic": 0.3
+ }
+]

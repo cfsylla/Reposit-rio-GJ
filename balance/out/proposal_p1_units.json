@@ -1,0 +1,160 @@
+{
+ "note": "Unit proposal P1 (testing overrides, player side). Not applied to the game.",
+ "units": {
+  "orc_fighter": {
+   "cost": 2,
+   "hp": 1.3,
+   "atk": 1.3
+  },
+  "blackfang_guardian": {
+   "cost": 3,
+   "hp": 1.25,
+   "atk": 1.25
+  },
+  "shaolin": {
+   "rarity": 1,
+   "hp": 1.4,
+   "atk": 1.4
+  },
+  "bear_druid": {
+   "cost": 3,
+   "hp": 1.2,
+   "atk": 1.2
+  },
+  "duelist": {
+   "hp": 1.25,
+   "atk": 1.25
+  },
+  "cavalier": {
+   "hp": 1.2,
+   "atk": 1.2
+  },
+  "omnamusha": {
+   "hp": 1.1,
+   "atk": 1.1
+  },
+  "shackled_pirate": {
+   "hp": 0.85,
+   "atk": 0.85
+  },
+  "sorceress": {
+   "cost": 3,
+   "hp": 1.45,
+   "atk": 1.45,
+   "skill": 1.45
+  },
+  "ronin": {
+   "rarity": 1,
+   "hp": 1.3,
+   "atk": 1.3
+  },
+  "centaur_lancer": {
+   "cost": 3,
+   "hp": 1.15,
+   "atk": 1.15
+  },
+  "woodland_predator": {
+   "rarity": 1,
+   "hp": 1.25,
+   "atk": 1.25
+  },
+  "gladiator": {
+   "rarity": 0,
+   "hp": 1.25,
+   "atk": 1.25
+  },
+  "goblin_bomber": {
+   "hp": 1.25,
+   "atk": 1.25
+  },
+  "samurai": {
+   "hp": 1.2,
+   "atk": 1.2
+  },
+  "fighter": {
+   "hp": 0.8,
+   "atk": 0.8
+  },
+  "eagle_druid": {
+   "cost": 2,
+   "hp": 1.7,
+   "atk": 1.7,
+   "skill": 1.7
+  },
+  "kinoichi": {
+   "cost": 2,
+   "hp": 1.35,
+   "atk": 1.35,
+   "skill": 1.35
+  },
+  "pirate_captain": {
+   "cost": 3,
+   "hp": 1.25,
+   "atk": 1.25
+  },
+  "mage": {
+   "cost": 3,
+   "hp": 1.2,
+   "atk": 1.2,
+   "skill": 1.2
+  },
+  "dark_elf_noble": {
+   "hp": 1.25,
+   "atk": 1.25
+  },
+  "orc_warrior": {
+   "hp": 1.25,
+   "atk": 1.25
+  },
+  "shieldmaiden": {
+   "hp": 1.2,
+   "atk": 1.2
+  },
+  "elf_archer": {
+   "hp": 0.8,
+   "atk": 0.8
+  },
+  "cowboy": {
+   "cost": 3,
+   "hp": 0.8,
+   "atk": 0.8
+  },
+  "dark_elf_mage": {
+   "cost": 3,
+   "hp": 1.6,
+   "atk": 1.6,
+   "skill": 1.6
+  },
+  "shinobi": {
+   "rarity": 1,
+   "hp": 1.25,
+   "atk": 1.25
+  },
+  "feline_rogue": {
+   "hp": 1.2,
+   "atk": 1.2
+  },
+  "goblin_rider": {
+   "hp": 1.25,
+   "atk": 1.25
+  },
+  "elf_guardian": {
+   "hp": 1.2,
+   "atk": 1.2
+  },
+  "mountain_troll": {
+   "hp": 1.15,
+   "atk": 1.15
+  },
+  "archer": {
+   "rarity": 1
+  },
+  "cannoneer": {
+   "rarity": 2,
+   "area": 50,
+   "hp": 0.85,
+   "atk": 0.85,
+   "skill": 0.85
+  }
+ }
+}

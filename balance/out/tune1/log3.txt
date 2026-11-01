@@ -1,0 +1,9 @@
+eagle_druid        target 1.08 before 0.94 m 1.92 after 1.08
+kinoichi           target 1.06 before 0.96 m 1.54 after 1.06
+pirate_captain     target 1.12 before 1.03 m 1.45 after 1.13
+mage               target 1.08 before 0.99 m 1.36 after 1.08
+dark_elf_noble     target 1.08 before 1.01 m 1.23 after 1.07
+orc_warrior        target 1.04 before 0.98 m 1.2 after 1.03
+shieldmaiden       target 1.06 before 1.01 m 1.17 after 1.05
+elf_archer         target 1.00 before 1.05 m 0.83 after 1.01
+cowboy             target 1.00 before 1.11 m 0.63 after 0.99

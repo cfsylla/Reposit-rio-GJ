@@ -42,7 +42,8 @@ function battle(team, foes, seed, mult, track) {
     const make = () => { const c = { uid: 'p' + (++s.serial), type: m.type, level: m.level }; s.cards.push(c); return c; };
     const c = make();
     if (m.fused) { const b2 = make(), b3 = make(); s.fusions[c.uid] = [c.uid, b2.uid, b3.uid]; }
-    s.board[isRanged(m.type) ? backs.shift() : fronts.shift()] = c.uid; s.deployedAt[c.uid] = ++s.deploySerial;
+    const mid = process.env.LAB_XROW === '1' && m === team[0];
+    s.board[mid ? 7 : isRanged(m.type) ? backs.shift() : fronts.shift()] = c.uid; s.deployedAt[c.uid] = ++s.deploySerial;
   }
   const fF = [...FRONT_POS], fB = [...BACK_POS], cards = foes.map((type, i) => ({ uid: 'e' + i, type, level: 0 })), board = Array(15).fill(null);
   for (const c of cards) board[isRanged(c.type) ? fB.shift() : fF.shift()] = c.uid;
@@ -78,6 +79,7 @@ function baseline(f, k) {
   return baseCache[key] = Object.fromEntries(Object.entries(PANEL).map(([p, foes]) => [p, strength(team, foes)]));
 }
 for (const id of units) {
+  if (process.env.GJ_OV_TESTED_ONLY === '1') process.env.GJ_OV_ONLY = id;
   const [f, k] = fillersFor(id), base = baseline(f, k);
   for (const lv of LEVELS) {
     const team = [{ type: id, level: lv === 'F' ? 0 : Number(lv), fused: lv === 'F' }, { type: f, level: FL }, { type: f, level: FL }, { type: k, level: FL }, { type: k, level: FL }];

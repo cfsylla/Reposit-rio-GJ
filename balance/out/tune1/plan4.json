@@ -1,0 +1,100 @@
+[
+ {
+  "id": "dark_elf_mage",
+  "target": 1.12,
+  "keys": [
+   "hp",
+   "atk",
+   "skill"
+  ],
+  "base": {},
+  "elastic": 0.25
+ },
+ {
+  "id": "shinobi",
+  "target": 1.08,
+  "keys": [
+   "hp",
+   "atk"
+  ],
+  "base": {},
+  "elastic": 0.3
+ },
+ {
+  "id": "bard",
+  "target": 1.06,
+  "keys": [
+   "skill"
+  ],
+  "base": {
+   "trigger": {
+    "limit": 5
+   }
+  },
+  "elastic": 0.15
+ },
+ {
+  "id": "feline_rogue",
+  "target": 1.06,
+  "keys": [
+   "hp",
+   "atk"
+  ],
+  "base": {},
+  "elastic": 0.3
+ },
+ {
+  "id": "goblin_rider",
+  "target": 1.06,
+  "keys": [
+   "hp",
+   "atk"
+  ],
+  "base": {},
+  "elastic": 0.3
+ },
+ {
+  "id": "elf_guardian",
+  "target": 1.06,
+  "keys": [
+   "hp",
+   "atk"
+  ],
+  "base": {},
+  "elastic": 0.3
+ },
+ {
+  "id": "mountain_troll",
+  "target": 1.12,
+  "keys": [
+   "hp",
+   "atk"
+  ],
+  "base": {},
+  "elastic": 0.3
+ },
+ {
+  "id": "archer",
+  "target": 1,
+  "keys": [
+   "hp",
+   "atk"
+  ],
+  "base": {},
+  "elastic": 0.3
+ },
+ {
+  "id": "cannoneer",
+  "target": 1.12,
+  "keys": [
+   "hp",
+   "atk",
+   "skill"
+  ],
+  "base": {
+   "rarity": 2,
+   "area": 50
+  },
+  "elastic": 0.25
+ }
+]

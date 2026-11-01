@@ -1,0 +1,4 @@
+{"units":{
+"bard":{"trigger":{"startFull":true},"skill":1.5},"goblin_king":{"trigger":{"startFull":true},"skill":1.5},"feline_drummer":{"trigger":{"startFull":true},"skill":1.5},
+"sage":{"trigger":{"startFull":true},"skill":1.5},"feline_arcanist":{"trigger":{"startFull":true},"skill":1.5},
+"priestess":{"trigger":{"limit":5},"skill":2},"elf_harpist":{"trigger":{"limit":5},"skill":2},"shaman":{"trigger":{"startFull":true},"skill":1.5},"snow_troll":{"trigger":{"limit":5},"skill":2},"flower_fairy":{"trigger":{"limit":5},"skill":2}}}

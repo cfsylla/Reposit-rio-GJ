@@ -1,0 +1,15 @@
+Meowri               2 membros:   5.1% →   2.2%    4 membros:  23.7% →  10.0%
+Legends of the East  2 membros:   0.4% →   0.5%    4 membros:   0.5% →   1.6%
+Arcane               2 membros:   0.2% →   0.2%    4 membros:   0.8% →   4.0%
+Fearless             2 membros:   0.9% →   0.7%    4 membros:   1.2% →   2.4%
+Patient              2 membros:   0.2% →  -0.2%    4 membros:   1.1% →   2.2%
+Dark Elf             2 membros:   0.6% →   1.4%    4 membros:   1.4% →   3.3%
+Orc                  2 membros:   0.5% →  -0.1%    4 membros:   1.5% →   3.1%
+Troll                2 membros:   1.5% →   2.9%    4 membros:   1.6% →   6.1%
+Goblin               2 membros:   0.3% →   0.7%    4 membros:   1.8% →   1.5%
+High Elf             2 membros:   0.8% →   1.5%    4 membros:   3.9% →   5.8%
+Devastator           2 membros:   2.2% →   3.3%    4 membros:   7.7% →   6.9%
+Sentinel             2 membros:   2.6% →   4.5%    4 membros:   9.2% →   8.9%
+Unyielding           2 membros:   1.6% →   4.1%    4 membros:   8.7% →   8.6%
+Predator             2 membros:   2.6% →   3.2%    4 membros:   7.1% →   7.6%
+Lookout              2 membros:   1.2% →   2.6%    4 membros:   3.0% →   3.8%

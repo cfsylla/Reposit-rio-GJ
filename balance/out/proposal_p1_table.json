@@ -1,0 +1,471 @@
+[
+ {
+  "id": "orc_fighter",
+  "cost0": 3,
+  "rarity0": 1,
+  "cost": 2,
+  "rarity": 1,
+  "target": 1.02,
+  "before": 0.94,
+  "keys": [
+   "hp",
+   "atk"
+  ],
+  "m": 1.3
+ },
+ {
+  "id": "blackfang_guardian",
+  "cost0": 4,
+  "rarity0": 2,
+  "cost": 3,
+  "rarity": 2,
+  "target": 1.08,
+  "before": 1.02,
+  "keys": [
+   "hp",
+   "atk"
+  ],
+  "m": 1.25
+ },
+ {
+  "id": "shaolin",
+  "cost0": 3,
+  "rarity0": 3,
+  "cost": 3,
+  "rarity": 1,
+  "target": 1.06,
+  "before": 1.01,
+  "keys": [
+   "hp",
+   "atk"
+  ],
+  "m": 1.4
+ },
+ {
+  "id": "bear_druid",
+  "cost0": 4,
+  "rarity0": 2,
+  "cost": 3,
+  "rarity": 2,
+  "target": 1.08,
+  "before": 1.04,
+  "keys": [
+   "hp",
+   "atk"
+  ],
+  "m": 1.2
+ },
+ {
+  "id": "duelist",
+  "cost0": 3,
+  "rarity0": 2,
+  "cost": 3,
+  "rarity": 2,
+  "target": 1.08,
+  "before": 1.01,
+  "keys": [
+   "hp",
+   "atk"
+  ],
+  "m": 1.25
+ },
+ {
+  "id": "cavalier",
+  "cost0": 4,
+  "rarity0": 2,
+  "cost": 4,
+  "rarity": 2,
+  "target": 1.12,
+  "before": 1.06,
+  "keys": [
+   "hp",
+   "atk"
+  ],
+  "m": 1.2
+ },
+ {
+  "id": "omnamusha",
+  "cost0": 3,
+  "rarity0": 1,
+  "cost": 3,
+  "rarity": 1,
+  "target": 1.06,
+  "before": 1.02,
+  "keys": [
+   "hp",
+   "atk"
+  ],
+  "m": 1.1
+ },
+ {
+  "id": "shackled_pirate",
+  "cost0": 2,
+  "rarity0": 0,
+  "cost": 2,
+  "rarity": 0,
+  "target": 1,
+  "before": 1.07,
+  "keys": [
+   "hp",
+   "atk"
+  ],
+  "m": 0.85
+ },
+ {
+  "id": "sorceress",
+  "cost0": 4,
+  "rarity0": 2,
+  "cost": 3,
+  "rarity": 2,
+  "target": 1.08,
+  "before": 0.97,
+  "keys": [
+   "hp",
+   "atk",
+   "skill"
+  ],
+  "m": 1.45
+ },
+ {
+  "id": "ronin",
+  "cost0": 3,
+  "rarity0": 2,
+  "cost": 3,
+  "rarity": 1,
+  "target": 1.06,
+  "before": 0.99,
+  "keys": [
+   "hp",
+   "atk"
+  ],
+  "m": 1.3
+ },
+ {
+  "id": "centaur_lancer",
+  "cost0": 4,
+  "rarity0": 2,
+  "cost": 3,
+  "rarity": 2,
+  "target": 1.08,
+  "before": 1.03,
+  "keys": [
+   "hp",
+   "atk"
+  ],
+  "m": 1.15
+ },
+ {
+  "id": "woodland_predator",
+  "cost0": 3,
+  "rarity0": 2,
+  "cost": 3,
+  "rarity": 1,
+  "target": 1.06,
+  "before": 1.01,
+  "keys": [
+   "hp",
+   "atk"
+  ],
+  "m": 1.25
+ },
+ {
+  "id": "gladiator",
+  "cost0": 3,
+  "rarity0": 1,
+  "cost": 3,
+  "rarity": 0,
+  "target": 1.04,
+  "before": 0.99,
+  "keys": [
+   "hp",
+   "atk"
+  ],
+  "m": 1.25
+ },
+ {
+  "id": "goblin_bomber",
+  "cost0": 3,
+  "rarity0": 2,
+  "cost": 3,
+  "rarity": 2,
+  "target": 1.08,
+  "before": 1.02,
+  "keys": [
+   "hp",
+   "atk"
+  ],
+  "m": 1.25
+ },
+ {
+  "id": "samurai",
+  "cost0": 3,
+  "rarity0": 1,
+  "cost": 3,
+  "rarity": 1,
+  "target": 1.06,
+  "before": 1.02,
+  "keys": [
+   "hp",
+   "atk"
+  ],
+  "m": 1.2
+ },
+ {
+  "id": "fighter",
+  "cost0": 2,
+  "rarity0": 0,
+  "cost": 2,
+  "rarity": 0,
+  "target": 1,
+  "before": 1.07,
+  "keys": [
+   "hp",
+   "atk"
+  ],
+  "m": 0.8
+ },
+ {
+  "id": "eagle_druid",
+  "cost0": 3,
+  "rarity0": 2,
+  "cost": 2,
+  "rarity": 2,
+  "target": 1.04,
+  "before": 0.94,
+  "keys": [
+   "hp",
+   "atk",
+   "skill"
+  ],
+  "m": 1.7
+ },
+ {
+  "id": "kinoichi",
+  "cost0": 3,
+  "rarity0": 1,
+  "cost": 2,
+  "rarity": 1,
+  "target": 1.02,
+  "before": 0.96,
+  "keys": [
+   "hp",
+   "atk",
+   "skill"
+  ],
+  "m": 1.35
+ },
+ {
+  "id": "pirate_captain",
+  "cost0": 4,
+  "rarity0": 2,
+  "cost": 3,
+  "rarity": 2,
+  "target": 1.08,
+  "before": 1.03,
+  "keys": [
+   "hp",
+   "atk"
+  ],
+  "m": 1.25
+ },
+ {
+  "id": "mage",
+  "cost0": 4,
+  "rarity0": 0,
+  "cost": 3,
+  "rarity": 0,
+  "target": 1.04,
+  "before": 0.99,
+  "keys": [
+   "hp",
+   "atk",
+   "skill"
+  ],
+  "m": 1.2
+ },
+ {
+  "id": "dark_elf_noble",
+  "cost0": 3,
+  "rarity0": 2,
+  "cost": 3,
+  "rarity": 2,
+  "target": 1.08,
+  "before": 1.01,
+  "keys": [
+   "hp",
+   "atk"
+  ],
+  "m": 1.25
+ },
+ {
+  "id": "orc_warrior",
+  "cost0": 3,
+  "rarity0": 0,
+  "cost": 3,
+  "rarity": 0,
+  "target": 1.04,
+  "before": 0.98,
+  "keys": [
+   "hp",
+   "atk"
+  ],
+  "m": 1.25
+ },
+ {
+  "id": "shieldmaiden",
+  "cost0": 3,
+  "rarity0": 1,
+  "cost": 3,
+  "rarity": 1,
+  "target": 1.06,
+  "before": 1.01,
+  "keys": [
+   "hp",
+   "atk"
+  ],
+  "m": 1.2
+ },
+ {
+  "id": "elf_archer",
+  "cost0": 2,
+  "rarity0": 0,
+  "cost": 2,
+  "rarity": 0,
+  "target": 1,
+  "before": 1.05,
+  "keys": [
+   "hp",
+   "atk"
+  ],
+  "m": 0.8
+ },
+ {
+  "id": "cowboy",
+  "cost0": 2,
+  "rarity0": 0,
+  "cost": 3,
+  "rarity": 0,
+  "target": 1.04,
+  "before": 1.11,
+  "keys": [
+   "hp",
+   "atk"
+  ],
+  "m": 0.8
+ },
+ {
+  "id": "dark_elf_mage",
+  "cost0": 4,
+  "rarity0": 2,
+  "cost": 3,
+  "rarity": 2,
+  "target": 1.08,
+  "before": 0.98,
+  "keys": [
+   "hp",
+   "atk",
+   "skill"
+  ],
+  "m": 1.6
+ },
+ {
+  "id": "shinobi",
+  "cost0": 3,
+  "rarity0": 2,
+  "cost": 3,
+  "rarity": 1,
+  "target": 1.06,
+  "before": 0.98,
+  "keys": [
+   "hp",
+   "atk"
+  ],
+  "m": 1.25
+ },
+ {
+  "id": "feline_rogue",
+  "cost0": 3,
+  "rarity0": 1,
+  "cost": 3,
+  "rarity": 1,
+  "target": 1.06,
+  "before": 0.98,
+  "keys": [
+   "hp",
+   "atk"
+  ],
+  "m": 1.2
+ },
+ {
+  "id": "goblin_rider",
+  "cost0": 3,
+  "rarity0": 1,
+  "cost": 3,
+  "rarity": 1,
+  "target": 1.06,
+  "before": 0.99,
+  "keys": [
+   "hp",
+   "atk"
+  ],
+  "m": 1.25
+ },
+ {
+  "id": "elf_guardian",
+  "cost0": 3,
+  "rarity0": 1,
+  "cost": 3,
+  "rarity": 1,
+  "target": 1.06,
+  "before": 1,
+  "keys": [
+   "hp",
+   "atk"
+  ],
+  "m": 1.2
+ },
+ {
+  "id": "mountain_troll",
+  "cost0": 4,
+  "rarity0": 2,
+  "cost": 4,
+  "rarity": 2,
+  "target": 1.12,
+  "before": 1.07,
+  "keys": [
+   "hp",
+   "atk"
+  ],
+  "m": 1.15
+ },
+ {
+  "id": "archer",
+  "cost0": 2,
+  "rarity0": 0,
+  "cost": 2,
+  "rarity": 1,
+  "target": 1.02,
+  "before": 1.05,
+  "keys": [
+   "hp",
+   "atk"
+  ],
+  "m": 1
+ },
+ {
+  "id": "cannoneer",
+  "cost0": 4,
+  "rarity0": 0,
+  "cost": 4,
+  "rarity": 2,
+  "target": 1.12,
+  "before": 1.24,
+  "keys": [
+   "hp",
+   "atk",
+   "skill"
+  ],
+  "m": 0.85,
+  "area": 50
+ }
+]

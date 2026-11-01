@@ -1,0 +1,95 @@
+[
+ {
+  "id": "goblin_king",
+  "target": 1.14,
+  "keys": [
+   "skill"
+  ],
+  "base": {
+   "trigger": {
+    "limit": 5
+   }
+  },
+  "elastic": 0.15
+ },
+ {
+  "id": "orc_fighter",
+  "target": 1.06,
+  "keys": [
+   "hp",
+   "atk"
+  ],
+  "base": {},
+  "elastic": 0.3
+ },
+ {
+  "id": "blackfang_guardian",
+  "target": 1.12,
+  "keys": [
+   "hp",
+   "atk"
+  ],
+  "base": {},
+  "elastic": 0.3
+ },
+ {
+  "id": "shaolin",
+  "target": 1.1,
+  "keys": [
+   "hp",
+   "atk"
+  ],
+  "base": {},
+  "elastic": 0.3
+ },
+ {
+  "id": "bear_druid",
+  "target": 1.12,
+  "keys": [
+   "hp",
+   "atk"
+  ],
+  "base": {},
+  "elastic": 0.3
+ },
+ {
+  "id": "duelist",
+  "target": 1.08,
+  "keys": [
+   "hp",
+   "atk"
+  ],
+  "base": {},
+  "elastic": 0.3
+ },
+ {
+  "id": "cavalier",
+  "target": 1.12,
+  "keys": [
+   "hp",
+   "atk"
+  ],
+  "base": {},
+  "elastic": 0.3
+ },
+ {
+  "id": "omnamusha",
+  "target": 1.06,
+  "keys": [
+   "hp",
+   "atk"
+  ],
+  "base": {},
+  "elastic": 0.3
+ },
+ {
+  "id": "shackled_pirate",
+  "target": 1,
+  "keys": [
+   "hp",
+   "atk"
+  ],
+  "base": {},
+  "elastic": 0.3
+ }
+]

@@ -1,0 +1,9 @@
+goblin_king        target 1.14 before 1.01 m 3 after 1.11
+orc_fighter        target 1.06 before 0.94 m 1.48 after 1.05
+blackfang_guardian target 1.12 before 1.02 m 1.4 after 1.13
+shaolin            target 1.10 before 1.01 m 1.6 after 1.11
+bear_druid         target 1.12 before 1.04 m 1.36 after 1.12
+duelist            target 1.08 before 1.01 m 1.23 after 1.07
+cavalier           target 1.12 before 1.06 m 1.2 after 1.12
+omnamusha          target 1.06 before 1.02 m 1.13 after 1.07
+shackled_pirate    target 1.00 before 1.07 m 0.82 after 0.99
