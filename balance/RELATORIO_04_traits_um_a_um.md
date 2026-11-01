@@ -4,6 +4,7 @@
 - +5% quer dizer que o time vence inimigos 5% mais fortes.
 - Abaixo de +2% o efeito quase não é sentido.
 - Ruído do teste: cerca de ±1 ponto.
+- Os valores vêm do teste de comparação antes/depois, com 2 combinações de membros por trait. Podem diferir um pouco da tabela da etapa 1b, que usou 4 combinações.
 
 **Situação de cada proposta:**
 - **Aprovado:** ajuste numérico que você aprovou e que já está na cópia balanceada.
