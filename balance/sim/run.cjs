@@ -60,6 +60,11 @@ function playFight(s, pol, rec, dt) {
 
 function doShop(s, pol, rec) {
   const spend = (what, amt) => { rec.spent[what] = (rec.spent[what] || 0) + amt; };
+  // 'balanced' shop policy: first secure a good relic that fits (while the bag holds < 4), then upgrades, then cards.
+  if (pol.shop === 'balanced' && s.artifacts.length < 4) {
+    const ri = s.offers.artifacts.map((id, i) => [id, i]).filter(([id]) => id && Pol.relicRank(id) <= 14).sort((a, b) => Pol.relicRank(a[0]) - Pol.relicRank(b[0]));
+    for (const [id, i] of ri) { const p = G.price(s, 'artifacts', id); if (s.gold >= p && G.packBag([...s.artifacts, id], s) && G.buy(s, 'artifacts', i)) { const before = s.gold; Pol.placeRelic(s, true); spend('relic', before - s.gold); break; } }
+  }
   for (let k = 0; k < 12; k++) {
     let acted = false;
     // 1) upgrade most valuable card
@@ -157,8 +162,10 @@ function playRun(deck, seed, pol, opt) {
       case 'relic': { const ids = [...s.offers].sort((a, b) => Pol.relicRank(a) - Pol.relicRank(b)); const fit = ids.find(id => G.packBag([...s.artifacts, id], s)); if (fit && G.claimRelic(s, fit) !== false) { Pol.placeRelic(s, true); if (s.phase === 'relic') G.leave(s); } else G.leave(s); break; }
       case 'shop': doShop(s, pol, rec); G.leave(s); break;
       case 'event': {
-        if (!s.offers.resolved && !rec.events.some(e => e.node === s.current.id)) { doEvent(s, pol, rec); rec.events.at(-1).node = s.current.id; if (s.phase !== 'event') break; }
-        G.leave(s); break;
+        const nodeId = s.current?.id ?? ('L' + s.layer);
+        if (s.offers && !s.offers.resolved && !rec.events.some(e => e.node === nodeId)) { doEvent(s, pol, rec); rec.events.at(-1).node = nodeId; if (s.phase !== 'event') break; }
+        if (!G.leave(s)) { rec.result = 'event-stuck'; return finalize(s, rec); }
+        break;
       }
       case 'tree': {
         let bought = true; while (bought) { bought = false; for (const id of TREE_BUY_ORDER) if (Tree.buy(s, id)) { rec.treeBought.push(id); bought = true; break; } }
