@@ -1,0 +1,78 @@
+id,name,cost,rarity,faction,attribute,temperament,hp,atk,def,interval,move,crit,range,area,dps,ehp,dps_per_cost,ehp_per_cost,trigger,limit,first_skill_s_est
+warrior,Warrior,2,Comum,Dawnward Order,Devastator,Fearless,290,27,26,1.08,49,7%,34,0,25.9,365,12.9,183,attacks,5,5.4
+lancer,Lancer,2,Comum,Dawnward Order,Demolisher,Impulsive,230,27,26,1.08,60,7%,62,35,25.9,290,12.9,145,attacks,5,5.4
+bastion,Bastion,3,Comum,Dawnward Order,Sentinel,Protector,360,20,52,1.65,30,3%,34,0,12.3,547,4.1,182,received,6,
+shinobi,Shinobi,3,Rara,Legends of the East,Predator,Audacious,180,35,8,0.68,74,25%,34,0,57.9,194,19.3,65,time,6,6.0
+kinoichi,Kinoichi,3,Incomum,Legends of the East,Demolisher,Ruthless,180,27,16,0.86,74,18%,62,35,34.2,209,11.4,70,time,7,7.0
+samurai,Samurai,3,Incomum,Legends of the East,Devastator,Impulsive,290,35,38,1.35,49,12%,34,0,27.5,400,9.2,133,damage,4.5,
+omnamusha,OmnaMusha,3,Incomum,Legends of the East,Predator,Audacious,230,27,26,0.68,60,18%,34,0,43.3,290,14.4,97,attacks,5,3.4
+ronin,Ronin,3,Rara,Legends of the East,Predator,Audacious,230,45,16,1.35,49,25%,34,0,37.5,267,12.5,89,received,3,
+fighter,Fighter,2,Comum,Legends of the East,Unyielding,Fearless,290,27,16,0.68,60,12%,34,0,42.1,336,21.0,168,attacks,5,3.4
+martial_artist,Martial Artist,2,Comum,Legends of the East,Demolisher,Impulsive,230,27,26,0.86,60,7%,62,35,32.5,290,16.2,145,received,4,
+shaolin,Shaolin,3,Ultra rara,Legends of the East,Sentinel,Patient,290,20,38,1.08,49,3%,34,0,18.8,400,6.3,133,block,6,
+cowboy,Cowboy,2,Comum,Wild West,Predator,Ruthless,230,27,16,0.86,49,25%,145,0,35.3,267,17.7,133,attacks,5,4.3
+gunner,Gunner,3,Comum,Wild West,Predator,Audacious,180,35,8,1.08,49,18%,180,0,35.3,194,11.8,65,received,4,
+miner,Miner,2,Comum,Wild West,Demolisher,Patient,290,35,16,1.35,39,7%,62,35,26.8,336,13.4,168,time,7,7.0
+pirate_captain,Pirate Captain,4,Rara,Seasalt Crew,Unyielding,Protector,290,27,26,1.08,49,12%,145,0,26.5,365,6.6,91,time,8,8.0
+pirate,Pirate,2,Comum,Seasalt Crew,Trailblazer,Impulsive,230,27,16,0.86,60,18%,34,0,34.2,267,17.1,133,attacks,5,4.3
+cannoneer,Cannoneer,4,Comum,Seasalt Crew,Demolisher,Impulsive,290,45,26,1.65,30,3%,180,65,27.7,365,6.9,91,damage,4.5,
+ranger,Ranger,2,Comum,Verdant Covenant,Lookout,Patient,230,27,16,1.08,60,12%,145,0,26.5,267,13.3,133,time,6,6.0
+archer,Archer,2,Comum,Verdant Covenant,Lookout,Impulsive,180,20,8,0.68,60,12%,180,0,31.2,194,15.6,97,attacks,6,4.1
+crossbowman,Crossbowman,3,Comum,Verdant Covenant,Predator,Ruthless,230,45,26,1.65,39,18%,180,0,29.7,290,9.9,97,damage,4,
+mage,Mage,4,Comum,Arcane,Demolisher,Impulsive,180,27,8,1.35,39,3%,145,35,20.3,194,5.1,49,time,7,7.0
+sorceress,Sorceress,4,Rara,Arcane,Devastator,Impulsive,180,20,8,1.08,49,7%,145,0,19.2,194,4.8,49,time,8,8.0
+sage,Sage,3,Ultra rara,Arcane,Unyielding,Protector,230,14,26,1.35,30,3%,145,0,10.5,290,3.5,97,time,7,7.0
+priestess,Priestess,4,Incomum,Arcane,Unyielding,Patient,180,20,16,1.08,49,3%,145,0,18.8,209,4.7,52,time,8,8.0
+cavalier,Cavalier,4,Rara,Dawnward Order,Trailblazer,Impulsive,360,35,38,1.35,74,7%,62,0,26.8,497,6.7,124,attacks,6,8.1
+musketeer,Musketeer,3,Incomum,Dawnward Order,Lookout,Ruthless,230,45,26,1.64,39,12%,180,0,29.1,290,9.7,97,attacks,4,6.6
+swordsman,Swordsman,3,Incomum,Dawnward Order,Devastator,Fearless,290,45,16,1.35,49,12%,62,0,35.3,336,11.8,112,damage,4,
+duelist,Duelist,3,Rara,Dawnward Order,Predator,Audacious,230,27,16,0.68,60,25%,34,0,44.7,267,14.9,89,attacks,5,3.4
+viking,Viking,3,Comum,Frostborn Clans,Devastator,Fearless,290,35,26,1.35,49,12%,34,0,27.5,365,9.2,122,health,0.5,
+shieldmaiden,Shieldmaiden,3,Incomum,Frostborn Clans,Sentinel,Protector,290,20,38,1.08,49,7%,34,0,19.3,400,6.4,133,received,5,
+shaman,Shaman,4,Rara,Frostborn Clans,Unyielding,Patient,230,20,16,1.08,49,3%,145,0,18.9,267,4.7,67,time,8,8.0
+berserker,Berserker,3,Incomum,Frostborn Clans,Devastator,Fearless,290,35,8,0.86,60,12%,34,0,43.0,313,14.3,104,damage,4,
+huntress,Huntress,3,Incomum,Frostborn Clans,Predator,Ruthless,230,35,16,1.08,60,18%,145,0,35.5,267,11.8,89,attacks,5,5.4
+glutton,Glutton,3,Comum,Frostborn Clans,Unyielding,Patient,360,27,26,1.64,30,3%,34,0,16.7,454,5.6,151,received,6,
+bear_druid,Bear Druid,4,Rara,Verdant Covenant,Sentinel,Fearless,360,35,38,1.35,49,7%,62,0,26.8,497,6.7,124,received,5,
+eagle_druid,Eagle Druid,3,Rara,Verdant Covenant,Trailblazer,Audacious,180,27,8,0.86,74,18%,34,0,34.1,194,11.4,65,time,6,6.0
+pirate_admiral,Pirate Admiral,4,Ultra rara,Seasalt Crew,Sentinel,Patient,360,45,38,1.64,30,7%,62,0,28.4,497,7.1,124,received,6,
+shackled_pirate,Shackled Pirate,2,Comum,Seasalt Crew,Unyielding,Fearless,290,35,16,1.35,39,7%,62,0,26.8,336,13.4,168,received,4,
+goblin_spearman,Goblin Lanceiro,2,Comum,Goblin,Trailblazer,Ruthless,180,27,8,0.86,60,12%,62,0,33.2,194,16.6,97,attacks,5,4.3
+goblin_archer,Goblin Arqueiro,2,Comum,Goblin,Lookout,Ruthless,180,20,8,0.86,60,12%,180,0,24.6,194,12.3,97,attacks,6,5.2
+goblin_rider,Goblin Montador,3,Incomum,Goblin,Trailblazer,Impulsive,290,27,26,1.08,74,7%,62,0,26.0,365,8.7,122,attacks,6,6.5
+goblin_brute,Goblin Bruto,3,Incomum,Goblin,Unyielding,Fearless,290,35,16,1.08,49,7%,34,0,33.7,336,11.2,112,received,5,
+goblin_bomber,Goblin Bombardeiro,3,Rara,Goblin,Demolisher,Impulsive,180,35,8,1.64,60,12%,145,35,22.6,194,7.5,65,time,7,7.0
+goblin_king,Rei Goblin,4,Ultra rara,Goblin,Unyielding,Protector,360,20,26,1.35,30,3%,145,0,15.0,454,3.8,113,time,8,8.0
+orc_warrior,Orc Guerreiro,3,Comum,Orc,Sentinel,Protector,290,27,38,1.35,39,7%,34,0,20.7,400,6.9,133,received,5,
+orc_berserker,Orc Berserker,3,Incomum,Orc,Devastator,Fearless,290,35,16,0.86,60,12%,34,0,43.0,336,14.3,112,damage,4,
+orc_fighter,Orc Lutadora,3,Incomum,Orc,Devastator,Ruthless,230,27,16,0.68,60,18%,34,0,43.3,267,14.4,89,attacks,6,4.1
+cave_troll,Troll da Caverna,3,Incomum,Troll,Unyielding,Fearless,360,35,16,1.35,49,7%,62,0,26.8,418,8.9,139,passive,0,
+snow_troll,Troll das Neves,4,Rara,Troll,Unyielding,Protector,290,20,26,1.35,39,3%,145,0,15.0,365,3.8,91,time,8,8.0
+troll,Troll,4,Rara,Troll,Sentinel,Patient,360,45,38,1.64,30,3%,62,0,27.9,497,7.0,124,received,6,
+mountain_troll,Troll da Montanha,4,Rara,Troll,Devastator,Impulsive,360,45,26,1.64,49,7%,62,0,28.4,454,7.1,113,time,8,8.0
+dark_elf_noble,Nobre Elfo Sombrio,3,Rara,Dark Elf,Predator,Audacious,230,35,16,0.86,60,25%,34,0,45.7,267,15.2,89,attacks,5,4.3
+dark_elf_archer,Arqueiro Elfo Sombrio,3,Incomum,Dark Elf,Lookout,Ruthless,180,35,8,1.08,60,18%,180,0,35.5,194,11.8,65,attacks,5,5.4
+dark_elf_warrior,Guerreiro Elfo Sombrio,3,Incomum,Dark Elf,Sentinel,Fearless,290,35,38,1.35,49,12%,62,0,27.5,400,9.2,133,received,5,
+dark_elf_mage,Mago Elfo Sombrio,4,Rara,Dark Elf,Devastator,Patient,180,27,8,1.35,39,7%,145,0,20.7,194,5.2,49,time,8,8.0
+feline_swordsman,Espadachim Meowri,2,Comum,Meowri,Devastator,Fearless,230,27,26,0.86,60,12%,34,0,33.2,290,16.6,145,attacks,5,4.3
+feline_rogue,Gatuno Meowri,3,Incomum,Meowri,Predator,Audacious,180,35,8,0.68,74,25%,34,0,57.9,194,19.3,65,attacks,6,4.1
+feline_arcanist,Feiticeiro Meowri,3,Rara,Meowri,Unyielding,Patient,180,20,16,1.08,49,7%,145,0,19.3,209,6.4,70,time,7,7.0
+feline_drummer,Percussionista Meowri,3,Rara,Meowri,Unyielding,Patient,230,14,16,1.35,49,3%,145,0,10.5,267,3.5,89,time,8,8.0
+feline_fighter,Lutador Meowri,2,Comum,Meowri,Trailblazer,Impulsive,230,27,16,0.68,60,12%,34,0,42.1,267,21.0,133,attacks,6,4.1
+elf_noble,Nobre Alto Elfo,3,Rara,High Elf,Predator,Ruthless,230,35,16,1.08,49,18%,145,0,35.5,267,11.8,89,attacks,5,5.4
+elf_guardian,Guerreiro Alto Elfo,3,Incomum,High Elf,Sentinel,Protector,360,20,38,1.35,39,7%,34,0,15.3,497,5.1,166,received,5,
+elf_archer,Arqueiro Alto Elfo,2,Comum,High Elf,Lookout,Patient,180,27,8,0.86,60,12%,180,0,33.2,194,16.6,97,attacks,6,5.2
+elf_halberdier,Lanceira Alta Elfa,3,Incomum,High Elf,Devastator,Impulsive,290,35,26,1.08,49,7%,62,0,33.7,365,11.2,122,attacks,5,5.4
+woodland_predator,Predador Elfo da Floresta,3,Rara,Forest Elf,Predator,Ruthless,230,27,16,0.68,74,18%,34,0,43.3,267,14.4,89,passive,0,
+woodland_lancer,Guerreiro Elfo da Floresta,2,Comum,Forest Elf,Sentinel,Protector,230,27,26,1.08,60,7%,62,0,26.0,290,13.0,145,attacks,5,5.4
+woodland_scout,Batedor Elfo da Floresta,3,Incomum,Forest Elf,Lookout,Audacious,180,27,8,0.86,74,18%,180,0,34.1,194,11.4,65,time,6,6.0
+woodland_flailer,Guardião Elfo da Floresta,3,Incomum,Forest Elf,Devastator,Fearless,290,35,26,1.35,49,12%,62,0,27.5,365,9.2,122,attacks,5,6.8
+flower_fairy,Fada das Flores,3,Rara,Fairy,Trailblazer,Patient,180,14,8,1.08,74,3%,145,0,13.2,194,4.4,65,time,7,7.0
+elf_harpist,Harpista Alta Elfa,4,Ultra rara,High Elf,Unyielding,Patient,230,14,16,1.35,49,3%,145,0,10.5,267,2.6,67,time,9,9.0
+centaur_crossbow,Caçadora Centaura,3,Incomum,Centaur,Lookout,Audacious,230,35,16,1.08,74,12%,180,0,34.5,267,11.5,89,attacks,5,5.4
+centaur_lancer,Cavaleiro Centauro,4,Rara,Centaur,Trailblazer,Protector,360,35,38,1.35,74,7%,62,0,26.8,497,6.7,124,time,8,8.0
+centaur_swordsman,Espadachim Centauro,3,Comum,Centaur,Devastator,Audacious,290,35,26,1.08,74,12%,34,0,34.5,365,11.5,122,attacks,6,6.5
+sheriff,Xerife,4,Rara,Wild West,Trailblazer,Ruthless,290,35,26,1.08,74,18%,145,0,35.5,365,8.9,91,time,7,7.0
+bard,Barda,3,Incomum,Arcane,Unyielding,Patient,230,14,16,1.35,49,3%,145,0,10.5,267,3.5,89,time,8,8.0
+gladiator,Gladiador,3,Incomum,Dawnward Order,Sentinel,Fearless,290,27,38,1.08,39,7%,62,0,26.0,400,8.7,133,received,5,
+blackfang_guardian,Guardião Elfo Negro,4,Rara,Dark Elf,Sentinel,Protector,360,27,38,1.35,30,7%,62,0,20.7,497,5.2,124,received,6,
