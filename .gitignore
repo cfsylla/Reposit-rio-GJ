@@ -1,0 +1,6 @@
+# Binary media of the v54 package are not versioned here (191 MB). They are byte-identical to the
+# ZIP parts and verifiable with v54/MANIFESTO_SHA256.json. Copy them from the ZIP to run the game in a browser.
+v54/dist/assets/
+v54/art-source/
+v54/docs/*.jpg
+balance/out/**/*.log

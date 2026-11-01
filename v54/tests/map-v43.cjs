@@ -1,0 +1,10 @@
+const assert=require('node:assert/strict');require('../dist/game-0.js');const G=Game;
+const seen=new Set();for(let seed=1;seed<=1000;seed++){const s=G.fresh('balanced',seed),first=s.map[4][0],second=s.map[9][0];s.route.push(first.id);s.current=first;G.routeVictory(s);s.route.push(second.id);s.current=second;G.routeVictory(s);const boss=s.map[14][0];assert.equal(new Set([first.raidKind,second.raidKind,boss.raidKind]).size,3);seen.add(boss.raidKind);const choice=boss.raidKind;G.prepareRouteNode(s,boss);assert.equal(boss.raidKind,choice);const restored=JSON.parse(JSON.stringify(s));G.prepareRouteNode(restored,restored.map[14][0]);assert.equal(restored.map[14][0].raidKind,choice);}
+assert.equal(seen.size,9);
+// Repair a pending v42 boss that repeats a played species, keeping the run and other nodes intact.
+const s=G.fresh('balanced',18),a=s.map[4][0],b=s.map[9][0];s.route.push(a.id,b.id);s.current=a;G.routeVictory(s);s.current=b;G.routeVictory(s);const boss=s.map[14][0];s.campaignRoute.monsterBoss=a.raidKind;Object.assign(boss,{raidKind:a.raidKind,forceId:'monster_boss_'+a.raidKind});const cards=JSON.stringify(s.cards),route=JSON.stringify(s.route),normal=JSON.stringify(s.map[5]);G.prepareRouteNode(s,boss);assert(![a.raidKind,b.raidKind].includes(boss.raidKind));assert.equal(JSON.stringify(s.cards),cards);assert.equal(JSON.stringify(s.route),route);assert.equal(JSON.stringify(s.map[5]),normal);
+// A future repeated intermediate node is also replaced deterministically before entering.
+const t=G.fresh('balanced',9),x=t.map[4][0],y=t.map[9][0];t.route.push(x.id);y.raidKind=x.raidKind;G.prepareRouteNode(t,y);assert.notEqual(y.raidKind,x.raidKind);const future=y.raidKind;G.prepareRouteNode(t,y);assert.equal(y.raidKind,future);
+// A skipped raid species has not been played and remains eligible for the boss.
+const v=G.fresh('balanced',9);v.route.push('n4_1');const planned=v.map[4][0].raidKind;const w=v.map[9][0];w.raidKind=planned;G.prepareRouteNode(v,w);assert.equal(w.raidKind,planned);
+console.log('PASS v43 1000 distinct raid routes, all boss species, deterministic saves, pending-v42 repair and skipped raids');

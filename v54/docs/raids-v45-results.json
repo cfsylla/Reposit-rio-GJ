@@ -1,0 +1,3060 @@
+{
+  "training": [
+    {
+      "kind": "hydra",
+      "deck": "vanguard",
+      "scenario": "training",
+      "level": 0,
+      "seeds": 8,
+      "wins": 5,
+      "rounds": [
+        5,
+        5,
+        5,
+        5,
+        5
+      ],
+      "stalled": 0,
+      "remaining": 2621
+    },
+    {
+      "kind": "hydra",
+      "deck": "vanguard",
+      "scenario": "training",
+      "level": 1,
+      "seeds": 8,
+      "wins": 7,
+      "rounds": [
+        4,
+        5,
+        4,
+        4,
+        4,
+        4,
+        5
+      ],
+      "stalled": 0,
+      "remaining": 468
+    },
+    {
+      "kind": "hydra",
+      "deck": "balanced",
+      "scenario": "training",
+      "level": 0,
+      "seeds": 8,
+      "wins": 1,
+      "rounds": [
+        5
+      ],
+      "stalled": 0,
+      "remaining": 3595
+    },
+    {
+      "kind": "hydra",
+      "deck": "balanced",
+      "scenario": "training",
+      "level": 1,
+      "seeds": 8,
+      "wins": 7,
+      "rounds": [
+        5,
+        5,
+        5,
+        4,
+        5,
+        5,
+        5
+      ],
+      "stalled": 0,
+      "remaining": 341
+    },
+    {
+      "kind": "hydra",
+      "deck": "swift",
+      "scenario": "training",
+      "level": 0,
+      "seeds": 8,
+      "wins": 1,
+      "rounds": [
+        5
+      ],
+      "stalled": 0,
+      "remaining": 3807
+    },
+    {
+      "kind": "hydra",
+      "deck": "swift",
+      "scenario": "training",
+      "level": 1,
+      "seeds": 8,
+      "wins": 8,
+      "rounds": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        4,
+        5
+      ],
+      "stalled": 0,
+      "remaining": 0
+    },
+    {
+      "kind": "hydra",
+      "deck": "arcane",
+      "scenario": "training",
+      "level": 0,
+      "seeds": 8,
+      "wins": 2,
+      "rounds": [
+        3,
+        5
+      ],
+      "stalled": 0,
+      "remaining": 6964
+    },
+    {
+      "kind": "hydra",
+      "deck": "arcane",
+      "scenario": "training",
+      "level": 1,
+      "seeds": 8,
+      "wins": 4,
+      "rounds": [
+        3,
+        5,
+        5,
+        5
+      ],
+      "stalled": 0,
+      "remaining": 2394
+    },
+    {
+      "kind": "hydra",
+      "deck": "outlaws",
+      "scenario": "training",
+      "level": 0,
+      "seeds": 8,
+      "wins": 2,
+      "rounds": [
+        5,
+        5
+      ],
+      "stalled": 0,
+      "remaining": 2279
+    },
+    {
+      "kind": "hydra",
+      "deck": "outlaws",
+      "scenario": "training",
+      "level": 1,
+      "seeds": 8,
+      "wins": 7,
+      "rounds": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        4,
+        5
+      ],
+      "stalled": 0,
+      "remaining": 269
+    },
+    {
+      "kind": "hydra",
+      "deck": "fortress",
+      "scenario": "training",
+      "level": 0,
+      "seeds": 8,
+      "wins": 5,
+      "rounds": [
+        5,
+        4,
+        5,
+        5,
+        5
+      ],
+      "stalled": 0,
+      "remaining": 887
+    },
+    {
+      "kind": "hydra",
+      "deck": "fortress",
+      "scenario": "training",
+      "level": 1,
+      "seeds": 8,
+      "wins": 8,
+      "rounds": [
+        5,
+        4,
+        4,
+        4,
+        4,
+        4,
+        5,
+        5
+      ],
+      "stalled": 0,
+      "remaining": 0
+    },
+    {
+      "kind": "hydra",
+      "deck": "blades",
+      "scenario": "training",
+      "level": 0,
+      "seeds": 8,
+      "wins": 3,
+      "rounds": [
+        5,
+        5,
+        5
+      ],
+      "stalled": 0,
+      "remaining": 1617
+    },
+    {
+      "kind": "hydra",
+      "deck": "blades",
+      "scenario": "training",
+      "level": 1,
+      "seeds": 8,
+      "wins": 8,
+      "rounds": [
+        4,
+        5,
+        4,
+        4,
+        4,
+        5,
+        4,
+        5
+      ],
+      "stalled": 0,
+      "remaining": 0
+    },
+    {
+      "kind": "hydra",
+      "deck": "fireline",
+      "scenario": "training",
+      "level": 0,
+      "seeds": 8,
+      "wins": 6,
+      "rounds": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5
+      ],
+      "stalled": 0,
+      "remaining": 427
+    },
+    {
+      "kind": "hydra",
+      "deck": "fireline",
+      "scenario": "training",
+      "level": 1,
+      "seeds": 8,
+      "wins": 8,
+      "rounds": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        5,
+        4
+      ],
+      "stalled": 0,
+      "remaining": 0
+    },
+    {
+      "kind": "hydra",
+      "deck": "astral",
+      "scenario": "training",
+      "level": 0,
+      "seeds": 8,
+      "wins": 3,
+      "rounds": [
+        5,
+        5,
+        5
+      ],
+      "stalled": 0,
+      "remaining": 3303
+    },
+    {
+      "kind": "hydra",
+      "deck": "astral",
+      "scenario": "training",
+      "level": 1,
+      "seeds": 8,
+      "wins": 7,
+      "rounds": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        3
+      ],
+      "stalled": 0,
+      "remaining": 45
+    },
+    {
+      "kind": "hydra",
+      "deck": "corsair",
+      "scenario": "training",
+      "level": 0,
+      "seeds": 8,
+      "wins": 1,
+      "rounds": [
+        5
+      ],
+      "stalled": 0,
+      "remaining": 2325
+    },
+    {
+      "kind": "hydra",
+      "deck": "corsair",
+      "scenario": "training",
+      "level": 1,
+      "seeds": 8,
+      "wins": 8,
+      "rounds": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        4,
+        5
+      ],
+      "stalled": 0,
+      "remaining": 0
+    },
+    {
+      "kind": "naga",
+      "deck": "vanguard",
+      "scenario": "training",
+      "level": 0,
+      "seeds": 8,
+      "wins": 2,
+      "rounds": [
+        5,
+        5
+      ],
+      "stalled": 0,
+      "remaining": 4366
+    },
+    {
+      "kind": "naga",
+      "deck": "vanguard",
+      "scenario": "training",
+      "level": 1,
+      "seeds": 8,
+      "wins": 6,
+      "rounds": [
+        5,
+        5,
+        4,
+        5,
+        4,
+        5
+      ],
+      "stalled": 0,
+      "remaining": 1411
+    },
+    {
+      "kind": "naga",
+      "deck": "balanced",
+      "scenario": "training",
+      "level": 0,
+      "seeds": 8,
+      "wins": 0,
+      "rounds": [],
+      "stalled": 0,
+      "remaining": 7525
+    },
+    {
+      "kind": "naga",
+      "deck": "balanced",
+      "scenario": "training",
+      "level": 1,
+      "seeds": 8,
+      "wins": 5,
+      "rounds": [
+        5,
+        5,
+        5,
+        5,
+        5
+      ],
+      "stalled": 0,
+      "remaining": 1539
+    },
+    {
+      "kind": "naga",
+      "deck": "swift",
+      "scenario": "training",
+      "level": 0,
+      "seeds": 8,
+      "wins": 0,
+      "rounds": [],
+      "stalled": 0,
+      "remaining": 6682
+    },
+    {
+      "kind": "naga",
+      "deck": "swift",
+      "scenario": "training",
+      "level": 1,
+      "seeds": 8,
+      "wins": 2,
+      "rounds": [
+        5,
+        5
+      ],
+      "stalled": 0,
+      "remaining": 1441
+    },
+    {
+      "kind": "naga",
+      "deck": "arcane",
+      "scenario": "training",
+      "level": 0,
+      "seeds": 8,
+      "wins": 0,
+      "rounds": [],
+      "stalled": 0,
+      "remaining": 11297
+    },
+    {
+      "kind": "naga",
+      "deck": "arcane",
+      "scenario": "training",
+      "level": 1,
+      "seeds": 8,
+      "wins": 2,
+      "rounds": [
+        5,
+        5
+      ],
+      "stalled": 0,
+      "remaining": 5773
+    },
+    {
+      "kind": "naga",
+      "deck": "outlaws",
+      "scenario": "training",
+      "level": 0,
+      "seeds": 8,
+      "wins": 0,
+      "rounds": [],
+      "stalled": 0,
+      "remaining": 6010
+    },
+    {
+      "kind": "naga",
+      "deck": "outlaws",
+      "scenario": "training",
+      "level": 1,
+      "seeds": 8,
+      "wins": 5,
+      "rounds": [
+        5,
+        5,
+        5,
+        5,
+        5
+      ],
+      "stalled": 0,
+      "remaining": 1144
+    },
+    {
+      "kind": "naga",
+      "deck": "fortress",
+      "scenario": "training",
+      "level": 0,
+      "seeds": 8,
+      "wins": 3,
+      "rounds": [
+        4,
+        5,
+        5
+      ],
+      "stalled": 0,
+      "remaining": 4659
+    },
+    {
+      "kind": "naga",
+      "deck": "fortress",
+      "scenario": "training",
+      "level": 1,
+      "seeds": 8,
+      "wins": 8,
+      "rounds": [
+        5,
+        5,
+        4,
+        4,
+        4,
+        4,
+        5,
+        5
+      ],
+      "stalled": 0,
+      "remaining": 0
+    },
+    {
+      "kind": "naga",
+      "deck": "blades",
+      "scenario": "training",
+      "level": 0,
+      "seeds": 8,
+      "wins": 1,
+      "rounds": [
+        5
+      ],
+      "stalled": 0,
+      "remaining": 3951
+    },
+    {
+      "kind": "naga",
+      "deck": "blades",
+      "scenario": "training",
+      "level": 1,
+      "seeds": 8,
+      "wins": 6,
+      "rounds": [
+        5,
+        5,
+        4,
+        5,
+        5,
+        5
+      ],
+      "stalled": 0,
+      "remaining": 336
+    },
+    {
+      "kind": "naga",
+      "deck": "fireline",
+      "scenario": "training",
+      "level": 0,
+      "seeds": 8,
+      "wins": 3,
+      "rounds": [
+        5,
+        5,
+        5
+      ],
+      "stalled": 0,
+      "remaining": 1540
+    },
+    {
+      "kind": "naga",
+      "deck": "fireline",
+      "scenario": "training",
+      "level": 1,
+      "seeds": 8,
+      "wins": 8,
+      "rounds": [
+        5,
+        4,
+        5,
+        4,
+        4,
+        5,
+        5,
+        5
+      ],
+      "stalled": 0,
+      "remaining": 0
+    },
+    {
+      "kind": "naga",
+      "deck": "astral",
+      "scenario": "training",
+      "level": 0,
+      "seeds": 8,
+      "wins": 0,
+      "rounds": [],
+      "stalled": 0,
+      "remaining": 9271
+    },
+    {
+      "kind": "naga",
+      "deck": "astral",
+      "scenario": "training",
+      "level": 1,
+      "seeds": 8,
+      "wins": 6,
+      "rounds": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        3
+      ],
+      "stalled": 0,
+      "remaining": 2196
+    },
+    {
+      "kind": "naga",
+      "deck": "corsair",
+      "scenario": "training",
+      "level": 0,
+      "seeds": 8,
+      "wins": 1,
+      "rounds": [
+        5
+      ],
+      "stalled": 0,
+      "remaining": 5265
+    },
+    {
+      "kind": "naga",
+      "deck": "corsair",
+      "scenario": "training",
+      "level": 1,
+      "seeds": 8,
+      "wins": 5,
+      "rounds": [
+        5,
+        5,
+        5,
+        4,
+        5
+      ],
+      "stalled": 0,
+      "remaining": 737
+    },
+    {
+      "kind": "kraken",
+      "deck": "vanguard",
+      "scenario": "training",
+      "level": 0,
+      "seeds": 8,
+      "wins": 5,
+      "rounds": [
+        5,
+        5,
+        5,
+        5,
+        5
+      ],
+      "stalled": 0,
+      "remaining": 2870
+    },
+    {
+      "kind": "kraken",
+      "deck": "vanguard",
+      "scenario": "training",
+      "level": 1,
+      "seeds": 8,
+      "wins": 7,
+      "rounds": [
+        5,
+        5,
+        5,
+        4,
+        5,
+        4,
+        5
+      ],
+      "stalled": 0,
+      "remaining": 624
+    },
+    {
+      "kind": "kraken",
+      "deck": "balanced",
+      "scenario": "training",
+      "level": 0,
+      "seeds": 8,
+      "wins": 3,
+      "rounds": [
+        5,
+        5,
+        5
+      ],
+      "stalled": 0,
+      "remaining": 3643
+    },
+    {
+      "kind": "kraken",
+      "deck": "balanced",
+      "scenario": "training",
+      "level": 1,
+      "seeds": 8,
+      "wins": 6,
+      "rounds": [
+        5,
+        4,
+        5,
+        4,
+        5,
+        5
+      ],
+      "stalled": 0,
+      "remaining": 554
+    },
+    {
+      "kind": "kraken",
+      "deck": "swift",
+      "scenario": "training",
+      "level": 0,
+      "seeds": 8,
+      "wins": 0,
+      "rounds": [],
+      "stalled": 0,
+      "remaining": 4940
+    },
+    {
+      "kind": "kraken",
+      "deck": "swift",
+      "scenario": "training",
+      "level": 1,
+      "seeds": 8,
+      "wins": 6,
+      "rounds": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5
+      ],
+      "stalled": 0,
+      "remaining": 264
+    },
+    {
+      "kind": "kraken",
+      "deck": "arcane",
+      "scenario": "training",
+      "level": 0,
+      "seeds": 8,
+      "wins": 4,
+      "rounds": [
+        4,
+        5,
+        5,
+        5
+      ],
+      "stalled": 0,
+      "remaining": 5012
+    },
+    {
+      "kind": "kraken",
+      "deck": "arcane",
+      "scenario": "training",
+      "level": 1,
+      "seeds": 8,
+      "wins": 5,
+      "rounds": [
+        3,
+        5,
+        5,
+        5,
+        4
+      ],
+      "stalled": 0,
+      "remaining": 2301
+    },
+    {
+      "kind": "kraken",
+      "deck": "outlaws",
+      "scenario": "training",
+      "level": 0,
+      "seeds": 8,
+      "wins": 1,
+      "rounds": [
+        5
+      ],
+      "stalled": 0,
+      "remaining": 3328
+    },
+    {
+      "kind": "kraken",
+      "deck": "outlaws",
+      "scenario": "training",
+      "level": 1,
+      "seeds": 8,
+      "wins": 7,
+      "rounds": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        4,
+        5
+      ],
+      "stalled": 0,
+      "remaining": 1
+    },
+    {
+      "kind": "kraken",
+      "deck": "fortress",
+      "scenario": "training",
+      "level": 0,
+      "seeds": 8,
+      "wins": 6,
+      "rounds": [
+        5,
+        4,
+        4,
+        5,
+        5,
+        5
+      ],
+      "stalled": 0,
+      "remaining": 806
+    },
+    {
+      "kind": "kraken",
+      "deck": "fortress",
+      "scenario": "training",
+      "level": 1,
+      "seeds": 8,
+      "wins": 8,
+      "rounds": [
+        5,
+        5,
+        4,
+        4,
+        4,
+        4,
+        5,
+        5
+      ],
+      "stalled": 0,
+      "remaining": 0
+    },
+    {
+      "kind": "kraken",
+      "deck": "blades",
+      "scenario": "training",
+      "level": 0,
+      "seeds": 8,
+      "wins": 3,
+      "rounds": [
+        5,
+        5,
+        5
+      ],
+      "stalled": 0,
+      "remaining": 2681
+    },
+    {
+      "kind": "kraken",
+      "deck": "blades",
+      "scenario": "training",
+      "level": 1,
+      "seeds": 8,
+      "wins": 8,
+      "rounds": [
+        5,
+        5,
+        4,
+        5,
+        4,
+        5,
+        4,
+        5
+      ],
+      "stalled": 0,
+      "remaining": 0
+    },
+    {
+      "kind": "kraken",
+      "deck": "fireline",
+      "scenario": "training",
+      "level": 0,
+      "seeds": 8,
+      "wins": 5,
+      "rounds": [
+        5,
+        5,
+        5,
+        5,
+        5
+      ],
+      "stalled": 0,
+      "remaining": 1065
+    },
+    {
+      "kind": "kraken",
+      "deck": "fireline",
+      "scenario": "training",
+      "level": 1,
+      "seeds": 8,
+      "wins": 8,
+      "rounds": [
+        5,
+        4,
+        5,
+        4,
+        4,
+        5,
+        5,
+        5
+      ],
+      "stalled": 0,
+      "remaining": 0
+    },
+    {
+      "kind": "kraken",
+      "deck": "astral",
+      "scenario": "training",
+      "level": 0,
+      "seeds": 8,
+      "wins": 4,
+      "rounds": [
+        4,
+        5,
+        5,
+        5
+      ],
+      "stalled": 0,
+      "remaining": 3315
+    },
+    {
+      "kind": "kraken",
+      "deck": "astral",
+      "scenario": "training",
+      "level": 1,
+      "seeds": 8,
+      "wins": 8,
+      "rounds": [
+        5,
+        4,
+        5,
+        5,
+        5,
+        5,
+        5,
+        4
+      ],
+      "stalled": 0,
+      "remaining": 0
+    },
+    {
+      "kind": "kraken",
+      "deck": "corsair",
+      "scenario": "training",
+      "level": 0,
+      "seeds": 8,
+      "wins": 1,
+      "rounds": [
+        5
+      ],
+      "stalled": 0,
+      "remaining": 3339
+    },
+    {
+      "kind": "kraken",
+      "deck": "corsair",
+      "scenario": "training",
+      "level": 1,
+      "seeds": 8,
+      "wins": 8,
+      "rounds": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        4,
+        5
+      ],
+      "stalled": 0,
+      "remaining": 0
+    },
+    {
+      "kind": "lich",
+      "deck": "vanguard",
+      "scenario": "training",
+      "level": 0,
+      "seeds": 8,
+      "wins": 5,
+      "rounds": [
+        5,
+        5,
+        5,
+        5,
+        5
+      ],
+      "stalled": 0,
+      "remaining": 2546
+    },
+    {
+      "kind": "lich",
+      "deck": "vanguard",
+      "scenario": "training",
+      "level": 1,
+      "seeds": 8,
+      "wins": 7,
+      "rounds": [
+        4,
+        5,
+        4,
+        4,
+        5,
+        4,
+        5
+      ],
+      "stalled": 0,
+      "remaining": 411
+    },
+    {
+      "kind": "lich",
+      "deck": "balanced",
+      "scenario": "training",
+      "level": 0,
+      "seeds": 8,
+      "wins": 0,
+      "rounds": [],
+      "stalled": 0,
+      "remaining": 4746
+    },
+    {
+      "kind": "lich",
+      "deck": "balanced",
+      "scenario": "training",
+      "level": 1,
+      "seeds": 8,
+      "wins": 7,
+      "rounds": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5
+      ],
+      "stalled": 0,
+      "remaining": 341
+    },
+    {
+      "kind": "lich",
+      "deck": "swift",
+      "scenario": "training",
+      "level": 0,
+      "seeds": 8,
+      "wins": 0,
+      "rounds": [],
+      "stalled": 0,
+      "remaining": 5212
+    },
+    {
+      "kind": "lich",
+      "deck": "swift",
+      "scenario": "training",
+      "level": 1,
+      "seeds": 8,
+      "wins": 6,
+      "rounds": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5
+      ],
+      "stalled": 0,
+      "remaining": 83
+    },
+    {
+      "kind": "lich",
+      "deck": "arcane",
+      "scenario": "training",
+      "level": 0,
+      "seeds": 8,
+      "wins": 4,
+      "rounds": [
+        3,
+        4,
+        5,
+        5
+      ],
+      "stalled": 0,
+      "remaining": 4973
+    },
+    {
+      "kind": "lich",
+      "deck": "arcane",
+      "scenario": "training",
+      "level": 1,
+      "seeds": 8,
+      "wins": 5,
+      "rounds": [
+        3,
+        4,
+        5,
+        5,
+        5
+      ],
+      "stalled": 0,
+      "remaining": 2196
+    },
+    {
+      "kind": "lich",
+      "deck": "outlaws",
+      "scenario": "training",
+      "level": 0,
+      "seeds": 8,
+      "wins": 1,
+      "rounds": [
+        5
+      ],
+      "stalled": 0,
+      "remaining": 3255
+    },
+    {
+      "kind": "lich",
+      "deck": "outlaws",
+      "scenario": "training",
+      "level": 1,
+      "seeds": 8,
+      "wins": 8,
+      "rounds": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        4,
+        5
+      ],
+      "stalled": 0,
+      "remaining": 0
+    },
+    {
+      "kind": "lich",
+      "deck": "fortress",
+      "scenario": "training",
+      "level": 0,
+      "seeds": 8,
+      "wins": 6,
+      "rounds": [
+        5,
+        4,
+        5,
+        4,
+        5,
+        5
+      ],
+      "stalled": 0,
+      "remaining": 641
+    },
+    {
+      "kind": "lich",
+      "deck": "fortress",
+      "scenario": "training",
+      "level": 1,
+      "seeds": 8,
+      "wins": 8,
+      "rounds": [
+        5,
+        5,
+        4,
+        4,
+        4,
+        4,
+        5,
+        5
+      ],
+      "stalled": 0,
+      "remaining": 0
+    },
+    {
+      "kind": "lich",
+      "deck": "blades",
+      "scenario": "training",
+      "level": 0,
+      "seeds": 8,
+      "wins": 4,
+      "rounds": [
+        5,
+        5,
+        5,
+        5
+      ],
+      "stalled": 0,
+      "remaining": 2049
+    },
+    {
+      "kind": "lich",
+      "deck": "blades",
+      "scenario": "training",
+      "level": 1,
+      "seeds": 8,
+      "wins": 8,
+      "rounds": [
+        5,
+        5,
+        4,
+        4,
+        5,
+        5,
+        4,
+        5
+      ],
+      "stalled": 0,
+      "remaining": 0
+    },
+    {
+      "kind": "lich",
+      "deck": "fireline",
+      "scenario": "training",
+      "level": 0,
+      "seeds": 8,
+      "wins": 6,
+      "rounds": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5
+      ],
+      "stalled": 0,
+      "remaining": 644
+    },
+    {
+      "kind": "lich",
+      "deck": "fireline",
+      "scenario": "training",
+      "level": 1,
+      "seeds": 8,
+      "wins": 8,
+      "rounds": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        5,
+        5
+      ],
+      "stalled": 0,
+      "remaining": 0
+    },
+    {
+      "kind": "lich",
+      "deck": "astral",
+      "scenario": "training",
+      "level": 0,
+      "seeds": 8,
+      "wins": 5,
+      "rounds": [
+        5,
+        5,
+        5,
+        5,
+        5
+      ],
+      "stalled": 0,
+      "remaining": 1826
+    },
+    {
+      "kind": "lich",
+      "deck": "astral",
+      "scenario": "training",
+      "level": 1,
+      "seeds": 8,
+      "wins": 8,
+      "rounds": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        4
+      ],
+      "stalled": 0,
+      "remaining": 0
+    },
+    {
+      "kind": "lich",
+      "deck": "corsair",
+      "scenario": "training",
+      "level": 0,
+      "seeds": 8,
+      "wins": 1,
+      "rounds": [
+        5
+      ],
+      "stalled": 0,
+      "remaining": 3091
+    },
+    {
+      "kind": "lich",
+      "deck": "corsair",
+      "scenario": "training",
+      "level": 1,
+      "seeds": 8,
+      "wins": 7,
+      "rounds": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        4,
+        5
+      ],
+      "stalled": 0,
+      "remaining": 196
+    }
+  ],
+  "runFixtures": [
+    {
+      "kind": "hydra",
+      "deck": "vanguard",
+      "scenario": "3",
+      "level": 0,
+      "seeds": 4,
+      "wins": 4,
+      "rounds": [
+        3,
+        4,
+        3,
+        3
+      ],
+      "stalled": 0,
+      "remaining": 0
+    },
+    {
+      "kind": "hydra",
+      "deck": "balanced",
+      "scenario": "3",
+      "level": 0,
+      "seeds": 4,
+      "wins": 4,
+      "rounds": [
+        4,
+        4,
+        3,
+        3
+      ],
+      "stalled": 0,
+      "remaining": 0
+    },
+    {
+      "kind": "hydra",
+      "deck": "swift",
+      "scenario": "3",
+      "level": 0,
+      "seeds": 4,
+      "wins": 4,
+      "rounds": [
+        4,
+        4,
+        4,
+        4
+      ],
+      "stalled": 0,
+      "remaining": 0
+    },
+    {
+      "kind": "hydra",
+      "deck": "arcane",
+      "scenario": "3",
+      "level": 0,
+      "seeds": 4,
+      "wins": 4,
+      "rounds": [
+        5,
+        3,
+        4,
+        4
+      ],
+      "stalled": 0,
+      "remaining": 0
+    },
+    {
+      "kind": "hydra",
+      "deck": "outlaws",
+      "scenario": "3",
+      "level": 0,
+      "seeds": 4,
+      "wins": 4,
+      "rounds": [
+        4,
+        4,
+        3,
+        3
+      ],
+      "stalled": 0,
+      "remaining": 0
+    },
+    {
+      "kind": "hydra",
+      "deck": "fortress",
+      "scenario": "3",
+      "level": 0,
+      "seeds": 4,
+      "wins": 4,
+      "rounds": [
+        3,
+        3,
+        3,
+        3
+      ],
+      "stalled": 0,
+      "remaining": 0
+    },
+    {
+      "kind": "hydra",
+      "deck": "blades",
+      "scenario": "3",
+      "level": 0,
+      "seeds": 4,
+      "wins": 4,
+      "rounds": [
+        3,
+        3,
+        3,
+        3
+      ],
+      "stalled": 0,
+      "remaining": 0
+    },
+    {
+      "kind": "hydra",
+      "deck": "fireline",
+      "scenario": "3",
+      "level": 0,
+      "seeds": 4,
+      "wins": 4,
+      "rounds": [
+        3,
+        3,
+        3,
+        3
+      ],
+      "stalled": 0,
+      "remaining": 0
+    },
+    {
+      "kind": "hydra",
+      "deck": "astral",
+      "scenario": "3",
+      "level": 0,
+      "seeds": 4,
+      "wins": 4,
+      "rounds": [
+        4,
+        3,
+        4,
+        4
+      ],
+      "stalled": 0,
+      "remaining": 0
+    },
+    {
+      "kind": "hydra",
+      "deck": "corsair",
+      "scenario": "3",
+      "level": 0,
+      "seeds": 4,
+      "wins": 4,
+      "rounds": [
+        3,
+        4,
+        3,
+        3
+      ],
+      "stalled": 0,
+      "remaining": 0
+    },
+    {
+      "kind": "kraken",
+      "deck": "vanguard",
+      "scenario": "3",
+      "level": 0,
+      "seeds": 4,
+      "wins": 4,
+      "rounds": [
+        3,
+        4,
+        3,
+        3
+      ],
+      "stalled": 0,
+      "remaining": 0
+    },
+    {
+      "kind": "kraken",
+      "deck": "balanced",
+      "scenario": "3",
+      "level": 0,
+      "seeds": 4,
+      "wins": 4,
+      "rounds": [
+        4,
+        4,
+        4,
+        3
+      ],
+      "stalled": 0,
+      "remaining": 0
+    },
+    {
+      "kind": "kraken",
+      "deck": "swift",
+      "scenario": "3",
+      "level": 0,
+      "seeds": 4,
+      "wins": 4,
+      "rounds": [
+        4,
+        4,
+        4,
+        4
+      ],
+      "stalled": 0,
+      "remaining": 0
+    },
+    {
+      "kind": "kraken",
+      "deck": "arcane",
+      "scenario": "3",
+      "level": 0,
+      "seeds": 4,
+      "wins": 4,
+      "rounds": [
+        5,
+        3,
+        5,
+        4
+      ],
+      "stalled": 0,
+      "remaining": 0
+    },
+    {
+      "kind": "kraken",
+      "deck": "outlaws",
+      "scenario": "3",
+      "level": 0,
+      "seeds": 4,
+      "wins": 4,
+      "rounds": [
+        4,
+        4,
+        3,
+        3
+      ],
+      "stalled": 0,
+      "remaining": 0
+    },
+    {
+      "kind": "kraken",
+      "deck": "fortress",
+      "scenario": "3",
+      "level": 0,
+      "seeds": 4,
+      "wins": 4,
+      "rounds": [
+        4,
+        3,
+        3,
+        3
+      ],
+      "stalled": 0,
+      "remaining": 0
+    },
+    {
+      "kind": "kraken",
+      "deck": "blades",
+      "scenario": "3",
+      "level": 0,
+      "seeds": 4,
+      "wins": 4,
+      "rounds": [
+        3,
+        3,
+        3,
+        3
+      ],
+      "stalled": 0,
+      "remaining": 0
+    },
+    {
+      "kind": "kraken",
+      "deck": "fireline",
+      "scenario": "3",
+      "level": 0,
+      "seeds": 4,
+      "wins": 4,
+      "rounds": [
+        3,
+        3,
+        4,
+        3
+      ],
+      "stalled": 0,
+      "remaining": 0
+    },
+    {
+      "kind": "kraken",
+      "deck": "astral",
+      "scenario": "3",
+      "level": 0,
+      "seeds": 4,
+      "wins": 4,
+      "rounds": [
+        4,
+        4,
+        4,
+        5
+      ],
+      "stalled": 0,
+      "remaining": 0
+    },
+    {
+      "kind": "kraken",
+      "deck": "corsair",
+      "scenario": "3",
+      "level": 0,
+      "seeds": 4,
+      "wins": 4,
+      "rounds": [
+        3,
+        4,
+        3,
+        3
+      ],
+      "stalled": 0,
+      "remaining": 0
+    },
+    {
+      "kind": "naga",
+      "deck": "vanguard",
+      "scenario": "3",
+      "level": 0,
+      "seeds": 4,
+      "wins": 4,
+      "rounds": [
+        3,
+        4,
+        3,
+        3
+      ],
+      "stalled": 0,
+      "remaining": 0
+    },
+    {
+      "kind": "naga",
+      "deck": "balanced",
+      "scenario": "3",
+      "level": 0,
+      "seeds": 4,
+      "wins": 4,
+      "rounds": [
+        4,
+        4,
+        4,
+        3
+      ],
+      "stalled": 0,
+      "remaining": 0
+    },
+    {
+      "kind": "naga",
+      "deck": "swift",
+      "scenario": "3",
+      "level": 0,
+      "seeds": 4,
+      "wins": 4,
+      "rounds": [
+        4,
+        4,
+        4,
+        4
+      ],
+      "stalled": 0,
+      "remaining": 0
+    },
+    {
+      "kind": "naga",
+      "deck": "arcane",
+      "scenario": "3",
+      "level": 0,
+      "seeds": 4,
+      "wins": 4,
+      "rounds": [
+        5,
+        3,
+        5,
+        4
+      ],
+      "stalled": 0,
+      "remaining": 0
+    },
+    {
+      "kind": "naga",
+      "deck": "outlaws",
+      "scenario": "3",
+      "level": 0,
+      "seeds": 4,
+      "wins": 4,
+      "rounds": [
+        4,
+        4,
+        3,
+        3
+      ],
+      "stalled": 0,
+      "remaining": 0
+    },
+    {
+      "kind": "naga",
+      "deck": "fortress",
+      "scenario": "3",
+      "level": 0,
+      "seeds": 4,
+      "wins": 4,
+      "rounds": [
+        3,
+        3,
+        3,
+        3
+      ],
+      "stalled": 0,
+      "remaining": 0
+    },
+    {
+      "kind": "naga",
+      "deck": "blades",
+      "scenario": "3",
+      "level": 0,
+      "seeds": 4,
+      "wins": 4,
+      "rounds": [
+        4,
+        3,
+        3,
+        3
+      ],
+      "stalled": 0,
+      "remaining": 0
+    },
+    {
+      "kind": "naga",
+      "deck": "fireline",
+      "scenario": "3",
+      "level": 0,
+      "seeds": 4,
+      "wins": 4,
+      "rounds": [
+        3,
+        3,
+        3,
+        3
+      ],
+      "stalled": 0,
+      "remaining": 0
+    },
+    {
+      "kind": "naga",
+      "deck": "astral",
+      "scenario": "3",
+      "level": 0,
+      "seeds": 4,
+      "wins": 4,
+      "rounds": [
+        4,
+        3,
+        4,
+        5
+      ],
+      "stalled": 0,
+      "remaining": 0
+    },
+    {
+      "kind": "naga",
+      "deck": "corsair",
+      "scenario": "3",
+      "level": 0,
+      "seeds": 4,
+      "wins": 4,
+      "rounds": [
+        3,
+        4,
+        3,
+        3
+      ],
+      "stalled": 0,
+      "remaining": 0
+    },
+    {
+      "kind": "hydra",
+      "deck": "vanguard",
+      "scenario": "6",
+      "level": 0,
+      "seeds": 4,
+      "wins": 3,
+      "rounds": [
+        4,
+        4,
+        4
+      ],
+      "stalled": 0,
+      "remaining": 110
+    },
+    {
+      "kind": "hydra",
+      "deck": "balanced",
+      "scenario": "6",
+      "level": 0,
+      "seeds": 4,
+      "wins": 3,
+      "rounds": [
+        5,
+        5,
+        4
+      ],
+      "stalled": 0,
+      "remaining": 279
+    },
+    {
+      "kind": "hydra",
+      "deck": "swift",
+      "scenario": "6",
+      "level": 0,
+      "seeds": 4,
+      "wins": 3,
+      "rounds": [
+        5,
+        5,
+        5
+      ],
+      "stalled": 0,
+      "remaining": 180
+    },
+    {
+      "kind": "hydra",
+      "deck": "arcane",
+      "scenario": "6",
+      "level": 0,
+      "seeds": 4,
+      "wins": 1,
+      "rounds": [
+        3
+      ],
+      "stalled": 0,
+      "remaining": 3550
+    },
+    {
+      "kind": "hydra",
+      "deck": "outlaws",
+      "scenario": "6",
+      "level": 0,
+      "seeds": 4,
+      "wins": 3,
+      "rounds": [
+        5,
+        5,
+        4
+      ],
+      "stalled": 0,
+      "remaining": 54
+    },
+    {
+      "kind": "hydra",
+      "deck": "fortress",
+      "scenario": "6",
+      "level": 0,
+      "seeds": 4,
+      "wins": 4,
+      "rounds": [
+        5,
+        5,
+        4,
+        4
+      ],
+      "stalled": 0,
+      "remaining": 0
+    },
+    {
+      "kind": "hydra",
+      "deck": "blades",
+      "scenario": "6",
+      "level": 0,
+      "seeds": 4,
+      "wins": 4,
+      "rounds": [
+        5,
+        5,
+        4,
+        4
+      ],
+      "stalled": 0,
+      "remaining": 0
+    },
+    {
+      "kind": "hydra",
+      "deck": "fireline",
+      "scenario": "6",
+      "level": 0,
+      "seeds": 4,
+      "wins": 4,
+      "rounds": [
+        4,
+        4,
+        4,
+        4
+      ],
+      "stalled": 0,
+      "remaining": 0
+    },
+    {
+      "kind": "hydra",
+      "deck": "astral",
+      "scenario": "6",
+      "level": 0,
+      "seeds": 4,
+      "wins": 4,
+      "rounds": [
+        5,
+        5,
+        5,
+        5
+      ],
+      "stalled": 0,
+      "remaining": 0
+    },
+    {
+      "kind": "hydra",
+      "deck": "corsair",
+      "scenario": "6",
+      "level": 0,
+      "seeds": 4,
+      "wins": 4,
+      "rounds": [
+        5,
+        5,
+        5,
+        5
+      ],
+      "stalled": 0,
+      "remaining": 0
+    },
+    {
+      "kind": "kraken",
+      "deck": "vanguard",
+      "scenario": "6",
+      "level": 0,
+      "seeds": 4,
+      "wins": 3,
+      "rounds": [
+        4,
+        4,
+        4
+      ],
+      "stalled": 0,
+      "remaining": 99
+    },
+    {
+      "kind": "kraken",
+      "deck": "balanced",
+      "scenario": "6",
+      "level": 0,
+      "seeds": 4,
+      "wins": 4,
+      "rounds": [
+        4,
+        4,
+        5,
+        4
+      ],
+      "stalled": 0,
+      "remaining": 0
+    },
+    {
+      "kind": "kraken",
+      "deck": "swift",
+      "scenario": "6",
+      "level": 0,
+      "seeds": 4,
+      "wins": 3,
+      "rounds": [
+        5,
+        5,
+        5
+      ],
+      "stalled": 0,
+      "remaining": 160
+    },
+    {
+      "kind": "kraken",
+      "deck": "arcane",
+      "scenario": "6",
+      "level": 0,
+      "seeds": 4,
+      "wins": 2,
+      "rounds": [
+        3,
+        4
+      ],
+      "stalled": 0,
+      "remaining": 3573
+    },
+    {
+      "kind": "kraken",
+      "deck": "outlaws",
+      "scenario": "6",
+      "level": 0,
+      "seeds": 4,
+      "wins": 3,
+      "rounds": [
+        5,
+        5,
+        5
+      ],
+      "stalled": 0,
+      "remaining": 161
+    },
+    {
+      "kind": "kraken",
+      "deck": "fortress",
+      "scenario": "6",
+      "level": 0,
+      "seeds": 4,
+      "wins": 4,
+      "rounds": [
+        5,
+        4,
+        4,
+        4
+      ],
+      "stalled": 0,
+      "remaining": 0
+    },
+    {
+      "kind": "kraken",
+      "deck": "blades",
+      "scenario": "6",
+      "level": 0,
+      "seeds": 4,
+      "wins": 4,
+      "rounds": [
+        5,
+        5,
+        4,
+        5
+      ],
+      "stalled": 0,
+      "remaining": 0
+    },
+    {
+      "kind": "kraken",
+      "deck": "fireline",
+      "scenario": "6",
+      "level": 0,
+      "seeds": 4,
+      "wins": 4,
+      "rounds": [
+        4,
+        4,
+        5,
+        4
+      ],
+      "stalled": 0,
+      "remaining": 0
+    },
+    {
+      "kind": "kraken",
+      "deck": "astral",
+      "scenario": "6",
+      "level": 0,
+      "seeds": 4,
+      "wins": 4,
+      "rounds": [
+        5,
+        4,
+        5,
+        5
+      ],
+      "stalled": 0,
+      "remaining": 0
+    },
+    {
+      "kind": "kraken",
+      "deck": "corsair",
+      "scenario": "6",
+      "level": 0,
+      "seeds": 4,
+      "wins": 4,
+      "rounds": [
+        5,
+        5,
+        5,
+        5
+      ],
+      "stalled": 0,
+      "remaining": 0
+    },
+    {
+      "kind": "naga",
+      "deck": "vanguard",
+      "scenario": "6",
+      "level": 0,
+      "seeds": 4,
+      "wins": 3,
+      "rounds": [
+        5,
+        5,
+        4
+      ],
+      "stalled": 0,
+      "remaining": 1178
+    },
+    {
+      "kind": "naga",
+      "deck": "balanced",
+      "scenario": "6",
+      "level": 0,
+      "seeds": 4,
+      "wins": 2,
+      "rounds": [
+        5,
+        5
+      ],
+      "stalled": 0,
+      "remaining": 859
+    },
+    {
+      "kind": "naga",
+      "deck": "swift",
+      "scenario": "6",
+      "level": 0,
+      "seeds": 4,
+      "wins": 1,
+      "rounds": [
+        5
+      ],
+      "stalled": 0,
+      "remaining": 2539
+    },
+    {
+      "kind": "naga",
+      "deck": "arcane",
+      "scenario": "6",
+      "level": 0,
+      "seeds": 4,
+      "wins": 1,
+      "rounds": [
+        5
+      ],
+      "stalled": 0,
+      "remaining": 6660
+    },
+    {
+      "kind": "naga",
+      "deck": "outlaws",
+      "scenario": "6",
+      "level": 0,
+      "seeds": 4,
+      "wins": 2,
+      "rounds": [
+        5,
+        5
+      ],
+      "stalled": 0,
+      "remaining": 761
+    },
+    {
+      "kind": "naga",
+      "deck": "fortress",
+      "scenario": "6",
+      "level": 0,
+      "seeds": 4,
+      "wins": 3,
+      "rounds": [
+        5,
+        4,
+        4
+      ],
+      "stalled": 0,
+      "remaining": 549
+    },
+    {
+      "kind": "naga",
+      "deck": "blades",
+      "scenario": "6",
+      "level": 0,
+      "seeds": 4,
+      "wins": 4,
+      "rounds": [
+        5,
+        5,
+        5,
+        5
+      ],
+      "stalled": 0,
+      "remaining": 0
+    },
+    {
+      "kind": "naga",
+      "deck": "fireline",
+      "scenario": "6",
+      "level": 0,
+      "seeds": 4,
+      "wins": 4,
+      "rounds": [
+        4,
+        5,
+        5,
+        4
+      ],
+      "stalled": 0,
+      "remaining": 0
+    },
+    {
+      "kind": "naga",
+      "deck": "astral",
+      "scenario": "6",
+      "level": 0,
+      "seeds": 4,
+      "wins": 1,
+      "rounds": [
+        5
+      ],
+      "stalled": 0,
+      "remaining": 2998
+    },
+    {
+      "kind": "naga",
+      "deck": "corsair",
+      "scenario": "6",
+      "level": 0,
+      "seeds": 4,
+      "wins": 3,
+      "rounds": [
+        5,
+        5,
+        5
+      ],
+      "stalled": 0,
+      "remaining": 298
+    },
+    {
+      "kind": "hydra",
+      "deck": "vanguard",
+      "scenario": "9",
+      "level": 0,
+      "seeds": 4,
+      "wins": 2,
+      "rounds": [
+        5,
+        5
+      ],
+      "stalled": 0,
+      "remaining": 3783
+    },
+    {
+      "kind": "hydra",
+      "deck": "balanced",
+      "scenario": "9",
+      "level": 0,
+      "seeds": 4,
+      "wins": 0,
+      "rounds": [],
+      "stalled": 0,
+      "remaining": 9282
+    },
+    {
+      "kind": "hydra",
+      "deck": "swift",
+      "scenario": "9",
+      "level": 0,
+      "seeds": 4,
+      "wins": 0,
+      "rounds": [],
+      "stalled": 0,
+      "remaining": 9762
+    },
+    {
+      "kind": "hydra",
+      "deck": "arcane",
+      "scenario": "9",
+      "level": 0,
+      "seeds": 4,
+      "wins": 1,
+      "rounds": [
+        3
+      ],
+      "stalled": 0,
+      "remaining": 12416
+    },
+    {
+      "kind": "hydra",
+      "deck": "outlaws",
+      "scenario": "9",
+      "level": 0,
+      "seeds": 4,
+      "wins": 0,
+      "rounds": [],
+      "stalled": 0,
+      "remaining": 7856
+    },
+    {
+      "kind": "hydra",
+      "deck": "fortress",
+      "scenario": "9",
+      "level": 0,
+      "seeds": 4,
+      "wins": 3,
+      "rounds": [
+        5,
+        5,
+        5
+      ],
+      "stalled": 0,
+      "remaining": 2209
+    },
+    {
+      "kind": "hydra",
+      "deck": "blades",
+      "scenario": "9",
+      "level": 0,
+      "seeds": 4,
+      "wins": 1,
+      "rounds": [
+        5
+      ],
+      "stalled": 0,
+      "remaining": 3012
+    },
+    {
+      "kind": "hydra",
+      "deck": "fireline",
+      "scenario": "9",
+      "level": 0,
+      "seeds": 4,
+      "wins": 3,
+      "rounds": [
+        5,
+        5,
+        5
+      ],
+      "stalled": 0,
+      "remaining": 141
+    },
+    {
+      "kind": "hydra",
+      "deck": "astral",
+      "scenario": "9",
+      "level": 0,
+      "seeds": 4,
+      "wins": 1,
+      "rounds": [
+        5
+      ],
+      "stalled": 0,
+      "remaining": 7441
+    },
+    {
+      "kind": "hydra",
+      "deck": "corsair",
+      "scenario": "9",
+      "level": 0,
+      "seeds": 4,
+      "wins": 0,
+      "rounds": [],
+      "stalled": 0,
+      "remaining": 7588
+    },
+    {
+      "kind": "kraken",
+      "deck": "vanguard",
+      "scenario": "9",
+      "level": 0,
+      "seeds": 4,
+      "wins": 2,
+      "rounds": [
+        5,
+        5
+      ],
+      "stalled": 0,
+      "remaining": 4772
+    },
+    {
+      "kind": "kraken",
+      "deck": "balanced",
+      "scenario": "9",
+      "level": 0,
+      "seeds": 4,
+      "wins": 0,
+      "rounds": [],
+      "stalled": 0,
+      "remaining": 7918
+    },
+    {
+      "kind": "kraken",
+      "deck": "swift",
+      "scenario": "9",
+      "level": 0,
+      "seeds": 4,
+      "wins": 0,
+      "rounds": [],
+      "stalled": 0,
+      "remaining": 10902
+    },
+    {
+      "kind": "kraken",
+      "deck": "arcane",
+      "scenario": "9",
+      "level": 0,
+      "seeds": 4,
+      "wins": 0,
+      "rounds": [],
+      "stalled": 0,
+      "remaining": 16396
+    },
+    {
+      "kind": "kraken",
+      "deck": "outlaws",
+      "scenario": "9",
+      "level": 0,
+      "seeds": 4,
+      "wins": 0,
+      "rounds": [],
+      "stalled": 0,
+      "remaining": 8605
+    },
+    {
+      "kind": "kraken",
+      "deck": "fortress",
+      "scenario": "9",
+      "level": 0,
+      "seeds": 4,
+      "wins": 2,
+      "rounds": [
+        4,
+        5
+      ],
+      "stalled": 0,
+      "remaining": 4136
+    },
+    {
+      "kind": "kraken",
+      "deck": "blades",
+      "scenario": "9",
+      "level": 0,
+      "seeds": 4,
+      "wins": 0,
+      "rounds": [],
+      "stalled": 0,
+      "remaining": 4414
+    },
+    {
+      "kind": "kraken",
+      "deck": "fireline",
+      "scenario": "9",
+      "level": 0,
+      "seeds": 4,
+      "wins": 2,
+      "rounds": [
+        5,
+        5
+      ],
+      "stalled": 0,
+      "remaining": 813
+    },
+    {
+      "kind": "kraken",
+      "deck": "astral",
+      "scenario": "9",
+      "level": 0,
+      "seeds": 4,
+      "wins": 0,
+      "rounds": [],
+      "stalled": 0,
+      "remaining": 10773
+    },
+    {
+      "kind": "kraken",
+      "deck": "corsair",
+      "scenario": "9",
+      "level": 0,
+      "seeds": 4,
+      "wins": 0,
+      "rounds": [],
+      "stalled": 0,
+      "remaining": 9299
+    },
+    {
+      "kind": "naga",
+      "deck": "vanguard",
+      "scenario": "9",
+      "level": 0,
+      "seeds": 4,
+      "wins": 0,
+      "rounds": [],
+      "stalled": 0,
+      "remaining": 7677
+    },
+    {
+      "kind": "naga",
+      "deck": "balanced",
+      "scenario": "9",
+      "level": 0,
+      "seeds": 4,
+      "wins": 0,
+      "rounds": [],
+      "stalled": 0,
+      "remaining": 13148
+    },
+    {
+      "kind": "naga",
+      "deck": "swift",
+      "scenario": "9",
+      "level": 0,
+      "seeds": 4,
+      "wins": 0,
+      "rounds": [],
+      "stalled": 0,
+      "remaining": 12565
+    },
+    {
+      "kind": "naga",
+      "deck": "arcane",
+      "scenario": "9",
+      "level": 0,
+      "seeds": 4,
+      "wins": 0,
+      "rounds": [],
+      "stalled": 0,
+      "remaining": 19146
+    },
+    {
+      "kind": "naga",
+      "deck": "outlaws",
+      "scenario": "9",
+      "level": 0,
+      "seeds": 4,
+      "wins": 0,
+      "rounds": [],
+      "stalled": 0,
+      "remaining": 10015
+    },
+    {
+      "kind": "naga",
+      "deck": "fortress",
+      "scenario": "9",
+      "level": 0,
+      "seeds": 4,
+      "wins": 2,
+      "rounds": [
+        5,
+        5
+      ],
+      "stalled": 0,
+      "remaining": 5337
+    },
+    {
+      "kind": "naga",
+      "deck": "blades",
+      "scenario": "9",
+      "level": 0,
+      "seeds": 4,
+      "wins": 0,
+      "rounds": [],
+      "stalled": 0,
+      "remaining": 7583
+    },
+    {
+      "kind": "naga",
+      "deck": "fireline",
+      "scenario": "9",
+      "level": 0,
+      "seeds": 4,
+      "wins": 1,
+      "rounds": [
+        5
+      ],
+      "stalled": 0,
+      "remaining": 4003
+    },
+    {
+      "kind": "naga",
+      "deck": "astral",
+      "scenario": "9",
+      "level": 0,
+      "seeds": 4,
+      "wins": 0,
+      "rounds": [],
+      "stalled": 0,
+      "remaining": 16415
+    },
+    {
+      "kind": "naga",
+      "deck": "corsair",
+      "scenario": "9",
+      "level": 0,
+      "seeds": 4,
+      "wins": 0,
+      "rounds": [],
+      "stalled": 0,
+      "remaining": 10156
+    },
+    {
+      "kind": "lich",
+      "deck": "vanguard",
+      "scenario": "3",
+      "level": 0,
+      "seeds": 4,
+      "wins": 4,
+      "rounds": [
+        3,
+        4,
+        3,
+        3
+      ],
+      "stalled": 0,
+      "remaining": 0
+    },
+    {
+      "kind": "lich",
+      "deck": "balanced",
+      "scenario": "3",
+      "level": 0,
+      "seeds": 4,
+      "wins": 4,
+      "rounds": [
+        4,
+        4,
+        3,
+        3
+      ],
+      "stalled": 0,
+      "remaining": 0
+    },
+    {
+      "kind": "lich",
+      "deck": "swift",
+      "scenario": "3",
+      "level": 0,
+      "seeds": 4,
+      "wins": 4,
+      "rounds": [
+        4,
+        4,
+        4,
+        4
+      ],
+      "stalled": 0,
+      "remaining": 0
+    },
+    {
+      "kind": "lich",
+      "deck": "arcane",
+      "scenario": "3",
+      "level": 0,
+      "seeds": 4,
+      "wins": 4,
+      "rounds": [
+        5,
+        3,
+        5,
+        4
+      ],
+      "stalled": 0,
+      "remaining": 0
+    },
+    {
+      "kind": "lich",
+      "deck": "outlaws",
+      "scenario": "3",
+      "level": 0,
+      "seeds": 4,
+      "wins": 4,
+      "rounds": [
+        4,
+        4,
+        3,
+        3
+      ],
+      "stalled": 0,
+      "remaining": 0
+    },
+    {
+      "kind": "lich",
+      "deck": "fortress",
+      "scenario": "3",
+      "level": 0,
+      "seeds": 4,
+      "wins": 4,
+      "rounds": [
+        4,
+        3,
+        3,
+        3
+      ],
+      "stalled": 0,
+      "remaining": 0
+    },
+    {
+      "kind": "lich",
+      "deck": "blades",
+      "scenario": "3",
+      "level": 0,
+      "seeds": 4,
+      "wins": 4,
+      "rounds": [
+        3,
+        3,
+        3,
+        3
+      ],
+      "stalled": 0,
+      "remaining": 0
+    },
+    {
+      "kind": "lich",
+      "deck": "fireline",
+      "scenario": "3",
+      "level": 0,
+      "seeds": 4,
+      "wins": 4,
+      "rounds": [
+        3,
+        3,
+        3,
+        3
+      ],
+      "stalled": 0,
+      "remaining": 0
+    },
+    {
+      "kind": "lich",
+      "deck": "astral",
+      "scenario": "3",
+      "level": 0,
+      "seeds": 4,
+      "wins": 4,
+      "rounds": [
+        4,
+        4,
+        4,
+        4
+      ],
+      "stalled": 0,
+      "remaining": 0
+    },
+    {
+      "kind": "lich",
+      "deck": "corsair",
+      "scenario": "3",
+      "level": 0,
+      "seeds": 4,
+      "wins": 4,
+      "rounds": [
+        3,
+        4,
+        3,
+        3
+      ],
+      "stalled": 0,
+      "remaining": 0
+    },
+    {
+      "kind": "lich",
+      "deck": "vanguard",
+      "scenario": "6",
+      "level": 0,
+      "seeds": 4,
+      "wins": 3,
+      "rounds": [
+        4,
+        4,
+        4
+      ],
+      "stalled": 0,
+      "remaining": 87
+    },
+    {
+      "kind": "lich",
+      "deck": "balanced",
+      "scenario": "6",
+      "level": 0,
+      "seeds": 4,
+      "wins": 4,
+      "rounds": [
+        5,
+        5,
+        5,
+        4
+      ],
+      "stalled": 0,
+      "remaining": 0
+    },
+    {
+      "kind": "lich",
+      "deck": "swift",
+      "scenario": "6",
+      "level": 0,
+      "seeds": 4,
+      "wins": 1,
+      "rounds": [
+        5
+      ],
+      "stalled": 0,
+      "remaining": 417
+    },
+    {
+      "kind": "lich",
+      "deck": "arcane",
+      "scenario": "6",
+      "level": 0,
+      "seeds": 4,
+      "wins": 2,
+      "rounds": [
+        3,
+        4
+      ],
+      "stalled": 0,
+      "remaining": 3289
+    },
+    {
+      "kind": "lich",
+      "deck": "outlaws",
+      "scenario": "6",
+      "level": 0,
+      "seeds": 4,
+      "wins": 4,
+      "rounds": [
+        5,
+        5,
+        5,
+        5
+      ],
+      "stalled": 0,
+      "remaining": 0
+    },
+    {
+      "kind": "lich",
+      "deck": "fortress",
+      "scenario": "6",
+      "level": 0,
+      "seeds": 4,
+      "wins": 4,
+      "rounds": [
+        5,
+        5,
+        4,
+        4
+      ],
+      "stalled": 0,
+      "remaining": 0
+    },
+    {
+      "kind": "lich",
+      "deck": "blades",
+      "scenario": "6",
+      "level": 0,
+      "seeds": 4,
+      "wins": 4,
+      "rounds": [
+        5,
+        5,
+        4,
+        4
+      ],
+      "stalled": 0,
+      "remaining": 0
+    },
+    {
+      "kind": "lich",
+      "deck": "fireline",
+      "scenario": "6",
+      "level": 0,
+      "seeds": 4,
+      "wins": 4,
+      "rounds": [
+        4,
+        4,
+        4,
+        4
+      ],
+      "stalled": 0,
+      "remaining": 0
+    },
+    {
+      "kind": "lich",
+      "deck": "astral",
+      "scenario": "6",
+      "level": 0,
+      "seeds": 4,
+      "wins": 4,
+      "rounds": [
+        5,
+        5,
+        5,
+        5
+      ],
+      "stalled": 0,
+      "remaining": 0
+    },
+    {
+      "kind": "lich",
+      "deck": "corsair",
+      "scenario": "6",
+      "level": 0,
+      "seeds": 4,
+      "wins": 3,
+      "rounds": [
+        5,
+        5,
+        5
+      ],
+      "stalled": 0,
+      "remaining": 262
+    },
+    {
+      "kind": "lich",
+      "deck": "vanguard",
+      "scenario": "9",
+      "level": 0,
+      "seeds": 4,
+      "wins": 1,
+      "rounds": [
+        5
+      ],
+      "stalled": 0,
+      "remaining": 4421
+    },
+    {
+      "kind": "lich",
+      "deck": "balanced",
+      "scenario": "9",
+      "level": 0,
+      "seeds": 4,
+      "wins": 0,
+      "rounds": [],
+      "stalled": 0,
+      "remaining": 8326
+    },
+    {
+      "kind": "lich",
+      "deck": "swift",
+      "scenario": "9",
+      "level": 0,
+      "seeds": 4,
+      "wins": 0,
+      "rounds": [],
+      "stalled": 0,
+      "remaining": 11360
+    },
+    {
+      "kind": "lich",
+      "deck": "arcane",
+      "scenario": "9",
+      "level": 0,
+      "seeds": 4,
+      "wins": 2,
+      "rounds": [
+        3,
+        5
+      ],
+      "stalled": 0,
+      "remaining": 8482
+    },
+    {
+      "kind": "lich",
+      "deck": "outlaws",
+      "scenario": "9",
+      "level": 0,
+      "seeds": 4,
+      "wins": 0,
+      "rounds": [],
+      "stalled": 0,
+      "remaining": 8342
+    },
+    {
+      "kind": "lich",
+      "deck": "fortress",
+      "scenario": "9",
+      "level": 0,
+      "seeds": 4,
+      "wins": 2,
+      "rounds": [
+        5,
+        5
+      ],
+      "stalled": 0,
+      "remaining": 3350
+    },
+    {
+      "kind": "lich",
+      "deck": "blades",
+      "scenario": "9",
+      "level": 0,
+      "seeds": 4,
+      "wins": 0,
+      "rounds": [],
+      "stalled": 0,
+      "remaining": 3548
+    },
+    {
+      "kind": "lich",
+      "deck": "fireline",
+      "scenario": "9",
+      "level": 0,
+      "seeds": 4,
+      "wins": 3,
+      "rounds": [
+        5,
+        5,
+        5
+      ],
+      "stalled": 0,
+      "remaining": 685
+    },
+    {
+      "kind": "lich",
+      "deck": "astral",
+      "scenario": "9",
+      "level": 0,
+      "seeds": 4,
+      "wins": 1,
+      "rounds": [
+        5
+      ],
+      "stalled": 0,
+      "remaining": 8115
+    },
+    {
+      "kind": "lich",
+      "deck": "corsair",
+      "scenario": "9",
+      "level": 0,
+      "seeds": 4,
+      "wins": 0,
+      "rounds": [],
+      "stalled": 0,
+      "remaining": 8324
+    }
+  ],
+  "note": "Training: 10 decks × U0/U1 × 8 seeds × 4 species. Run fixtures: 10 decks × 4 seeds × 3 positions × 4 species; not full-run economy. Diagnostic cap 1200s only in tests. Hydra/arcane/seed2 boss fixture ended after 633.2s in round3."
+}

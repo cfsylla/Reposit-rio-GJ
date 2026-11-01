@@ -1,0 +1,783 @@
+{
+  "training": [
+    {
+      "kind": "manticore",
+      "deck": "vanguard",
+      "scenario": "training",
+      "level": 0,
+      "seeds": 8,
+      "wins": 4,
+      "rounds": [
+        5,
+        5,
+        5,
+        5
+      ],
+      "stalled": 0,
+      "remaining": 2778
+    },
+    {
+      "kind": "manticore",
+      "deck": "vanguard",
+      "scenario": "training",
+      "level": 1,
+      "seeds": 8,
+      "wins": 7,
+      "rounds": [
+        4,
+        5,
+        5,
+        4,
+        5,
+        4,
+        5
+      ],
+      "stalled": 0,
+      "remaining": 511
+    },
+    {
+      "kind": "manticore",
+      "deck": "balanced",
+      "scenario": "training",
+      "level": 0,
+      "seeds": 8,
+      "wins": 0,
+      "rounds": [],
+      "stalled": 0,
+      "remaining": 5537
+    },
+    {
+      "kind": "manticore",
+      "deck": "balanced",
+      "scenario": "training",
+      "level": 1,
+      "seeds": 8,
+      "wins": 7,
+      "rounds": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5
+      ],
+      "stalled": 0,
+      "remaining": 362
+    },
+    {
+      "kind": "manticore",
+      "deck": "swift",
+      "scenario": "training",
+      "level": 0,
+      "seeds": 8,
+      "wins": 0,
+      "rounds": [],
+      "stalled": 0,
+      "remaining": 4099
+    },
+    {
+      "kind": "manticore",
+      "deck": "swift",
+      "scenario": "training",
+      "level": 1,
+      "seeds": 8,
+      "wins": 7,
+      "rounds": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5
+      ],
+      "stalled": 0,
+      "remaining": 84
+    },
+    {
+      "kind": "manticore",
+      "deck": "arcane",
+      "scenario": "training",
+      "level": 0,
+      "seeds": 8,
+      "wins": 3,
+      "rounds": [
+        3,
+        5,
+        5
+      ],
+      "stalled": 0,
+      "remaining": 6150
+    },
+    {
+      "kind": "manticore",
+      "deck": "arcane",
+      "scenario": "training",
+      "level": 1,
+      "seeds": 8,
+      "wins": 5,
+      "rounds": [
+        3,
+        5,
+        5,
+        5,
+        5
+      ],
+      "stalled": 0,
+      "remaining": 941
+    },
+    {
+      "kind": "manticore",
+      "deck": "outlaws",
+      "scenario": "training",
+      "level": 0,
+      "seeds": 8,
+      "wins": 1,
+      "rounds": [
+        5
+      ],
+      "stalled": 0,
+      "remaining": 2627
+    },
+    {
+      "kind": "manticore",
+      "deck": "outlaws",
+      "scenario": "training",
+      "level": 1,
+      "seeds": 8,
+      "wins": 8,
+      "rounds": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5
+      ],
+      "stalled": 0,
+      "remaining": 0
+    },
+    {
+      "kind": "manticore",
+      "deck": "fortress",
+      "scenario": "training",
+      "level": 0,
+      "seeds": 8,
+      "wins": 5,
+      "rounds": [
+        5,
+        5,
+        5,
+        5,
+        5
+      ],
+      "stalled": 0,
+      "remaining": 1043
+    },
+    {
+      "kind": "manticore",
+      "deck": "fortress",
+      "scenario": "training",
+      "level": 1,
+      "seeds": 8,
+      "wins": 8,
+      "rounds": [
+        5,
+        5,
+        4,
+        4,
+        4,
+        5,
+        5,
+        5
+      ],
+      "stalled": 0,
+      "remaining": 0
+    },
+    {
+      "kind": "manticore",
+      "deck": "blades",
+      "scenario": "training",
+      "level": 0,
+      "seeds": 8,
+      "wins": 4,
+      "rounds": [
+        5,
+        5,
+        5,
+        5
+      ],
+      "stalled": 0,
+      "remaining": 1660
+    },
+    {
+      "kind": "manticore",
+      "deck": "blades",
+      "scenario": "training",
+      "level": 1,
+      "seeds": 8,
+      "wins": 8,
+      "rounds": [
+        5,
+        5,
+        4,
+        5,
+        4,
+        5,
+        4,
+        5
+      ],
+      "stalled": 0,
+      "remaining": 0
+    },
+    {
+      "kind": "manticore",
+      "deck": "fireline",
+      "scenario": "training",
+      "level": 0,
+      "seeds": 8,
+      "wins": 7,
+      "rounds": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5
+      ],
+      "stalled": 0,
+      "remaining": 512
+    },
+    {
+      "kind": "manticore",
+      "deck": "fireline",
+      "scenario": "training",
+      "level": 1,
+      "seeds": 8,
+      "wins": 8,
+      "rounds": [
+        5,
+        4,
+        4,
+        4,
+        4,
+        5,
+        5,
+        5
+      ],
+      "stalled": 0,
+      "remaining": 0
+    },
+    {
+      "kind": "manticore",
+      "deck": "astral",
+      "scenario": "training",
+      "level": 0,
+      "seeds": 8,
+      "wins": 1,
+      "rounds": [
+        5
+      ],
+      "stalled": 0,
+      "remaining": 3877
+    },
+    {
+      "kind": "manticore",
+      "deck": "astral",
+      "scenario": "training",
+      "level": 1,
+      "seeds": 8,
+      "wins": 6,
+      "rounds": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        4
+      ],
+      "stalled": 0,
+      "remaining": 118
+    },
+    {
+      "kind": "manticore",
+      "deck": "corsair",
+      "scenario": "training",
+      "level": 0,
+      "seeds": 8,
+      "wins": 2,
+      "rounds": [
+        5,
+        5
+      ],
+      "stalled": 0,
+      "remaining": 2017
+    },
+    {
+      "kind": "manticore",
+      "deck": "corsair",
+      "scenario": "training",
+      "level": 1,
+      "seeds": 8,
+      "wins": 8,
+      "rounds": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        4,
+        5
+      ],
+      "stalled": 0,
+      "remaining": 0
+    }
+  ],
+  "stage3": [
+    {
+      "kind": "manticore",
+      "deck": "vanguard",
+      "scenario": "3",
+      "level": 0,
+      "seeds": 4,
+      "wins": 4,
+      "rounds": [
+        3,
+        4,
+        3,
+        3
+      ],
+      "stalled": 0,
+      "remaining": 0
+    },
+    {
+      "kind": "manticore",
+      "deck": "balanced",
+      "scenario": "3",
+      "level": 0,
+      "seeds": 4,
+      "wins": 4,
+      "rounds": [
+        4,
+        4,
+        3,
+        3
+      ],
+      "stalled": 0,
+      "remaining": 0
+    },
+    {
+      "kind": "manticore",
+      "deck": "swift",
+      "scenario": "3",
+      "level": 0,
+      "seeds": 4,
+      "wins": 4,
+      "rounds": [
+        4,
+        4,
+        4,
+        4
+      ],
+      "stalled": 0,
+      "remaining": 0
+    },
+    {
+      "kind": "manticore",
+      "deck": "arcane",
+      "scenario": "3",
+      "level": 0,
+      "seeds": 4,
+      "wins": 4,
+      "rounds": [
+        5,
+        3,
+        5,
+        4
+      ],
+      "stalled": 0,
+      "remaining": 0
+    },
+    {
+      "kind": "manticore",
+      "deck": "outlaws",
+      "scenario": "3",
+      "level": 0,
+      "seeds": 4,
+      "wins": 4,
+      "rounds": [
+        4,
+        4,
+        4,
+        4
+      ],
+      "stalled": 0,
+      "remaining": 0
+    },
+    {
+      "kind": "manticore",
+      "deck": "fortress",
+      "scenario": "3",
+      "level": 0,
+      "seeds": 4,
+      "wins": 4,
+      "rounds": [
+        4,
+        3,
+        3,
+        3
+      ],
+      "stalled": 0,
+      "remaining": 0
+    },
+    {
+      "kind": "manticore",
+      "deck": "blades",
+      "scenario": "3",
+      "level": 0,
+      "seeds": 4,
+      "wins": 4,
+      "rounds": [
+        4,
+        3,
+        3,
+        3
+      ],
+      "stalled": 0,
+      "remaining": 0
+    },
+    {
+      "kind": "manticore",
+      "deck": "fireline",
+      "scenario": "3",
+      "level": 0,
+      "seeds": 4,
+      "wins": 4,
+      "rounds": [
+        3,
+        3,
+        4,
+        3
+      ],
+      "stalled": 0,
+      "remaining": 0
+    },
+    {
+      "kind": "manticore",
+      "deck": "astral",
+      "scenario": "3",
+      "level": 0,
+      "seeds": 4,
+      "wins": 4,
+      "rounds": [
+        4,
+        3,
+        4,
+        5
+      ],
+      "stalled": 0,
+      "remaining": 0
+    },
+    {
+      "kind": "manticore",
+      "deck": "corsair",
+      "scenario": "3",
+      "level": 0,
+      "seeds": 4,
+      "wins": 4,
+      "rounds": [
+        3,
+        4,
+        3,
+        3
+      ],
+      "stalled": 0,
+      "remaining": 0
+    }
+  ],
+  "stage6": [
+    {
+      "kind": "manticore",
+      "deck": "vanguard",
+      "scenario": "6",
+      "level": 0,
+      "seeds": 4,
+      "wins": 4,
+      "rounds": [
+        4,
+        5,
+        5,
+        4
+      ],
+      "stalled": 0,
+      "remaining": 0
+    },
+    {
+      "kind": "manticore",
+      "deck": "balanced",
+      "scenario": "6",
+      "level": 0,
+      "seeds": 4,
+      "wins": 3,
+      "rounds": [
+        5,
+        5,
+        5
+      ],
+      "stalled": 0,
+      "remaining": 247
+    },
+    {
+      "kind": "manticore",
+      "deck": "swift",
+      "scenario": "6",
+      "level": 0,
+      "seeds": 4,
+      "wins": 3,
+      "rounds": [
+        5,
+        5,
+        5
+      ],
+      "stalled": 0,
+      "remaining": 218
+    },
+    {
+      "kind": "manticore",
+      "deck": "arcane",
+      "scenario": "6",
+      "level": 0,
+      "seeds": 4,
+      "wins": 2,
+      "rounds": [
+        3,
+        5
+      ],
+      "stalled": 0,
+      "remaining": 3457
+    },
+    {
+      "kind": "manticore",
+      "deck": "outlaws",
+      "scenario": "6",
+      "level": 0,
+      "seeds": 4,
+      "wins": 3,
+      "rounds": [
+        5,
+        5,
+        5
+      ],
+      "stalled": 0,
+      "remaining": 146
+    },
+    {
+      "kind": "manticore",
+      "deck": "fortress",
+      "scenario": "6",
+      "level": 0,
+      "seeds": 4,
+      "wins": 4,
+      "rounds": [
+        5,
+        5,
+        4,
+        4
+      ],
+      "stalled": 0,
+      "remaining": 0
+    },
+    {
+      "kind": "manticore",
+      "deck": "blades",
+      "scenario": "6",
+      "level": 0,
+      "seeds": 4,
+      "wins": 4,
+      "rounds": [
+        5,
+        5,
+        4,
+        4
+      ],
+      "stalled": 0,
+      "remaining": 0
+    },
+    {
+      "kind": "manticore",
+      "deck": "fireline",
+      "scenario": "6",
+      "level": 0,
+      "seeds": 4,
+      "wins": 4,
+      "rounds": [
+        4,
+        5,
+        4,
+        4
+      ],
+      "stalled": 0,
+      "remaining": 0
+    },
+    {
+      "kind": "manticore",
+      "deck": "astral",
+      "scenario": "6",
+      "level": 0,
+      "seeds": 4,
+      "wins": 4,
+      "rounds": [
+        5,
+        5,
+        5,
+        5
+      ],
+      "stalled": 0,
+      "remaining": 0
+    },
+    {
+      "kind": "manticore",
+      "deck": "corsair",
+      "scenario": "6",
+      "level": 0,
+      "seeds": 4,
+      "wins": 4,
+      "rounds": [
+        5,
+        5,
+        5,
+        5
+      ],
+      "stalled": 0,
+      "remaining": 0
+    }
+  ],
+  "stage9": [
+    {
+      "kind": "manticore",
+      "deck": "vanguard",
+      "scenario": "9",
+      "level": 0,
+      "seeds": 4,
+      "wins": 2,
+      "rounds": [
+        5,
+        5
+      ],
+      "stalled": 0,
+      "remaining": 5189
+    },
+    {
+      "kind": "manticore",
+      "deck": "balanced",
+      "scenario": "9",
+      "level": 0,
+      "seeds": 4,
+      "wins": 0,
+      "rounds": [],
+      "stalled": 0,
+      "remaining": 9062
+    },
+    {
+      "kind": "manticore",
+      "deck": "swift",
+      "scenario": "9",
+      "level": 0,
+      "seeds": 4,
+      "wins": 0,
+      "rounds": [],
+      "stalled": 0,
+      "remaining": 9385
+    },
+    {
+      "kind": "manticore",
+      "deck": "arcane",
+      "scenario": "9",
+      "level": 0,
+      "seeds": 4,
+      "wins": 0,
+      "rounds": [],
+      "stalled": 0,
+      "remaining": 16501
+    },
+    {
+      "kind": "manticore",
+      "deck": "outlaws",
+      "scenario": "9",
+      "level": 0,
+      "seeds": 4,
+      "wins": 0,
+      "rounds": [],
+      "stalled": 0,
+      "remaining": 8363
+    },
+    {
+      "kind": "manticore",
+      "deck": "fortress",
+      "scenario": "9",
+      "level": 0,
+      "seeds": 4,
+      "wins": 2,
+      "rounds": [
+        5,
+        5
+      ],
+      "stalled": 0,
+      "remaining": 3595
+    },
+    {
+      "kind": "manticore",
+      "deck": "blades",
+      "scenario": "9",
+      "level": 0,
+      "seeds": 4,
+      "wins": 1,
+      "rounds": [
+        5
+      ],
+      "stalled": 0,
+      "remaining": 3160
+    },
+    {
+      "kind": "manticore",
+      "deck": "fireline",
+      "scenario": "9",
+      "level": 0,
+      "seeds": 4,
+      "wins": 2,
+      "rounds": [
+        5,
+        5
+      ],
+      "stalled": 0,
+      "remaining": 406
+    },
+    {
+      "kind": "manticore",
+      "deck": "astral",
+      "scenario": "9",
+      "level": 0,
+      "seeds": 4,
+      "wins": 0,
+      "rounds": [],
+      "stalled": 0,
+      "remaining": 9556
+    },
+    {
+      "kind": "manticore",
+      "deck": "corsair",
+      "scenario": "9",
+      "level": 0,
+      "seeds": 4,
+      "wins": 0,
+      "rounds": [],
+      "stalled": 0,
+      "remaining": 6887
+    }
+  ]
+}

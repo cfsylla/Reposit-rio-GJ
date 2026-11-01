@@ -1,0 +1,1003 @@
+{
+  "units": [
+    {
+      "id": "goblin_spearman",
+      "index": 39,
+      "name": "Goblin Lanceiro",
+      "family": "warrior",
+      "race": "goblin",
+      "order": "blackfang",
+      "faction": "blackfang",
+      "variant": 0,
+      "color": "#b65454",
+      "rarity": 0,
+      "cost": 2,
+      "hp": 180,
+      "atk": 27,
+      "defense": 8,
+      "rate": 0.8620689655172414,
+      "speed": 60,
+      "crit": 0.12,
+      "range": 62,
+      "area": 0,
+      "traits": [
+        "Atacante",
+        "Ágil",
+        "Aventureiro"
+      ],
+      "ratings": {
+        "hp": 2,
+        "atk": 3,
+        "defense": 1,
+        "attackSpeed": 3,
+        "speed": 4,
+        "crit": 2,
+        "skill": 4
+      },
+      "kind": "active",
+      "charge": 5,
+      "ability": "Estocada traiçoeira",
+      "detail": "Causa 160% do ataque ao alvo e recua 35 unidades.",
+      "rangeLabel": "Curto",
+      "areaLabel": "Alvo único"
+    },
+    {
+      "id": "goblin_archer",
+      "index": 40,
+      "name": "Goblin Arqueiro",
+      "family": "archer",
+      "race": "goblin",
+      "order": "blackfang",
+      "faction": "blackfang",
+      "variant": 0,
+      "color": "#b65454",
+      "rarity": 0,
+      "cost": 2,
+      "hp": 180,
+      "atk": 20,
+      "defense": 8,
+      "rate": 0.8620689655172414,
+      "speed": 60,
+      "crit": 0.12,
+      "range": 180,
+      "area": 0,
+      "traits": [
+        "Atirador",
+        "Ágil",
+        "Aventureiro"
+      ],
+      "ratings": {
+        "hp": 2,
+        "atk": 2,
+        "defense": 1,
+        "attackSpeed": 3,
+        "speed": 4,
+        "crit": 2,
+        "skill": 4
+      },
+      "kind": "active",
+      "charge": 6,
+      "ability": "Flecha farpada",
+      "detail": "Causa 140% do ataque e reduz o movimento do alvo em 30% por 3 segundos.",
+      "rangeLabel": "Longo",
+      "areaLabel": "Alvo único"
+    },
+    {
+      "id": "goblin_rider",
+      "index": 41,
+      "name": "Goblin Montador",
+      "family": "warrior",
+      "race": "goblin",
+      "order": "blackfang",
+      "faction": "blackfang",
+      "variant": 0,
+      "color": "#b65454",
+      "rarity": 1,
+      "cost": 3,
+      "hp": 290,
+      "atk": 27,
+      "defense": 26,
+      "rate": 1.075268817204301,
+      "speed": 74,
+      "crit": 0.07,
+      "range": 62,
+      "area": 0,
+      "traits": [
+        "Atacante",
+        "Defensor",
+        "Ágil"
+      ],
+      "ratings": {
+        "hp": 4,
+        "atk": 3,
+        "defense": 3,
+        "attackSpeed": 3,
+        "speed": 5,
+        "crit": 1,
+        "skill": 4
+      },
+      "kind": "active",
+      "charge": 6,
+      "ability": "Atropelo",
+      "detail": "Começa carregado. Avança pelo chão, causa 160% do ataque e empurra o alvo 45 unidades, acompanhando o avanço. Controle interrompe a investida.",
+      "rangeLabel": "Curto",
+      "areaLabel": "Alvo único"
+    },
+    {
+      "id": "goblin_brute",
+      "index": 42,
+      "name": "Goblin Bruto",
+      "family": "warrior",
+      "race": "goblin",
+      "order": "blackfang",
+      "faction": "blackfang",
+      "variant": 0,
+      "color": "#b65454",
+      "rarity": 1,
+      "cost": 3,
+      "hp": 290,
+      "atk": 35,
+      "defense": 16,
+      "rate": 1.075268817204301,
+      "speed": 49,
+      "crit": 0.07,
+      "range": 34,
+      "area": 0,
+      "traits": [
+        "Atacante",
+        "Defensor",
+        "Aventureiro"
+      ],
+      "ratings": {
+        "hp": 4,
+        "atk": 4,
+        "defense": 2,
+        "attackSpeed": 3,
+        "speed": 3,
+        "crit": 1,
+        "skill": 4
+      },
+      "kind": "active",
+      "charge": 5,
+      "ability": "Pancada brutal",
+      "detail": "Causa 170% do ataque ao alvo e atordoa por 0,8 segundo.",
+      "rangeLabel": "Corpo a corpo",
+      "areaLabel": "Alvo único"
+    },
+    {
+      "id": "goblin_bomber",
+      "index": 43,
+      "name": "Goblin Bombardeiro",
+      "family": "archer",
+      "race": "goblin",
+      "order": "blackfang",
+      "faction": "blackfang",
+      "variant": 0,
+      "color": "#b65454",
+      "rarity": 2,
+      "cost": 3,
+      "hp": 180,
+      "atk": 35,
+      "defense": 8,
+      "rate": 1.639344262295082,
+      "speed": 60,
+      "crit": 0.12,
+      "range": 145,
+      "area": 35,
+      "traits": [
+        "Atirador",
+        "Ágil",
+        "Aventureiro"
+      ],
+      "ratings": {
+        "hp": 2,
+        "atk": 4,
+        "defense": 1,
+        "attackSpeed": 2,
+        "speed": 4,
+        "crit": 2,
+        "skill": 4
+      },
+      "kind": "active",
+      "charge": 7,
+      "ability": "Bomba incendiária",
+      "detail": "Após 1 segundo, a bomba explode por 150% do ataque em raio 55. Deixa fogo por 3 segundos, causando 20% do ataque por segundo.",
+      "rangeLabel": "Médio",
+      "areaLabel": "Área pequena"
+    },
+    {
+      "id": "goblin_king",
+      "index": 44,
+      "name": "Rei Goblin",
+      "family": "warrior",
+      "race": "goblin",
+      "order": "blackfang",
+      "faction": "blackfang",
+      "variant": 0,
+      "color": "#b65454",
+      "rarity": 3,
+      "cost": 4,
+      "hp": 360,
+      "atk": 20,
+      "defense": 26,
+      "rate": 1.3513513513513513,
+      "speed": 30,
+      "crit": 0.03,
+      "range": 145,
+      "area": 0,
+      "traits": [
+        "Defensor",
+        "Guardião",
+        "Aventureiro"
+      ],
+      "ratings": {
+        "hp": 5,
+        "atk": 2,
+        "defense": 3,
+        "attackSpeed": 2,
+        "speed": 1,
+        "crit": 1,
+        "skill": 4
+      },
+      "kind": "active",
+      "charge": 8,
+      "ability": "Ordem do rei",
+      "detail": "Aliados em raio 110, incluindo o rei, recebem +15% de ataque e velocidade de ataque por 4 segundos. Rei, liteira e carregadores são uma unidade.",
+      "rangeLabel": "Médio",
+      "areaLabel": "Alvo único"
+    },
+    {
+      "id": "orc_warrior",
+      "index": 45,
+      "name": "Orc Guerreiro",
+      "family": "warrior",
+      "race": "orc",
+      "order": "blackfang",
+      "faction": "blackfang",
+      "variant": 0,
+      "color": "#b65454",
+      "rarity": 0,
+      "cost": 3,
+      "hp": 290,
+      "atk": 27,
+      "defense": 38,
+      "rate": 1.3513513513513513,
+      "speed": 39,
+      "crit": 0.07,
+      "range": 34,
+      "area": 0,
+      "traits": [
+        "Atacante",
+        "Defensor",
+        "Disciplinado"
+      ],
+      "ratings": {
+        "hp": 4,
+        "atk": 3,
+        "defense": 4,
+        "attackSpeed": 2,
+        "speed": 2,
+        "crit": 1,
+        "skill": 4
+      },
+      "kind": "active",
+      "charge": 5,
+      "ability": "Escudo de guerra",
+      "detail": "Recebe escudo de 15% da própria vida máxima por 4 segundos e empurra o alvo em alcance curto 30 unidades.",
+      "rangeLabel": "Corpo a corpo",
+      "areaLabel": "Alvo único"
+    },
+    {
+      "id": "orc_berserker",
+      "index": 46,
+      "name": "Orc Berserker",
+      "family": "warrior",
+      "race": "orc",
+      "order": "blackfang",
+      "faction": "blackfang",
+      "variant": 0,
+      "color": "#b65454",
+      "rarity": 1,
+      "cost": 3,
+      "hp": 290,
+      "atk": 35,
+      "defense": 16,
+      "rate": 0.8620689655172414,
+      "speed": 60,
+      "crit": 0.12,
+      "range": 34,
+      "area": 0,
+      "traits": [
+        "Atacante",
+        "Ágil",
+        "Aventureiro"
+      ],
+      "ratings": {
+        "hp": 4,
+        "atk": 4,
+        "defense": 2,
+        "attackSpeed": 3,
+        "speed": 4,
+        "crit": 2,
+        "skill": 4
+      },
+      "kind": "active",
+      "charge": 4,
+      "ability": "Caçada sangrenta",
+      "detail": "Avança até o inimigo com menor percentual de vida em alcance 120 e golpeia por 180% do ataque. Sem candidato, usa o alvo atual.",
+      "rangeLabel": "Corpo a corpo",
+      "areaLabel": "Alvo único"
+    },
+    {
+      "id": "orc_fighter",
+      "index": 47,
+      "name": "Orc Lutadora",
+      "family": "warrior",
+      "race": "orc",
+      "order": "blackfang",
+      "faction": "blackfang",
+      "variant": 0,
+      "color": "#b65454",
+      "rarity": 1,
+      "cost": 3,
+      "hp": 230,
+      "atk": 27,
+      "defense": 16,
+      "rate": 0.6802721088435374,
+      "speed": 60,
+      "crit": 0.18,
+      "range": 34,
+      "area": 0,
+      "traits": [
+        "Atacante",
+        "Ágil",
+        "Disciplinado"
+      ],
+      "ratings": {
+        "hp": 3,
+        "atk": 3,
+        "defense": 2,
+        "attackSpeed": 4,
+        "speed": 4,
+        "crit": 4,
+        "skill": 4
+      },
+      "kind": "active",
+      "charge": 6,
+      "ability": "Lâminas cruzadas",
+      "detail": "Dois cortes no alvo, cada um por 100% do ataque, ignorando 25% da defesa.",
+      "rangeLabel": "Corpo a corpo",
+      "areaLabel": "Alvo único"
+    },
+    {
+      "id": "cave_troll",
+      "index": 48,
+      "name": "Troll da Caverna",
+      "family": "warrior",
+      "race": "troll",
+      "order": "blackfang",
+      "faction": "blackfang",
+      "variant": 0,
+      "color": "#b65454",
+      "rarity": 1,
+      "cost": 3,
+      "hp": 360,
+      "atk": 35,
+      "defense": 16,
+      "rate": 1.3513513513513513,
+      "speed": 49,
+      "crit": 0.07,
+      "range": 62,
+      "area": 0,
+      "traits": [
+        "Atacante",
+        "Defensor",
+        "Guardião"
+      ],
+      "ratings": {
+        "hp": 5,
+        "atk": 4,
+        "defense": 2,
+        "attackSpeed": 2,
+        "speed": 3,
+        "crit": 1,
+        "skill": 4
+      },
+      "kind": "passive",
+      "charge": 0,
+      "ability": "Carne regenerativa",
+      "detail": "Após 3 segundos sem receber dano à vida, regenera 2% da vida máxima por segundo. Novo dano à vida interrompe a regeneração.",
+      "rangeLabel": "Curto",
+      "areaLabel": "Alvo único"
+    },
+    {
+      "id": "snow_troll",
+      "index": 49,
+      "name": "Troll das Neves",
+      "family": "mage",
+      "race": "troll",
+      "order": "blackfang",
+      "faction": "blackfang",
+      "variant": 0,
+      "color": "#b65454",
+      "rarity": 2,
+      "cost": 4,
+      "hp": 290,
+      "atk": 20,
+      "defense": 26,
+      "rate": 1.3513513513513513,
+      "speed": 39,
+      "crit": 0.03,
+      "range": 145,
+      "area": 0,
+      "traits": [
+        "Arcano",
+        "Defensor",
+        "Guardião"
+      ],
+      "ratings": {
+        "hp": 4,
+        "atk": 2,
+        "defense": 3,
+        "attackSpeed": 2,
+        "speed": 2,
+        "crit": 1,
+        "skill": 4
+      },
+      "kind": "active",
+      "charge": 8,
+      "ability": "Proteção ancestral",
+      "detail": "Cura a si e aliados em raio 85 em 8% da vida máxima de cada um e concede 10% de redução de dano por 3 segundos.",
+      "rangeLabel": "Médio",
+      "areaLabel": "Alvo único"
+    },
+    {
+      "id": "troll",
+      "index": 50,
+      "name": "Troll",
+      "family": "warrior",
+      "race": "troll",
+      "order": "blackfang",
+      "faction": "blackfang",
+      "variant": 0,
+      "color": "#b65454",
+      "rarity": 2,
+      "cost": 4,
+      "hp": 360,
+      "atk": 45,
+      "defense": 38,
+      "rate": 1.639344262295082,
+      "speed": 30,
+      "crit": 0.03,
+      "range": 62,
+      "area": 0,
+      "traits": [
+        "Defensor",
+        "Guardião",
+        "Aventureiro"
+      ],
+      "ratings": {
+        "hp": 5,
+        "atk": 5,
+        "defense": 4,
+        "attackSpeed": 2,
+        "speed": 1,
+        "crit": 1,
+        "skill": 4
+      },
+      "kind": "active",
+      "charge": 6,
+      "ability": "Queda da rocha",
+      "detail": "Atinge o chão junto ao alvo por 180% do ataque em raio 65 e imobiliza por 1,2 segundo.",
+      "rangeLabel": "Curto",
+      "areaLabel": "Alvo único"
+    },
+    {
+      "id": "mountain_troll",
+      "index": 51,
+      "name": "Troll da Montanha",
+      "family": "warrior",
+      "race": "troll",
+      "order": "blackfang",
+      "faction": "blackfang",
+      "variant": 0,
+      "color": "#b65454",
+      "rarity": 2,
+      "cost": 4,
+      "hp": 360,
+      "atk": 45,
+      "defense": 26,
+      "rate": 1.639344262295082,
+      "speed": 49,
+      "crit": 0.07,
+      "range": 62,
+      "area": 0,
+      "traits": [
+        "Atacante",
+        "Defensor",
+        "Aventureiro"
+      ],
+      "ratings": {
+        "hp": 5,
+        "atk": 5,
+        "defense": 3,
+        "attackSpeed": 2,
+        "speed": 3,
+        "crit": 1,
+        "skill": 4
+      },
+      "kind": "active",
+      "charge": 8,
+      "ability": "Investida demolidora",
+      "detail": "Avança até 120 unidades rumo ao alvo. Atinge cada inimigo no trajeto uma vez por 170% do ataque e o empurra 45 unidades.",
+      "rangeLabel": "Curto",
+      "areaLabel": "Alvo único"
+    },
+    {
+      "id": "dark_elf_noble",
+      "index": 52,
+      "name": "Nobre Elfo Sombrio",
+      "family": "warrior",
+      "race": "dark_elf",
+      "order": "blackfang",
+      "faction": "blackfang",
+      "variant": 0,
+      "color": "#b65454",
+      "rarity": 2,
+      "cost": 3,
+      "hp": 230,
+      "atk": 35,
+      "defense": 16,
+      "rate": 0.8620689655172414,
+      "speed": 60,
+      "crit": 0.25,
+      "range": 34,
+      "area": 0,
+      "traits": [
+        "Atacante",
+        "Ágil",
+        "Disciplinado"
+      ],
+      "ratings": {
+        "hp": 3,
+        "atk": 4,
+        "defense": 2,
+        "attackSpeed": 3,
+        "speed": 4,
+        "crit": 5,
+        "skill": 4
+      },
+      "kind": "active",
+      "charge": 5,
+      "ability": "Passo sombrio",
+      "detail": "Teleporta para um espaço livre atrás do alvo e golpeia por 180% do ataque. Sem invulnerabilidade.",
+      "rangeLabel": "Corpo a corpo",
+      "areaLabel": "Alvo único"
+    },
+    {
+      "id": "dark_elf_archer",
+      "index": 53,
+      "name": "Arqueiro Elfo Sombrio",
+      "family": "archer",
+      "race": "dark_elf",
+      "order": "blackfang",
+      "faction": "blackfang",
+      "variant": 0,
+      "color": "#b65454",
+      "rarity": 1,
+      "cost": 3,
+      "hp": 180,
+      "atk": 35,
+      "defense": 8,
+      "rate": 1.075268817204301,
+      "speed": 60,
+      "crit": 0.18,
+      "range": 180,
+      "area": 0,
+      "traits": [
+        "Atirador",
+        "Ágil",
+        "Disciplinado"
+      ],
+      "ratings": {
+        "hp": 2,
+        "atk": 4,
+        "defense": 1,
+        "attackSpeed": 3,
+        "speed": 4,
+        "crit": 4,
+        "skill": 4
+      },
+      "kind": "active",
+      "charge": 5,
+      "ability": "Flecha executora",
+      "detail": "Atira no inimigo com menor percentual de vida em alcance 180 por 180% do ataque, ou 240% se estiver abaixo de 30% de vida.",
+      "rangeLabel": "Longo",
+      "areaLabel": "Alvo único"
+    },
+    {
+      "id": "dark_elf_warrior",
+      "index": 54,
+      "name": "Guerreiro Elfo Sombrio",
+      "family": "warrior",
+      "race": "dark_elf",
+      "order": "blackfang",
+      "faction": "blackfang",
+      "variant": 0,
+      "color": "#b65454",
+      "rarity": 1,
+      "cost": 3,
+      "hp": 290,
+      "atk": 35,
+      "defense": 38,
+      "rate": 1.3513513513513513,
+      "speed": 49,
+      "crit": 0.12,
+      "range": 62,
+      "area": 0,
+      "traits": [
+        "Atacante",
+        "Defensor",
+        "Disciplinado"
+      ],
+      "ratings": {
+        "hp": 4,
+        "atk": 4,
+        "defense": 4,
+        "attackSpeed": 2,
+        "speed": 3,
+        "crit": 2,
+        "skill": 4
+      },
+      "kind": "active",
+      "charge": 5,
+      "ability": "Guarda punitiva",
+      "detail": "Corta um cone de 90 graus e alcance 85 por 160% do ataque. Recebe 20% de redução de dano por 3 segundos.",
+      "rangeLabel": "Curto",
+      "areaLabel": "Alvo único"
+    },
+    {
+      "id": "dark_elf_mage",
+      "index": 55,
+      "name": "Mago Elfo Sombrio",
+      "family": "mage",
+      "race": "dark_elf",
+      "order": "blackfang",
+      "faction": "blackfang",
+      "variant": 0,
+      "color": "#b65454",
+      "rarity": 2,
+      "cost": 4,
+      "hp": 180,
+      "atk": 27,
+      "defense": 8,
+      "rate": 1.3513513513513513,
+      "speed": 39,
+      "crit": 0.07,
+      "range": 145,
+      "area": 0,
+      "traits": [
+        "Arcano",
+        "Atacante",
+        "Disciplinado"
+      ],
+      "ratings": {
+        "hp": 2,
+        "atk": 3,
+        "defense": 1,
+        "attackSpeed": 2,
+        "speed": 2,
+        "crit": 1,
+        "skill": 4
+      },
+      "kind": "active",
+      "charge": 8,
+      "ability": "Grilhões arcanos",
+      "detail": "Atinge uma área de raio 55 na posição do alvo por 150% do ataque e imobiliza por 1,5 segundo.",
+      "rangeLabel": "Médio",
+      "areaLabel": "Alvo único"
+    }
+  ],
+  "decks": [
+    {
+      "id": "blackfang_goblins",
+      "name": "Incursão Goblin",
+      "strategy": "swift",
+      "ids": [
+        "goblin_spearman",
+        "goblin_archer",
+        "goblin_rider",
+        "goblin_bomber",
+        "goblin_brute",
+        "orc_warrior",
+        "orc_fighter",
+        "snow_troll"
+      ]
+    },
+    {
+      "id": "blackfang_brutal",
+      "name": "Vanguarda Brutal",
+      "strategy": "fortress",
+      "ids": [
+        "orc_warrior",
+        "orc_berserker",
+        "cave_troll",
+        "troll",
+        "goblin_brute",
+        "mountain_troll",
+        "snow_troll",
+        "goblin_bomber"
+      ]
+    },
+    {
+      "id": "blackfang_shadows",
+      "name": "Companhia Sombria",
+      "strategy": "blades",
+      "ids": [
+        "dark_elf_noble",
+        "dark_elf_archer",
+        "dark_elf_warrior",
+        "orc_fighter",
+        "dark_elf_mage",
+        "orc_warrior",
+        "snow_troll",
+        "goblin_rider"
+      ]
+    },
+    {
+      "id": "blackfang_boss",
+      "name": "Corte Blackfang",
+      "strategy": "fortress",
+      "ids": [
+        "goblin_king",
+        "orc_warrior",
+        "goblin_bomber",
+        "dark_elf_warrior",
+        "mountain_troll",
+        "snow_troll",
+        "dark_elf_archer",
+        "goblin_rider"
+      ]
+    }
+  ],
+  "assets": {
+    "goblin_spearman": {
+      "size": [
+        1212,
+        1298
+      ],
+      "anchor": [
+        599.0,
+        1298
+      ],
+      "scale": 0.0784313725490196,
+      "art": "assets/goblin_spearman-art-v26.webp",
+      "sprite": "assets/goblin_spearman-sprite-v26.webp",
+      "portrait": "assets/goblin_spearman-portrait-v26.webp"
+    },
+    "goblin_archer": {
+      "size": [
+        1298,
+        1212
+      ],
+      "anchor": [
+        640.0,
+        1212
+      ],
+      "scale": 0.08382229673093043,
+      "art": "assets/goblin_archer-art-v26.webp",
+      "sprite": "assets/goblin_archer-sprite-v26.webp",
+      "portrait": "assets/goblin_archer-portrait-v26.webp"
+    },
+    "goblin_rider": {
+      "size": [
+        1212,
+        1298
+      ],
+      "anchor": [
+        598.0,
+        1298
+      ],
+      "scale": 0.07861635220125786,
+      "art": "assets/goblin_rider-art-v26.webp",
+      "sprite": "assets/goblin_rider-sprite-v26.webp",
+      "portrait": "assets/goblin_rider-portrait-v26.webp"
+    },
+    "goblin_brute": {
+      "size": [
+        1312,
+        1199
+      ],
+      "anchor": [
+        640.5,
+        1187
+      ],
+      "scale": 0.08561643835616438,
+      "art": "assets/goblin_brute-art-v26.webp",
+      "sprite": "assets/goblin_brute-sprite-v26.webp",
+      "portrait": "assets/goblin_brute-portrait-v26.webp"
+    },
+    "goblin_bomber": {
+      "size": [
+        1402,
+        1122
+      ],
+      "anchor": [
+        694.0,
+        1122
+      ],
+      "scale": 0.08912655971479501,
+      "art": "assets/goblin_bomber-art-v26.webp",
+      "sprite": "assets/goblin_bomber-sprite-v26.webp",
+      "portrait": "assets/goblin_bomber-portrait-v26.webp"
+    },
+    "goblin_king": {
+      "size": [
+        1312,
+        1199
+      ],
+      "anchor": [
+        655.0,
+        1199
+      ],
+      "scale": 0.08340283569641367,
+      "art": "assets/goblin_king-art-v26.webp",
+      "sprite": "assets/goblin_king-sprite-v26.webp",
+      "portrait": "assets/goblin_king-portrait-v26.webp"
+    },
+    "orc_warrior": {
+      "size": [
+        1212,
+        1298
+      ],
+      "anchor": [
+        600.0,
+        1298
+      ],
+      "scale": 0.07757951900698215,
+      "art": "assets/orc_warrior-art-v26.webp",
+      "sprite": "assets/orc_warrior-sprite-v26.webp",
+      "portrait": "assets/orc_warrior-portrait-v26.webp"
+    },
+    "orc_berserker": {
+      "size": [
+        1212,
+        1298
+      ],
+      "anchor": [
+        606.0,
+        1298
+      ],
+      "scale": 0.07733952049497293,
+      "art": "assets/orc_berserker-art-v26.webp",
+      "sprite": "assets/orc_berserker-sprite-v26.webp",
+      "portrait": "assets/orc_berserker-portrait-v33.webp"
+    },
+    "orc_fighter": {
+      "size": [
+        1310,
+        1200
+      ],
+      "anchor": [
+        644.0,
+        1200
+      ],
+      "scale": 0.08424599831508003,
+      "art": "assets/orc_fighter-art-v26.webp",
+      "sprite": "assets/orc_fighter-sprite-v26.webp",
+      "portrait": "assets/orc_fighter-portrait-v26.webp"
+    },
+    "cave_troll": {
+      "size": [
+        1254,
+        1254
+      ],
+      "anchor": [
+        611.0,
+        1254
+      ],
+      "scale": 0.08136696501220504,
+      "art": "assets/cave_troll-art-v26.webp",
+      "sprite": "assets/cave_troll-sprite-v26.webp",
+      "portrait": "assets/cave_troll-portrait-v26.webp"
+    },
+    "snow_troll": {
+      "size": [
+        1312,
+        1199
+      ],
+      "anchor": [
+        643.5,
+        1199
+      ],
+      "scale": 0.08389261744966443,
+      "art": "assets/snow_troll-art-v26.webp",
+      "sprite": "assets/snow_troll-sprite-v26.webp",
+      "portrait": "assets/snow_troll-portrait-v26.webp"
+    },
+    "troll": {
+      "size": [
+        1235,
+        1274
+      ],
+      "anchor": [
+        615.5,
+        1274
+      ],
+      "scale": 0.07955449482895784,
+      "art": "assets/troll-art-v26.webp",
+      "sprite": "assets/troll-sprite-v26.webp",
+      "portrait": "assets/troll-portrait-v26.webp"
+    },
+    "mountain_troll": {
+      "size": [
+        1254,
+        1254
+      ],
+      "anchor": [
+        619.0,
+        1254
+      ],
+      "scale": 0.08077544426494346,
+      "art": "assets/mountain_troll-art-v26.webp",
+      "sprite": "assets/mountain_troll-sprite-v26.webp",
+      "portrait": "assets/mountain_troll-portrait-v26.webp"
+    },
+    "dark_elf_noble": {
+      "size": [
+        1254,
+        1254
+      ],
+      "anchor": [
+        617.0,
+        1254
+      ],
+      "scale": 0.08097165991902834,
+      "art": "assets/dark_elf_noble-art-v31.webp",
+      "sprite": "assets/dark_elf_noble-sprite-v26.webp",
+      "portrait": "assets/dark_elf_noble-portrait-v26.webp"
+    },
+    "dark_elf_archer": {
+      "size": [
+        1254,
+        1254
+      ],
+      "anchor": [
+        620.0,
+        1254
+      ],
+      "scale": 0.08084074373484236,
+      "art": "assets/dark_elf_archer-art-v26.webp",
+      "sprite": "assets/dark_elf_archer-sprite-v26.webp",
+      "portrait": "assets/dark_elf_archer-portrait-v26.webp"
+    },
+    "dark_elf_warrior": {
+      "size": [
+        1212,
+        1298
+      ],
+      "anchor": [
+        595.0,
+        1298
+      ],
+      "scale": 0.07818608287724785,
+      "art": "assets/dark_elf_warrior-art-v26.webp",
+      "sprite": "assets/dark_elf_warrior-sprite-v26.webp",
+      "portrait": "assets/dark_elf_warrior-portrait-v31.webp"
+    },
+    "dark_elf_mage": {
+      "size": [
+        1374,
+        1145
+      ],
+      "anchor": [
+        673.0,
+        1145
+      ],
+      "scale": 0.08733624454148471,
+      "art": "assets/dark_elf_mage-art-v26.webp",
+      "sprite": "assets/dark_elf_mage-sprite-v26.webp",
+      "portrait": "assets/dark_elf_mage-portrait-v26.webp"
+    }
+  }
+}
