@@ -4,7 +4,7 @@
 'use strict';
 const fs = require('fs'), f = process.argv[2]; let s = fs.readFileSync(f, 'utf8');
 const V = Object.assign({ legends: [.35, .6], goblin: [.04, .07], trail: [.3, .5], trailMove: [1.15, 1.25], protector: [.05, .10], patientDef: [.08, .15], patientAtk: [.04, .08], fearless: [.08, .15], arcane: [.15, .30] }, JSON.parse(process.argv[3] || '{}'));
-const v = (k, unit = 'a', name) => `val(${unit},'${name}',${V[k][0]},${V[k][1]})`;
+const v = (k, unit = 'a', name) => V[k] === null ? '0' : `val(${unit},'${name}',${V[k][0]},${V[k][1]})`;
 const R = [
   // damage(): new bonuses (Legends, Goblin, Trailblazer, Patient, Fearless)
   ["const down=st.atkDownUntil>b.time?.15:0;n*=1+bonus;",
@@ -26,8 +26,10 @@ const R = [
   // Trailblazer: smaller movement bonus
   ["case'Trailblazer':st.speed*=v?1.5:1.25;", `case'Trailblazer':st.speed*=v?${V.trailMove[1]}:${V.trailMove[0]};`],
   // Arcane alternative: permanent skill power for members; old relay disabled
-  ["st.area=G.BY[c.type].area||0;if(!k)return st;", `st.area=G.BY[c.type].area||0;{const ar=tier(n,'Arcane');if(ar&&G.BY[c.type].traits.includes('Arcane'))st.skill*=1+(ar===2?${V.arcane[1]}:${V.arcane[0]});}if(!k)return st;`],
+  ["st.area=G.BY[c.type].area||0;if(!k)return st;", `st.area=G.BY[c.type].area||0;{const ar=tier(n,'Arcane');if(ar&&G.BY[c.type].traits.includes('Arcane'))st.skill*=1+(ar===2?${(V.arcane||[0,0])[1]}:${(V.arcane||[0,0])[0]});}if(!k)return st;`],
   ["bonus:val(u,'Arcane',.4,.6)}", "bonus:0}"],
 ];
+// Arcane alternative is excluded when V.arcane === null (approved decision: keep the numeric relay 40/60%).
+if (V.arcane === null) R.splice(R.length - 2, 2);
 for (const [a, b] of R) { const k = s.split(a).length - 1; if (k !== 1) throw Error('match ' + k + ': ' + a.slice(0, 60)); s = s.replace(a, b); }
 fs.writeFileSync(f, s); console.log('mechanics applied', R.length, JSON.stringify(V));

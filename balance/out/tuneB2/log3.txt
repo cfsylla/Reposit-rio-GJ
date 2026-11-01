@@ -1,0 +1,2 @@
+flower_fairy       target 1.08 before 1.05 m 1.25 after 1.09
+feline_arcanist    target 1.08 before 1.07 m 1 after 1.07

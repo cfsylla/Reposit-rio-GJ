@@ -30,6 +30,7 @@ const F = (type, extra = {}) => ({ type, fused: true, level: 2, ...extra });
 const SUP = {
   'quatro curandeiros fundidos': [F('gladiator'), F('orc_warrior'), F('priestess'), F('elf_harpist'), F('snow_troll'), F('shaman')],
   'curandeiros + bônus fundidos': [F('gladiator'), F('bear_druid'), F('elf_harpist'), F('goblin_king'), F('sage'), F('bard')],
+  'três auras de defesa fundidas': [F('gladiator'), F('bastion'), F('snow_troll'), F('priestess'), F('sage'), F('shaman')],
   'dois curandeiros fundidos + dano': [F('gladiator'), F('cavalier'), F('cowboy'), F('musketeer'), F('priestess'), F('snow_troll')],
 };
 const ENEMY = {
