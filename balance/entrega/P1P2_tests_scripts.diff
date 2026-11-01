@@ -1,5 +1,5 @@
 diff --git a/v54/tests/traits-v54.cjs b/game/tests/traits-v54.cjs
-index 7c98196..1c979cf 100644
+index 7c98196..c1fb241 100644
 --- a/v54/tests/traits-v54.cjs
 +++ b/game/tests/traits-v54.cjs
 @@ -7,27 +7,27 @@ function settle(b,p){const living=b.units.filter(v=>v.hp>0);G.settleRelicDamage(
@@ -29,13 +29,13 @@ index 7c98196..1c979cf 100644
 +b=battle(['elf_noble','elf_guardian']);a=b.units[0];e=b.units[1];T.beforeSkill(b,a);T.afterSkill(b,a);assert(Math.abs(e.shield-a.maxhp*.15)<1e-9);e.shield=0;T.beforeSkill(b,a);T.afterSkill(b,a);assert.equal(e.shield,0);
  b=battle(['feline_swordsman','feline_rogue']);a=b.units[0];e=b.units[2];a.shield=0;a.shieldTime=0;settle(b,[{source:e,target:a,damage:10000,basic:true}]);assert.equal(a.hp,1);assert(T.immune(b,a));b.time=1;settle(b,[{source:e,target:a,damage:10000,basic:true}]);assert.equal(a.hp,0);
 -// Temperaments: positioning, health, time, target choice and bounded taunts.
-+// Temperaments: positioning, health, time, target choice; Patient stacks, Fearless damage, Protector aura (balance P2).
++// Temperaments: positioning, health, time, target choice; Patient stacks, Fearless guaranteed crits (V4), Protector aura (balance P2).
  b=battle(['shinobi','ronin'],['warrior'],true);a=b.units[0];e=b.units[2];a.x=20;b.units[1].x=300;assert.equal(T.damage(b,a,e,100,true,{}),115);b.units[1].x=50;assert.equal(T.damage(b,a,e,100,true,{}),100);
  b=battle(['mage','sorceress'],['warrior'],true);a=b.units[1];e=b.units[2];assert.equal(T.damage(b,a,e,100,true,{}),120);b.time=6;assert.equal(T.damage(b,a,e,100,true,{}),100);
 -b=battle(['elf_harpist','priestess','shaman','glutton'],['warrior'],true);a=b.units[1];b.time=10;assert.equal(T.defense(b,a,100),180);
 -b=battle(['warrior','swordsman','fighter','viking'],['warrior'],true);a=b.units[0];a.hp=a.maxhp*.39;assert.equal(T.crit(b,a,.5),.75);a.hp=a.maxhp*.4;assert.equal(T.crit(b,a,.07),.07);
 +b=battle(['elf_harpist','priestess','shaman','glutton'],['warrior'],true);a=b.units[1];assert.equal(T.defense(b,a,100),100);b.time=3;assert(Math.abs(T.defense(b,a,100)-115)<1e-9);b.time=10;assert(Math.abs(T.defense(b,a,100)-145)<1e-9);
-+b=battle(['warrior','swordsman','fighter','viking'],['warrior'],true);a=b.units[0];e=b.units[4];a.hp=a.maxhp*.39;assert.equal(T.crit(b,a,.5),.5);assert(Math.abs(T.damage(b,a,e,100,true,{})-130)<1e-9);a.hp=a.maxhp*.4;assert(Math.abs(T.damage(b,a,e,100,true,{})-115)<1e-9);
++b=battle(['warrior','swordsman','fighter','viking'],['warrior'],true);a=b.units[0];e=b.units[4];a.hits=1;assert.equal(T.crit(b,a,.07),.07);a.hits=2;assert.equal(T.crit(b,a,.07),1);a.hits=3;assert.equal(T.crit(b,a,.9),.75);a.hp=a.maxhp*.39;assert.equal(T.crit(b,a,.07),1);a.hp=a.maxhp*.4;assert.equal(T.crit(b,a,.07),.07);assert.equal(T.damage(b,a,e,100,true,{}),100);
  b=battle(['cowboy','musketeer'],['warrior'],true);a=b.units[0];e=b.units[2];e.hp=e.maxhp*.2;assert.equal(T.damage(b,a,e,100,true,{}),115);
 -b=battle(['bastion','shieldmaiden'],['warrior'],true);a=b.units[0];const ally=b.units[1];e=b.units[2];a.x=e.x=ally.x=200;a.y=300;ally.y=320;e.y=270;ally.hp=ally.maxhp*.2;T.beforeStep(b,.01);assert.equal(e.taunt,2);e.taunt=0;T.beforeStep(b,.01);assert.equal(e.taunt,0);
 +b=battle(['bastion','shieldmaiden'],['warrior'],true);a=b.units[0];const ally=b.units[1];e=b.units[2];a.x=e.x=ally.x=200;a.y=300;ally.y=320;e.y=270;ally.hp=ally.maxhp*.2;T.beforeStep(b,.01);assert.equal(e.taunt||0,0);assert(Math.abs(T.reduction(b,a,0)-.05)<1e-9);assert.equal(T.reduction(b,e,0),0);
