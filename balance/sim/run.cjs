@@ -22,6 +22,8 @@ const TREE_PRESETS = {
   // ~ a few runs of play: first nodes of four branches
   intermediate: ['pow_atk_1', 'vit_hp_1', 'def_armor_1', 'agi_rate_1', 'exp_gold_1', 'pow_atk_2', 'vit_hp_2', 'def_armor_2'],
   // many runs: all basics + specials on combat branches (no Marcos except devastating/survival)
+  // ~10 runs of XP: 15 basic nodes spread over the combat branches + gold
+  mid15: ['pow_atk_1', 'pow_atk_2', 'pow_atk_3', 'pow_atk_5', 'vit_hp_1', 'vit_hp_2', 'vit_hp_3', 'vit_hp_4', 'def_armor_1', 'def_armor_2', 'def_armor_3', 'def_armor_4', 'agi_rate_1', 'agi_rate_2', 'exp_gold_1'],
   advanced: null, // filled below: every node except Expedition Marcos
 };
 TREE_PRESETS.advanced = TreeData.nodes ? TreeData.nodes.filter(n => n.id !== 'origin' && !['expanded_bag', 'caravan'].includes(n.id)).map(n => n.id) : Object.keys(TreeData.by).filter(id => id !== 'origin' && !['expanded_bag', 'caravan'].includes(id));
@@ -29,7 +31,7 @@ const TREE_BUY_ORDER = ['pow_atk_1', 'vit_hp_1', 'def_armor_1', 'agi_rate_1', 'p
   'def_armor_3', 'def_armor_4', 'agi_rate_3', 'agi_rate_4', 'pow_atk_5', 'first_impact', 'second_wind', 'formation', 'strong_shields', 'sprint', 'momentum'];
 
 function playFight(s, pol, rec, dt) {
-  const fight = { act: A.act(s), layer: s.layer, type: s.current.type, campaign: s.current.campaign || null, force: s.current.forceId || null, raid: s.raid ? s.raid.kind || s.current.raidKind : null,
+  const fight = { act: A.act(s), layer: s.layer, type: s.current.type, campaign: s.current.campaign || null, force: s.current.forceId || null, bossId: s.current.bossId || null, raid: s.raid ? s.raid.kind || s.current.raidKind : null,
     event: !!s.eventEncounter, enemyRelics: [...(s.ai?.artifacts || [])], enemyLevels: s.ai?.cards ? [s.ai.cards.filter(c => c.level === 1).length, s.ai.cards.filter(c => c.level === 2).length] : null,
     relicOpp: s.relicOpportunities, stageGlobal: s.mapBattles, stageLocal: A.localStage(s), rounds: [], fusions: 0, energyLeft: [], playerLevels: [s.cards.filter(c => c.level === 1).length, s.cards.filter(c => c.level === 2).length], gold: s.gold, relics: [...s.artifacts] };
   for (let guard = 0; guard < 40; guard++) {

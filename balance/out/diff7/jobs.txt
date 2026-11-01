@@ -1,0 +1,15 @@
+GJ_ROOT=balance/work/diff/V11 node balance/sim/run.cjs --decks vanguard --seeds 1-10 --events safe --shop balanced --tree mid15 --out balance/out/diff7/V11_mid15_vanguard.jsonl > /dev/null 2>&1
+GJ_ROOT=balance/work/diff/V11 node balance/sim/run.cjs --decks balanced --seeds 1-10 --events safe --shop balanced --tree mid15 --out balance/out/diff7/V11_mid15_balanced.jsonl > /dev/null 2>&1
+GJ_ROOT=balance/work/diff/V11 node balance/sim/run.cjs --decks swift --seeds 1-10 --events safe --shop balanced --tree mid15 --out balance/out/diff7/V11_mid15_swift.jsonl > /dev/null 2>&1
+GJ_ROOT=balance/work/diff/V11 node balance/sim/run.cjs --decks arcane --seeds 1-10 --events safe --shop balanced --tree mid15 --out balance/out/diff7/V11_mid15_arcane.jsonl > /dev/null 2>&1
+GJ_ROOT=balance/work/diff/V11 node balance/sim/run.cjs --decks outlaws --seeds 1-10 --events safe --shop balanced --tree mid15 --out balance/out/diff7/V11_mid15_outlaws.jsonl > /dev/null 2>&1
+GJ_ROOT=balance/work/diff/V11 node balance/sim/run.cjs --decks fortress --seeds 1-10 --events safe --shop balanced --tree mid15 --out balance/out/diff7/V11_mid15_fortress.jsonl > /dev/null 2>&1
+GJ_ROOT=balance/work/diff/V11 node balance/sim/run.cjs --decks blades --seeds 1-10 --events safe --shop balanced --tree mid15 --out balance/out/diff7/V11_mid15_blades.jsonl > /dev/null 2>&1
+GJ_ROOT=balance/work/diff/V11 node balance/sim/run.cjs --decks fireline --seeds 1-10 --events safe --shop balanced --tree mid15 --out balance/out/diff7/V11_mid15_fireline.jsonl > /dev/null 2>&1
+GJ_ROOT=balance/work/diff/V11 node balance/sim/run.cjs --decks astral --seeds 1-10 --events safe --shop balanced --tree mid15 --out balance/out/diff7/V11_mid15_astral.jsonl > /dev/null 2>&1
+GJ_ROOT=balance/work/diff/V11 node balance/sim/run.cjs --decks corsair --seeds 1-10 --events safe --shop balanced --tree mid15 --out balance/out/diff7/V11_mid15_corsair.jsonl > /dev/null 2>&1
+GJ_ROOT=balance/work/diff/V11 node balance/sim/run.cjs --decks north --seeds 1-10 --events safe --shop balanced --tree mid15 --out balance/out/diff7/V11_mid15_north.jsonl > /dev/null 2>&1
+GJ_ROOT=balance/work/diff/V11 node balance/sim/run.cjs --decks verdant --seeds 1-10 --events safe --shop balanced --tree mid15 --out balance/out/diff7/V11_mid15_verdant.jsonl > /dev/null 2>&1
+GJ_ROOT=balance/work/diff/V11 node balance/sim/run.cjs --decks keen --seeds 1-10 --events safe --shop balanced --tree mid15 --out balance/out/diff7/V11_mid15_keen.jsonl > /dev/null 2>&1
+GJ_ROOT=balance/work/diff/V11 node balance/sim/run.cjs --decks quake --seeds 1-10 --events safe --shop balanced --tree mid15 --out balance/out/diff7/V11_mid15_quake.jsonl > /dev/null 2>&1
+GJ_ROOT=balance/work/diff/V11 node balance/sim/run.cjs --decks executioners --seeds 1-10 --events safe --shop balanced --tree mid15 --out balance/out/diff7/V11_mid15_executioners.jsonl > /dev/null 2>&1
