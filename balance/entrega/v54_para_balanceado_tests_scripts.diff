@@ -86,24 +86,83 @@ index 0000000..ae5806e
 +  a.hits = 1; const first = T.damage(b, a, e, 100, false, {}); assert(first >= 165 - 1e-9, 'first basic after moving +65%');
 +  const second = T.damage(b, a, e, 100, false, {}); assert(second < first, 'no bonus without moving / before 4s'); }
 +console.log('PASS balance P1/P2: data module, skillScale, support aura rules (emitter excluded, additive, no feedback, healing others), Trailblazer first strike.');
+diff --git a/game/tests/decks-p3.cjs b/game/tests/decks-p3.cjs
+new file mode 100644
+index 0000000..ba85fae
+--- /dev/null
++++ b/game/tests/decks-p3.cjs
+@@ -0,0 +1,26 @@
++/* Balance P3: 24 borrowed decks, counts format, starting relics, unlocks (milestones, order bosses, save migration), hidden order decks. */
++const assert = require('node:assert/strict');
++for (const f of ['game-0', 'balance-p1', 'decks-p3', 'training-engine', 'raid-engine', 'monster-engine', 'acts-engine', 'boss-engine', 'map-variety', 'tree-data', 'tree-engine', 'journey-debug', 'content-v53', 'traits-v54', 'supports-b']) require('../dist/' + f + '.js');
++const G = Game, P = Progress, X = JourneyDecksP3;
++assert.equal(G.DECKS.length, 24);
++const ids = new Set(G.DECKS.map(d => d.id)); for (const old of ['vanguard', 'balanced', 'swift', 'arcane', 'outlaws', 'fortress', 'blades', 'fireline', 'astral', 'corsair']) assert(ids.has(old), 'existing id kept: ' + old);
++const used = new Set();
++for (const d of G.DECKS) {
++  const cards = G.deckCards(d); assert.equal(cards.length, 20, d.id);
++  const n = {}; for (const t of cards) { n[t] = (n[t] || 0) + 1; used.add(t); assert(G.BY[t], t); if (G.BY[t].order) assert.equal(G.BY[t].order, d.order, d.id + ' order units only in order decks'); }
++  assert(Math.max(...Object.values(n)) <= 4, d.id); assert(G.packBag([d.startRelic]), d.id + ' relic fits'); assert.equal(P.START_RELICS[d.id], d.startRelic);
++  P.load(P.freshProfile()); const s = G.fresh(d.id, 11); assert.equal(s.cards.length, 20); assert.deepEqual(s.artifacts, [d.startRelic]);
++}
++assert.equal(used.size, 77, 'every character appears in some deck');
++// Fresh profile: only the starter; order decks locked; elites never use order decks before unlock.
++P.load(P.freshProfile()); assert.deepEqual(P.profile.decks, ['vanguard']);
++for (let seed = 1; seed <= 200; seed++) { const s = G.fresh('vanguard', seed); s.layer = 4; s.phase = 'map'; s.route = [s.map[3][0].id]; const n = G.available(s).find(n => n.type === 'elite' && !n.campaign); if (!n) continue; G.enter(s, n.id); if (s.ai?.deckId) assert(!G.DECKS.find(d => d.id === s.ai.deckId)?.order, 'elite uses order deck ' + s.ai.deckId); }
++// Milestone unlock and save migration.
++P.load(P.freshProfile()); P.profile.stats.elites = 1; P.check(); assert(P.profile.decks.includes('keen'));
++const old = P.freshProfile(); old.milestones = ['elite', 'events']; old.decks = ['vanguard']; P.load(old); assert(P.profile.decks.includes('keen') && P.profile.decks.includes('verdant'), 'migration grants decks of completed milestones');
++// Order boss and true boss unlocks.
++const ob = P.freshProfile(); ob.blackfangUnlocked = true; P.load(ob); assert(P.profile.decks.includes('greenskins') && P.profile.decks.includes('goblin_horde') && !P.profile.decks.includes('dark_court'));
++const tb = P.freshProfile(); tb.dawncrestUnlocked = true; tb.stats.trueBoss_dawncrest = 1; P.load(tb); for (const id of ['meowri_band', 'high_court', 'forest_guard', 'centaur_charge', 'dawncrest_choir']) assert(P.profile.decks.includes(id), id);
++// New milestone: boss of map 2.
++P.load(P.freshProfile()); P.profile.stats.map2Bosses = 1; P.check(); assert(P.profile.decks.includes('quake'));
++console.log('PASS P3: 24 decks (counts, 20 cards, max 4, relics), all 77 characters used, hidden order decks, milestone/order/true-boss unlocks and save migration.');
+diff --git a/v54/tests/systems-v18.cjs b/game/tests/systems-v18.cjs
+index a69c2ff..55fc5a6 100644
+--- a/v54/tests/systems-v18.cjs
++++ b/game/tests/systems-v18.cjs
+@@ -3,7 +3,7 @@ let passed=0;function test(name,f){f();passed++;console.log('PASS',name)}
+ function state(types=['warrior','warrior','warrior']){const s=G.fresh('balanced',1);s.artifacts=[];s.bag={items:[]};s.cards=types.map((type,i)=>({uid:'t'+i,type,level:0}));s.phase='prep';s.round=3;s.energy=50;s.hand=s.cards.map(c=>c.uid);s.draw=[];s.discard=[];s.board=Array(15).fill(null);s.bench=Array(6).fill(null);s.fusions={};return s;}
+ function battle(types){const s=state(types);s.current={type:'battle',name:'test'};s.mapBattles=1;s.encounters=1;s.board=s.hand;s.board=[...s.hand,...Array(15-s.hand.length).fill(null)];s.hand=[];const b=G.createBattle(s);b.units=b.units.filter(u=>u.side===0);return {s,b};}
+ function foe(type='warrior'){return{uid:'enemy',type,side:1,hp:10000,maxhp:10000,atk:10,skill:1,defense:0,armor:0,rate:1,speed:0,range:34,x:65,y:345,cooldown:999,crit:0,progress:0,charge:5};}
+-test('all borrowed decks: 20 cards, 8 types, 4 triples + 4 pairs',()=>{for(const d of G.DECKS){const s=G.fresh(d.id,1),n=Object.values(s.cards.reduce((a,c)=>(a[c.type]=(a[c.type]||0)+1,a),{}));assert.equal(n.length,8);assert.equal(n.filter(v=>v===3).length,4);assert.equal(n.filter(v=>v===2).length,4);assert.equal(s.cards.length,20);}});
++test('all borrowed decks: 20 cards, at most 4 copies (P3 counts format; legacy 3/3/3/3/2/2/2/2 without counts)',()=>{for(const d of G.DECKS){const s=G.fresh(d.id,1),n=Object.values(s.cards.reduce((a,c)=>(a[c.type]=(a[c.type]||0)+1,a),{}));assert.equal(s.cards.length,20);assert(Math.max(...n)<=4);if(!d.counts){assert.equal(n.length,8);assert.equal(n.filter(v=>v===3).length,4);assert.equal(n.filter(v=>v===2).length,4);}}});
+ test('six energy for three Warriors; oldest field position retained',()=>{const s=state();s.energy=6;G.play(s,'t0',4);G.deploy(s,'t1',0,'bench');G.play(s,'t2',4);assert.equal(s.energy,0);assert.equal(s.board[4],'t0');assert.equal(s.bench.filter(Boolean).length,0);assert.equal(G.card(s,'t0').fused,true);assert(G.audit(s));});
+ test('third copy in hand never fuses for free',()=>{const s=state();G.play(s,'t0',2);G.deploy(s,'t1',0,'bench');s.energy=1;assert.equal(G.deploy(s,'t2',2),false);assert(!G.card(s,'t0').fused);assert(s.hand.includes('t2'));assert(G.audit(s));});
+ test('bench-only fusion, refund and three independent cards restored',()=>{const s=state();for(let i=0;i<3;i++)assert(G.deploy(s,'t'+i,i,'bench'));assert.equal(s.bench[0],'t0');assert(G.audit(s));const before=s.energy;assert(G.removeAt(s,'bench',0));assert.equal(s.energy,before+3);assert.deepEqual(s.discard.sort(),['t0','t1','t2']);assert(!G.card(s,'t0').fused);assert(G.audit(s));});
+diff --git a/v54/tests/roster-v37.cjs b/game/tests/roster-v37.cjs
+index 2b107c3..bc5e28b 100644
+--- a/v54/tests/roster-v37.cjs
++++ b/game/tests/roster-v37.cjs
+@@ -11,7 +11,7 @@ function damage(q,from,to,n=100,skill=false){const pending=[];G.hit(q.b,from,to,
+ test('77 unique cards, correct pools, 66 supplied assets and finite stats',()=>{
+  assert.equal(G.UNITS.length,77);assert.equal(new Set(G.UNITS.map(u=>u.id)).size,77);assert.equal(P.playerUnits().length,41);
+  assert.equal(G.UNITS.filter(u=>u.order==='dawncrest').length,18);assert.equal(G.UNITS.filter(u=>u.order==='blackfang').length,18);
+- for(const u of data.units){assert.equal(G.BY[u.id].traits.length,3);assert(G.BY[u.id].traits.every(t=>G.TRAITS[t]));for(const k of ['hp','atk','defense','rate','speed','crit','range'])close(G.BY[u.id][k],u[k],u.id+' '+k);for(const role of ['art','portrait','sprite'])assert(fs.existsSync('dist/'+data.assets[u.id][role]));const st=G.stats({type:u.id,level:2},{artifacts:[]},[]);assert(st.hp>u.hp&&st.atk>u.atk);}
++ for(const u of data.units){assert.equal(G.BY[u.id].traits.length,3);assert(G.BY[u.id].traits.every(t=>G.TRAITS[t]));for(const k of ['hp','atk','defense','rate','speed','crit','range'])close(G.BY[u.id][k],G.BALANCE_P1?.[u.id]?.[k]??u[k],u.id+' '+k);for(const role of ['art','portrait','sprite'])assert(fs.existsSync('dist/'+data.assets[u.id][role]));const st=G.stats({type:u.id,level:2},{artifacts:[]},[]);assert(st.hp>G.BY[u.id].hp&&st.atk>G.BY[u.id].atk);}
+  assert.deepEqual(['sheriff','bard','gladiator'].map(id=>P.visibleCard(id)),[true,true,true]);
+  for(const b of P.BOOSTERS.filter(b=>!['blackfang','dawncrest'].includes(b.id)))assert(b.ids.every(id=>!G.BY[id].order));
+ });
 diff --git a/v54/scripts/validate-balance-base.cjs b/game/scripts/validate-balance-base.cjs
-index 1c5a49b..b5de8f8 100644
+index 1c5a49b..a48a1f8 100644
 --- a/v54/scripts/validate-balance-base.cjs
 +++ b/game/scripts/validate-balance-base.cjs
-@@ -2,12 +2,14 @@
+@@ -2,12 +2,15 @@
  const {spawnSync}=require('node:child_process');
  const path=require('node:path');
  const root=path.resolve(__dirname,'..');
 -const full=['game-0','training-engine','raid-engine','monster-engine','acts-engine','boss-engine','map-variety','tree-data','tree-engine','journey-debug','content-v53','traits-v54'];
 -const boss=['game-0','training-engine','raid-engine','monster-engine','acts-engine','map-notes','boss-engine','traits-v54'];
-+const full=['game-0','balance-p1','training-engine','raid-engine','monster-engine','acts-engine','boss-engine','map-variety','tree-data','tree-engine','journey-debug','content-v53','traits-v54','supports-b'];
-+const boss=['game-0','balance-p1','training-engine','raid-engine','monster-engine','acts-engine','map-notes','boss-engine','traits-v54','supports-b'];
-+const pre=['-r','./dist/game-0.js','-r','./dist/balance-p1.js'];
++const full=['game-0','balance-p1','decks-p3','training-engine','raid-engine','monster-engine','acts-engine','boss-engine','map-variety','tree-data','tree-engine','journey-debug','content-v53','traits-v54','supports-b'];
++const boss=['game-0','balance-p1','decks-p3','training-engine','raid-engine','monster-engine','acts-engine','map-notes','boss-engine','traits-v54','supports-b'];
++const pre=['-r','./dist/game-0.js','-r','./dist/balance-p1.js','-r','./dist/decks-p3.js'];
  const jobs=[
 - ['Traits v54',['tests/traits-v54.cjs']],
 - ['Events/curses/relics v53',['tests/content-v53.cjs']],
 - ['History/navigation/animation v52',['tests/fixes-v52.cjs']],
 + ['Balance P1/P2 (data, supports model B, new trait mechanics)',['tests/balance-p2.cjs']],
++ ['Balance P3 (24 decks, unlocks, save migration)',['tests/decks-p3.cjs']],
 + ['Traits v54 (+P1/P2 values)',[...pre,'-e',full.map(f=>`require('./dist/${f}.js')`).join(';')+";require('./tests/traits-v54.cjs')"]],
 + ['Events/curses/relics v53',[...pre,'tests/content-v53.cjs']],
 + ['History/navigation/animation v52',[...pre,'tests/fixes-v52.cjs']],

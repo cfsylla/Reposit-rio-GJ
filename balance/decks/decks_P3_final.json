@@ -326,12 +326,14 @@
     "orc_warrior": 3,
     "goblin_brute": 3,
     "dark_elf_archer": 3,
-    "goblin_archer": 3,
+    "goblin_archer": 2,
     "troll": 2,
     "goblin_king": 2,
     "dark_elf_noble": 2,
-    "orc_berserker": 2
-   }
+    "mountain_troll": 2,
+    "snow_troll": 1
+   },
+   "v7": "inclui Troll da Montanha e Troll das Neves (estavam sem deck)"
   },
   {
    "id": "meowri_band",

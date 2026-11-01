@@ -11,7 +11,7 @@ function damage(q,from,to,n=100,skill=false){const pending=[];G.hit(q.b,from,to,
 test('77 unique cards, correct pools, 66 supplied assets and finite stats',()=>{
  assert.equal(G.UNITS.length,77);assert.equal(new Set(G.UNITS.map(u=>u.id)).size,77);assert.equal(P.playerUnits().length,41);
  assert.equal(G.UNITS.filter(u=>u.order==='dawncrest').length,18);assert.equal(G.UNITS.filter(u=>u.order==='blackfang').length,18);
- for(const u of data.units){assert.equal(G.BY[u.id].traits.length,3);assert(G.BY[u.id].traits.every(t=>G.TRAITS[t]));for(const k of ['hp','atk','defense','rate','speed','crit','range'])close(G.BY[u.id][k],u[k],u.id+' '+k);for(const role of ['art','portrait','sprite'])assert(fs.existsSync('dist/'+data.assets[u.id][role]));const st=G.stats({type:u.id,level:2},{artifacts:[]},[]);assert(st.hp>u.hp&&st.atk>u.atk);}
+ for(const u of data.units){assert.equal(G.BY[u.id].traits.length,3);assert(G.BY[u.id].traits.every(t=>G.TRAITS[t]));for(const k of ['hp','atk','defense','rate','speed','crit','range'])close(G.BY[u.id][k],G.BALANCE_P1?.[u.id]?.[k]??u[k],u.id+' '+k);for(const role of ['art','portrait','sprite'])assert(fs.existsSync('dist/'+data.assets[u.id][role]));const st=G.stats({type:u.id,level:2},{artifacts:[]},[]);assert(st.hp>G.BY[u.id].hp&&st.atk>G.BY[u.id].atk);}
  assert.deepEqual(['sheriff','bard','gladiator'].map(id=>P.visibleCard(id)),[true,true,true]);
  for(const b of P.BOOSTERS.filter(b=>!['blackfang','dawncrest'].includes(b.id)))assert(b.ids.every(id=>!G.BY[id].order));
 });
