@@ -1,0 +1,1 @@
+{ "name": "BC2: 2 XP por luta nos mapas 1 e 2, boss 4/6/8 + C1", "xpFight": [2, 2, 1], "xpBoss": [4, 6, 8], "costDepth": { "0": 4, "1": 6, "2": 8 } }

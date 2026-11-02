@@ -37,3 +37,29 @@ if (process.env.GJ_OVERRIDES) {
   };
   module.exports.OVERRIDES = ov;
 }
+
+/* TREE / XP VARIANTS (testing only; the game files are not modified).
+ * GJ_TREE_VARIANT=path.json with
+ *   { xpFight: [m1, m2, m3], xpBoss: [m1, m2, m3],            // XP per normal fight / boss win, by map (game: 1,1,1 / 2,4,6)
+ *     costDepth: { "0": 4, "1": 6, "2": 8 },                   // cost of BASIC nodes by depth (start = 0,1); others unchanged
+ *     costs: { nodeId: cost } }                                 // explicit per-node costs (applied last)
+ * XP: the real award still runs; this wrapper adds the difference on the same win (same eligibility rules). */
+if (process.env.GJ_TREE_VARIANT) {
+  const tv = JSON.parse(require('node:fs').readFileSync(process.env.GJ_TREE_VARIANT, 'utf8'));
+  const D = g.JourneyTreeData, T = g.JourneyTree, P = g.Progress, A = g.JourneyActs;
+  if (tv.costDepth) for (const n of D.nodes) if (n.type === 'basic' && tv.costDepth[n.depth] !== undefined) n.cost = tv.costDepth[n.depth];
+  if (tv.costs) for (const [id, c] of Object.entries(tv.costs)) { if (!D.by[id]) throw Error('variant: unknown node ' + id); D.by[id].cost = c; }
+  if (tv.xpFight || tv.xpBoss) {
+    const inner = P.encounterWin;
+    P.encounterWin = function (s) {
+      const t = T.ensure(s), before = t ? t.earned.length : 0, r = inner(s);
+      if (t && t.earned.length > before) {
+        const a = A.act(s), boss = s.current?.type === 'boss', game = boss ? 2 * a : 1;
+        const want = boss ? (tv.xpBoss ? tv.xpBoss[a - 1] : game) : (tv.xpFight ? tv.xpFight[a - 1] : game);
+        t.xp += want - game; t.lastAward = want;
+      }
+      return r;
+    };
+  }
+  module.exports.TREE_VARIANT = tv;
+}

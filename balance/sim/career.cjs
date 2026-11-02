@@ -8,7 +8,7 @@
 'use strict';
 const fs = require('node:fs');
 const { playRun } = require('./run.cjs');
-const { TreeData } = require('./engine.cjs');
+const { TreeData, TREE_VARIANT: TV } = require('./engine.cjs');
 
 const a = {}, v = process.argv.slice(2);
 for (let i = 0; i < v.length; i += 2) a[v[i].replace(/^--/, '')] = v[i + 1];
@@ -16,7 +16,7 @@ const range = x => x.split(',').flatMap(p => { const [lo, hi] = p.split('-').map
 const decks = (a.decks || 'vanguard').split(','), careers = range(a.careers || '1'), runs = Number(a.runs || 40);
 const out = a.out ? fs.createWriteStream(a.out) : null;
 const cost = ids => ids.reduce((t, id) => t + (TreeData.by[id]?.cost || 0), 0);
-const xpOf = rec => rec.fights.filter(f => f.result === 'win' && !f.event).reduce((t, f) => t + (f.type === 'boss' ? 2 * f.act : 1), 0);
+const xpOf = rec => rec.fights.filter(f => f.result === 'win' && !f.event).reduce((t, f) => t + (f.type === 'boss' ? (TV?.xpBoss ? TV.xpBoss[f.act - 1] : 2 * f.act) : (TV?.xpFight ? TV.xpFight[f.act - 1] : 1)), 0);
 
 for (const deck of decks) for (const c of careers) {
   let unlocked = [];
