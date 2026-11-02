@@ -23,24 +23,24 @@ assert.equal(CH.select(['veterans', 'tough']), false, 'level 2 is not available 
 function run(ids, seed = 7) { const pc = CH.profile(); pc.unlocked = true; pc.available = 15; pc.selected = ids ? [...ids] : []; const s = G.fresh('vanguard', seed); G.enter(s, G.available(s)[0].id); return s; }
 function fight(ids, stage, type = 'battle', seed = 7) { const s = run(ids, seed); s.mapBattles = stage - 1; s.current = { ...s.current, type }; G.startConfront(s, s.current); return s; }
 const ups = s => s.ai.cards.reduce((n, c) => n + c.level, 0);
-assert.equal(ups(fight(['veterans'], 9)) - ups(fight(null, 9)), 2);
+assert.equal(ups(fight(['veterans'], 9)) - ups(fight(null, 9)), 3);
 assert.equal(ups(fight(['veterans'], 9, 'elite')), ups(fight(null, 9, 'elite')));
-assert.equal(ups(fight(['commanders'], 9, 'elite')) - ups(fight(null, 9, 'elite')), 2);
+assert.equal(ups(fight(['commanders'], 9, 'elite')) - ups(fight(null, 9, 'elite')), 3);
 { const st = ids => { const s = fight(ids, 5); s.round = 3; s.board[2] = s.cards[0].uid; return G.createBattle(s).units.filter(u => u.side === 1).map(u => [u.maxhp, u.atk]); };
-  const base = st(null), t = st(['tough']), r = st(['relentless']); base.forEach(([h, a], i) => { assert(Math.abs(t[i][0] / h - 1.15) < 1e-9); assert(Math.abs(r[i][1] / a - 1.15) < 1e-9); assert(Math.abs(t[i][1] / a - 1) < 1e-9); }); }
-{ const s = run(['leaders']), st = { hp: 100, atk: 100 }; CH.enemyStats(s, { type: 'boss_goblin' }, st); assert(Math.abs(st.hp - 100 / 0.8) < 1e-9); }
-{ const s = fight(['reinforcements'], 5); s.round = 2; assert.equal(G.maxUnits(s, true), 4); assert.equal(G.maxUnits(s, false), 3); }
+  const base = st(null), t = st(['tough']), r = st(['relentless']); base.forEach(([h, a], i) => { assert(Math.abs(t[i][0] / h - 1.04) < 1e-9); assert(Math.abs(r[i][1] / a - 1.04) < 1e-9); assert(Math.abs(t[i][1] / a - 1) < 1e-9); }); }
+{ const s = run(['leaders']), st = { hp: 100, atk: 100 }; CH.enemyStats(s, { type: 'boss_goblin' }, st); assert(Math.abs(st.hp - 100 / 0.8 * 1.25) < 1e-9); }
+{ const s = fight(['reinforcements'], 5, 'elite'); s.round = 2; assert.equal(G.maxUnits(s, true), 4); assert.equal(G.maxUnits(s, false), 3); assert.equal(CH.extraUnits(fight(['reinforcements'], 5)), 0); }
 { const s = fight(['reinforcements'], 9, 'boss'); assert.equal(CH.extraUnits(s), 0); }
-{ const s = run(['raidfury']); JourneyRaid.initialize(s, 'tree', { hp: 1, damage: 1, minions: 1 }, true); assert(Math.abs(s.raid.scale.hp - 1.25) < 1e-9); assert.equal(s.raid.scale.damage, 1); }
+{ const s = run(['raidfury']); JourneyRaid.initialize(s, 'tree', { hp: 1, damage: 1, minions: 1 }, true); assert(Math.abs(s.raid.scale.hp - 1.5) < 1e-9); assert(Math.abs(s.raid.scale.damage - 1.2) < 1e-9); }
 { const s = run(['inflation']), b = run(null); s.current = b.current = { id: 'x', type: 'shop' }; assert.equal(T.price(s, 'upgrade', 10, 0), 13); assert.equal(T.price(b, 'upgrade', 10, 0), 10); }
 { const s = run(['lightpurse']); assert.equal(T.gold(s, 16), 12); }
-{ const s = run(['scarce']), b = run(null); s.round = b.round = 3; assert.equal(G.energyIncome(s), G.energyIncome(b) - 1); assert.equal(G.energyIncome(s, true), G.energyIncome(b, true)); }
+{ const s = run(['scarce']), b = run(null); s.round = b.round = 1; assert.equal(G.energyIncome(s), G.energyIncome(b) - 1); assert.equal(G.energyIncome(s, true), G.energyIncome(b, true)); s.round = b.round = 2; assert.equal(G.energyIncome(s), G.energyIncome(b)); }
 { const s = run(['bag']); assert.equal(G.bagCapacity(s), 13); assert(CH.cellBlocked(s, 3, 3)); assert(!CH.cellBlocked(s, 0, 0)); }
-{ const s = run(['fewchoices']); assert.equal(T.offerCount(s, 3), 2); }
-{ const s = run(['fewrelics']); assert.equal(T.relicCount(s, 3), 2); }
+{ const s = run(['fewchoices']); assert.equal(T.offerCount(s, 3), 1); }
+{ const s = run(['fewrelics']); assert.equal(T.relicCount(s, 3), 1); }
 { const st = T.profile(); st.totalXp = 300; st.unlocked = []; for (const id of ['pow_atk_1', 'vit_hp_1', 'pow_atk_2', 'vit_hp_2', 'pow_atk_3', 'first_impact']) assert(T.buy(null, id), id);
-  const s = run(['treecap']); assert(CH.treeNodes(s, st.unlocked).reduce((t, id) => t + T.D.by[id].cost, 0) <= 210); st.unlocked = []; st.totalXp = 0; }
-assert.equal(run(['cursed']).cards.filter(c => c.type === 'burden').length, 2);
+  const s = run(['treecap']); assert(CH.treeNodes(s, st.unlocked).reduce((t, id) => t + T.D.by[id].cost, 0) <= 270); st.unlocked = []; st.totalXp = 0; }
+assert.deepEqual(run(['cursed']).cards.filter(c => JourneyContent.isCurse(c)).map(c => c.type).sort(), ['burden', 'chains', 'exhaustion']);
 { const pc = CH.profile(); pc.selected = ['veterans', 'scarce']; const s = G.fresh('vanguard', 3); s.training = { wins: 1 }; CH.start(s); assert.equal(s.challenges, undefined); assert.equal(CH.active(s, 'scarce'), false); }
 
 // Tree level model.
