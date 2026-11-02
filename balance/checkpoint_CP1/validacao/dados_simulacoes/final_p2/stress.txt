@@ -1,0 +1,13 @@
+copy /home/user/Reposit-rio-GJ/game
+quatro curandeiros fundidos        vs brigões fundidos       vitórias 6/6 empates 0/6 duração média 8.7s máx 9.0s
+quatro curandeiros fundidos        vs atiradores fundidos    vitórias 6/6 empates 0/6 duração média 15.1s máx 16.1s
+quatro curandeiros fundidos        vs espelho (mesmo time)   vitórias 4/6 empates 0/6 duração média 49.9s máx 53.6s
+curandeiros + bônus fundidos       vs brigões fundidos       vitórias 6/6 empates 0/6 duração média 4.8s máx 4.8s
+curandeiros + bônus fundidos       vs atiradores fundidos    vitórias 6/6 empates 0/6 duração média 10.2s máx 10.6s
+curandeiros + bônus fundidos       vs espelho (mesmo time)   vitórias 2/6 empates 0/6 duração média 47.1s máx 47.6s
+três auras de defesa fundidas      vs brigões fundidos       vitórias 6/6 empates 0/6 duração média 8.8s máx 9.5s
+três auras de defesa fundidas      vs atiradores fundidos    vitórias 6/6 empates 0/6 duração média 18.0s máx 18.2s
+três auras de defesa fundidas      vs espelho (mesmo time)   vitórias 6/6 empates 0/6 duração média 49.5s máx 49.8s
+dois curandeiros fundidos + dano   vs brigões fundidos       vitórias 6/6 empates 0/6 duração média 7.8s máx 8.1s
+dois curandeiros fundidos + dano   vs atiradores fundidos    vitórias 6/6 empates 0/6 duração média 11.0s máx 11.8s
+dois curandeiros fundidos + dano   vs espelho (mesmo time)   vitórias 3/6 empates 0/6 duração média 51.1s máx 52.9s

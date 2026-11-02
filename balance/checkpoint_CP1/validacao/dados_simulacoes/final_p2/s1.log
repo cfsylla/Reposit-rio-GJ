@@ -1,0 +1,10 @@
+priestess          0 index 1.07 brawl:0.96 shoot:1.09 fortr:1.11 assas:1.00 area:1.34 susta:0.99
+priestess          2 index 1.14 brawl:1.00 shoot:1.16 fortr:1.18 assas:1.06 area:1.45 susta:1.08
+priestess          F index 1.21 brawl:1.08 shoot:1.22 fortr:1.26 assas:1.13 area:1.51 susta:1.14
+elf_harpist        0 index 1.11 brawl:0.99 shoot:1.08 fortr:1.15 assas:1.09 area:1.35 susta:1.04
+elf_harpist        2 index 1.17 brawl:1.01 shoot:1.18 fortr:1.20 assas:1.14 area:1.41 susta:1.10
+elf_harpist        F index 1.20 brawl:1.04 shoot:1.18 fortr:1.27 assas:1.16 area:1.49 susta:1.13
+flower_fairy       0 index 1.07 brawl:0.95 shoot:1.04 fortr:1.13 assas:1.01 area:1.31 susta:1.02
+flower_fairy       2 index 1.12 brawl:0.97 shoot:1.09 fortr:1.18 assas:1.11 area:1.34 susta:1.08
+flower_fairy       F index 1.16 brawl:0.98 shoot:1.13 fortr:1.24 assas:1.15 area:1.38 susta:1.11
+total 72s

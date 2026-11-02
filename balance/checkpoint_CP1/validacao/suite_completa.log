@@ -1,0 +1,24 @@
+Suite completa (cada teste em processo próprio, com dist/game-0, balance-p1, decks-p3, enemy-decks-p4 pré-carregados)
+acts-v47 rc=0 PASS v47 3,000 generated maps, nine fights on every path, connected order routes, three full 27-encounter runs, all true bosses/mixed fallba
+balance-p2 rc=0 PASS balance P1/P2: data module, skillScale, support aura rules (emitter excluded, additive, no feedback, healing others), Trailblazer first
+blackfang-v26 rc=1 PASS 77 cards, 18 corrected Blackfang identities and valid asset links
+bosses-v50 rc=1 AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+combat-replay-v21 rc=1 fatal: path 'dist/game-0.js' exists on disk, but not in '343e0ad01b0bba4665b98a77a00863aaaa33e12d'
+content-v53 rc=0 PASS v53: 22 events × both offers × 20 seeds; prices/risks/transactions/save replay, 4 curses, 5 relics, real event combats and arena, mis
+decks-p3 rc=0 PASS P3: 24 decks (counts, 20 cards, max 4, relics), all 77 characters used, hidden order decks, milestone/order/true-boss unlocks and save 
+difficulty-p4 rc=0 PASS P4: enemy curve (~1 upgrade per fight), elite +1, gold 14/16/18, power 1/1.10/1.16, boss leaders, themed enemy decks, relic rule 1..n-1
+drag-origin-v19-1 rc=0 PASS drag copy starts at source before insertion, preserves size and grab point, and disables inherited motion
+fixes-v52 rc=0 PASS v52: cumulative/legacy order history, persistent map/node jumps, no synthetic rewards, blocked unsafe phases, direct boss lifecycle, re
+freeze-v20 rc=0 PASS freeze: preserve 0/1/3/4 cards, fill to four, reset after transition, no energy cost, save/load, reject battle toggles, refresh and car
+interface-v28 rc=1 PASS Last Stand fits with its empty origin over Hourglass without moving Hourglass
+legacy-replay-v37 rc=1 fatal: path 'dist/game-0.js' exists on disk, but not in '4a2266281bf7d536b26f24ffc5aad5c53ded56bf'
+legacy-replay-v39 rc=1 fatal: path 'dist/game-0.js' exists on disk, but not in '551824427b001a32e8fdb602660576f8d752ca35'
+manticore-v46 rc=0 PASS v46 spike lanes/dodge/one-hit overlap, hunt priority/expiry/haste, R3/R4 progression, deterministic in-flight save, bounded refill, run
+map-notes-v49 rc=0 PASS v49 notes survive encounter/save/act transitions, clear per map, fresh run empty, routes unchanged, legacy migration, true-boss selecti
+map-v43 rc=0 PASS v43 1000 distinct raid routes, all boss species, deterministic saves, pending-v42 repair and skipped raids
+monsters-v42 rc=0 PASS v42 four enemy-only raids, map activation/randomness, mechanics, mass conservation, saves, run scaling/progression/reward idempotence
+movement-v30 rc=0 PASS melee queue, both teams, dt 1/60–0.1, walls, no displacement, and full engine reproduction
+pending-v22 rc=1 ReferenceError: rerollButton is not defined
+raid-balance-v39 rc=0 
+raid-balance-v41 rc=0 
+raid-balance-v42 rc=124 

@@ -1,0 +1,25 @@
+blackfang_guardian 0 index 1.07 brawl:0.95 shoot:1.01 fortr:1.14 assas:1.09 area:1.13 susta:1.09
+blackfang_guardian 2 index 1.25 brawl:1.09 shoot:1.22 fortr:1.23 assas:1.37 area:1.33 susta:1.28
+blackfang_guardian F index 1.51 brawl:1.28 shoot:1.61 fortr:1.54 assas:1.54 area:1.59 susta:1.53
+cavalier           0 index 1.10 brawl:1.09 shoot:1.15 fortr:1.08 assas:1.14 area:1.03 susta:1.11
+cavalier           2 index 1.28 brawl:1.23 shoot:1.38 fortr:1.20 assas:1.33 area:1.23 susta:1.31
+cavalier           F index 1.50 brawl:1.45 shoot:1.63 fortr:1.43 assas:1.53 area:1.49 susta:1.48
+ronin              0 index 1.04 brawl:1.06 shoot:1.10 fortr:1.09 assas:1.02 area:0.98 susta:1.00
+ronin              2 index 1.17 brawl:1.16 shoot:1.22 fortr:1.19 assas:1.16 area:1.15 susta:1.15
+ronin              F index 1.32 brawl:1.34 shoot:1.26 fortr:1.34 assas:1.34 area:1.34 susta:1.28
+goblin_bomber      0 index 1.11 brawl:0.97 shoot:1.10 fortr:1.22 assas:1.14 area:1.15 susta:1.08
+goblin_bomber      2 index 1.22 brawl:1.04 shoot:1.30 fortr:1.40 assas:1.24 area:1.15 susta:1.19
+goblin_bomber      F index 1.36 brawl:1.40 shoot:1.31 fortr:1.58 assas:1.43 area:1.16 susta:1.34
+kinoichi           0 index 1.04 brawl:0.99 shoot:1.07 fortr:1.08 assas:1.06 area:1.01 susta:1.03
+kinoichi           2 index 1.16 brawl:1.08 shoot:1.27 fortr:1.22 assas:1.19 area:1.07 susta:1.16
+kinoichi           F index 1.30 brawl:1.22 shoot:1.33 fortr:1.30 assas:1.35 area:1.27 susta:1.33
+orc_warrior        0 index 1.06 brawl:0.99 shoot:1.02 fortr:1.08 assas:1.16 area:1.06 susta:1.03
+orc_warrior        2 index 1.15 brawl:1.07 shoot:1.15 fortr:1.19 assas:1.23 area:1.15 susta:1.13
+orc_warrior        F index 1.30 brawl:1.09 shoot:1.34 fortr:1.38 assas:1.33 area:1.41 susta:1.30
+dark_elf_mage      0 index 1.08 brawl:0.97 shoot:1.11 fortr:1.10 assas:1.10 area:1.14 susta:1.09
+dark_elf_mage      2 index 1.20 brawl:0.99 shoot:1.28 fortr:1.22 assas:1.23 area:1.24 susta:1.26
+dark_elf_mage      F index 1.37 brawl:1.28 shoot:1.48 fortr:1.41 assas:1.31 area:1.33 susta:1.43
+elf_guardian       0 index 1.06 brawl:0.99 shoot:1.03 fortr:1.06 assas:1.19 area:1.06 susta:1.03
+elf_guardian       2 index 1.16 brawl:1.08 shoot:1.18 fortr:1.16 assas:1.24 area:1.19 susta:1.09
+elf_guardian       F index 1.27 brawl:1.09 shoot:1.27 fortr:1.34 assas:1.35 area:1.35 susta:1.24
+total 149s
