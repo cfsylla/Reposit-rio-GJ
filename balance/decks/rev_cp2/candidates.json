@@ -1023,6 +1023,47 @@
     "pirate_admiral": 1,
     "relíquia": "banner"
    }
+  },
+  {
+   "id": "astral__v5",
+   "name": "Coro de Guerra v5",
+   "base": "astral",
+   "order": null,
+   "startRelic": "recovery",
+   "counts": {
+    "warrior": 3,
+    "swordsman": 3,
+    "samurai": 3,
+    "bard": 3,
+    "berserker": 2,
+    "priestess": 2,
+    "archer": 4
+   },
+   "change": {
+    "sage": -2,
+    "archer": 2
+   }
+  },
+  {
+   "id": "astral__v6",
+   "name": "Coro de Guerra v6",
+   "base": "astral",
+   "order": null,
+   "startRelic": "recovery",
+   "counts": {
+    "warrior": 3,
+    "swordsman": 3,
+    "samurai": 3,
+    "bard": 3,
+    "berserker": 2,
+    "priestess": 2,
+    "sage": 1,
+    "archer": 3
+   },
+   "change": {
+    "sage": -1,
+    "archer": 1
+   }
   }
  ]
 }
