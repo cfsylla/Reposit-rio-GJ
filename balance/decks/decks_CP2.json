@@ -1,5 +1,5 @@
 {
- "note": "GJ-v54-BAL post-CP1 deck revision (approved 02/11/2026): 8 decks changed; Corte Sombria kept strong as a reward.",
+ "note": "GJ-v54-BAL post-CP1 deck revision (approved 02/11/2026): 9 decks changed (incl. Coro de Guerra C+B); Corte Sombria kept strong as a reward.",
  "decks": [
   {
    "id": "vanguard",
@@ -170,10 +170,15 @@
     "swordsman": 3,
     "samurai": 3,
     "bard": 3,
-    "berserker": 2,
     "priestess": 2,
-    "sage": 2,
-    "archer": 2
+    "archer": 4,
+    "lancer": 2
+   },
+   "cp2_change": {
+    "sage": -2,
+    "archer": 2,
+    "berserker": -2,
+    "lancer": 2
    }
   },
   {
