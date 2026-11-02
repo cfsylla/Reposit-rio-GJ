@@ -4,7 +4,7 @@
 (function(root){'use strict';
 const G=root.Game,P=root.Progress,A=root.JourneyActs,D=root.JourneyTreeData;
 /* GJ-v54-BAL post-CP1: tree special/milestone effects (values tuned in the tree lab). */
-const TUNE=root.JOURNEY_TREE_TUNE={firstImpact:.35,impactStun:.3,execution:.20,executionCharge:.20,penetration:.10,penetrationCrit:.25,devastating:.45,exposed:.12,secondWind:.04,urgentHeal:.08,formationFront:.10,formationBack:.05,openingShield:.12,lastLine:.08,vengeance:.15,sprint:.25,momentum:.15,readiness:.25,rhythm:.15,rhythmEvery:3,...(root.JOURNEY_TREE_TUNE||{})};
+const TUNE=root.JOURNEY_TREE_TUNE={firstImpact:.35,impactStun:.3,execution:.20,executionCharge:.20,penetration:.10,penetrationCrit:.25,devastating:.45,exposed:.12,secondWind:.04,urgentHeal:.06,formationFront:.10,formationBack:.05,openingShield:.12,lastLine:.08,vengeance:.15,sprint:.25,momentum:.20,readiness:.25,rhythm:.20,rhythmEvery:3,...(root.JOURNEY_TREE_TUNE||{})};
 const LEVEL=root.JOURNEY_TREE_LEVEL={xpPerLevel:10,pointsPerLevel:10,maxLevel:30,xpFight:[2,2,1],xpBoss:[4,4,6],xpPerDiamond:20,...(root.JOURNEY_TREE_LEVEL||{})};
 function xpFor(act,boss){return (boss?LEVEL.xpBoss:LEVEL.xpFight)[Math.max(0,Math.min(2,act-1))];}
 function costOf(ids){return ids.reduce((t,id)=>t+(D.by[id]?.cost||0),0);}

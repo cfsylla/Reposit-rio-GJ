@@ -16,7 +16,7 @@ if (require('node:fs').existsSync(path.join(ROOT, 'dist', 'supports-b.js'))) MOD
 if (require('node:fs').existsSync(path.join(ROOT, 'dist', 'challenges.js'))) MODULES.push('challenges');
 if (require('node:fs').existsSync(path.join(ROOT, 'dist', 'advantages.js'))) MODULES.push('advantages');
 // Variant values read by the game modules at load time (level model) must be set before loading.
-if (process.env.GJ_TREE_VARIANT) { const tv0 = JSON.parse(require('node:fs').readFileSync(process.env.GJ_TREE_VARIANT, 'utf8')); if (tv0.level) globalThis.JOURNEY_TREE_LEVEL = tv0.level; if (tv0.challengeTune) globalThis.JOURNEY_CHALLENGE_TUNE = tv0.challengeTune; }
+if (process.env.GJ_TREE_VARIANT) { const tv0 = JSON.parse(require('node:fs').readFileSync(process.env.GJ_TREE_VARIANT, 'utf8')); if (tv0.level) globalThis.JOURNEY_TREE_LEVEL = tv0.level; if (tv0.challengeTune) globalThis.JOURNEY_CHALLENGE_TUNE = tv0.challengeTune; if (tv0.treeTune) globalThis.JOURNEY_TREE_TUNE = tv0.treeTune; }
 for (const m of MODULES) require(path.join(ROOT, 'dist', m + '.js'));
 const g = globalThis;
 module.exports = {
