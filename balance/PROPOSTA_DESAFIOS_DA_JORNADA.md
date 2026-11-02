@@ -6,8 +6,9 @@
 - o Desafio Final (boss secreto) é o último desbloqueio.
 
 **Situação:**
-- **Desafios:** implementados na cópia de teste (`game_p5/dist/challenges.js`), com intensidade inicial a calibrar.
-- **Vantagens:** ideias para aprovação. Ainda não foram implementadas.
+- **Desafios:** aprovados e implementados na cópia de teste (`game_p5/dist/challenges.js`), com intensidade inicial a calibrar.
+- **Vantagens:** aprovadas e implementadas na cópia de teste (`game_p5/dist/advantages.js`). Batedor saiu e foi substituído provisoriamente por **Caçador de Elites**.
+- **Testes:** `tests/challenges-p5.cjs` e `tests/advantages-p5.cjs`. A validação oficial passa nas 10 etapas.
 
 ## 1. Regras (revisão 2)
 
@@ -69,11 +70,10 @@
 | 11 | **Limpeza** | Uma remoção de carta grátis na 1ª loja de cada mapa | Claude |
 | 12 | **Bênção do Caminho** | Ao entrar nos mapas 2 e 3, 1 carta aleatória do deck recebe upgrade | Claude |
 | 13 | **Juros** | Ao vencer o boss de cada mapa, +10% do ouro guardado (máx. +15) | Claude |
-| 14 | **Batedor** | Mostra a formação inimiga da 1ª rodada antes do preparo | Claude |
+| 14 | **Caçador de Elites** *(provisória; substitui Batedor, que saiu porque Carlos vai mostrar a última rodada inimiga na interface)* | Vencer uma elite concede +12 de ouro | Claude |
 | 15 | **Segunda Chance** | Uma vez por run, perder um confronto (exceto boss) não encerra a run: o confronto recomeça do zero | Claude |
 
 Notas:
-- **Batedor** é informação, não força. O jogador simulado não aproveita esse tipo de vantagem, então o efeito dela só aparece em playtest humano.
 - **Segunda Chance** é a mais forte. Se a medição confirmar, ela pode ganhar uma restrição (por exemplo, só nos mapas 1 e 2) ou passar a exigir um nível mínimo vencido para ser comprada.
 - **Gêmeo** e **Relíquia Escolhida** pedem uma tela de escolha no início da run (interface do projeto principal).
 
@@ -95,13 +95,18 @@ Notas:
 - **Vantagens:** loja com as 15 vantagens, insígnias disponíveis e as já compradas.
 - **Desafio Final:** aparece bloqueado, com os 3 requisitos e o progresso de cada um, sem revelar o boss.
 
-## 6. Decisões em aberto
+## 6. Decisões tomadas (02/11/2026)
 
-1. Aprovar **Relíquias Escassas** no lugar de "Sem Preparo".
-2. Aprovar a **lista de vantagens** (tirar, trocar ou adicionar).
-3. **XP acima do nível 30 da árvore:** converter em diamantes ou não.
-4. **Saves antigos** com mais de 300 pontos de nós: resetar com reembolso (como está implementado) ou manter os nós.
+1. **Relíquias Escassas** substitui Sem Preparo: aprovado.
+2. **Vantagens:** aprovadas, menos Batedor. A 14ª é provisória (Caçador de Elites).
+3. **XP acima do nível 30:** vira diamantes, **1 diamante a cada 20 XP** excedente (implementado).
+4. **Saves antigos:** ignorados, porque só Carlos faz playtests. A migração especial foi removida.
 5. **Desafio Final:**
-   - ordem dos true bosses;
-   - se é preciso **vencer** o nível 15 ou só **alcançá-lo**;
-   - recompensa extra.
+   - o boss secreto precisa ser **mais forte que os outros true bosses**;
+   - a run do Desafio Final tem **os 15 desafios ativos**, e essa é a condição para ativá-lo.
+
+## 7. Em aberto
+
+- Confirmar a 14ª vantagem (Caçador de Elites ou outra).
+- Desafio Final: ordem dos true bosses, conteúdo do boss secreto (personagem, arte, mecânicas) e recompensa extra.
+- Calibração: custo de cada desafio (em medição) e valor de cada vantagem.

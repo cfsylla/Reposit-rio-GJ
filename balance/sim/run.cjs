@@ -13,7 +13,7 @@ function args() {
   for (let i = 0; i < v.length; i += 2) a[v[i].replace(/^--/, '')] = v[i + 1];
   const range = x => { if (!x) return [1]; return x.split(',').flatMap(p => { const [lo, hi] = p.split('-').map(Number); return hi ? Array.from({ length: hi - lo + 1 }, (_, i) => lo + i) : [lo]; }); };
   return { decks: (a.decks || 'vanguard').split(','), seeds: range(a.seeds), prep: a.prep || 'smart', route: a.route || 'greedy', events: a.events || 'decline',
-    tree: a.tree || 'none', challenges: a.challenges ? a.challenges.split(',').filter(Boolean) : null, forcewin: a.forcewin === '1', shop: a.shop || 'upgrade-first', out: a.out, dt: Number(a.dt || 1 / 60), order: a.order || null, verbose: !!a.verbose };
+    tree: a.tree || 'none', challenges: a.challenges ? a.challenges.split(',').filter(Boolean) : null, advantages: a.advantages || null, forcewin: a.forcewin === '1', shop: a.shop || 'upgrade-first', out: a.out, dt: Number(a.dt || 1 / 60), order: a.order || null, verbose: !!a.verbose };
 }
 
 /* Permanent tree presets (profile state BEFORE the run; in-run purchases still happen after each boss). */
@@ -157,6 +157,7 @@ function playRun(deck, seed, pol, opt) {
   // level model (game_p5+): banked XP = given career XP, or exactly the cost of the preset (no free points)
   if (Tree.level) prof.totalXp = pol.treeXp ?? prof.unlocked.reduce((t, id) => t + TreeData.by[id].cost, 0);
   if (E.CH) { const pc = E.CH.profile(); pc.unlocked = !!pol.challenges; pc.available = E.CH.MAX_LEVEL; pc.selected = [...(pol.challenges || [])]; }
+  if (E.AD) { const ids = !pol.advantages ? [] : pol.advantages === 'all' ? E.AD.LIST.map(a => a.id) : String(pol.advantages).split(',').filter(Boolean); P.profile.advantages = [...ids]; }
   const custom = CUSTOM[deck];
   const s = G.fresh(custom ? 'vanguard' : deck, seed);
   if (custom) { // proposal deck (testing): same fresh run, cards and starting relic replaced; its order is considered unlocked
@@ -177,13 +178,17 @@ function playRun(deck, seed, pol, opt) {
         const nodes = G.available(s); if (!nodes.length) { rec.result = 'stuck-map'; return finalize(s, rec); }
         const n = Pol.chooseNode(s, nodes, pol, rnd); rec.nodes.push(A.act(s) + ':' + n.type + (n.campaign ? '/' + n.campaign : ''));
         if (!G.enter(s, n.id)) { rec.result = 'enter-failed'; return finalize(s, rec); }
+        if (E.AD && s.adv) { // advantages that need a player choice
+          const tw = E.AD.twinOptions(s); if (tw.length) { const t = Pol.recruitPick(s, tw) || tw[0]; E.AD.twin(s, t); }
+          const so = E.AD.startRelicOptions(s); if (so.length) { const best = [...so].sort((x, y) => Pol.relicRank(x) - Pol.relicRank(y))[0]; if (Pol.relicRank(best) < Pol.relicRank(s.artifacts[0])) E.AD.chooseStartRelic(s, best); s.adv.startOffers = []; }
+        }
         break;
       }
       case 'prep': playFight(s, pol, rec, opt.dt); break;
       case 'encounterWin': G.leave(s); break;
       case 'recruit': { const id = Pol.recruitPick(s, s.offers); if (!id || !G.recruit(s, id)) G.leave(s); break; }
       case 'upgrade': { const c = Pol.bestUpgradeTarget(s); if (!c || !G.upgrade(s, c.uid)) G.skipUpgrade(s); else if (s.phase === 'upgrade') G.leave(s); break; }
-      case 'relic': { const ids = [...s.offers].sort((a, b) => Pol.relicRank(a) - Pol.relicRank(b)); const fit = ids.find(id => G.packBag([...s.artifacts, id], s)); if (fit && G.claimRelic(s, fit) !== false) { Pol.placeRelic(s, true); if (s.phase === 'relic') G.leave(s); } else G.leave(s); break; }
+      case 'relic': { if (E.AD?.canReroll(s) && Math.min(...s.offers.map(Pol.relicRank)) > 10) E.AD.rerollRelic(s); const ids = [...s.offers].sort((a, b) => Pol.relicRank(a) - Pol.relicRank(b)); const fit = ids.find(id => G.packBag([...s.artifacts, id], s)); if (fit && G.claimRelic(s, fit) !== false) { Pol.placeRelic(s, true); if (s.phase === 'relic') G.leave(s); } else G.leave(s); break; }
       case 'shop': doShop(s, pol, rec); G.leave(s); break;
       case 'event': {
         const nodeId = s.current?.id ?? ('L' + s.layer);
@@ -226,7 +231,7 @@ function finalize(s, rec) {
 }
 
 if (require.main === module) {
-  const opt = args(), pol = { challenges: opt.challenges, prep: opt.prep, route: opt.route, events: opt.events, tree: opt.tree, shop: opt.shop, order: opt.order, forcewin: opt.forcewin };
+  const opt = args(), pol = { challenges: opt.challenges, advantages: opt.advantages, prep: opt.prep, route: opt.route, events: opt.events, tree: opt.tree, shop: opt.shop, order: opt.order, forcewin: opt.forcewin };
   const out = opt.out ? fs.createWriteStream(opt.out) : null;
   const t0 = Date.now();
   for (const deck of opt.decks) for (const seed of opt.seeds) {

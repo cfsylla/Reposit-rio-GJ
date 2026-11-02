@@ -2,7 +2,7 @@
 const {spawnSync}=require('node:child_process');
 const path=require('node:path');
 const root=path.resolve(__dirname,'..');
-const full=['game-0','balance-p1','decks-p3','training-engine','raid-engine','monster-engine','acts-engine','enemy-decks-p4','boss-engine','map-variety','tree-data','tree-engine','journey-debug','content-v53','traits-v54','supports-b','challenges'];
+const full=['game-0','balance-p1','decks-p3','training-engine','raid-engine','monster-engine','acts-engine','enemy-decks-p4','boss-engine','map-variety','tree-data','tree-engine','journey-debug','content-v53','traits-v54','supports-b','challenges','advantages'];
 const boss=['game-0','balance-p1','decks-p3','training-engine','raid-engine','monster-engine','acts-engine','enemy-decks-p4','map-notes','boss-engine','traits-v54','supports-b'];
 const pre=['-r','./dist/game-0.js','-r','./dist/balance-p1.js','-r','./dist/decks-p3.js'];
 const jobs=[
@@ -14,6 +14,7 @@ const jobs=[
  ['History/navigation/animation v52',[...pre,'tests/fixes-v52.cjs']],
  ['Tree with current v54 modules',['-e',full.map(f=>`require('./dist/${f}.js')`).join(';')+";require('./tests/tree-v51.cjs')"]],
  ['Post-CP1: Desafios da Jornada and tree level model',['tests/challenges-p5.cjs']],
+ ['Post-CP1: Vantagens and overflow XP',['tests/advantages-p5.cjs']],
  ['Boss mechanics with v54 traits (legacy victory flow, no tree session)',['-e',boss.map(f=>`require('./dist/${f}.js')`).join(';')+";require('./tests/bosses-v50.cjs')"]]
 ];
 for(const [label,args]of jobs){console.log('\nCHECK: '+label);const r=spawnSync(process.execPath,args,{cwd:root,stdio:'inherit'});if(r.error)throw r.error;if(r.status!==0)process.exit(r.status||1);}

@@ -14,12 +14,13 @@ if (require('node:fs').existsSync(path.join(ROOT, 'dist', 'enemy-decks-p4.js')))
 // Optional prototype module (support model B), loaded after traits-v54 when present.
 if (require('node:fs').existsSync(path.join(ROOT, 'dist', 'supports-b.js'))) MODULES.splice(MODULES.indexOf('traits-v54') + 1, 0, 'supports-b');
 if (require('node:fs').existsSync(path.join(ROOT, 'dist', 'challenges.js'))) MODULES.push('challenges');
+if (require('node:fs').existsSync(path.join(ROOT, 'dist', 'advantages.js'))) MODULES.push('advantages');
 for (const m of MODULES) require(path.join(ROOT, 'dist', m + '.js'));
 const g = globalThis;
 module.exports = {
   ROOT, MODULES,
   G: g.Game, P: g.Progress, C: g.JourneyContent, T: g.JourneyTraits, A: g.JourneyActs, R: g.JourneyRaid,
-  B: g.JourneyBosses, Tree: g.JourneyTree, CH: g.JourneyChallenges, TreeData: g.JourneyTreeData, Training: g.Training,
+  B: g.JourneyBosses, Tree: g.JourneyTree, CH: g.JourneyChallenges, AD: g.JourneyAdvantages, TreeData: g.JourneyTreeData, Training: g.Training,
 };
 
 /* PROPOSAL OVERRIDES (testing only; the game files are not modified).
