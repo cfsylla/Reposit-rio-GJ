@@ -21,14 +21,14 @@ const LIST=[
  {id:'scarce',en:'Scarce Resources',pt:'Recursos Escassos',enDesc:'−1 energy in the first 2 rounds against bosses.',ptDesc:'−1 de energia nas 2 primeiras rodadas contra bosses.'},
  {id:'bag',en:'Limited Luggage',pt:'Bagagem Limitada',enDesc:'Blocks 3 Relic Bag cells.',ptDesc:'Bloqueia 3 casas da bolsa de relíquias.'},
  {id:'heavydeck',en:'Heavy Deck',pt:'Deck Pesado',enDesc:'Start the run with +1 random weak common card in the deck.',ptDesc:'Começa a run com +1 carta comum fraca aleatória no deck.'},
- {id:'treecap',en:'Contained Tree',pt:'Árvore Contida',enDesc:'Your tree is limited to 40 fewer points during the run (latest nodes are disabled first).',ptDesc:'A árvore fica limitada a 40 pontos a menos durante a run (os nós mais recentes são desativados primeiro).'},
+ {id:'treecap',en:'Contained Tree',pt:'Árvore Contida',enDesc:'Your tree is limited to 50 fewer points during the run (latest nodes are disabled first).',ptDesc:'A árvore fica limitada a 50 pontos a menos durante a run (os nós mais recentes são desativados primeiro).'},
  {id:'fewrelics',en:'Scarce Relics',pt:'Relíquias Escassas',enDesc:'Relic choices offer 2 options less (minimum 1).',ptDesc:'Escolhas de relíquia oferecem 2 opções a menos (mínimo 1).'},
  {id:'cursed',en:'Cursed Path',pt:'Caminho Amaldiçoado',enDesc:'Start the run with the Exhaustion curse.',ptDesc:'Começa a run com a maldição Exaustão.'},
 ];
 const BY=Object.fromEntries(LIST.map(c=>[c.id,c]));
 const MAX_LEVEL=LIST.length;
 // Single intensity per challenge (revision 2: the level is the number of active challenges). Calibrated by simulation.
-const TUNE=root.JOURNEY_CHALLENGE_TUNE={veterans:3,commanders:2,commanderRelics:1,tough:.03,relentless:.04,bossRounds:2,bossStats:0,raidfury:.30,raidDamage:.10,inflation:.15,lightpurse:.15,bagCells:3,treecap:40,curses:['exhaustion'],reinforceFromRound:2,heavyCards:1,scarceRounds:2,heavyPool:['warrior','lancer','fighter','martial_artist','miner','pirate','ranger','shackled_pirate'],fewRelics:2,...(root.JOURNEY_CHALLENGE_TUNE||{})};
+const TUNE=root.JOURNEY_CHALLENGE_TUNE={veterans:3,commanders:2,commanderRelics:1,tough:.03,relentless:.04,bossRounds:2,bossStats:0,raidfury:.30,raidDamage:.10,inflation:.15,lightpurse:.15,bagCells:3,treecap:50,curses:['exhaustion'],reinforceFromRound:2,heavyCards:1,scarceRounds:2,heavyPool:['warrior','lancer','fighter','martial_artist','miner','pirate','ranger','shackled_pirate'],fewRelics:2,...(root.JOURNEY_CHALLENGE_TUNE||{})};
 const BAG_CELLS=[[3,3],[2,3],[1,3],[0,3]];
 
 function profile(){const p=P.profile;const pc=p.challenges??={};pc.unlocked=!!pc.unlocked;pc.available=Math.max(pc.unlocked?1:0,Math.min(MAX_LEVEL,Math.floor(pc.available||0)));

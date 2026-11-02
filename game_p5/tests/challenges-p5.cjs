@@ -41,7 +41,7 @@ assert.equal(ups(fight(['commanders'], 9, 'elite')) - ups(fight(null, 9, 'elite'
 { const s = run(['heavydeck']), b = run(null); assert.equal(s.cards.length, b.cards.length + 1); }
 { const s = run(['fewrelics']); assert.equal(T.relicCount(s, 3), 1); }
 { const st = T.profile(); st.totalXp = 300; st.unlocked = []; for (const id of ['pow_atk_1', 'vit_hp_1', 'pow_atk_2', 'vit_hp_2', 'pow_atk_3', 'first_impact']) assert(T.buy(null, id), id);
-  const s = run(['treecap']); assert(CH.treeNodes(s, st.unlocked).reduce((t, id) => t + T.D.by[id].cost, 0) <= 260); st.unlocked = []; st.totalXp = 0; }
+  const s = run(['treecap']); assert(CH.treeNodes(s, st.unlocked).reduce((t, id) => t + T.D.by[id].cost, 0) <= 250); st.unlocked = []; st.totalXp = 0; }
 assert.deepEqual(run(['cursed']).cards.filter(c => JourneyContent.isCurse(c)).map(c => c.type).sort(), ['exhaustion']);
 { const pc = CH.profile(); pc.selected = ['veterans', 'scarce']; const s = G.fresh('vanguard', 3); s.training = { wins: 1 }; CH.start(s); assert.equal(s.challenges, undefined); assert.equal(CH.active(s, 'scarce'), false); }
 
