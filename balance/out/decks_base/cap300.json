@@ -1,0 +1,556 @@
+{
+ "mean": 0.5944444444444444,
+ "rows": [
+  {
+   "id": "dark_court",
+   "name": "Corte Sombria",
+   "order": "blackfang",
+   "n": 60,
+   "v": 54,
+   "wr": 0.9,
+   "ci": [
+    0.7985030550748896,
+    0.9533578005427642
+   ],
+   "m1": 1,
+   "m2": 0.9833333333333333,
+   "wr20": 1,
+   "death": {
+    "M3 elite": 4,
+    "M3 boss": 1,
+    "M2 boss": 1
+   }
+  },
+  {
+   "id": "astral",
+   "name": "Coro de Guerra",
+   "n": 60,
+   "v": 53,
+   "wr": 0.8833333333333333,
+   "ci": [
+    0.7782097940014187,
+    0.9423235259654995
+   ],
+   "m1": 1,
+   "m2": 0.9333333333333333,
+   "wr20": 0.85,
+   "death": {
+    "M3 boss": 1,
+    "M2 battle": 1,
+    "M3 battle": 2,
+    "M2 boss": 3
+   }
+  },
+  {
+   "id": "blades",
+   "name": "Lâminas do Oriente",
+   "n": 60,
+   "v": 49,
+   "wr": 0.8166666666666667,
+   "ci": [
+    0.7008000677353371,
+    0.8944231096286387
+   ],
+   "m1": 0.9833333333333333,
+   "m2": 0.95,
+   "wr20": 0.8,
+   "death": {
+    "M3 elite": 3,
+    "M3 boss": 3,
+    "M3 battle": 2,
+    "M2 elite": 1,
+    "M2 boss": 1,
+    "M1 boss": 1
+   }
+  },
+  {
+   "id": "executioners",
+   "name": "Executores",
+   "n": 60,
+   "v": 48,
+   "wr": 0.8,
+   "ci": [
+    0.6821795390818299,
+    0.8817161026314104
+   ],
+   "m1": 1,
+   "m2": 0.9333333333333333,
+   "wr20": 0.8,
+   "death": {
+    "M3 battle": 3,
+    "M2 battle": 1,
+    "M3 elite": 3,
+    "M3 boss": 2,
+    "M2 boss": 3
+   }
+  },
+  {
+   "id": "forest_guard",
+   "name": "Guarda da Floresta",
+   "order": "dawncrest",
+   "n": 60,
+   "v": 43,
+   "wr": 0.7166666666666667,
+   "ci": [
+    0.5923247495026482,
+    0.8149332139569141
+   ],
+   "m1": 0.9833333333333333,
+   "m2": 0.9,
+   "wr20": 0.85,
+   "death": {
+    "M2 boss": 4,
+    "M3 elite": 4,
+    "M3 battle": 5,
+    "M3 boss": 2,
+    "M1 elite": 1,
+    "M2 elite": 1
+   }
+  },
+  {
+   "id": "blackfang_war",
+   "name": "Presas Negras",
+   "order": "blackfang",
+   "n": 60,
+   "v": 42,
+   "wr": 0.7,
+   "ci": [
+    0.5749105303360957,
+    0.801019897472731
+   ],
+   "m1": 0.9833333333333333,
+   "m2": 0.85,
+   "wr20": 0.75,
+   "death": {
+    "M2 battle": 3,
+    "M3 elite": 6,
+    "M2 boss": 4,
+    "M3 battle": 1,
+    "M1 elite": 1,
+    "M3 boss": 2,
+    "M2 elite": 1
+   }
+  },
+  {
+   "id": "meowri_band",
+   "name": "Bando Meowri",
+   "order": "dawncrest",
+   "n": 60,
+   "v": 40,
+   "wr": 0.6666666666666666,
+   "ci": [
+    0.540566298666634,
+    0.7727090578407216
+   ],
+   "m1": 0.9666666666666667,
+   "m2": 0.8166666666666667,
+   "wr20": 0.7,
+   "death": {
+    "M3 elite": 4,
+    "M3 battle": 5,
+    "M2 boss": 6,
+    "M1 boss": 2,
+    "M2 battle": 3
+   }
+  },
+  {
+   "id": "dawncrest_choir",
+   "name": "Coro de Dawncrest",
+   "order": "dawncrest",
+   "n": 60,
+   "v": 40,
+   "wr": 0.6666666666666666,
+   "ci": [
+    0.540566298666634,
+    0.7727090578407216
+   ],
+   "m1": 1,
+   "m2": 0.9,
+   "wr20": 0.75,
+   "death": {
+    "M3 battle": 6,
+    "M3 elite": 6,
+    "M2 battle": 2,
+    "M2 boss": 3,
+    "M3 boss": 2,
+    "M2 elite": 1
+   }
+  },
+  {
+   "id": "verdant",
+   "name": "Círculo Verdejante",
+   "n": 60,
+   "v": 38,
+   "wr": 0.6333333333333333,
+   "ci": [
+    0.5068276736679673,
+    0.7437926115379172
+   ],
+   "m1": 0.9833333333333333,
+   "m2": 0.7833333333333333,
+   "wr20": 0.65,
+   "death": {
+    "M2 boss": 7,
+    "M3 elite": 5,
+    "M2 battle": 4,
+    "M3 battle": 2,
+    "M2 elite": 1,
+    "M3 boss": 2,
+    "M1 boss": 1
+   }
+  },
+  {
+   "id": "centaur_charge",
+   "name": "Galope Centauro",
+   "order": "dawncrest",
+   "n": 60,
+   "v": 38,
+   "wr": 0.6333333333333333,
+   "ci": [
+    0.5068276736679673,
+    0.7437926115379172
+   ],
+   "m1": 0.9666666666666667,
+   "m2": 0.8,
+   "wr20": 0.5,
+   "death": {
+    "M2 boss": 5,
+    "M3 battle": 6,
+    "M2 battle": 4,
+    "M3 boss": 3,
+    "M3 elite": 1,
+    "M2 elite": 1,
+    "M1 boss": 2
+   }
+  },
+  {
+   "id": "vanguard",
+   "name": "Vanguarda da Aurora",
+   "n": 60,
+   "v": 37,
+   "wr": 0.6166666666666667,
+   "ci": [
+    0.4901736454040315,
+    0.7291191041511176
+   ],
+   "m1": 0.9666666666666667,
+   "m2": 0.8166666666666667,
+   "wr20": 0.6,
+   "death": {
+    "M2 boss": 3,
+    "M3 boss": 4,
+    "M2 battle": 5,
+    "M3 battle": 5,
+    "M3 elite": 3,
+    "M2 elite": 1,
+    "M1 boss": 1,
+    "M1 elite": 1
+   }
+  },
+  {
+   "id": "arcane",
+   "name": "Círculo Arcano",
+   "n": 60,
+   "v": 37,
+   "wr": 0.6166666666666667,
+   "ci": [
+    0.4901736454040315,
+    0.7291191041511176
+   ],
+   "m1": 1,
+   "m2": 0.7166666666666667,
+   "wr20": 0.65,
+   "death": {
+    "M2 battle": 3,
+    "M2 elite": 7,
+    "M3 elite": 1,
+    "M2 boss": 6,
+    "M3 battle": 4,
+    "M3 boss": 1
+   }
+  },
+  {
+   "id": "keen",
+   "name": "Golpe Certeiro",
+   "n": 60,
+   "v": 36,
+   "wr": 0.6,
+   "ci": [
+    0.47365824394206846,
+    0.714306969962345
+   ],
+   "m1": 1,
+   "m2": 0.8,
+   "wr20": 0.5,
+   "death": {
+    "M2 boss": 7,
+    "M3 elite": 6,
+    "M2 battle": 4,
+    "M3 battle": 4,
+    "M3 boss": 2,
+    "M2 elite": 1
+   }
+  },
+  {
+   "id": "high_court",
+   "name": "Corte Alta Élfica",
+   "order": "dawncrest",
+   "n": 60,
+   "v": 36,
+   "wr": 0.6,
+   "ci": [
+    0.47365824394206846,
+    0.714306969962345
+   ],
+   "m1": 0.9833333333333333,
+   "m2": 0.8833333333333333,
+   "wr20": 0.65,
+   "death": {
+    "M3 battle": 12,
+    "M2 battle": 3,
+    "M2 boss": 3,
+    "M3 boss": 3,
+    "M3 elite": 2,
+    "M1 elite": 1
+   }
+  },
+  {
+   "id": "north",
+   "name": "Clãs do Norte",
+   "n": 60,
+   "v": 30,
+   "wr": 0.5,
+   "ci": [
+    0.37734812427246284,
+    0.6226518757275372
+   ],
+   "m1": 0.9666666666666667,
+   "m2": 0.75,
+   "wr20": 0.55,
+   "death": {
+    "M3 elite": 4,
+    "M2 battle": 6,
+    "M2 boss": 4,
+    "M2 elite": 3,
+    "M3 battle": 10,
+    "M1 battle": 1,
+    "M1 elite": 1,
+    "M3 boss": 1
+   }
+  },
+  {
+   "id": "greenskins",
+   "name": "Peles Verdes",
+   "order": "blackfang",
+   "n": 60,
+   "v": 30,
+   "wr": 0.5,
+   "ci": [
+    0.37734812427246284,
+    0.6226518757275372
+   ],
+   "m1": 0.9666666666666667,
+   "m2": 0.8,
+   "wr20": 0.35,
+   "death": {
+    "M3 elite": 9,
+    "M2 boss": 4,
+    "M3 battle": 6,
+    "M2 elite": 1,
+    "M3 boss": 3,
+    "M2 battle": 5,
+    "M1 elite": 1,
+    "M1 boss": 1
+   }
+  },
+  {
+   "id": "swift",
+   "name": "Ventos do Acaso",
+   "n": 60,
+   "v": 29,
+   "wr": 0.48333333333333334,
+   "ci": [
+    0.3617484128577001,
+    0.6069240514915643
+   ],
+   "m1": 0.95,
+   "m2": 0.75,
+   "wr20": 0.45,
+   "death": {
+    "M2 battle": 6,
+    "M3 battle": 11,
+    "M2 boss": 4,
+    "M3 boss": 4,
+    "M3 elite": 1,
+    "M1 boss": 2,
+    "M1 elite": 1,
+    "M2 elite": 2
+   }
+  },
+  {
+   "id": "balanced",
+   "name": "Encontro de Caminhos",
+   "n": 60,
+   "v": 28,
+   "wr": 0.4666666666666667,
+   "ci": [
+    0.34627701540988,
+    0.5910679132886489
+   ],
+   "m1": 0.9666666666666667,
+   "m2": 0.7166666666666667,
+   "wr20": 0.35,
+   "death": {
+    "M3 boss": 4,
+    "M2 boss": 6,
+    "M3 battle": 8,
+    "M3 elite": 3,
+    "M2 battle": 6,
+    "M1 boss": 2,
+    "M2 elite": 3
+   }
+  },
+  {
+   "id": "outlaws",
+   "name": "Lei do Gatilho",
+   "n": 60,
+   "v": 28,
+   "wr": 0.4666666666666667,
+   "ci": [
+    0.34627701540988,
+    0.5910679132886489
+   ],
+   "m1": 0.95,
+   "m2": 0.7166666666666667,
+   "wr20": 0.45,
+   "death": {
+    "M3 battle": 9,
+    "M2 battle": 6,
+    "M3 elite": 5,
+    "M1 battle": 1,
+    "M2 elite": 5,
+    "M2 boss": 3,
+    "M3 boss": 1,
+    "M1 elite": 2
+   }
+  },
+  {
+   "id": "quake",
+   "name": "Terremoto",
+   "n": 60,
+   "v": 27,
+   "wr": 0.45,
+   "ci": [
+    0.33093453853760824,
+    0.575082854510185
+   ],
+   "m1": 0.9833333333333333,
+   "m2": 0.7166666666666667,
+   "wr20": 0.55,
+   "death": {
+    "M3 battle": 8,
+    "M3 elite": 6,
+    "M1 boss": 1,
+    "M2 battle": 6,
+    "M2 elite": 5,
+    "M2 boss": 5,
+    "M3 boss": 2
+   }
+  },
+  {
+   "id": "fireline",
+   "name": "Linha de Fogo",
+   "n": 60,
+   "v": 26,
+   "wr": 0.43333333333333335,
+   "ci": [
+    0.31572200394400635,
+    0.5589678534530513
+   ],
+   "m1": 0.95,
+   "m2": 0.6333333333333333,
+   "wr20": 0.4,
+   "death": {
+    "M3 boss": 2,
+    "M2 boss": 7,
+    "M2 battle": 8,
+    "M2 elite": 4,
+    "M3 elite": 4,
+    "M3 battle": 6,
+    "M1 boss": 2,
+    "M1 elite": 1
+   }
+  },
+  {
+   "id": "fortress",
+   "name": "Fortaleza",
+   "n": 60,
+   "v": 24,
+   "wr": 0.4,
+   "ci": [
+    0.28569303003765506,
+    0.5263417560579315
+   ],
+   "m1": 0.9833333333333333,
+   "m2": 0.65,
+   "wr20": 0.4,
+   "death": {
+    "M3 battle": 12,
+    "M2 battle": 6,
+    "M2 boss": 9,
+    "M2 elite": 5,
+    "M1 boss": 1,
+    "M3 elite": 2,
+    "M3 boss": 1
+   }
+  },
+  {
+   "id": "goblin_horde",
+   "name": "Horda Goblin",
+   "order": "blackfang",
+   "n": 60,
+   "v": 23,
+   "wr": 0.38333333333333336,
+   "ci": [
+    0.2708808958488824,
+    0.5098263545959686
+   ],
+   "m1": 0.9666666666666667,
+   "m2": 0.6333333333333333,
+   "wr20": 0.45,
+   "death": {
+    "M2 boss": 6,
+    "M2 battle": 11,
+    "M3 battle": 8,
+    "M2 elite": 3,
+    "M3 boss": 6,
+    "M1 elite": 2,
+    "M3 elite": 1
+   }
+  },
+  {
+   "id": "corsair",
+   "name": "Tripulação Salgada",
+   "n": 60,
+   "v": 20,
+   "wr": 0.3333333333333333,
+   "ci": [
+    0.2272909421592783,
+    0.459433701333366
+   ],
+   "m1": 0.9166666666666666,
+   "m2": 0.6333333333333333,
+   "wr20": 0.35,
+   "death": {
+    "M3 battle": 11,
+    "M2 battle": 6,
+    "M1 boss": 2,
+    "M2 boss": 7,
+    "M1 battle": 1,
+    "M2 elite": 4,
+    "M3 elite": 7,
+    "M1 elite": 2
+   }
+  }
+ ]
+}
