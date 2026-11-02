@@ -3,8 +3,8 @@
 G.TOTAL_BATTLES=27;
 const SPEC={
  1:{widths:[1,3,3,3,3,3,3,3,3,3,3,3,3,3,1],fights:[0,2,4,5,7,9,10,12,14],orders:[4,9],power:1},
- 2:{widths:[1,3,4,3,2,3,4,3,4,3,4,2,3,4,1],fights:[0,1,3,5,6,8,10,12,14],orders:[3,10],power:1.18},
- 3:{widths:[1,3,4,5,3,5,4,3,4,5,3,5,4,3,1],fights:[0,2,3,5,7,8,10,11,14],orders:[5,11],power:1.26}
+ 2:{widths:[1,3,4,3,2,3,4,3,4,3,4,2,3,4,1],fights:[0,1,3,5,6,8,10,12,14],orders:[3,10],power:1.16},
+ 3:{widths:[1,3,4,5,3,5,4,3,4,5,3,5,4,3,1],fights:[0,2,3,5,7,8,10,11,14],orders:[5,11],power:1.235}
 };
 function eligible(s){return !!s&&!s.training&&!s.tutorialReplay;}
 function ensure(s){if(!eligible(s))return null;if(!s.journey){if(s.meta?.ended)return null;s.journey={schema:1,act:s.campaignRoute?.act||1,history:[],seenMonsters:[],battleStart:0};}return s.journey;}

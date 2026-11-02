@@ -5,7 +5,7 @@ for (const f of ['game-0', 'balance-p1', 'decks-p3', 'training-engine', 'raid-en
 const G = Game, P = Progress, A = JourneyActs, B = JourneyBosses;
 P.load(P.freshProfile()); P.completeTutorial();
 assert.deepEqual([G.battleReward(1), G.battleReward(9), G.battleReward(10), G.battleReward(18), G.battleReward(19), G.battleReward(27)], [14, 14, 16, 16, 18, 18]);
-assert.deepEqual([A.SPEC[1].power, A.SPEC[2].power, A.SPEC[3].power], [1, 1.18, 1.26]); // post-CP1 calibration at the tree cap (P1)
+assert.deepEqual([A.SPEC[1].power, A.SPEC[2].power, A.SPEC[3].power], [1, 1.16, 1.235]); // post-CP1 calibration (curve BC_B)
 assert.equal(B.D.goblin.hp, Math.round(480 * .8)); assert.equal(B.D.troll.hp, Math.round(820 * .65)); assert.equal(B.D.meowri.atk, Math.round(36 * .75));
 assert.deepEqual(Object.keys(JourneyEnemyDecks), ['1', '2', '3']); for (const L of Object.values(JourneyEnemyDecks)) { assert.equal(L.length, 4); for (const d of L) assert.equal(Object.values(d.counts).reduce((a, b) => a + b), 20); }
 function fight(stage, type = 'battle', seed = 7) { const s = G.fresh('vanguard', seed); G.enter(s, G.available(s)[0].id); s.mapBattles = stage - 1; s.current = { ...s.current, type }; G.startConfront(s, s.current); return s; }
@@ -18,4 +18,4 @@ assert.equal(ups(fight(9, 'elite')), 8, 'elite = curve + 1');
 { const s = G.fresh('vanguard', 3); s.relicOpportunities = 6; const cards = G.DECKS[0].ids.map(t => ({ type: t, level: 0 })); const seen = new Set(); for (let i = 0; i < 200; i++) { const r = G.rollEnemyRelics(s, cards); seen.add(r.artifacts.length); assert(r.artifacts.length >= 1 && r.artifacts.length <= 6); assert(G.packBag(r.artifacts)); } assert(seen.has(1) && seen.size >= 4); }
 // Bug fix: summoned minions get a real skill charge (not 0).
 { const src = require('node:fs').readFileSync(__dirname + '/../dist/boss-engine.js', 'utf8'); assert(src.includes('m.charge=G.skillLimit(m)')); }
-console.log('PASS P4: enemy curve (~1 upgrade per fight), elite +1, gold 14/16/18, power 1/1.18/1.26 (post-CP1), boss leaders, themed enemy decks, relic rule 1..n-1 with bag limit, minion charge fix.');
+console.log('PASS P4: enemy curve (~1 upgrade per fight), elite +1, gold 14/16/18, power 1/1.16/1.235 (post-CP1), boss leaders, themed enemy decks, relic rule 1..n-1 with bag limit, minion charge fix.');

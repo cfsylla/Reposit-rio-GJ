@@ -25,25 +25,27 @@
 
 **Consequência para o balanceamento:** como cada desafio vale 1 nível, **todos precisam pesar parecido**. A meta é que cada desafio, sozinho, tire de 4 a 7 pontos de vitória do jogador no limite da árvore. A medição está em andamento. Os que saírem da faixa terão a intensidade ajustada.
 
-## 2. Os 15 desafios (intensidade inicial, uma só por desafio)
+## 2. Os 15 desafios (intensidade atual, 3ª rodada de calibração)
 
 | # | Desafio | Efeito |
 |---|---|---|
-| 1 | Veteranos | Inimigos comuns: +2 upgrades |
-| 2 | Tropas Resistentes | Vida dos inimigos +15% |
-| 3 | Ataques Implacáveis | Dano dos inimigos +15% |
+| 1 | Veteranos | Inimigos comuns: +3 upgrades |
+| 2 | Tropas Resistentes | Vida dos inimigos +3% |
+| 3 | Ataques Implacáveis | Dano dos inimigos +4% |
 | 4 | Comandantes Preparados | Elites, ordens e bosses: +1 relíquia e +2 upgrades |
-| 5 | Líderes Inteiros | Líderes de boss sem a redução de vida e ataque |
-| 6 | Reforços Inimigos | +1 unidade inimiga em lutas comuns e elites (não vale para bosses e raids) |
-| 7 | Fúria das Raids | Vida das raids +25% |
-| 8 | Mercado Inflacionado | Preços da loja +25% |
-| 9 | Bolsa Leve | Ouro por vitória −25% |
-| 10 | Recursos Escassos | −1 de energia em cada rodada contra elites e bosses *(decisão de 02/11: evita anular a vantagem Energia Guardada)* |
+| 5 | **Bosses Implacáveis** *(substitui Líderes Inteiros, aprovado em 02/11)* | Bosses de mapa exigem 5 vitórias de rodada em vez de 4 |
+| 6 | Reforços Inimigos | A partir da 3ª rodada, inimigos comuns e elites colocam +1 unidade em campo |
+| 7 | Fúria das Raids | Raids com +30% de vida e +10% de dano |
+| 8 | Mercado Inflacionado | Preços da loja +15% |
+| 9 | Bolsa Leve | Ouro por vitória −15% |
+| 10 | Recursos Escassos | −1 de energia em cada rodada contra bosses |
 | 11 | Bagagem Limitada | 3 casas da bolsa de relíquias bloqueadas |
-| 12 | Escolhas Escassas | Ofertas de cartas com 1 opção a menos |
-| 13 | Árvore Contida | Árvore limitada a 90 pontos a menos durante a run |
-| 14 | **Relíquias Escassas** *(substitui "Sem Preparo", que dependia dos espaços de preparativos)* | Escolhas de relíquia com 1 opção a menos |
-| 15 | Caminho Amaldiçoado | Começa com 2 maldições Fardo |
+| 12 | **Deck Pesado** *(substitui Escolhas Escassas, aprovado em 02/11)* | Começa a run com +3 cartas comuns fracas aleatórias no deck (comuns de custo 2) |
+| 13 | Árvore Contida | Árvore limitada a 60 pontos a menos durante a run |
+| 14 | Relíquias Escassas | Escolhas de relíquia com 2 opções a menos (mínimo 1) |
+| 15 | Caminho Amaldiçoado | Começa com as maldições Fardo e Correntes |
+
+Histórico da calibração: `balance/out/chal1` (1ª rodada), `balance/out/chal2` (2ª) e `balance/out/chal3` (3ª).
 
 ## 3. As 15 vantagens (ideias para aprovação)
 
@@ -111,7 +113,8 @@ Notas:
 7. **Decks emprestados:** liberados por milestone ou por 25 diamantes. Conferido: os 24 decks já seguem essa regra, sem mudança.
 8. **Liberação retroativa de decks** (herdada do CP1): não haverá. Encerrado.
 9. **Barras da ficha (`ratings`):** o campo existe só nos dados dos personagens, e nenhum código do jogo o lê, então o jogador não o vê. Serão recalculadas a partir dos atributos reais e entregues no CP2, com baixa prioridade.
-10. **Entrega:** o CP2 sai completo (opção A), depois de calibrar a curva base, os desafios e as vantagens, e de simular a escada dos níveis 1 a 15.
+10. **Curva base: BC_B** (aprovada em 02/11): 2 XP por luta nos mapas 1 e 2 e força ×1 / ×1,16 / ×1,235. **Meta da 1ª vitória revista para as runs 15 a 20.** Medido: 1ª vitória na run 17, nível 30 na run 18 e jogo base no limite em 59%.
+11. **Entrega:** o CP2 sai completo (opção A), depois de calibrar a curva base, os desafios e as vantagens, e de simular a escada dos níveis 1 a 15.
 
 ## 7. Em aberto
 

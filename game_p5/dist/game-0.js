@@ -184,7 +184,7 @@ function rosterAudit(s){ensureRoster(s);const ids=[...(s.content?.exiled||[]),..
 
 function setTutorialHand(s,types,keepDiscard=false){const previousDiscard=[...s.discard];const pool=[...s.hand,...s.draw,...s.discard],chosen=[];for(const type of types){const id=pool.find(id=>card(s,id)?.type===type&&!chosen.includes(id));if(id)chosen.push(id);}s.hand=chosen;s.discard=keepDiscard?previousDiscard.filter(id=>!chosen.includes(id)):[];s.draw=pool.filter(id=>!chosen.includes(id)&&!s.discard.includes(id));}
 function setupTutorialEncounter(s){if(s.tutorial.initialized)return;s.tutorial.initialized=true;s.tutorial.step='select-warrior';setTutorialHand(s,['warrior','lancer','bastion','archer']);s.tutorial.warrior=s.hand[0];s.tutorial.lancer=s.hand[1];s.tutorialOpponent=true;s.ai.cards=[{uid:'lesson-enemy',type:'warrior',level:0}];s.ai.board=Array(SLOTS).fill(null);s.ai.board[12]='lesson-enemy';s.ai.bench=Array(BENCH_SIZE).fill(null);s.ai.hand=[];s.ai.draw=[];s.ai.discard=[];s.ai.artifacts=[];s.ai.bag={items:[]};}
-function winsNeeded(s){if(s.training)return s.training.wins;return s.current?.type==='boss'?4:3;}
+function winsNeeded(s){if(s.training)return s.training.wins;return s.current?.type==='boss'?4+(root.JourneyChallenges?.extraBossRounds(s)||0):3;}
 function maxUnits(s,enemy=false){return Math.max(1,Math.min(6,s.round+1)-(enemy?0:root.JourneyContent?.omens(s)||0))+(enemy?(root.JourneyChallenges?.extraUnits(s)||0):0);}
 function energyIncome(s,enemy=false){const ids=enemy?(s.ai?.artifacts||[]):s.artifacts;return (s.round===1?5:s.round+2)+(ids.includes('spark')?1:0)+(s.round===1&&ids.includes('quickstart')?2:0)+(root.JourneyChallenges?.energy(s,enemy)||0)+(root.JourneyAdvantages?.energy(s,enemy)||0);}
 function cost(c){return BY[c.type].cost;}
