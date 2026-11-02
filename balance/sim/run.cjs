@@ -28,8 +28,12 @@ const TREE_PRESETS = {
   mid20: ['pow_atk_1', 'pow_atk_2', 'pow_atk_3', 'pow_atk_5', 'pow_crit_2', 'vit_hp_1', 'vit_hp_2', 'vit_hp_3', 'vit_hp_4', 'def_armor_1', 'def_armor_2', 'def_armor_3', 'def_armor_4', 'agi_rate_1', 'agi_rate_2', 'agi_rate_3', 'agi_rate_4', 'exp_gold_1', 'exp_gold_2', 'exp_shop_1'],
   mid30: ['pow_atk_1', 'pow_atk_2', 'pow_atk_3', 'pow_atk_5', 'pow_crit_2', 'vit_hp_1', 'vit_hp_2', 'vit_hp_3', 'vit_hp_4', 'def_armor_1', 'def_armor_2', 'def_armor_3', 'def_armor_4', 'agi_rate_1', 'agi_rate_2', 'agi_rate_3', 'agi_rate_4', 'exp_gold_1', 'exp_gold_2', 'exp_shop_1',
     'first_impact', 'pow_crit_1', 'penetration', 'second_wind', 'formation', 'strong_shields', 'sprint', 'momentum', 'market', 'exp_shop_2'],
+  mid25: ['pow_atk_1', 'pow_atk_2', 'pow_atk_3', 'pow_atk_5', 'pow_crit_2', 'vit_hp_1', 'vit_hp_2', 'vit_hp_3', 'vit_hp_4', 'def_armor_1', 'def_armor_2', 'def_armor_3', 'def_armor_4', 'agi_rate_1', 'agi_rate_2', 'agi_rate_3', 'agi_rate_4', 'exp_gold_1', 'exp_gold_2', 'exp_shop_1',
+    'first_impact', 'second_wind', 'formation', 'sprint', 'market'],
+  full: null,
   advanced: null, // filled below: every node except Expedition Marcos
 };
+TREE_PRESETS.full = Object.keys(TreeData.by).filter(id => id !== 'origin');
 TREE_PRESETS.advanced = TreeData.nodes ? TreeData.nodes.filter(n => n.id !== 'origin' && !['expanded_bag', 'caravan'].includes(n.id)).map(n => n.id) : Object.keys(TreeData.by).filter(id => id !== 'origin' && !['expanded_bag', 'caravan'].includes(id));
 const TREE_BUY_ORDER = ['pow_atk_1', 'vit_hp_1', 'def_armor_1', 'agi_rate_1', 'pow_atk_2', 'vit_hp_2', 'def_armor_2', 'agi_rate_2', 'pow_atk_3', 'vit_hp_3', 'vit_hp_4',
   'def_armor_3', 'def_armor_4', 'agi_rate_3', 'agi_rate_4', 'pow_atk_5', 'first_impact', 'second_wind', 'formation', 'strong_shields', 'sprint', 'momentum'];
@@ -170,7 +174,13 @@ function playRun(deck, seed, pol, opt) {
       case 'event': {
         const nodeId = s.current?.id ?? ('L' + s.layer);
         if (s.offers && !s.offers.resolved && !rec.events.some(e => e.node === nodeId)) { doEvent(s, pol, rec); rec.events.at(-1).node = nodeId; if (s.phase !== 'event') break; }
-        if (!G.leave(s)) { rec.result = 'event-stuck'; return finalize(s, rec); }
+        // Multi-stage events (e.g. Arena after the first win): choose the option without risk / the first one, then leave.
+        for (let k = 0; k < 3 && s.phase === 'event' && s.offers?.content && !s.offers.resolved && s.offers.content.stage && s.offers.content.stage !== 'choice'; k++) {
+          const opts = C.options(s).filter(o => !C.reason(s, o)); const safe = opts.find(o => !/Risk|Arrisc|Defeat|Derrota/i.test(o.en + ' ' + (o.pt || ''))) || opts[0];
+          if (!safe || !C.accept(s, safe.code)) break; if (s.phase !== 'event') break;
+        }
+        if (s.phase !== 'event') break;
+        if (!G.leave(s)) { rec.result = 'event-stuck'; rec.stuck = { eventId: s.offers?.eventId, resolved: s.offers?.resolved, stage: s.offers?.content?.stage, pending: !!s.pendingRelic, eventPending: !!s.eventPending, phase: s.phase, outcome: s.offers?.outcome, text: s.offers?.text }; return finalize(s, rec); }
         break;
       }
       case 'tree': {

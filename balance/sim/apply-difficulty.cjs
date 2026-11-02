@@ -25,5 +25,8 @@ if (V.enemyDecks) { // themed enemy decks for normal battles, by map (testing)
 if (V.raid) { const A = x => Array.isArray(x) ? JSON.stringify(x) + '[act(s)-1]' : x; rep(ae, '{hp:scale.hp*p,damage:scale.damage*p,minions:scale.minions*p}', `{hp:scale.hp*p*${A(V.raid.hp)},damage:scale.damage*p*${A(V.raid.damage)},minions:scale.minions*p*${A(V.raid.damage)}}`); }
 if (V.fixMinionCharge) rep(path.join(out, 'dist/boss-engine.js'), "function freshMinion(type,uid,x,y,hp=450){const t=G.BY[type];return {uid,type,side:1,level:0,x,y,hp,maxhp:hp,atk:t.atk,defense:t.defense,rate:t.rate,speed:t.speed,crit:t.crit||0,range:t.range,armor:0,skill:1,charge:0,progress:0,cooldown:.5,hits:0,received:0,flash:0,dead:false};}",
   "function freshMinion(type,uid,x,y,hp=450){const t=G.BY[type];const m={uid,type,side:1,level:0,x,y,hp,maxhp:hp,atk:t.atk,defense:t.defense,rate:t.rate,speed:t.speed,crit:t.crit||0,range:t.range,armor:0,skill:1,charge:0,progress:0,cooldown:.5,hits:0,received:0,flash:0,dead:false};m.charge=G.skillLimit(m);return m;}");
+if (V.relicRule) { // Carlos' rule: draw uniformly between 1 and max(1, N - minus), N = relics the player could have (1 starting + relic opportunities); bag still limits
+  rep(g0, 'count=Math.max(1,tests.filter(Boolean).length)', `count=Math.max(1,1+Math.floor(draw()*Math.max(1,1+s.relicOpportunities-${V.relicRule.minus})))`);
+}
 fs.writeFileSync(path.join(out, 'variant.json'), JSON.stringify(V, null, 1));
 console.log('variant', out);
