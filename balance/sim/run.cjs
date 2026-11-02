@@ -201,7 +201,7 @@ function playRun(deck, seed, pol, opt) {
         let bought = true; while (bought) { bought = false; for (const id of TREE_BUY_ORDER) if (Tree.buy(s, id)) { rec.treeBought.push(id); bought = true; break; }
           // career mode (--treebuy all): after the fixed order, keep buying the cheapest connected node (combat branches first)
           if (!bought && pol.treeBuy === 'all') { const t = Tree.ensure(s), have = Tree.profile().unlocked;
-            const cand = TreeData.nodes.filter(n => !have.includes(n.id) && Tree.connected(n.id) && n.cost <= t.xp).sort((x, y) => x.cost - y.cost || (x.category === 'expedition') - (y.category === 'expedition'));
+            const cand = TreeData.nodes.filter(n => !have.includes(n.id) && Tree.connected(n.id) && n.cost <= (Tree.available ? Tree.available() : t.xp)).sort((x, y) => x.cost - y.cost || (x.category === 'expedition') - (y.category === 'expedition'));
             if (cand.length && Tree.buy(s, cand[0].id)) { rec.treeBought.push(cand[0].id); bought = true; } } }
         rec.xpLeft = (rec.xpLeft || 0) + (Tree.ensure(s)?.xp || 0);
         Tree.continueRun(s); break;
