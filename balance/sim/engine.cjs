@@ -15,6 +15,8 @@ if (require('node:fs').existsSync(path.join(ROOT, 'dist', 'enemy-decks-p4.js')))
 if (require('node:fs').existsSync(path.join(ROOT, 'dist', 'supports-b.js'))) MODULES.splice(MODULES.indexOf('traits-v54') + 1, 0, 'supports-b');
 if (require('node:fs').existsSync(path.join(ROOT, 'dist', 'challenges.js'))) MODULES.push('challenges');
 if (require('node:fs').existsSync(path.join(ROOT, 'dist', 'advantages.js'))) MODULES.push('advantages');
+// Variant values read by the game modules at load time (level model) must be set before loading.
+if (process.env.GJ_TREE_VARIANT) { const tv0 = JSON.parse(require('node:fs').readFileSync(process.env.GJ_TREE_VARIANT, 'utf8')); if (tv0.level) globalThis.JOURNEY_TREE_LEVEL = tv0.level; }
 for (const m of MODULES) require(path.join(ROOT, 'dist', m + '.js'));
 const g = globalThis;
 module.exports = {
@@ -45,7 +47,8 @@ if (process.env.GJ_OVERRIDES) {
  *   { xpFight: [m1, m2, m3], xpBoss: [m1, m2, m3],            // XP per normal fight / boss win, by map (game: 1,1,1 / 2,4,6)
  *     costDepth: { "0": 4, "1": 6, "2": 8 },                   // cost of BASIC nodes by depth (start = 0,1); others unchanged
  *     costs: { nodeId: cost },                                 // explicit per-node costs (applied last)
- *     power: [m1, m2, m3] }                                     // enemy power by map (JourneyActs.SPEC[act].power)                                 // explicit per-node costs (applied last)
+ *     power: [m1, m2, m3],                                     // enemy power by map (JourneyActs.SPEC[act].power)
+ *     level: { xpFight: [..], xpBoss: [..] } }                 // level-model XP table (game_p5+), set before loading                                     // enemy power by map (JourneyActs.SPEC[act].power)                                 // explicit per-node costs (applied last)
  * XP: the real award still runs; this wrapper adds the difference on the same win (same eligibility rules). */
 if (process.env.GJ_TREE_VARIANT) {
   const tv = JSON.parse(require('node:fs').readFileSync(process.env.GJ_TREE_VARIANT, 'utf8'));
