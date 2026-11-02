@@ -34,7 +34,9 @@ assert.equal(ups(fight(['commanders'], 9, 'elite')) - ups(fight(null, 9, 'elite'
 { const s = run(['raidfury']); JourneyRaid.initialize(s, 'tree', { hp: 1, damage: 1, minions: 1 }, true); assert(Math.abs(s.raid.scale.hp - 1.5) < 1e-9); assert(Math.abs(s.raid.scale.damage - 1.2) < 1e-9); }
 { const s = run(['inflation']), b = run(null); s.current = b.current = { id: 'x', type: 'shop' }; assert.equal(T.price(s, 'upgrade', 10, 0), 13); assert.equal(T.price(b, 'upgrade', 10, 0), 10); }
 { const s = run(['lightpurse']); assert.equal(T.gold(s, 16), 12); }
-{ const s = run(['scarce']), b = run(null); s.round = b.round = 1; assert.equal(G.energyIncome(s), G.energyIncome(b) - 1); assert.equal(G.energyIncome(s, true), G.energyIncome(b, true)); s.round = b.round = 2; assert.equal(G.energyIncome(s), G.energyIncome(b)); }
+{ const e = fight(['scarce'], 5, 'elite'), n = fight(['scarce'], 5), b = fight(null, 5); for (const r of [1, 3]) { e.round = n.round = b.round = r; assert.equal(G.energyIncome(e), G.energyIncome(b) - 1); assert.equal(G.energyIncome(n), G.energyIncome(b)); assert.equal(G.energyIncome(e, true), G.energyIncome(b, true)); } }
+// Enemy relic filter (post-CP1 fix): scope/tome/boots/shield can reach enemies whose cards match the relic.
+{ const pool = cards => G.enemyRelicPool(cards.map(t => ({ type: t, level: 0 }))).map(a => a.id); const ranged = Object.values(G.BY).find(u => u.range > 100 && !u.order).id; assert(pool([ranged]).includes('scope')); const melee = Object.values(G.BY).find(u => u.range <= 100 && !u.traits.includes('Sentinel') && !u.traits.includes('Trailblazer') && !JourneyTraits.caster(u) && u.kind !== 'curse' && !/^boss_/.test(u.id)); if (melee) assert(!pool([melee.id]).includes('scope')); }
 { const s = run(['bag']); assert.equal(G.bagCapacity(s), 13); assert(CH.cellBlocked(s, 3, 3)); assert(!CH.cellBlocked(s, 0, 0)); }
 { const s = run(['fewchoices']); assert.equal(T.offerCount(s, 3), 1); }
 { const s = run(['fewrelics']); assert.equal(T.relicCount(s, 3), 1); }
@@ -43,6 +45,10 @@ assert.equal(ups(fight(['commanders'], 9, 'elite')) - ups(fight(null, 9, 'elite'
 assert.deepEqual(run(['cursed']).cards.filter(c => JourneyContent.isCurse(c)).map(c => c.type).sort(), ['burden', 'chains', 'exhaustion']);
 { const pc = CH.profile(); pc.selected = ['veterans', 'scarce']; const s = G.fresh('vanguard', 3); s.training = { wins: 1 }; CH.start(s); assert.equal(s.challenges, undefined); assert.equal(CH.active(s, 'scarce'), false); }
 
+// Final Challenge requirements: level 15 won, all 15 completed, 3 true bosses.
+{ const pc = CH.profile(); pc.won = []; pc.completed = []; P.profile.stats.trueBoss_blackfang = P.profile.stats.trueBoss_dawncrest = P.profile.stats.trueBoss_monsters = 0; assert.equal(CH.finalRequirements().ready, false);
+  pc.won = Array.from({ length: 15 }, (_, i) => i + 1); pc.completed = CH.LIST.map(c => c.id); assert.equal(CH.finalRequirements().ready, false);
+  for (const o of ['blackfang', 'dawncrest', 'monsters']) P.profile.stats['trueBoss_' + o] = 1; assert.equal(CH.finalRequirements().ready, true); pc.won = []; pc.completed = []; }
 // Tree level model.
 { const st = T.profile(); st.unlocked = []; st.totalXp = 95; assert.equal(T.level(), 9); assert.equal(T.points(), 90);
   assert(T.buy(null, 'pow_atk_1')); assert.equal(T.available(), 82); assert(T.reset(null)); assert.equal(T.available(), 90);

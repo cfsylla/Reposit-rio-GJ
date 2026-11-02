@@ -18,7 +18,7 @@ const LIST=[
  {id:'raidfury',en:'Raid Fury',pt:'Fúria das Raids',enDesc:'Raid health +50% and damage +20%.',ptDesc:'Raids com +50% de vida e +20% de dano.'},
  {id:'inflation',en:'Inflated Market',pt:'Mercado Inflacionado',enDesc:'Shop prices +25%.',ptDesc:'Preços da loja +25%.'},
  {id:'lightpurse',en:'Light Purse',pt:'Bolsa Leve',enDesc:'Gold from victories −25%.',ptDesc:'Ouro por vitória −25%.'},
- {id:'scarce',en:'Scarce Resources',pt:'Recursos Escassos',enDesc:'−1 energy in the first round of each confrontation.',ptDesc:'−1 de energia na primeira rodada de cada confronto.'},
+ {id:'scarce',en:'Scarce Resources',pt:'Recursos Escassos',enDesc:'−1 energy in every round against elites and bosses.',ptDesc:'−1 de energia em cada rodada contra elites e bosses.'},
  {id:'bag',en:'Limited Luggage',pt:'Bagagem Limitada',enDesc:'Blocks 3 Relic Bag cells.',ptDesc:'Bloqueia 3 casas da bolsa de relíquias.'},
  {id:'fewchoices',en:'Few Choices',pt:'Escolhas Escassas',enDesc:'Card offers show 2 options less (minimum 1).',ptDesc:'Ofertas de cartas mostram 2 opções a menos (mínimo 1).'},
  {id:'treecap',en:'Contained Tree',pt:'Árvore Contida',enDesc:'Your tree is limited to 30 fewer points during the run (latest nodes are disabled first).',ptDesc:'A árvore fica limitada a 30 pontos a menos durante a run (os nós mais recentes são desativados primeiro).'},
@@ -28,7 +28,7 @@ const LIST=[
 const BY=Object.fromEntries(LIST.map(c=>[c.id,c]));
 const MAX_LEVEL=LIST.length;
 // Single intensity per challenge (revision 2: the level is the number of active challenges). Calibrated by simulation.
-const TUNE=root.JOURNEY_CHALLENGE_TUNE={veterans:3,commanders:3,commanderRelics:1,tough:.04,relentless:.04,leaders:1,leaderBoost:.25,raidfury:.50,raidDamage:.20,inflation:.25,lightpurse:.25,bagCells:3,treecap:30,curses:['burden','exhaustion','chains'],scarceRounds:1,fewChoices:2,fewRelics:2,...(root.JOURNEY_CHALLENGE_TUNE||{})};
+const TUNE=root.JOURNEY_CHALLENGE_TUNE={veterans:3,commanders:3,commanderRelics:1,tough:.04,relentless:.04,leaders:1,leaderBoost:.25,raidfury:.50,raidDamage:.20,inflation:.25,lightpurse:.25,bagCells:3,treecap:30,curses:['burden','exhaustion','chains'],fewChoices:2,fewRelics:2,...(root.JOURNEY_CHALLENGE_TUNE||{})};
 const BAG_CELLS=[[3,3],[2,3],[1,3],[0,3]];
 
 function profile(){const p=P.profile;const pc=p.challenges??={};pc.unlocked=!!pc.unlocked;pc.available=Math.max(pc.unlocked?1:0,Math.min(MAX_LEVEL,Math.floor(pc.available||0)));
@@ -51,7 +51,7 @@ function upgrades(s,elite,boss){return elite||boss?(active(s,'commanders')?TUNE.
 function enemyRelics(s){return active(s,'commanders')?TUNE.commanderRelics:0;}
 function bossFight(s){return s.current?.type==='boss'||!!B?.deck?.(s);}
 function extraUnits(s){return active(s,'reinforcements')&&!s.raid&&!bossFight(s)&&s.current?.type==='elite'?1:0;}
-function energy(s,enemy){if(enemy)return extraUnits(s)?2:0;return active(s,'scarce')&&s.round<=TUNE.scarceRounds?-1:0;}
+function energy(s,enemy){if(enemy)return extraUnits(s)?2:0;return active(s,'scarce')&&(s.current?.type==='elite'||bossFight(s))?-1:0;}
 function bagBlocked(owner){return active(owner,'bag')?TUNE.bagCells:0;}
 function cellBlocked(owner,x,y){const n=bagBlocked(owner);return n>0&&BAG_CELLS.slice(0,n).some(([bx,by])=>bx===x&&by===y);}
 function enemyStats(s,c,st){if(!eligible(s))return st;if(active(s,'tough'))st.hp*=1+TUNE.tough;if(active(s,'relentless'))st.atk*=1+TUNE.relentless;
@@ -74,8 +74,16 @@ function recordVictory(s){const pc=profile(),n=(s.challenges||[]).length,out={le
  if(n>=1){if(!pc.won.includes(n)){pc.won.push(n);P.profile.insignia+=1;out.insignia=1;}pc.available=Math.min(MAX_LEVEL,Math.max(pc.available,n+1));for(const id of s.challenges)if(!pc.completed.includes(id))pc.completed.push(id);}
  return out;}
 /* Final Challenge (secret boss) requirements; the encounter itself is not implemented yet. */
-function finalRequirements(){const pc=profile();return {trueBosses:root.JourneyAdvantages?.trueBossesBeaten?.()??null,allCompleted:pc.completed.length===MAX_LEVEL,maxLevel:pc.available>=MAX_LEVEL};}
+/* Final Challenge (approved): available only after winning everything: level 15 won (so every level), every challenge
+ * completed and the three true bosses defeated. The run then has all 15 challenges active. Sequence (to implement with the
+ * secret boss content): first the true boss of the order the player followed in the 6 order battles, then the other two in
+ * random order, then the secret boss (stronger than the other true bosses). */
+const TRUE_ORDERS=['blackfang','dawncrest','monsters'];
+function trueBossesBeaten(){const st=P.profile.stats||{};return TRUE_ORDERS.every(o=>!!st['trueBoss_'+o]);}
+// Records every true boss victory (decks-p3 only records the two orders that unlock decks).
+const encounter=P.encounterWin;P.encounterWin=function(s){const r=encounter(s);if(eligible(s)&&s.current?.trueBoss&&TRUE_ORDERS.includes(s.current.campaign)&&!s.eventEncounter){P.profile.stats??={};P.profile.stats['trueBoss_'+s.current.campaign]=1;}return r;};
+function finalRequirements(){const pc=profile(),tb=trueBossesBeaten();return {wonMaxLevel:pc.won.includes(MAX_LEVEL),allCompleted:pc.completed.length===MAX_LEVEL,trueBosses:tb,ready:pc.won.includes(MAX_LEVEL)&&pc.completed.length===MAX_LEVEL&&tb===true};}
 const finish=P.finish;P.finish=function(s,reason){const before=!!s?.meta?.ended,r=finish(s,reason);if(eligible(s)&&!before&&s.meta?.ended&&s.meta.reason==='victory'){const got=recordVictory(s);s.meta.challengeLevel=got.level;s.meta.insignia=got.insignia;}return r;};
 
-root.JourneyChallenges={LIST,BY,TUNE,MAX_LEVEL,profile,clean,level,highestWon,select,toggle,start,active,upgrades,enemyRelics,extraUnits,energy,bagBlocked,cellBlocked,enemyStats,treeNodes,recordVictory,finalRequirements};
+root.JourneyChallenges={LIST,BY,TUNE,MAX_LEVEL,profile,clean,level,highestWon,select,toggle,start,active,upgrades,enemyRelics,extraUnits,energy,bagBlocked,cellBlocked,enemyStats,treeNodes,recordVictory,trueBossesBeaten,finalRequirements};
 })(typeof globalThis!=='undefined'?globalThis:this);

@@ -38,7 +38,7 @@
 | 7 | Fúria das Raids | Vida das raids +25% |
 | 8 | Mercado Inflacionado | Preços da loja +25% |
 | 9 | Bolsa Leve | Ouro por vitória −25% |
-| 10 | Recursos Escassos | −1 de energia no preparo de cada rodada |
+| 10 | Recursos Escassos | −1 de energia em cada rodada contra elites e bosses *(decisão de 02/11: evita anular a vantagem Energia Guardada)* |
 | 11 | Bagagem Limitada | 3 casas da bolsa de relíquias bloqueadas |
 | 12 | Escolhas Escassas | Ofertas de cartas com 1 opção a menos |
 | 13 | Árvore Contida | Árvore limitada a 90 pontos a menos durante a run |
@@ -102,10 +102,15 @@ Notas:
 3. **XP acima do nível 30:** vira diamantes, **1 diamante a cada 20 XP** excedente (implementado).
 4. **Saves antigos:** ignorados, porque só Carlos faz playtests. A migração especial foi removida.
 5. **Desafio Final:**
-   - o boss secreto precisa ser **mais forte que os outros true bosses**;
-   - a run do Desafio Final tem **os 15 desafios ativos**, e essa é a condição para ativá-lo.
+   - **Liberação:** só depois de vencer tudo: nível 15 vencido, os 15 desafios concluídos e os 3 true bosses (Blackfang, Dawncrest e Monstros) derrotados. A run do Desafio Final tem os 15 desafios ativos.
+   - **Sequência:** primeiro o true boss da ordem que o jogador seguiu nas 6 batalhas de ordem; depois os outros dois, em ordem aleatória; por último o boss secreto.
+   - **Boss secreto:** mais forte que os outros true bosses. Arte, mecânica e conteúdo ficam com o projeto principal. O Claude calibra e só faz ajustes com aprovação. Ainda não foi criado.
+   - **Recompensa extra:** ainda não implementada no projeto principal.
+   - Implementado na cópia de teste: verificação dos requisitos (`finalRequirements`) e registro dos 3 true bosses (o jogo só registrava 2). A sequência de confrontos será implementada quando o boss secreto existir.
+6. **Filtro de relíquias inimigas:** corrigido. As relíquias scope, tome, boots e shield agora chegam aos inimigos que têm cartas compatíveis.
+7. **Decks emprestados:** liberados por milestone ou por 25 diamantes. Conferido: os 24 decks já seguem essa regra, sem mudança.
 
 ## 7. Em aberto
 
-- Desafio Final: ordem dos true bosses, conteúdo do boss secreto (personagem, arte, mecânicas) e recompensa extra.
+- Conteúdo do boss secreto (projeto principal) e recompensa extra.
 - Calibração: custo de cada desafio (em medição) e valor de cada vantagem.
