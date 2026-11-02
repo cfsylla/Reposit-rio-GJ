@@ -13,22 +13,22 @@ const LIST=[
  {id:'tough',en:'Tough Troops',pt:'Tropas Resistentes',enDesc:'Enemy health +3%.',ptDesc:'Vida dos inimigos +3%.'},
  {id:'relentless',en:'Relentless Attacks',pt:'Ataques Implacáveis',enDesc:'Enemy damage +4%.',ptDesc:'Dano dos inimigos +4%.'},
  {id:'commanders',en:'Prepared Commanders',pt:'Comandantes Preparados',enDesc:'Elites, orders and bosses gain +1 relic and +2 upgrades.',ptDesc:'Elites, ordens e bosses ganham +1 relíquia e +2 upgrades.'},
- {id:'bossrounds',en:'Relentless Bosses',pt:'Bosses Implacáveis',enDesc:'Map bosses require 5 round victories instead of 4.',ptDesc:'Bosses de mapa exigem 5 vitórias de rodada em vez de 4.'},
- {id:'reinforcements',en:'Enemy Reinforcements',pt:'Reforços Inimigos',enDesc:'From the 3rd round on, regular and elite enemies field +1 unit.',ptDesc:'A partir da 3ª rodada, inimigos comuns e elites colocam +1 unidade em campo.'},
+ {id:'bossrounds',en:'Relentless Bosses',pt:'Bosses Implacáveis',enDesc:'Map bosses require 6 round victories instead of 4.',ptDesc:'Bosses de mapa exigem 6 vitórias de rodada em vez de 4.'},
+ {id:'reinforcements',en:'Enemy Reinforcements',pt:'Reforços Inimigos',enDesc:'From the 2nd round on, regular and elite enemies field +1 unit.',ptDesc:'A partir da 2ª rodada, inimigos comuns e elites colocam +1 unidade em campo.'},
  {id:'raidfury',en:'Raid Fury',pt:'Fúria das Raids',enDesc:'Raid health +30% and damage +10%.',ptDesc:'Raids com +30% de vida e +10% de dano.'},
  {id:'inflation',en:'Inflated Market',pt:'Mercado Inflacionado',enDesc:'Shop prices +15%.',ptDesc:'Preços da loja +15%.'},
  {id:'lightpurse',en:'Light Purse',pt:'Bolsa Leve',enDesc:'Gold from victories −15%.',ptDesc:'Ouro por vitória −15%.'},
- {id:'scarce',en:'Scarce Resources',pt:'Recursos Escassos',enDesc:'−1 energy in every round against bosses.',ptDesc:'−1 de energia em cada rodada contra bosses.'},
+ {id:'scarce',en:'Scarce Resources',pt:'Recursos Escassos',enDesc:'−1 energy in the first 2 rounds against bosses.',ptDesc:'−1 de energia nas 2 primeiras rodadas contra bosses.'},
  {id:'bag',en:'Limited Luggage',pt:'Bagagem Limitada',enDesc:'Blocks 3 Relic Bag cells.',ptDesc:'Bloqueia 3 casas da bolsa de relíquias.'},
- {id:'heavydeck',en:'Heavy Deck',pt:'Deck Pesado',enDesc:'Start the run with +3 random weak common cards in the deck.',ptDesc:'Começa a run com +3 cartas comuns fracas aleatórias no deck.'},
- {id:'treecap',en:'Contained Tree',pt:'Árvore Contida',enDesc:'Your tree is limited to 60 fewer points during the run (latest nodes are disabled first).',ptDesc:'A árvore fica limitada a 60 pontos a menos durante a run (os nós mais recentes são desativados primeiro).'},
+ {id:'heavydeck',en:'Heavy Deck',pt:'Deck Pesado',enDesc:'Start the run with +1 random weak common card in the deck.',ptDesc:'Começa a run com +1 carta comum fraca aleatória no deck.'},
+ {id:'treecap',en:'Contained Tree',pt:'Árvore Contida',enDesc:'Your tree is limited to 40 fewer points during the run (latest nodes are disabled first).',ptDesc:'A árvore fica limitada a 40 pontos a menos durante a run (os nós mais recentes são desativados primeiro).'},
  {id:'fewrelics',en:'Scarce Relics',pt:'Relíquias Escassas',enDesc:'Relic choices offer 2 options less (minimum 1).',ptDesc:'Escolhas de relíquia oferecem 2 opções a menos (mínimo 1).'},
- {id:'cursed',en:'Cursed Path',pt:'Caminho Amaldiçoado',enDesc:'Start the run with the Burden and Chains curses.',ptDesc:'Começa a run com as maldições Fardo e Correntes.'},
+ {id:'cursed',en:'Cursed Path',pt:'Caminho Amaldiçoado',enDesc:'Start the run with the Exhaustion curse.',ptDesc:'Começa a run com a maldição Exaustão.'},
 ];
 const BY=Object.fromEntries(LIST.map(c=>[c.id,c]));
 const MAX_LEVEL=LIST.length;
 // Single intensity per challenge (revision 2: the level is the number of active challenges). Calibrated by simulation.
-const TUNE=root.JOURNEY_CHALLENGE_TUNE={veterans:3,commanders:2,commanderRelics:1,tough:.03,relentless:.04,bossRounds:1,raidfury:.30,raidDamage:.10,inflation:.15,lightpurse:.15,bagCells:3,treecap:60,curses:['burden','chains'],reinforceFromRound:3,heavyCards:3,heavyPool:['warrior','lancer','fighter','martial_artist','miner','pirate','ranger','shackled_pirate'],fewRelics:2,...(root.JOURNEY_CHALLENGE_TUNE||{})};
+const TUNE=root.JOURNEY_CHALLENGE_TUNE={veterans:3,commanders:2,commanderRelics:1,tough:.03,relentless:.04,bossRounds:2,raidfury:.30,raidDamage:.10,inflation:.15,lightpurse:.15,bagCells:3,treecap:40,curses:['exhaustion'],reinforceFromRound:2,heavyCards:1,scarceRounds:2,heavyPool:['warrior','lancer','fighter','martial_artist','miner','pirate','ranger','shackled_pirate'],fewRelics:2,...(root.JOURNEY_CHALLENGE_TUNE||{})};
 const BAG_CELLS=[[3,3],[2,3],[1,3],[0,3]];
 
 function profile(){const p=P.profile;const pc=p.challenges??={};pc.unlocked=!!pc.unlocked;pc.available=Math.max(pc.unlocked?1:0,Math.min(MAX_LEVEL,Math.floor(pc.available||0)));
@@ -51,7 +51,7 @@ function upgrades(s,elite,boss){return elite||boss?(active(s,'commanders')?TUNE.
 function enemyRelics(s){return active(s,'commanders')?TUNE.commanderRelics:0;}
 function bossFight(s){return s.current?.type==='boss'||!!B?.deck?.(s);}
 function extraUnits(s){return active(s,'reinforcements')&&!s.raid&&!bossFight(s)&&(s.round||1)>=TUNE.reinforceFromRound?1:0;}
-function energy(s,enemy){if(enemy)return extraUnits(s)?2:0;return active(s,'scarce')&&bossFight(s)?-1:0;}
+function energy(s,enemy){if(enemy)return extraUnits(s)?2:0;return active(s,'scarce')&&bossFight(s)&&(s.round||1)<=TUNE.scarceRounds?-1:0;}
 function bagBlocked(owner){return active(owner,'bag')?TUNE.bagCells:0;}
 function cellBlocked(owner,x,y){const n=bagBlocked(owner);return n>0&&BAG_CELLS.slice(0,n).some(([bx,by])=>bx===x&&by===y);}
 function enemyStats(s,c,st){if(!eligible(s))return st;if(active(s,'tough'))st.hp*=1+TUNE.tough;if(active(s,'relentless'))st.atk*=1+TUNE.relentless;return st;}
