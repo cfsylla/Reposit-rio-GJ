@@ -1,0 +1,3 @@
+{"kind":"tree","deck":"vanguard","scenario":"training","level":0,"seeds":8,"wins":1,"rounds":[5],"stalled":0,"remaining":2717}
+{"kind":"tree","deck":"vanguard","scenario":"training","level":1,"seeds":8,"wins":8,"rounds":[5,5,5,5,5,5,5,5],"stalled":0,"remaining":0}
+{"kind":"tree","deck":"balanced","scenario":"training","level":0,"seeds":8,"wins":5,"rounds":[5,5,5,5,5],"stalled":0,"remaining":1112}
