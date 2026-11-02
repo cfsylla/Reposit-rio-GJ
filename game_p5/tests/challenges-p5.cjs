@@ -28,7 +28,7 @@ assert.equal(ups(fight(['veterans'], 9, 'elite')), ups(fight(null, 9, 'elite')))
 assert.equal(ups(fight(['commanders'], 9, 'elite')) - ups(fight(null, 9, 'elite')), 2);
 { const st = ids => { const s = fight(ids, 5); s.round = 3; s.board[2] = s.cards[0].uid; return G.createBattle(s).units.filter(u => u.side === 1).map(u => [u.maxhp, u.atk]); };
   const base = st(null), t = st(['tough']), r = st(['relentless']); base.forEach(([h, a], i) => { assert(Math.abs(t[i][0] / h - 1.03) < 1e-9); assert(Math.abs(r[i][1] / a - 1.04) < 1e-9); assert(Math.abs(t[i][1] / a - 1) < 1e-9); }); }
-{ const s = fight(['bossrounds'], 9, 'boss'), b = fight(null, 9, 'boss'); assert.equal(G.winsNeeded(s), 6); assert.equal(G.winsNeeded(b), 4); assert.equal(G.winsNeeded(fight(['bossrounds'], 5)), 3); }
+{ const s = fight(['bossrounds'], 9, 'boss'); assert.equal(G.winsNeeded(s), 4); const st = { hp: 100, atk: 100 }; CH.enemyStats(s, { type: 'goblin_archer' }, st); assert(Math.abs(st.hp - 108) < 1e-9 && Math.abs(st.atk - 108) < 1e-9); const n = fight(['bossrounds'], 5), st2 = { hp: 100, atk: 100 }; CH.enemyStats(n, { type: 'goblin_archer' }, st2); assert.equal(st2.hp, 100); }
 { const s = fight(['reinforcements'], 5); s.round = 1; assert.equal(CH.extraUnits(s), 0); s.round = 2; assert.equal(G.maxUnits(s, true), 4); assert.equal(G.maxUnits(s, false), 3); }
 { const s = fight(['reinforcements'], 9, 'boss'); assert.equal(CH.extraUnits(s), 0); }
 { const s = run(['raidfury']); JourneyRaid.initialize(s, 'tree', { hp: 1, damage: 1, minions: 1 }, true); assert(Math.abs(s.raid.scale.hp - 1.3) < 1e-9); assert(Math.abs(s.raid.scale.damage - 1.1) < 1e-9); }

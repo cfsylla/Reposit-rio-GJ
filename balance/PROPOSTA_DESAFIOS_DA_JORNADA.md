@@ -25,7 +25,7 @@
 
 **Consequência para o balanceamento:** como cada desafio vale 1 nível, **todos precisam pesar parecido**. A meta é que cada desafio, sozinho, tire de 4 a 7 pontos de vitória do jogador no limite da árvore. A medição está em andamento. Os que saírem da faixa terão a intensidade ajustada.
 
-## 2. Os 15 desafios (intensidade atual, 3ª rodada de calibração)
+## 2. Os 15 desafios (calibrados: cada um custa de 4 a 8 pontos de vitória no jogo base com a árvore no limite)
 
 | # | Desafio | Efeito |
 |---|---|---|
@@ -33,19 +33,19 @@
 | 2 | Tropas Resistentes | Vida dos inimigos +3% |
 | 3 | Ataques Implacáveis | Dano dos inimigos +4% |
 | 4 | Comandantes Preparados | Elites, ordens e bosses: +1 relíquia e +2 upgrades |
-| 5 | **Bosses Implacáveis** *(substitui Líderes Inteiros, aprovado em 02/11)* | Bosses de mapa exigem 5 vitórias de rodada em vez de 4 |
-| 6 | Reforços Inimigos | A partir da 3ª rodada, inimigos comuns e elites colocam +1 unidade em campo |
+| 5 | **Bosses Implacáveis** *(substitui Líderes Inteiros; regra final aprovada em 02/11)* | Bosses de mapa (time e líder) com +8% de vida e de dano |
+| 6 | Reforços Inimigos | A partir da 2ª rodada, inimigos comuns e elites colocam +1 unidade em campo |
 | 7 | Fúria das Raids | Raids com +30% de vida e +10% de dano |
 | 8 | Mercado Inflacionado | Preços da loja +15% |
 | 9 | Bolsa Leve | Ouro por vitória −15% |
-| 10 | Recursos Escassos | −1 de energia em cada rodada contra bosses |
+| 10 | Recursos Escassos | −1 de energia nas 2 primeiras rodadas contra bosses |
 | 11 | Bagagem Limitada | 3 casas da bolsa de relíquias bloqueadas |
-| 12 | **Deck Pesado** *(substitui Escolhas Escassas, aprovado em 02/11)* | Começa a run com +3 cartas comuns fracas aleatórias no deck (comuns de custo 2) |
-| 13 | Árvore Contida | Árvore limitada a 60 pontos a menos durante a run |
+| 12 | **Deck Pesado** *(substitui Escolhas Escassas, aprovado em 02/11)* | Começa a run com +1 carta comum fraca aleatória no deck (comum de custo 2) |
+| 13 | Árvore Contida | Árvore limitada a 50 pontos a menos durante a run |
 | 14 | Relíquias Escassas | Escolhas de relíquia com 2 opções a menos (mínimo 1) |
-| 15 | Caminho Amaldiçoado | Começa com as maldições Fardo e Correntes |
+| 15 | Caminho Amaldiçoado | Começa com a maldição Exaustão |
 
-Histórico da calibração: `balance/out/chal1` (1ª rodada), `balance/out/chal2` (2ª) e `balance/out/chal3` (3ª).
+Histórico da calibração: `balance/out/chal1` a `chal7`. Custos finais: Veteranos 4, Tropas 5, Ataques 5, Comandantes 5, Bosses 7, Reforços 7, Raids 5, Mercado 6, Bolsa 5, Recursos 7, Bagagem 4, Deck Pesado 5, Árvore 5, Relíquias 4, Caminho 8 (margem de ±5). Conferir de novo depois dos ajustes finais da base (decks e árvore).
 
 ## 3. As 15 vantagens (ideias para aprovação)
 

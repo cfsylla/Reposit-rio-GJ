@@ -13,7 +13,7 @@ const LIST=[
  {id:'tough',en:'Tough Troops',pt:'Tropas Resistentes',enDesc:'Enemy health +3%.',ptDesc:'Vida dos inimigos +3%.'},
  {id:'relentless',en:'Relentless Attacks',pt:'Ataques Implacáveis',enDesc:'Enemy damage +4%.',ptDesc:'Dano dos inimigos +4%.'},
  {id:'commanders',en:'Prepared Commanders',pt:'Comandantes Preparados',enDesc:'Elites, orders and bosses gain +1 relic and +2 upgrades.',ptDesc:'Elites, ordens e bosses ganham +1 relíquia e +2 upgrades.'},
- {id:'bossrounds',en:'Relentless Bosses',pt:'Bosses Implacáveis',enDesc:'Map bosses require 6 round victories instead of 4.',ptDesc:'Bosses de mapa exigem 6 vitórias de rodada em vez de 4.'},
+ {id:'bossrounds',en:'Relentless Bosses',pt:'Bosses Implacáveis',enDesc:'Map bosses (team and leader) have +8% health and damage.',ptDesc:'Bosses de mapa (time e líder) têm +8% de vida e de dano.'},
  {id:'reinforcements',en:'Enemy Reinforcements',pt:'Reforços Inimigos',enDesc:'From the 2nd round on, regular and elite enemies field +1 unit.',ptDesc:'A partir da 2ª rodada, inimigos comuns e elites colocam +1 unidade em campo.'},
  {id:'raidfury',en:'Raid Fury',pt:'Fúria das Raids',enDesc:'Raid health +30% and damage +10%.',ptDesc:'Raids com +30% de vida e +10% de dano.'},
  {id:'inflation',en:'Inflated Market',pt:'Mercado Inflacionado',enDesc:'Shop prices +15%.',ptDesc:'Preços da loja +15%.'},
@@ -28,7 +28,7 @@ const LIST=[
 const BY=Object.fromEntries(LIST.map(c=>[c.id,c]));
 const MAX_LEVEL=LIST.length;
 // Single intensity per challenge (revision 2: the level is the number of active challenges). Calibrated by simulation.
-const TUNE=root.JOURNEY_CHALLENGE_TUNE={veterans:3,commanders:2,commanderRelics:1,tough:.03,relentless:.04,bossRounds:2,bossStats:0,raidfury:.30,raidDamage:.10,inflation:.15,lightpurse:.15,bagCells:3,treecap:50,curses:['exhaustion'],reinforceFromRound:2,heavyCards:1,scarceRounds:2,heavyPool:['warrior','lancer','fighter','martial_artist','miner','pirate','ranger','shackled_pirate'],fewRelics:2,...(root.JOURNEY_CHALLENGE_TUNE||{})};
+const TUNE=root.JOURNEY_CHALLENGE_TUNE={veterans:3,commanders:2,commanderRelics:1,tough:.03,relentless:.04,bossRounds:0,bossStats:.08,raidfury:.30,raidDamage:.10,inflation:.15,lightpurse:.15,bagCells:3,treecap:50,curses:['exhaustion'],reinforceFromRound:2,heavyCards:1,scarceRounds:2,heavyPool:['warrior','lancer','fighter','martial_artist','miner','pirate','ranger','shackled_pirate'],fewRelics:2,...(root.JOURNEY_CHALLENGE_TUNE||{})};
 const BAG_CELLS=[[3,3],[2,3],[1,3],[0,3]];
 
 function profile(){const p=P.profile;const pc=p.challenges??={};pc.unlocked=!!pc.unlocked;pc.available=Math.max(pc.unlocked?1:0,Math.min(MAX_LEVEL,Math.floor(pc.available||0)));
