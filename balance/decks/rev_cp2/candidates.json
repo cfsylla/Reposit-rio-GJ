@@ -1,0 +1,577 @@
+{
+ "decks": [
+  {
+   "id": "dark_court__v1",
+   "name": "Corte Sombria v1",
+   "base": "dark_court",
+   "order": "blackfang",
+   "startRelic": "precision",
+   "counts": {
+    "dark_elf_noble": 2,
+    "dark_elf_archer": 3,
+    "dark_elf_warrior": 3,
+    "orc_warrior": 3,
+    "dark_elf_mage": 2,
+    "blackfang_guardian": 2,
+    "orc_fighter": 2,
+    "goblin_archer": 3
+   },
+   "change": {
+    "dark_elf_noble": -1,
+    "goblin_archer": 1
+   }
+  },
+  {
+   "id": "dark_court__v2",
+   "name": "Corte Sombria v2",
+   "base": "dark_court",
+   "order": "blackfang",
+   "startRelic": "precision",
+   "counts": {
+    "dark_elf_noble": 2,
+    "dark_elf_archer": 2,
+    "dark_elf_warrior": 3,
+    "orc_warrior": 3,
+    "dark_elf_mage": 2,
+    "blackfang_guardian": 2,
+    "orc_fighter": 2,
+    "goblin_archer": 4
+   },
+   "change": {
+    "dark_elf_noble": -1,
+    "dark_elf_archer": -1,
+    "goblin_archer": 2
+   }
+  },
+  {
+   "id": "astral__v1",
+   "name": "Coro de Guerra v1",
+   "base": "astral",
+   "order": null,
+   "startRelic": "recovery",
+   "counts": {
+    "warrior": 3,
+    "swordsman": 3,
+    "samurai": 3,
+    "bard": 2,
+    "berserker": 2,
+    "priestess": 2,
+    "sage": 2,
+    "archer": 3
+   },
+   "change": {
+    "bard": -1,
+    "archer": 1
+   }
+  },
+  {
+   "id": "astral__v2",
+   "name": "Coro de Guerra v2",
+   "base": "astral",
+   "order": null,
+   "startRelic": "recovery",
+   "counts": {
+    "warrior": 4,
+    "swordsman": 3,
+    "samurai": 3,
+    "bard": 2,
+    "berserker": 2,
+    "priestess": 2,
+    "sage": 1,
+    "archer": 3
+   },
+   "change": {
+    "bard": -1,
+    "sage": -1,
+    "archer": 1,
+    "warrior": 1
+   }
+  },
+  {
+   "id": "executioners__v1",
+   "name": "Executores v1",
+   "base": "executioners",
+   "order": null,
+   "startRelic": "execution",
+   "counts": {
+    "kinoichi": 2,
+    "cowboy": 3,
+    "musketeer": 2,
+    "gladiator": 3,
+    "bastion": 2,
+    "crossbowman": 2,
+    "huntress": 2,
+    "sheriff": 2,
+    "fighter": 2
+   },
+   "change": {
+    "kinoichi": -1,
+    "fighter": 1
+   }
+  },
+  {
+   "id": "executioners__v2",
+   "name": "Executores v2",
+   "base": "executioners",
+   "order": null,
+   "startRelic": "execution",
+   "counts": {
+    "kinoichi": 2,
+    "cowboy": 3,
+    "musketeer": 2,
+    "gladiator": 2,
+    "bastion": 2,
+    "crossbowman": 2,
+    "huntress": 2,
+    "sheriff": 2,
+    "fighter": 3
+   },
+   "change": {
+    "kinoichi": -1,
+    "gladiator": -1,
+    "fighter": 2
+   }
+  },
+  {
+   "id": "balanced__v1",
+   "name": "Encontro de Caminhos v1",
+   "base": "balanced",
+   "order": null,
+   "startRelic": "heart",
+   "counts": {
+    "fighter": 2,
+    "warrior": 3,
+    "ranger": 3,
+    "bastion": 3,
+    "samurai": 2,
+    "crossbowman": 2,
+    "priestess": 3,
+    "gladiator": 2
+   },
+   "change": {
+    "fighter": -1,
+    "priestess": 1
+   }
+  },
+  {
+   "id": "balanced__v2",
+   "name": "Encontro de Caminhos v2",
+   "base": "balanced",
+   "order": null,
+   "startRelic": "heart",
+   "counts": {
+    "fighter": 2,
+    "warrior": 2,
+    "ranger": 3,
+    "bastion": 3,
+    "samurai": 3,
+    "crossbowman": 2,
+    "priestess": 3,
+    "gladiator": 2
+   },
+   "change": {
+    "fighter": -1,
+    "warrior": -1,
+    "priestess": 1,
+    "samurai": 1
+   }
+  },
+  {
+   "id": "swift__v1",
+   "name": "Ventos do Acaso v1",
+   "base": "swift",
+   "order": null,
+   "startRelic": "bell",
+   "counts": {
+    "lancer": 3,
+    "martial_artist": 3,
+    "pirate": 2,
+    "archer": 3,
+    "samurai": 3,
+    "cavalier": 2,
+    "mage": 2,
+    "kinoichi": 2
+   },
+   "change": {
+    "pirate": -1,
+    "samurai": 1
+   }
+  },
+  {
+   "id": "swift__v2",
+   "name": "Ventos do Acaso v2",
+   "base": "swift",
+   "order": null,
+   "startRelic": "bell",
+   "counts": {
+    "lancer": 2,
+    "martial_artist": 3,
+    "pirate": 2,
+    "archer": 3,
+    "samurai": 3,
+    "cavalier": 3,
+    "mage": 2,
+    "kinoichi": 2
+   },
+   "change": {
+    "pirate": -1,
+    "lancer": -1,
+    "samurai": 1,
+    "cavalier": 1
+   }
+  },
+  {
+   "id": "corsair__v1",
+   "name": "Tripulação Salgada v1",
+   "base": "corsair",
+   "order": null,
+   "startRelic": "hourglass",
+   "counts": {
+    "pirate": 3,
+    "shackled_pirate": 3,
+    "pirate_captain": 4,
+    "miner": 2,
+    "cannoneer": 2,
+    "pirate_admiral": 2,
+    "gunner": 2,
+    "archer": 2
+   },
+   "change": {
+    "miner": -1,
+    "pirate_captain": 1
+   }
+  },
+  {
+   "id": "corsair__v2",
+   "name": "Tripulação Salgada v2",
+   "base": "corsair",
+   "order": null,
+   "startRelic": "hourglass",
+   "counts": {
+    "pirate": 3,
+    "shackled_pirate": 2,
+    "pirate_captain": 4,
+    "miner": 2,
+    "cannoneer": 2,
+    "pirate_admiral": 3,
+    "gunner": 2,
+    "archer": 2
+   },
+   "change": {
+    "miner": -1,
+    "shackled_pirate": -1,
+    "pirate_captain": 1,
+    "pirate_admiral": 1
+   }
+  },
+  {
+   "id": "fireline__v1",
+   "name": "Linha de Fogo v1",
+   "base": "fireline",
+   "order": null,
+   "startRelic": "scope",
+   "counts": {
+    "ranger": 3,
+    "archer": 3,
+    "crossbowman": 3,
+    "bastion": 3,
+    "musketeer": 2,
+    "gunner": 2,
+    "cannoneer": 2,
+    "priestess": 2
+   },
+   "change": {
+    "warrior": -2,
+    "priestess": 2
+   }
+  },
+  {
+   "id": "fireline__v2",
+   "name": "Linha de Fogo v2",
+   "base": "fireline",
+   "order": null,
+   "startRelic": "scope",
+   "counts": {
+    "ranger": 3,
+    "archer": 2,
+    "crossbowman": 3,
+    "bastion": 3,
+    "musketeer": 3,
+    "gunner": 2,
+    "cannoneer": 2,
+    "priestess": 2
+   },
+   "change": {
+    "warrior": -2,
+    "archer": -1,
+    "priestess": 2,
+    "musketeer": 1
+   }
+  },
+  {
+   "id": "fortress__v1",
+   "name": "Fortaleza v1",
+   "base": "fortress",
+   "order": null,
+   "startRelic": "shield",
+   "counts": {
+    "bastion": 3,
+    "shieldmaiden": 3,
+    "gladiator": 3,
+    "ranger": 3,
+    "archer": 2,
+    "priestess": 3,
+    "lancer": 1,
+    "warrior": 2
+   },
+   "change": {
+    "lancer": -1,
+    "priestess": 1
+   }
+  },
+  {
+   "id": "fortress__v2",
+   "name": "Fortaleza v2",
+   "base": "fortress",
+   "order": null,
+   "startRelic": "shield",
+   "counts": {
+    "bastion": 3,
+    "shieldmaiden": 4,
+    "gladiator": 3,
+    "ranger": 3,
+    "archer": 1,
+    "priestess": 3,
+    "lancer": 1,
+    "warrior": 2
+   },
+   "change": {
+    "lancer": -1,
+    "archer": -1,
+    "priestess": 1,
+    "shieldmaiden": 1
+   }
+  },
+  {
+   "id": "goblin_horde__v1",
+   "name": "Horda Goblin v1",
+   "base": "goblin_horde",
+   "order": "blackfang",
+   "startRelic": "bell",
+   "counts": {
+    "goblin_archer": 3,
+    "goblin_rider": 3,
+    "goblin_brute": 3,
+    "blackfang_guardian": 3,
+    "goblin_spearman": 1,
+    "goblin_bomber": 2,
+    "goblin_king": 3,
+    "orc_berserker": 2
+   },
+   "change": {
+    "goblin_spearman": -1,
+    "goblin_king": 1
+   }
+  },
+  {
+   "id": "goblin_horde__v2",
+   "name": "Horda Goblin v2",
+   "base": "goblin_horde",
+   "order": "blackfang",
+   "startRelic": "bell",
+   "counts": {
+    "goblin_archer": 4,
+    "goblin_rider": 3,
+    "goblin_brute": 3,
+    "blackfang_guardian": 3,
+    "goblin_spearman": 1,
+    "goblin_bomber": 1,
+    "goblin_king": 3,
+    "orc_berserker": 2
+   },
+   "change": {
+    "goblin_spearman": -1,
+    "goblin_bomber": -1,
+    "goblin_king": 1,
+    "goblin_archer": 1
+   }
+  },
+  {
+   "id": "quake__v1",
+   "name": "Terremoto v1",
+   "base": "quake",
+   "order": null,
+   "startRelic": "banner",
+   "counts": {
+    "lancer": 3,
+    "martial_artist": 3,
+    "miner": 3,
+    "kinoichi": 2,
+    "bastion": 2,
+    "mage": 3,
+    "cannoneer": 2,
+    "priestess": 2
+   },
+   "change": {
+    "kinoichi": -1,
+    "mage": 1
+   }
+  },
+  {
+   "id": "quake__v2",
+   "name": "Terremoto v2",
+   "base": "quake",
+   "order": null,
+   "startRelic": "banner",
+   "counts": {
+    "lancer": 2,
+    "martial_artist": 3,
+    "miner": 3,
+    "kinoichi": 2,
+    "bastion": 2,
+    "mage": 3,
+    "cannoneer": 3,
+    "priestess": 2
+   },
+   "change": {
+    "kinoichi": -1,
+    "lancer": -1,
+    "mage": 1,
+    "cannoneer": 1
+   }
+  },
+  {
+   "id": "outlaws__v1",
+   "name": "Lei do Gatilho v1",
+   "base": "outlaws",
+   "order": null,
+   "startRelic": "precision",
+   "counts": {
+    "cowboy": 3,
+    "gunner": 3,
+    "miner": 2,
+    "fighter": 2,
+    "sheriff": 3,
+    "crossbowman": 2,
+    "bastion": 2,
+    "gladiator": 3
+   },
+   "change": {
+    "fighter": -1,
+    "sheriff": 1
+   }
+  },
+  {
+   "id": "outlaws__v2",
+   "name": "Lei do Gatilho v2",
+   "base": "outlaws",
+   "order": null,
+   "startRelic": "precision",
+   "counts": {
+    "cowboy": 3,
+    "gunner": 3,
+    "miner": 1,
+    "fighter": 2,
+    "sheriff": 3,
+    "crossbowman": 2,
+    "bastion": 2,
+    "gladiator": 3,
+    "musketeer": 1
+   },
+   "change": {
+    "fighter": -1,
+    "miner": -1,
+    "sheriff": 1,
+    "musketeer": 1
+   }
+  },
+  {
+   "id": "greenskins__v1",
+   "name": "Peles Verdes v1",
+   "base": "greenskins",
+   "order": "blackfang",
+   "startRelic": "banner",
+   "counts": {
+    "orc_warrior": 3,
+    "orc_berserker": 3,
+    "orc_fighter": 2,
+    "cave_troll": 3,
+    "goblin_brute": 2,
+    "goblin_spearman": 2,
+    "goblin_rider": 2,
+    "goblin_archer": 3
+   },
+   "change": {
+    "goblin_spearman": -1,
+    "cave_troll": 1
+   }
+  },
+  {
+   "id": "greenskins__v2",
+   "name": "Peles Verdes v2",
+   "base": "greenskins",
+   "order": "blackfang",
+   "startRelic": "banner",
+   "counts": {
+    "orc_warrior": 4,
+    "orc_berserker": 3,
+    "orc_fighter": 2,
+    "cave_troll": 3,
+    "goblin_brute": 2,
+    "goblin_spearman": 2,
+    "goblin_rider": 2,
+    "goblin_archer": 2
+   },
+   "change": {
+    "goblin_spearman": -1,
+    "goblin_archer": -1,
+    "cave_troll": 1,
+    "orc_warrior": 1
+   }
+  },
+  {
+   "id": "north__v1",
+   "name": "Clãs do Norte v1",
+   "base": "north",
+   "order": null,
+   "startRelic": "ember",
+   "counts": {
+    "viking": 3,
+    "berserker": 3,
+    "shieldmaiden": 3,
+    "fighter": 2,
+    "warrior": 3,
+    "huntress": 2,
+    "shaman": 3,
+    "glutton": 1
+   },
+   "change": {
+    "fighter": -1,
+    "shaman": 1
+   }
+  },
+  {
+   "id": "north__v2",
+   "name": "Clãs do Norte v2",
+   "base": "north",
+   "order": null,
+   "startRelic": "ember",
+   "counts": {
+    "viking": 3,
+    "berserker": 3,
+    "shieldmaiden": 3,
+    "fighter": 2,
+    "warrior": 2,
+    "huntress": 3,
+    "shaman": 3,
+    "glutton": 1
+   },
+   "change": {
+    "fighter": -1,
+    "warrior": -1,
+    "shaman": 1,
+    "huntress": 1
+   }
+  }
+ ]
+}
