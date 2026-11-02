@@ -118,6 +118,33 @@ index 0000000..ba85fae
 +// New milestone: boss of map 2.
 +P.load(P.freshProfile()); P.profile.stats.map2Bosses = 1; P.check(); assert(P.profile.decks.includes('quake'));
 +console.log('PASS P3: 24 decks (counts, 20 cards, max 4, relics), all 77 characters used, hidden order decks, milestone/order/true-boss unlocks and save migration.');
+diff --git a/game/tests/difficulty-p4.cjs b/game/tests/difficulty-p4.cjs
+new file mode 100644
+index 0000000..e639510
+--- /dev/null
++++ b/game/tests/difficulty-p4.cjs
+@@ -0,0 +1,21 @@
++/* Balance P4: enemy upgrade curve, elite/boss offsets, gold, upgrade price, power per map, in-map scale, enemy relic rule,
++ * raid multipliers, boss leaders, themed enemy decks and the summoned-minion charge fix. */
++const assert = require('node:assert/strict');
++for (const f of ['game-0', 'balance-p1', 'decks-p3', 'training-engine', 'raid-engine', 'monster-engine', 'acts-engine', 'enemy-decks-p4', 'boss-engine', 'map-variety', 'tree-data', 'tree-engine', 'journey-debug', 'content-v53', 'traits-v54', 'supports-b']) require('../dist/' + f + '.js');
++const G = Game, P = Progress, A = JourneyActs, B = JourneyBosses;
++P.load(P.freshProfile()); P.completeTutorial();
++assert.deepEqual([G.battleReward(1), G.battleReward(9), G.battleReward(10), G.battleReward(18), G.battleReward(19), G.battleReward(27)], [14, 14, 16, 16, 18, 18]);
++assert.deepEqual([A.SPEC[1].power, A.SPEC[2].power, A.SPEC[3].power], [1, 1.10, 1.16]);
++assert.equal(B.D.goblin.hp, Math.round(480 * .8)); assert.equal(B.D.troll.hp, Math.round(820 * .65)); assert.equal(B.D.meowri.atk, Math.round(36 * .75));
++assert.deepEqual(Object.keys(JourneyEnemyDecks), ['1', '2', '3']); for (const L of Object.values(JourneyEnemyDecks)) { assert.equal(L.length, 4); for (const d of L) assert.equal(Object.values(d.counts).reduce((a, b) => a + b), 20); }
++function fight(stage, type = 'battle', seed = 7) { const s = G.fresh('vanguard', seed); G.enter(s, G.available(s)[0].id); s.mapBattles = stage - 1; s.current = { ...s.current, type }; G.startConfront(s, s.current); return s; }
++const ups = s => s.ai.cards.reduce((n, c) => n + c.level, 0);
++for (const [stage, n] of [[1, 0], [2, 0], [3, 1], [9, 7], [18, 16], [27, 25], [28, 26]]) assert.equal(ups(fight(stage)), n, 'curve at stage ' + stage);
++assert.equal(ups(fight(9, 'elite')), 8, 'elite = curve + 1');
++{ const s = fight(9); assert(s.ai.deckId && s.ai.deckId.startsWith('e1_'), 'themed map-1 deck for normal battles'); }
++{ const s = fight(1); assert(!s.ai.deckId, 'first fight keeps the fixed starter pool'); }
++// Enemy relics: between 1 and n-1 (n = 1 starting + relic opportunities), bag-limited.
++{ const s = G.fresh('vanguard', 3); s.relicOpportunities = 6; const cards = G.DECKS[0].ids.map(t => ({ type: t, level: 0 })); const seen = new Set(); for (let i = 0; i < 200; i++) { const r = G.rollEnemyRelics(s, cards); seen.add(r.artifacts.length); assert(r.artifacts.length >= 1 && r.artifacts.length <= 6); assert(G.packBag(r.artifacts)); } assert(seen.has(1) && seen.size >= 4); }
++// Bug fix: summoned minions get a real skill charge (not 0).
++{ const src = require('node:fs').readFileSync(__dirname + '/../dist/boss-engine.js', 'utf8'); assert(src.includes('m.charge=G.skillLimit(m)')); }
++console.log('PASS P4: enemy curve (~1 upgrade per fight), elite +1, gold 14/16/18, power 1/1.10/1.16, boss leaders, themed enemy decks, relic rule 1..n-1 with bag limit, minion charge fix.');
 diff --git a/v54/tests/systems-v18.cjs b/game/tests/systems-v18.cjs
 index a69c2ff..55fc5a6 100644
 --- a/v54/tests/systems-v18.cjs
@@ -144,18 +171,93 @@ index 2b107c3..bc5e28b 100644
   assert.deepEqual(['sheriff','bard','gladiator'].map(id=>P.visibleCard(id)),[true,true,true]);
   for(const b of P.BOOSTERS.filter(b=>!['blackfang','dawncrest'].includes(b.id)))assert(b.ids.every(id=>!G.BY[id].order));
  });
+diff --git a/v54/tests/acts-v47.cjs b/game/tests/acts-v47.cjs
+index 556b829..588fa86 100644
+--- a/v54/tests/acts-v47.cjs
++++ b/game/tests/acts-v47.cjs
+@@ -17,7 +17,7 @@ s=fresh();playMap(s,'blackfang');A.advance(s);const earnedAtMap1=P.earned(s),pre
+ s=fresh();delete s.journey;s.meta.ended=true;assert.equal(A.ensure(s),null);s=fresh();delete s.journey;const legacy=JSON.stringify({map:s.map,cards:s.cards,gold:s.gold});A.ensure(s);assert.equal(JSON.stringify({map:s.map,cards:s.cards,gold:s.gold}),legacy);
+ // Explicit act power factors are applied to the same combatants; training remains unscaled.
+ s=fresh();G.enter(s,'c1');s.round=5;s.energy=99;G.deploy(s,s.hand[0],2);s.mapBattles=9;const base=JSON.parse(JSON.stringify(s));let hp;for(const a of [1,2,3]){const t=JSON.parse(JSON.stringify(base));t.journey.act=a;t.journey.battleStart=9*(a-1);t.mapBattles=9*a;const b=G.createBattle(t),enemy=b.units.find(u=>u.side);if(a===1)hp=enemy.maxhp;else assert(Math.abs(enemy.maxhp/hp-A.SPEC[a].power)<1e-9);}
+-for(const a of [1,2,3]){const t=fresh();t.journey.act=a;t.journey.battleStart=(a-1)*9;t.mapBattles=t.journey.battleStart+2;R.attachRun(t,{campaign:'monsters',raidKind:'manticore',raidSlot:0,type:'elite'});assert(Math.abs(t.raid.scale.hp-.48*A.SPEC[a].power)<1e-9);}
++for(const a of [1,2,3]){const t=fresh();t.journey.act=a;t.journey.battleStart=(a-1)*9;t.mapBattles=t.journey.battleStart+2;R.attachRun(t,{campaign:'monsters',raidKind:'manticore',raidSlot:0,type:'elite'});assert(Math.abs(t.raid.scale.hp-.48*A.SPEC[a].power*[1,1.25,1.25][a-1])<1e-9);}
+ const training=R.build(Training.defaults(),47,undefined,'tree');assert.equal(training.raid.maxHp,R.CONFIG.bossHp);assert.equal(A.power(training),1);
+ // Real combat steps and resumed specials stay finite/deterministic under later-act modifiers.
+ for(const a of [2,3])for(const kind of Object.keys(R.SPECS)){const state=fresh(100+a);state.journey.act=a;state.round=4;state.phase='prep';state.current={id:'combat-fixture',type:'elite',campaign:'monsters',raidKind:kind};state.board=state.cards.slice(0,5).map(c=>c.uid).concat(Array(10).fill(null));const p=A.power(state);R.initialize(state,kind,{hp:.82*p,damage:.93*p,minions:.93*p},true);const b=G.createBattle(state);for(let i=0;i<480;i++)G.step(b,1/60);const copy=R.restore(R.snapshot(state,b));for(let i=0;i<240;i++){G.step(b,1/60);G.step(copy.battle,1/60);}for(const u of b.units)for(const k of ['hp','x','y','atk'])assert(Number.isFinite(u[k]),kind+' '+k);assert.equal(R.snapshot(state,b),R.snapshot(copy.state,copy.battle),kind+' act '+a);}
+diff --git a/v54/tests/content-v53.cjs b/game/tests/content-v53.cjs
+index ad965e0..b337918 100644
+--- a/v54/tests/content-v53.cjs
++++ b/game/tests/content-v53.cjs
+@@ -17,7 +17,7 @@ for(const id of Object.keys(C.titles)){if(id==='quest_end')continue;for(let oi=0
+ assert.equal(seen.size,22);assert(battles>100);
+ // Economic anchors and exact mystery package charge, irrespective of its outcome.
+ for(let seed=1;seed<=20;seed++){const s=event('mercador',seed),before=s.gold;assert.equal(C.options(s)[1].cost,22);assert(C.accept(s,'risk'));assert.equal(s.gold,before-22);assert(s.pendingRelic||s.cards.length>21);}
+-let s=event('dojo');for(const level of [0,1]){const c=C.units(s)[0];c.level=level;C.select(s,'upgrade',c.uid);assert.equal(C.options(s)[0].cost,level?14:8);assert.equal(G.price(s,'upgrade',c.uid),level?20:12);}
++let s=event('dojo');for(const level of [0,1]){const c=C.units(s)[0];c.level=level;C.select(s,'upgrade',c.uid);assert.equal(C.options(s)[0].cost,level?14:8);assert.equal(G.price(s,'upgrade',c.uid),level?16:10);}
+ s=event('santuario');fill(s,C.options(s)[1]);let x=s.offers.content.selection,r=G.ARTIFACTS.find(r=>r.id===x.relic),v=G.BY[x.recruit].cost*4+G.BY[x.recruit2].cost*4,g=s.gold;assert(C.accept(s,'trade'));assert.equal(s.gold-g,Math.max(0,r.price-v));assert(!G.ownedRelics(s).includes(r.id));
+ // Four curses are run-only and duplicates exceed normal unit copy limits.
+ s=fresh();const permanent=JSON.stringify(P.profile);for(let i=0;i<6;i++)C.addCurse(s,'burden');assert.equal(C.negative(s).length,6);assert.equal(JSON.stringify(P.profile),permanent);assert(!G.newCard(s,'burden'));assert(!P.visibleCard('burden'));
+diff --git a/v54/tests/manticore-v46.cjs b/game/tests/manticore-v46.cjs
+index 45842a4..91d571b 100644
+--- a/v54/tests/manticore-v46.cjs
++++ b/game/tests/manticore-v46.cjs
+@@ -10,5 +10,5 @@ const markEnd=b.raid.hunts[0].end;allies[1].hp=1;assert.equal(R.target(b,cubs[0]
+ // One refill in R5, at most two living cubs; health persists through a real loss.
+ ({s,b,boss,cubs}=f(5));cubs.forEach(u=>u.hp=0);b.time=28;R.resolve(b);assert.equal(b.units.filter(u=>u.side&&!u.raidBoss&&u.hp>0).length,2);b.units.filter(u=>u.side&&!u.raidBoss).forEach(u=>u.hp=0);b.time=50;R.resolve(b);assert.equal(b.units.filter(u=>u.side&&!u.raidBoss&&u.hp>0).length,0);
+ for(const stage of [3,6,9]){const state=G.fresh('balanced',46);const node=state.map[stage===3?4:stage===6?9:14][0];Object.assign(node,{campaign:'monsters',raidKind:'manticore'});state.mapBattles=stage-1;R.attachRun(state,node);assert.equal(state.raid.kind,'manticore');assert.deepEqual(state.raid.scale,R.scaling(stage,stage===9));assert(!G.UNITS.some(u=>u.id===state.raid.bossType));}
+-const run=G.fresh('balanced',46);run.map[4][0].raidKind='manticore';run.layer=4;run.route=Array(4).fill('n3_0');run.mapBattles=2;assert(G.enter(run,'n4_0'));run.energy=99;G.deploy(run,run.hand[0],2);const combat=G.createBattle(run);combat.units.filter(u=>u.side).forEach(u=>u.hp=0);G.step(combat,.01);G.finish(run,combat.result);assert.equal(run.phase,'encounterWin');assert.equal(run.gold,10);assert.equal(G.finish(run,'win'),false);
++const run=G.fresh('balanced',46);run.map[4][0].raidKind='manticore';run.layer=4;run.route=Array(4).fill('n3_0');run.mapBattles=2;assert(G.enter(run,'n4_0'));run.energy=99;G.deploy(run,run.hand[0],2);const combat=G.createBattle(run);combat.units.filter(u=>u.side).forEach(u=>u.hp=0);G.step(combat,.01);G.finish(run,combat.result);assert.equal(run.phase,'encounterWin');assert.equal(run.gold,14);assert.equal(G.finish(run,'win'),false);
+ console.log('PASS v46 spike lanes/dodge/one-hit overlap, hunt priority/expiry/haste, R3/R4 progression, deterministic in-flight save, bounded refill, run scaling/rewards');
+diff --git a/v54/tests/monsters-v42.cjs b/game/tests/monsters-v42.cjs
+index 10478a1..9e50805 100644
+--- a/v54/tests/monsters-v42.cjs
++++ b/game/tests/monsters-v42.cjs
+@@ -18,6 +18,6 @@ for(const id of Object.keys(R.SPECS)){({s,b,boss}=fixture(id,1));boss.hp-=123;fo
+ // In-flight abilities, hazards, split mass, armor and PRNG survive a checkpoint exactly.
+ for(const id of Object.keys(R.SPECS)){({s,b}=fixture(id,4));for(let i=0;i<9*60;i++)G.step(b,1/60);const d=R.restore(R.snapshot(s,b));for(let i=0;i<180;i++){G.step(b,1/60);G.step(d.battle,1/60);}assert.equal(R.snapshot(s,b),R.snapshot(d.state,d.battle),id+' deterministic checkpoint');}
+ // Actual run entry, stage modifiers, one reward per raid, and two victories activate the boss.
+-Progress.load(Progress.freshProfile());s=G.fresh('balanced',9);s.layer=4;s.route=Array(4).fill('n3_0');s.mapBattles=2;assert(G.enter(s,'n4_0'));assert(s.raid.run);assert.deepEqual(s.raid.scale,R.scaling(3));s.energy=99;G.deploy(s,s.hand[0],2);b=G.createBattle(s);b.units.filter(u=>u.side).forEach(u=>u.hp=0);G.step(b,.01);const checkpoint=R.restore(R.snapshot(s,b));G.finish(checkpoint.state,checkpoint.battle.result);s=checkpoint.state;assert.equal(s.phase,'encounterWin');assert.equal(s.gold,10);assert.equal(s.campaignRoute.monsterNodes.length,1);let profile=JSON.stringify(Progress.profile);assert.equal(G.finish(s,'win'),false);assert.equal(JSON.stringify(Progress.profile),profile);assert.equal(s.gold,10);G.leave(s);assert(!s.raid);s.layer=9;s.route=Array(9).fill('n8_0');s.mapBattles=5;assert(G.enter(s,'n9_0'));assert.deepEqual(s.raid.scale,R.scaling(6));s.energy=99;G.deploy(s,s.hand[0],2);b=G.createBattle(s);b.units.filter(u=>u.side).forEach(u=>u.hp=0);G.step(b,.01);G.finish(s,b.result);assert.equal(s.gold,22);assert.equal(s.map[14][0].campaign,'monsters');G.leave(s);s.layer=14;s.route=['n12_0'];s.mapBattles=8;s.route=Array(14).fill('n13_0');assert(G.enter(s,'boss'));assert.deepEqual(s.raid.scale,R.scaling(9,true));s.energy=99;G.deploy(s,s.hand[0],2);b=G.createBattle(s);b.units.filter(u=>u.side).forEach(u=>u.hp=0);G.step(b,.01);G.finish(s,b.result);assert.equal(s.phase,'victory');assert(s.meta.ended);assert(!Progress.blackfangUnlocked());assert(!Progress.dawncrestUnlocked());profile=JSON.stringify(Progress.profile);G.finish(s,'win');assert.equal(JSON.stringify(Progress.profile),profile);
++Progress.load(Progress.freshProfile());s=G.fresh('balanced',9);s.layer=4;s.route=Array(4).fill('n3_0');s.mapBattles=2;assert(G.enter(s,'n4_0'));assert(s.raid.run);assert.deepEqual(s.raid.scale,R.scaling(3));s.energy=99;G.deploy(s,s.hand[0],2);b=G.createBattle(s);b.units.filter(u=>u.side).forEach(u=>u.hp=0);G.step(b,.01);const checkpoint=R.restore(R.snapshot(s,b));G.finish(checkpoint.state,checkpoint.battle.result);s=checkpoint.state;assert.equal(s.phase,'encounterWin');assert.equal(s.gold,14);assert.equal(s.campaignRoute.monsterNodes.length,1);let profile=JSON.stringify(Progress.profile);assert.equal(G.finish(s,'win'),false);assert.equal(JSON.stringify(Progress.profile),profile);assert.equal(s.gold,14);G.leave(s);assert(!s.raid);s.layer=9;s.route=Array(9).fill('n8_0');s.mapBattles=5;assert(G.enter(s,'n9_0'));assert.deepEqual(s.raid.scale,R.scaling(6));s.energy=99;G.deploy(s,s.hand[0],2);b=G.createBattle(s);b.units.filter(u=>u.side).forEach(u=>u.hp=0);G.step(b,.01);G.finish(s,b.result);assert.equal(s.gold,28);assert.equal(s.map[14][0].campaign,'monsters');G.leave(s);s.layer=14;s.route=['n12_0'];s.mapBattles=8;s.route=Array(14).fill('n13_0');assert(G.enter(s,'boss'));assert.deepEqual(s.raid.scale,R.scaling(9,true));s.energy=99;G.deploy(s,s.hand[0],2);b=G.createBattle(s);b.units.filter(u=>u.side).forEach(u=>u.hp=0);G.step(b,.01);G.finish(s,b.result);assert.equal(s.phase,'victory');assert(s.meta.ended);assert(!Progress.blackfangUnlocked());assert(!Progress.dawncrestUnlocked());profile=JSON.stringify(Progress.profile);G.finish(s,'win');assert.equal(JSON.stringify(Progress.profile),profile);
+ const fs=require('node:fs'),vm=require('node:vm'),locale={localStorage:{getItem:()=> 'pt-BR',setItem:()=>{}},navigator:{language:'pt-BR'},document:{body:null}};vm.createContext(locale);vm.runInContext(fs.readFileSync(require.resolve('../dist/game-5.js'),'utf8')+';this.localeTest=I18n;',locale);locale.localeTest.set('en');assert.equal(locale.localeTest.t('Camada 5, Raid · Colosso de pedra'),'Layer 5, Raid · Stone Colossus');assert.equal(locale.localeTest.t('Monstros: 1/2'),'Monsters: 1/2');locale.localeTest.set('pt-BR');assert.equal(locale.localeTest.t('Ancient Dragon'),'Dragão ancestral');
+ console.log('PASS v42 four enemy-only raids, map activation/randomness, mechanics, mass conservation, saves, run scaling/progression/reward idempotence');
+diff --git a/v54/tests/raids-v45.cjs b/game/tests/raids-v45.cjs
+index e4b6859..e94ca91 100644
+--- a/v54/tests/raids-v45.cjs
++++ b/game/tests/raids-v45.cjs
+@@ -8,7 +8,7 @@ let {s,b,boss,allies,guards}=f('hydra');b.time=7;R.actions(b,.01,[]);assert.equa
+ ({b,boss,guards}=f('lich',5));guards.forEach(u=>u.hp=0);b.time=27;R.actions(b,.01,[]);const end=b.raid.channel.end;b.time=28;R.resolve(b);assert.equal(b.units.filter(u=>u.side&&!u.raidBoss&&u.hp>0).length,2);b.time=end;R.resolve(b);assert.equal(b.units.filter(u=>u.side&&!u.raidBoss&&u.hp>0).length,2);assert.equal(b.raid.raiseCharges,2);
+ ({s,b,boss,allies,guards}=f('naga'));const a2=allies[0];for(let i=0;i<8;i++)G.hit(b,guards[0],a2,20,[],false);assert.equal(b.raid.venoms[0].stacks,3);b.time=1;p=[];R.actions(b,.01,p);assert(p.some(v=>v.damage&&v.target===a2));b.time=6;R.actions(b,.01,[]);assert.equal(b.raid.venoms.length,0);a2.dodge=1;G.hit(b,guards[0],a2,20,[],false);assert.equal(b.raid.venoms.length,0);a2.dodge=0;b.time=7;R.actions(b,.01,[]);const angle=b.raid.special.angle;a2.x=boss.x+Math.cos(angle)*200;a2.y=boss.y+Math.sin(angle)*200;b.time=b.raid.special.at;p=[];R.actions(b,.01,p);assert(p.some(v=>v.target===a2&&v.status?.root));assert.equal(b.raid.venoms[0].stacks,2);
+ // All new species enter real runs; rewards and roster isolation use the existing contracts.
+-for(const kind of ['hydra','kraken','lich','naga']){const s=G.fresh('balanced',42);s.map[4][0].raidKind=kind;s.layer=4;s.route=Array(4).fill('n3_0');s.mapBattles=2;assert(G.enter(s,'n4_0'));assert.equal(s.raid.kind,kind);assert(s.raid.run);s.energy=99;G.deploy(s,s.hand[0],2);const b=G.createBattle(s);b.units.filter(u=>u.side).forEach(u=>u.hp=0);G.step(b,.01);G.finish(s,b.result);assert.equal(s.phase,'encounterWin');assert.equal(s.gold,10);assert(!G.UNITS.some(u=>u.id===R.SPECS[kind].boss));}
++for(const kind of ['hydra','kraken','lich','naga']){const s=G.fresh('balanced',42);s.map[4][0].raidKind=kind;s.layer=4;s.route=Array(4).fill('n3_0');s.mapBattles=2;assert(G.enter(s,'n4_0'));assert.equal(s.raid.kind,kind);assert(s.raid.run);s.energy=99;G.deploy(s,s.hand[0],2);const b=G.createBattle(s);b.units.filter(u=>u.side).forEach(u=>u.hp=0);G.step(b,.01);G.finish(s,b.result);assert.equal(s.phase,'encounterWin');assert.equal(s.gold,14);assert(!G.UNITS.some(u=>u.id===R.SPECS[kind].boss));}
+ // Names translate in both directions, including minions; no player cards are introduced.
+ const fs=require('node:fs'),vm=require('node:vm'),ctx={localStorage:{getItem:()=> 'pt-BR',setItem:()=>{}},navigator:{language:'pt-BR'},document:{body:null}};vm.createContext(ctx);vm.runInContext(fs.readFileSync(require.resolve('../dist/game-5.js'),'utf8')+';this.i18n=I18n;',ctx);for(const d of Object.values(R.SPECS)){ctx.i18n.set('pt-BR');assert.equal(ctx.i18n.t(d.en),d.pt);assert.equal(ctx.i18n.t(d.minionEn),d.minionPt);ctx.i18n.set('en');assert.equal(ctx.i18n.t(d.pt),d.en);assert.equal(ctx.i18n.t(d.minionPt),d.minionEn);}
+ console.log('PASS v45 head suppression/fixed marks, kraken pull/death ordering, bounded lich resurrection/save/victory priority, venom cap/expiry/dodge/gaze, four real run entries');
+diff --git a/v54/tests/tree-v51.cjs b/game/tests/tree-v51.cjs
+index 40e00ad..a7d6e50 100644
+--- a/v54/tests/tree-v51.cjs
++++ b/game/tests/tree-v51.cjs
+@@ -20,7 +20,7 @@ s=fresh();T.ensure(s).xp=7;assert(P.abandon(s));assert.equal(T.ensure(s).xp,0);
+ // Gold fractions, discounts, once-per-shop refresh/upgrade and recruitment selection.
+ s=fresh();unlock(['exp_gold_1','exp_gold_2','exp_shop_1','exp_shop_2','training_deal','planned_purchase','market','candidates','caravan','explorer','provisions','expanded_bag']);s.gold=0;for(let i=0;i<10;i++)G.rewardGold(s,1);assert.equal(s.gold,11);T.grantEntry(s);assert.equal(s.gold,16);T.grantEntry(s);assert.equal(s.gold,16);assert.equal(G.bagCapacity(s),18);
+ const one=Object.keys(G.RELIC_FORMATS).find(id=>G.relicShape(id).length===1);assert(one);assert(G.bagValid([{id:one,x:0,y:4,rotation:0}],s));assert(!G.bagValid([{id:one,x:2,y:4,rotation:0}],s));assert(!G.bagValid([{id:one,x:0,y:4,rotation:0}]));assert(G.packBag(Array(18).fill(one),s));assert.equal(G.packBag(Array(18).fill(one)),null);
+-s.phase='shop';s.current={id:'shop1',type:'shop'};s.offers={cards:G.choices(s),artifacts:['heart']};const relics=[...s.offers.artifacts],gold=s.gold;assert(T.refreshShop(s));assert(!T.refreshShop(s));assert.deepEqual(s.offers.artifacts,relics);assert.equal(s.gold,gold);s.gold=999;const uid=s.cards[0].uid;assert.equal(G.price(s,'upgrade',uid),11);assert(G.shopService(s,'upgrade',uid));assert.equal(G.price(s,'upgrade',uid),19);const id=s.offers.cards[0],price=G.price(s,'cards',id);assert(G.buy(s,'cards',0));assert.equal(G.price(s,'cards',id),price+2);s.current={id:'shop2',type:'shop'};assert(!T.shopState(s).freeUsed);assert(!T.shopState(s).upgradeUsed);
++s.phase='shop';s.current={id:'shop1',type:'shop'};s.offers={cards:G.choices(s),artifacts:['heart']};const relics=[...s.offers.artifacts],gold=s.gold;assert(T.refreshShop(s));assert(!T.refreshShop(s));assert.deepEqual(s.offers.artifacts,relics);assert.equal(s.gold,gold);s.gold=999;const uid=s.cards[0].uid;assert.equal(G.price(s,'upgrade',uid),9);assert(G.shopService(s,'upgrade',uid));assert.equal(G.price(s,'upgrade',uid),16);const id=s.offers.cards[0],price=G.price(s,'cards',id);assert(G.buy(s,'cards',0));assert.equal(G.price(s,'cards',id),price+2);s.current={id:'shop2',type:'shop'};assert(!T.shopState(s).freeUsed);assert(!T.shopState(s).upgradeUsed);
+ s=fresh();unlock(['candidates','caravan','explorer']);const recruit=s.map.flat().find(n=>n.type==='recruit');s.layer=recruit.layer;s.route=[s.map[recruit.layer-1][0].id];s.map[recruit.layer-1][0].links=[recruit.id];assert(G.enter(s,recruit.id));assert.equal(s.offers.length,4);const [a,b]=s.offers;assert(G.recruit(s,a));assert.equal(s.phase,'recruit');assert(!G.recruit(s,a));for(let i=0;i<10;i++)assert(!G.choices(s).includes(a));assert(G.recruit(s,b));assert.equal(s.phase,'map');assert.equal(T.relicCount(s,3),4);
+ // Real battle stats, timed passives, shield/heal/control mechanics and deterministic resume.
+ s=fresh();G.enter(s,s.map[0][0].id);s.round=4;s.energy=99;s.board=s.cards.slice(0,4).map(c=>c.uid).concat(Array(11).fill(null));const baseline=G.stats(s.cards[0],s);unlock(D.nodes.map(n=>n.id));const upgraded=G.stats(s.cards[0],s);close(upgraded.hp/baseline.hp,1.18);close(upgraded.atk/baseline.atk,1.06);close(upgraded.defense/baseline.defense,1.12);close(upgraded.speed/baseline.speed,1.09);close(upgraded.rate/baseline.rate,1/1.05);close(upgraded.crit-baseline.crit,.02);assert.equal(upgraded.treeCritDamage,.06);const battle=G.createBattle(s);assert(battle.tree);let u=battle.units.find(u=>!u.side),foe=battle.units.find(u=>u.side);const active=battle.units.find(u=>!u.side&&G.BY[u.type].kind==='active'&&!G.BY[u.type].trigger.startFull);if(active)close(active.progress/active.charge,.1);close(T.haste(battle,u),1.08);u.hits=3;close(T.haste(battle,u),1);close(T.ignore(battle,u,false,0),.05);close(T.hit(battle,u,foe,100,false,{}),108);foe.hp=foe.maxhp*.2;close(T.hit(battle,u,foe,100,false,{}),105);foe.hp=foe.maxhp;close(T.hit(battle,foe,u,100,false,{}),95);u.skillCasts=1;close(T.hit(battle,u,foe,100,true,{}),115);u.skillCasts=2;close(T.hit(battle,u,foe,100,true,{}),100);
 diff --git a/v54/scripts/validate-balance-base.cjs b/game/scripts/validate-balance-base.cjs
-index 1c5a49b..a48a1f8 100644
+index 1c5a49b..4901c1d 100644
 --- a/v54/scripts/validate-balance-base.cjs
 +++ b/game/scripts/validate-balance-base.cjs
-@@ -2,12 +2,15 @@
+@@ -2,12 +2,16 @@
  const {spawnSync}=require('node:child_process');
  const path=require('node:path');
  const root=path.resolve(__dirname,'..');
 -const full=['game-0','training-engine','raid-engine','monster-engine','acts-engine','boss-engine','map-variety','tree-data','tree-engine','journey-debug','content-v53','traits-v54'];
 -const boss=['game-0','training-engine','raid-engine','monster-engine','acts-engine','map-notes','boss-engine','traits-v54'];
-+const full=['game-0','balance-p1','decks-p3','training-engine','raid-engine','monster-engine','acts-engine','boss-engine','map-variety','tree-data','tree-engine','journey-debug','content-v53','traits-v54','supports-b'];
-+const boss=['game-0','balance-p1','decks-p3','training-engine','raid-engine','monster-engine','acts-engine','map-notes','boss-engine','traits-v54','supports-b'];
++const full=['game-0','balance-p1','decks-p3','training-engine','raid-engine','monster-engine','acts-engine','enemy-decks-p4','boss-engine','map-variety','tree-data','tree-engine','journey-debug','content-v53','traits-v54','supports-b'];
++const boss=['game-0','balance-p1','decks-p3','training-engine','raid-engine','monster-engine','acts-engine','enemy-decks-p4','map-notes','boss-engine','traits-v54','supports-b'];
 +const pre=['-r','./dist/game-0.js','-r','./dist/balance-p1.js','-r','./dist/decks-p3.js'];
  const jobs=[
 - ['Traits v54',['tests/traits-v54.cjs']],
@@ -163,6 +265,7 @@ index 1c5a49b..a48a1f8 100644
 - ['History/navigation/animation v52',['tests/fixes-v52.cjs']],
 + ['Balance P1/P2 (data, supports model B, new trait mechanics)',['tests/balance-p2.cjs']],
 + ['Balance P3 (24 decks, unlocks, save migration)',['tests/decks-p3.cjs']],
++ ['Balance P4 (difficulty curve, economy, bosses, enemy decks, relic rule, minion fix)',['tests/difficulty-p4.cjs']],
 + ['Traits v54 (+P1/P2 values)',[...pre,'-e',full.map(f=>`require('./dist/${f}.js')`).join(';')+";require('./tests/traits-v54.cjs')"]],
 + ['Events/curses/relics v53',[...pre,'tests/content-v53.cjs']],
 + ['History/navigation/animation v52',[...pre,'tests/fixes-v52.cjs']],

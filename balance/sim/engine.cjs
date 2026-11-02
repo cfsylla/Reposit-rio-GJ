@@ -10,6 +10,7 @@ const MODULES = ['game-0', 'training-engine', 'raid-engine', 'monster-engine', '
 // Optional approved balance data module (present in the balanced copy, absent in v54).
 if (require('node:fs').existsSync(path.join(ROOT, 'dist', 'balance-p1.js'))) MODULES.splice(1, 0, 'balance-p1');
 if (require('node:fs').existsSync(path.join(ROOT, 'dist', 'decks-p3.js'))) MODULES.splice(MODULES.indexOf('balance-p1') + 1, 0, 'decks-p3');
+if (require('node:fs').existsSync(path.join(ROOT, 'dist', 'enemy-decks-p4.js'))) MODULES.splice(MODULES.indexOf('acts-engine') + 1, 0, 'enemy-decks-p4');
 // Optional prototype module (support model B), loaded after traits-v54 when present.
 if (require('node:fs').existsSync(path.join(ROOT, 'dist', 'supports-b.js'))) MODULES.splice(MODULES.indexOf('traits-v54') + 1, 0, 'supports-b');
 for (const m of MODULES) require(path.join(ROOT, 'dist', m + '.js'));

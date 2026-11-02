@@ -26,7 +26,7 @@ function circle(b,x,y,r,color='#d9a2ff'){b.effects.push({kind:'area',shape:'circ
 function shield(u,pct){u.shield=Math.max(u.shield||0,u.maxhp*pct);u.shieldTime=4;}
 function strike(b,u,t,k,p,values){G.hit(b,u,t,u.atk*k,p,true);if(values)p.push({target:t,status:values});}
 function near(a,t,r){return Math.hypot(a.x-t.x,a.y-t.y)<=r;}
-function freshMinion(type,uid,x,y,hp=450){const t=G.BY[type];return {uid,type,side:1,level:0,x,y,hp,maxhp:hp,atk:t.atk,defense:t.defense,rate:t.rate,speed:t.speed,crit:t.crit||0,range:t.range,armor:0,skill:1,charge:0,progress:0,cooldown:.5,hits:0,received:0,flash:0,dead:false};}
+function freshMinion(type,uid,x,y,hp=450){const t=G.BY[type];const m={uid,type,side:1,level:0,x,y,hp,maxhp:hp,atk:t.atk,defense:t.defense,rate:t.rate,speed:t.speed,crit:t.crit||0,range:t.range,armor:0,skill:1,charge:0,progress:0,cooldown:.5,hits:0,received:0,flash:0,dead:false};m.charge=G.skillLimit(m);return m;}
 const create=G.createBattle;G.createBattle=function(s){if(!s.training&&!s.tutorialReplay&&s.current?.type==='boss'&&!s.bossEncounter&&select(s,s.current))attach(s,s.current);const b=create(s);if(!b||!s.bossEncounter)return b;const e=s.bossEncounter,d=D[e.id],u=leader(b);b.boss={id:e.id,form:e.form,next:10,casts:0,used:false,hitCount:0,instability:0,staggerUntil:0,head:(s.round-1)%3};if(e.form===1&&u){const p=A.power(s);Object.assign(u,{hp:d.hp*p,maxhp:d.hp*p,atk:d.atk*p,defense:d.def,rate:1/d.aps});}return b;};
 function actions(b,dt,p){if(!b.boss||b.boss.form!==1)return;const q=b.boss,u=leader(b),ds=foes(b),fs=friends(b);if(!u||u.hp<=0||!ds.length)return;const d=D[q.id];
  if(q.id==='centaur')for(const v of fs){v.bossBaseSpeed??=v.speed;v.speed=v.bossBaseSpeed*((v.type.startsWith('centaur')||v===u)?1.15:1);}
@@ -81,3 +81,5 @@ const finish=G.finish;G.finish=function(s,result){const e=s.bossEncounter,d=e&&D
 const nextRound=G.nextRound;G.nextRound=function(s){const e=s.bossEncounter;if(s.phase==='roundResult'&&e?.transition){e.form=2;e.transition=false;const d=D[e.id];R.initialize(s,'true_'+e.id,{hp:1,damage:1,minions:1},true);s.current.name=d.en+' II';}return nextRound(s);};
 root.JourneyBosses={D,regular,select,attach,deck,formation,actions,modifyHit,beforeSettle,afterStep,leader};
 })(typeof globalThis!=='undefined'?globalThis:this);
+
+/* Balance P4 (approved): team-boss leader (form 1) hp/atk multipliers: default -20%, Troll King -35%, Meowri Queen and Centaur Leader -25% */{const L={"default":[0.8,0.8],"troll":[0.65,0.65],"meowri":[0.75,0.75],"centaur":[0.75,0.75]};for(const id of Object.keys(globalThis.JourneyBosses.D)){const m=Array.isArray(L)?L:(L[id]||L.default);const u=globalThis.Game.BY["boss_"+id];const d=globalThis.JourneyBosses.D[id];if(m){d.hp=Math.round(d.hp*m[0]);d.atk=Math.round(d.atk*m[1]);if(u){u.hp=d.hp;u.atk=d.atk;}}}}

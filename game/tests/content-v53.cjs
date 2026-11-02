@@ -17,7 +17,7 @@ for(const id of Object.keys(C.titles)){if(id==='quest_end')continue;for(let oi=0
 assert.equal(seen.size,22);assert(battles>100);
 // Economic anchors and exact mystery package charge, irrespective of its outcome.
 for(let seed=1;seed<=20;seed++){const s=event('mercador',seed),before=s.gold;assert.equal(C.options(s)[1].cost,22);assert(C.accept(s,'risk'));assert.equal(s.gold,before-22);assert(s.pendingRelic||s.cards.length>21);}
-let s=event('dojo');for(const level of [0,1]){const c=C.units(s)[0];c.level=level;C.select(s,'upgrade',c.uid);assert.equal(C.options(s)[0].cost,level?14:8);assert.equal(G.price(s,'upgrade',c.uid),level?20:12);}
+let s=event('dojo');for(const level of [0,1]){const c=C.units(s)[0];c.level=level;C.select(s,'upgrade',c.uid);assert.equal(C.options(s)[0].cost,level?14:8);assert.equal(G.price(s,'upgrade',c.uid),level?16:10);}
 s=event('santuario');fill(s,C.options(s)[1]);let x=s.offers.content.selection,r=G.ARTIFACTS.find(r=>r.id===x.relic),v=G.BY[x.recruit].cost*4+G.BY[x.recruit2].cost*4,g=s.gold;assert(C.accept(s,'trade'));assert.equal(s.gold-g,Math.max(0,r.price-v));assert(!G.ownedRelics(s).includes(r.id));
 // Four curses are run-only and duplicates exceed normal unit copy limits.
 s=fresh();const permanent=JSON.stringify(P.profile);for(let i=0;i<6;i++)C.addCurse(s,'burden');assert.equal(C.negative(s).length,6);assert.equal(JSON.stringify(P.profile),permanent);assert(!G.newCard(s,'burden'));assert(!P.visibleCard('burden'));

@@ -3,8 +3,8 @@
 G.TOTAL_BATTLES=27;
 const SPEC={
  1:{widths:[1,3,3,3,3,3,3,3,3,3,3,3,3,3,1],fights:[0,2,4,5,7,9,10,12,14],orders:[4,9],power:1},
- 2:{widths:[1,3,4,3,2,3,4,3,4,3,4,2,3,4,1],fights:[0,1,3,5,6,8,10,12,14],orders:[3,10],power:1.12},
- 3:{widths:[1,3,4,5,3,5,4,3,4,5,3,5,4,3,1],fights:[0,2,3,5,7,8,10,11,14],orders:[5,11],power:1.25}
+ 2:{widths:[1,3,4,3,2,3,4,3,4,3,4,2,3,4,1],fights:[0,1,3,5,6,8,10,12,14],orders:[3,10],power:1.1},
+ 3:{widths:[1,3,4,5,3,5,4,3,4,5,3,5,4,3,1],fights:[0,2,3,5,7,8,10,11,14],orders:[5,11],power:1.16}
 };
 function eligible(s){return !!s&&!s.training&&!s.tutorialReplay;}
 function ensure(s){if(!eligible(s))return null;if(!s.journey){if(s.meta?.ended)return null;s.journey={schema:1,act:s.campaignRoute?.act||1,history:[],seenMonsters:[],battleStart:0};}return s.journey;}
@@ -34,6 +34,7 @@ function orderTotals(s){const out={monsters:0,blackfang:0,dawncrest:0};for(const
 const fresh=G.fresh;G.fresh=function(...args){const s=fresh(...args);ensure(s);return s;};
 const enter=G.enter;G.enter=function(s,id){ensure(s);return enter(s,id);};
 const finish=P.finish;P.finish=function(s,reason){if(reason==='victory'&&eligible(s)&&!s.meta?.ended&&s.current?.type==='boss'){const j=ensure(s);recordBoss(s);if(j&&j.act<3){s.phase='actComplete';return false;}}return finish(s,reason);};
-const attach=R.attachRun;R.attachRun=function(s,n){if(!eligible(s)||!ensure(s))return attach(s,n);if(n?.campaign==='monsters'){const scale=R.scaling(n.raidSlot===0?3:n.raidSlot===1?6:localStage(s,true),n.type==='boss'),p=power(s);R.initialize(s,n.raidKind||'tree',{hp:scale.hp*p,damage:scale.damage*p,minions:scale.minions*p},true);}};
+const attach=R.attachRun;R.attachRun=function(s,n){if(!eligible(s)||!ensure(s))return attach(s,n);if(n?.campaign==='monsters'){const scale=R.scaling(n.raidSlot===0?3:n.raidSlot===1?6:localStage(s,true),n.type==='boss'),p=power(s);R.initialize(s,n.raidKind||'tree',{hp:scale.hp*p*[1,1.25,1.25][act(s)-1],damage:scale.damage*p*[1,1.1,1.1][act(s)-1],minions:scale.minions*p*[1,1.1,1.1][act(s)-1]},true);}};
 root.JourneyActs={SPEC,ensure,act,power,currentCounts,orderHistory,orderTotals,localStage,played,prepareBoss,generate,recordBoss,advance};
 })(typeof globalThis!=='undefined'?globalThis:this);
+
