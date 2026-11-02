@@ -1064,6 +1064,49 @@
     "sage": -1,
     "archer": 1
    }
+  },
+  {
+   "id": "astral__v7",
+   "name": "Coro de Guerra v7",
+   "base": "astral",
+   "order": null,
+   "startRelic": "banner",
+   "counts": {
+    "warrior": 3,
+    "swordsman": 3,
+    "samurai": 3,
+    "bard": 3,
+    "berserker": 2,
+    "priestess": 2,
+    "archer": 4
+   },
+   "change": {
+    "sage": -2,
+    "archer": 2,
+    "relíquia": "banner"
+   }
+  },
+  {
+   "id": "astral__v8",
+   "name": "Coro de Guerra v8",
+   "base": "astral",
+   "order": null,
+   "startRelic": "recovery",
+   "counts": {
+    "warrior": 3,
+    "swordsman": 3,
+    "samurai": 3,
+    "bard": 3,
+    "priestess": 2,
+    "archer": 4,
+    "lancer": 2
+   },
+   "change": {
+    "sage": -2,
+    "archer": 2,
+    "berserker": -2,
+    "lancer": 2
+   }
   }
  ]
 }
