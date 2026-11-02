@@ -28,7 +28,7 @@ const LIST=[
 const BY=Object.fromEntries(LIST.map(c=>[c.id,c]));
 const MAX_LEVEL=LIST.length;
 // Single intensity per challenge (revision 2: the level is the number of active challenges). Calibrated by simulation.
-const TUNE=root.JOURNEY_CHALLENGE_TUNE={veterans:3,commanders:2,commanderRelics:1,tough:.03,relentless:.04,bossRounds:2,raidfury:.30,raidDamage:.10,inflation:.15,lightpurse:.15,bagCells:3,treecap:40,curses:['exhaustion'],reinforceFromRound:2,heavyCards:1,scarceRounds:2,heavyPool:['warrior','lancer','fighter','martial_artist','miner','pirate','ranger','shackled_pirate'],fewRelics:2,...(root.JOURNEY_CHALLENGE_TUNE||{})};
+const TUNE=root.JOURNEY_CHALLENGE_TUNE={veterans:3,commanders:2,commanderRelics:1,tough:.03,relentless:.04,bossRounds:2,bossStats:0,raidfury:.30,raidDamage:.10,inflation:.15,lightpurse:.15,bagCells:3,treecap:40,curses:['exhaustion'],reinforceFromRound:2,heavyCards:1,scarceRounds:2,heavyPool:['warrior','lancer','fighter','martial_artist','miner','pirate','ranger','shackled_pirate'],fewRelics:2,...(root.JOURNEY_CHALLENGE_TUNE||{})};
 const BAG_CELLS=[[3,3],[2,3],[1,3],[0,3]];
 
 function profile(){const p=P.profile;const pc=p.challenges??={};pc.unlocked=!!pc.unlocked;pc.available=Math.max(pc.unlocked?1:0,Math.min(MAX_LEVEL,Math.floor(pc.available||0)));
@@ -54,7 +54,7 @@ function extraUnits(s){return active(s,'reinforcements')&&!s.raid&&!bossFight(s)
 function energy(s,enemy){if(enemy)return extraUnits(s)?2:0;return active(s,'scarce')&&bossFight(s)&&(s.round||1)<=TUNE.scarceRounds?-1:0;}
 function bagBlocked(owner){return active(owner,'bag')?TUNE.bagCells:0;}
 function cellBlocked(owner,x,y){const n=bagBlocked(owner);return n>0&&BAG_CELLS.slice(0,n).some(([bx,by])=>bx===x&&by===y);}
-function enemyStats(s,c,st){if(!eligible(s))return st;if(active(s,'tough'))st.hp*=1+TUNE.tough;if(active(s,'relentless'))st.atk*=1+TUNE.relentless;return st;}
+function enemyStats(s,c,st){if(!eligible(s))return st;if(active(s,'tough'))st.hp*=1+TUNE.tough;if(TUNE.bossStats&&active(s,'bossrounds')&&s.current?.type==='boss'&&!s.current.trueBoss){st.hp*=1+TUNE.bossStats;st.atk*=1+TUNE.bossStats;}if(active(s,'relentless'))st.atk*=1+TUNE.relentless;return st;}
 function extraBossRounds(s){return active(s,'bossrounds')&&s.current?.type==='boss'&&!s.current.trueBoss&&!s.raid?TUNE.bossRounds:0;}
 /* tree-engine hook: nodes active during the run */
 function treeNodes(s,unlocked){if(!active(s,'treecap')||!T?.points)return unlocked;const cap=Math.max(0,T.points()-TUNE.treecap),out=[];let used=0;for(const id of unlocked){const k=T.D.by[id]?.cost||0;if(used+k>cap)break;used+=k;out.push(id);}return out;}
