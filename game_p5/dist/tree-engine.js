@@ -2,7 +2,7 @@
 (function(root){'use strict';
 const G=root.Game,P=root.Progress,A=root.JourneyActs,D=root.JourneyTreeData;
 /* GJ-v54-BAL post-CP1: tree special/milestone effects (values tuned in the tree lab). */
-const TUNE=root.JOURNEY_TREE_TUNE={firstImpact:.60,impactStun:.4,execution:.20,executionCharge:.20,penetration:.10,penetrationCrit:.25,devastating:.35,exposed:.10,secondWind:.06,urgentHeal:.12,formationFront:.15,formationBack:.05,openingShield:.08,lastLine:.08,vengeance:.15,sprint:.25,momentum:.08,readiness:.25,rhythm:.12,...(root.JOURNEY_TREE_TUNE||{})};
+const TUNE=root.JOURNEY_TREE_TUNE={firstImpact:.35,impactStun:.3,execution:.20,executionCharge:.20,penetration:.10,penetrationCrit:.25,devastating:.45,exposed:.12,secondWind:.04,urgentHeal:.08,formationFront:.10,formationBack:.05,openingShield:.12,lastLine:.08,vengeance:.15,sprint:.25,momentum:.15,readiness:.25,rhythm:.15,rhythmEvery:3,...(root.JOURNEY_TREE_TUNE||{})};
 function profile(){const p=P.profile;if(!p.skillTree||p.skillTree.version!==1)p.skillTree={version:1,unlocked:[],purchases:[]};p.skillTree.unlocked=[...new Set((p.skillTree.unlocked||[]).filter(id=>D.by[id]&&id!=='origin'))];p.skillTree.purchases??=[];return p.skillTree;}
 function eligible(s){return !!s&&!s.training&&!s.tutorialReplay;}
 function ensure(s){if(!eligible(s))return null;const j=A.ensure(s);if(!j)return null;if(!j.tree){j.tree={version:1,xp:0,earned:[],closed:[],shops:{},firstRecruit:[],firstCard:[],provisionMaps:[],session:null,goldCarry:0};if(!s.meta?.ended)for(const e of s.meta?.encounters||[]){if(e.event)continue;const node=e.key.slice(0,e.key.lastIndexOf(':')),act=node.startsWith('a3_')?3:node.startsWith('a2_')?2:1,key=act+':'+node;if(j.tree.earned.includes(key))continue;j.tree.earned.push(key);j.tree.xp+=e.type==='boss'?2*act:1;}}
@@ -35,7 +35,7 @@ function ignore(b,a,skill,current,crit){return b.tree?.bonuses.penetration&&a.si
 function haste(b,u){const v=b.tree?.bonuses;if(!v||u.side)return 1;return 1+(v.sprint&&u.hits<3?TUNE.sprint:0)+(v.momentum?Math.min(3,u.treeKills||0)*TUNE.momentum:0)+(v.rhythm?Math.min(2,(b.tree.rhythm||[]).filter(x=>x>b.time).length)*TUNE.rhythm:0);}
 function skill(b,u,pending){const v=b.tree?.bonuses;if(!v||u.side)return;u.treeSkillAt=b.time;
  if(!u.treeFirstSkill){u.treeFirstSkill=true;if(v.second_wind){pending.push({target:u,heal:u.maxhp*TUNE.secondWind});const hurt=b.units.filter(x=>x.side===0&&x.hp>0&&x!==u).sort((x,y)=>x.hp/x.maxhp-y.hp/y.maxhp)[0];if(hurt)pending.push({target:hurt,heal:hurt.maxhp*TUNE.secondWind});}}
- if(v.rhythm){b.tree.casts=(b.tree.casts||0)+1;if(b.tree.casts%4===0){b.tree.rhythm=(b.tree.rhythm||[]).filter(x=>x>b.time).slice(-1);b.tree.rhythm.push(b.time+4);}}}
+ if(v.rhythm){b.tree.casts=(b.tree.casts||0)+1;if(b.tree.casts%TUNE.rhythmEvery===0){b.tree.rhythm=(b.tree.rhythm||[]).filter(x=>x>b.time).slice(-1);b.tree.rhythm.push(b.time+4);}}}
 function moved(b,u,forced){}
 function shield(b,u,n){return n*(u.side===0&&b.tree?.bonuses.strong_shields?1.1:1);}
 function giveShield(b,u,n){u.shield=Math.max(u.shield||0,shield(b,u,n));u.shieldTime=Math.max(u.shieldTime||0,6);b.effects.push({kind:'heal',x:u.x,y:u.y,color:'#b2dfea',life:.6,full:.6});}
