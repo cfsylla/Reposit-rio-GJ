@@ -13,7 +13,7 @@ function args() {
   for (let i = 0; i < v.length; i += 2) a[v[i].replace(/^--/, '')] = v[i + 1];
   const range = x => { if (!x) return [1]; return x.split(',').flatMap(p => { const [lo, hi] = p.split('-').map(Number); return hi ? Array.from({ length: hi - lo + 1 }, (_, i) => lo + i) : [lo]; }); };
   return { decks: (a.decks || 'vanguard').split(','), seeds: range(a.seeds), prep: a.prep || 'smart', route: a.route || 'greedy', events: a.events || 'decline',
-    tree: a.tree || 'none', challenges: a.challenges ? Object.fromEntries(a.challenges.split(',').map(x => { const [k, g] = x.split(':'); return [k, Number(g || 1)]; })) : null, forcewin: a.forcewin === '1', shop: a.shop || 'upgrade-first', out: a.out, dt: Number(a.dt || 1 / 60), order: a.order || null, verbose: !!a.verbose };
+    tree: a.tree || 'none', challenges: a.challenges ? a.challenges.split(',').filter(Boolean) : null, forcewin: a.forcewin === '1', shop: a.shop || 'upgrade-first', out: a.out, dt: Number(a.dt || 1 / 60), order: a.order || null, verbose: !!a.verbose };
 }
 
 /* Permanent tree presets (profile state BEFORE the run; in-run purchases still happen after each boss). */
@@ -156,7 +156,7 @@ function playRun(deck, seed, pol, opt) {
   const prof = Tree.profile(); prof.unlocked = [...(Array.isArray(pol.tree) ? pol.tree : treePreset(pol.tree) || [])];
   // level model (game_p5+): banked XP = given career XP, or exactly the cost of the preset (no free points)
   if (Tree.level) prof.totalXp = pol.treeXp ?? prof.unlocked.reduce((t, id) => t + TreeData.by[id].cost, 0);
-  if (E.CH) { const pc = E.CH.profile(); pc.unlocked = !!pol.challenges; pc.selected = { ...(pol.challenges || {}) }; }
+  if (E.CH) { const pc = E.CH.profile(); pc.unlocked = !!pol.challenges; pc.available = E.CH.MAX_LEVEL; pc.selected = [...(pol.challenges || [])]; }
   const custom = CUSTOM[deck];
   const s = G.fresh(custom ? 'vanguard' : deck, seed);
   if (custom) { // proposal deck (testing): same fresh run, cards and starting relic replaced; its order is considered unlocked
