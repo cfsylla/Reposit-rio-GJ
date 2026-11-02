@@ -7,7 +7,7 @@
 
 **Situação:**
 - **Desafios:** aprovados e implementados na cópia de teste (`game_p5/dist/challenges.js`), com intensidade inicial a calibrar.
-- **Vantagens:** aprovadas e implementadas na cópia de teste (`game_p5/dist/advantages.js`). Batedor saiu e foi substituído provisoriamente por **Caçador de Elites**.
+- **Vantagens:** aprovadas e implementadas na cópia de teste (`game_p5/dist/advantages.js`). Batedor saiu e foi substituído por **Caçador de Elites** (aprovado).
 - **Testes:** `tests/challenges-p5.cjs` e `tests/advantages-p5.cjs`. A validação oficial passa nas 10 etapas.
 
 ## 1. Regras (revisão 2)
@@ -70,7 +70,7 @@
 | 11 | **Limpeza** | Uma remoção de carta grátis na 1ª loja de cada mapa | Claude |
 | 12 | **Bênção do Caminho** | Ao entrar nos mapas 2 e 3, 1 carta aleatória do deck recebe upgrade | Claude |
 | 13 | **Juros** | Ao vencer o boss de cada mapa, +10% do ouro guardado (máx. +15) | Claude |
-| 14 | **Caçador de Elites** *(provisória; substitui Batedor, que saiu porque Carlos vai mostrar a última rodada inimiga na interface)* | Vencer uma elite concede +12 de ouro | Claude |
+| 14 | **Caçador de Elites** *(aprovada; substitui Batedor, que saiu porque Carlos vai mostrar a última rodada inimiga na interface)* | Vencer uma elite concede +12 de ouro | Claude |
 | 15 | **Segunda Chance** | Uma vez por run, perder um confronto (exceto boss) não encerra a run: o confronto recomeça do zero | Claude |
 
 Notas:
@@ -98,7 +98,7 @@ Notas:
 ## 6. Decisões tomadas (02/11/2026)
 
 1. **Relíquias Escassas** substitui Sem Preparo: aprovado.
-2. **Vantagens:** aprovadas, menos Batedor. A 14ª é provisória (Caçador de Elites).
+2. **Vantagens:** aprovadas, menos Batedor. A 14ª é **Caçador de Elites** (aprovada).
 3. **XP acima do nível 30:** vira diamantes, **1 diamante a cada 20 XP** excedente (implementado).
 4. **Saves antigos:** ignorados, porque só Carlos faz playtests. A migração especial foi removida.
 5. **Desafio Final:**
@@ -107,6 +107,5 @@ Notas:
 
 ## 7. Em aberto
 
-- Confirmar a 14ª vantagem (Caçador de Elites ou outra).
 - Desafio Final: ordem dos true bosses, conteúdo do boss secreto (personagem, arte, mecânicas) e recompensa extra.
 - Calibração: custo de cada desafio (em medição) e valor de cada vantagem.
