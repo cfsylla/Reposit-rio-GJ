@@ -22,8 +22,9 @@ function bank(s){const t=ensure(s);if(!t||!t.xp)return 0;const x=t.xp;profile().
 function eligible(s){return !!s&&!s.training&&!s.tutorialReplay;}
 function ensure(s){if(!eligible(s))return null;const j=A.ensure(s);if(!j)return null;if(!j.tree){j.tree={version:1,xp:0,earned:[],closed:[],shops:{},firstRecruit:[],firstCard:[],provisionMaps:[],session:null,goldCarry:0};if(!s.meta?.ended)for(const e of s.meta?.encounters||[]){if(e.event)continue;const node=e.key.slice(0,e.key.lastIndexOf(':')),act=node.startsWith('a3_')?3:node.startsWith('a2_')?2:1,key=act+':'+node;if(j.tree.earned.includes(key))continue;j.tree.earned.push(key);j.tree.xp+=xpFor(act,e.type==='boss');}}
  const t=j.tree;t.xp=Math.max(0,Number.isFinite(t.xp)?Math.floor(t.xp):0);t.earned??=[];t.closed??=[];t.shops??={};t.firstRecruit??=[];t.firstCard??=[];t.provisionMaps??=[];return t;}
-function has(s,id){return eligible(s)&&profile().unlocked.includes(id);}
-function bonuses(s){const out={};if(!eligible(s))return out;for(const id of profile().unlocked)for(const [key,v]of Object.entries(D.by[id].effect))out[key]=typeof v==='number'?(out[key]||0)+v:true;return out;}
+function activeNodes(s){const u=profile().unlocked;return root.JourneyChallenges?.treeNodes(s,u)||u;}
+function has(s,id){return eligible(s)&&activeNodes(s).includes(id);}
+function bonuses(s){const out={};if(!eligible(s))return out;for(const id of activeNodes(s))for(const [key,v]of Object.entries(D.by[id].effect))out[key]=typeof v==='number'?(out[key]||0)+v:true;return out;}
 function connected(id){const n=D.by[id];return !!n&&n.id!=='origin'&&n.links.some(id=>id==='origin'||profile().unlocked.includes(id));}
 function buying(s){const t=ensure(s);return !!(t?.session&&s.phase==='tree'&&!s.meta?.ended&&t.session.act===A.act(s));}
 function editable(s){return s?buying(s):true;}
@@ -45,8 +46,8 @@ const create=G.createBattle;G.createBattle=function(s){const b=create(s);if(!b||
 function hit(b,a,t,n,skill,options){const v=b.tree?.bonuses;if(!v)return n;if(a.side===0){
  if(v.first_impact&&!skill&&!options.dot&&a.hits===1){n*=1+TUNE.firstImpact;if(!a.treeImpactStun){a.treeImpactStun=true;b.tree.queue.push({target:t,status:{stun:TUNE.impactStun}});}}
  if(v.execution&&t.hp/t.maxhp<.3)n*=1+TUNE.execution;
- if(v.devastating&&skill&&!options.dot&&(a.skillCasts||0)>0){if(!a.treeFirstOffensiveCast)a.treeFirstOffensiveCast=a.skillCasts;if(a.skillCasts===a.treeFirstOffensiveCast){n*=1+TUNE.devastating;t.treeExposedUntil=b.time+3;}}
  if(v.devastating&&(t.treeExposedUntil||0)>b.time)n*=1+TUNE.exposed;
+ if(v.devastating&&skill&&!options.dot&&(a.skillCasts||0)>0){if(!a.treeFirstOffensiveCast)a.treeFirstOffensiveCast=a.skillCasts;if(a.skillCasts===a.treeFirstOffensiveCast){n*=1+TUNE.devastating;t.treeExposedUntil=b.time+3;}}
  if(v.last_line&&(a.treeVengeUntil||0)>b.time)n*=1+TUNE.vengeance;}
  if(t.side===0&&v.formation&&b.time<6)n*=1-(G.BY[t.type].range>100?TUNE.formationBack:TUNE.formationFront);return n;}
 function ignore(b,a,skill,current,crit){return b.tree?.bonuses.penetration&&a.side===0&&!skill?1-(1-current)*(1-(crit?TUNE.penetrationCrit:TUNE.penetration)):current;}
@@ -57,7 +58,7 @@ function skill(b,u,pending){const v=b.tree?.bonuses;if(!v||u.side)return;u.treeS
 function moved(b,u,forced){}
 function shield(b,u,n){return n*(u.side===0&&b.tree?.bonuses.strong_shields?1.1:1);}
 function giveShield(b,u,n){u.shield=Math.max(u.shield||0,shield(b,u,n));u.shieldTime=Math.max(u.shieldTime||0,6);b.effects.push({kind:'heal',x:u.x,y:u.y,color:'#b2dfea',life:.6,full:.6});}
-function healing(b,u){const v=b.tree?.bonuses;if(!v||u.side)return 1;return 1+(v.heal||0)+(v.urgent_heal&&u.hp/u.maxhp<.4?.1:0);}
+function healing(b,u){const v=b.tree?.bonuses;if(!v||u.side)return 1;return 1+(v.heal||0);}
 function beforeSettle(b,living,pending){const v=b.tree?.bonuses;if(!v)return;
  if(b.tree.queue.length){for(const q of b.tree.queue)if(q.target.hp>0)pending.push(q);b.tree.queue=[];}
  if(v.execution||v.momentum){for(const p of pending)if(p.damage&&p.source&&p.target.side===1)p.target.treeLastHit=p.source;}

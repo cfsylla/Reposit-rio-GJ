@@ -17,7 +17,7 @@ Princípio: **força controlada**. A árvore tem teto (30 níveis), e os prepara
 
 ## 2. Desafios (lista proposta)
 
-Cada desafio tem 1 a 3 graus. O jogador liga os que quiser. A dificuldade normal (Nível de Desafio 0) continua disponível. **Pontos totais possíveis: 40.**
+Cada desafio tem 1 a 3 graus. O jogador liga os que quiser. A dificuldade normal (Nível de Desafio 0) continua disponível. **Pontos totais possíveis: 38.**
 
 | # | Desafio | Efeito por grau | Graus | Pontos por grau | Parâmetro do motor | Origem |
 |---|---|---|---|---|---|---|
@@ -52,9 +52,9 @@ Notas:
 
 Efeitos:
 - Com 24 decks, o recorde por deck incentiva jogar **todos os decks** em dificuldade maior, não só o mais forte.
-- O total de recordes possíveis é 24 × 40 × 5 = **4.800 insígnias**, o teto prático da economia.
+- O total de recordes possíveis é 24 × 38 × 5 = **4.560 insígnias**, o teto prático da economia.
 - **Selo do deck:** a tela de decks mostra o recorde de Nível de Desafio de cada deck (reconhecimento).
-- **Títulos e cosméticos** (sugestão do documento de ideias): títulos por vencer com um desafio no grau máximo (ex.: "Indomável" com Ataques Implacáveis 3) e por marcos de Nível de Desafio total (10, 20, 30, 40). Sem efeito em força.
+- **Títulos e cosméticos** (sugestão do documento de ideias): títulos por vencer com um desafio no grau máximo (ex.: "Indomável" com Ataques Implacáveis 3) e por marcos de Nível de Desafio total (10, 20, 30, 38). Sem efeito em força.
 
 **XP acima do nível 30:** continua sendo somado no perfil (já implementado como `overflowXp`). **Decisão em aberto:** converter em diamantes (sugestão: 1 diamante a cada 20 XP excedente) ou deixar sem uso.
 
