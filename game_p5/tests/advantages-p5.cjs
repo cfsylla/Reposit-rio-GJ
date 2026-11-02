@@ -29,5 +29,5 @@ assert.equal(run(['travel_relic']).artifacts.length, base.artifacts.length + 1);
 // Never in training.
 { own(AD.LIST.map(a => a.id)); const s = G.fresh('vanguard', 3); s.training = { wins: 1 }; assert.equal(AD.has(s, 'full_purse'), false); }
 // Overflow XP -> diamonds (1 per 20 XP above level 30).
-{ own([]); const st = T.profile(); st.totalXp = 300; st.overflowPaid = 0; const d = P.profile.diamonds || 0; const s = G.fresh('vanguard', 4); T.ensure(s).xp = 45; T.bank(s); assert.equal(P.profile.diamonds, d + 2); T.ensure(s).xp = 15; T.bank(s); assert.equal(P.profile.diamonds, d + 3); }
+{ own([]); const st = T.profile(); st.totalXp = 500; st.overflowPaid = 0; const d = P.profile.diamonds || 0; const s = G.fresh('vanguard', 4); T.ensure(s).xp = 45; T.bank(s); assert.equal(P.profile.diamonds, d + 2); T.ensure(s).xp = 15; T.bank(s); assert.equal(P.profile.diamonds, d + 3); }
 console.log('PASS advantages: 15 Advantages bought with Insignia, always active outside training, every effect; overflow tree XP -> diamonds (1 per 20).');

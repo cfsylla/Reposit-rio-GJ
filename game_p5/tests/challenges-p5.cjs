@@ -52,7 +52,7 @@ assert.deepEqual(run(['cursed']).cards.filter(c => JourneyContent.isCurse(c)).ma
 // Tree level model.
 { const st = T.profile(); st.unlocked = []; st.totalXp = 95; assert.equal(T.level(), 9); assert.equal(T.points(), 90);
   assert(T.buy(null, 'pow_atk_1')); assert.equal(T.available(), 82); assert(T.reset(null)); assert.equal(T.available(), 90);
-  st.totalXp = 1000; assert.equal(T.level(), 30); assert.equal(T.overflowXp(), 700);
+  st.totalXp = 1000; assert.equal(T.level(), 50); assert.equal(T.overflowXp(), 500);
   assert.deepEqual([T.xpFor(1, false), T.xpFor(1, true), T.xpFor(2, false), T.xpFor(2, true), T.xpFor(3, false), T.xpFor(3, true)], [2, 4, 2, 4, 1, 6]); st.totalXp = 0; }
 
 console.log('PASS challenges (revision 2): 15 challenges, level = number of active challenges, sequential unlock, 1 Insignia per first victory of each level, completion per challenge, per-challenge effects, training excluded; tree level model.');
