@@ -109,6 +109,9 @@ Notas:
    - Implementado na cópia de teste: verificação dos requisitos (`finalRequirements`) e registro dos 3 true bosses (o jogo só registrava 2). A sequência de confrontos será implementada quando o boss secreto existir.
 6. **Filtro de relíquias inimigas:** corrigido. As relíquias scope, tome, boots e shield agora chegam aos inimigos que têm cartas compatíveis.
 7. **Decks emprestados:** liberados por milestone ou por 25 diamantes. Conferido: os 24 decks já seguem essa regra, sem mudança.
+8. **Liberação retroativa de decks** (herdada do CP1): não haverá. Encerrado.
+9. **Barras da ficha (`ratings`):** o campo existe só nos dados dos personagens, e nenhum código do jogo o lê, então o jogador não o vê. Serão recalculadas a partir dos atributos reais e entregues no CP2, com baixa prioridade.
+10. **Entrega:** o CP2 sai completo (opção A), depois de calibrar a curva base, os desafios e as vantagens, e de simular a escada dos níveis 1 a 15.
 
 ## 7. Em aberto
 
