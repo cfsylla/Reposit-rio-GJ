@@ -115,7 +115,7 @@ Detalhes em `validacao/`.
 
 **Funcionamento:**
 - `node scripts/validate-balance-base.cjs` → **PASS** (8 etapas), rodado na cópia gerada pelo patch sobre uma v54 limpa.
-- Suíte completa: ver `validacao/suite_completa.log` e a classificação das falhas conhecidas.
+- Suíte completa (43 testes): **33 passam, 13 falham**. 11 das falhas são as mesmas da v54 original. As outras duas estão explicadas em `validacao/README_VALIDACAO.md` e não são defeitos do balanceamento.
 
 **Simulações:** jogador simulado = política no nível da IA do jogo, que aceita eventos seguros e compra relíquias. Seeds fixas e 1/60 s por passo.
 
@@ -124,15 +124,17 @@ Detalhes em `validacao/`.
 | Laboratório de personagens e traits | Índice de força | 77 × 3 níveis; 28 traits |
 | Torneio de decks | Todos contra todos | 24 × 24 × 6 seeds |
 | Runs por deck | Abertura e avanço | 40 seeds |
-| Matriz final | Deck × avanço | 24 decks × 20 seeds × 3 estados de árvore = 1.440 runs |
+| Matriz final (versão entregue) | Deck × avanço | 24 decks × 20 seeds × 3 estados de árvore = 1.440 runs |
 
-Resultado da matriz final (V23):
+Resultado da matriz final, **rodada na versão entregue** (v54 limpa + patch do CP1, 1.440 runs, `validacao/matriz_CP1/`):
 
-| Árvore | Vence a run |
-|---|---|
-| Vazia | 3% |
-| Intermediária (25 nós) | **43%** |
-| Completa (60 nós) | 84% |
+| Árvore | Passa do mapa 1 | Passa do mapa 2 | Vence a run |
+|---|---|---|---|
+| Vazia | 52% | 10% | 4% |
+| Intermediária (25 nós) | 94% | 60% | **43%** |
+| Completa (60 nós) | 98% | 92% | 83% |
+
+A medição anterior, feita durante a calibração (V23 com a regra de relíquias da v54, antes da R1), deu 3% / 43% / 84%. A regra R1 quase não muda o resultado. Os dados dessa medição ficam como histórico em `validacao/dados_simulacoes/matrix_v23`.
 
 **Importante:** isso **não é prova de balanceamento final**. A política simulada é mais fraca que um humano, e não houve QA visual nem playtest humano neste checkpoint.
 

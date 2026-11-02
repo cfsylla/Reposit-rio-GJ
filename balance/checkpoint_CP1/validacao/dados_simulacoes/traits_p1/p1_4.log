@@ -1,0 +1,13 @@
+Unyielding           tier1 goblin_king+pirate_captain                                   gain 1.054
+Unyielding           tier1 pirate_captain+shaman                                        gain 1.029
+Unyielding           tier2 goblin_brute+goblin_king+sage+snow_troll                     gain 1.087
+Unyielding           tier2 cave_troll+elf_harpist+feline_arcanist+feline_drummer        gain 1.085
+Predator             tier1 duelist+gunner                                               gain 1.044
+Predator             tier1 cowboy+omnamusha                                             gain 1.020
+Predator             tier2 cowboy+elf_noble+feline_rogue+shinobi                        gain 1.094
+Predator             tier2 cowboy+gunner+omnamusha+shinobi                              gain 1.058
+Lookout              tier1 musketeer+woodland_scout                                     gain 1.026
+Lookout              tier1 ranger+woodland_scout                                        gain 1.026
+Lookout              tier2 centaur_crossbow+dark_elf_archer+goblin_archer+musketeer     gain 1.059
+Lookout              tier2 centaur_crossbow+dark_elf_archer+elf_archer+woodland_scout   gain 1.016
+total 360s

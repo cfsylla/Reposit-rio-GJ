@@ -1,0 +1,17 @@
+Meowri               tier1 feline_arcanist+feline_swordsman                             gain 1.058
+Meowri               tier1 feline_drummer+feline_fighter                                gain 1.044
+Meowri               tier2 feline_arcanist+feline_drummer+feline_rogue+feline_swordsman gain 1.179
+Meowri               tier2 feline_drummer+feline_fighter+feline_rogue+feline_swordsman  gain 1.299
+Legends of the East  tier1 martial_artist+samurai                                       gain 1.004
+Legends of the East  tier1 omnamusha+samurai                                            gain 1.004
+Legends of the East  tier2 fighter+martial_artist+ronin+shaolin                         gain 1.004
+Legends of the East  tier2 kinoichi+omnamusha+ronin+shaolin                             gain 1.007
+Arcane               tier1 bard+priestess                                               gain 1.000
+Arcane               tier1 bard+sage                                                    gain 1.004
+Arcane               tier2 bard+mage+priestess+sorceress                                gain 1.005
+Arcane               tier2 bard+priestess+sage+sorceress                                gain 1.011
+Fearless             tier1 bear_druid+woodland_flailer                                  gain 1.007
+Fearless             tier1 berserker+dark_elf_warrior                                   gain 1.011
+Fearless             tier2 berserker+dark_elf_warrior+shackled_pirate+warrior           gain 1.007
+Fearless             tier2 bear_druid+feline_swordsman+fighter+gladiator                gain 1.016
+total 364s

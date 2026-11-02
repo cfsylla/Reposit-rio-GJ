@@ -1,0 +1,17 @@
+Goblin               tier1 goblin_brute+goblin_spearman                                 gain 1.013
+Goblin               tier1 goblin_archer+goblin_bomber                                  gain 1.002
+Goblin               tier2 goblin_archer+goblin_brute+goblin_king+goblin_spearman       gain 1.018
+Goblin               tier2 goblin_bomber+goblin_brute+goblin_king+goblin_spearman       gain 1.013
+High Elf             tier1 elf_guardian+elf_noble                                       gain 1.031
+High Elf             tier1 elf_guardian+elf_harpist                                     gain 1.000
+High Elf             tier2 elf_archer+elf_guardian+elf_harpist+elf_noble                gain 1.050
+High Elf             tier2 elf_archer+elf_guardian+elf_halberdier+elf_harpist           gain 1.065
+Devastator           tier1 feline_swordsman+orc_berserker                               gain 1.041
+Devastator           tier1 orc_fighter+swordsman                                        gain 1.026
+Devastator           tier2 centaur_swordsman+dark_elf_mage+orc_berserker+orc_fighter    gain 1.079
+Devastator           tier2 berserker+elf_halberdier+orc_berserker+viking                gain 1.059
+Sentinel             tier1 bastion+troll                                                gain 1.054
+Sentinel             tier1 blackfang_guardian+troll                                     gain 1.037
+Sentinel             tier2 bear_druid+blackfang_guardian+dark_elf_warrior+elf_guardian  gain 1.091
+Sentinel             tier2 elf_guardian+gladiator+troll+woodland_lancer                 gain 1.087
+total 361s

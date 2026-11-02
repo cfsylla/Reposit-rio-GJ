@@ -6,8 +6,9 @@
 
 - **Revisão leve dos decks nos extremos.** Medida com a árvore intermediária:
   - Coro de Guerra vence 80% das runs (forte);
-  - Lei do Gatilho, Fortaleza, Tripulação Salgada e Presas Negras vencem 25% (fracos).
-- **Árvore permanente e XP.** A árvore dá uma vantagem muito grande. Sem árvore, o jogador vence 3% das runs, abaixo da meta de 5% a 10%. Próxima etapa.
+  - Lei do Gatilho, Fortaleza, Tripulação Salgada, Peles Verdes e Galope Centauro vencem 25% (fracos).
+  - Com 20 runs por deck, cada número varia cerca de ±10 pontos. Exemplo: Presas Negras deu 25% na medição sem R1 e 55% na versão entregue. A revisão vai usar mais seeds.
+- **Árvore permanente e XP.** A árvore dá uma vantagem muito grande. Sem árvore, o jogador vence 4% das runs, abaixo da meta de 5% a 10%. Próxima etapa.
 
 ## 2. Experimentos não aprovados
 
@@ -36,7 +37,7 @@ Existem apenas na área de trabalho do Claude e **não** estão no pacote:
    - **Bloqueia:** só a liberação retroativa desses 4 decks (Terremoto e os 3 decks do true boss Dawncrest / 2 do Blackfang).
 2. **Compra de decks com diamantes.** Os decks também continuam compráveis por 25 diamantes (regra da v54 que não foi alterada) e pela coleção. Decidir se os decks novos só saem por milestone.
 3. **Filtro de relíquias de inimigos (v54).** `enemyRelicPool` ainda usa nomes antigos de traits (`Atirador`, `Arcano`, `Ágil`, `Defensor`), então scope, tome, boots e shield **nunca** aparecem para inimigos. Corrigir para os nomes atuais? Muda a dificuldade, então precisa ser recalibrado junto.
-4. **Árvore vazia abaixo da meta** (3% contra 5% a 10%). Resolver pela árvore, que é o plano, ou pela curva.
+4. **Árvore vazia abaixo da meta** (4% contra 5% a 10%). Resolver pela árvore, que é o plano, ou pela curva.
 5. **Estrelas da ficha (`ratings`).** Não foram atualizadas para os 33 personagens ajustados. É interface, fica a cargo do projeto principal.
 
 ## 5. Ajustes aprovados ainda incompletos

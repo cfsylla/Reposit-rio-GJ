@@ -19,6 +19,7 @@
 | Arquivo / pasta | Para que serve |
 |---|---|
 | `LEIA_ME_CHECKPOINT.md` | Este arquivo |
+| `CHECKPOINT_CP1_resumo.pdf` | Os 4 documentos principais (LEIA-ME, CHECKPOINT, PENDÊNCIAS, INTEGRAÇÃO) num PDF para ler no celular |
 | `CHECKPOINT_BALANCEAMENTO.md` | Identificação, base, resumo, regras vigentes, validação, o que foi e o que não foi revisado |
 | `TABELA_ALTERACOES.md` / `.csv` | Uma alteração por linha (178 linhas), com sistema, entidade, arquivo, valor original, valor novo, tipo (design ou numérico), situação, justificativa, validação e dependências |
 | `INTEGRACAO_CHATGPT.md` | Arquivos novos e alterados, ordem de carga, trechos modificados, impacto em saves, conflitos possíveis, testes e mensagem pronta |
@@ -27,7 +28,7 @@
 | `checkpoint_balanceamento.patch` | Diff completo **contra a v54 original** (24 arquivos). Aplicar na raiz do projeto com `git apply -p1 checkpoint_balanceamento.patch` |
 | `arquivos_alterados/` | Os 24 arquivos já alterados, nos mesmos caminhos relativos do projeto (`dist/`, `tests/`, `scripts/`, `balanceamento/`) |
 | `validacao/` | Comandos, logs, resultados dos testes e das simulações, falhas conhecidas e o simulador usado (ver `validacao/README_VALIDACAO.md`) |
-| `MANIFESTO_SHA256.txt` | Hash SHA-256 de cada arquivo do pacote |
+| `MANIFESTO_SHA256.txt` | Hash SHA-256 de cada arquivo do pacote. Para conferir: `sha256sum -c MANIFESTO_SHA256.txt`, dentro da pasta |
 
 Conferido: o patch, aplicado numa v54 limpa, gera arquivos **idênticos** aos de `arquivos_alterados/`. A validação e as simulações finais foram rodadas nessa cópia (v54 limpa + patch).
 
