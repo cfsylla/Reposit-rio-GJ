@@ -5,3 +5,6 @@ v54/art-source/
 v54/docs/*.jpg
 balance/out/**/*.log
 game/dist/assets
+balance/entrega/Backup_sessao_balanceamento*.zip
+balance/entrega/*.bundle
+balance/entrega/GJ-v54-BAL-CP1.zip
