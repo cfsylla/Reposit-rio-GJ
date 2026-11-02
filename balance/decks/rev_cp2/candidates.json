@@ -572,6 +572,241 @@
     "shaman": 1,
     "huntress": 1
    }
+  },
+  {
+   "id": "dark_court__v0",
+   "name": "Corte Sombria v0 (controle)",
+   "base": "dark_court",
+   "order": "blackfang",
+   "startRelic": "precision",
+   "counts": {
+    "dark_elf_noble": 3,
+    "dark_elf_archer": 3,
+    "dark_elf_warrior": 3,
+    "orc_warrior": 3,
+    "dark_elf_mage": 2,
+    "blackfang_guardian": 2,
+    "orc_fighter": 2,
+    "goblin_archer": 2
+   },
+   "change": {}
+  },
+  {
+   "id": "astral__v0",
+   "name": "Coro de Guerra v0 (controle)",
+   "base": "astral",
+   "order": null,
+   "startRelic": "recovery",
+   "counts": {
+    "warrior": 3,
+    "swordsman": 3,
+    "samurai": 3,
+    "bard": 3,
+    "berserker": 2,
+    "priestess": 2,
+    "sage": 2,
+    "archer": 2
+   },
+   "change": {}
+  },
+  {
+   "id": "executioners__v0",
+   "name": "Executores v0 (controle)",
+   "base": "executioners",
+   "order": null,
+   "startRelic": "execution",
+   "counts": {
+    "kinoichi": 3,
+    "cowboy": 3,
+    "musketeer": 2,
+    "gladiator": 3,
+    "bastion": 2,
+    "crossbowman": 2,
+    "huntress": 2,
+    "sheriff": 2,
+    "fighter": 1
+   },
+   "change": {}
+  },
+  {
+   "id": "balanced__v0",
+   "name": "Encontro de Caminhos v0 (controle)",
+   "base": "balanced",
+   "order": null,
+   "startRelic": "heart",
+   "counts": {
+    "fighter": 3,
+    "warrior": 3,
+    "ranger": 3,
+    "bastion": 3,
+    "samurai": 2,
+    "crossbowman": 2,
+    "priestess": 2,
+    "gladiator": 2
+   },
+   "change": {}
+  },
+  {
+   "id": "swift__v0",
+   "name": "Ventos do Acaso v0 (controle)",
+   "base": "swift",
+   "order": null,
+   "startRelic": "bell",
+   "counts": {
+    "lancer": 3,
+    "martial_artist": 3,
+    "pirate": 3,
+    "archer": 3,
+    "samurai": 2,
+    "cavalier": 2,
+    "mage": 2,
+    "kinoichi": 2
+   },
+   "change": {}
+  },
+  {
+   "id": "corsair__v0",
+   "name": "Tripulação Salgada v0 (controle)",
+   "base": "corsair",
+   "order": null,
+   "startRelic": "hourglass",
+   "counts": {
+    "pirate": 3,
+    "shackled_pirate": 3,
+    "pirate_captain": 3,
+    "miner": 3,
+    "cannoneer": 2,
+    "pirate_admiral": 2,
+    "gunner": 2,
+    "archer": 2
+   },
+   "change": {}
+  },
+  {
+   "id": "fireline__v0",
+   "name": "Linha de Fogo v0 (controle)",
+   "base": "fireline",
+   "order": null,
+   "startRelic": "scope",
+   "counts": {
+    "ranger": 3,
+    "archer": 3,
+    "crossbowman": 3,
+    "bastion": 3,
+    "musketeer": 2,
+    "gunner": 2,
+    "cannoneer": 2,
+    "warrior": 2
+   },
+   "change": {}
+  },
+  {
+   "id": "fortress__v0",
+   "name": "Fortaleza v0 (controle)",
+   "base": "fortress",
+   "order": null,
+   "startRelic": "shield",
+   "counts": {
+    "bastion": 3,
+    "shieldmaiden": 3,
+    "gladiator": 3,
+    "ranger": 3,
+    "archer": 2,
+    "priestess": 2,
+    "lancer": 2,
+    "warrior": 2
+   },
+   "change": {}
+  },
+  {
+   "id": "goblin_horde__v0",
+   "name": "Horda Goblin v0 (controle)",
+   "base": "goblin_horde",
+   "order": "blackfang",
+   "startRelic": "bell",
+   "counts": {
+    "goblin_archer": 3,
+    "goblin_rider": 3,
+    "goblin_brute": 3,
+    "blackfang_guardian": 3,
+    "goblin_spearman": 2,
+    "goblin_bomber": 2,
+    "goblin_king": 2,
+    "orc_berserker": 2
+   },
+   "change": {}
+  },
+  {
+   "id": "quake__v0",
+   "name": "Terremoto v0 (controle)",
+   "base": "quake",
+   "order": null,
+   "startRelic": "banner",
+   "counts": {
+    "lancer": 3,
+    "martial_artist": 3,
+    "miner": 3,
+    "kinoichi": 3,
+    "bastion": 2,
+    "mage": 2,
+    "cannoneer": 2,
+    "priestess": 2
+   },
+   "change": {}
+  },
+  {
+   "id": "outlaws__v0",
+   "name": "Lei do Gatilho v0 (controle)",
+   "base": "outlaws",
+   "order": null,
+   "startRelic": "precision",
+   "counts": {
+    "cowboy": 3,
+    "gunner": 3,
+    "miner": 2,
+    "fighter": 3,
+    "sheriff": 2,
+    "crossbowman": 2,
+    "bastion": 2,
+    "gladiator": 3
+   },
+   "change": {}
+  },
+  {
+   "id": "greenskins__v0",
+   "name": "Peles Verdes v0 (controle)",
+   "base": "greenskins",
+   "order": "blackfang",
+   "startRelic": "banner",
+   "counts": {
+    "orc_warrior": 3,
+    "orc_berserker": 3,
+    "orc_fighter": 2,
+    "cave_troll": 2,
+    "goblin_brute": 2,
+    "goblin_spearman": 3,
+    "goblin_rider": 2,
+    "goblin_archer": 3
+   },
+   "change": {}
+  },
+  {
+   "id": "north__v0",
+   "name": "Clãs do Norte v0 (controle)",
+   "base": "north",
+   "order": null,
+   "startRelic": "ember",
+   "counts": {
+    "viking": 3,
+    "berserker": 3,
+    "shieldmaiden": 3,
+    "fighter": 3,
+    "warrior": 3,
+    "huntress": 2,
+    "shaman": 2,
+    "glutton": 1
+   },
+   "change": {}
   }
  ]
 }
