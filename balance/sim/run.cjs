@@ -142,7 +142,7 @@ function resolvePending(s, rec) {
 const CUSTOM = process.env.GJ_DECKS ? Object.fromEntries(JSON.parse(fs.readFileSync(process.env.GJ_DECKS, 'utf8')).decks.map(d => [d.id, d])) : {};
 function playRun(deck, seed, pol, opt) {
   P.load(P.freshProfile()); P.completeTutorial();
-  const prof = Tree.profile(); prof.unlocked = [...(TREE_PRESETS[pol.tree] || [])];
+  const prof = Tree.profile(); prof.unlocked = [...(Array.isArray(pol.tree) ? pol.tree : TREE_PRESETS[pol.tree] || [])];
   const custom = CUSTOM[deck];
   const s = G.fresh(custom ? 'vanguard' : deck, seed);
   if (custom) { // proposal deck (testing): same fresh run, cards and starting relic replaced; its order is considered unlocked
@@ -184,7 +184,12 @@ function playRun(deck, seed, pol, opt) {
         break;
       }
       case 'tree': {
-        let bought = true; while (bought) { bought = false; for (const id of TREE_BUY_ORDER) if (Tree.buy(s, id)) { rec.treeBought.push(id); bought = true; break; } }
+        let bought = true; while (bought) { bought = false; for (const id of TREE_BUY_ORDER) if (Tree.buy(s, id)) { rec.treeBought.push(id); bought = true; break; }
+          // career mode (--treebuy all): after the fixed order, keep buying the cheapest connected node (combat branches first)
+          if (!bought && pol.treeBuy === 'all') { const t = Tree.ensure(s), have = Tree.profile().unlocked;
+            const cand = TreeData.nodes.filter(n => !have.includes(n.id) && Tree.connected(n.id) && n.cost <= t.xp).sort((x, y) => x.cost - y.cost || (x.category === 'expedition') - (y.category === 'expedition'));
+            if (cand.length && Tree.buy(s, cand[0].id)) { rec.treeBought.push(cand[0].id); bought = true; } } }
+        rec.xpLeft = (rec.xpLeft || 0) + (Tree.ensure(s)?.xp || 0);
         Tree.continueRun(s); break;
       }
       case 'actComplete': if (!A.advance(s)) { rec.result = 'act-stuck'; return finalize(s, rec); } break;
