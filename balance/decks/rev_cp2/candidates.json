@@ -807,6 +807,222 @@
     "glutton": 1
    },
    "change": {}
+  },
+  {
+   "id": "dark_court__v3",
+   "name": "Corte Sombria v3",
+   "base": "dark_court",
+   "order": "blackfang",
+   "startRelic": "precision",
+   "counts": {
+    "dark_elf_noble": 3,
+    "dark_elf_archer": 2,
+    "dark_elf_warrior": 3,
+    "orc_warrior": 3,
+    "dark_elf_mage": 2,
+    "blackfang_guardian": 2,
+    "orc_fighter": 2,
+    "goblin_archer": 3
+   },
+   "change": {
+    "dark_elf_archer": -1,
+    "goblin_archer": 1
+   }
+  },
+  {
+   "id": "astral__v3",
+   "name": "Coro de Guerra v3",
+   "base": "astral",
+   "order": null,
+   "startRelic": "recovery",
+   "counts": {
+    "warrior": 3,
+    "swordsman": 3,
+    "samurai": 3,
+    "bard": 3,
+    "berserker": 2,
+    "priestess": 1,
+    "sage": 1,
+    "archer": 4
+   },
+   "change": {
+    "sage": -1,
+    "priestess": -1,
+    "archer": 2
+   }
+  },
+  {
+   "id": "astral__v4",
+   "name": "Coro de Guerra v4",
+   "base": "astral",
+   "order": null,
+   "startRelic": "banner",
+   "counts": {
+    "warrior": 3,
+    "swordsman": 3,
+    "samurai": 2,
+    "bard": 3,
+    "berserker": 2,
+    "priestess": 2,
+    "sage": 2,
+    "archer": 3
+   },
+   "change": {
+    "samurai": -1,
+    "archer": 1,
+    "relíquia": "banner"
+   }
+  },
+  {
+   "id": "balanced__v3",
+   "name": "Encontro de Caminhos v3",
+   "base": "balanced",
+   "order": null,
+   "startRelic": "heart",
+   "counts": {
+    "fighter": 2,
+    "warrior": 3,
+    "ranger": 2,
+    "bastion": 3,
+    "samurai": 3,
+    "crossbowman": 2,
+    "priestess": 2,
+    "gladiator": 2,
+    "musketeer": 1
+   },
+   "change": {
+    "fighter": -1,
+    "ranger": -1,
+    "samurai": 1,
+    "musketeer": 1
+   }
+  },
+  {
+   "id": "balanced__v4",
+   "name": "Encontro de Caminhos v4",
+   "base": "balanced",
+   "order": null,
+   "startRelic": "banner",
+   "counts": {
+    "fighter": 3,
+    "warrior": 3,
+    "ranger": 3,
+    "bastion": 3,
+    "samurai": 2,
+    "crossbowman": 2,
+    "priestess": 2,
+    "gladiator": 2
+   },
+   "change": {
+    "relíquia": "banner"
+   }
+  },
+  {
+   "id": "fortress__v3",
+   "name": "Fortaleza v3",
+   "base": "fortress",
+   "order": null,
+   "startRelic": "shield",
+   "counts": {
+    "bastion": 3,
+    "shieldmaiden": 3,
+    "gladiator": 3,
+    "ranger": 3,
+    "archer": 2,
+    "priestess": 3,
+    "warrior": 2,
+    "sage": 1
+   },
+   "change": {
+    "lancer": -2,
+    "priestess": 1,
+    "sage": 1
+   }
+  },
+  {
+   "id": "quake__v3",
+   "name": "Terremoto v3",
+   "base": "quake",
+   "order": null,
+   "startRelic": "banner",
+   "counts": {
+    "lancer": 3,
+    "martial_artist": 3,
+    "miner": 2,
+    "kinoichi": 3,
+    "bastion": 2,
+    "mage": 2,
+    "cannoneer": 2,
+    "priestess": 3
+   },
+   "change": {
+    "miner": -1,
+    "priestess": 1
+   }
+  },
+  {
+   "id": "quake__v4",
+   "name": "Terremoto v4",
+   "base": "quake",
+   "order": null,
+   "startRelic": "precision",
+   "counts": {
+    "lancer": 3,
+    "martial_artist": 3,
+    "miner": 3,
+    "kinoichi": 3,
+    "bastion": 2,
+    "mage": 2,
+    "cannoneer": 2,
+    "priestess": 2
+   },
+   "change": {
+    "relíquia": "precision"
+   }
+  },
+  {
+   "id": "north__v3",
+   "name": "Clãs do Norte v3",
+   "base": "north",
+   "order": null,
+   "startRelic": "ember",
+   "counts": {
+    "viking": 3,
+    "berserker": 3,
+    "shieldmaiden": 3,
+    "fighter": 3,
+    "warrior": 3,
+    "huntress": 2,
+    "shaman": 3
+   },
+   "change": {
+    "glutton": -1,
+    "shaman": 1
+   }
+  },
+  {
+   "id": "corsair__v3",
+   "name": "Tripulação Salgada v3",
+   "base": "corsair",
+   "order": null,
+   "startRelic": "banner",
+   "counts": {
+    "pirate": 3,
+    "shackled_pirate": 2,
+    "pirate_captain": 4,
+    "miner": 2,
+    "cannoneer": 2,
+    "pirate_admiral": 3,
+    "gunner": 2,
+    "archer": 2
+   },
+   "change": {
+    "miner": -1,
+    "shackled_pirate": -1,
+    "pirate_captain": 1,
+    "pirate_admiral": 1,
+    "relíquia": "banner"
+   }
   }
  ]
 }
