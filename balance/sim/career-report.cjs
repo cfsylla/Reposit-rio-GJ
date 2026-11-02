@@ -19,7 +19,7 @@ const careers = {}; for (const r of R) (careers[r.deck + ':' + r.career] ??= [])
 const firstAt = (rs, f) => { const x = rs.sort((a, b) => a.run - b.run).find(f); return x ? x.run : null; };
 const stat = f => { const v = Object.values(careers).map(rs => firstAt(rs, f)); const ok = v.filter(x => x !== null).sort((a, b) => a - b); return { reached: ok.length, total: v.length, median: ok.length ? ok[Math.floor(ok.length / 2)] : null }; };
 console.log('\n| Marco | Carreiras que chegaram | Mediana (run) |\n|---|---|---|');
-for (const [name, f] of [['1º nó comprado', r => r.nodesAfter > 0], ['10 nós', r => r.nodesAfter >= 10], ['25 nós (≈ árvore intermediária)', r => r.nodesAfter >= 25], ['1ª vitória', r => r.result === 'victory']]) {
+for (const [name, f] of [['1º nó comprado', r => r.nodesAfter > 0], ['10 nós', r => r.nodesAfter >= 10], ['25 nós (≈ árvore intermediária)', r => r.nodesAfter >= 25], ['1ª vitória', r => r.result === 'victory'], ['Nível 15 (150 pontos)', r => (r.level ?? -1) >= 15], ['Nível 30 (limite, 300 pontos)', r => (r.level ?? -1) >= 30]]) {
   const s = stat(f); console.log(`| ${name} | ${s.reached}/${s.total} | ${s.median ?? '—'} |`);
 }
 const zero = Object.values(careers).map(rs => rs.filter(r => r.run <= 5 && r.nodesAfter === 0).length);

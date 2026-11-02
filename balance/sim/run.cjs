@@ -35,6 +35,17 @@ const TREE_PRESETS = {
 };
 TREE_PRESETS.full = Object.keys(TreeData.by).filter(id => id !== 'origin');
 TREE_PRESETS.advanced = TreeData.nodes ? TreeData.nodes.filter(n => n.id !== 'origin' && !['expanded_bag', 'caravan'].includes(n.id)).map(n => n.id) : Object.keys(TreeData.by).filter(id => id !== 'origin' && !['expanded_bag', 'caravan'].includes(id));
+/* capN: N tree points allocated with the simulator's buy policy (fixed order, then cheapest connected node). */
+function allocate(budget) {
+  const have = [], conn = id => TreeData.by[id].links.some(l => l === 'origin' || have.includes(l)), cost = id => TreeData.by[id].cost;
+  let left = budget;
+  for (;;) {
+    let pick = TREE_BUY_ORDER.find(id => !have.includes(id) && conn(id) && cost(id) <= left);
+    if (!pick) pick = TreeData.nodes.filter(n => !have.includes(n.id) && conn(n.id) && n.cost <= left).sort((x, y) => x.cost - y.cost || (x.category === 'expedition') - (y.category === 'expedition'))[0]?.id;
+    if (!pick) return have; have.push(pick); left -= cost(pick);
+  }
+}
+function treePreset(name) { const m = /^cap(\d+)$/.exec(name || ''); return m ? allocate(Number(m[1])) : TREE_PRESETS[name]; }
 const TREE_BUY_ORDER = ['pow_atk_1', 'vit_hp_1', 'def_armor_1', 'agi_rate_1', 'pow_atk_2', 'vit_hp_2', 'def_armor_2', 'agi_rate_2', 'pow_atk_3', 'vit_hp_3', 'vit_hp_4',
   'def_armor_3', 'def_armor_4', 'agi_rate_3', 'agi_rate_4', 'pow_atk_5', 'first_impact', 'second_wind', 'formation', 'strong_shields', 'sprint', 'momentum'];
 
@@ -142,7 +153,9 @@ function resolvePending(s, rec) {
 const CUSTOM = process.env.GJ_DECKS ? Object.fromEntries(JSON.parse(fs.readFileSync(process.env.GJ_DECKS, 'utf8')).decks.map(d => [d.id, d])) : {};
 function playRun(deck, seed, pol, opt) {
   P.load(P.freshProfile()); P.completeTutorial();
-  const prof = Tree.profile(); prof.unlocked = [...(Array.isArray(pol.tree) ? pol.tree : TREE_PRESETS[pol.tree] || [])];
+  const prof = Tree.profile(); prof.unlocked = [...(Array.isArray(pol.tree) ? pol.tree : treePreset(pol.tree) || [])];
+  // level model (game_p5+): banked XP = given career XP, or exactly the cost of the preset (no free points)
+  if (Tree.level) prof.totalXp = pol.treeXp ?? prof.unlocked.reduce((t, id) => t + TreeData.by[id].cost, 0);
   const custom = CUSTOM[deck];
   const s = G.fresh(custom ? 'vanguard' : deck, seed);
   if (custom) { // proposal deck (testing): same fresh run, cards and starting relic replaced; its order is considered unlocked
@@ -201,6 +214,7 @@ function playRun(deck, seed, pol, opt) {
   rec.result = 'step-limit'; return finalize(s, rec);
 }
 function finalize(s, rec) {
+  if (Tree.level) { rec.treeXp = Tree.profile().totalXp; rec.treeLevel = Tree.level(); }
   rec.act = A.act(s); rec.layer = s.layer; rec.goldEnd = s.gold; rec.mapBattles = s.mapBattles;
   rec.cards = s.cards.length; rec.levels = [0, 1, 2].map(l => s.cards.filter(c => c.level === l && !Pol.isCurse(c)).length); rec.curses = s.cards.filter(Pol.isCurse).length;
   rec.relics = [...s.artifacts]; rec.reserve = [...(s.reserve || [])];
@@ -222,4 +236,4 @@ if (require.main === module) {
   if (out) out.end();
   console.error('total', ((Date.now() - t0) / 1000).toFixed(1) + 's');
 }
-module.exports = { playRun, TREE_PRESETS };
+module.exports = { playRun, TREE_PRESETS, treePreset };

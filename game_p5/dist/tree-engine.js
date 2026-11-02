@@ -1,26 +1,44 @@
-/* Permanent profile unlocks; XP belongs only to the active run. */
+/* Permanent profile unlocks. XP is earned in the run and banked into the profile level at each boss tree session
+ * (unbanked XP is lost on defeat). GJ-v54-BAL post-CP1 level model: profile level = banked XP / 10 (max 30);
+ * each level grants 10 tree points; nodes cost points; free reset outside a run. */
 (function(root){'use strict';
 const G=root.Game,P=root.Progress,A=root.JourneyActs,D=root.JourneyTreeData;
 /* GJ-v54-BAL post-CP1: tree special/milestone effects (values tuned in the tree lab). */
 const TUNE=root.JOURNEY_TREE_TUNE={firstImpact:.35,impactStun:.3,execution:.20,executionCharge:.20,penetration:.10,penetrationCrit:.25,devastating:.45,exposed:.12,secondWind:.04,urgentHeal:.08,formationFront:.10,formationBack:.05,openingShield:.12,lastLine:.08,vengeance:.15,sprint:.25,momentum:.15,readiness:.25,rhythm:.15,rhythmEvery:3,...(root.JOURNEY_TREE_TUNE||{})};
-function profile(){const p=P.profile;if(!p.skillTree||p.skillTree.version!==1)p.skillTree={version:1,unlocked:[],purchases:[]};p.skillTree.unlocked=[...new Set((p.skillTree.unlocked||[]).filter(id=>D.by[id]&&id!=='origin'))];p.skillTree.purchases??=[];return p.skillTree;}
+const LEVEL=root.JOURNEY_TREE_LEVEL={xpPerLevel:10,pointsPerLevel:10,maxLevel:30,xpFight:[2,1,1],xpBoss:[4,4,6],...(root.JOURNEY_TREE_LEVEL||{})};
+function xpFor(act,boss){return (boss?LEVEL.xpBoss:LEVEL.xpFight)[Math.max(0,Math.min(2,act-1))];}
+function costOf(ids){return ids.reduce((t,id)=>t+(D.by[id]?.cost||0),0);}
+function profile(){const p=P.profile;if(!p.skillTree||p.skillTree.version!==1)p.skillTree={version:1,unlocked:[],purchases:[]};const st=p.skillTree;st.unlocked=[...new Set((st.unlocked||[]).filter(id=>D.by[id]&&id!=='origin'))];st.purchases??=[];
+ // Migration from the per-run XP model: banked XP starts at the XP already spent on owned nodes.
+ if(!Number.isFinite(st.totalXp)){st.totalXp=costOf(st.unlocked);const cap=LEVEL.maxLevel*LEVEL.pointsPerLevel;if(costOf(st.unlocked)>cap){st.purchases.push({reset:true,refund:costOf(st.unlocked),reason:'level-cap-migration'});st.unlocked=[];st.migratedReset=true;}}
+ return st;}
+function level(){return Math.min(LEVEL.maxLevel,Math.floor(profile().totalXp/LEVEL.xpPerLevel));}
+function points(){return level()*LEVEL.pointsPerLevel;}
+function spent(){return costOf(profile().unlocked);}
+function available(){return points()-spent();}
+function overflowXp(){return Math.max(0,profile().totalXp-LEVEL.maxLevel*LEVEL.xpPerLevel);}
+function nextLevelXp(){const st=profile();return level()>=LEVEL.maxLevel?0:(level()+1)*LEVEL.xpPerLevel-st.totalXp;}
+function bank(s){const t=ensure(s);if(!t||!t.xp)return 0;const x=t.xp;profile().totalXp+=x;t.xp=0;t.banked=(t.banked||0)+x;return x;}
 function eligible(s){return !!s&&!s.training&&!s.tutorialReplay;}
-function ensure(s){if(!eligible(s))return null;const j=A.ensure(s);if(!j)return null;if(!j.tree){j.tree={version:1,xp:0,earned:[],closed:[],shops:{},firstRecruit:[],firstCard:[],provisionMaps:[],session:null,goldCarry:0};if(!s.meta?.ended)for(const e of s.meta?.encounters||[]){if(e.event)continue;const node=e.key.slice(0,e.key.lastIndexOf(':')),act=node.startsWith('a3_')?3:node.startsWith('a2_')?2:1,key=act+':'+node;if(j.tree.earned.includes(key))continue;j.tree.earned.push(key);j.tree.xp+=e.type==='boss'?2*act:1;}}
+function ensure(s){if(!eligible(s))return null;const j=A.ensure(s);if(!j)return null;if(!j.tree){j.tree={version:1,xp:0,earned:[],closed:[],shops:{},firstRecruit:[],firstCard:[],provisionMaps:[],session:null,goldCarry:0};if(!s.meta?.ended)for(const e of s.meta?.encounters||[]){if(e.event)continue;const node=e.key.slice(0,e.key.lastIndexOf(':')),act=node.startsWith('a3_')?3:node.startsWith('a2_')?2:1,key=act+':'+node;if(j.tree.earned.includes(key))continue;j.tree.earned.push(key);j.tree.xp+=xpFor(act,e.type==='boss');}}
  const t=j.tree;t.xp=Math.max(0,Number.isFinite(t.xp)?Math.floor(t.xp):0);t.earned??=[];t.closed??=[];t.shops??={};t.firstRecruit??=[];t.firstCard??=[];t.provisionMaps??=[];return t;}
 function has(s,id){return eligible(s)&&profile().unlocked.includes(id);}
 function bonuses(s){const out={};if(!eligible(s))return out;for(const id of profile().unlocked)for(const [key,v]of Object.entries(D.by[id].effect))out[key]=typeof v==='number'?(out[key]||0)+v:true;return out;}
 function connected(id){const n=D.by[id];return !!n&&n.id!=='origin'&&n.links.some(id=>id==='origin'||profile().unlocked.includes(id));}
 function buying(s){const t=ensure(s);return !!(t?.session&&s.phase==='tree'&&!s.meta?.ended&&t.session.act===A.act(s));}
-function buy(s,id){const t=ensure(s),n=D.by[id],p=profile();if(!buying(s)||!n||n.id==='origin'||p.unlocked.includes(id)||!connected(id)||t.xp<n.cost)return false;t.xp-=n.cost;p.unlocked.push(id);p.purchases.push({id,cost:n.cost,run:s.seed,act:A.act(s)});if(id==='expanded_bag')G.ensureBag(s);return true;}
+function editable(s){return s?buying(s):true;}
+function buy(s,id){const n=D.by[id],p=profile();if(!editable(s)||!n||n.id==='origin'||p.unlocked.includes(id)||!connected(id)||available()<n.cost)return false;p.unlocked.push(id);p.purchases.push({id,cost:n.cost,run:s?.seed??null,act:s?A.act(s):null});if(id==='expanded_bag'&&s)G.ensureBag(s);return true;}
+/* Free reset, only outside a run (the menu calls it with no active run). Refunds every point. */
+function reset(s){if(s)return false;const p=profile(),refund=spent();if(!refund)return false;p.purchases.push({reset:true,refund});p.unlocked=[];return true;}
 function grantEntry(s){const t=ensure(s),a=A.act(s);if(!t||!has(s,'provisions')||t.provisionMaps.includes(a)||s.meta?.ended)return;t.provisionMaps.push(a);s.gold+=5;s.lastGoldReward=5;}
-function award(s){const t=ensure(s);if(!t||s.meta?.ended||s.eventEncounter||!G.isFight(s.current))return 0;const a=A.act(s),key=a+':'+s.current.id;if(t.earned.includes(key))return 0;const xp=s.current.type==='boss'?2*a:1;t.earned.push(key);t.xp+=xp;t.lastAward=xp;return xp;}
+function award(s){const t=ensure(s);if(!t||s.meta?.ended||s.eventEncounter||!G.isFight(s.current))return 0;const a=A.act(s),key=a+':'+s.current.id;if(t.earned.includes(key))return 0;const xp=xpFor(a,s.current.type==='boss');t.earned.push(key);t.xp+=xp;t.lastAward=xp;return xp;}
 const load=P.load;P.load=function(...args){const p=load(...args);profile();return p;};profile();
 const fresh=G.fresh;G.fresh=function(...args){const s=fresh(...args);ensure(s);grantEntry(s);return s;};
 const encounter=P.encounterWin;P.encounterWin=function(s){const t=ensure(s),before=s.meta?.encounters?.length||0,r=encounter(s);if((s.meta?.encounters?.length||0)>before)award(s);return r;};
-const finish=P.finish;P.finish=function(s,reason){const t=ensure(s);if(t&&reason==='victory'&&!s.meta?.ended&&s.current?.type==='boss'&&!t.closed.includes(A.act(s))){A.recordBoss(s);t.session??={act:A.act(s),boss:s.current.id};s.phase='tree';return false;}if(t&&reason!=='victory'){t.xp=0;t.session=null;t.goldCarry=0;}return finish(s,reason);};
+const finish=P.finish;P.finish=function(s,reason){const t=ensure(s);if(t&&reason==='victory'&&!s.meta?.ended&&s.current?.type==='boss'&&!t.closed.includes(A.act(s))){A.recordBoss(s);t.session??={act:A.act(s),boss:s.current.id};bank(s);s.phase='tree';return false;}if(t&&reason!=='victory'){t.xp=0;t.session=null;t.goldCarry=0;}return finish(s,reason);};
 const abandon=P.abandon;P.abandon=function(s){const result=abandon(s);if(result){const t=ensure(s);if(t){t.xp=0;t.session=null;t.goldCarry=0;}}return result;};
 function continueRun(s){if(!buying(s))return false;const t=ensure(s),act=A.act(s);t.closed.push(act);t.session=null;if(act===3){t.xp=0;s.phase='victory';}finish(s,'victory');if(act<3){if(s.phase!=='actComplete')return false;return A.advance(s);}return s.phase==='victory';}
-function resume(s){const t=ensure(s);if(t&&s.phase==='actComplete'&&!t.closed.includes(A.act(s))){t.session={act:A.act(s),boss:s.current.id};s.phase='tree';}return t;}
+function resume(s){const t=ensure(s);if(t&&s.phase==='actComplete'&&!t.closed.includes(A.act(s))){t.session={act:A.act(s),boss:s.current.id};bank(s);s.phase='tree';}return t;}
 const advance=A.advance;A.advance=function(s){if(buying(s))return false;const ok=advance(s);if(ok)grantEntry(s);return ok;};
 function stats(st,c,s,enemy){if(enemy||!eligible(s))return st;const v=bonuses(s);for(const k of ['hp','atk','defense','speed'])st[k]*=1+(v[k]||0);st.rate/=1+(v.haste||0);st.crit=Math.min(.75,st.crit+(v.crit||0));if(v.critDamage)st.treeCritDamage=v.critDamage;return st;}
 const create=G.createBattle;G.createBattle=function(s){const b=create(s);if(!b||!eligible(s)||!profile().unlocked.length)return b;const v=bonuses(s);b.tree={bonuses:v,fallen:false,queue:[]};for(const u of b.units.filter(u=>u.side===0)){u.treeSkillAt=-1;if(v.readiness&&G.BY[u.type].kind==='active'&&!G.BY[u.type].trigger.startFull)u.progress=Math.min(u.charge,(u.progress||0)+u.charge*TUNE.readiness);}if(v.strong_shields){const mine=b.units.filter(u=>u.side===0&&u.hp>0);const tank=mine.reduce((best,u)=>!best||u.maxhp>best.maxhp?u:best,null);if(tank){tank.shield=Math.max(tank.shield||0,tank.maxhp*TUNE.openingShield*1.1);tank.shieldTime=Math.max(tank.shieldTime||0,6);}}return b;};
@@ -61,5 +79,5 @@ const recruit=G.recruit;G.recruit=function(s,id){if(!has(s,'caravan'))return rec
 function offerExclusions(s){const t=ensure(s);return s.current?.type==='recruit'&&t?.recruit?.id===s.current.id?t.recruit.chosen:[];}
 function offerCount(s,n){return n+(s.current?.type==='recruit'&&has(s,'candidates')?1:0);}
 function relicCount(s,n){return n+(has(s,'explorer')?1:0);}
-root.JourneyTree={D,profile,eligible,ensure,has,bonuses,connected,buying,buy,award,continueRun,resume,grantEntry,stats,hit,ignore,haste,skill,moved,shield,healing,beforeSettle,threshold,afterSettle,price,gold,shopState,refreshShop,recruitState,offerExclusions,offerCount,relicCount};
+root.JourneyTree={D,LEVEL,xpFor,level,points,spent,available,overflowXp,nextLevelXp,bank,editable,reset,profile,eligible,ensure,has,bonuses,connected,buying,buy,award,continueRun,resume,grantEntry,stats,hit,ignore,haste,skill,moved,shield,healing,beforeSettle,threshold,afterSettle,price,gold,shopState,refreshShop,recruitState,offerExclusions,offerCount,relicCount};
 })(typeof globalThis!=='undefined'?globalThis:this);

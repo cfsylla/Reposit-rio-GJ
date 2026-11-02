@@ -8,7 +8,7 @@
 'use strict';
 const fs = require('node:fs');
 const { playRun } = require('./run.cjs');
-const { TreeData, TREE_VARIANT: TV } = require('./engine.cjs');
+const { TreeData, Tree, TREE_VARIANT: TV } = require('./engine.cjs');
 
 const a = {}, v = process.argv.slice(2);
 for (let i = 0; i < v.length; i += 2) a[v[i].replace(/^--/, '')] = v[i + 1];
@@ -19,14 +19,15 @@ const cost = ids => ids.reduce((t, id) => t + (TreeData.by[id]?.cost || 0), 0);
 const xpOf = rec => rec.fights.filter(f => f.result === 'win' && !f.event).reduce((t, f) => t + (f.type === 'boss' ? (TV?.xpBoss ? TV.xpBoss[f.act - 1] : 2 * f.act) : (TV?.xpFight ? TV.xpFight[f.act - 1] : 1)), 0);
 
 for (const deck of decks) for (const c of careers) {
-  let unlocked = [];
+  let unlocked = [], treeXp = 0;
   for (let k = 1; k <= runs; k++) {
     const seed = c * 1000 + k;
-    const pol = { prep: 'smart', route: 'greedy', events: 'safe', shop: 'balanced', tree: [...unlocked], treeBuy: 'all', order: null, forcewin: false };
+    const pol = { prep: 'smart', route: 'greedy', events: 'safe', shop: 'balanced', tree: [...unlocked], treeXp, treeBuy: 'all', order: null, forcewin: false };
     const before = unlocked.length, cBefore = cost(unlocked);
     const rec = playRun(deck, seed, pol, { dt: 1 / 60 });
     unlocked = [...unlocked, ...rec.treeBought];
-    const row = { deck, career: c, run: k, seed, result: rec.result, act: rec.act, wins: rec.wins, xp: xpOf(rec), nodesBefore: before, nodesAfter: unlocked.length, costBefore: cBefore, bought: rec.treeBought };
+    const banked = Tree.level ? rec.treeXp - treeXp : null; if (Tree.level) treeXp = rec.treeXp;
+    const row = { deck, career: c, run: k, seed, result: rec.result, act: rec.act, wins: rec.wins, xp: Tree.level ? banked : xpOf(rec), level: Tree.level ? Math.min(30, Math.floor(treeXp / 10)) : null, nodesBefore: before, nodesAfter: unlocked.length, costBefore: cBefore, bought: rec.treeBought };
     if (out) out.write(JSON.stringify(row) + '\n');
     console.log([deck, 'c' + c, 'run' + k, rec.result, 'act' + rec.act, 'wins=' + rec.wins, 'xp=' + row.xp, 'nodes ' + before + '->' + unlocked.length].join(' '));
   }
