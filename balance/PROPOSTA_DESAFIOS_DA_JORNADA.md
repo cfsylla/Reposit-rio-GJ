@@ -1,107 +1,107 @@
-# Proposta: Desafios da Jornada, Insígnias e Preparativos (pós-CP1)
+# Proposta: Desafios da Jornada, Insígnias e Vantagens (pós-CP1)
 
-**Versão 2:** alinhada ao documento `Grand_Journey_Desafios_da_Jornada.md` (02/11/2026): nome do sistema, desbloqueio na 1ª vitória no mapa 3, desafios Tropas Resistentes, Ataques Implacáveis, Recursos Escassos, Bagagem Limitada e Reforços Inimigos.
+**Versão 3 (02/11/2026).** Segue as regras confirmadas na **revisão 2** do documento de ideias (`referencia_Grand_Journey_Desafios_da_Jornada_rev2.md`) e as decisões de Carlos nesta sessão:
+- 15 desafios e 15 vantagens;
+- as vantagens compradas ficam todas ativas: não há espaços nem escolha entre elas;
+- o Desafio Final (boss secreto) é o último desbloqueio.
 
-**Situação:** proposta para aprovação de Carlos. Nada aplicado. Os valores são pontos de partida e serão calibrados por simulação depois da aprovação da lista.
+**Situação:**
+- **Desafios:** implementados na cópia de teste (`game_p5/dist/challenges.js`), com intensidade inicial a calibrar.
+- **Vantagens:** ideias para aprovação. Ainda não foram implementadas.
 
-## 1. Visão geral
+## 1. Regras (revisão 2)
 
-| Sistema | O que é | Quando aparece |
+| Regra | Definição |
+|---|---|
+| Desbloqueio | 1ª vitória numa run completa (boss do mapa 3). Libera o nível 1 |
+| Nível da run | **Quantidade de desafios ativos.** Sem graus e sem pesos |
+| Acesso | Sequencial: vencer com N desafios libera o nível N+1, até 15 |
+| Escolha | Combinação livre, até o nível liberado |
+| Insígnia | **1** na 1ª vitória de cada nível inédito. Repetir um nível não rende outra, mesmo com outra combinação |
+| Conclusão individual | Cada desafio ativo numa run **vencida** fica concluído |
+| Derrota | Não muda nada |
+| Desafio Final | Exige os 3 true bosses vencidos, os 15 desafios concluídos e o nível máximo alcançado. Sequência: 3 true bosses e depois o boss secreto. Dá um milestone de conclusão máxima. *(O encontro ainda não foi implementado: depende do conteúdo do boss secreto.)* |
+
+**Consequência para o balanceamento:** como cada desafio vale 1 nível, **todos precisam pesar parecido**. A meta é que cada desafio, sozinho, tire de 4 a 7 pontos de vitória do jogador no limite da árvore. A medição está em andamento. Os que saírem da faixa terão a intensidade ajustada.
+
+## 2. Os 15 desafios (intensidade inicial, uma só por desafio)
+
+| # | Desafio | Efeito |
 |---|---|---|
-| **Nível da árvore** (aprovado) | Nível = XP acumulado ÷ 10, até 30. Cada nível vale 10 pontos de árvore. Reset gratuito fora da run | Desde o início |
-| **Desafios da Jornada** | Desafios que o jogador escolhe antes da run. Cada desafio vale pontos. A soma é o **Nível de Desafio** da run | Depois da 1ª run vencida (boss do mapa 3) |
-| **Insígnias** | Moeda nova, ganha **só** em vitórias com Nível de Desafio ≥ 1 | Junto com as Desafios |
-| **Preparativos** | Bônus de início de run comprados com insígnias, em espaços limitados | Depois da 1ª insígnia |
+| 1 | Veteranos | Inimigos comuns: +2 upgrades |
+| 2 | Tropas Resistentes | Vida dos inimigos +15% |
+| 3 | Ataques Implacáveis | Dano dos inimigos +15% |
+| 4 | Comandantes Preparados | Elites, ordens e bosses: +1 relíquia e +2 upgrades |
+| 5 | Líderes Inteiros | Líderes de boss sem a redução de vida e ataque |
+| 6 | Reforços Inimigos | +1 unidade inimiga em lutas comuns e elites (não vale para bosses e raids) |
+| 7 | Fúria das Raids | Vida das raids +25% |
+| 8 | Mercado Inflacionado | Preços da loja +25% |
+| 9 | Bolsa Leve | Ouro por vitória −25% |
+| 10 | Recursos Escassos | −1 de energia no preparo de cada rodada |
+| 11 | Bagagem Limitada | 3 casas da bolsa de relíquias bloqueadas |
+| 12 | Escolhas Escassas | Ofertas de cartas com 1 opção a menos |
+| 13 | Árvore Contida | Árvore limitada a 90 pontos a menos durante a run |
+| 14 | **Relíquias Escassas** *(substitui "Sem Preparo", que dependia dos espaços de preparativos)* | Escolhas de relíquia com 1 opção a menos |
+| 15 | Caminho Amaldiçoado | Começa com 2 maldições Fardo |
 
-Princípio: **força controlada**. A árvore tem teto (30 níveis), e os preparativos têm poucos espaços. O jogo base (Nível de Desafio 0) é calibrado para o jogador no teto da árvore com os espaços de preparativos cheios. As Desafios são a única forma de ir além.
+## 3. As 15 vantagens (ideias para aprovação)
 
-## 2. Desafios (lista proposta)
+**Como funciona:**
+- Cada insígnia compra **1 vantagem**, na ordem que o jogador quiser.
+- Ao vencer os 15 níveis, o jogador tem as 15 vantagens.
+- Todas as vantagens compradas ficam ativas em todas as runs, inclusive na dificuldade normal.
+- São separadas da árvore e não repetem efeitos de nós.
 
-Cada desafio tem 1 a 3 graus. O jogador liga os que quiser. A dificuldade normal (Nível de Desafio 0) continua disponível. **Pontos totais possíveis: 38.**
+**Meta de força:** cada vantagem vale de **+2 a +3 pontos de vitória**, menos que um desafio (de 4 a 7). Assim cada nível novo fica um pouco mais difícil que o anterior, mesmo com a vantagem nova.
 
-| # | Desafio | Efeito por grau | Graus | Pontos por grau | Parâmetro do motor | Origem |
-|---|---|---|---|---|---|---|
-| 1 | **Veteranos** | Inimigos comuns têm +1 upgrade | 3 | 1 | Curva de upgrades (`makeAI`) | Claude |
-| 2 | **Tropas Resistentes** | Vida dos inimigos +8% | 3 | 1 | Escala do inimigo (`createBattle`) | Doc. ChatGPT |
-| 3 | **Ataques Implacáveis** | Dano dos inimigos +8% | 3 | 1 | Escala do inimigo (`createBattle`) | Doc. ChatGPT |
-| 4 | **Comandantes Preparados** | Elites, ordens e bosses: +1 relíquia e +1 upgrade | 2 | 1 | `rollEnemyRelics`, curva | Doc. ChatGPT + Claude |
-| 5 | **Líderes Inteiros** | Líderes de boss perdem a redução (×0,80 → ×0,90 → ×1,00) | 2 | 2 | Líderes em `boss-engine.js` | Claude |
-| 6 | **Reforços Inimigos** | +1 unidade inimiga em lutas normais e elites (respeita a ocupação do campo; não vale para bosses e raids) | 1 | 2 | Tabuleiro da IA (`makeAI`) | Doc. ChatGPT |
-| 7 | **Fúria das Raids** | Raids: vida +15% | 2 | 1 | Multiplicadores de raid (`attachRun`) | Claude |
-| 8 | **Mercado Inflacionado** | Preços da loja +15% | 2 | 1 | `price()` | Doc. ChatGPT |
-| 9 | **Bolsa Leve** | Ouro por vitória −15% | 2 | 1 | `battleReward()` | Claude |
-| 10 | **Recursos Escassos** | −1 de energia no preparo de cada rodada | 1 | 3 | Energia do preparo | Doc. ChatGPT |
-| 11 | **Bagagem Limitada** | Bloqueia 2 casas da bolsa de relíquias | 2 | 1 | Bolsa (`ensureBag`) | Doc. ChatGPT |
-| 12 | **Escolhas Escassas** | Recrutamento e recompensas de carta: 1 opção a menos | 1 | 2 | `choices()` | Claude |
-| 13 | **Árvore Contida** | Árvore limitada a −60 pontos por grau durante a run | 2 | 2 | Pontos de árvore (modelo de nível) | Claude |
-| 14 | **Sem Preparo** | −1 espaço de preparativo | 2 | 1 | Preparativos (novo) | Claude |
-| 15 | **Caminho Amaldiçoado** | Começa a run com 1 carta negativa (maldição) no deck | 2 | 1 | Maldições (`JourneyContent`) | Doc. ChatGPT |
+| # | Vantagem | Efeito | Sugestão de origem |
+|---|---|---|---|
+| 1 | **Relíquia de Viagem** | Começa a run com +1 relíquia comum aleatória que caiba na bolsa | Carlos |
+| 2 | **Treino Prévio** | 2 cartas aleatórias do deck começam com upgrade 1 | Carlos |
+| 3 | **Reforço** | +1 cópia de uma carta aleatória do deck (respeita o máximo de 4) | Carlos |
+| 4 | **Gêmeo** | Escolhe 1 carta do deck para duplicar no início da run (respeita o máximo de 4) | Carlos |
+| 5 | **Bolsa Cheia** | +20 de ouro inicial | Claude |
+| 6 | **Relíquia Escolhida** | Escolhe a relíquia inicial entre 3 opções, em vez de receber a do deck | Claude |
+| 7 | **Olho Treinado** | Uma vez por mapa, renova uma escolha de relíquia | Claude |
+| 8 | **Ensaio** | A 1ª carta comprada em cada loja vem com upgrade 1 | Claude |
+| 9 | **Mão Firme** | +1 carta na mão na 1ª rodada de cada confronto | Claude |
+| 10 | **Energia Guardada** | +1 de energia na 1ª rodada de cada confronto | Claude |
+| 11 | **Limpeza** | Uma remoção de carta grátis na 1ª loja de cada mapa | Claude |
+| 12 | **Bênção do Caminho** | Ao entrar nos mapas 2 e 3, 1 carta aleatória do deck recebe upgrade | Claude |
+| 13 | **Juros** | Ao vencer o boss de cada mapa, +10% do ouro guardado (máx. +15) | Claude |
+| 14 | **Batedor** | Mostra a formação inimiga da 1ª rodada antes do preparo | Claude |
+| 15 | **Segunda Chance** | Uma vez por run, perder um confronto (exceto boss) não encerra a run: o confronto recomeça do zero | Claude |
 
 Notas:
-- **A dificuldade normal não muda.** O alívio do mapa 1 para o jogador novo continua intacto.
-- Cada desafio é **legível em uma linha** e mexe em algo que o jogador vê.
-- **Calibração:** medir quantos pontos de vitória cada grau tira para um jogador no teto da árvore. A meta é **cada ponto custar de 3 a 6 pontos de vitória**. Desafios fora disso têm os pontos corrigidos.
-- **Combinações a vigiar** (como alerta o documento): Recursos Escassos com Reforços Inimigos (falta de energia para responder a mais unidades); Bagagem Limitada com Comandantes Preparados; Escolhas Escassas com Caminho Amaldiçoado. A simulação vai medir as piores combinações. Se alguma ficar inviável, ela será bloqueada ou terá os graus limitados.
-- **Bosses e raids:** só entram nos desafios 1 a 5 e 7. Reforços Inimigos fica fora deles até haver um desenho específico.
+- **Batedor** é informação, não força. O jogador simulado não aproveita esse tipo de vantagem, então o efeito dela só aparece em playtest humano.
+- **Segunda Chance** é a mais forte. Se a medição confirmar, ela pode ganhar uma restrição (por exemplo, só nos mapas 1 e 2) ou passar a exigir um nível mínimo vencido para ser comprada.
+- **Gêmeo** e **Relíquia Escolhida** pedem uma tela de escolha no início da run (interface do projeto principal).
 
-## 3. Insígnias
-
-**Ganho por vitória com Nível de Desafio P ≥ 1:**
-1. **Vitória:** `1 + floor(P / 4)` insígnias. Ex.: P = 4 → 2; P = 12 → 4.
-2. **Recorde do deck:** se P for maior que o recorde daquele deck, ganha `5 × (P − recorde)`. Ex.: primeira vitória com Fortaleza em P = 6 → +30. Depois, P = 8 → +10.
-
-Efeitos:
-- Com 24 decks, o recorde por deck incentiva jogar **todos os decks** em dificuldade maior, não só o mais forte.
-- O total de recordes possíveis é 24 × 38 × 5 = **4.560 insígnias**, o teto prático da economia.
-- **Selo do deck:** a tela de decks mostra o recorde de Nível de Desafio de cada deck (reconhecimento).
-- **Títulos e cosméticos** (sugestão do documento de ideias): títulos por vencer com um desafio no grau máximo (ex.: "Indomável" com Ataques Implacáveis 3) e por marcos de Nível de Desafio total (10, 20, 30, 38). Sem efeito em força.
-
-**XP acima do nível 30:** continua sendo somado no perfil (já implementado como `overflowXp`). **Decisão em aberto:** converter em diamantes (sugestão: 1 diamante a cada 20 XP excedente) ou deixar sem uso.
-
-## 4. Preparativos
-
-**Espaços:** 2 no início. Comprar o 3º custa 150 insígnias, e o 4º custa 300.
-
-Cada preparativo é desbloqueado uma vez com insígnias e depois **equipado** antes da run, sem custo por run.
-
-| Preparativo | Efeito | Custo |
-|---|---|---|
-| **Relíquia de Viagem** | Começa com +1 relíquia comum aleatória que caiba na bolsa | 40 |
-| **Treino Prévio** | 1 carta aleatória do deck começa com upgrade 1 | 40 |
-| **Reforço** | +1 cópia de uma carta aleatória do deck (respeita o máximo de 4) | 50 |
-| **Gêmeo** | Escolhe 1 carta do deck para duplicar (respeita o máximo de 4) | 80 |
-| **Bolsa Cheia** | +15 de ouro inicial | 30 |
-| **Olho Treinado** | 1 vez por mapa, renova uma escolha de relíquia | 60 |
-| **Recruta Extra** | O 1º recrutamento de cada mapa oferece +1 candidato | 60 |
-| **Ensaio** | A 1ª carta comprada em cada loja vem com upgrade 1 | 80 |
-
-Notas:
-- **Recruta Extra** e **Olho Treinado** se parecem com nós de Expedição da árvore (Mais Candidatos, Olhar de Explorador). Se forem aprovados aqui, os nós de Expedição serão revistos para não repetir efeitos.
-- A calibração do jogo base (Nível de Desafio 0) considera **2 espaços** equipados com preparativos fortes. Os espaços 3 e 4 são compensados pelas Desafios, porque só quem já ganha insígnias chega neles.
-
-## 5. Dados no save (resumo técnico)
-
-Tudo em campos **opcionais**, sem alterar IDs nem a versão do envelope principal:
+## 4. Dados no save (campos opcionais)
 
 | Dado | Campo |
 |---|---|
-| XP acumulado | `profile.skillTree.totalXp` |
-| Desafios selecionadas | `profile.trials = { selected: {id: grau}, record: {deckId: P} }` |
-| Desafios da run | `s.trials = {id: grau}`, fixadas no início da run |
+| XP acumulado da árvore | `profile.skillTree.totalXp` |
+| Desafios | `profile.challenges = { unlocked, available, won: [níveis], completed: [ids], selected: [ids], final }` |
+| Desafios da run | `s.challenges = [ids]`, fixados ao entrar no 1º nó |
 | Insígnias | `profile.insignia` |
-| Preparativos | `profile.preparations = { owned: [], equipped: [], slots: 2 }` |
+| Vantagens | `profile.advantages = [ids]` (a implementar) |
 
-## 6. Telas (a cargo do projeto principal)
+## 5. Telas (projeto principal)
 
-- **Árvore:** nível e pontos (ex.: "Nível 23 · 12 pontos livres"), barra até o próximo nível e botão **Redistribuir**, fora da run.
-- **Antes da run:** painel de Desafios com o total de pontos e a recompensa prevista, e os espaços de preparativos.
-- **Fim da run:** insígnias ganhas e novo recorde do deck.
-- **Tela de decks:** selo de recorde de Nível de Desafio por deck.
+- **Árvore:** nível e pontos, barra até o próximo nível e botão Redistribuir, fora da run.
+- **Antes da run:** lista dos 15 desafios com marca de concluído, contador "N de M" (nível liberado) e o nível que a run terá.
+- **Fim da run:** nível vencido, insígnia ganha e desafios concluídos nesta run.
+- **Vantagens:** loja com as 15 vantagens, insígnias disponíveis e as já compradas.
+- **Desafio Final:** aparece bloqueado, com os 3 requisitos e o progresso de cada um, sem revelar o boss.
 
-## 7. Decisões para Carlos
+## 6. Decisões em aberto
 
-1. Aprovar a **lista de Desafios** (tirar, trocar ou adicionar regras).
-2. Aprovar a **fórmula das insígnias**.
-3. Aprovar a **lista e os custos dos preparativos**, e os espaços (2 iniciais, até 4).
-4. **XP acima do nível 30:** converter em diamantes (1 a cada 20 XP) ou não.
-5. **Saves antigos** com mais de 300 pontos de nós: no modelo implementado, a árvore é **resetada com reembolso** e um aviso é registrado. Alternativa: manter os nós comprados acima do limite.
+1. Aprovar **Relíquias Escassas** no lugar de "Sem Preparo".
+2. Aprovar a **lista de vantagens** (tirar, trocar ou adicionar).
+3. **XP acima do nível 30 da árvore:** converter em diamantes ou não.
+4. **Saves antigos** com mais de 300 pontos de nós: resetar com reembolso (como está implementado) ou manter os nós.
+5. **Desafio Final:**
+   - ordem dos true bosses;
+   - se é preciso **vencer** o nível 15 ou só **alcançá-lo**;
+   - recompensa extra.
