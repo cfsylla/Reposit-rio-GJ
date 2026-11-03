@@ -75,9 +75,14 @@ if (a.ladder && fs.existsSync(a.ladder)) {
 const K = a.combos && fs.existsSync(a.combos) ? fs.readdirSync(a.combos).filter(f => f.endsWith('.jsonl')) : [];
 if (K.length) {
   const by = {}; for (const f of K) { const id = f.split('__')[0]; for (const l of fs.readFileSync(a.combos + '/' + f, 'utf8').split('\n')) if (l.trim()) (by[id] ??= []).push(JSON.parse(l)); }
-  const NAMES = { base: 'Jogo base', vant: 'Só as 15 vantagens', desaf: 'Só os 15 desafios', tudo: '15 desafios + 15 vantagens' };
-  html += `<h2>4. No limite: todos os desafios e todas as vantagens</h2><p>${Object.values(by)[0].length} runs por linha (24 decks). "15 desafios + 15 vantagens" é a run do Desafio Final, sem o boss secreto.</p>` + head('Situação', '<th>Vence a run</th>');
+  const NAMES = { base: 'Jogo base', vant: 'Só as 15 vantagens', desaf: 'Só os 15 desafios', tudo: '15 desafios + 15 vantagens',
+    energia: 'Combinação: Recursos Escassos + Energia Dissipada', energia3: 'Combinação: Recursos Escassos + Energia Dissipada + Reforços Inimigos',
+    reliquias: 'Combinação: Bagagem Limitada + Comandantes Preparados + Relíquias Escassas', deck: 'Combinação: Deck Pesado + Caminho Amaldiçoado',
+    economia: 'Combinação: Mercado Inflacionado + Bolsa Leve', energiaVant: 'Recursos Escassos + Energia Dissipada, com Energia Guardada + Preparação Flexível + Fusão Eficiente',
+    elites: 'Vantagens juntas: Experiência de Elite + Caçador de Elites' };
+  html += `<h2>4. No limite (todos os desafios e todas as vantagens) e combinações perigosas</h2><p>${Object.values(by)[0].length} runs por linha (24 decks). "15 desafios + 15 vantagens" é a run do Desafio Final, sem o boss secreto.</p>` + head('Situação', '<th>Vence a run</th>');
   for (const [id, R] of Object.entries(by).sort()) { const [t, c] = id.split('_'); html += row(`Árvore nível ${t.slice(1)}: ${NAMES[c] || c}`, R, `<td class="k">${pct(win(R))}</td>`); }
+  html += '<p><small>Linhas "Combinação": desafios que pesam no mesmo recurso, para conferir se juntos tornam a run inviável. Compare com o jogo base da mesma árvore.</small></p>';
   html += '</table>';
 }
 html += '</body></html>'; fs.writeFileSync(a.out, html); fs.writeFileSync(a.out + '.orders.json', JSON.stringify(orders, null, 1)); console.log('ok', a.out, Object.keys(orders));
