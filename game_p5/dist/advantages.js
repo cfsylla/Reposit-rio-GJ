@@ -30,7 +30,7 @@ const CANDIDATES=[
  {id:'elite_experience',en:'Elite Experience',pt:'Experiência de Elite',enDesc:'Each elite defeated grants all your units +3% health and attack until the end of the run.',ptDesc:'Cada elite vencida dá +3% de vida e ataque a todas as suas unidades até o fim da run.'},
 ];
 const BY=Object.fromEntries([...LIST,...CANDIDATES].map(a=>[a.id,a]));
-const TUNE=root.JOURNEY_ADVANTAGE_TUNE={pretraining:2,pretrainingLevel:1,rehearsalLevel:1,eyeMode:'map',secondMode:'match',blessingLevel:1,blessingCount:1,flexUses:1,flexScope:'confront',fusionRefund:1,fusionPerRound:1,plannedCount:1,eliteHp:.03,eliteAtk:.03,eliteCap:99,fullPurse:20,interest:.10,interestMax:15,eliteGold:12,...(root.JOURNEY_ADVANTAGE_TUNE||{})};
+const TUNE=root.JOURNEY_ADVANTAGE_TUNE={pretraining:2,pretrainingLevel:1,rehearsalLevel:1,eyeMode:'map',secondMode:'match',blessingLevel:1,blessingCount:1,flexUses:1,flexScope:'confront',fusionRefund:1,fusionPerRound:1,plannedCount:1,plannedFreq:'all',eliteHp:.03,eliteAtk:.03,eliteCap:99,fullPurse:20,interest:.10,interestMax:15,eliteGold:12,...(root.JOURNEY_ADVANTAGE_TUNE||{})};
 
 function owned(){const p=P.profile;p.advantages=[...new Set((p.advantages||[]).filter(id=>BY[id]))];return p.advantages;}
 function eligible(s){return !!s&&!s.training&&!s.tutorialReplay;}
@@ -67,9 +67,11 @@ const refresh=G.refreshHand;G.refreshHand=function(s){const free=flexLeft(s)>0&&
 /* Fusão Eficiente: refund after a fusion is actually completed, at most fusionPerRound per round. */
 const deploy=G.deploy;G.deploy=function(s,...args){const before=s.fusionSerial||0,ok=deploy(s,...args);if(ok&&has(s,'efficient_fusion')&&(s.fusionSerial||0)>before&&s.adv){const key=s.encounters+':'+s.round;s.adv.fuse??={};if((s.adv.fuse[key]||0)<TUNE.fusionPerRound){s.adv.fuse[key]=(s.adv.fuse[key]||0)+1;s.energy+=TUNE.fusionRefund;}}return ok;};
 /* Mão Planejada: the chosen type is placed on top of the draw pile for the first draw of each confrontation (an existing copy; none is created). */
+/* frequency: 'all' confrontations, 'elitesBosses' only, or 'alternate' (every other confrontation of the run) */
+function plannedApplies(s){if(TUNE.plannedFreq==='elitesBosses')return ['elite','boss'].includes(s.current?.type);if(TUNE.plannedFreq==='alternate'){s.adv.plannedCount=(s.adv.plannedCount||0)+1;return s.adv.plannedCount%2===1;}return true;}
 function plannedOptions(s){return has(s,'planned_hand')&&s.adv&&!s.adv.planned?deckTypes(s):[];}
 function choosePlanned(s,type){if(!plannedOptions(s).includes(type))return false;s.adv.planned=type;return true;}
-if(C?.draw){const draw=C.draw;C.draw=function(s,n){if(has(s,'planned_hand')&&s.adv?.planned&&s.round===1&&!s.hand.length&&s.adv.plannedAt!==s.encounters&&s.phase==='prep'){s.adv.plannedAt=s.encounters;for(let k=0;k<TUNE.plannedCount;k++){const i=s.draw.findIndex(id=>s.cards.find(c=>c.uid===id)?.type===s.adv.planned);if(i>=0){const [id]=s.draw.splice(i,1);s.draw.push(id);}}}return draw(s,n);};}
+if(C?.draw){const draw=C.draw;C.draw=function(s,n){if(has(s,'planned_hand')&&s.adv?.planned&&s.round===1&&!s.hand.length&&s.adv.plannedAt!==s.encounters&&s.phase==='prep'&&plannedApplies(s)){s.adv.plannedAt=s.encounters;for(let k=0;k<TUNE.plannedCount;k++){const i=s.draw.findIndex(id=>s.cards.find(c=>c.uid===id)?.type===s.adv.planned);if(i>=0){const [id]=s.draw.splice(i,1);s.draw.push(id);}}}return draw(s,n);};}
 /* Experiência de Elite: additive stacks, player units only, whole run. */
 if(T?.stats){const stats=T.stats;T.stats=function(st,c,s,enemy){st=stats(st,c,s,enemy)||st;const k=!enemy&&has(s,'elite_experience')?Math.min(TUNE.eliteCap,s.adv?.eliteStacks||0):0;if(k){st.hp*=1+TUNE.eliteHp*k;st.atk*=1+TUNE.eliteAtk*k;}return st;};}
 function energy(s,enemy){return !enemy&&has(s,'saved_energy')&&s.round===1?1:0;}
@@ -77,7 +79,7 @@ if(C?.handSize){const hand=C.handSize;C.handSize=function(s){return hand(s)+(has
 if(T){const price=T.price;T.price=function(s,kind,base,merchant){const a=price(s,kind,base,merchant);if(kind==='remove'&&has(s,'cleanse')&&s.current?.type==='shop'&&!s.adv?.cleanse.includes(act(s)))return 0;return a;};}
 const service=G.shopService;G.shopService=function(s,kind,id){const free=kind==='remove'&&has(s,'cleanse')&&s.current?.type==='shop'&&!s.adv?.cleanse.includes(act(s));const ok=service(s,kind,id);if(ok&&free)s.adv.cleanse.push(act(s));return ok;};
 const purchase=G.buy;G.buy=function(s,kind,index){const before=s.cards.length,ok=purchase(s,kind,index);if(ok&&kind==='cards'&&has(s,'rehearsal')&&s.current?.type==='shop'&&!s.adv?.shops[s.current.id]&&s.cards.length>before){const c=s.cards[s.cards.length-1];if(c.level<TUNE.rehearsalLevel)c.level=TUNE.rehearsalLevel;s.adv.shops[s.current.id]=true;}return ok;};
-const advance=A.advance;A.advance=function(s){const before=act(s),ok=advance(s);if(ok&&has(s,'path_blessing')&&act(s)>before&&act(s)>=2)for(let i=0;i<TUNE.blessingCount;i++){const c=pick(s,s.cards.filter(c=>!C?.isCurse(c)&&c.level<TUNE.blessingLevel));if(c)c.level=TUNE.blessingLevel;}return ok;};
+const advance=A.advance;A.advance=function(s){const before=act(s),ok=advance(s);if(ok&&has(s,'path_blessing')&&act(s)>before&&act(s)>=2)for(const L of (TUNE.blessingLevels||Array(TUNE.blessingCount).fill(TUNE.blessingLevel))){const c=pick(s,s.cards.filter(c=>!C?.isCurse(c)&&c.level<L));if(c)c.level=L;}return ok;};
 const encounter=P.encounterWin;P.encounterWin=function(s){const r=encounter(s);if(has(s,'elite_experience')&&s.current?.type==='elite'&&!s.eventEncounter&&s.adv)s.adv.eliteStacks=(s.adv.eliteStacks||0)+1;if(has(s,'elite_hunter')&&s.current?.type==='elite'&&!s.eventEncounter)G.rewardGold?G.rewardGold(s,TUNE.eliteGold):(s.gold+=TUNE.eliteGold);return r;};
 const finish=P.finish;P.finish=function(s,reason){
  if(eligible(s)&&reason==='defeat'&&!s.meta?.ended&&has(s,'second_chance')&&!s.adv?.second&&s.current&&['battle','elite'].includes(s.current.type)&&!s.eventEncounter&&!s.raid){

@@ -1,0 +1,5 @@
+V_blessingMix --advantages path_blessing
+V_elite05 --advantages elite_experience
+V_elite1cap3 --advantages elite_experience
+V_plannedEB --advantages planned_hand
+V_plannedAlt --advantages planned_hand
