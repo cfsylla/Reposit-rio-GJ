@@ -180,6 +180,7 @@ function playRun(deck, seed, pol, opt) {
         if (!G.enter(s, n.id)) { rec.result = 'enter-failed'; return finalize(s, rec); }
         if (E.AD && s.adv) { // advantages that need a player choice
           const tw = E.AD.twinOptions(s); if (tw.length) { const t = Pol.recruitPick(s, tw) || tw[0]; E.AD.twin(s, t); }
+          const ft = E.CH?.forcedTwinOptions?.(s) || []; if (ft.length) { const t2 = Pol.recruitPick(s, ft) || ft[0]; E.CH.forcedTwin(s, t2); }
           const so = E.AD.startRelicOptions(s); if (so.length) { const best = [...so].sort((x, y) => Pol.relicRank(x) - Pol.relicRank(y))[0]; if (Pol.relicRank(best) < Pol.relicRank(s.artifacts[0])) E.AD.chooseStartRelic(s, best); s.adv.startOffers = []; }
         }
         break;

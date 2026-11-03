@@ -23,7 +23,7 @@ const LIST=[
  {id:'second_chance',en:'Second Chance',pt:'Segunda Chance',enDesc:'Once per run, losing a confrontation (except bosses) does not end the run: it restarts from the beginning.',ptDesc:'Uma vez por run, perder um confronto (exceto bosses) não encerra a run: ele recomeça do início.'},
 ];
 const BY=Object.fromEntries(LIST.map(a=>[a.id,a]));
-const TUNE=root.JOURNEY_ADVANTAGE_TUNE={pretraining:2,fullPurse:20,interest:.10,interestMax:15,eliteGold:12,...(root.JOURNEY_ADVANTAGE_TUNE||{})};
+const TUNE=root.JOURNEY_ADVANTAGE_TUNE={pretraining:2,pretrainingLevel:1,rehearsalLevel:1,eyeMode:'map',fullPurse:20,interest:.10,interestMax:15,eliteGold:12,...(root.JOURNEY_ADVANTAGE_TUNE||{})};
 
 function owned(){const p=P.profile;p.advantages=[...new Set((p.advantages||[]).filter(id=>BY[id]))];return p.advantages;}
 function eligible(s){return !!s&&!s.training&&!s.tutorialReplay;}
@@ -39,7 +39,7 @@ function upgradeRandom(s,n){for(let i=0;i<n;i++){const c=pick(s,s.cards.filter(c
 /* Run start: called once when the run enters its first map node (after the challenges are fixed). */
 function start(s){if(!eligible(s)||s.adv)return;s.adv={shops:{},cleanse:[],eye:[],interest:[],twin:false,second:false,startOffers:null};
  if(has(s,'full_purse'))s.gold+=TUNE.fullPurse;
- if(has(s,'pretraining'))upgradeRandom(s,TUNE.pretraining);
+ if(has(s,'pretraining'))for(let i=0;i<TUNE.pretraining;i++){const c=pick(s,s.cards.filter(c=>!C?.isCurse(c)&&c.level<TUNE.pretrainingLevel));if(c)c.level=TUNE.pretrainingLevel;}
  if(has(s,'reinforcement')){const t=pick(s,deckTypes(s).filter(t=>G.copies(s,t)<G.MAX_COPIES));if(t)G.newCard(s,t);}
  if(has(s,'travel_relic')){const ids=G.unownedRelics(s).filter(id=>G.ARTIFACTS.find(a=>a.id===id)?.rarity===0&&G.packBag([...s.artifacts,id],s));const id=pick(s,ids);if(id){s.artifacts.push(id);repack(s);}}
  if(has(s,'chosen_relic')){const pool=G.unownedRelics(s).filter(id=>(G.ARTIFACTS.find(a=>a.id===id)?.rarity??9)<=1),out=[];while(out.length<3&&pool.length)out.push(pool.splice(Math.floor(rnd(s)*pool.length),1)[0]);s.adv.startOffers=out;}
@@ -48,8 +48,8 @@ function twinOptions(s){return s?.adv?.twin==='pending'?deckTypes(s).filter(t=>G
 function twin(s,type){if(!twinOptions(s).includes(type))return false;G.newCard(s,type);s.adv.twin=type;return true;}
 function startRelicOptions(s){return s?.adv?.startOffers||[];}
 function chooseStartRelic(s,id){const o=startRelicOptions(s);if(!o.includes(id))return false;const first=s.artifacts[0];const next=[id,...s.artifacts.slice(1)];if(!G.packBag(next,s))return false;s.artifacts=next;repack(s);s.adv.startOffers=[];s.adv.chosenRelic={from:first,to:id};return true;}
-function canReroll(s){return has(s,'trained_eye')&&s.phase==='relic'&&Array.isArray(s.offers)&&!s.adv?.eye.includes(act(s));}
-function rerollRelic(s){if(!canReroll(s))return false;const n=s.offers.length,pool=G.unownedRelics(s).filter(id=>!s.offers.includes(id)),out=[];while(out.length<n&&pool.length)out.push(pool.splice(Math.floor(rnd(s)*pool.length),1)[0]);if(!out.length)return false;s.offers=out;s.adv.eye.push(act(s));return true;}
+function canReroll(s){if(!has(s,'trained_eye')||s.phase!=='relic'||!Array.isArray(s.offers))return false;return TUNE.eyeMode==='every'?!s.offers.rerolled:!s.adv?.eye.includes(act(s));}
+function rerollRelic(s){if(!canReroll(s))return false;const n=s.offers.length,pool=G.unownedRelics(s).filter(id=>!s.offers.includes(id)),out=[];while(out.length<n&&pool.length)out.push(pool.splice(Math.floor(rnd(s)*pool.length),1)[0]);if(!out.length)return false;s.offers=out;s.offers.rerolled=true;s.adv.eye.push(act(s));return true;}
 
 /* Hooks */
 const enter=G.enter;G.enter=function(s,id){const ok=enter(s,id);if(ok)start(s);return ok;};
@@ -57,7 +57,7 @@ function energy(s,enemy){return !enemy&&has(s,'saved_energy')&&s.round===1?1:0;}
 if(C?.handSize){const hand=C.handSize;C.handSize=function(s){return hand(s)+(has(s,'steady_hand')&&s.round===1?1:0);};}
 if(T){const price=T.price;T.price=function(s,kind,base,merchant){const a=price(s,kind,base,merchant);if(kind==='remove'&&has(s,'cleanse')&&s.current?.type==='shop'&&!s.adv?.cleanse.includes(act(s)))return 0;return a;};}
 const service=G.shopService;G.shopService=function(s,kind,id){const free=kind==='remove'&&has(s,'cleanse')&&s.current?.type==='shop'&&!s.adv?.cleanse.includes(act(s));const ok=service(s,kind,id);if(ok&&free)s.adv.cleanse.push(act(s));return ok;};
-const purchase=G.buy;G.buy=function(s,kind,index){const before=s.cards.length,ok=purchase(s,kind,index);if(ok&&kind==='cards'&&has(s,'rehearsal')&&s.current?.type==='shop'&&!s.adv?.shops[s.current.id]&&s.cards.length>before){const c=s.cards[s.cards.length-1];if(c.level<1)c.level=1;s.adv.shops[s.current.id]=true;}return ok;};
+const purchase=G.buy;G.buy=function(s,kind,index){const before=s.cards.length,ok=purchase(s,kind,index);if(ok&&kind==='cards'&&has(s,'rehearsal')&&s.current?.type==='shop'&&!s.adv?.shops[s.current.id]&&s.cards.length>before){const c=s.cards[s.cards.length-1];if(c.level<TUNE.rehearsalLevel)c.level=TUNE.rehearsalLevel;s.adv.shops[s.current.id]=true;}return ok;};
 const advance=A.advance;A.advance=function(s){const before=act(s),ok=advance(s);if(ok&&has(s,'path_blessing')&&act(s)>before&&act(s)>=2)upgradeRandom(s,1);return ok;};
 const encounter=P.encounterWin;P.encounterWin=function(s){const r=encounter(s);if(has(s,'elite_hunter')&&s.current?.type==='elite'&&!s.eventEncounter)G.rewardGold?G.rewardGold(s,TUNE.eliteGold):(s.gold+=TUNE.eliteGold);return r;};
 const finish=P.finish;P.finish=function(s,reason){

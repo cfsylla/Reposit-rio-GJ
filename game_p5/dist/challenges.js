@@ -25,10 +25,15 @@ const LIST=[
  {id:'fewrelics',en:'Scarce Relics',pt:'Relíquias Escassas',enDesc:'Relic choices offer 2 options less (minimum 1).',ptDesc:'Escolhas de relíquia oferecem 2 opções a menos (mínimo 1).'},
  {id:'cursed',en:'Cursed Path',pt:'Caminho Amaldiçoado',enDesc:'Start the run with the Exhaustion curse.',ptDesc:'Começa a run com a maldição Exaustão.'},
 ];
-const BY=Object.fromEntries(LIST.map(c=>[c.id,c]));
+/* Candidates under evaluation (not in the 15-challenge catalogue until approved). */
+const CANDIDATES=[
+ {id:'relicswap',en:'Swapped Relic',pt:'Relíquia Trocada',enDesc:'The deck starting relic is replaced by a random relic.',ptDesc:'A relíquia inicial do deck é trocada por uma relíquia aleatória.'},
+ {id:'forcedtwin',en:'Forced Copy',pt:'Cópia Obrigatória',enDesc:'At the start of the run, choose 1 deck card to duplicate (up to 4 copies).',ptDesc:'No início da run, escolhe 1 carta do deck para duplicar (até 4 cópias).'},
+];
+const BY=Object.fromEntries([...LIST,...CANDIDATES].map(c=>[c.id,c]));
 const MAX_LEVEL=LIST.length;
 // Single intensity per challenge (revision 2: the level is the number of active challenges). Calibrated by simulation.
-const TUNE=root.JOURNEY_CHALLENGE_TUNE={veterans:3,commanders:2,commanderRelics:1,tough:.03,relentless:.04,bossRounds:0,bossStats:.08,raidfury:.30,raidDamage:.10,inflation:.15,lightpurse:.15,bagCells:3,treecap:50,curses:['exhaustion'],reinforceFromRound:2,heavyCards:1,scarceRounds:2,heavyPool:['warrior','lancer','fighter','martial_artist','miner','pirate','ranger','shackled_pirate'],fewRelics:2,...(root.JOURNEY_CHALLENGE_TUNE||{})};
+const TUNE=root.JOURNEY_CHALLENGE_TUNE={veterans:3,commanders:2,commanderRelics:1,tough:.03,relentless:.04,bossRounds:0,bossStats:.08,raidfury:.30,raidDamage:.10,inflation:.15,lightpurse:.15,bagCells:3,treecap:50,curses:['exhaustion'],reinforceFromRound:2,heavyCards:1,heavyMode:'weak',scarceRounds:2,heavyPool:['warrior','lancer','fighter','martial_artist','miner','pirate','ranger','shackled_pirate'],fewRelics:2,...(root.JOURNEY_CHALLENGE_TUNE||{})};
 const BAG_CELLS=[[3,3],[2,3],[1,3],[0,3]];
 
 function profile(){const p=P.profile;const pc=p.challenges??={};pc.unlocked=!!pc.unlocked;pc.available=Math.max(pc.unlocked?1:0,Math.min(MAX_LEVEL,Math.floor(pc.available||0)));
@@ -43,10 +48,12 @@ function active(s,id){return eligible(s)&&!!s.challenges?.includes?.(id);}
 function select(ids){const pc=profile();const list=clean(ids);if(!pc.unlocked||list.length>pc.available)return false;pc.selected=list;return true;}
 function toggle(id){const pc=profile();if(!pc.unlocked||!BY[id])return false;const on=pc.selected.includes(id);if(!on&&pc.selected.length>=pc.available)return false;pc.selected=on?pc.selected.filter(x=>x!==id):[...pc.selected,id];return true;}
 function start(s){if(!eligible(s)||s.challenges)return;const pc=profile();s.challenges=pc.unlocked?[...pc.selected]:[];s.challengeLevel=s.challenges.length;
- if(active(s,'cursed'))for(const id of TUNE.curses)C?.addCurse(s,id);if(active(s,'heavydeck'))for(let i=0;i<TUNE.heavyCards;i++){const pool=TUNE.heavyPool.filter(t=>G.BY[t]&&G.copies(s,t)<G.MAX_COPIES);if(pool.length)G.newCard(s,pool[Math.floor(G.random(s)*pool.length)]);}if(active(s,'bag'))G.ensureBag(s);root.JourneyAdvantages?.start?.(s);}
+ if(active(s,'cursed'))for(const id of TUNE.curses)C?.addCurse(s,id);if(active(s,'relicswap')){const deck=s.artifacts[0],pool=G.unownedRelics(s).filter(id=>id!==deck&&(G.ARTIFACTS.find(a=>a.id===id)?.rarity??9)<=1);if(pool.length&&deck){const id=pool[Math.floor(G.random(s)*pool.length)],next=[id,...s.artifacts.slice(1)],items=G.packBag(next,s);if(items){s.artifacts=next;s.bag={items};G.ensureBag(s);}}}if(active(s,'forcedtwin'))s.forcedTwin='pending';if(active(s,'heavydeck')&&TUNE.heavyMode==='copy')for(let i=0;i<TUNE.heavyCards;i++){const ts=[...new Set(s.cards.filter(c=>!C?.isCurse(c)).map(c=>c.type))].filter(t=>G.copies(s,t)<G.MAX_COPIES);if(ts.length)G.newCard(s,ts[Math.floor(G.random(s)*ts.length)]);}if(active(s,'heavydeck')&&TUNE.heavyMode!=='copy')for(let i=0;i<TUNE.heavyCards;i++){const pool=TUNE.heavyPool.filter(t=>G.BY[t]&&G.copies(s,t)<G.MAX_COPIES);if(pool.length)G.newCard(s,pool[Math.floor(G.random(s)*pool.length)]);}if(active(s,'bag'))G.ensureBag(s);root.JourneyAdvantages?.start?.(s);}
 const enter=G.enter;G.enter=function(s,id){start(s);return enter(s,id);};
 
 /* game-0 hooks */
+function forcedTwinOptions(s){return s?.forcedTwin==='pending'?[...new Set(s.cards.filter(c=>!C?.isCurse(c)).map(c=>c.type))].filter(t=>G.copies(s,t)<G.MAX_COPIES):[];}
+function forcedTwin(s,type){if(!forcedTwinOptions(s).includes(type))return false;G.newCard(s,type);s.forcedTwin=type;return true;}
 function upgrades(s,elite,boss){return elite||boss?(active(s,'commanders')?TUNE.commanders:0):(active(s,'veterans')?TUNE.veterans:0);}
 function enemyRelics(s){return active(s,'commanders')?TUNE.commanderRelics:0;}
 function bossFight(s){return s.current?.type==='boss'||!!B?.deck?.(s);}
@@ -84,5 +91,5 @@ const encounter=P.encounterWin;P.encounterWin=function(s){const r=encounter(s);i
 function finalRequirements(){const pc=profile(),tb=trueBossesBeaten();return {wonMaxLevel:pc.won.includes(MAX_LEVEL),allCompleted:pc.completed.length===MAX_LEVEL,trueBosses:tb,ready:pc.won.includes(MAX_LEVEL)&&pc.completed.length===MAX_LEVEL&&tb===true};}
 const finish=P.finish;P.finish=function(s,reason){const before=!!s?.meta?.ended,r=finish(s,reason);if(eligible(s)&&!before&&s.meta?.ended&&s.meta.reason==='victory'){const got=recordVictory(s);s.meta.challengeLevel=got.level;s.meta.insignia=got.insignia;}return r;};
 
-root.JourneyChallenges={LIST,BY,TUNE,MAX_LEVEL,profile,clean,level,highestWon,select,toggle,start,active,upgrades,enemyRelics,extraUnits,extraBossRounds,energy,bagBlocked,cellBlocked,enemyStats,treeNodes,recordVictory,trueBossesBeaten,finalRequirements};
+root.JourneyChallenges={LIST,CANDIDATES,forcedTwinOptions,forcedTwin,BY,TUNE,MAX_LEVEL,profile,clean,level,highestWon,select,toggle,start,active,upgrades,enemyRelics,extraUnits,extraBossRounds,energy,bagBlocked,cellBlocked,enemyStats,treeNodes,recordVictory,trueBossesBeaten,finalRequirements};
 })(typeof globalThis!=='undefined'?globalThis:this);
