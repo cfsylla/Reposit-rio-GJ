@@ -1,0 +1,36 @@
+{
+ "challenges": [
+  "raidfury",
+  "heavydeck",
+  "dissipate",
+  "bag",
+  "veterans",
+  "tough",
+  "relentless",
+  "inflation",
+  "cursed",
+  "commanders",
+  "fewrelics",
+  "bossrounds",
+  "scarce",
+  "lightpurse",
+  "reinforcements"
+ ],
+ "advantages": [
+  "elite_hunter",
+  "travel_relic",
+  "pretraining",
+  "path_blessing",
+  "elite_experience",
+  "second_chance",
+  "planned_hand",
+  "saved_energy",
+  "full_purse",
+  "interest",
+  "flex_prep",
+  "rehearsal",
+  "trained_eye",
+  "efficient_fusion",
+  "cleanse"
+ ]
+}
