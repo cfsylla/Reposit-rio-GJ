@@ -1,0 +1,8 @@
+V_flex1b --advantages flex_prep
+V_planned1b --advantages planned_hand
+V_elite1 --advantages elite_experience
+V_elite15 --advantages elite_experience
+V_fusion2 --advantages efficient_fusion
+V_fusionAll --advantages efficient_fusion
+V_pretrain3x1 --advantages pretraining
+V_blessing1x2 --advantages path_blessing

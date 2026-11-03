@@ -82,7 +82,8 @@ function prep(s, pol, log) {
   if (smart && (globalThis.JourneyAdvantages?.flexLeft?.(s) || 0) > 0 && s.hand.length) {
     const owned = new Set([...s.board, ...s.bench].filter(Boolean).map(id => lookup(id)?.type));
     const useful = s.hand.map(lookup).filter(c => c && !isCurse(c) && (G.canFuse(s, c.uid) || owned.has(c.type)));
-    if (!useful.length && G.refreshHand(s)) log.refreshes = (log.refreshes || 0) + 1;
+    const playable = s.hand.map(lookup).filter(c => c && !isCurse(c) && G.cost(c) <= s.energy);
+    if (((s.round || 1) >= 2 && !useful.length) || !playable.length) { if (G.refreshHand(s)) log.refreshes = (log.refreshes || 0) + 1; }
   }
   for (let turn = 0; turn < 40; turn++) {
     const on = s.board.filter(Boolean).map(lookup), space = on.length < G.maxUnits(s);
