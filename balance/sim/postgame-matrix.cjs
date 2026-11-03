@@ -24,7 +24,15 @@ table{border-collapse:collapse;width:100%;font-size:7.6pt}th,td{border:1px solid
 .k{font-weight:bold}.ok{color:#1d6b2f}.bad{color:#9b2c2c}
 </style></head><body><h1>Grand Journey: pós-jogo (Desafios da Jornada e Vantagens)</h1>
 <p>Jogador simulado competente (joga no nível da IA do jogo; um humano tende a ir melhor). Mesmo estado de jogo da matriz de decks pós-CP1 (curva BC_B, árvore revisada, 9 decks revisados). Cada célula: porcentagem das runs que <b>venceram até aquele ponto</b>.</p>`;
+// Where the effect shows: segment of the run where the survival curve departs most from the base curve.
+const SEG = [[0, 3, 'início do mapa 1'], [3, 9, 'mapa 1 e seu boss'], [9, 15, 'mapa 2'], [15, 18, 'boss do mapa 2'], [18, 24, 'mapa 3'], [24, 27, 'boss final']];
+function where(R, B, sign) { const d = k => sign * ((k ? alive(B, k) : 1) - (k ? alive(R, k) : 1)); const parts = SEG.map(([lo, hi, name]) => ({ name, v: d(hi) - d(lo) })).filter(x => x.v > .015).sort((x, y) => y.v - x.v);
+  const tot = parts.reduce((t, x) => t + x.v, 0); if (!parts.length || tot < .02) return 'efeito pequeno demais para localizar'; const top = parts.filter(x => x.v >= tot * .25).slice(0, 2); return top.map(x => x.name + ' (' + Math.round(100 * x.v / tot) + '%)').join(', '); }
+function fichas(title, list, B, sign, label) { let h = `<h2>${title}</h2><p>Impacto = ${label}. "Quando pesa" = trecho da run em que a curva se afasta do jogo base, com a parcela do efeito total em cada trecho.</p><table><tr><th>Nome</th><th style="width:44%">Efeito</th><th>Impacto</th><th>Quando pesa</th></tr>`;
+  for (const x of list) h += `<tr><td class="n"><b>${x.name}</b></td><td style="text-align:left">${x.desc}</td><td class="k">${x.v >= 0 && sign < 0 ? '+' : ''}${x.v.toFixed(0)}</td><td style="text-align:left">${where(x.R, B, sign)}</td></tr>`;
+  return h + '</table>'; }
 const orders = {};
+const fichaParts = [];
 let first = true;
 const C = load(a.chal, E.CH.LIST.map(c => c.id));
 if (C?.none) {
@@ -34,6 +42,7 @@ if (C?.none) {
   html += row('<b>Jogo base (sem desafio)</b>', C.none, '<td>—</td>').replace('<tr>', '<tr class="base">');
   for (const x of list) html += row(x.c.pt, x.R, `<td class="k ${x.cost < 4 ? 'bad' : x.cost > 8 ? 'bad' : 'ok'}">${x.cost.toFixed(0)}</td>`);
   html += '</table>'; first = false;
+  fichaParts.push(fichas('Fichas dos desafios (árvore no ' + (a.tree || 'nível 25') + ')', list.map(x => ({ name: x.c.pt, desc: x.c.ptDesc, v: x.cost, R: x.R })), C.none, 1, 'pontos de vitória a menos que o jogo base'));
 }
 const A = load(a.adv, E.AD.LIST.map(x => x.id));
 if (A?.none) {
@@ -43,7 +52,9 @@ if (A?.none) {
   html += row('<b>Jogo base (sem vantagem)</b>', A.none, '<td>—</td>').replace('<tr>', '<tr class="base">');
   for (const y of list) html += row(y.x.pt, y.R, `<td class="k">${y.gain >= 0 ? '+' : ''}${y.gain.toFixed(0)}</td>`);
   html += '</table>'; first = false;
+  fichaParts.push(fichas('Fichas das vantagens (árvore no ' + (a.tree || 'nível 25') + ')', list.map(y => ({ name: y.x.pt, desc: y.x.ptDesc, v: y.gain, R: y.R })), A.none, -1, 'pontos de vitória a mais que o jogo base'));
 }
+html += fichaParts.join('');
 if (a.ladder && fs.existsSync(a.ladder)) {
   const R = fs.readdirSync(a.ladder).filter(f => f.endsWith('.jsonl')).flatMap(f => fs.readFileSync(a.ladder + '/' + f, 'utf8').split('\n').filter(Boolean).map(JSON.parse));
   for (const path of ['easy', 'hard']) {
