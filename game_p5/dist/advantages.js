@@ -9,7 +9,7 @@ const LIST=[
  {id:'travel_relic',en:'Travel Relic',pt:'Relíquia de Viagem',enDesc:'Start each run with +1 random common relic that fits the bag.',ptDesc:'Começa cada run com +1 relíquia comum aleatória que caiba na bolsa.'},
  {id:'pretraining',en:'Pre-Training',pt:'Treino Prévio',enDesc:'1 random deck card starts with upgrade 2 and another with upgrade 1.',ptDesc:'1 carta aleatória do deck começa com upgrade 2 e outra com upgrade 1.'},
  {id:'flex_prep',en:'Flexible Preparation',pt:'Preparação Flexível',enDesc:'Once per round, refresh your hand for free.',ptDesc:'Uma vez por rodada, renova a mão de graça.'},
- {id:'efficient_fusion',en:'Efficient Fusion',pt:'Fusão Eficiente',enDesc:'The first fusion completed in each round refunds 1 energy. (Pending: no measurable effect in testing.)',ptDesc:'A primeira fusão concluída em cada rodada devolve 1 de energia. (Pendente: sem efeito mensurável nos testes.)'},
+ {id:'efficient_fusion',en:'Efficient Fusion',pt:'Fusão Eficiente',enDesc:'Every fusion completed refunds 1 energy.',ptDesc:'Toda fusão concluída devolve 1 de energia.'},
  {id:'full_purse',en:'Full Purse',pt:'Bolsa Cheia',enDesc:'+20 starting gold.',ptDesc:'+20 de ouro inicial.'},
  {id:'elite_experience',en:'Elite Experience',pt:'Experiência de Elite',enDesc:'Each elite defeated grants all your units +0.5% health and attack until the end of the run.',ptDesc:'Cada elite vencida dá +0,5% de vida e ataque a todas as suas unidades até o fim da run.'},
  {id:'trained_eye',en:'Trained Eye',pt:'Olho Treinado',enDesc:'One free reroll on every relic choice.',ptDesc:'1 renovação grátis em toda escolha de relíquia.'},
@@ -31,7 +31,7 @@ const CANDIDATES=[
  {id:'steady_hand',retired:true,en:'Steady Hand',pt:'Mão Firme',enDesc:'+1 card in hand in the first round of each confrontation.',ptDesc:'+1 carta na mão na primeira rodada de cada confronto.'},
 ];
 const BY=Object.fromEntries([...LIST,...CANDIDATES].map(a=>[a.id,a]));
-const TUNE=root.JOURNEY_ADVANTAGE_TUNE={pretraining:2,pretrainingLevel:1,pretrainingLevels:[2,1],rehearsalLevel:2,eyeMode:'every',secondMode:'round',blessingLevel:1,blessingCount:1,blessingLevels:[2,1],flexUses:1,flexScope:'round',fusionRefund:1,fusionPerRound:1,plannedCount:1,plannedFreq:'alternate',eliteHp:.005,eliteAtk:.005,eliteCap:99,fullPurse:20,interest:.5,interestMax:75,eliteGold:12,...(root.JOURNEY_ADVANTAGE_TUNE||{})};
+const TUNE=root.JOURNEY_ADVANTAGE_TUNE={pretraining:2,pretrainingLevel:1,pretrainingLevels:[2,1],rehearsalLevel:2,eyeMode:'every',secondMode:'round',blessingLevel:1,blessingCount:1,blessingLevels:[2,1],flexUses:1,flexScope:'round',fusionRefund:1,fusionPerRound:99,plannedCount:1,plannedFreq:'alternate',eliteHp:.005,eliteAtk:.005,eliteCap:99,fullPurse:20,interest:.5,interestMax:75,eliteGold:12,...(root.JOURNEY_ADVANTAGE_TUNE||{})};
 
 function owned(){const p=P.profile;p.advantages=[...new Set((p.advantages||[]).filter(id=>BY[id]))];return p.advantages;}
 function eligible(s){return !!s&&!s.training&&!s.tutorialReplay;}
