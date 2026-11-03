@@ -1,0 +1,2 @@
+C_forcedtwin2 --challenges forcedtwin
+C_purse20 --challenges lightpurse

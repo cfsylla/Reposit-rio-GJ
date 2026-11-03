@@ -39,7 +39,7 @@ function upgradeRandom(s,n){for(let i=0;i<n;i++){const c=pick(s,s.cards.filter(c
 /* Run start: called once when the run enters its first map node (after the challenges are fixed). */
 function start(s){if(!eligible(s)||s.adv)return;s.adv={shops:{},cleanse:[],eye:[],interest:[],twin:false,second:false,startOffers:null};
  if(has(s,'full_purse'))s.gold+=TUNE.fullPurse;
- if(has(s,'pretraining'))for(let i=0;i<TUNE.pretraining;i++){const c=pick(s,s.cards.filter(c=>!C?.isCurse(c)&&c.level<TUNE.pretrainingLevel));if(c)c.level=TUNE.pretrainingLevel;}
+ if(has(s,'pretraining')){const levels=TUNE.pretrainingLevels||Array(TUNE.pretraining).fill(TUNE.pretrainingLevel);for(const L of levels){const c=pick(s,s.cards.filter(c=>!C?.isCurse(c)&&c.level===0));if(c)c.level=L;}}
  if(has(s,'reinforcement')){const t=pick(s,deckTypes(s).filter(t=>G.copies(s,t)<G.MAX_COPIES));if(t)G.newCard(s,t);}
  if(has(s,'travel_relic')){const ids=G.unownedRelics(s).filter(id=>G.ARTIFACTS.find(a=>a.id===id)?.rarity===0&&G.packBag([...s.artifacts,id],s));const id=pick(s,ids);if(id){s.artifacts.push(id);repack(s);}}
  if(has(s,'chosen_relic')){const pool=G.unownedRelics(s).filter(id=>(G.ARTIFACTS.find(a=>a.id===id)?.rarity??9)<=1),out=[];while(out.length<3&&pool.length)out.push(pool.splice(Math.floor(rnd(s)*pool.length),1)[0]);s.adv.startOffers=out;}
