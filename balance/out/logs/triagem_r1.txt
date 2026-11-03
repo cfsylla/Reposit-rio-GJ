@@ -1,0 +1,10 @@
+BASE 
+C_heavycopy --challenges heavydeck
+C_relicswap --challenges relicswap
+C_forcedtwin --challenges forcedtwin
+C_cmdA --challenges commanders
+C_purse25 --challenges lightpurse
+V_rehearsal2 --advantages rehearsal
+V_interest20 --advantages interest
+V_pretrain2x2 --advantages pretraining
+V_eyeevery --advantages trained_eye
