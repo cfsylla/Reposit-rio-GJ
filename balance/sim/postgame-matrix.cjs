@@ -23,7 +23,7 @@ h2{font-size:12pt;color:#12324a;margin:14px 0 6px;page-break-before:always}h2.fi
 table{border-collapse:collapse;width:100%;font-size:7.6pt}th,td{border:1px solid #c8d0d8;padding:2px 4px;text-align:center}th{background:#e9eef3}td.n{text-align:left;white-space:nowrap}tr.base td{font-weight:bold;border-bottom:2px solid #12324a}
 .k{font-weight:bold}.ok{color:#1d6b2f}.bad{color:#9b2c2c}
 </style></head><body><h1>Grand Journey: pós-jogo (Desafios da Jornada e Vantagens)</h1>
-<p>Jogador simulado competente (joga no nível da IA do jogo; um humano tende a ir melhor). Mesmo estado de jogo da matriz de decks pós-CP1 (curva BC_B, árvore revisada, 9 decks revisados). Cada célula: porcentagem das runs que <b>venceram até aquele ponto</b>.</p>`;
+${a.note ? '<p style="background:#fff4d6;padding:4px"><b>' + a.note + '</b></p>' : ''}<p>Jogador simulado competente (joga no nível da IA do jogo; um humano tende a ir melhor). Mesmo estado de jogo da matriz de decks pós-CP1 (curva BC_B, árvore revisada, 9 decks revisados). Cada célula: porcentagem das runs que <b>venceram até aquele ponto</b>.</p>`;
 // Where the effect shows: segment of the run where the survival curve departs most from the base curve.
 const SEG = [[0, 3, 'início do mapa 1'], [3, 9, 'mapa 1 e seu boss'], [9, 15, 'mapa 2'], [15, 18, 'boss do mapa 2'], [18, 24, 'mapa 3'], [24, 27, 'boss final']];
 function where(R, B, sign) { const d = k => sign * ((k ? alive(B, k) : 1) - (k ? alive(R, k) : 1)); const parts = SEG.map(([lo, hi, name]) => ({ name, v: d(hi) - d(lo) })).filter(x => x.v > .015).sort((x, y) => y.v - x.v);

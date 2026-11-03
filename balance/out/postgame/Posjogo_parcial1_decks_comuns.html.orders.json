@@ -1,0 +1,36 @@
+{
+ "challenges": [
+  "lightpurse",
+  "raidfury",
+  "relentless",
+  "tough",
+  "inflation",
+  "bag",
+  "veterans",
+  "scarce",
+  "cursed",
+  "bossrounds",
+  "fewrelics",
+  "reinforcements",
+  "commanders",
+  "heavydeck",
+  "treecap"
+ ],
+ "advantages": [
+  "second_chance",
+  "elite_hunter",
+  "travel_relic",
+  "rehearsal",
+  "steady_hand",
+  "saved_energy",
+  "pretraining",
+  "interest",
+  "full_purse",
+  "path_blessing",
+  "cleanse",
+  "chosen_relic",
+  "trained_eye",
+  "twin",
+  "reinforcement"
+ ]
+}
