@@ -120,3 +120,17 @@ Notas:
 
 - Conteúdo do boss secreto (projeto principal) e recompensa extra.
 - Calibração: custo de cada desafio (em medição) e valor de cada vantagem.
+
+## 8. Metas de impacto (definidas por Carlos em 03/11/2026)
+
+Medidas com a árvore no **nível 25**, o momento em que o pós-jogo começa (1ª vitória), com cada peça ativada sozinha:
+
+| Peça | Faixa ideal | Exceções aceitas |
+|---|---|---|
+| **Desafio** | dificulta de **5 a 10** pontos de vitória | de 3 a 12 |
+| **Vantagem** | facilita de **3 a 7** pontos de vitória | de 1 a 9 |
+
+- **Não pode haver vantagem negativa**, nem desafio que tire 20 pontos.
+- É esperado que algumas peças sejam melhores que outras, desde que fiquem dentro da faixa.
+- As peças muito fora da curva serão revistas: ajustadas, trocadas ou substituídas por ideias novas (o ChatGPT pode sugerir).
+- A escada (etapa 2) e as combinações e o limite (etapa 3) só rodam depois dessa revisão e com a autorização de Carlos.
