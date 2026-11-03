@@ -1,0 +1,4 @@
+C_forcedtwin2 --challenges forcedtwin
+C_purse20 --challenges lightpurse
+V_interest30 --advantages interest
+V_pretrain1x2 --advantages pretraining

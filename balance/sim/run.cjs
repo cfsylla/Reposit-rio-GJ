@@ -180,7 +180,7 @@ function playRun(deck, seed, pol, opt) {
         if (!G.enter(s, n.id)) { rec.result = 'enter-failed'; return finalize(s, rec); }
         if (E.AD && s.adv) { // advantages that need a player choice
           const tw = E.AD.twinOptions(s); if (tw.length) { const t = Pol.recruitPick(s, tw) || tw[0]; E.AD.twin(s, t); }
-          const ft = E.CH?.forcedTwinOptions?.(s) || []; if (ft.length) { const t2 = Pol.recruitPick(s, ft) || ft[0]; E.CH.forcedTwin(s, t2); }
+          for (let g = 0; g < 4; g++) { const ft = E.CH?.forcedTwinOptions?.(s) || []; if (!ft.length) break; const t2 = Pol.recruitPick(s, ft) || ft[0]; if (!E.CH.forcedTwin(s, t2)) break; }
           const so = E.AD.startRelicOptions(s); if (so.length) { const best = [...so].sort((x, y) => Pol.relicRank(x) - Pol.relicRank(y))[0]; if (Pol.relicRank(best) < Pol.relicRank(s.artifacts[0])) E.AD.chooseStartRelic(s, best); s.adv.startOffers = []; }
         }
         break;
@@ -189,7 +189,7 @@ function playRun(deck, seed, pol, opt) {
       case 'encounterWin': G.leave(s); break;
       case 'recruit': { const id = Pol.recruitPick(s, s.offers); if (!id || !G.recruit(s, id)) G.leave(s); break; }
       case 'upgrade': { const c = Pol.bestUpgradeTarget(s); if (!c || !G.upgrade(s, c.uid)) G.skipUpgrade(s); else if (s.phase === 'upgrade') G.leave(s); break; }
-      case 'relic': { if (E.AD?.canReroll(s) && Math.min(...s.offers.map(Pol.relicRank)) > 10) E.AD.rerollRelic(s); const ids = [...s.offers].sort((a, b) => Pol.relicRank(a) - Pol.relicRank(b)); const fit = ids.find(id => G.packBag([...s.artifacts, id], s)); if (fit && G.claimRelic(s, fit) !== false) { Pol.placeRelic(s, true); if (s.phase === 'relic') G.leave(s); } else G.leave(s); break; }
+      case 'relic': { if (E.AD?.canReroll(s) && (process.env.GJ_EYE_POLICY === 'strict' ? (!s.offers.some(id => G.packBag([...s.artifacts, id], s)) || Math.min(...s.offers.map(Pol.relicRank)) > 14) : Math.min(...s.offers.map(Pol.relicRank)) > 10)) E.AD.rerollRelic(s); const ids = [...s.offers].sort((a, b) => Pol.relicRank(a) - Pol.relicRank(b)); const fit = ids.find(id => G.packBag([...s.artifacts, id], s)); if (fit && G.claimRelic(s, fit) !== false) { Pol.placeRelic(s, true); if (s.phase === 'relic') G.leave(s); } else G.leave(s); break; }
       case 'shop': doShop(s, pol, rec); G.leave(s); break;
       case 'event': {
         const nodeId = s.current?.id ?? ('L' + s.layer);
