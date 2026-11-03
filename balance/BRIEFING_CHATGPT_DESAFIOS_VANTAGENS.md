@@ -32,20 +32,27 @@ Medido com a árvore no nível 25, cada peça ativada sozinha. "Pontos" = pontos
 
 Margem de medição: cerca de ±5 pontos por peça (480 runs cada, 24 decks).
 
-## 4. Peças fora da faixa (precisam de revisão)
+## 4. O que já foi decidido por Carlos (03/11/2026) e o que se pede
 
-| Peça | Tipo | Efeito atual | Impacto medido | Quando pesa | Problema |
-|---|---|---|---|---|---|
-| **Árvore Contida** | Desafio | A árvore fica limitada a 50 pontos a menos durante a run | **−19** | mapa 2 e boss do mapa 2 | Forte demais. No nível 25, 50 pontos são 20% da árvore |
-| **Deck Pesado** | Desafio | Começa a run com +1 carta comum fraca aleatória | **−13** | mapa 2 e boss final | Forte demais. Uma carta só já pesa muito; não dá para reduzir mais sem mudar a ideia |
-| **Segunda Chance** | Vantagem | 1 vez por run, perder um confronto (exceto boss) não encerra a run: ele recomeça | **+13** | mapas 2 e 3 | Forte demais |
-| **Limpeza** | Vantagem | Uma remoção de carta grátis na 1ª loja de cada mapa | **0** | — | Sem efeito |
-| **Olho Treinado** | Vantagem | 1 vez por mapa, renova uma escolha de relíquia | **−2** | mapa 3 | Negativa ou nula (talvez o jogador simulado escolha mal) |
-| **Gêmeo** | Vantagem | No início da run, escolhe 1 carta do deck para duplicar | **−3** | — | Negativa: carta extra dilui o deck |
-| **Relíquia Escolhida** | Vantagem | No início, pode trocar a relíquia inicial por uma de 3 opções | **−3** | mapa 3 | Negativa ou nula (a relíquia original do deck costuma combinar com ele) |
-| **Reforço** | Vantagem | +1 cópia de uma carta aleatória do deck | **−5** | mapa 3 | Negativa: carta extra dilui o deck |
+**Já decidido (o Claude está medindo; não precisa sugerir):**
 
-**No limite de baixo** (dentro das exceções, mas candidatas a reforço, se houver boa ideia): vantagens **Ensaio, Mão Firme, Bênção do Caminho e Juros (+1)** e **Treino Prévio (+2)**; desafios **Fúria das Raids e Bolsa Leve (−4)**.
+| Peça | Decisão |
+|---|---|
+| Árvore Contida (desafio, −19) | **Eliminada.** Entra no lugar um efeito vindo das vantagens negativas: "Relíquia Trocada" (a relíquia inicial vira uma aleatória) ou "Cópia Obrigatória" (escolher 1 carta para duplicar). O que medir mais perto da meta fica |
+| Deck Pesado (desafio, −13) | Passa a usar o efeito do antigo Reforço: +1 cópia de uma carta aleatória do deck |
+| Comandantes Preparados (desafio, −11) | Testando: +1 relíquia e +1 upgrade / só +2 upgrades / só +1 relíquia |
+| Bolsa Leve (desafio, −4) | Testando −25% e −35% de ouro |
+| Ensaio (vantagem, +1) | Testando upgrade +2 em vez de +1 |
+| Juros (vantagem, +1) | Testando 20% (máx. 30) e 30% (máx. 45) |
+| Treino Prévio (vantagem, +2) | Testando 2 cartas com upgrade +2, ou 1 carta com upgrade +2 |
+| Olho Treinado (vantagem, −2) | Passa a dar 1 renovação grátis em **toda** escolha de relíquia |
+| Limpeza (vantagem, 0) | Mantida como está (provável limitação do jogador simulado) |
+
+**O que se pede ao ChatGPT:**
+
+1. **4 vantagens novas**, para substituir as eliminadas: **Mão Firme** (+1 carta na 1ª rodada; +1), **Relíquia Escolhida** (−3), **Gêmeo** (−3) e **Reforço** (−5). Meta: **+3 a +7** cada, sem nunca ser negativa. Evitar acrescentar cartas ao deck (seção 2, regra 6).
+2. **Segunda Chance** (vantagem, **+13**, acima do limite de +9): ajuste ou alternativa. Hoje: "1 vez por run, perder um confronto (exceto boss) não encerra a run: ele recomeça do início".
+3. Opcional: ideias para **Mão Firme** antes de eliminá-la, caso exista uma versão que funcione.
 
 ## 5. O que o motor já sabe alterar com facilidade
 
@@ -66,7 +73,7 @@ Margem de medição: cerca de ±5 pontos por peça (480 runs cada, 24 decks).
 
 ## 7. Formato de resposta pedido
 
-Para cada peça da seção 4:
+Para cada pedido da seção 4:
 - **2 a 3 alternativas**, cada uma com:
   - nome;
   - efeito em uma linha (PT);
