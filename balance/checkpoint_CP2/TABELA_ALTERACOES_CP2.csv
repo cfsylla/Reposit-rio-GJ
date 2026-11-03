@@ -1,0 +1,74 @@
+#,Sistema,Item,Arquivo,Antes (CP1),Depois (CP2),Tipo,Situação,Medição
+1,Curva,Força inimiga do mapa 2,dist/acts-engine.js (SPEC[2].power),"×1,10","×1,16",numérico,Aprovado por Carlos,Curva BC_B: jogo base 58% na árvore nível 25
+2,Curva,Força inimiga do mapa 3,dist/acts-engine.js (SPEC[3].power),"×1,16","×1,235",numérico,Aprovado por Carlos,idem
+3,Árvore / XP,XP por luta comum (mapas 1 / 2 / 3),dist/tree-engine.js (LEVEL.xpFight),1 / 1 / 1,2 / 2 / 1,numérico,Aprovado por Carlos,1ª vitória na run 17 (meta 15 a 20)
+4,Árvore / XP,XP por boss (mapas 1 / 2 / 3),dist/tree-engine.js (LEVEL.xpBoss),2 / 4 / 6,4 / 4 / 6,numérico,Aprovado por Carlos,idem
+5,Árvore / XP,Modelo de progressão,dist/tree-engine.js,XP da run gasto em nós na sessão após cada boss,XP guardado no perfil: nível = XP ÷ 10; 10 pontos por nível; nós custam pontos,design,Aprovado por Carlos,Nível 25 na 1ª vitória (metade da árvore)
+6,Árvore / XP,Nível máximo,dist/tree-engine.js (LEVEL.maxLevel),"— (árvore inteira, 882 XP)",50 (500 pontos),design,Aprovado por Carlos,Nível 50 na run 23
+7,Árvore / XP,Reset da árvore,dist/tree-engine.js (reset),—,"Grátis, só fora da run, devolve todos os pontos",design,Aprovado por Carlos,—
+8,Árvore / XP,XP acima do nível máximo,dist/tree-engine.js (payOverflow),—,1 diamante a cada 20 XP excedente,design,Aprovado por Carlos,—
+9,Árvore / XP,"Custo dos nós finais (profundidade ≥ 4, incluindo marcos)",dist/tree-data.js,"básicos 12, especiais 18–20, marcos 32–36","×1,5 (básicos 18, especiais 27–30, marcos 48–54)",numérico,Aprovado por Carlos,Árvore nível 50: 79% (antes 81%); tudo ativo: 63% (antes 69%)
+10,Árvore / XP,Saves antigos,dist/tree-engine.js (profile),—,XP acumulado começa igual ao custo dos nós já comprados (sem reset),design,Aprovado por Carlos,Saves antigos ignorados por decisão
+11,Árvore / nós,Primeiro Impacto,dist/tree-data.js + dist/tree-engine.js (TUNE),+8% no básico em alvo com vida cheia,"1º básico de cada unidade na rodada: +35% de dano e atordoa 0,3 s",design + numérico,Aprovado por Carlos,"Laboratório de força: +2,7%"
+12,Árvore / nós,Execução,dist/tree-data.js + dist/tree-engine.js (TUNE),+5% contra alvos abaixo de 30%,+20% contra alvos abaixo de 30%; derrotar inimigo dá 20% de especial,design + numérico,Aprovado por Carlos,Laboratório de força: +3%
+13,Árvore / nós,Penetração,dist/tree-data.js + dist/tree-engine.js (TUNE),básicos ignoram 5% da defesa,básicos ignoram 10%; críticos ignoram 25%,design + numérico,Aprovado por Carlos,"Laboratório de força: +2,5%"
+14,Árvore / nós,Abertura Devastadora (marco),dist/tree-data.js + dist/tree-engine.js (TUNE),1ª skill +15%,"1ª skill ofensiva +45% e deixa o alvo Exposto (+12% de dano recebido, 3 s)",design + numérico,Aprovado por Carlos,Laboratório de força: +3%
+15,Árvore / nós,Recuperação Urgente,dist/tree-data.js + dist/tree-engine.js (TUNE),+10% de cura abaixo de 40%,1ª vez abaixo de 40% na rodada: recupera 6% da vida em 3 s,design + numérico,Aprovado por Carlos,"Laboratório de força: +2,4%"
+16,Árvore / nós,Segundo Fôlego,dist/tree-data.js + dist/tree-engine.js (TUNE),1ª skill cura 3% do usuário,1ª skill cura o usuário e o aliado mais ferido em 4%,design + numérico,Aprovado por Carlos,Laboratório de força: +2%
+17,Árvore / nós,Formação Defensiva,dist/tree-data.js + dist/tree-engine.js (TUNE),−5% de dano nos primeiros 5 s,"primeiros 6 s: corpo a corpo −10%, à distância −5%",design + numérico,Aprovado por Carlos,"Laboratório de força: +2,7%"
+18,Árvore / nós,Escudos Reforçados,dist/tree-data.js + dist/tree-engine.js (TUNE),escudos +10%,início da rodada: aliado com mais vida ganha escudo de 12%; escudos +10%,design + numérico,Aprovado por Carlos,"Laboratório de força: +1,5%"
+19,Árvore / nós,Última Linha (marco),dist/tree-data.js + dist/tree-engine.js (TUNE),1ª morte aliada: escudo de 5%,1ª morte aliada: escudo de 8% e +15% de dano por 5 s,design + numérico,Aprovado por Carlos,Laboratório de força: +4%
+20,Árvore / nós,Arranque,dist/tree-data.js + dist/tree-engine.js (TUNE),+8% de velocidade nos 3 primeiros ataques,+25% nos 3 primeiros ataques,design + numérico,Aprovado por Carlos,"Laboratório de força: +2,2%"
+21,Árvore / nós,Embalado,dist/tree-data.js + dist/tree-engine.js (TUNE),+8% de velocidade após skill de deslocamento,cada abate dá +20% de velocidade até o fim da rodada (até 3×),design + numérico,Aprovado por Carlos,"Laboratório de força: +1,2%"
+22,Árvore / nós,Prontidão,dist/tree-data.js + dist/tree-engine.js (TUNE),começa com 10% de especial,começa com 25% de especial,design + numérico,Aprovado por Carlos,"Laboratório de força: +1,4%"
+23,Árvore / nós,Ritmo de Batalha (marco),dist/tree-data.js + dist/tree-engine.js (TUNE),1ª skill dá +10% de velocidade por 4 s,a cada 3 skills do time: todos +20% de velocidade por 4 s (até 2×),design + numérico,Aprovado por Carlos,Laboratório de força: +3%
+24,Árvore / nós,Movimento 1–3 (básicos),dist/tree-data.js + dist/tree-engine.js (TUNE),+3% de movimento,+4% de movimento e +1% de velocidade de ataque,design + numérico,Aprovado por Carlos,"Laboratório de força: +1,5%"
+25,Inimigos,"Filtro de relíquias inimigas (scope, tome, boots, shield)",dist/game-0.js (enemyRelicPool),nomes de traits anteriores à v54: essas 4 relíquias nunca chegavam aos inimigos,"mesmas condições dos efeitos (à distância, conjurador, Trailblazer, Sentinel)",correção,Aprovado por Carlos,Entrou antes da calibração final
+26,Decks,Executores,dist/decks-p3.js,composição do CP1,"−1 Kinoichi, +1 Fighter",numérico,Aprovado por Carlos,Vitória com árvore nível 25: 80% → 50%
+27,Decks,Ventos do Acaso,dist/decks-p3.js,composição do CP1,"−1 Pirate, −1 Lancer, +1 Samurai, +1 Cavalier",numérico,Aprovado por Carlos,Vitória com árvore nível 25: 35% → 63%
+28,Decks,Linha de Fogo,dist/decks-p3.js,composição do CP1,"−2 Warrior, −1 Archer, +2 Priestess, +1 Musketeer",numérico,Aprovado por Carlos,Vitória com árvore nível 25: 45% → 60%
+29,Decks,Fortaleza,dist/decks-p3.js,composição do CP1,"−1 Lancer, +1 Priestess",numérico,Aprovado por Carlos,Vitória com árvore nível 25: 42% → 43%
+30,Decks,Horda Goblin,dist/decks-p3.js,composição do CP1,"−1 Goblin Spearman, −1 Goblin Bomber, +1 Goblin King, +1 Goblin Archer",numérico,Aprovado por Carlos,Vitória com árvore nível 25: 35% → 53%
+31,Decks,Peles Verdes,dist/decks-p3.js,composição do CP1,"−1 Goblin Spearman, −1 Goblin Archer, +1 Cave Troll, +1 Orc Warrior",numérico,Aprovado por Carlos,Vitória com árvore nível 25: 38% → 43%
+32,Decks,Tripulação Salgada,dist/decks-p3.js,composição do CP1,"−1 Miner, −1 Shackled Pirate, +1 Pirate Captain, +1 Pirate Admiral",numérico,Aprovado por Carlos,Vitória com árvore nível 25: 38% → 43%
+33,Decks,Encontro de Caminhos,dist/decks-p3.js,composição do CP1,relíquia inicial: Coração → Estandarte antigo,numérico,Aprovado por Carlos,Vitória com árvore nível 25: 38% → 37%
+34,Decks,Coro de Guerra,dist/decks-p3.js,composição do CP1,"−2 Sage, +2 Archer, −2 Berserker, +2 Lancer",numérico,Aprovado por Carlos,Vitória com árvore nível 25: 80% → 63%
+35,Decks,Corte Sombria,—,—,sem mudança (mantida forte como recompensa),decisão,Aprovado por Carlos,80% na árvore nível 25
+36,Personagens,Barras da ficha (ratings) de 11 dos 33 personagens ajustados no CP1,dist/game-0.js (UNITS[].ratings),barras da v54,"shaolin, sorceress, ronin, samurai, fighter, kinoichi, pirate_captain, mage, cowboy, shinobi, cannoneer (vida/ataque/habilidade)",dados (não usados pelo jogo),Aprovado por Carlos,Recalculadas a partir dos atributos reais
+37,Desafios da Jornada,Sistema,"dist/challenges.js (novo) + ganchos em game-0.js, tree-engine.js, boss-engine.js",—,Libera na 1ª vitória; nível = quantidade de desafios ativos; acesso sequencial; 1 insígnia por nível inédito; conclusão por desafio,design,Aprovado por Carlos,Regras da revisão 2 (doc. de ideias)
+38,Desafios da Jornada,Veteranos,dist/challenges.js,—,Inimigos comuns: +3 upgrades,design + numérico,Aprovado por Carlos,"−6 pontos de vitória (árvore nível 25, sozinho)"
+39,Desafios da Jornada,Tropas Resistentes,dist/challenges.js,—,Vida dos inimigos +3%,design + numérico,Aprovado por Carlos,"−7 pontos de vitória (árvore nível 25, sozinho)"
+40,Desafios da Jornada,Ataques Implacáveis,dist/challenges.js,—,Dano dos inimigos +4%,design + numérico,Aprovado por Carlos,"−7 pontos de vitória (árvore nível 25, sozinho)"
+41,Desafios da Jornada,Comandantes Preparados,dist/challenges.js,—,"Elites, ordens e bosses: +1 relíquia e +1 upgrade",design + numérico,Aprovado por Carlos,"−9 pontos de vitória (árvore nível 25, sozinho)"
+42,Desafios da Jornada,Bosses Implacáveis,dist/challenges.js,—,Bosses de mapa (time e líder) +8% de vida e dano,design + numérico,Aprovado por Carlos,"−9 pontos de vitória (árvore nível 25, sozinho)"
+43,Desafios da Jornada,Reforços Inimigos,dist/challenges.js,—,"A partir da 2ª rodada, comuns e elites colocam +1 unidade",design + numérico,Aprovado por Carlos,"−11 pontos de vitória (árvore nível 25, sozinho)"
+44,Desafios da Jornada,Fúria das Raids,dist/challenges.js,—,Raids +30% de vida e +10% de dano,design + numérico,Aprovado por Carlos,"−4 pontos de vitória (árvore nível 25, sozinho)"
+45,Desafios da Jornada,Mercado Inflacionado,dist/challenges.js,—,Loja +15%,design + numérico,Aprovado por Carlos,"−8 pontos de vitória (árvore nível 25, sozinho)"
+46,Desafios da Jornada,Bolsa Leve,dist/challenges.js,—,Ouro por vitória −20%,design + numérico,Aprovado por Carlos,"−10 pontos de vitória (árvore nível 25, sozinho)"
+47,Desafios da Jornada,Recursos Escassos,dist/challenges.js,—,−1 de energia nas 2 primeiras rodadas contra bosses,design + numérico,Aprovado por Carlos,"−9 pontos de vitória (árvore nível 25, sozinho)"
+48,Desafios da Jornada,Bagagem Limitada,dist/challenges.js,—,3 casas da bolsa bloqueadas,design + numérico,Aprovado por Carlos,"−6 pontos de vitória (árvore nível 25, sozinho)"
+49,Desafios da Jornada,Deck Pesado,dist/challenges.js,—,+1 cópia de uma carta aleatória do próprio deck,design + numérico,Aprovado por Carlos,"−5 pontos de vitória (árvore nível 25, sozinho)"
+50,Desafios da Jornada,Energia Dissipada,dist/challenges.js,—,Perde 1 da energia que sobrar ao fim de cada rodada,design + numérico,Aprovado por Carlos,"−5 pontos de vitória (árvore nível 25, sozinho)"
+51,Desafios da Jornada,Relíquias Escassas,dist/challenges.js,—,Escolhas de relíquia com 1 opção,design + numérico,Aprovado por Carlos,"−9 pontos de vitória (árvore nível 25, sozinho)"
+52,Desafios da Jornada,Caminho Amaldiçoado,dist/challenges.js,—,Começa com a maldição Exaustão,design + numérico,Aprovado por Carlos,"−8 pontos de vitória (árvore nível 25, sozinho)"
+53,Desafios da Jornada,Desafio Final (requisitos),dist/challenges.js (finalRequirements),—,Nível 15 vencido + 15 desafios concluídos + 3 true bosses; run com os 15 ativos. Sequência e boss secreto: conteúdo do projeto principal,design,Aprovado por Carlos,Encontro não implementado
+54,Desafios da Jornada,Registro do true boss dos Monstros,dist/challenges.js,só Blackfang e Dawncrest eram registrados,os 3 true bosses registrados,correção,Aprovado por Carlos,—
+55,Vantagens,Sistema,dist/advantages.js (novo),—,Cada insígnia compra 1 vantagem; todas sempre ativas (exceto treino e tutorial),design,Aprovado por Carlos,—
+56,Vantagens,Relíquia de Viagem,dist/advantages.js,—,+1 relíquia comum aleatória no início,design + numérico,Aprovado por Carlos,"+7 pontos de vitória (árvore nível 25, sozinha)"
+57,Vantagens,Treino Prévio,dist/advantages.js,—,1 carta com upgrade 2 e 1 com upgrade 1 no início,design + numérico,Aprovado por Carlos,"+7 pontos de vitória (árvore nível 25, sozinha)"
+58,Vantagens,Preparação Flexível,dist/advantages.js,—,1 renovação grátis da mão por rodada,design + numérico,Aprovado por Carlos,"+3 pontos de vitória (árvore nível 25, sozinha)"
+59,Vantagens,Fusão Eficiente,dist/advantages.js,—,Toda fusão concluída devolve 1 de energia,design + numérico,Aprovado por Carlos,"0 (aprovada por decisão) pontos de vitória (árvore nível 25, sozinha)"
+60,Vantagens,Bolsa Cheia,dist/advantages.js,—,+20 de ouro inicial,design + numérico,Aprovado por Carlos,"+4 pontos de vitória (árvore nível 25, sozinha)"
+61,Vantagens,Experiência de Elite,dist/advantages.js,—,"+0,5% de vida e ataque por elite vencida (run inteira)",design + numérico,Aprovado por Carlos,"+6 pontos de vitória (árvore nível 25, sozinha)"
+62,Vantagens,Olho Treinado,dist/advantages.js,—,1 renovação grátis em toda escolha de relíquia,design + numérico,Aprovado por Carlos,"+1 (aprovada por decisão) pontos de vitória (árvore nível 25, sozinha)"
+63,Vantagens,Ensaio,dist/advantages.js,—,1ª carta comprada em cada loja com upgrade 2,design + numérico,Aprovado por Carlos,"+1 pontos de vitória (árvore nível 25, sozinha)"
+64,Vantagens,Mão Planejada,dist/advantages.js,—,Carta escolhida na mão inicial em confrontos alternados,design + numérico,Aprovado por Carlos,"+4 pontos de vitória (árvore nível 25, sozinha)"
+65,Vantagens,Energia Guardada,dist/advantages.js,—,+1 de energia na 1ª rodada,design + numérico,Aprovado por Carlos,"+4 pontos de vitória (árvore nível 25, sozinha)"
+66,Vantagens,Limpeza,dist/advantages.js,—,1 remoção grátis na 1ª loja de cada mapa,design + numérico,Aprovado por Carlos,"0 (aprovada por decisão) pontos de vitória (árvore nível 25, sozinha)"
+67,Vantagens,Bênção do Caminho,dist/advantages.js,—,Ao entrar nos mapas 2 e 3: 1 carta upgrade 2 e 1 upgrade 1,design + numérico,Aprovado por Carlos,"+6 pontos de vitória (árvore nível 25, sozinha)"
+68,Vantagens,Juros,dist/advantages.js,—,Boss de cada mapa: 50% do ouro guardado (máx. 75),design + numérico,Aprovado por Carlos,"+3 pontos de vitória (árvore nível 25, sozinha)"
+69,Vantagens,Caçador de Elites,dist/advantages.js,—,+12 de ouro por elite,design + numérico,Aprovado por Carlos,"+7 pontos de vitória (árvore nível 25, sozinha)"
+70,Vantagens,Segunda Chance,dist/advantages.js,—,"1 vez por run, derrota (exceto boss) repete a última rodada",design + numérico,Aprovado por Carlos,"+5 pontos de vitória (árvore nível 25, sozinha)"
+71,Testes,tests/challenges-p5.cjs e tests/advantages-p5.cjs,tests/,—,novos,teste,Aprovado por Carlos,PASS
+72,Testes,"tests/tree-v51.cjs, tests/fixes-v52.cjs, tests/difficulty-p4.cjs",tests/,expectativas do CP1,expectativas do CP2 (só valores esperados),teste,Aprovado por Carlos,PASS
+73,Validação,"scripts/validate-balance-base.cjs, scripts/export-balance-data.cjs",scripts/,8 etapas; dados CP1,10 etapas; dados CP2 (balanceamento/dados_checkpoint_CP2.json),script,Aprovado por Carlos,10/10 PASS
