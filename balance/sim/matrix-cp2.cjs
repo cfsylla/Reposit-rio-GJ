@@ -16,7 +16,7 @@ let n = 0; for (const [t] of TREES) for (const d of D) { const R = load(`${dir}/
 let html = `<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><title>Matriz deck x avanço CP2</title><style>
 @page{size:A4 landscape;margin:12mm}body{font-family:"DejaVu Sans",Arial,sans-serif;color:#1b2430;margin:0;font-size:9pt}h1{font-size:15pt;color:#12324a;border-bottom:2px solid #c9a24a;padding-bottom:4px}
 h2{font-size:12pt;color:#12324a;margin:14px 0 6px;page-break-before:always}h2.first{page-break-before:auto}p{margin:4px 0}
-table{border-collapse:collapse;width:100%;font-size:8pt}th,td{border:1px solid #c8d0d8;padding:3px 4px;text-align:center}th{background:#e9eef3}td.n{text-align:left;white-space:nowrap}tr.avg td{font-weight:bold;border-top:2px solid #12324a}
+table{border-collapse:collapse;width:100%;font-size:7.6pt}th,td{border:1px solid #c8d0d8;padding:2px 4px;text-align:center}th{background:#e9eef3}td.n{text-align:left;white-space:nowrap}tr.avg td{font-weight:bold;border-top:2px solid #12324a}
 .up{color:#1d6b2f;font-weight:bold}.down{color:#9b2c2c;font-weight:bold}
 </style></head><body><h1>Grand Journey: chance de seguir vivo em cada ponto da run (pós-CP1)</h1>
 <p><b>Estado medido:</b> CP1 + árvore revisada (modelo de nível, limite 50, 13 nós novos), curva BC_B (força ×1 / ×1,16 / ×1,235; XP em dobro nos mapas 1 e 2), filtro de relíquias inimigas corrigido e 9 decks revisados (marcados com ✎). Sem Desafios e sem Vantagens.</p>
