@@ -1,0 +1,4 @@
+C_cmdA --challenges commanders
+C_heavycopy --challenges heavydeck
+V_rehearsal2 --advantages rehearsal
+V_secondround --advantages second_chance
