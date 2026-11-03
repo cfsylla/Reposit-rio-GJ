@@ -520,7 +520,7 @@ function recordBattleStats(s,b){
  for(const row of rows){let old=s.encounterStats.find(v=>v.key===row.key);if(old){old.dealt+=row.dealt;old.taken+=row.taken;old.level=row.level;}else s.encounterStats.push({...row});}return true;
 }
 function finish(s,result){if(s.phase!=='battle'||!['win','loss','draw'].includes(result))return false;if(result==='win')s.score[0]++;if(result==='loss')s.score[1]++;if(!s.handFrozen){s.discard.push(...s.hand);s.hand=[];}if(s.ai){s.ai.discard.push(...s.ai.hand);s.ai.hand=[];}s.roundResult=result;s.phase='roundResult';if(s.training){if(s.score[0]>=winsNeeded(s))s.phase='victory';else if(s.score[1]>=winsNeeded(s))s.phase='defeat';return true;}if(s.score[1]>=winsNeeded(s))s.phase='defeat';else if(s.score[0]>=winsNeeded(s)){routeVictory(s);root.Progress?.encounterWin(s);if(s.eventEncounter?.content){root.JourneyContent.fightWon(s);}else if(s.eventEncounter){let e=s.eventEncounter;s.current=e.base;s.offers=e.offers;s.offers.outcome='success';s.eventEncounter=null;giveReward(s,e.reward,'Confronto vencido!');}else if(s.current.type==='boss')s.phase='victory';else{rewardGold(s,battleReward(s.mapBattles));s.phase='encounterWin';}}if(['victory','defeat'].includes(s.phase))root.Progress?.finish(s,s.phase);return true;}
-function nextRound(s){if(s.phase!=='roundResult')return false;s.round++;s.phase='prep';prepare(s);return true;}
+function nextRound(s){if(s.phase!=='roundResult')return false;root.JourneyChallenges?.roundEnd?.(s);s.round++;s.phase='prep';prepare(s);return true;}
 function skipUpgrade(s){if(s.phase!=='upgrade')return false;return leave(s);}
 function audit(s){return !(['prep','battle','roundResult','encounterWin','defeat','victory'].includes(s.phase)&&s.round>0)||rosterAudit(s);}
 

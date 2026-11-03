@@ -28,12 +28,13 @@ const LIST=[
 /* Candidates under evaluation (not in the 15-challenge catalogue until approved). */
 const CANDIDATES=[
  {id:'relicswap',en:'Swapped Relic',pt:'Relíquia Trocada',enDesc:'The deck starting relic is replaced by a random relic.',ptDesc:'A relíquia inicial do deck é trocada por uma relíquia aleatória.'},
+ {id:'dissipate',en:'Dissipating Energy',pt:'Energia Dissipada',enDesc:'Part of the energy left at the end of each round is lost.',ptDesc:'Parte da energia que sobra ao fim de cada rodada é perdida.'},
  {id:'forcedtwin',en:'Forced Copy',pt:'Cópia Obrigatória',enDesc:'At the start of the run, choose 1 deck card to duplicate (up to 4 copies).',ptDesc:'No início da run, escolhe 1 carta do deck para duplicar (até 4 cópias).'},
 ];
 const BY=Object.fromEntries([...LIST,...CANDIDATES].map(c=>[c.id,c]));
 const MAX_LEVEL=LIST.length;
 // Single intensity per challenge (revision 2: the level is the number of active challenges). Calibrated by simulation.
-const TUNE=root.JOURNEY_CHALLENGE_TUNE={veterans:3,commanders:2,commanderRelics:1,tough:.03,relentless:.04,bossRounds:0,bossStats:.08,raidfury:.30,raidDamage:.10,inflation:.15,lightpurse:.15,bagCells:3,treecap:50,curses:['exhaustion'],reinforceFromRound:2,heavyCards:1,heavyMode:'weak',forcedTwinCount:1,scarceRounds:2,heavyPool:['warrior','lancer','fighter','martial_artist','miner','pirate','ranger','shackled_pirate'],fewRelics:2,...(root.JOURNEY_CHALLENGE_TUNE||{})};
+const TUNE=root.JOURNEY_CHALLENGE_TUNE={veterans:3,commanders:2,commanderRelics:1,tough:.03,relentless:.04,bossRounds:0,bossStats:.08,raidfury:.30,raidDamage:.10,inflation:.15,lightpurse:.15,bagCells:3,treecap:50,curses:['exhaustion'],reinforceFromRound:2,heavyCards:1,heavyMode:'weak',forcedTwinCount:1,dissipateMode:'half',dissipateFixed:1,dissipateKeep:2,scarceRounds:2,heavyPool:['warrior','lancer','fighter','martial_artist','miner','pirate','ranger','shackled_pirate'],fewRelics:2,...(root.JOURNEY_CHALLENGE_TUNE||{})};
 const BAG_CELLS=[[3,3],[2,3],[1,3],[0,3]];
 
 function profile(){const p=P.profile;const pc=p.challenges??={};pc.unlocked=!!pc.unlocked;pc.available=Math.max(pc.unlocked?1:0,Math.min(MAX_LEVEL,Math.floor(pc.available||0)));
@@ -54,6 +55,9 @@ const enter=G.enter;G.enter=function(s,id){start(s);return enter(s,id);};
 /* game-0 hooks */
 function forcedTwinOptions(s){return s?.forcedTwin==='pending'?[...new Set(s.cards.filter(c=>!C?.isCurse(c)).map(c=>c.type))].filter(t=>G.copies(s,t)<G.MAX_COPIES):[];}
 function forcedTwin(s,type){if(!forcedTwinOptions(s).includes(type))return false;G.newCard(s,type);s.forcedTwinLeft=(s.forcedTwinLeft||1)-1;if(s.forcedTwinLeft<=0)s.forcedTwin=type;return true;}
+/* Energia Dissipada: applied when the round ends (before the next preparation). Only the leftover energy is affected.
+ * modes: 'half' = loses half of the leftover, rounded up (keeps floor(e/2)); 'fixed' = loses dissipateFixed; 'keep' = keeps at most dissipateKeep. */
+function roundEnd(s){if(!active(s,'dissipate'))return;const e=Math.max(0,s.energy||0);if(!e)return;let keep=e;if(TUNE.dissipateMode==='half')keep=Math.floor(e/2);else if(TUNE.dissipateMode==='fixed')keep=Math.max(0,e-TUNE.dissipateFixed);else if(TUNE.dissipateMode==='keep')keep=Math.min(e,TUNE.dissipateKeep);s.energy=keep;s.dissipated=(s.dissipated||0)+(e-keep);}
 function upgrades(s,elite,boss){return elite||boss?(active(s,'commanders')?TUNE.commanders:0):(active(s,'veterans')?TUNE.veterans:0);}
 function enemyRelics(s){return active(s,'commanders')?TUNE.commanderRelics:0;}
 function bossFight(s){return s.current?.type==='boss'||!!B?.deck?.(s);}
@@ -91,5 +95,5 @@ const encounter=P.encounterWin;P.encounterWin=function(s){const r=encounter(s);i
 function finalRequirements(){const pc=profile(),tb=trueBossesBeaten();return {wonMaxLevel:pc.won.includes(MAX_LEVEL),allCompleted:pc.completed.length===MAX_LEVEL,trueBosses:tb,ready:pc.won.includes(MAX_LEVEL)&&pc.completed.length===MAX_LEVEL&&tb===true};}
 const finish=P.finish;P.finish=function(s,reason){const before=!!s?.meta?.ended,r=finish(s,reason);if(eligible(s)&&!before&&s.meta?.ended&&s.meta.reason==='victory'){const got=recordVictory(s);s.meta.challengeLevel=got.level;s.meta.insignia=got.insignia;}return r;};
 
-root.JourneyChallenges={LIST,CANDIDATES,forcedTwinOptions,forcedTwin,BY,TUNE,MAX_LEVEL,profile,clean,level,highestWon,select,toggle,start,active,upgrades,enemyRelics,extraUnits,extraBossRounds,energy,bagBlocked,cellBlocked,enemyStats,treeNodes,recordVictory,trueBossesBeaten,finalRequirements};
+root.JourneyChallenges={LIST,CANDIDATES,roundEnd,forcedTwinOptions,forcedTwin,BY,TUNE,MAX_LEVEL,profile,clean,level,highestWon,select,toggle,start,active,upgrades,enemyRelics,extraUnits,extraBossRounds,energy,bagBlocked,cellBlocked,enemyStats,treeNodes,recordVictory,trueBossesBeaten,finalRequirements};
 })(typeof globalThis!=='undefined'?globalThis:this);

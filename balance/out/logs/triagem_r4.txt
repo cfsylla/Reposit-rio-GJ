@@ -1,0 +1,7 @@
+C_dissipHalf --challenges dissipate
+C_dissipFixed1 --challenges dissipate
+C_dissipKeep2 --challenges dissipate
+V_flex1 --advantages flex_prep
+V_fusion1 --advantages efficient_fusion
+V_planned1 --advantages planned_hand
+V_elite3 --advantages elite_experience

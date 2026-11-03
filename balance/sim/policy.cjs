@@ -77,6 +77,13 @@ function prep(s, pol, log) {
   if (pol.prep === 'ai-normal' || pol.prep === 'ai-elite') return aiPrep(s, pol.prep === 'ai-elite');
   const smart = pol.prep === 'smart';
   const lookup = id => G.card(s, id);
+  // Free refresh (Advantage "Preparação Flexível"): a human uses it to dig for synergy when the opening hand has
+  // no card that fuses or matches a unit already on the field/bench.
+  if (smart && (globalThis.JourneyAdvantages?.flexLeft?.(s) || 0) > 0 && s.hand.length) {
+    const owned = new Set([...s.board, ...s.bench].filter(Boolean).map(id => lookup(id)?.type));
+    const useful = s.hand.map(lookup).filter(c => c && !isCurse(c) && (G.canFuse(s, c.uid) || owned.has(c.type)));
+    if (!useful.length && G.refreshHand(s)) log.refreshes = (log.refreshes || 0) + 1;
+  }
   for (let turn = 0; turn < 40; turn++) {
     const on = s.board.filter(Boolean).map(lookup), space = on.length < G.maxUnits(s);
     if (space) { // field has room: best paid unit from bench first (free transfer)
@@ -98,7 +105,7 @@ function prep(s, pol, log) {
     }
     if (acted) continue;
     // Smart: recycle a dead hand when the field still has room and energy is plentiful.
-    if (smart && space && s.energy >= 3 && s.hand.length && !cand.length && (log.refreshes || 0) < 6 && G.refreshHand(s)) { log.refreshes = (log.refreshes || 0) + 1; continue; }
+    if (smart && space && (s.energy >= 3 || (globalThis.JourneyAdvantages?.flexLeft?.(s) || 0) > 0) && s.hand.length && !cand.length && (log.refreshes || 0) < 6 && G.refreshHand(s)) { log.refreshes = (log.refreshes || 0) + 1; continue; }
     break;
   }
   // Swap weakest fielded unit for a clearly better benched one.

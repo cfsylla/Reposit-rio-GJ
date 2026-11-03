@@ -181,6 +181,7 @@ function playRun(deck, seed, pol, opt) {
         if (E.AD && s.adv) { // advantages that need a player choice
           const tw = E.AD.twinOptions(s); if (tw.length) { const t = Pol.recruitPick(s, tw) || tw[0]; E.AD.twin(s, t); }
           for (let g = 0; g < 4; g++) { const ft = E.CH?.forcedTwinOptions?.(s) || []; if (!ft.length) break; const t2 = Pol.recruitPick(s, ft) || ft[0]; if (!E.CH.forcedTwin(s, t2)) break; }
+          const po = E.AD.plannedOptions?.(s) || []; if (po.length) E.AD.choosePlanned(s, Pol.recruitPick(s, po) || po[0]);
           const so = E.AD.startRelicOptions(s); if (so.length) { const best = [...so].sort((x, y) => Pol.relicRank(x) - Pol.relicRank(y))[0]; if (Pol.relicRank(best) < Pol.relicRank(s.artifacts[0])) E.AD.chooseStartRelic(s, best); s.adv.startOffers = []; }
         }
         break;
