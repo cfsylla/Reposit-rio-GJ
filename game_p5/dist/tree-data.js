@@ -42,7 +42,7 @@ const layouts={
 const origin={id:'origin',type:'origin',x:560,y:560,links:[],cost:0,en:'Beginning',pt:'Início'};by.origin=origin;
 function connect(a,b){if(!by[a].links.includes(b))by[a].links.push(b);if(!by[b].links.includes(a))by[b].links.push(a);}
 function position(n,angle,radius){const a=angle*Math.PI/180;n.x=560+Math.cos(a)*radius;n.y=560+Math.sin(a)*radius;}
-for(const [cat,l]of Object.entries(layouts)){const angle=categories[cat].angle;l.start.forEach((id,i)=>{const n=by[id];n.depth=i;n.cost=i?10:8;position(n,angle,95+i*75);connect(i?l.start[i-1]:'origin',id);});l.arms.forEach((arm,side)=>arm.forEach((id,i)=>{const n=by[id],depth=i+2;n.depth=depth;n.cost=n.type==='milestone'?(cat==='expedition'?36:32):n.type==='special'?14+Math.min(3,i)*2:depth>=4?12:10;position(n,angle+(side?1:-1)*(12+Math.sin(i*.8)*5),240+i*49);connect(i?arm[i-1]:l.start[1],id);}));}
+for(const [cat,l]of Object.entries(layouts)){const angle=categories[cat].angle;l.start.forEach((id,i)=>{const n=by[id];n.depth=i;n.cost=i?10:8;position(n,angle,95+i*75);connect(i?l.start[i-1]:'origin',id);});l.arms.forEach((arm,side)=>arm.forEach((id,i)=>{const n=by[id],depth=i+2;n.depth=depth;n.cost=n.type==='milestone'?(cat==='expedition'?36:32):n.type==='special'?14+Math.min(3,i)*2:depth>=4?12:10;if(depth>=4)n.cost=Math.round(n.cost*1.5);/* post-CP1 (approved 03/11/2026): late nodes (depth >= 4, incl. all milestones) cost x1.5 */position(n,angle+(side?1:-1)*(12+Math.sin(i*.8)*5),240+i*49);connect(i?arm[i-1]:l.start[1],id);}));}
 const bridges=[[pAtk[3],aRate[2]],[pAtk[2],dDef[2]],[dDef[4],vHP[3]],[vHP[2],eShop[1]]];for(const [a,b]of bridges)connect(a,b);
 root.JourneyTreeData={categories,nodes,by,origin,bridges};
 })(typeof globalThis!=='undefined'?globalThis:this);
