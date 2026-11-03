@@ -1,0 +1,119 @@
+{
+ "shaolin": {
+  "hp": 5,
+  "atk": 3,
+  "defense": 4,
+  "attackSpeed": 3,
+  "speed": 3,
+  "crit": 1,
+  "skill": 4
+ },
+ "omnamusha": {
+  "hp": 3,
+  "atk": 3,
+  "defense": 3,
+  "attackSpeed": 5,
+  "speed": 4,
+  "crit": 4,
+  "skill": 3
+ },
+ "sorceress": {
+  "hp": 4,
+  "atk": 3,
+  "defense": 1,
+  "attackSpeed": 3,
+  "speed": 3,
+  "crit": 2,
+  "skill": 5
+ },
+ "ronin": {
+  "hp": 4,
+  "atk": 5,
+  "defense": 2,
+  "attackSpeed": 2,
+  "speed": 3,
+  "crit": 5,
+  "skill": 4
+ },
+ "samurai": {
+  "hp": 5,
+  "atk": 5,
+  "defense": 4,
+  "attackSpeed": 2,
+  "speed": 3,
+  "crit": 3,
+  "skill": 4
+ },
+ "fighter": {
+  "hp": 3,
+  "atk": 2,
+  "defense": 2,
+  "attackSpeed": 5,
+  "speed": 4,
+  "crit": 3,
+  "skill": 3
+ },
+ "kinoichi": {
+  "hp": 3,
+  "atk": 4,
+  "defense": 2,
+  "attackSpeed": 4,
+  "speed": 5,
+  "crit": 4,
+  "skill": 5
+ },
+ "pirate_captain": {
+  "hp": 5,
+  "atk": 4,
+  "defense": 3,
+  "attackSpeed": 3,
+  "speed": 3,
+  "crit": 3,
+  "skill": 5
+ },
+ "mage": {
+  "hp": 3,
+  "atk": 4,
+  "defense": 1,
+  "attackSpeed": 2,
+  "speed": 2,
+  "crit": 1,
+  "skill": 5
+ },
+ "cowboy": {
+  "hp": 2,
+  "atk": 2,
+  "defense": 2,
+  "attackSpeed": 4,
+  "speed": 3,
+  "crit": 5,
+  "skill": 3
+ },
+ "shinobi": {
+  "hp": 3,
+  "atk": 5,
+  "defense": 1,
+  "attackSpeed": 5,
+  "speed": 5,
+  "crit": 5,
+  "skill": 4
+ },
+ "archer": {
+  "hp": 2,
+  "atk": 2,
+  "defense": 1,
+  "attackSpeed": 5,
+  "speed": 4,
+  "crit": 3,
+  "skill": 3
+ },
+ "cannoneer": {
+  "hp": 3,
+  "atk": 4,
+  "defense": 3,
+  "attackSpeed": 1,
+  "speed": 1,
+  "crit": 1,
+  "skill": 3
+ }
+}
