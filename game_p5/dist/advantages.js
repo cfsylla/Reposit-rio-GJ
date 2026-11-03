@@ -23,7 +23,7 @@ const LIST=[
  {id:'second_chance',en:'Second Chance',pt:'Segunda Chance',enDesc:'Once per run, losing a confrontation (except bosses) does not end the run: it restarts from the beginning.',ptDesc:'Uma vez por run, perder um confronto (exceto bosses) não encerra a run: ele recomeça do início.'},
 ];
 const BY=Object.fromEntries(LIST.map(a=>[a.id,a]));
-const TUNE=root.JOURNEY_ADVANTAGE_TUNE={pretraining:2,pretrainingLevel:1,rehearsalLevel:1,eyeMode:'map',fullPurse:20,interest:.10,interestMax:15,eliteGold:12,...(root.JOURNEY_ADVANTAGE_TUNE||{})};
+const TUNE=root.JOURNEY_ADVANTAGE_TUNE={pretraining:2,pretrainingLevel:1,rehearsalLevel:1,eyeMode:'map',secondMode:'match',fullPurse:20,interest:.10,interestMax:15,eliteGold:12,...(root.JOURNEY_ADVANTAGE_TUNE||{})};
 
 function owned(){const p=P.profile;p.advantages=[...new Set((p.advantages||[]).filter(id=>BY[id]))];return p.advantages;}
 function eligible(s){return !!s&&!s.training&&!s.tutorialReplay;}
@@ -62,7 +62,7 @@ const advance=A.advance;A.advance=function(s){const before=act(s),ok=advance(s);
 const encounter=P.encounterWin;P.encounterWin=function(s){const r=encounter(s);if(has(s,'elite_hunter')&&s.current?.type==='elite'&&!s.eventEncounter)G.rewardGold?G.rewardGold(s,TUNE.eliteGold):(s.gold+=TUNE.eliteGold);return r;};
 const finish=P.finish;P.finish=function(s,reason){
  if(eligible(s)&&reason==='defeat'&&!s.meta?.ended&&has(s,'second_chance')&&!s.adv?.second&&s.current&&['battle','elite'].includes(s.current.type)&&!s.eventEncounter&&!s.raid){
-  s.adv.second=s.current.id;s.mapBattles=Math.max(0,(s.mapBattles||1)-1);s.encounters=Math.max(0,(s.encounters||1)-1);G.startConfront(s,s.current);return false;}
+  s.adv.second=s.current.id;if(TUNE.secondMode==='round'){s.score[1]=Math.max(0,G.winsNeeded(s)-1);s.phase='roundResult';G.nextRound(s);return false;}s.mapBattles=Math.max(0,(s.mapBattles||1)-1);s.encounters=Math.max(0,(s.encounters||1)-1);G.startConfront(s,s.current);return false;}
  if(eligible(s)&&reason==='victory'&&has(s,'interest')&&s.current?.type==='boss'&&s.adv&&!s.adv.interest.includes(act(s))){s.adv.interest.push(act(s));s.gold+=Math.min(TUNE.interestMax,Math.floor(s.gold*TUNE.interest));}
  return finish(s,reason);};
 
