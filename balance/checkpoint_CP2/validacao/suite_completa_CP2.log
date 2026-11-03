@@ -1,0 +1,144 @@
+== tests/acts-v47.cjs rc=0 2s
+PASS v47 3,000 generated maps, nine fights on every path, connected order routes, three full 27-encounter runs, all true bosses/mixed fallback, 9 unique raids, persistence, diamonds/idempotence, migration and act scaling
+== tests/advantages-p5.cjs rc=0 0s
+PASS advantages: 15 Advantages bought with Insignia, always active outside training, every effect; overflow tree XP -> diamonds (1 per 20).
+== tests/balance-p2.cjs rc=0 0s
+PASS balance P1/P2: data module, skillScale, support aura rules (emitter excluded, additive, no feedback, healing others), Trailblazer first strike.
+== tests/blackfang-v26.cjs rc=1 0s
+}
+
+Node.js v22.23.4
+== tests/bosses-v50.cjs rc=1 3s
+}
+
+Node.js v22.23.4
+== tests/challenges-p5.cjs rc=0 0s
+PASS challenges (revision 2): 15 challenges, level = number of active challenges, sequential unlock, 1 Insignia per first victory of each level, completion per challenge, per-challenge effects, training excluded; tree level model.
+== tests/combat-replay-v21.cjs rc=1 0s
+}
+
+Node.js v22.23.4
+== tests/content-v53.cjs rc=0 1s
+PASS v53: 22 events × both offers × 20 seeds; prices/risks/transactions/save replay, 4 curses, 5 relics, real event combats and arena, mission route, loss flow.
+PASS v53 forced success/failure exclusivity, cross-map quest and Mirror × Caravan integration.
+PASS v53: Ill Omen applies only to the player field limit; enemy formation is unchanged.
+== tests/decks-p3.cjs rc=0 0s
+PASS P3: 24 decks (counts, 20 cards, max 4, relics), all 77 characters used, hidden order decks, milestone/order/true-boss unlocks and save migration.
+== tests/difficulty-p4.cjs rc=0 1s
+PASS P4: enemy curve (~1 upgrade per fight), elite +1, gold 14/16/18, power 1/1.16/1.235 (post-CP1), boss leaders, themed enemy decks, relic rule 1..n-1 with bag limit, minion charge fix.
+== tests/drag-origin-v19-1.cjs rc=0 0s
+PASS drag copy starts at source before insertion, preserves size and grab point, and disables inherited motion
+== tests/fixes-v52.cjs rc=0 1s
+PASS v52: cumulative/legacy order history, persistent map/node jumps, no synthetic rewards, blocked unsafe phases, direct boss lifecycle, real high-haste melee/ranged raid animations.
+== tests/freeze-v20.cjs rc=0 0s
+PASS freeze: preserve 0/1/3/4 cards, fill to four, reset after transition, no energy cost, save/load, reject battle toggles, refresh and card conservation
+== tests/interface-v28.cjs rc=1 0s
+}
+
+Node.js v22.23.4
+== tests/legacy-replay-v37.cjs rc=1 0s
+}
+
+Node.js v22.23.4
+== tests/legacy-replay-v39.cjs rc=1 0s
+}
+
+Node.js v22.23.4
+== tests/manticore-v46.cjs rc=0 0s
+PASS v46 spike lanes/dodge/one-hit overlap, hunt priority/expiry/haste, R3/R4 progression, deterministic in-flight save, bounded refill, run scaling/rewards
+== tests/map-notes-v49.cjs rc=0 0s
+PASS v49 notes survive encounter/save/act transitions, clear per map, fresh run empty, routes unchanged, legacy migration, true-boss selection for all orders
+== tests/map-v43.cjs rc=0 1s
+PASS v43 1000 distinct raid routes, all boss species, deterministic saves, pending-v42 repair and skipped raids
+== tests/monsters-v42.cjs rc=0 1s
+PASS v42 four enemy-only raids, map activation/randomness, mechanics, mass conservation, saves, run scaling/progression/reward idempotence
+== tests/movement-v30.cjs rc=0 0s
+PASS melee queue, both teams, dt 1/60–0.1, walls, no displacement, and full engine reproduction
+== tests/pending-v22.cjs rc=1 0s
+    at node:internal/main/run_main_module:36:49
+
+Node.js v22.23.4
+== tests/raid-balance-v39.cjs rc=0 8s
+{"deck":"fireline","level":1,"wins":8,"rounds":[5,5,5,5,5,5,5,5],"remaining":0}
+{"deck":"fortress","level":0,"wins":7,"rounds":[5,5,5,5,5,5,5],"remaining":313}
+{"deck":"fortress","level":1,"wins":8,"rounds":[5,4,4,4,4,4,5,5],"remaining":0}
+== tests/raid-balance-v41.cjs rc=0 92s
+{"deck":"centaur_charge","level":1,"wins":15,"rounds":[4,4,5,4,5,4,5,5,4,5,5,4,4,5,5],"stalled":0,"remaining":168}
+{"deck":"dawncrest_choir","level":0,"wins":4,"rounds":[5,5,5,5],"stalled":0,"remaining":4405}
+{"deck":"dawncrest_choir","level":1,"wins":11,"rounds":[5,5,5,5,5,4,4,4,5,5,4],"stalled":0,"remaining":1633}
+== tests/raid-balance-v42.cjs rc=0 435s
+{"kind":"manticore","deck":"centaur_charge","scenario":"training","level":1,"seeds":8,"wins":8,"rounds":[4,4,5,4,5,4,5,4],"stalled":0,"remaining":0}
+{"kind":"manticore","deck":"dawncrest_choir","scenario":"training","level":0,"seeds":8,"wins":2,"rounds":[5,5],"stalled":0,"remaining":5661}
+{"kind":"manticore","deck":"dawncrest_choir","scenario":"training","level":1,"seeds":8,"wins":4,"rounds":[5,5,4,5],"stalled":0,"remaining":1579}
+== tests/raid-balance-v45.cjs rc=0 193s
+{"kind":"naga","deck":"centaur_charge","scenario":"training","level":1,"seeds":8,"wins":8,"rounds":[5,5,5,4,4,4,5,5],"stalled":0,"remaining":0}
+{"kind":"naga","deck":"dawncrest_choir","scenario":"training","level":0,"seeds":8,"wins":0,"rounds":[],"stalled":0,"remaining":9196}
+{"kind":"naga","deck":"dawncrest_choir","scenario":"training","level":1,"seeds":8,"wins":2,"rounds":[5,5],"stalled":0,"remaining":4177}
+== tests/raid-v39.cjs rc=0 0s
+PASS v39 phases, HP persistence, outcomes, timer/speeds, no frenzy, roots, heal cap/dead contributors, replenishment, resumable deterministic save
+PASS actual simultaneous kill, terminal checkpoint idempotence, frozen hand, fusion and bank preservation
+== tests/raid-v40.cjs rc=0 1s
+PASS v40 no raid timeout at all speeds/old saves, ground contact, skill footprint, immediate victory
+== tests/raid-v41.cjs rc=0 0s
+PASS v41 windup/travel/impact damage, resumed shot exactly once, four deterministic speeds and persistent x3
+== tests/raids-v45.cjs rc=0 0s
+PASS v45 head suppression/fixed marks, kraken pull/death ordering, bounded lich resurrection/save/victory priority, venom cap/expiry/dodge/gaze, four real run entries
+== tests/revisions-v32.cjs rc=1 0s
+}
+
+Node.js v22.23.4
+== tests/revisions-v33.cjs rc=1 0s
+}
+
+Node.js v22.23.4
+== tests/roster-v37.cjs rc=1 0s
+}
+
+Node.js v22.23.4
+== tests/setup-v19.cjs rc=1 0s
+    at node:internal/main/run_main_module:36:49
+
+Node.js v22.23.4
+== tests/setup-v20-1.cjs rc=1 0s
+    at node:internal/main/run_main_module:36:49
+
+Node.js v22.23.4
+== tests/systems-v18.cjs rc=0 1s
+PASS Shaolin blocks basics only; skill hits never advance fourth-basic counter
+PASS custom decks allow four owned copies, reject five
+18 system tests passed
+== tests/training-v31.cjs rc=0 0s
+PASS training isolation, both deck configurations, levels, relics, normal draw, reshuffle, AI, wins/draws, hidden content and pile accounting
+PASS loss isolation and original-run save/export guards
+== tests/traits-cost-v21.cjs rc=0 0s
+PASS all 38 characters retain base energy cost at every upgrade; paid reserve and free transfer; reserve trait preview; drag preview and cancellation restore selection without rebuilding source DOM
+== tests/traits-v54.cjs rc=0 1s
+PASS v54: all 77 assignments, 29 traits, both attribute tiers, all faction/temperament mechanics, self-protection nerfs, health-only charge, serialization and 30 real simulations.
+PASS v54 leader identities, inactive snapshot, deterministic active raid replay and environmental damage immunity.
+== tests/tree-v51.cjs rc=0 2s
+PASS v51 (post-CP1 expectations): 60 connected nodes, 3,000 varied maps/all-route counts/order reachability, post-boss XP lifecycle including all true bosses, permanent purchases/migration, gold/shop/recruit/bag bonuses, real combat stats and timed effects.
+PASS v51 real crit/healing resolution and deterministic active raid restore with every tree bonus.
+== tests/tutorial-guard-v23.cjs rc=1 0s
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+
+Node.js v22.23.4
+== tests/tutorial-ui-v24.cjs rc=1 0s
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+
+Node.js v22.23.4
+== tests/tutorial-v23.cjs rc=0 0s
+PASS full three-round tutorial: real combat wins, drag gate, refund, fixed refresh, preserved hand, cross-roster fusion, conservation, map reset, rotated bag confirmation, replay isolation
+PASS starter gate, skip fallback, legacy migration, replay isolation and combat resume
+== tests/tutorial-v24.cjs rc=0 0s
+PASS full three-round tutorial: real combat wins, drag gate, refund, fixed refresh, preserved hand, cross-roster fusion, conservation, map reset, rotated bag confirmation, replay isolation
+== tests/tutorial-v25.cjs rc=0 0s
+PASS concise bilingual map copy; tutorial-only relic reward, duplicate/reload guard, no permanent rewards, real initial rotation plus new relic fit and activation
+== tests/update-v29.cjs rc=0 0s
+v29 engine, eligibility, costs, live hacks, fusion and gesture checks passed
+== tests/update-v38.cjs rc=0 0s
+PASS v38 return rules, fusion rollback, conservation, discard and concave allied pocket at all speeds
+== tests/vfx-v21.cjs rc=1 0s
+}
+
+Node.js v22.23.4
+SUITE DONE
