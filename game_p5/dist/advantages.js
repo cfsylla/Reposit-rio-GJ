@@ -23,7 +23,7 @@ const LIST=[
  {id:'second_chance',en:'Second Chance',pt:'Segunda Chance',enDesc:'Once per run, losing a confrontation (except bosses) does not end the run: it restarts from the beginning.',ptDesc:'Uma vez por run, perder um confronto (exceto bosses) não encerra a run: ele recomeça do início.'},
 ];
 const BY=Object.fromEntries(LIST.map(a=>[a.id,a]));
-const TUNE=root.JOURNEY_ADVANTAGE_TUNE={pretraining:2,pretrainingLevel:1,rehearsalLevel:1,eyeMode:'map',secondMode:'match',fullPurse:20,interest:.10,interestMax:15,eliteGold:12,...(root.JOURNEY_ADVANTAGE_TUNE||{})};
+const TUNE=root.JOURNEY_ADVANTAGE_TUNE={pretraining:2,pretrainingLevel:1,rehearsalLevel:1,eyeMode:'map',secondMode:'match',blessingLevel:1,fullPurse:20,interest:.10,interestMax:15,eliteGold:12,...(root.JOURNEY_ADVANTAGE_TUNE||{})};
 
 function owned(){const p=P.profile;p.advantages=[...new Set((p.advantages||[]).filter(id=>BY[id]))];return p.advantages;}
 function eligible(s){return !!s&&!s.training&&!s.tutorialReplay;}
@@ -58,7 +58,7 @@ if(C?.handSize){const hand=C.handSize;C.handSize=function(s){return hand(s)+(has
 if(T){const price=T.price;T.price=function(s,kind,base,merchant){const a=price(s,kind,base,merchant);if(kind==='remove'&&has(s,'cleanse')&&s.current?.type==='shop'&&!s.adv?.cleanse.includes(act(s)))return 0;return a;};}
 const service=G.shopService;G.shopService=function(s,kind,id){const free=kind==='remove'&&has(s,'cleanse')&&s.current?.type==='shop'&&!s.adv?.cleanse.includes(act(s));const ok=service(s,kind,id);if(ok&&free)s.adv.cleanse.push(act(s));return ok;};
 const purchase=G.buy;G.buy=function(s,kind,index){const before=s.cards.length,ok=purchase(s,kind,index);if(ok&&kind==='cards'&&has(s,'rehearsal')&&s.current?.type==='shop'&&!s.adv?.shops[s.current.id]&&s.cards.length>before){const c=s.cards[s.cards.length-1];if(c.level<TUNE.rehearsalLevel)c.level=TUNE.rehearsalLevel;s.adv.shops[s.current.id]=true;}return ok;};
-const advance=A.advance;A.advance=function(s){const before=act(s),ok=advance(s);if(ok&&has(s,'path_blessing')&&act(s)>before&&act(s)>=2)upgradeRandom(s,1);return ok;};
+const advance=A.advance;A.advance=function(s){const before=act(s),ok=advance(s);if(ok&&has(s,'path_blessing')&&act(s)>before&&act(s)>=2){const c=pick(s,s.cards.filter(c=>!C?.isCurse(c)&&c.level<TUNE.blessingLevel));if(c)c.level=TUNE.blessingLevel;}return ok;};
 const encounter=P.encounterWin;P.encounterWin=function(s){const r=encounter(s);if(has(s,'elite_hunter')&&s.current?.type==='elite'&&!s.eventEncounter)G.rewardGold?G.rewardGold(s,TUNE.eliteGold):(s.gold+=TUNE.eliteGold);return r;};
 const finish=P.finish;P.finish=function(s,reason){
  if(eligible(s)&&reason==='defeat'&&!s.meta?.ended&&has(s,'second_chance')&&!s.adv?.second&&s.current&&['battle','elite'].includes(s.current.type)&&!s.eventEncounter&&!s.raid){
