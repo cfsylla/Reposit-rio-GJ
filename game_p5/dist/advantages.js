@@ -7,30 +7,31 @@
 const G=root.Game,P=root.Progress,T=root.JourneyTree,C=root.JourneyContent,A=root.JourneyActs;
 const LIST=[
  {id:'travel_relic',en:'Travel Relic',pt:'Relíquia de Viagem',enDesc:'Start each run with +1 random common relic that fits the bag.',ptDesc:'Começa cada run com +1 relíquia comum aleatória que caiba na bolsa.'},
- {id:'pretraining',en:'Pre-Training',pt:'Treino Prévio',enDesc:'2 random deck cards start with upgrade 1.',ptDesc:'2 cartas aleatórias do deck começam com upgrade 1.'},
- {id:'reinforcement',en:'Reinforcement',pt:'Reforço',enDesc:'+1 copy of a random deck card (up to 4 copies).',ptDesc:'+1 cópia de uma carta aleatória do deck (até 4 cópias).'},
- {id:'twin',en:'Twin',pt:'Gêmeo',enDesc:'At the start of the run, choose 1 deck card to duplicate (up to 4 copies).',ptDesc:'No início da run, escolhe 1 carta do deck para duplicar (até 4 cópias).'},
+ {id:'pretraining',en:'Pre-Training',pt:'Treino Prévio',enDesc:'1 random deck card starts with upgrade 2 and another with upgrade 1.',ptDesc:'1 carta aleatória do deck começa com upgrade 2 e outra com upgrade 1.'},
+ {id:'flex_prep',en:'Flexible Preparation',pt:'Preparação Flexível',enDesc:'Once per round, refresh your hand for free.',ptDesc:'Uma vez por rodada, renova a mão de graça.'},
+ {id:'efficient_fusion',en:'Efficient Fusion',pt:'Fusão Eficiente',enDesc:'The first fusion completed in each round refunds 1 energy. (Pending: no measurable effect in testing.)',ptDesc:'A primeira fusão concluída em cada rodada devolve 1 de energia. (Pendente: sem efeito mensurável nos testes.)'},
  {id:'full_purse',en:'Full Purse',pt:'Bolsa Cheia',enDesc:'+20 starting gold.',ptDesc:'+20 de ouro inicial.'},
- {id:'chosen_relic',en:'Chosen Relic',pt:'Relíquia Escolhida',enDesc:'At the start of the run, you may swap the starting relic for one of 3 options.',ptDesc:'No início da run, pode trocar a relíquia inicial por uma de 3 opções.'},
- {id:'trained_eye',en:'Trained Eye',pt:'Olho Treinado',enDesc:'Once per map, reroll a relic choice.',ptDesc:'Uma vez por mapa, renova uma escolha de relíquia.'},
- {id:'rehearsal',en:'Rehearsal',pt:'Ensaio',enDesc:'The first card bought in each shop comes with upgrade 1.',ptDesc:'A primeira carta comprada em cada loja vem com upgrade 1.'},
- {id:'steady_hand',en:'Steady Hand',pt:'Mão Firme',enDesc:'+1 card in hand in the first round of each confrontation.',ptDesc:'+1 carta na mão na primeira rodada de cada confronto.'},
+ {id:'elite_experience',en:'Elite Experience',pt:'Experiência de Elite',enDesc:'Each elite defeated grants all your units +0.5% health and attack until the end of the run.',ptDesc:'Cada elite vencida dá +0,5% de vida e ataque a todas as suas unidades até o fim da run.'},
+ {id:'trained_eye',en:'Trained Eye',pt:'Olho Treinado',enDesc:'One free reroll on every relic choice.',ptDesc:'1 renovação grátis em toda escolha de relíquia.'},
+ {id:'rehearsal',en:'Rehearsal',pt:'Ensaio',enDesc:'The first card bought in each shop comes with upgrade 2.',ptDesc:'A primeira carta comprada em cada loja vem com upgrade 2.'},
+ {id:'planned_hand',en:'Planned Hand',pt:'Mão Planejada',enDesc:'Before the run, choose a deck card: one copy starts in your hand in every other confrontation (1st, 3rd, 5th...).',ptDesc:'Antes da run, escolhe uma carta do deck: uma cópia começa na mão em confrontos alternados (1º, 3º, 5º...).'},
  {id:'saved_energy',en:'Saved Energy',pt:'Energia Guardada',enDesc:'+1 energy in the first round of each confrontation.',ptDesc:'+1 de energia na primeira rodada de cada confronto.'},
  {id:'cleanse',en:'Cleanse',pt:'Limpeza',enDesc:'One free card removal in the first shop of each map.',ptDesc:'Uma remoção de carta grátis na primeira loja de cada mapa.'},
- {id:'path_blessing',en:'Path Blessing',pt:'Bênção do Caminho',enDesc:'Entering maps 2 and 3 upgrades 1 random deck card.',ptDesc:'Ao entrar nos mapas 2 e 3, 1 carta aleatória do deck recebe upgrade.'},
- {id:'interest',en:'Interest',pt:'Juros',enDesc:'Defeating each map boss grants 10% of your saved gold (max. 15).',ptDesc:'Vencer o boss de cada mapa concede 10% do ouro guardado (máx. 15).'},
+ {id:'path_blessing',en:'Path Blessing',pt:'Bênção do Caminho',enDesc:'Entering maps 2 and 3 upgrades 1 random deck card to level 2 and another to level 1.',ptDesc:'Ao entrar nos mapas 2 e 3, 1 carta aleatória do deck recebe upgrade 2 e outra upgrade 1.'},
+ {id:'interest',en:'Interest',pt:'Juros',enDesc:'Defeating each map boss grants 50% of your saved gold (max. 75).',ptDesc:'Vencer o boss de cada mapa concede 50% do ouro guardado (máx. 75).'},
  {id:'elite_hunter',en:'Elite Hunter',pt:'Caçador de Elites',enDesc:'Defeating an elite grants +12 gold.',ptDesc:'Vencer uma elite concede +12 de ouro.'},
- {id:'second_chance',en:'Second Chance',pt:'Segunda Chance',enDesc:'Once per run, losing a confrontation (except bosses) does not end the run: it restarts from the beginning.',ptDesc:'Uma vez por run, perder um confronto (exceto bosses) não encerra a run: ele recomeça do início.'},
+ {id:'second_chance',en:'Second Chance',pt:'Segunda Chance',enDesc:'Once per run, losing a confrontation (except bosses) replays only the last round: the score is kept and the enemy loses 1 point.',ptDesc:'Uma vez por run, perder um confronto (exceto bosses) repete só a última rodada: o placar continua e o inimigo perde 1 ponto.'},
 ];
 /* Candidates (ChatGPT proposals, 03/11/2026) under evaluation; not in the 15 until approved. */
+/* Retired by Carlos (03/11/2026); kept only so old saves and tests can resolve the ids. */
 const CANDIDATES=[
- {id:'flex_prep',en:'Flexible Preparation',pt:'Preparação Flexível',enDesc:'Once per confrontation, refresh your hand for free.',ptDesc:'Uma vez por confronto, renova a mão de graça.'},
- {id:'efficient_fusion',en:'Efficient Fusion',pt:'Fusão Eficiente',enDesc:'The first fusion completed in each round refunds 1 energy.',ptDesc:'A primeira fusão concluída em cada rodada devolve 1 de energia.'},
- {id:'planned_hand',en:'Planned Hand',pt:'Mão Planejada',enDesc:'Before the run, choose a deck card: one copy starts in your hand in every confrontation.',ptDesc:'Antes da run, escolhe uma carta do deck: uma cópia começa na mão em todo confronto.'},
- {id:'elite_experience',en:'Elite Experience',pt:'Experiência de Elite',enDesc:'Each elite defeated grants all your units +3% health and attack until the end of the run.',ptDesc:'Cada elite vencida dá +3% de vida e ataque a todas as suas unidades até o fim da run.'},
+ {id:'reinforcement',retired:true,en:'Reinforcement',pt:'Reforço',enDesc:'+1 copy of a random deck card (up to 4 copies).',ptDesc:'+1 cópia de uma carta aleatória do deck (até 4 cópias).'},
+ {id:'twin',retired:true,en:'Twin',pt:'Gêmeo',enDesc:'At the start of the run, choose 1 deck card to duplicate (up to 4 copies).',ptDesc:'No início da run, escolhe 1 carta do deck para duplicar (até 4 cópias).'},
+ {id:'chosen_relic',retired:true,en:'Chosen Relic',pt:'Relíquia Escolhida',enDesc:'At the start of the run, you may swap the starting relic for one of 3 options.',ptDesc:'No início da run, pode trocar a relíquia inicial por uma de 3 opções.'},
+ {id:'steady_hand',retired:true,en:'Steady Hand',pt:'Mão Firme',enDesc:'+1 card in hand in the first round of each confrontation.',ptDesc:'+1 carta na mão na primeira rodada de cada confronto.'},
 ];
 const BY=Object.fromEntries([...LIST,...CANDIDATES].map(a=>[a.id,a]));
-const TUNE=root.JOURNEY_ADVANTAGE_TUNE={pretraining:2,pretrainingLevel:1,rehearsalLevel:1,eyeMode:'map',secondMode:'match',blessingLevel:1,blessingCount:1,flexUses:1,flexScope:'confront',fusionRefund:1,fusionPerRound:1,plannedCount:1,plannedFreq:'all',eliteHp:.03,eliteAtk:.03,eliteCap:99,fullPurse:20,interest:.10,interestMax:15,eliteGold:12,...(root.JOURNEY_ADVANTAGE_TUNE||{})};
+const TUNE=root.JOURNEY_ADVANTAGE_TUNE={pretraining:2,pretrainingLevel:1,pretrainingLevels:[2,1],rehearsalLevel:2,eyeMode:'every',secondMode:'round',blessingLevel:1,blessingCount:1,blessingLevels:[2,1],flexUses:1,flexScope:'round',fusionRefund:1,fusionPerRound:1,plannedCount:1,plannedFreq:'alternate',eliteHp:.005,eliteAtk:.005,eliteCap:99,fullPurse:20,interest:.5,interestMax:75,eliteGold:12,...(root.JOURNEY_ADVANTAGE_TUNE||{})};
 
 function owned(){const p=P.profile;p.advantages=[...new Set((p.advantages||[]).filter(id=>BY[id]))];return p.advantages;}
 function eligible(s){return !!s&&!s.training&&!s.tutorialReplay;}

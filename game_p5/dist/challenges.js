@@ -12,29 +12,29 @@ const LIST=[
  {id:'veterans',en:'Veterans',pt:'Veteranos',enDesc:'Regular enemies have +3 upgrades.',ptDesc:'Inimigos comuns têm +3 upgrades.'},
  {id:'tough',en:'Tough Troops',pt:'Tropas Resistentes',enDesc:'Enemy health +3%.',ptDesc:'Vida dos inimigos +3%.'},
  {id:'relentless',en:'Relentless Attacks',pt:'Ataques Implacáveis',enDesc:'Enemy damage +4%.',ptDesc:'Dano dos inimigos +4%.'},
- {id:'commanders',en:'Prepared Commanders',pt:'Comandantes Preparados',enDesc:'Elites, orders and bosses gain +1 relic and +2 upgrades.',ptDesc:'Elites, ordens e bosses ganham +1 relíquia e +2 upgrades.'},
+ {id:'commanders',en:'Prepared Commanders',pt:'Comandantes Preparados',enDesc:'Elites, orders and bosses gain +1 relic and +1 upgrade.',ptDesc:'Elites, ordens e bosses ganham +1 relíquia e +1 upgrade.'},
  {id:'bossrounds',en:'Relentless Bosses',pt:'Bosses Implacáveis',enDesc:'Map bosses (team and leader) have +8% health and damage.',ptDesc:'Bosses de mapa (time e líder) têm +8% de vida e de dano.'},
  {id:'reinforcements',en:'Enemy Reinforcements',pt:'Reforços Inimigos',enDesc:'From the 2nd round on, regular and elite enemies field +1 unit.',ptDesc:'A partir da 2ª rodada, inimigos comuns e elites colocam +1 unidade em campo.'},
  {id:'raidfury',en:'Raid Fury',pt:'Fúria das Raids',enDesc:'Raid health +30% and damage +10%.',ptDesc:'Raids com +30% de vida e +10% de dano.'},
  {id:'inflation',en:'Inflated Market',pt:'Mercado Inflacionado',enDesc:'Shop prices +15%.',ptDesc:'Preços da loja +15%.'},
- {id:'lightpurse',en:'Light Purse',pt:'Bolsa Leve',enDesc:'Gold from victories −15%.',ptDesc:'Ouro por vitória −15%.'},
+ {id:'lightpurse',en:'Light Purse',pt:'Bolsa Leve',enDesc:'Gold from victories −20%.',ptDesc:'Ouro por vitória −20%.'},
  {id:'scarce',en:'Scarce Resources',pt:'Recursos Escassos',enDesc:'−1 energy in the first 2 rounds against bosses.',ptDesc:'−1 de energia nas 2 primeiras rodadas contra bosses.'},
  {id:'bag',en:'Limited Luggage',pt:'Bagagem Limitada',enDesc:'Blocks 3 Relic Bag cells.',ptDesc:'Bloqueia 3 casas da bolsa de relíquias.'},
- {id:'heavydeck',en:'Heavy Deck',pt:'Deck Pesado',enDesc:'Start the run with +1 random weak common card in the deck.',ptDesc:'Começa a run com +1 carta comum fraca aleatória no deck.'},
- {id:'treecap',en:'Contained Tree',pt:'Árvore Contida',enDesc:'Your tree is limited to 50 fewer points during the run (latest nodes are disabled first).',ptDesc:'A árvore fica limitada a 50 pontos a menos durante a run (os nós mais recentes são desativados primeiro).'},
+ {id:'heavydeck',en:'Heavy Deck',pt:'Deck Pesado',enDesc:'Start the run with +1 copy of a random card of your deck.',ptDesc:'Começa a run com +1 cópia de uma carta aleatória do próprio deck.'},
+ {id:'dissipate',en:'Dissipating Energy',pt:'Energia Dissipada',enDesc:'Lose 1 of the energy left over at the end of each round.',ptDesc:'Perde 1 da energia que sobrar ao fim de cada rodada.'},
  {id:'fewrelics',en:'Scarce Relics',pt:'Relíquias Escassas',enDesc:'Relic choices offer 2 options less (minimum 1).',ptDesc:'Escolhas de relíquia oferecem 2 opções a menos (mínimo 1).'},
  {id:'cursed',en:'Cursed Path',pt:'Caminho Amaldiçoado',enDesc:'Start the run with the Exhaustion curse.',ptDesc:'Começa a run com a maldição Exaustão.'},
 ];
 /* Candidates under evaluation (not in the 15-challenge catalogue until approved). */
 const CANDIDATES=[
  {id:'relicswap',en:'Swapped Relic',pt:'Relíquia Trocada',enDesc:'The deck starting relic is replaced by a random relic.',ptDesc:'A relíquia inicial do deck é trocada por uma relíquia aleatória.'},
- {id:'dissipate',en:'Dissipating Energy',pt:'Energia Dissipada',enDesc:'Part of the energy left at the end of each round is lost.',ptDesc:'Parte da energia que sobra ao fim de cada rodada é perdida.'},
+ {id:'treecap',retired:true,en:'Contained Tree',pt:'Árvore Contida',enDesc:'Your tree is limited to 50 fewer points during the run (latest nodes are disabled first).',ptDesc:'A árvore fica limitada a 50 pontos a menos durante a run (os nós mais recentes são desativados primeiro).'},
  {id:'forcedtwin',en:'Forced Copy',pt:'Cópia Obrigatória',enDesc:'At the start of the run, choose 1 deck card to duplicate (up to 4 copies).',ptDesc:'No início da run, escolhe 1 carta do deck para duplicar (até 4 cópias).'},
 ];
 const BY=Object.fromEntries([...LIST,...CANDIDATES].map(c=>[c.id,c]));
 const MAX_LEVEL=LIST.length;
 // Single intensity per challenge (revision 2: the level is the number of active challenges). Calibrated by simulation.
-const TUNE=root.JOURNEY_CHALLENGE_TUNE={veterans:3,commanders:2,commanderRelics:1,tough:.03,relentless:.04,bossRounds:0,bossStats:.08,raidfury:.30,raidDamage:.10,inflation:.15,lightpurse:.15,bagCells:3,treecap:50,curses:['exhaustion'],reinforceFromRound:2,heavyCards:1,heavyMode:'weak',forcedTwinCount:1,dissipateMode:'half',dissipateFixed:1,dissipateKeep:2,scarceRounds:2,heavyPool:['warrior','lancer','fighter','martial_artist','miner','pirate','ranger','shackled_pirate'],fewRelics:2,...(root.JOURNEY_CHALLENGE_TUNE||{})};
+const TUNE=root.JOURNEY_CHALLENGE_TUNE={veterans:3,commanders:1,commanderRelics:1,tough:.03,relentless:.04,bossRounds:0,bossStats:.08,raidfury:.30,raidDamage:.10,inflation:.15,lightpurse:.20,bagCells:3,treecap:50,curses:['exhaustion'],reinforceFromRound:2,heavyCards:1,heavyMode:'copy',forcedTwinCount:1,dissipateMode:'fixed',dissipateFixed:1,dissipateKeep:2,scarceRounds:2,heavyPool:['warrior','lancer','fighter','martial_artist','miner','pirate','ranger','shackled_pirate'],fewRelics:2,...(root.JOURNEY_CHALLENGE_TUNE||{})};
 const BAG_CELLS=[[3,3],[2,3],[1,3],[0,3]];
 
 function profile(){const p=P.profile;const pc=p.challenges??={};pc.unlocked=!!pc.unlocked;pc.available=Math.max(pc.unlocked?1:0,Math.min(MAX_LEVEL,Math.floor(pc.available||0)));
