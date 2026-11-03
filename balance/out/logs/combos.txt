@@ -1,0 +1,7 @@
+C50_energia|cap500|--challenges scarce,dissipate
+C50_energia3|cap500|--challenges scarce,dissipate,reinforcements
+C50_reliquias|cap500|--challenges bag,commanders,fewrelics
+C50_deck|cap500|--challenges heavydeck,cursed
+C50_economia|cap500|--challenges inflation,lightpurse
+C50_energiaVant|cap500|--challenges scarce,dissipate --advantages saved_energy,flex_prep,efficient_fusion
+C25_elites|cap250|--advantages elite_experience,elite_hunter
