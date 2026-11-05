@@ -34,3 +34,21 @@ Data: 05/11/2026. Base: publicação 50 (commit `aed07ed`, identificação inter
 Mortes no boss do mapa 1 com árvore vazia: CP2 3 (genérico); v50 26 (Ironbound).
 Com 250 pontos, 22 de 100 runs v50 chegaram ao True Boss Ironbound no mapa 3.
 Conclusão: o boss Ironbound é a principal causa medida do gargalo do mapa 1 na v50. Amostra pequena; a linha de base completa é a Etapa 1.
+
+## Decisões do Carlos (05/11/2026)
+- Referência intermediária passa a ser **30 nós (metade da árvore)**; antes, "nível 25" = 250 pontos ≈ 22 nós.
+- Boss genérico retirado de propósito (game design): **Ironbound como ordem padrão é intencional**.
+- **Vantagens desativáveis aprovadas** (testar combinações entre runs).
+- XP: sobra continua entre mapas na mesma run; descartada no fim da run. Sobra do respec não usada é perdida ao iniciar a run.
+- XP→diamante só com a árvore completa. Saves antigos: ignorar.
+- Auras: curam Priestess, Flower Fairy, Elf Harpist, Shaman; demais sem cura; 1 buff cada (Goblin King pode ter mais).
+
+## Estados de árvore por número de nós (política de compra do simulador, preset `nodesN`)
+| Estado | Nós | Custo |
+|---|---:|---:|
+| 25% | 15 | 142 |
+| 50% (referência) | 30 | 344 |
+| 75% | 45 | 623 |
+| 100% | 60 | 1.151 |
+| antigo "nível 25" | 22 | 248 |
+| antigo máximo (500 pontos) | 38 | ~500 |

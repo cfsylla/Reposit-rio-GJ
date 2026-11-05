@@ -45,7 +45,11 @@ function allocate(budget) {
     if (!pick) return have; have.push(pick); left -= cost(pick);
   }
 }
-function treePreset(name) { const m = /^cap(\d+)$/.exec(name || ''); return m ? allocate(Number(m[1])) : TREE_PRESETS[name]; }
+/* nodesN (round 3, Carlos 05/11: reference = node count, half tree = 30): first N nodes in the same buy policy, no budget limit. */
+function allocateNodes(n) { const have = [], conn = id => TreeData.by[id].links.some(l => l === 'origin' || have.includes(l));
+  while (have.length < n) { let pick = TREE_BUY_ORDER.find(id => !have.includes(id) && conn(id)); if (!pick) pick = TreeData.nodes.filter(x => x.id !== 'origin' && !have.includes(x.id) && conn(x.id)).sort((x, y) => x.cost - y.cost || (x.category === 'expedition') - (y.category === 'expedition'))[0]?.id; if (!pick) break; have.push(pick); }
+  return have; }
+function treePreset(name) { const m = /^cap(\d+)$/.exec(name || ''), k = /^nodes(\d+)$/.exec(name || ''); return m ? allocate(Number(m[1])) : k ? allocateNodes(Number(k[1])) : TREE_PRESETS[name]; }
 const TREE_BUY_ORDER = ['pow_atk_1', 'vit_hp_1', 'def_armor_1', 'agi_rate_1', 'pow_atk_2', 'vit_hp_2', 'def_armor_2', 'agi_rate_2', 'pow_atk_3', 'vit_hp_3', 'vit_hp_4',
   'def_armor_3', 'def_armor_4', 'agi_rate_3', 'agi_rate_4', 'pow_atk_5', 'first_impact', 'second_wind', 'formation', 'strong_shields', 'sprint', 'momentum'];
 
@@ -245,4 +249,4 @@ if (require.main === module) {
   if (out) out.end();
   console.error('total', ((Date.now() - t0) / 1000).toFixed(1) + 's');
 }
-module.exports = { playRun, TREE_PRESETS, treePreset };
+module.exports = { playRun, TREE_PRESETS, treePreset, allocate, allocateNodes };
