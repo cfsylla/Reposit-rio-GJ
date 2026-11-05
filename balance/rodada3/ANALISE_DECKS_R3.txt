@@ -1,0 +1,25 @@
+deck|ordem|1ª vitória (run)|vitória 15n|30n|45n|CP2 nível 25|mortes com 30 nós (M1 lutas/M1 boss/M2/B2/M3/B3)|bosses que mais derrotam|relíquia|composição
+Corte Sombria|blackfang|9|10%|70%|95%|80%|0/1/0/3/2/0|M2 ironbound ×3, M1 ironbound ×1|precision|3 dark_elf_noble, 3 dark_elf_archer, 3 dark_elf_warrior, 3 orc_warrior, 2 dark_elf_mage, 2 blackfang_guardian, 2 orc_fighter, 2 goblin_archer
+Coro de Dawncrest|dawncrest|10|35%|95%|95%|50%|0/0/0/0/1/0||heart|3 feline_swordsman, 3 elf_halberdier, 3 woodland_flailer, 3 woodland_lancer, 2 feline_drummer, 2 elf_harpist, 2 flower_fairy, 2 centaur_swordsman
+Linha de Fogo|comum|10|25%|85%|100%|60%|0/2/0/0/1/0|M1 ironbound ×1, M1 monsters/naga ×1|scope|3 ranger, 3 crossbowman, 3 bastion, 3 musketeer, 2 archer, 2 gunner, 2 cannoneer, 2 priestess
+Círculo Arcano|comum|11|15%|80%|90%|43%|0/0/2/1/0/1|M2 ironbound ×1, M3 ironbound ×1|tome|3 bastion, 3 warrior, 3 mage, 3 sorceress, 2 gladiator, 2 bard, 2 sage, 2 priestess
+Lâminas do Oriente|comum|11|5%|85%|95%|67%|0/0/0/1/0/2|M3 ironbound ×2, M2 ironbound ×1|precision|3 shinobi, 3 samurai, 3 fighter, 3 martial_artist, 2 omnamusha, 2 ronin, 2 kinoichi, 2 shaolin
+Bando Meowri|dawncrest|11|30%|65%|85%|60%|0/1/2/1/2/1|M2 dawncrest ×1, M3 ironbound ×1|laststand|3 feline_swordsman, 3 feline_fighter, 3 feline_rogue, 3 woodland_lancer, 2 feline_arcanist, 2 feline_drummer, 2 centaur_swordsman, 2 elf_archer
+Vanguarda da Aurora|comum|13|5%|85%|95%|43%|0/0/1/1/0/1|M3 ironbound ×1, M2 ironbound ×1|banner|3 warrior, 3 lancer, 3 bastion, 3 gladiator, 2 swordsman, 2 fighter, 2 archer, 2 ranger
+Círculo Verdejante|comum|14|20%|80%|90%|57%|0/1/1/1/1/0|M2 ironbound ×1, M1 ironbound ×1|plating|3 ranger, 3 archer, 3 bear_druid, 3 eagle_druid, 2 crossbowman, 2 lancer, 2 priestess, 2 fighter
+Guarda da Floresta|dawncrest|15|20%|75%|80%|60%|0/1/0/3/1/0|M2 ironbound ×2, M2 monsters/hydra ×1|scope|3 woodland_predator, 3 woodland_lancer, 3 woodland_scout, 3 woodland_flailer, 2 elf_archer, 2 elf_noble, 2 centaur_lancer, 2 elf_guardian
+Fortaleza|comum|15|20%|70%|80%|43%|0/0/1/2/2/1|M2 ironbound ×2, M3 ironbound ×1|shield|3 bastion, 3 shieldmaiden, 3 gladiator, 3 ranger, 3 priestess, 2 archer, 2 warrior, 1 lancer
+Horda Goblin|blackfang|16|0%|50%|70%|53%|0/3/0/5/1/1|M2 ironbound ×5, M1 ironbound ×3|bell|4 goblin_archer, 3 goblin_rider, 3 goblin_brute, 3 blackfang_guardian, 3 goblin_king, 2 orc_berserker, 1 goblin_spearman, 1 goblin_bomber
+Ventos do Acaso|comum|16|15%|40%|70%|63%|0/1/1/6/4/0|M2 ironbound ×4, M2 monsters/lich ×1|bell|3 martial_artist, 3 archer, 3 samurai, 3 cavalier, 2 lancer, 2 pirate, 2 mage, 2 kinoichi
+Coro de Guerra|comum|17|30%|75%|85%|63%|0/0/1/2/1/1|M2 ironbound ×1, M3 ironbound ×1|recovery|4 archer, 3 warrior, 3 swordsman, 3 samurai, 3 bard, 2 priestess, 2 lancer
+Golpe Certeiro|comum|19|15%|65%|85%|63%|0/0/1/3/3/0|M2 ironbound ×3|precision|3 fighter, 3 warrior, 3 berserker, 3 cowboy, 2 swordsman, 2 duelist, 2 huntress, 2 crossbowman
+Galope Centauro|dawncrest|20|10%|65%|85%|53%|0/0/4/1/2/0|M2 ironbound ×1|boots|3 centaur_crossbow, 3 centaur_lancer, 3 centaur_swordsman, 3 feline_fighter, 2 elf_archer, 2 woodland_scout, 2 flower_fairy, 2 elf_guardian
+Corte Alta Élfica|dawncrest|21|15%|75%|90%|40%|0/0/1/2/1/1|M3 ironbound ×1, M2 blackfang ×1|recovery|3 elf_noble, 3 elf_guardian, 3 elf_archer, 3 elf_halberdier, 3 woodland_lancer, 2 flower_fairy, 2 centaur_crossbow, 1 elf_harpist
+Tripulação Salgada|comum|22|15%|60%|70%|43%|0/0/1/6/1/0|M2 ironbound ×5, M2 dawncrest ×1|hourglass|4 pirate_captain, 3 pirate, 3 pirate_admiral, 2 shackled_pirate, 2 miner, 2 cannoneer, 2 gunner, 2 archer
+Terremoto|comum|24|5%|60%|95%|40%|0/0/1/3/3/1|M2 ironbound ×1, M2 blackfang ×1|banner|3 lancer, 3 martial_artist, 3 miner, 3 kinoichi, 2 bastion, 2 mage, 2 cannoneer, 2 priestess
+Presas Negras|blackfang|25|10%|60%|85%|57%|0/2/0/3/1/2|M2 ironbound ×3, M1 ironbound ×2|heart|3 orc_warrior, 3 goblin_brute, 3 dark_elf_archer, 2 goblin_archer, 2 troll, 2 goblin_king, 2 dark_elf_noble, 2 mountain_troll, 1 snow_troll
+Clãs do Norte|comum|27|0%|60%|85%|37%|0/1/2/2/2/1|M2 ironbound ×2, M3 ironbound ×1|ember|3 viking, 3 berserker, 3 shieldmaiden, 3 fighter, 3 warrior, 2 huntress, 2 shaman, 1 glutton
+Executores|comum|28|0%|45%|65%|50%|0/2/2/3/3/1|M2 ironbound ×3, M1 ironbound ×2|execution|3 cowboy, 3 gladiator, 2 kinoichi, 2 musketeer, 2 bastion, 2 crossbowman, 2 huntress, 2 sheriff, 2 fighter
+Encontro de Caminhos|comum|32|10%|55%|80%|37%|0/0/3/3/3/0|M2 ironbound ×1, M2 dawncrest ×1|banner|3 fighter, 3 warrior, 3 ranger, 3 bastion, 2 samurai, 2 crossbowman, 2 priestess, 2 gladiator
+Peles Verdes|blackfang|32|0%|40%|85%|43%|0/1/3/4/1/3|M2 ironbound ×4, M3 ironbound ×2|banner|4 orc_warrior, 3 orc_berserker, 3 cave_troll, 2 orc_fighter, 2 goblin_brute, 2 goblin_spearman, 2 goblin_rider, 2 goblin_archer
+Lei do Gatilho|comum|37|0%|50%|70%|33%|0/1/4/2/2/1|M3 ironbound ×1, M1 ironbound ×1|precision|3 cowboy, 3 gunner, 3 fighter, 3 gladiator, 2 miner, 2 sheriff, 2 crossbowman, 2 bastion

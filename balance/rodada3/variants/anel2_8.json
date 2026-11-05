@@ -1,0 +1,21 @@
+{
+ "note": "R3: 16 nós de custo 10 passam a custar 8 (Carlos 05/11)",
+ "costs": {
+  "pow_atk_2": 8,
+  "pow_atk_3": 8,
+  "pow_atk_5": 8,
+  "pow_crit_2": 8,
+  "vit_hp_2": 8,
+  "vit_hp_3": 8,
+  "vit_hp_4": 8,
+  "def_armor_2": 8,
+  "def_armor_3": 8,
+  "def_armor_4": 8,
+  "agi_rate_2": 8,
+  "agi_rate_3": 8,
+  "agi_rate_4": 8,
+  "exp_gold_2": 8,
+  "exp_shop_1": 8,
+  "exp_shop_2": 8
+ }
+}
