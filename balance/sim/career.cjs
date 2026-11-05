@@ -24,10 +24,12 @@ for (const deck of decks) for (const c of careers) {
     const seed = c * 1000 + k;
     const pol = { prep: 'smart', route: 'greedy', events: 'safe', shop: 'balanced', tree: [...unlocked], treeXp, treeBuy: 'all', order: null, forcewin: false };
     const before = unlocked.length, cBefore = cost(unlocked);
+    const h0 = Tree.profile().history ? { ...Tree.profile().history } : null; // R3 model: XP earned / spent / lost in this run
     const rec = playRun(deck, seed, pol, { dt: 1 / 60 });
+    const h1 = Tree.profile().history, xpR3 = h0 && h1 ? { earned: h1.earned - h0.earned, spent: h1.spent - h0.spent, lost: h1.lost - h0.lost, diamonds: h1.diamonds - h0.diamonds } : null;
     unlocked = [...unlocked, ...rec.treeBought];
     const banked = Tree.level ? rec.treeXp - treeXp : null; if (Tree.level) treeXp = rec.treeXp;
-    const row = { deck, career: c, run: k, seed, result: rec.result, act: rec.act, wins: rec.wins, xp: Tree.level ? banked : xpOf(rec), level: Tree.level ? Math.min(Tree.LEVEL.maxLevel, Math.floor(treeXp / 10)) : null, nodesBefore: before, nodesAfter: unlocked.length, costBefore: cBefore, bought: rec.treeBought };
+    const row = { deck, career: c, run: k, seed, result: rec.result, act: rec.act, wins: rec.wins, xpR3, windows: rec.windows || [], deathAt: rec.deathAt || null, xp: Tree.level ? banked : xpOf(rec), level: Tree.level ? Math.min(Tree.LEVEL.maxLevel, Math.floor(treeXp / 10)) : null, nodesBefore: before, nodesAfter: unlocked.length, costBefore: cBefore, bought: rec.treeBought };
     if (out) out.write(JSON.stringify(row) + '\n');
     console.log([deck, 'c' + c, 'run' + k, rec.result, 'act' + rec.act, 'wins=' + rec.wins, 'xp=' + row.xp, 'nodes ' + before + '->' + unlocked.length].join(' '));
   }

@@ -209,12 +209,14 @@ function playRun(deck, seed, pol, opt) {
         break;
       }
       case 'tree': {
+        const tw0 = Tree.ensure(s), win0 = { act: A.act(s), kind: tw0?.session?.kind || 'boss', xp: tw0?.xp || 0, n0: rec.treeBought.length }; // R3: per-window log
         let bought = true; while (bought) { bought = false; for (const id of TREE_BUY_ORDER) if (Tree.buy(s, id)) { rec.treeBought.push(id); bought = true; break; }
           // career mode (--treebuy all): after the fixed order, keep buying the cheapest connected node (combat branches first)
           if (!bought && pol.treeBuy === 'all') { const t = Tree.ensure(s), have = Tree.profile().unlocked;
-            const cand = TreeData.nodes.filter(n => !have.includes(n.id) && Tree.connected(n.id) && n.cost <= (Tree.available ? Tree.available() : t.xp)).sort((x, y) => x.cost - y.cost || (x.category === 'expedition') - (y.category === 'expedition'));
+            const cand = TreeData.nodes.filter(n => !have.includes(n.id) && Tree.connected(n.id) && n.cost <= (Tree.available ? Tree.available(s) : t.xp)).sort((x, y) => x.cost - y.cost || (x.category === 'expedition') - (y.category === 'expedition'));
             if (cand.length && Tree.buy(s, cand[0].id)) { rec.treeBought.push(cand[0].id); bought = true; } } }
         rec.xpLeft = (rec.xpLeft || 0) + (Tree.ensure(s)?.xp || 0);
+        win0.left = Tree.ensure(s)?.xp || 0; win0.bought = rec.treeBought.slice(win0.n0); delete win0.n0; (rec.windows ??= []).push(win0);
         Tree.continueRun(s); break;
       }
       case 'actComplete': if (!A.advance(s)) { rec.result = 'act-stuck'; return finalize(s, rec); } break;
@@ -229,7 +231,9 @@ function finalize(s, rec) {
   if (s.challenges) { rec.challenges = s.challenges; rec.challengeLevel = s.challengeLevel; rec.insignia = s.meta?.insignia || 0; }
   if (Tree.level) { rec.treeXp = Tree.profile().totalXp; rec.treeLevel = Tree.level(); }
   { const t = Tree.ensure?.(s); if (t?.earned) { const xa = [0, 0, 0], xb = [0, 0, 0]; // round 3: XP earned per map (fights / boss), from the engine's own award keys
-      for (const k of t.earned) { const [a, id] = String(k).split(':'), i = Number(a) - 1; if (!(i >= 0 && i < 3)) continue; const isBoss = /boss/.test(id); (isBoss ? xb : xa)[i] += Tree.xpFor(i + 1, isBoss); }
+      for (const k of t.earned) { const [a, id] = String(k).split(':'), i = Number(a) - 1; if (!(i >= 0 && i < 3)) continue; const isBoss = /boss/.test(id);
+        const node = Tree.kindOf ? (s.map || []).flat().find(n => n.id === id) : null; // R3: kind-weighted XP (map nodes of the current act only)
+        (isBoss ? xb : xa)[i] += Tree.kindOf && node && i + 1 === A.act(s) ? Tree.xpFor(i + 1, Tree.kindOf(node)) : Tree.xpFor(i + 1, isBoss); }
       rec.xpFight = xa; rec.xpBoss = xb; rec.xpLostAtEnd = t.xp || 0; } }
   rec.act = A.act(s); rec.layer = s.layer; rec.goldEnd = s.gold; rec.mapBattles = s.mapBattles;
   rec.cards = s.cards.length; rec.levels = [0, 1, 2].map(l => s.cards.filter(c => c.level === l && !Pol.isCurse(c)).length); rec.curses = s.cards.filter(Pol.isCurse).length;
