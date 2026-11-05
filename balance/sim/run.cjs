@@ -179,10 +179,10 @@ function playRun(deck, seed, pol, opt) {
         const n = Pol.chooseNode(s, nodes, pol, rnd); rec.nodes.push(A.act(s) + ':' + n.type + (n.campaign ? '/' + n.campaign : ''));
         if (!G.enter(s, n.id)) { rec.result = 'enter-failed'; return finalize(s, rec); }
         if (E.AD && s.adv) { // advantages that need a player choice
-          const tw = E.AD.twinOptions(s); if (tw.length) { const t = Pol.recruitPick(s, tw) || tw[0]; E.AD.twin(s, t); }
+          const tw = E.AD.twinOptions?.(s) || []; if (tw.length) { const t = Pol.recruitPick(s, tw) || tw[0]; E.AD.twin(s, t); }
           for (let g = 0; g < 4; g++) { const ft = E.CH?.forcedTwinOptions?.(s) || []; if (!ft.length) break; const t2 = Pol.recruitPick(s, ft) || ft[0]; if (!E.CH.forcedTwin(s, t2)) break; }
           const po = E.AD.plannedOptions?.(s) || []; if (po.length) { const key = Pol.bestUpgradeTarget(s)?.type; E.AD.choosePlanned(s, po.includes(key) ? key : po[0]); } // key card: most copies and value
-          const so = E.AD.startRelicOptions(s); if (so.length) { const best = [...so].sort((x, y) => Pol.relicRank(x) - Pol.relicRank(y))[0]; if (Pol.relicRank(best) < Pol.relicRank(s.artifacts[0])) E.AD.chooseStartRelic(s, best); s.adv.startOffers = []; }
+          const so = E.AD.startRelicOptions?.(s) || []; if (so.length) { const best = [...so].sort((x, y) => Pol.relicRank(x) - Pol.relicRank(y))[0]; if (Pol.relicRank(best) < Pol.relicRank(s.artifacts[0])) E.AD.chooseStartRelic(s, best); s.adv.startOffers = []; }
         }
         break;
       }

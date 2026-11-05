@@ -17,12 +17,20 @@ if (require('node:fs').existsSync(path.join(ROOT, 'dist', 'challenges.js'))) MOD
 if (require('node:fs').existsSync(path.join(ROOT, 'dist', 'advantages.js'))) MODULES.push('advantages');
 // Variant values read by the game modules at load time (level model) must be set before loading.
 if (process.env.GJ_TREE_VARIANT) { const tv0 = JSON.parse(require('node:fs').readFileSync(process.env.GJ_TREE_VARIANT, 'utf8')); if (tv0.level) globalThis.JOURNEY_TREE_LEVEL = tv0.level; if (tv0.challengeTune) globalThis.JOURNEY_CHALLENGE_TUNE = tv0.challengeTune; if (tv0.treeTune) globalThis.JOURNEY_TREE_TUNE = tv0.treeTune; if (tv0.advTune) globalThis.JOURNEY_ADVANTAGE_TUNE = tv0.advTune; }
+// v50+ copies (progression-v56.js present): load exactly like the official loader (carregar_motor_v50.cjs):
+// every script of dist/index.html, in order, up to (not including) game-2.js (first UI-bound script).
+if (require('node:fs').existsSync(path.join(ROOT, 'dist', 'progression-v56.js'))) {
+  globalThis.window = globalThis;
+  const html = require('node:fs').readFileSync(path.join(ROOT, 'dist', 'index.html'), 'utf8');
+  const all = [...html.matchAll(/src="([^"?]+)\.js/g)].map(m => m[1]);
+  MODULES.length = 0; MODULES.push(...all.slice(0, all.indexOf('game-2')));
+}
 for (const m of MODULES) require(path.join(ROOT, 'dist', m + '.js'));
 const g = globalThis;
 module.exports = {
   ROOT, MODULES,
   G: g.Game, P: g.Progress, C: g.JourneyContent, T: g.JourneyTraits, A: g.JourneyActs, R: g.JourneyRaid,
-  B: g.JourneyBosses, Tree: g.JourneyTree, CH: g.JourneyChallenges, AD: g.JourneyAdvantages, TreeData: g.JourneyTreeData, Training: g.Training,
+  B: g.JourneyBosses, Tree: g.JourneyTree, BC: g.JourneyBossCards, MS: g.JourneyMilestones, PG: g.JourneyProgression, SB: g.JourneySupportB, CH: g.JourneyChallenges, AD: g.JourneyAdvantages, TreeData: g.JourneyTreeData, Training: g.Training,
 };
 
 /* PROPOSAL OVERRIDES (testing only; the game files are not modified).
