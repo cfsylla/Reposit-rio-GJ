@@ -49,7 +49,7 @@ function buy(s,id){const n=D.by[id],p=profile();if(!editable(s)||!n||n.id==='ori
  * budget. Unused budget is lost when the next run starts (G.fresh). */
 function reset(s){if(s)return false;const p=profile(),refund=spent();if(!refund)return false;p.purchases.push({reset:true,refund});p.unlocked=[];p.respec+=refund;return true;}
 function grantEntry(s){const t=ensure(s),a=A.act(s);if(!t||!has(s,'provisions')||t.provisionMaps.includes(a)||s.meta?.ended)return;t.provisionMaps.push(a);s.gold+=5;s.lastGoldReward=5;}
-function award(s){const t=ensure(s);if(!t||s.meta?.ended||s.eventEncounter||!G.isFight(s.current))return 0;const a=A.act(s),key=a+':'+s.current.id;if(t.earned.includes(key))return 0;const xp=xpFor(a,kindOf(s.current));t.earned.push(key);t.lastAward=xp;profile().history.earned+=xp;
+function award(s){const t=ensure(s);if(!t||s.meta?.ended||s.eventEncounter||!G.isFight(s.current))return 0;const a=A.act(s),key=a+':'+s.current.id;if(t.earned.includes(key))return 0;const xp=xpFor(a,kindOf(s.current));t.earned.push(key);t.lastAward=xp;t.gain=(t.gain||0)+xp;profile().history.earned+=xp;
  if(complete()){t.diamondXp=(t.diamondXp||0)+xp;const d=Math.floor(t.diamondXp/XP.xpPerDiamond);if(d){t.diamondXp-=d*XP.xpPerDiamond;P.profile.diamonds=(P.profile.diamonds||0)+d;profile().history.diamonds+=d;}return xp;}
  t.xp+=xp;return xp;}
 const load=P.load;P.load=function(...args){const p=load(...args);profile();return p;};profile();

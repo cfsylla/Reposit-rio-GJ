@@ -13,7 +13,7 @@ function args() {
   for (let i = 0; i < v.length; i += 2) a[v[i].replace(/^--/, '')] = v[i + 1];
   const range = x => { if (!x) return [1]; return x.split(',').flatMap(p => { const [lo, hi] = p.split('-').map(Number); return hi ? Array.from({ length: hi - lo + 1 }, (_, i) => lo + i) : [lo]; }); };
   return { decks: (a.decks || 'vanguard').split(','), seeds: range(a.seeds), prep: a.prep || 'smart', route: a.route || 'greedy', events: a.events || 'decline',
-    tree: a.tree || 'none', challenges: a.challenges ? a.challenges.split(',').filter(Boolean) : null, advantages: a.advantages || null, forcewin: a.forcewin === '1', shop: a.shop || 'upgrade-first', out: a.out, dt: Number(a.dt || 1 / 60), order: a.order || null, verbose: !!a.verbose };
+    tree: a.tree || 'none', challenges: a.challenges ? a.challenges.split(',').filter(Boolean) : null, advantages: a.advantages || null, forcewin: a.forcewin === '1', shop: a.shop || 'upgrade-first', out: a.out, dt: Number(a.dt || 1 / 60), order: a.order || null, verbose: !!a.verbose, treebuy: a.treebuy || null };
 }
 
 /* Permanent tree presets (profile state BEFORE the run; in-run purchases still happen after each boss). */
@@ -234,7 +234,8 @@ function finalize(s, rec) {
       for (const k of t.earned) { const [a, id] = String(k).split(':'), i = Number(a) - 1; if (!(i >= 0 && i < 3)) continue; const isBoss = /boss/.test(id);
         const node = Tree.kindOf ? (s.map || []).flat().find(n => n.id === id) : null; // R3: kind-weighted XP (map nodes of the current act only)
         (isBoss ? xb : xa)[i] += Tree.kindOf && node && i + 1 === A.act(s) ? Tree.xpFor(i + 1, Tree.kindOf(node)) : Tree.xpFor(i + 1, isBoss); }
-      rec.xpFight = xa; rec.xpBoss = xb; rec.xpLostAtEnd = t.xp || 0; } }
+      rec.xpFight = xa; rec.xpBoss = xb; rec.xpLostAtEnd = t.xp || 0;
+      if (Tree.kindOf) rec.xpR3 = { earned: t.gain || 0, spent: rec.treeBought.reduce((x, id) => x + TreeData.by[id].cost, 0), lost: t.lost || 0 }; } }
   rec.act = A.act(s); rec.layer = s.layer; rec.goldEnd = s.gold; rec.mapBattles = s.mapBattles;
   rec.cards = s.cards.length; rec.levels = [0, 1, 2].map(l => s.cards.filter(c => c.level === l && !Pol.isCurse(c)).length); rec.curses = s.cards.filter(Pol.isCurse).length;
   rec.relics = [...s.artifacts]; rec.reserve = [...(s.reserve || [])];
@@ -244,7 +245,7 @@ function finalize(s, rec) {
 }
 
 if (require.main === module) {
-  const opt = args(), pol = { challenges: opt.challenges, advantages: opt.advantages, prep: opt.prep, route: opt.route, events: opt.events, tree: opt.tree, shop: opt.shop, order: opt.order, forcewin: opt.forcewin };
+  const opt = args(), pol = { challenges: opt.challenges, advantages: opt.advantages, prep: opt.prep, route: opt.route, events: opt.events, tree: opt.tree, shop: opt.shop, order: opt.order, forcewin: opt.forcewin, treeBuy: opt.treebuy };
   const out = opt.out ? fs.createWriteStream(opt.out) : null;
   const t0 = Date.now();
   for (const deck of opt.decks) for (const seed of opt.seeds) {
