@@ -1,0 +1,63 @@
+
+=== Mapa 1: % de vitória do mesmo jogador contra cada boss (n = estados testados) ===
+boss                           nodes15       nodes30       nodes45
+Marechal                     75% (179)     94% (199)     99% (199)
+Xogum                        78% (179)     97% (199)     99% (199)
+Jarl Rúnico                  67% (179)     94% (199)     99% (199)
+Pistoleiro                   83% (179)     98% (199)     99% (199)
+Rainha Pirata                78% (179)     96% (199)     99% (199)
+Oráculo                      74% (179)     94% (199)     97% (199)
+Senhor dos Cervos            55% (179)     91% (199)     98% (199)
+Rei Goblin                   94% (179)     99% (199)     99% (199)
+Rei Troll                    88% (179)     98% (199)     99% (199)
+Imperador Orc                45% (179)     86% (199)     95% (199)
+Rainha Meowri                75% (179)     98% (199)     99% (199)
+Líder Centauro               72% (179)     95% (199)     98% (199)
+Rei High Elf                 77% (179)     94% (199)     96% (199)
+Rei Forest Elf               97% (179)     99% (199)    100% (199)
+MÉDIA Ironbound                    73%           95%           99%
+MÉDIA Blackfang                    76%           94%           98%
+MÉDIA Dawncrest                    80%           97%           98%
+
+=== Mapa 2: % de vitória do mesmo jogador contra cada boss (n = estados testados) ===
+boss                           nodes15       nodes30       nodes45
+Marechal                      61% (61)     85% (172)     95% (188)
+Xogum                         67% (61)     90% (172)     96% (188)
+Jarl Rúnico                   61% (61)     86% (172)     96% (188)
+Pistoleiro                    79% (61)     97% (172)     98% (188)
+Rainha Pirata                 66% (61)     87% (172)     94% (188)
+Oráculo                       67% (61)     85% (172)     91% (188)
+Senhor dos Cervos             54% (61)     85% (172)     90% (188)
+Rei Goblin                    87% (61)     97% (172)     99% (188)
+Rei Troll                     70% (61)     90% (172)     93% (188)
+Imperador Orc                 34% (61)     71% (172)     80% (188)
+Rainha Meowri                 64% (61)     91% (172)     95% (188)
+Líder Centauro                62% (61)     88% (172)     93% (188)
+Rei High Elf                  57% (61)     83% (172)     88% (188)
+Rei Forest Elf                92% (61)     98% (172)     99% (188)
+MÉDIA Ironbound                    65%           88%           94%
+MÉDIA Blackfang                    64%           86%           91%
+MÉDIA Dawncrest                    69%           90%           94%
+
+=== Mapa 3: % de vitória do mesmo jogador contra cada boss (n = estados testados) ===
+boss                           nodes15       nodes30       nodes45
+Marechal                      76% (25)     92% (132)     93% (166)
+Xogum                         76% (25)     94% (132)     96% (166)
+Jarl Rúnico                   64% (25)     89% (132)     96% (166)
+Pistoleiro                    88% (25)     93% (132)     99% (166)
+Rainha Pirata                 68% (25)     89% (132)     95% (166)
+Oráculo                       64% (25)     83% (132)     93% (166)
+Senhor dos Cervos             56% (25)     82% (132)     89% (166)
+Rei Goblin                    92% (25)     99% (132)     99% (166)
+Rei Troll                     80% (25)     91% (132)     95% (166)
+Imperador Orc                 48% (25)     73% (132)     82% (166)
+Rainha Meowri                 84% (25)     95% (132)     98% (166)
+Líder Centauro                80% (25)     91% (132)     96% (166)
+Rei High Elf                  76% (25)     83% (132)     93% (166)
+Rei Forest Elf               100% (25)     99% (132)    100% (166)
+Andarilho (True)              84% (25)     99% (132)     99% (166)
+Rei Dark Elf (True)           72% (25)     97% (132)     98% (166)
+Rainha Fada (True)            72% (25)     80% (132)     82% (166)
+MÉDIA Ironbound                    70%           89%           94%
+MÉDIA Blackfang                    73%           88%           92%
+MÉDIA Dawncrest                    85%           92%           97%
