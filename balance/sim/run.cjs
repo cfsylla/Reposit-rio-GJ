@@ -181,6 +181,7 @@ function playRun(deck, seed, pol, opt) {
       case 'map': {
         const nodes = G.available(s); if (!nodes.length) { rec.result = 'stuck-map'; return finalize(s, rec); }
         const n = Pol.chooseNode(s, nodes, pol, rnd); rec.nodes.push(A.act(s) + ':' + n.type + (n.campaign ? '/' + n.campaign : ''));
+        if (process.env.GJ_BOSS_LAB && n.type === 'boss') bossLab(s, n, pol, rec, opt.dt);
         if (!G.enter(s, n.id)) { rec.result = 'enter-failed'; return finalize(s, rec); }
         if (E.AD && s.adv) { // advantages that need a player choice
           const tw = E.AD.twinOptions?.(s) || []; if (tw.length) { const t = Pol.recruitPick(s, tw) || tw[0]; E.AD.twin(s, t); }
@@ -226,6 +227,34 @@ function playRun(deck, seed, pol, opt) {
     }
   }
   rec.result = 'step-limit'; return finalize(s, rec);
+}
+
+/* BOSS LAB (GJ_BOSS_LAB=1, round 3): at each map boss, the SAME player state (deck, tree, cards, relics, gold) fights every
+ * candidate order boss of that map from a copy of the run; the real run then continues with its own boss. Paired comparison.
+ * Candidates: every regular Ironbound / Blackfang / Dawncrest leader; on map 3 also the True Bosses of those orders.
+ * The global profile is restored after each copy. Raids (Titans) are not included (persistent-HP system). */
+function bossLab(s, node, pol, rec, dt) {
+  const B = globalThis.JourneyBosses, data = globalThis.JourneyIronboundData || {}, act = A.act(s);
+  const ib = Object.keys(data).filter(id => data[id].order === 'ironbound' && !data[id].true);
+  const cands = [...ib.map(id => ['ironbound', id, false]), ...['goblin', 'troll', 'orc'].map(id => ['blackfang', id, false]), ...['meowri', 'centaur', 'highelf', 'forestelf'].map(id => ['dawncrest', id, false])];
+  if (act === 3) cands.push(['ironbound', 'ib_wayfarer', true], ['blackfang', 'darkelf', true], ['dawncrest', 'fairy', true]);
+  const prof = JSON.stringify(P.profile), out = (rec.bossLab ??= []);
+  for (const [order, id, isTrue] of cands) {
+    const c = structuredClone(s), r = c.campaignRoute ??= {};
+    r.monsterNodes = []; r.defeatedForces = order === 'blackfang' ? ['lab1', 'lab2'] : []; r.dawncrestForces = order === 'dawncrest' ? ['lab1', 'lab2'] : [];
+    const j = A.ensure(c); if (act === 3) j.history = j.history.map((h, i) => ({ ...h, order: isTrue || i === 0 ? order : (order === 'ironbound' ? 'blackfang' : 'ironbound') }));
+    const cn = c.map[node.layer].find(v => v.id === node.id); delete cn.campaign; delete cn.forceId; delete cn.trueBoss; cn.bossId = id; delete c.bossEncounter;
+    let res = 'error';
+    try {
+      if (G.enter(c, cn.id) && c.phase === 'prep') {
+        const got = c.bossEncounter?.id;
+        const f = { fights: [] }; playFight(c, pol, f, dt);
+        res = got !== id ? 'mismatch:' + got : ['tree', 'victory', 'actComplete'].includes(c.phase) ? 'win' : c.phase === 'defeat' ? 'loss' : 'other:' + c.phase + ':' + (c.bossEncounter?.form || '');
+      }
+    } catch (e) { res = 'error:' + e.message.slice(0, 60); }
+    const back = JSON.parse(prof); for (const k of Object.keys(P.profile)) delete P.profile[k]; Object.assign(P.profile, back);
+    out.push({ act, order, id, trueBoss: isTrue, res });
+  }
 }
 function finalize(s, rec) {
   if (s.challenges) { rec.challenges = s.challenges; rec.challengeLevel = s.challengeLevel; rec.insignia = s.meta?.insignia || 0; }

@@ -33,11 +33,11 @@ assert.ok(st().unlocked.length >= 1 && st().unlocked.length === dead.windows[0].
 h = st().history; assert.strictEqual(h.earned - h0.earned, h.spent - h0.spent + h.lost - h0.lost, 'defeat: earned = spent + lost');
 const s2 = G.fresh('blades', 99); assert.strictEqual(T.ensure(s2).xp, 0, 'new run starts with 0 XP');
 // 5. Respec: refunds only the invested cost; leftover lost at run start; a new respec cannot recreate it
-st().unlocked = ['pow_atk_1', 'vit_hp_1', 'pow_atk_2']; st().respec = 0; const inv = 8 + 8 + 10;
+st().unlocked = ['pow_atk_1', 'vit_hp_1', 'pow_atk_2']; st().respec = 0; const c = id => D.by[id].cost, inv = c('pow_atk_1') + c('vit_hp_1') + c('pow_atk_2');
 assert.ok(T.reset(null)); assert.strictEqual(st().respec, inv, 'respec refunds invested cost');
-assert.ok(T.buy(null, 'pow_atk_1') && T.buy(null, 'pow_atk_2')); assert.strictEqual(st().respec, inv - 18);
-const rl = st().history.respecLost; G.fresh('blades', 100); assert.strictEqual(st().respec, 0, 'respec leftover lost at run start'); assert.strictEqual(st().history.respecLost - rl, 8);
-assert.ok(T.reset(null)); assert.strictEqual(st().respec, 18, 'second respec refunds only what is owned (8 not recreated)');
+assert.ok(T.buy(null, 'pow_atk_1') && T.buy(null, 'pow_atk_2')); assert.strictEqual(st().respec, inv - c('pow_atk_1') - c('pow_atk_2'));
+const rl = st().history.respecLost; G.fresh('blades', 100); assert.strictEqual(st().respec, 0, 'respec leftover lost at run start'); assert.strictEqual(st().history.respecLost - rl, c('vit_hp_1'));
+assert.ok(T.reset(null)); assert.strictEqual(st().respec, c('pow_atk_1') + c('pow_atk_2'), 'second respec refunds only what is owned (leftover not recreated)');
 assert.ok(!T.reset(G.fresh('blades', 101)), 'no respec during a run');
 // 6. Window closes once: continueRun twice / reopening does not duplicate
 st().unlocked = []; st().respec = 0; const s3 = G.fresh('blades', 5); const t3 = T.ensure(s3); t3.session = { act: 1, kind: 'mid' }; s3.phase = 'tree'; t3.xp = 9;
