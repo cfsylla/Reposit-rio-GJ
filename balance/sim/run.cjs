@@ -228,6 +228,9 @@ function playRun(deck, seed, pol, opt) {
 function finalize(s, rec) {
   if (s.challenges) { rec.challenges = s.challenges; rec.challengeLevel = s.challengeLevel; rec.insignia = s.meta?.insignia || 0; }
   if (Tree.level) { rec.treeXp = Tree.profile().totalXp; rec.treeLevel = Tree.level(); }
+  { const t = Tree.ensure?.(s); if (t?.earned) { const xa = [0, 0, 0], xb = [0, 0, 0]; // round 3: XP earned per map (fights / boss), from the engine's own award keys
+      for (const k of t.earned) { const [a, id] = String(k).split(':'), i = Number(a) - 1; if (!(i >= 0 && i < 3)) continue; const isBoss = /boss/.test(id); (isBoss ? xb : xa)[i] += Tree.xpFor(i + 1, isBoss); }
+      rec.xpFight = xa; rec.xpBoss = xb; rec.xpLostAtEnd = t.xp || 0; } }
   rec.act = A.act(s); rec.layer = s.layer; rec.goldEnd = s.gold; rec.mapBattles = s.mapBattles;
   rec.cards = s.cards.length; rec.levels = [0, 1, 2].map(l => s.cards.filter(c => c.level === l && !Pol.isCurse(c)).length); rec.curses = s.cards.filter(Pol.isCurse).length;
   rec.relics = [...s.artifacts]; rec.reserve = [...(s.reserve || [])];
