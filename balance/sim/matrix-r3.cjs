@@ -14,7 +14,7 @@ const win = R => R.filter(r => r.result === 'victory').length / R.length;
 const ci = R => Math.round(196 * Math.sqrt(Math.max(win(R) * (1 - win(R)), .25 / R.length) / R.length));
 const files = fs.readdirSync(dir).filter(f => f.startsWith(prefix + '_') && f.endsWith('.jsonl'));
 const data = {}; // tree -> deck -> runs
-for (const [t] of TREES) for (const f of files.filter(f => f.startsWith(`${prefix}_${t}_`))) for (const l of fs.readFileSync(path.join(dir, f), 'utf8').split('\n')) if (l.trim()) { const r = JSON.parse(l); ((data[t] ??= {})[r.deck] ??= []).push(r); }
+for (const [t] of TREES) for (const f of files.filter(f => f.startsWith(`${prefix}_${t}_`) || f === `${prefix}_${t}.jsonl`)) for (const l of fs.readFileSync(path.join(dir, f), 'utf8').split('\n')) if (l.trim()) { const r = JSON.parse(l); ((data[t] ??= {})[r.deck] ??= []).push(r); }
 const states = TREES.filter(([t]) => data[t]);
 const decks = DECKS.filter(d => states.some(([t]) => data[t][d.id]));
 const label = d => d.name + (d.order ? ` <small>(${d.order})</small>` : '');
@@ -28,7 +28,7 @@ table{border-collapse:collapse;width:100%;font-size:7.6pt}th,td{border:1px solid
 </style></head><body><h1>${title}</h1>
 <p><b>Estado medido:</b> ${note}</p>
 <p>Jogador simulado competente (joga no nível da IA do jogo; um humano tende a ir melhor). ${perCell} runs por deck e por estado de árvore (${total.toLocaleString('pt-BR')} runs). Margem por deck de cerca de ±${Math.round(98 / Math.sqrt(perCell || 1))} pontos; a média é bem mais precisa.</p>
-<p>Cada célula: porcentagem das runs que <b>venceram até aquele ponto</b>. A última coluna é a chance de vencer a run. O simulador ainda compra nós com o XP ganho depois de cada boss (regra publicada), então o estado da árvore é o do início da run.</p>`;
+<p>Cada célula: porcentagem das runs que <b>venceram até aquele ponto</b>. A última coluna é a chance de vencer a run. O estado da árvore é o do início da run; durante a run o jogador ainda compra nós com o XP ganho, nas janelas da árvore.</p>`;
 // summary page
 html += `<h2 class="first">Resumo: média dos decks por estado de árvore</h2><table><tr><th>Estado da árvore</th>${CP.map(c => `<th>${c[1]}</th>`).join('')}<th>Vitória ± margem</th></tr>`;
 for (const [t, name] of states) { const all = decks.flatMap(d => data[t][d.id] || []); html += `<tr><td class="n">${name}</td>${CP.map(([k]) => { const p = alive(all, k); return `<td style="background:${color(p)}">${pct(p)}</td>`; }).join('')}<td>${pct(win(all))} ±${ci(all)}</td></tr>`; }
