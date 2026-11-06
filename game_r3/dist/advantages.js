@@ -7,7 +7,7 @@
 const G=root.Game,P=root.Progress,T=root.JourneyTree,C=root.JourneyContent,A=root.JourneyActs;
 const LIST=[
  {id:'travel_relic',en:'Travel Relic',pt:'Relíquia de Viagem',enDesc:'Start each run with +1 random common relic that fits the bag.',ptDesc:'Começa cada run com +1 relíquia comum aleatória que caiba na bolsa.'},
- {id:'pretraining',en:'Pre-Training',pt:'Treino Prévio',enDesc:'1 random deck card starts with upgrade 2 and another with upgrade 1.',ptDesc:'1 carta aleatória do deck começa com upgrade 2 e outra com upgrade 1.'},
+ {id:'pretraining',en:'Pre-Training',pt:'Treino Prévio',enDesc:'2 random deck cards start with upgrade 1.',ptDesc:'2 cartas aleatórias do deck começam com upgrade 1.'},
  {id:'flex_prep',en:'Flexible Preparation',pt:'Preparação Flexível',enDesc:'Once per round, refresh your hand for free.',ptDesc:'Uma vez por rodada, renova a mão de graça.'},
  {id:'efficient_fusion',en:'Efficient Fusion',pt:'Fusão Eficiente',enDesc:'Every fusion completed refunds 1 energy.',ptDesc:'Toda fusão concluída devolve 1 de energia.'},
  {id:'full_purse',en:'Full Purse',pt:'Bolsa Cheia',enDesc:'+20 starting gold.',ptDesc:'+20 de ouro inicial.'},
@@ -23,7 +23,7 @@ const LIST=[
  {id:'second_chance',en:'Second Chance',pt:'Segunda Chance',enDesc:'Once per run, losing a confrontation (except bosses) replays only the last round: the score is kept and the enemy loses 1 point.',ptDesc:'Uma vez por run, perder um confronto (exceto bosses) repete só a última rodada: o placar continua e o inimigo perde 1 ponto.'},
 ];
 const BY=Object.fromEntries(LIST.map(a=>[a.id,a]));
-const TUNE=root.JOURNEY_ADVANTAGE_TUNE={pretraining:2,pretrainingLevel:1,pretrainingLevels:[2,1],rehearsalLevel:2,eyeMode:'every',secondMode:'round',blessingLevel:1,blessingCount:1,blessingLevels:[2,1],flexUses:1,flexScope:'round',fusionRefund:1,fusionPerRound:99,plannedCount:1,plannedFreq:'alternate',eliteHp:.005,eliteAtk:.005,eliteCap:99,fullPurse:20,interest:.5,interestMax:75,eliteGold:12,...(root.JOURNEY_ADVANTAGE_TUNE||{})};
+const TUNE=root.JOURNEY_ADVANTAGE_TUNE={pretraining:2,pretrainingLevel:1,pretrainingLevels:[1,1],rehearsalLevel:2,eyeMode:'every',secondMode:'round',blessingLevel:1,blessingCount:1,blessingLevels:[2,1],flexUses:1,flexScope:'round',fusionRefund:1,fusionPerRound:99,plannedCount:1,plannedFreq:'alternate',eliteHp:.005,eliteAtk:.005,eliteCap:99,fullPurse:20,interest:.5,interestMax:75,eliteGold:12,...(root.JOURNEY_ADVANTAGE_TUNE||{})};
 
 function owned(){const p=P.profile;p.advantages=[...new Set((p.advantages||[]).filter(id=>BY[id]))];return p.advantages;}
 function eligible(s){return !!s&&!s.training&&!s.tutorialReplay;}
