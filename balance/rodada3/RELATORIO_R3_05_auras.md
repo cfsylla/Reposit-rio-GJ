@@ -30,3 +30,14 @@ moderadas de valor quase não aparecem em runs completas. Por isso a compensaç�
 Com o buff só de poder de habilidade, o Sage fica mais fraco que uma unidade neutra em todos os tipos de time, mesmo com valores muito altos.
 Opções: (a) trocar o buff do Sage para redução de dano; (b) manter habilidade e aceitar o Sage fraco; (c) habilidade + outro efeito sem cura.
 Valor provisório no game_r3: +48% poder de habilidade.
+
+## Decisão do Sage (Carlos, 07/11): redução de dano
+| Valor testado | Índice nível 0 / nível 2 |
+|---|---|
+| Hoje (V0: +48% habilidade, −26% dano, cura 9,5%) | 1,10 / 1,16 |
+| −40% dano | 1,06 / 1,12 |
+| **−45% dano (aplicado)** | **1,09 / 1,18** |
+| −50% dano | 1,13 / 1,24 |
+
+Efeito no Círculo Arcano (2 Sages), 8 carreiras: 1ª vitória na run 11 (p10 3 – p90 17); antes, com o Sage só de habilidade, run 18 (4 carreiras).
+O deck volta a ficar rápido (abaixo da faixa 12-22). Pendente: decisão do Carlos.
