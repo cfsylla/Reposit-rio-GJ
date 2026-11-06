@@ -1,0 +1,12 @@
+== tests/xp-r3.cjs
+PASS R3 XP model: table, 6 windows, carry within run, loss at end, defeat keeps nodes, respec refund/loss, single close, anti-farm, diamonds only when complete.
+== tests/auras-r3.cjs
+PASS R3 auras: 4 healers heal by SPEC, 6 pure buff auras heal 0 (no heal entry, no heal text), one buff each (Goblin King two), buffs still apply.
+== tests/challenges-p5.cjs
+PASS challenges (revision 2): 15 challenges, level = number of active challenges, sequential unlock, 1 Insignia per first victory of each level, completion per challenge, per-challenge effects, training excluded; tree level model.
+== tests/advantages-p5.cjs
+PASS advantages: 15 Advantages bought with Insignia, always active outside training, every effect; tree completion flag for XP -> diamonds (R3).
+== tests/integration-cp2.cjs
+PASS CP2 integration: real three-map completion unlocks challenges, awards one Insignia per new level, survives duplicate completion, snapshots advantages, prevents duplicate elite rewards, persists relic rerolls, and applies Planned Hand to the first confrontation. Deferred content absent.
+== tests/progression-v56.cjs
+PASS v56 full lifecycle: three maps/tree closure, win/challenge rewards in result history, all 82 new objectives and payout restore.

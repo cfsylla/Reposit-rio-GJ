@@ -1,0 +1,36 @@
+
+CHECK: Balance P1/P2 (data, supports model B, new trait mechanics)
+PASS balance P1/P2: data module, skillScale, support aura rules (emitter excluded, additive, no feedback, healing others), Trailblazer first strike.
+
+CHECK: Balance P3 (24 decks, unlocks, save migration)
+PASS P3: 24 decks (counts, 20 cards, max 4, relics), all 77 characters used, hidden order decks, milestone/order/true-boss unlocks and save migration.
+
+CHECK: Balance P4 (difficulty curve, economy, bosses, enemy decks, relic rule, minion fix)
+PASS P4: enemy curve (~1 upgrade per fight), elite +1, gold 14/16/18, power 1/1.16/1.235 (post-CP1), boss leaders, themed enemy decks, relic rule 1..n-1 with bag limit, minion charge fix.
+
+CHECK: Traits v54 (+P1/P2 values)
+PASS v54: all 77 assignments, 29 traits, both attribute tiers, all faction/temperament mechanics, self-protection nerfs, health-only charge, serialization and 30 real simulations.
+PASS v54 leader identities, inactive snapshot, deterministic active raid replay and environmental damage immunity.
+
+CHECK: Events/curses/relics v53
+PASS v53: 22 events × both offers × 20 seeds; prices/risks/transactions/save replay, 4 curses, 5 relics, real event combats and arena, mission route, loss flow.
+PASS v53 forced success/failure exclusivity, cross-map quest and Mirror × Caravan integration.
+PASS v53: Ill Omen applies only to the player field limit; enemy formation is unchanged.
+
+CHECK: History/navigation/animation v52
+PASS v52: cumulative/legacy order history, persistent map/node jumps, no synthetic rewards, blocked unsafe phases, direct boss lifecycle, real high-haste melee/ranged raid animations.
+
+CHECK: Tree with current v54 modules
+PASS v51 (post-CP1 expectations): 60 connected nodes, 3,000 varied maps/all-route counts/order reachability, post-boss XP lifecycle including all true bosses, permanent purchases/migration, gold/shop/recruit/bag bonuses, real combat stats and timed effects.
+PASS v51 real crit/healing resolution and deterministic active raid restore with every tree bonus.
+
+CHECK: Post-CP1: Desafios da Jornada and tree level model
+PASS challenges (revision 2): 15 challenges, level = number of active challenges, sequential unlock, 1 Insignia per first victory of each level, completion per challenge, per-challenge effects, training excluded; tree level model.
+
+CHECK: Post-CP1: Vantagens and overflow XP
+PASS advantages: 15 Advantages bought with Insignia, always active outside training, every effect; tree completion flag for XP -> diamonds (R3).
+
+CHECK: Boss mechanics with v54 traits (legacy victory flow, no tree session)
+PASS v50 all 11 bosses, guaranteed/capped formations, real skills/combat, all four transformations, deterministic active saves, persistent HP/losses, rewards once, distinct selections and mechanic caps
+
+PASS: selected exported v54 mechanics checks. This is not a balance certification.

@@ -13,7 +13,7 @@ function own(ids) { P.profile.advantages = [...ids]; }
 function run(ids, seed = 11, deck = 'vanguard') { own(ids); const s = G.fresh(deck, seed); G.enter(s, G.available(s)[0].id); return s; }
 const base = run([]), cards = s => s.cards.length, lv = s => s.cards.reduce((n, c) => n + c.level, 0);
 assert.equal(run(['full_purse']).gold, base.gold + 20);
-{ const s = run(['pretraining']); assert.equal(lv(s), lv(base) + 3); assert.deepEqual(s.cards.filter(c => c.level).map(c => c.level).sort(), [1, 2]); }
+{ const s = run(['pretraining']); assert.equal(lv(s), lv(base) + 2); assert.deepEqual(s.cards.filter(c => c.level).map(c => c.level).sort(), [1, 1]); } // R3: 2 cards with upgrade 1
 assert.equal(run(['travel_relic']).artifacts.length, base.artifacts.length + 1);
 // Olho Treinado: one free reroll on every relic choice.
 { const s = run(['trained_eye']); s.phase = 'relic'; s.offers = G.unownedRelics(s).slice(0, 3); const before = [...s.offers]; assert(AD.rerollRelic(s)); assert.notDeepEqual(s.offers, before); assert(!AD.rerollRelic(s), 'once per choice'); s.offers = G.unownedRelics(s).slice(3, 6); assert(AD.rerollRelic(s), 'again on the next choice'); }
@@ -37,6 +37,6 @@ assert.equal(run(['travel_relic']).artifacts.length, base.artifacts.length + 1);
 { const s = run(['elite_experience']); const c = s.cards[0], b0 = G.stats(c, s); s.adv.eliteStacks = 4; const b4 = G.stats(c, s); assert(Math.abs(b4.hp / b0.hp - 1.02) < 1e-9); assert(Math.abs(b4.atk / b0.atk - 1.02) < 1e-9); s.current = { ...s.current, type: 'elite' }; P.encounterWin(s); assert.equal(s.adv.eliteStacks, 5); }
 // Never in training.
 { own(AD.LIST.map(a => a.id)); const s = G.fresh('vanguard', 3); s.training = { wins: 1 }; assert.equal(AD.has(s, 'full_purse'), false); }
-// Overflow XP -> diamonds (1 per 20 XP above level 30).
-{ own([]); const st = T.profile(); st.totalXp = 500; st.overflowPaid = 0; const d = P.profile.diamonds || 0; const s = G.fresh('vanguard', 4); T.ensure(s).xp = 45; T.bank(s); assert.equal(P.profile.diamonds, d + 2); T.ensure(s).xp = 15; T.bank(s); assert.equal(P.profile.diamonds, d + 3); }
-console.log('PASS advantages: 15 Advantages bought with Insignia, always active outside training, every effect; overflow tree XP -> diamonds (1 per 20).');
+// R3: XP becomes diamonds (1 per 20) only once the whole tree is owned; covered by tests/xp-r3.cjs (section 8).
+{ own([]); const st = T.profile(); st.unlocked = []; assert.equal(T.complete(), false); st.unlocked = JourneyTreeData.nodes.filter(n => n.id !== 'origin').map(n => n.id); assert.equal(T.complete(), true); st.unlocked = []; }
+console.log('PASS advantages: 15 Advantages bought with Insignia, always active outside training, every effect; tree completion flag for XP -> diamonds (R3).');

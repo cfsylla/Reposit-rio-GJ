@@ -31,10 +31,10 @@ assert.equal(ups(fight(['commanders'], 9, 'elite')) - ups(fight(null, 9, 'elite'
 { const s = fight(['bossrounds'], 9, 'boss'); assert.equal(G.winsNeeded(s), 4); const st = { hp: 100, atk: 100 }; CH.enemyStats(s, { type: 'goblin_archer' }, st); assert(Math.abs(st.hp - 108) < 1e-9 && Math.abs(st.atk - 108) < 1e-9); const n = fight(['bossrounds'], 5), st2 = { hp: 100, atk: 100 }; CH.enemyStats(n, { type: 'goblin_archer' }, st2); assert.equal(st2.hp, 100); }
 { const s = fight(['reinforcements'], 5); s.round = 1; assert.equal(CH.extraUnits(s), 0); s.round = 2; assert.equal(G.maxUnits(s, true), 4); assert.equal(G.maxUnits(s, false), 3); }
 { const s = fight(['reinforcements'], 9, 'boss'); assert.equal(CH.extraUnits(s), 0); }
-{ const s = run(['raidfury']); JourneyRaid.initialize(s, 'tree', { hp: 1, damage: 1, minions: 1 }, true); assert(Math.abs(s.raid.scale.hp - 1.3) < 1e-9); assert(Math.abs(s.raid.scale.damage - 1.1) < 1e-9); }
+{ const s = run(['raidfury']); JourneyRaid.initialize(s, 'tree', { hp: 1, damage: 1, minions: 1 }, true); assert(Math.abs(s.raid.scale.hp - 1.15) < 1e-9); assert(Math.abs(s.raid.scale.damage - 1.05) < 1e-9); } // R3: +15% HP, +5% damage
 { const s = run(['inflation']), b = run(null); s.current = b.current = { id: 'x', type: 'shop' }; assert.equal(T.price(s, 'upgrade', 10, 0), 12); assert.equal(T.price(b, 'upgrade', 10, 0), 10); }
 { const s = run(['lightpurse']); assert.equal(T.gold(s, 16), 13); }
-{ const bs = fight(['scarce'], 9, 'boss'), e = fight(['scarce'], 5, 'elite'), bb = fight(null, 9, 'boss'), eb = fight(null, 5, 'elite'); for (const r of [1, 2]) { bs.round = e.round = bb.round = eb.round = r; assert.equal(G.energyIncome(bs), G.energyIncome(bb) - 1); assert.equal(G.energyIncome(e), G.energyIncome(eb)); } bs.round = bb.round = 3; assert.equal(G.energyIncome(bs), G.energyIncome(bb)); }
+{ const bs = fight(['scarce'], 9, 'boss'), e = fight(['scarce'], 5, 'elite'), bb = fight(null, 9, 'boss'), eb = fight(null, 5, 'elite'); for (const r of [1]) { bs.round = e.round = bb.round = eb.round = r; assert.equal(G.energyIncome(bs), G.energyIncome(bb) - 1); assert.equal(G.energyIncome(e), G.energyIncome(eb)); } bs.round = bb.round = 2; assert.equal(G.energyIncome(bs), G.energyIncome(bb)); } // R3: first round only
 // Enemy relic filter (post-CP1 fix): scope/tome/boots/shield can reach enemies whose cards match the relic.
 { const pool = cards => G.enemyRelicPool(cards.map(t => ({ type: t, level: 0 }))).map(a => a.id); const ranged = Object.values(G.BY).find(u => u.range > 100 && !u.order).id; assert(pool([ranged]).includes('scope')); const melee = Object.values(G.BY).find(u => u.range <= 100 && !u.traits.includes('Sentinel') && !u.traits.includes('Trailblazer') && !JourneyTraits.caster(u) && u.kind !== 'curse' && !/^boss_/.test(u.id)); if (melee) assert(!pool([melee.id]).includes('scope')); }
 { const s = run(['bag']); assert.equal(G.bagCapacity(s), 13); assert(CH.cellBlocked(s, 3, 3)); assert(!CH.cellBlocked(s, 0, 0)); }
@@ -42,8 +42,8 @@ assert.equal(ups(fight(['commanders'], 9, 'elite')) - ups(fight(null, 9, 'elite'
 // Energia Dissipada (replaces Árvore Contida): loses 1 of the leftover energy when the round ends.
 { const s = fight(['dissipate'], 5); s.energy = 3; s.phase = 'roundResult'; const before = s.energy; CH.roundEnd(s); assert.equal(s.energy, 2); s.energy = 0; CH.roundEnd(s); assert.equal(s.energy, 0); const b = fight(null, 5); b.energy = 3; CH.roundEnd(b); assert.equal(b.energy, 3); }
 { const s = run(['fewrelics']); assert.equal(T.relicCount(s, 3), 1); }
-{ const st = T.profile(); st.totalXp = 300; st.unlocked = []; for (const id of ['pow_atk_1', 'vit_hp_1', 'pow_atk_2', 'vit_hp_2', 'pow_atk_3', 'first_impact']) assert(T.buy(null, id), id);
-  st.unlocked = []; st.totalXp = 0; }
+{ const st = T.profile(); st.respec = 300; st.unlocked = []; for (const id of ['pow_atk_1', 'vit_hp_1', 'pow_atk_2', 'vit_hp_2', 'pow_atk_3', 'first_impact']) assert(T.buy(null, id), id); // R3: outside a run, purchases use the respec budget
+  st.unlocked = []; st.respec = 0; }
 assert.equal(CH.select(['treecap']),false,'retired challenges cannot be selected');
 assert.deepEqual(run(['cursed']).cards.filter(c => JourneyContent.isCurse(c)).map(c => c.type).sort(), ['exhaustion']);
 { const pc = CH.profile(); pc.selected = ['veterans', 'scarce']; const s = G.fresh('vanguard', 3); s.training = { wins: 1 }; CH.start(s); assert.equal(s.challenges, undefined); assert.equal(CH.active(s, 'scarce'), false); }
@@ -52,10 +52,9 @@ assert.deepEqual(run(['cursed']).cards.filter(c => JourneyContent.isCurse(c)).ma
 assert.equal(CH.finalRequirements, undefined);
 assert.equal(CH.trueBossesBeaten, undefined);
 assert(!('final' in CH.profile()));
-// Tree level model.
-{ const st = T.profile(); st.unlocked = []; st.totalXp = 95; assert.equal(T.level(), 9); assert.equal(T.points(), 90);
-  assert(T.buy(null, 'pow_atk_1')); assert.equal(T.available(), 82); assert(T.reset(null)); assert.equal(T.available(), 90);
-  st.totalXp = 1000; assert.equal(T.level(), 50); assert.equal(T.overflowXp(), 500);
-  assert.deepEqual([T.xpFor(1, false), T.xpFor(1, true), T.xpFor(2, false), T.xpFor(2, true), T.xpFor(3, false), T.xpFor(3, true)], [2, 4, 2, 4, 1, 6]); st.totalXp = 0; }
+// Tree model R3 (full rules in tests/xp-r3.cjs): level = owned nodes; respec refunds only the invested cost; XP = weight x map.
+{ const st = T.profile(); st.unlocked = []; st.respec = 0; assert.equal(T.level(), 0); assert.equal(T.available(), 0);
+  st.respec = 8; assert(T.buy(null, 'pow_atk_1')); assert.equal(T.level(), 1); assert.equal(T.available(), 0); assert(T.reset(null)); assert.equal(T.available(), 8);
+  assert.deepEqual([T.xpFor(1, 'battle'), T.xpFor(1, 'special'), T.xpFor(1, 'boss'), T.xpFor(2, 'battle'), T.xpFor(3, 'boss'), T.xpFor(3, 'trueBoss')], [1, 2, 4, 2, 12, 18]); st.respec = 0; }
 
 console.log('PASS challenges (revision 2): 15 challenges, level = number of active challenges, sequential unlock, 1 Insignia per first victory of each level, completion per challenge, per-challenge effects, training excluded; tree level model.');

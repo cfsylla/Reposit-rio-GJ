@@ -19,11 +19,12 @@ for (const id of Object.keys(S.SPEC)) { assert.equal(G.BY[id].kind, 'passive'); 
 { const b = battle(['warrior', 'goblin_king', 'bard']); const w = b.units.find(u => u.type === 'warrior' && !u.side), k = b.units.find(u => u.type === 'goblin_king'), bard = b.units.find(u => u.type === 'bard');
   for (const u of [w, k, bard]) { u.x = 200; u.y = 400; }
   T.beforeStep(b, 1 / 60);
-  assert(Math.abs(bonusOf(w, 'atk') - (.32 + .26)) < 1e-9, 'auras from different supports add up');
-  assert(Math.abs(bonusOf(k, 'atk') - .26) < 1e-9, 'king gets only the bard aura'); assert(Math.abs(bonusOf(bard, 'atk') - .32) < 1e-9, 'bard gets only the king aura');
+  const BA = S.SPEC.bard.buff.atk, KA = S.SPEC.goblin_king.buff.atk; // R3: values read from SPEC (Bard +34% damage)
+  assert(Math.abs(bonusOf(w, 'atk') - (KA + BA)) < 1e-9, 'auras from different supports add up');
+  assert(Math.abs(bonusOf(k, 'atk') - BA) < 1e-9, 'king gets only the bard aura'); assert(Math.abs(bonusOf(bard, 'atk') - KA) < 1e-9, 'bard gets only the king aura');
   // No feedback: received skill buffs do not grow the emitter aura.
   for (let i = 0; i < 120; i++) G.step(b, 1 / 60);
-  if (k.hp > 0 && w.hp > 0 && bard.hp > 0) { T.beforeStep(b, 1 / 60); assert(Math.abs(bonusOf(w, 'atk') - (.32 + .26)) < 1e-9, 'aura size stable'); }
+  if (k.hp > 0 && w.hp > 0 && bard.hp > 0) { T.beforeStep(b, 1 / 60); assert(Math.abs(bonusOf(w, 'atk') - (KA + BA)) < 1e-9, 'aura size stable'); }
 }
 // Healing: others only, every interval, through the pending list.
 { const b = battle(['warrior', 'priestess']); const w = b.units.find(u => u.type === 'warrior' && !u.side), p = b.units.find(u => u.type === 'priestess'); w.x = p.x = 200; w.y = 380; p.y = 420; w.hp = 100; p.hp = 100;
