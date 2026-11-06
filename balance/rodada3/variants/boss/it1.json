@@ -1,0 +1,94 @@
+{
+ "note": "R3 boss tuning step (enemy-only). 2026-11-06T00:20:26.146Z",
+ "bossTune": {
+  "map": [
+   1.043,
+   0.998,
+   1.247
+  ],
+  "boss": {
+   "ib_marshal": {
+    "hp": 0.954,
+    "atk": 0.954
+   },
+   "ib_shogun": {
+    "hp": 1.152,
+    "atk": 1.152
+   },
+   "ib_jarl": {
+    "hp": 0.914,
+    "atk": 0.914
+   },
+   "ib_gunslinger": {
+    "hp": 1.366,
+    "atk": 1.366
+   },
+   "ib_piratequeen": {
+    "hp": 1.02,
+    "atk": 1.02
+   },
+   "ib_oracle": {
+    "hp": 0.899,
+    "atk": 0.899
+   },
+   "ib_hartlord": {
+    "hp": 0.778,
+    "atk": 0.778
+   },
+   "goblin": {
+    "hp": 1.5,
+    "atk": 1.5
+   },
+   "troll": {
+    "hp": 1.267,
+    "atk": 1.267
+   },
+   "orc": {
+    "hp": 0.75,
+    "atk": 0.75
+   },
+   "meowri": {
+    "hp": 1.183,
+    "atk": 1.183
+   },
+   "centaur": {
+    "hp": 0.994,
+    "atk": 0.994
+   },
+   "highelf": {
+    "hp": 0.899,
+    "atk": 0.899
+   },
+   "forestelf": {
+    "hp": 1.5,
+    "atk": 1.5
+   },
+   "ib_wayfarer": {
+    "hp": 1.355,
+    "atk": 1.355
+   },
+   "darkelf": {
+    "hp": 1.355,
+    "atk": 1.355
+   },
+   "fairy": {
+    "hp": 1.115,
+    "atk": 1.115
+   }
+  },
+  "true2": {
+   "ib_wayfarer": {
+    "hp": 1.355,
+    "damage": 1.355
+   },
+   "darkelf": {
+    "hp": 1.355,
+    "damage": 1.355
+   },
+   "fairy": {
+    "hp": 1.115,
+    "damage": 1.115
+   }
+  }
+ }
+}
