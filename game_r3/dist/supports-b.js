@@ -8,18 +8,22 @@
 (function (root) {
   'use strict';
   const G = root.Game, T = root.JourneyTraits, Tree = root.JourneyTree;
+  /* GJ-R3 identity (Carlos 06/11/2026): only Priestess, Flower Fairy, Elf Harpist and Shaman heal; the other six are pure
+   * buff auras (heal 0: no heal pulse, no heal numbers, no "on heal" triggers, no heal text). One buff per support; the
+   * Goblin King (a boss) keeps two. Version A below = cure removed, remaining buff values unchanged. */
   const SPEC = { // calibrated with balance/sim/tune.cjs: lab index = cost/rarity target (approved model B)
     priestess: { radius: 120, every: 2, heal: .068, buff: { guard: .17 } },
     elf_harpist: { radius: 120, every: 2, heal: .115, buff: { haste: .23 } },
     flower_fairy: { radius: 120, every: 2, heal: .11, buff: { skill: .35 } },
-    snow_troll: { radius: 120, every: 2, heal: .07, buff: { guard: .28 } },
+    snow_troll: { radius: 120, every: 2, heal: 0, buff: { guard: .28 } },
     shaman: { radius: 120, every: 2, heal: .056, buff: { haste: .43 } },
-    sage: { radius: 120, every: 3, heal: .095, buff: { skill: .48, guard: .26 } },
-    feline_arcanist: { radius: 120, every: 3, heal: .048, buff: { haste: .29 } },
-    bard: { radius: 120, every: 3, heal: .022, buff: { atk: .26, skill: .22 } },
-    goblin_king: { radius: 120, every: 3, heal: .04, buff: { atk: .32, haste: .27 } },
-    feline_drummer: { radius: 120, every: 3, heal: .034, buff: { haste: .34, speed: .46 } },
+    sage: { radius: 120, every: 3, heal: 0, buff: { skill: .48 } },
+    feline_arcanist: { radius: 120, every: 3, heal: 0, buff: { haste: .29 } },
+    bard: { radius: 120, every: 3, heal: 0, buff: { atk: .26 } },
+    goblin_king: { radius: 120, every: 3, heal: 0, buff: { atk: .32, haste: .27 } },
+    feline_drummer: { radius: 120, every: 3, heal: 0, buff: { haste: .34 } },
   };
+  if (root.SUPPORT_B_SPEC) for (const [id, o] of Object.entries(root.SUPPORT_B_SPEC)) SPEC[id] = { ...SPEC[id], ...o }; // testing variants only
   // Upgrade/fusion growth is softened (half of the skill-power growth) to avoid runaway sustain.
   const growth = u => 1 + ((u.baseSkill ?? u.skill ?? 1) - 1) * .5; // base skill power: received buffs never feed auras
   const NAMES = { guard: ['less damage taken', 'menos dano recebido'], haste: ['attack speed', 'velocidade de ataque'], skill: ['skill power', 'poder de habilidade'],
@@ -31,8 +35,9 @@
     const buffEN = Object.entries(sp.buff).map(([k, x]) => (k === 'guard' ? pct(x) + '% ' : '+' + pct(x) + '% ') + NAMES[k][0]).join(' and ');
     const br = x => String(pct(x)).replace('.', ',');
     const buffPT = Object.entries(sp.buff).map(([k, x]) => k === 'guard' ? br(x) + '% menos dano recebido' : '+' + br(x) + '% de ' + NAMES[k][1]).join(' e ');
-    u.detail = `Passive aura (radius ${sp.radius}). Every ${sp.every}s heals other allies inside it for ${pct(sp.heal)}% max HP. Other allies inside gain ${buffEN}. Does not affect itself; auras from different supports add up. Keeps behind the frontline. Upgrades and fusion raise the aura by half the usual growth.`;
-    u.detailPT = `Aura passiva (raio ${sp.radius}). A cada ${sp.every}s cura os outros aliados dentro dela em ${br(sp.heal)}% da vida máxima. Outros aliados dentro dela recebem ${buffPT}. Não afeta a si mesmo; auras de suportes diferentes se somam. Fica atrás da linha de frente. Upgrade e fusão aumentam a aura pela metade do crescimento normal.`;
+    const healEN = sp.heal > 0 ? ` Every ${sp.every}s heals other allies inside it for ${pct(sp.heal)}% max HP.` : '', healPT = sp.heal > 0 ? ` A cada ${sp.every}s cura os outros aliados dentro dela em ${br(sp.heal)}% da vida máxima.` : '';
+    u.detail = `Passive aura (radius ${sp.radius}).${healEN} Other allies inside gain ${buffEN}. Does not affect itself; auras from different supports add up. Keeps behind the frontline. Upgrades and fusion raise the aura by half the usual growth.`;
+    u.detailPT = `Aura passiva (raio ${sp.radius}).${healPT} Outros aliados dentro dela recebem ${buffPT}. Não afeta a si mesmo; auras de suportes diferentes se somam. Fica atrás da linha de frente. Upgrade e fusão aumentam a aura pela metade do crescimento normal.`;
   }
   const tune = u => (u.side === 0 && root.SUPPORT_B_TUNE && root.SUPPORT_B_TUNE[u.type]) || 1; // testing knob only
   const dist = (a, c) => Math.hypot(a.x - c.x, a.y - c.y);
@@ -63,7 +68,7 @@
   host.beforeSettle = function (b, living, pending) {
     settle.call(host, b, living, pending);
     for (const s of living) {
-      const sp = SPEC[s.type]; if (!sp || s.hp <= 0 || s.raidBoss) continue;
+      const sp = SPEC[s.type]; if (!sp || !(sp.heal > 0) || s.hp <= 0 || s.raidBoss) continue; // pure buff auras never heal
       const last = s.supportBLast ?? 0; if (b.time - last < sp.every) continue; s.supportBLast = b.time;
       const k = growth(s) * tune(s);
       for (const v of living) if (v !== s && v.side === s.side && v.hp > 0 && dist(s, v) <= sp.radius) G.heal(b, v, v.maxhp * sp.heal * k, pending, s); // emitter does not heal itself

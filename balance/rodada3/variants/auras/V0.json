@@ -1,0 +1,45 @@
+{
+ "note": "auras como na v50 (referência)",
+ "supportSpec": {
+  "snow_troll": {
+   "heal": 0.07,
+   "buff": {
+    "guard": 0.28
+   }
+  },
+  "sage": {
+   "heal": 0.095,
+   "buff": {
+    "skill": 0.48,
+    "guard": 0.26
+   }
+  },
+  "feline_arcanist": {
+   "heal": 0.048,
+   "buff": {
+    "haste": 0.29
+   }
+  },
+  "bard": {
+   "heal": 0.022,
+   "buff": {
+    "atk": 0.26,
+    "skill": 0.22
+   }
+  },
+  "goblin_king": {
+   "heal": 0.04,
+   "buff": {
+    "atk": 0.32,
+    "haste": 0.27
+   }
+  },
+  "feline_drummer": {
+   "heal": 0.034,
+   "buff": {
+    "haste": 0.34,
+    "speed": 0.46
+   }
+  }
+ }
+}
