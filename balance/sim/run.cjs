@@ -253,7 +253,7 @@ function bossLab(s, node, pol, rec, dt) {
       }
     } catch (e) { res = 'error:' + e.message.slice(0, 60); }
     const back = JSON.parse(prof); for (const k of Object.keys(P.profile)) delete P.profile[k]; Object.assign(P.profile, back);
-    out.push({ act, order, id, trueBoss: isTrue, res });
+    out.push({ act, order, id, trueBoss: isTrue, res, score: c.score ? [...c.score] : null, form: c.bossEncounter?.form || null });
   }
 }
 function finalize(s, rec) {
