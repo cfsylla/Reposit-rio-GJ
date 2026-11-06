@@ -25,3 +25,15 @@ Antes = v50 com modelo R3 (bosslab); depois = iteração 3 (bosslab_it3). % de v
 | Rainha Fada (True DC) | — | — | — | 80 → **77** | 1.02 (forma 2: vida ×1.02, dano ×1.02) | 1.02 |
 
 Multiplicador por mapa (todos os bosses): ×1.04 / ×0.96 / ×1.20
+
+## Iteração 4: só True Bosses (30 nós, 5 decks × 80 seeds)
+| True Boss | Iteração 3 | Iteração 4 | Derrotas de rodada (média, limite 5) |
+|---|---:|---:|---:|
+| Andarilho (Ironbound) | 79% | **72% ±5** | 3,8 |
+| Rei Dark Elf (Blackfang) | 77% | **76% ±5** | 3,4 |
+| Rainha Fada (Dawncrest) | 77% | **74% ±5** | 3,0 |
+| Média | 78% | **74%** (meta 73%) | |
+| Boss comum do mapa 3 | 83% | 84% ±1 | |
+
+Multiplicadores finais dos True Bosses (forma 1 e forma 2 = vida/ataque e vida/dano): Andarilho ×1,41; Rei Dark Elf ×1,21; Rainha Fada ×1,04.
+A estrutura do encontro foi mantida (2 vitórias na forma 1 + forma 2, limite de 5 derrotas).
