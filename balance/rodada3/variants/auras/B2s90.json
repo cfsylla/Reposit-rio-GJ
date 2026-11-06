@@ -1,0 +1,35 @@
+{
+ "note": "B2 com Sage skill .90",
+ "supportSpec": {
+  "bard": {
+   "heal": 0,
+   "buff": {
+    "atk": 0.34
+   }
+  },
+  "snow_troll": {
+   "heal": 0,
+   "buff": {
+    "guard": 0.42
+   }
+  },
+  "feline_arcanist": {
+   "heal": 0,
+   "buff": {
+    "haste": 0.35
+   }
+  },
+  "feline_drummer": {
+   "heal": 0,
+   "buff": {
+    "haste": 0.46
+   }
+  },
+  "sage": {
+   "heal": 0,
+   "buff": {
+    "skill": 0.9
+   }
+  }
+ }
+}

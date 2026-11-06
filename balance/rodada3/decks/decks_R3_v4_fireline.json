@@ -1,0 +1,103 @@
+{
+ "note": "R3 Linha de Fogo v4 (3-4 trocas)",
+ "decks": [
+  {
+   "id": "fireline_c",
+   "name": "Linha de Fogo [c]",
+   "subtitle": "Fogo à distância",
+   "desc": "Muitos atiradores atrás de poucos defensores.",
+   "ids": [
+    "ranger",
+    "crossbowman",
+    "bastion",
+    "musketeer",
+    "archer",
+    "gunner",
+    "cannoneer",
+    "priestess"
+   ],
+   "counts": {
+    "ranger": 1,
+    "archer": 2,
+    "crossbowman": 3,
+    "bastion": 2,
+    "musketeer": 4,
+    "gunner": 3,
+    "cannoneer": 3,
+    "priestess": 2
+   },
+   "faces": [
+    "ranger",
+    "crossbowman",
+    "bastion"
+   ],
+   "strategy": "fireline",
+   "startRelic": "scope",
+   "r3change": {
+    "base": "fireline",
+    "remove": [
+     "ranger",
+     "ranger",
+     "bastion"
+    ],
+    "add": [
+     "gunner",
+     "cannoneer",
+     "musketeer"
+    ],
+    "relic": null,
+    "why": "3 trocas: menos atiradores baratos e menos frente; mais unidades caras"
+   }
+  },
+  {
+   "id": "fireline_d",
+   "name": "Linha de Fogo [d]",
+   "subtitle": "Fogo à distância",
+   "desc": "Muitos atiradores atrás de poucos defensores.",
+   "ids": [
+    "ranger",
+    "crossbowman",
+    "bastion",
+    "musketeer",
+    "archer",
+    "gunner",
+    "cannoneer",
+    "priestess"
+   ],
+   "counts": {
+    "ranger": 2,
+    "archer": 1,
+    "crossbowman": 4,
+    "bastion": 2,
+    "musketeer": 4,
+    "gunner": 3,
+    "cannoneer": 3,
+    "priestess": 1
+   },
+   "faces": [
+    "ranger",
+    "crossbowman",
+    "bastion"
+   ],
+   "strategy": "fireline",
+   "startRelic": "scope",
+   "r3change": {
+    "base": "fireline",
+    "remove": [
+     "ranger",
+     "archer",
+     "bastion",
+     "priestess"
+    ],
+    "add": [
+     "gunner",
+     "cannoneer",
+     "musketeer",
+     "crossbowman"
+    ],
+    "relic": null,
+    "why": "4 trocas: tira 2 atiradores baratos, 1 frente e 1 cura; entram 4 atiradores caros"
+   }
+  }
+ ]
+}

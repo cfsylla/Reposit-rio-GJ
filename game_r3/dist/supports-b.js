@@ -10,18 +10,19 @@
   const G = root.Game, T = root.JourneyTraits, Tree = root.JourneyTree;
   /* GJ-R3 identity (Carlos 06/11/2026): only Priestess, Flower Fairy, Elf Harpist and Shaman heal; the other six are pure
    * buff auras (heal 0: no heal pulse, no heal numbers, no "on heal" triggers, no heal text). One buff per support; the
-   * Goblin King (a boss) keeps two. Version A below = cure removed, remaining buff values unchanged. */
+   * Goblin King (a boss) keeps two. Values = version B (provisional, character lab 06/11): remaining buff raised to restore
+   * each support's lab index (Bard, Snow Troll, Feline Arcanist, Feline Drummer); Sage ON HOLD (skill-only cannot be compensated). */
   const SPEC = { // calibrated with balance/sim/tune.cjs: lab index = cost/rarity target (approved model B)
     priestess: { radius: 120, every: 2, heal: .068, buff: { guard: .17 } },
     elf_harpist: { radius: 120, every: 2, heal: .115, buff: { haste: .23 } },
     flower_fairy: { radius: 120, every: 2, heal: .11, buff: { skill: .35 } },
-    snow_troll: { radius: 120, every: 2, heal: 0, buff: { guard: .28 } },
+    snow_troll: { radius: 120, every: 2, heal: 0, buff: { guard: .42 } },
     shaman: { radius: 120, every: 2, heal: .056, buff: { haste: .43 } },
     sage: { radius: 120, every: 3, heal: 0, buff: { skill: .48 } },
-    feline_arcanist: { radius: 120, every: 3, heal: 0, buff: { haste: .29 } },
-    bard: { radius: 120, every: 3, heal: 0, buff: { atk: .26 } },
+    feline_arcanist: { radius: 120, every: 3, heal: 0, buff: { haste: .35 } },
+    bard: { radius: 120, every: 3, heal: 0, buff: { atk: .34 } },
     goblin_king: { radius: 120, every: 3, heal: 0, buff: { atk: .32, haste: .27 } },
-    feline_drummer: { radius: 120, every: 3, heal: 0, buff: { haste: .34 } },
+    feline_drummer: { radius: 120, every: 3, heal: 0, buff: { haste: .46 } },
   };
   if (root.SUPPORT_B_SPEC) for (const [id, o] of Object.entries(root.SUPPORT_B_SPEC)) SPEC[id] = { ...SPEC[id], ...o }; // testing variants only
   // Upgrade/fusion growth is softened (half of the skill-power growth) to avoid runaway sustain.
