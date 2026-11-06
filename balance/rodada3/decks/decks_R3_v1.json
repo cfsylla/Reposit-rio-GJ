@@ -1,0 +1,240 @@
+{
+ "note": "R3 deck proposal v1 (teste)",
+ "decks": [
+  {
+   "id": "blades",
+   "name": "Lâminas do Oriente",
+   "theme": "Legends of the East: assassinos e golpes rítmicos",
+   "startRelic": "precision",
+   "counts": {
+    "shinobi": 2,
+    "omnamusha": 2,
+    "samurai": 3,
+    "fighter": 4,
+    "ronin": 1,
+    "martial_artist": 4,
+    "kinoichi": 2,
+    "shaolin": 2
+   },
+   "v6": "OmnaMusha 3→2, Martial Artist 2→3",
+   "r3change": {
+    "remove": [
+     "shinobi",
+     "ronin"
+    ],
+    "add": [
+     "fighter",
+     "martial_artist"
+    ],
+    "why": "rápido: troca 2 atacantes de elite por 2 básicos"
+   }
+  },
+  {
+   "id": "arcane",
+   "name": "Círculo Arcano",
+   "theme": "Arcane: especiais encadeados protegidos por suportes",
+   "startRelic": "tome",
+   "counts": {
+    "bastion": 4,
+    "warrior": 4,
+    "mage": 3,
+    "sorceress": 2,
+    "gladiator": 2,
+    "bard": 2,
+    "sage": 2,
+    "priestess": 1
+   },
+   "v2": "Ranger → Gladiador: frente para proteger os magos",
+   "r3change": {
+    "remove": [
+     "sorceress",
+     "priestess"
+    ],
+    "add": [
+     "warrior",
+     "bastion"
+    ],
+    "why": "rápido: menos dano mágico e menos cura"
+   }
+  },
+  {
+   "id": "fireline",
+   "name": "Linha de Fogo",
+   "theme": "Muitos atiradores atrás de poucos defensores",
+   "startRelic": "scope",
+   "counts": {
+    "ranger": 4,
+    "archer": 3,
+    "crossbowman": 2,
+    "bastion": 3,
+    "musketeer": 2,
+    "gunner": 2,
+    "cannoneer": 2,
+    "priestess": 2
+   },
+   "cp2_change": {
+    "warrior": -2,
+    "archer": -1,
+    "priestess": 2,
+    "musketeer": 1
+   },
+   "r3change": {
+    "remove": [
+     "musketeer",
+     "crossbowman"
+    ],
+    "add": [
+     "archer",
+     "ranger"
+    ],
+    "why": "rápido: troca 2 atiradores pesados por 2 leves"
+   }
+  },
+  {
+   "id": "verdant",
+   "name": "Círculo Verdejante",
+   "theme": "Verdant Covenant: vegetação que reduz dano + druidas",
+   "startRelic": "plating",
+   "counts": {
+    "ranger": 3,
+    "archer": 3,
+    "bear_druid": 2,
+    "eagle_druid": 2,
+    "crossbowman": 2,
+    "lancer": 3,
+    "priestess": 2,
+    "fighter": 3
+   },
+   "r3change": {
+    "remove": [
+     "bear_druid",
+     "eagle_druid"
+    ],
+    "add": [
+     "lancer",
+     "fighter"
+    ],
+    "why": "rápido: troca 2 druidas raros por 2 básicos"
+   }
+  },
+  {
+   "id": "vanguard",
+   "name": "Vanguarda da Aurora",
+   "theme": "Dawnward Order: frente sólida e escudo inicial",
+   "startRelic": "banner",
+   "counts": {
+    "warrior": 3,
+    "lancer": 4,
+    "bastion": 3,
+    "gladiator": 3,
+    "swordsman": 1,
+    "fighter": 2,
+    "archer": 2,
+    "ranger": 2
+   },
+   "v2": "Cavalier → Ranger: menos força",
+   "v3": "Duelist → Archer",
+   "v4": "Gladiador → Fighter (sem 2 Sentinelas)",
+   "v5": "meio-termo: mantém Gladiador; Musketeer → Fighter",
+   "r3change": {
+    "remove": [
+     "swordsman"
+    ],
+    "add": [
+     "lancer"
+    ],
+    "why": "levemente rápido: 1 troca"
+   }
+  },
+  {
+   "id": "executioners",
+   "name": "Executores",
+   "theme": "Impiedoso: focam e finalizam os feridos",
+   "startRelic": "execution",
+   "counts": {
+    "kinoichi": 3,
+    "cowboy": 2,
+    "musketeer": 3,
+    "gladiator": 3,
+    "bastion": 2,
+    "crossbowman": 2,
+    "huntress": 2,
+    "sheriff": 2,
+    "fighter": 1
+   },
+   "v3": "Fighter → Bastion",
+   "v6": "Musketeer 3→2, Bastion mantido, Warrior→Fighter 1 (versão B)",
+   "cp2_change": {
+    "kinoichi": -1,
+    "fighter": 1
+   },
+   "r3change": {
+    "remove": [
+     "cowboy",
+     "fighter"
+    ],
+    "add": [
+     "kinoichi",
+     "musketeer"
+    ],
+    "why": "lento: troca 2 cartas fracas por 2 de dano"
+   }
+  },
+  {
+   "id": "outlaws",
+   "name": "Lei do Gatilho",
+   "theme": "Wild West + Predador: atiradores com crítico",
+   "startRelic": "precision",
+   "counts": {
+    "cowboy": 2,
+    "gunner": 3,
+    "miner": 3,
+    "fighter": 2,
+    "sheriff": 3,
+    "crossbowman": 2,
+    "bastion": 2,
+    "gladiator": 3
+   },
+   "v2": "Shackled Pirate → Gladiador: frente mais resistente",
+   "v4": "Huntress → Bastion",
+   "v6": "Miner 3→2, Gladiador 2→3",
+   "r3change": {
+    "remove": [
+     "cowboy",
+     "fighter"
+    ],
+    "add": [
+     "miner",
+     "sheriff"
+    ],
+    "why": "lento: reforça o tema Velho Oeste"
+   }
+  },
+  {
+   "id": "centaur_charge",
+   "name": "Galope Centauro",
+   "theme": "Centaur + Desbravador: recuam e voltam a galope",
+   "startRelic": "boots",
+   "order": "dawncrest",
+   "counts": {
+    "centaur_crossbow": 3,
+    "centaur_lancer": 3,
+    "centaur_swordsman": 4,
+    "feline_fighter": 3,
+    "elf_archer": 1,
+    "woodland_scout": 2,
+    "flower_fairy": 2,
+    "elf_guardian": 2
+   },
+   "r3change": {
+    "remove": [
+     "elf_archer"
+    ],
+    "add": [
+     "centaur_swordsman"
+    ],
+    "why": "levemente lento: 1 troca"
+   }
+  }
+ ]
+}
