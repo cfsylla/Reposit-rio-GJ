@@ -9,7 +9,12 @@ const SPEC={
 function eligible(s){return !!s&&!s.training&&!s.tutorialReplay;}
 function ensure(s){if(!eligible(s))return null;if(!s.journey){if(s.meta?.ended)return null;s.journey={schema:1,act:s.campaignRoute?.act||1,history:[],seenMonsters:[],battleStart:0};}return s.journey;}
 function act(s){return eligible(s)?s.journey?.act||1:1;}
-function power(s){return SPEC[act(s)]?.power||1;}
+/* R3 etapa 4 (escada de barreiras, Carlos 08/11/2026): multiplicador de vida e ataque dos inimigos por barreira e mapa.
+ * order = lutas de ordem (Blackfang/Dawncrest); entrance = primeiras lutas comuns/elite de cada mapa; other = demais lutas.
+ * Bosses (JOURNEY_BOSS_TUNE) e raids/Titans (sistema próprio) não passam por aqui. */
+const BARRIER=root.JOURNEY_BARRIER_TUNE={order:[1,1,1],entrance:[1,1,1],other:[1,1,1],entranceFights:2,...(root.JOURNEY_BARRIER_TUNE||{})};
+function barrier(s){const n=s?.current;if(!eligible(s)||!n||n.type==='boss'||n.campaign==='monsters'||s.raid)return 1;const a=Math.max(0,Math.min(2,act(s)-1));if(n.campaign==='blackfang'||n.campaign==='dawncrest')return BARRIER.order[a]||1;return (localStage(s)<=BARRIER.entranceFights?BARRIER.entrance[a]:BARRIER.other[a])||1;}
+function power(s){return (SPEC[act(s)]?.power||1)*barrier(s);}
 function localStage(s,upcoming=false){return Math.max(1,(s.mapBattles||0)-(s.journey?.battleStart||0)+(upcoming?1:0));}
 function played(s){const j=ensure(s),seen=new Set(j?.seenMonsters||[]),ids=new Set([...(s.route||[]),...(s.campaignRoute?.monsterNodes||[])]);for(const n of s.map?.flat()||[])if(n.campaign==='monsters'&&ids.has(n.id))seen.add(n.raidKind||'tree');return seen;}
 function prepareBoss(s,n){const j=ensure(s);if(!j||n.type!=='boss')return n;n.trueBoss=j.act===3&&!!n.campaign&&['blackfang','dawncrest','monsters','ironbound'].includes(n.campaign)&&j.history.length===2&&j.history.every(h=>h.order===n.campaign);n.finalBoss=j.act===3;root.JourneyBosses?.select(s,n);return n;}
@@ -35,5 +40,5 @@ const fresh=G.fresh;G.fresh=function(...args){const s=fresh(...args);ensure(s);r
 const enter=G.enter;G.enter=function(s,id){ensure(s);return enter(s,id);};
 const finish=P.finish;P.finish=function(s,reason){if(reason==='victory'&&eligible(s)&&!s.meta?.ended&&s.current?.type==='boss'){const j=ensure(s);recordBoss(s);if(j&&j.act<3){s.phase='actComplete';return false;}}return finish(s,reason);};
 const attach=R.attachRun;R.attachRun=function(s,n){if(!eligible(s)||!ensure(s))return attach(s,n);if(n?.campaign==='monsters'){const scale=R.scaling(n.raidSlot===0?3:n.raidSlot===1?6:localStage(s,true),n.type==='boss'),p=power(s);R.initialize(s,n.raidKind||'tree',{hp:scale.hp*p*[1,1.25,1.25][act(s)-1],damage:scale.damage*p*[1,1.1,1.1][act(s)-1],minions:scale.minions*p*[1,1.1,1.1][act(s)-1]},true);}};
-root.JourneyActs={SPEC,ensure,act,power,currentCounts,orderHistory,orderTotals,localStage,played,prepareBoss,generate,recordBoss,advance};
+root.JourneyActs={SPEC,BARRIER,barrier,ensure,act,power,currentCounts,orderHistory,orderTotals,localStage,played,prepareBoss,generate,recordBoss,advance};
 })(typeof globalThis!=='undefined'?globalThis:this);
