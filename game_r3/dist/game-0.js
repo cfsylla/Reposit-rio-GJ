@@ -303,7 +303,7 @@ function hit(b,a,t,n,pending,skill=false,options={}){
 
  return true;
 }
-function heal(b,u,value,pending,source=u){if(u.hp<=0)return;value=root.JourneyTraits?.selfHeal(b,u,value,source)??value;pending.push({target:u,heal:value});const shown=Math.round(Math.min(value,u.maxhp-u.hp));if(shown<1)return;floating(b,u,'+'+shown,'#9ce8b3');b.effects.push({kind:'heal',x:u.x,y:u.y,color:'#a0e6ad',life:.5,full:.5});visualCue(b,'heal',.3);}
+function heal(b,u,value,pending,source=u){if(u.hp<=0)return;value=root.JourneyTraits?.selfHeal(b,u,value,source)??value;if(u.raidBoss&&source!==u)value=Math.min(value,u.maxhp*(root.JOURNEY_RAID_HEAL_CAP??.0025));/* R3: per-pulse cap on healing a Titan / True Boss form 2 receives from other units */pending.push({target:u,heal:value});const shown=Math.round(Math.min(value,u.maxhp-u.hp));if(shown<1)return;floating(b,u,'+'+shown,'#9ce8b3');b.effects.push({kind:'heal',x:u.x,y:u.y,color:'#a0e6ad',life:.5,full:.5});visualCue(b,'heal',.3);}
 function status(pending,t,values){pending.push({target:t,status:values});}
 function frontal(u,target,list,radius,width=.15){let dx=target.x-u.x,dy=target.y-u.y,d=Math.hypot(dx,dy)||1;return list.filter(t=>{let tx=t.x-u.x,ty=t.y-u.y,n=Math.hypot(tx,ty)||1;return n<=radius&&(tx*dx+ty*dy)/(n*d)>=width;});}
 function direction(a,t){let d=distance(a,t)||1;return{x:(t.x-a.x)/d,y:(t.y-a.y)/d};}

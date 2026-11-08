@@ -238,6 +238,7 @@ function bossLab(s, node, pol, rec, dt) {
   const ib = Object.keys(data).filter(id => data[id].order === 'ironbound' && !data[id].true);
   const cands = [...ib.map(id => ['ironbound', id, false]), ...['goblin', 'troll', 'orc'].map(id => ['blackfang', id, false]), ...['meowri', 'centaur', 'highelf', 'forestelf'].map(id => ['dawncrest', id, false])];
   if (act === 3) cands.push(['ironbound', 'ib_wayfarer', true], ['blackfang', 'darkelf', true], ['dawncrest', 'fairy', true]);
+  if (process.env.GJ_LAB_ONLY) { const keep = process.env.GJ_LAB_ONLY.split(','); for (let i = cands.length - 1; i >= 0; i--) if (!keep.includes(cands[i][1])) cands.splice(i, 1); }
   const prof = JSON.stringify(P.profile), out = (rec.bossLab ??= []);
   for (const [order, id, isTrue] of cands) {
     const c = structuredClone(s), r = c.campaignRoute ??= {};

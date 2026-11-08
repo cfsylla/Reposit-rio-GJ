@@ -62,7 +62,7 @@ function actions(b,dt,p){if(!b.boss||b.boss.form!==1)return;const q=b.boss,u=lea
 }
 function modifyHit(b,a,t,n,skill,options){const q=b.boss;if(!q)return n;const u=leader(b);if(q.form===1&&u?.hp>0&&a.side===1){if(q.id==='goblin'&&t.bossMarkedUntil>b.time&&(a.type.startsWith('goblin')||a===u))n*=1.15;if(q.id==='forestelf'&&t.root>0)n*=1.15;if(q.id==='highelf'&&skill&&!options.dot){const cast=a.skillCasts||1;if(!a.bossFirstCast)a.bossFirstCast=cast;if(a.bossFirstCast===cast)n*=1.15;}}
  if(q.form===2&&q.id==='titan'&&t.raidBoss&&a.side===0&&!options.dot&&b.time>=q.staggerUntil)q.instability=Math.min(18,q.instability+(skill?3:1));return n;}
-function beforeSettle(b,living,pending){if(!b.boss)return;for(const p of pending){if(p.heal&&p.target.bossHealCutUntil>b.time)p.heal*=.7;if(p.heal&&b.boss.form===2&&b.boss.id==='fairy'&&p.target.raidBoss){p.heal=Math.max(0,Math.min(p.heal,p.target.maxhp*.05-b.raid.healed,p.target.maxhp-p.target.hp));b.raid.healed+=p.heal;}}}
+function beforeSettle(b,living,pending){if(!b.boss)return;for(const p of pending){if(p.heal&&p.target.bossHealCutUntil>b.time)p.heal*=.7;/* R3: Fairy form 2 cumulative 5%-per-round heal cap replaced by the per-pulse cap in Game.heal (all raid bosses). */}}
 function afterStep(b){if(!b.boss||b.boss.form!==1)return;const q=b.boss,u=leader(b);if(!u||u.hp<=0){for(const v of b.units){if(v.bossBaseSpeed)v.speed=v.bossBaseSpeed;if(v.bossBaseCrit!==undefined)v.crit=v.bossBaseCrit;if(v.bossBaseRate)v.rate=v.bossBaseRate;}return;}
  if(q.id==='goblin'&&!q.summoned&&b.units.some(v=>v.side&&v!==u&&v.hp<=0)&&friends(b).length<6){q.summoned=true;b.units.push(freshMinion('goblin_spearman','boss-reinforcement',u.x+28,u.y,170));}
 }

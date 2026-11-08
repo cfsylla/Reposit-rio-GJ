@@ -30,7 +30,7 @@ for (const id of Object.keys(S.SPEC)) { assert.equal(G.BY[id].kind, 'passive'); 
 { const b = battle(['warrior', 'priestess']); const w = b.units.find(u => u.type === 'warrior' && !u.side), p = b.units.find(u => u.type === 'priestess'); w.x = p.x = 200; w.y = 380; p.y = 420; w.hp = 100; p.hp = 100;
   const pending = []; JourneyTree.beforeSettle(b, b.units.filter(u => u.hp > 0), pending);
   b.time = 0; p.supportBLast = -10; pending.length = 0; JourneyTree.beforeSettle(b, b.units.filter(u => u.hp > 0), pending);
-  assert(pending.some(x => x.target === w && Math.abs(x.heal - w.maxhp * .068) < 1e-6)); assert(!pending.some(x => x.target === p), 'no self heal'); }
+  const ph = S.SPEC.priestess.heal; assert(pending.some(x => x.target === w && x.heal >= p.maxhp * ph * .9 - 1e-6 && x.heal <= p.maxhp * ph * 1.1 + 1e-6)); /* R3: % of the healer's max HP, ±10% */ assert(!pending.some(x => x.target === p), 'no self heal'); }
 // Trait mechanics (tier values; Legends/Goblin/Patient/Fearless/Protector also asserted in traits-v54.cjs).
 { const b = battle(['pirate', 'goblin_rider', 'cavalier', 'eagle_druid']); const a = b.units.find(u => u.type === 'goblin_rider'), e = b.units.find(u => u.side);
   T.ensure(b); const tier = T.rank(a, 'Trailblazer'); assert.equal(tier, 2);
