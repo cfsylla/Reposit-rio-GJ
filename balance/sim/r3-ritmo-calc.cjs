@@ -42,3 +42,13 @@ for (const [k, R] of Object.entries(OPT)) {
   const c = career(R);
   console.log(k.padEnd(34), 'nós após run 1-15:', c.out.slice(0, 15).join(' '), '| run 20/25/30:', [20, 25, 30].map(r => c.out[r - 1]).join('/'), '| árvore completa na run', c.full, '| custo total', c.total, '| XP run 1', c.run1, '| run longa fora da curva (cai no boss 3)', Math.round(c.outlier));
 }
+
+/* Anéis (proposta Carlos 08/11): custo único por anel. Anel 1 = profundidade 0-1 (10 nós), anel 2 = 2-3 (20), anel 3 = 4-5 (20), anel 4 = 6-7 (10). */
+const ringOf = n => n.depth <= 1 ? 0 : n.depth <= 3 ? 1 : n.depth <= 5 ? 2 : 3;
+console.log('\nXP acumulado na escada (regras de XP atuais), runs 1-15:', (() => { let s = 0; return LADDER.map(e => Math.round(s += xpRun(e, BASE))).join(' '); })());
+const RINGS = process.env.RINGS ? JSON.parse(process.env.RINGS) : [[8, 16, 32, 48], [8, 16, 36, 54], [8, 20, 40, 54], [8, 20, 44, 54], [8, 24, 44, 54], [8, 24, 48, 54]];
+for (const r of RINGS) {
+  const c = career({ ...BASE, cost: n => r[ringOf(n)] });
+  const runOf = k => c.out.findIndex(x => x >= k) + 1;
+  console.log(('Anéis ' + r.join('/')).padEnd(22), 'nós após run 1-15:', c.out.slice(0, 15).join(' '), '| fecha anel 1/2/3 na run', [10, 30, 50].map(runOf).join('/'), '| árvore completa na run', c.full, '| custo total', c.total);
+}
