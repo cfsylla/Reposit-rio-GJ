@@ -42,7 +42,11 @@ const layouts={
 const origin={id:'origin',type:'origin',x:560,y:560,links:[],cost:0,en:'Beginning',pt:'Início'};by.origin=origin;
 function connect(a,b){if(!by[a].links.includes(b))by[a].links.push(b);if(!by[b].links.includes(a))by[b].links.push(a);}
 function position(n,angle,radius){const a=angle*Math.PI/180;n.x=560+Math.cos(a)*radius;n.y=560+Math.sin(a)*radius;}
-for(const [cat,l]of Object.entries(layouts)){const angle=categories[cat].angle;l.start.forEach((id,i)=>{const n=by[id];n.depth=i;n.cost=8; /* R3 (Carlos 05/11): 2nd ring 10 -> 8 */ position(n,angle,95+i*75);connect(i?l.start[i-1]:'origin',id);});l.arms.forEach((arm,side)=>arm.forEach((id,i)=>{const n=by[id],depth=i+2;n.depth=depth;n.cost=n.type==='milestone'?(cat==='expedition'?36:32):n.type==="special"?14+Math.min(3,i)*2:depth>=4?12:8;/* R3: 10 -> 8 */if(depth>=4)n.cost=Math.round(n.cost*1.5);/* post-CP1 (approved 03/11/2026): late nodes (depth >= 4, incl. all milestones) cost x1.5 */position(n,angle+(side?1:-1)*(12+Math.sin(i*.8)*5),240+i*49);connect(i?arm[i-1]:l.start[1],id);}));}
+/* R3 etapa 3 (Carlos 08/11/2026): cost = 8 x type factor x ring factor. Ring 1 = depth 0-1 (8), ring 2 = depth 2-3 (x3; the 10 basics at depth 2 cost 16),
+   ring 3 = depth 4-5 (x3.75), ring 4 = depth 6-7 (x4). Type: basic x1, special x1.5, milestone x1.75. Most expensive node 56 (fits in one run). */
+const RING_FACTOR=[1,1,3,3,3.75,3.75,4,4],TYPE_FACTOR={basic:1,special:1.5,milestone:1.75};
+function ringCost(type,depth){if(depth<=1)return 8;if(depth===2&&type==='basic')return 16;return Math.round(8*(TYPE_FACTOR[type]||1)*RING_FACTOR[Math.min(7,depth)]);}
+for(const [cat,l]of Object.entries(layouts)){const angle=categories[cat].angle;l.start.forEach((id,i)=>{const n=by[id];n.depth=i;n.cost=8; /* R3 (Carlos 05/11): 2nd ring 10 -> 8 */ position(n,angle,95+i*75);connect(i?l.start[i-1]:'origin',id);});l.arms.forEach((arm,side)=>arm.forEach((id,i)=>{const n=by[id],depth=i+2;n.depth=depth;n.cost=ringCost(n.type,depth);position(n,angle+(side?1:-1)*(12+Math.sin(i*.8)*5),240+i*49);connect(i?arm[i-1]:l.start[1],id);}));}
 const bridges=[[pAtk[3],aRate[2]],[pAtk[2],dDef[2]],[dDef[4],vHP[3]],[vHP[2],eShop[1]]];for(const [a,b]of bridges)connect(a,b);
 root.JourneyTreeData={categories,nodes,by,origin,bridges};
 })(typeof globalThis!=='undefined'?globalThis:this);
