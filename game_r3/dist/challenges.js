@@ -9,26 +9,26 @@
 (function(root){'use strict';
 const G=root.Game,P=root.Progress,T=root.JourneyTree,C=root.JourneyContent,R=root.JourneyRaid,B=root.JourneyBosses;
 const LIST=[
- {id:'veterans',en:'Veterans',pt:'Veteranos',enDesc:'Regular enemies have +3 upgrades.',ptDesc:'Inimigos comuns têm +3 upgrades.'},
- {id:'tough',en:'Tough Troops',pt:'Tropas Resistentes',enDesc:'Enemy health +3%.',ptDesc:'Vida dos inimigos +3%.'},
- {id:'relentless',en:'Relentless Attacks',pt:'Ataques Implacáveis',enDesc:'Enemy damage +4%.',ptDesc:'Dano dos inimigos +4%.'},
- {id:'commanders',en:'Prepared Commanders',pt:'Comandantes Preparados',enDesc:'Elites, orders and bosses gain +1 relic and +1 upgrade.',ptDesc:'Elites, ordens e bosses ganham +1 relíquia e +1 upgrade.'},
- {id:'bossrounds',en:'Relentless Bosses',pt:'Bosses Implacáveis',enDesc:'Map bosses (team and leader) have +8% health and damage.',ptDesc:'Bosses de mapa (time e líder) têm +8% de vida e de dano.'},
- {id:'reinforcements',en:'Enemy Reinforcements',pt:'Reforços Inimigos',enDesc:'From the 2nd round on, regular and elite enemies field +1 unit.',ptDesc:'A partir da 2ª rodada, inimigos comuns e elites colocam +1 unidade em campo.'},
- {id:'raidfury',en:'Raid Fury',pt:'Fúria das Raids',enDesc:'Raid health +15% and damage +5%.',ptDesc:'Raids com +15% de vida e +5% de dano.'},
- {id:'inflation',en:'Inflated Market',pt:'Mercado Inflacionado',enDesc:'Shop prices +15%.',ptDesc:'Preços da loja +15%.'},
- {id:'lightpurse',en:'Light Purse',pt:'Bolsa Leve',enDesc:'Gold from victories −20%.',ptDesc:'Ouro por vitória −20%.'},
+ {id:'veterans',en:'Veterans',pt:'Veteranos',enDesc:'Regular enemies have +8 upgrades.',ptDesc:'Inimigos comuns têm +8 upgrades.'},
+ {id:'tough',en:'Tough Troops',pt:'Tropas Resistentes',enDesc:'Enemy health +10%.',ptDesc:'Vida dos inimigos +10%.'},
+ {id:'relentless',en:'Relentless Attacks',pt:'Ataques Implacáveis',enDesc:'Enemy damage +8%.',ptDesc:'Dano dos inimigos +8%.'},
+ {id:'commanders',en:'Prepared Commanders',pt:'Comandantes Preparados',enDesc:'Elites, orders and bosses gain +2 relics and +2 upgrades.',ptDesc:'Elites, ordens e bosses ganham +2 relíquias e +2 upgrades.'},
+ {id:'bossrounds',en:'Relentless Bosses',pt:'Bosses Implacáveis',enDesc:'Map bosses (team and leader) have +7% health and damage.',ptDesc:'Bosses de mapa (time e líder) têm +7% de vida e de dano.'},
+ {id:'reinforcements',en:'Enemy Reinforcements',pt:'Reforços Inimigos',enDesc:'From the 1st round on, regular and elite enemies field +1 unit.',ptDesc:'Desde a 1ª rodada, inimigos comuns e elites colocam +1 unidade em campo.'},
+ {id:'raidfury',en:'Raid Fury',pt:'Fúria das Raids',enDesc:'Raid health +25% and damage +8%.',ptDesc:'Raids com +25% de vida e +8% de dano.'},
+ {id:'inflation',en:'Inflated Market',pt:'Mercado Inflacionado',enDesc:'Shop prices +30%.',ptDesc:'Preços da loja +30%.'},
+ {id:'lightpurse',en:'Light Purse',pt:'Bolsa Leve',enDesc:'Gold from victories −27%.',ptDesc:'Ouro por vitória −27%.'},
  {id:'scarce',en:'Scarce Resources',pt:'Recursos Escassos',enDesc:'−1 energy in the first round against bosses.',ptDesc:'−1 de energia na primeira rodada contra bosses.'},
- {id:'bag',en:'Limited Luggage',pt:'Bagagem Limitada',enDesc:'Blocks 3 Relic Bag cells.',ptDesc:'Bloqueia 3 casas da bolsa de relíquias.'},
- {id:'heavydeck',en:'Heavy Deck',pt:'Deck Pesado',enDesc:'Start the run with +1 copy of a random card of your deck.',ptDesc:'Começa a run com +1 cópia de uma carta aleatória do próprio deck.'},
+ {id:'bag',en:'Limited Luggage',pt:'Bagagem Limitada',enDesc:'Blocks 5 Relic Bag cells.',ptDesc:'Bloqueia 5 casas da bolsa de relíquias.'},
+ {id:'heavydeck',en:'Heavy Deck',pt:'Deck Pesado',enDesc:'Start the run with +2 random basic generic cards (Warrior, Lancer, Fighter, Martial Artist, Miner, Pirate, Ranger or Shackled Pirate).',ptDesc:'Começa a run com +2 cartas básicas genéricas aleatórias (Warrior, Lancer, Fighter, Martial Artist, Miner, Pirate, Ranger ou Shackled Pirate).'},
  {id:'dissipate',en:'Dissipating Energy',pt:'Energia Dissipada',enDesc:'Lose 1 of the energy left over at the end of each round.',ptDesc:'Perde 1 da energia que sobrar ao fim de cada rodada.'},
  {id:'fewrelics',en:'Scarce Relics',pt:'Relíquias Escassas',enDesc:'Relic choices offer 2 options less (minimum 1).',ptDesc:'Escolhas de relíquia oferecem 2 opções a menos (mínimo 1).'},
- {id:'cursed',en:'Cursed Path',pt:'Caminho Amaldiçoado',enDesc:'Start the run with the Exhaustion curse.',ptDesc:'Começa a run com a maldição Exaustão.'},
+ {id:'cursed',en:'Cursed Path',pt:'Caminho Amaldiçoado',enDesc:'Start the run with 2 Exhaustion curses.',ptDesc:'Começa a run com 2 maldições Exaustão.'},
 ];
 const BY=Object.fromEntries(LIST.map(c=>[c.id,c]));
 const MAX_LEVEL=LIST.length;
 // Single intensity per challenge (revision 2: the level is the number of active challenges). Calibrated by simulation.
-const TUNE=root.JOURNEY_CHALLENGE_TUNE={veterans:3,commanders:1,commanderRelics:1,tough:.03,relentless:.04,bossRounds:0,bossStats:.08,raidfury:.15,raidDamage:.05,inflation:.15,lightpurse:.20,bagCells:3,curses:['exhaustion'],reinforceFromRound:2,heavyCards:1,heavyMode:'copy',dissipateMode:'fixed',dissipateFixed:1,dissipateKeep:2,scarceRounds:1,heavyPool:['warrior','lancer','fighter','martial_artist','miner','pirate','ranger','shackled_pirate'],fewRelics:2,...(root.JOURNEY_CHALLENGE_TUNE||{})};
+const TUNE=root.JOURNEY_CHALLENGE_TUNE={/* R3 (Carlos 08/11/2026): recalibrados para −7 a −12 pontos cada (23 nós) */veterans:8,commanders:2,commanderRelics:2,tough:.10,relentless:.08,bossRounds:0,bossStats:.07,raidfury:.25,raidDamage:.08,inflation:.30,lightpurse:.27,bagCells:5,curses:['exhaustion','exhaustion'],reinforceFromRound:1,heavyCards:2,heavyMode:'pool',dissipateMode:'fixed',dissipateFixed:1,dissipateKeep:2,scarceRounds:1,heavyPool:['warrior','lancer','fighter','martial_artist','miner','pirate','ranger','shackled_pirate'],fewRelics:2,...(root.JOURNEY_CHALLENGE_TUNE||{})};
 const BAG_CELLS=[[3,3],[2,3],[1,3],[0,3]];
 
 function profile(){const p=P.profile;const pc=p.challenges??={};pc.unlocked=!!pc.unlocked;pc.available=Math.max(pc.unlocked?1:0,Math.min(MAX_LEVEL,Math.floor(pc.available||0)));

@@ -17,13 +17,13 @@ const LIST=[
  {id:'planned_hand',en:'Planned Hand',pt:'Mão Planejada',enDesc:'Before the run, choose a deck card: one copy starts in your hand in every other confrontation (1st, 3rd, 5th...).',ptDesc:'Antes da run, escolhe uma carta do deck: uma cópia começa na mão em confrontos alternados (1º, 3º, 5º...).'},
  {id:'saved_energy',en:'Saved Energy',pt:'Energia Guardada',enDesc:'+1 energy in the first round of each confrontation.',ptDesc:'+1 de energia na primeira rodada de cada confronto.'},
  {id:'cleanse',en:'Cleanse',pt:'Limpeza',enDesc:'One free card removal in the first shop of each map.',ptDesc:'Uma remoção de carta grátis na primeira loja de cada mapa.'},
- {id:'path_blessing',en:'Path Blessing',pt:'Bênção do Caminho',enDesc:'Entering maps 2 and 3 upgrades 1 random deck card to level 2 and another to level 1.',ptDesc:'Ao entrar nos mapas 2 e 3, 1 carta aleatória do deck recebe upgrade 2 e outra upgrade 1.'},
- {id:'interest',en:'Interest',pt:'Juros',enDesc:'Defeating each map boss grants 50% of your saved gold (max. 75).',ptDesc:'Vencer o boss de cada mapa concede 50% do ouro guardado (máx. 75).'},
- {id:'elite_hunter',en:'Elite Hunter',pt:'Caçador de Elites',enDesc:'Defeating an elite grants +12 gold.',ptDesc:'Vencer uma elite concede +12 de ouro.'},
+ {id:'path_blessing',en:'Path Blessing',pt:'Bênção do Caminho',enDesc:'Entering maps 2 and 3 upgrades 2 random deck cards to level 1.',ptDesc:'Ao entrar nos mapas 2 e 3, 2 cartas aleatórias do deck recebem upgrade 1.'},
+ {id:'interest',en:'Interest',pt:'Juros',enDesc:'Defeating each map boss grants 100% of your saved gold (max. 150).',ptDesc:'Vencer o boss de cada mapa concede 100% do ouro guardado (máx. 150).'},
+ {id:'elite_hunter',en:'Elite Hunter',pt:'Caçador de Elites',enDesc:'Defeating an elite grants +20 gold.',ptDesc:'Vencer uma elite concede +20 de ouro.'},
  {id:'second_chance',en:'Second Chance',pt:'Segunda Chance',enDesc:'Once per run, losing a confrontation (except bosses) replays only the last round: the score is kept and the enemy loses 1 point.',ptDesc:'Uma vez por run, perder um confronto (exceto bosses) repete só a última rodada: o placar continua e o inimigo perde 1 ponto.'},
 ];
 const BY=Object.fromEntries(LIST.map(a=>[a.id,a]));
-const TUNE=root.JOURNEY_ADVANTAGE_TUNE={pretraining:2,pretrainingLevel:1,pretrainingLevels:[1,1],rehearsalLevel:2,eyeMode:'every',secondMode:'round',blessingLevel:1,blessingCount:1,blessingLevels:[2,1],flexUses:1,flexScope:'round',fusionRefund:1,fusionPerRound:99,plannedCount:1,plannedFreq:'alternate',eliteHp:.005,eliteAtk:.005,eliteCap:99,fullPurse:20,interest:.5,interestMax:75,eliteGold:12,...(root.JOURNEY_ADVANTAGE_TUNE||{})};
+const TUNE=root.JOURNEY_ADVANTAGE_TUNE={pretraining:2,pretrainingLevel:1,pretrainingLevels:[1,1],rehearsalLevel:2,eyeMode:'every',secondMode:'round',blessingLevel:1,blessingCount:1,blessingLevels:[1,1],flexUses:1,flexScope:'round',fusionRefund:1,fusionPerRound:99,plannedCount:1,plannedFreq:'alternate',eliteHp:.005,eliteAtk:.005,eliteCap:99,fullPurse:20,/* R3 (Carlos 08/11/2026): Juros e Caçador de Elites para +2 a +7 */interest:1,interestMax:150,eliteGold:20,...(root.JOURNEY_ADVANTAGE_TUNE||{})};
 
 function owned(){const p=P.profile;p.advantages=[...new Set((p.advantages||[]).filter(id=>BY[id]))];return p.advantages;}
 function eligible(s){return !!s&&!s.training&&!s.tutorialReplay;}

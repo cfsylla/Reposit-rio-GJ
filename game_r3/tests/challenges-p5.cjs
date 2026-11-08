@@ -23,29 +23,29 @@ assert.equal(CH.select(['veterans', 'tough']), false, 'level 2 is not available 
 function run(ids, seed = 7) { const pc = CH.profile(); pc.unlocked = true; pc.available = 15; pc.selected = ids ? [...ids] : []; const s = G.fresh('vanguard', seed); G.enter(s, G.available(s)[0].id); return s; }
 function fight(ids, stage, type = 'battle', seed = 7) { const s = run(ids, seed); s.mapBattles = stage - 1; s.current = { ...s.current, type }; G.startConfront(s, s.current); return s; }
 const ups = s => s.ai.cards.reduce((n, c) => n + c.level, 0);
-assert.equal(ups(fight(['veterans'], 9)) - ups(fight(null, 9)), 3);
+assert.equal(ups(fight(['veterans'], 9)) - ups(fight(null, 9)), 8); /* R3 08/11 */
 assert.equal(ups(fight(['veterans'], 9, 'elite')), ups(fight(null, 9, 'elite')));
-assert.equal(ups(fight(['commanders'], 9, 'elite')) - ups(fight(null, 9, 'elite')), 1);
+assert.equal(ups(fight(['commanders'], 9, 'elite')) - ups(fight(null, 9, 'elite')), 2);
 { const st = ids => { const s = fight(ids, 5); s.round = 3; s.board[2] = s.cards[0].uid; return G.createBattle(s).units.filter(u => u.side === 1).map(u => [u.maxhp, u.atk]); };
-  const base = st(null), t = st(['tough']), r = st(['relentless']); base.forEach(([h, a], i) => { assert(Math.abs(t[i][0] / h - 1.03) < 1e-9); assert(Math.abs(r[i][1] / a - 1.04) < 1e-9); assert(Math.abs(t[i][1] / a - 1) < 1e-9); }); }
-{ const s = fight(['bossrounds'], 9, 'boss'); assert.equal(G.winsNeeded(s), 4); const st = { hp: 100, atk: 100 }; CH.enemyStats(s, { type: 'goblin_archer' }, st); assert(Math.abs(st.hp - 108) < 1e-9 && Math.abs(st.atk - 108) < 1e-9); const n = fight(['bossrounds'], 5), st2 = { hp: 100, atk: 100 }; CH.enemyStats(n, { type: 'goblin_archer' }, st2); assert.equal(st2.hp, 100); }
-{ const s = fight(['reinforcements'], 5); s.round = 1; assert.equal(CH.extraUnits(s), 0); s.round = 2; assert.equal(G.maxUnits(s, true), 4); assert.equal(G.maxUnits(s, false), 3); }
+  const base = st(null), t = st(['tough']), r = st(['relentless']); base.forEach(([h, a], i) => { assert(Math.abs(t[i][0] / h - 1.10) < 1e-9); assert(Math.abs(r[i][1] / a - 1.08) < 1e-9); assert(Math.abs(t[i][1] / a - 1) < 1e-9); }); }
+{ const s = fight(['bossrounds'], 9, 'boss'); assert.equal(G.winsNeeded(s), 4); const st = { hp: 100, atk: 100 }; CH.enemyStats(s, { type: 'goblin_archer' }, st); assert(Math.abs(st.hp - 107) < 1e-9 && Math.abs(st.atk - 107) < 1e-9); const n = fight(['bossrounds'], 5), st2 = { hp: 100, atk: 100 }; CH.enemyStats(n, { type: 'goblin_archer' }, st2); assert.equal(st2.hp, 100); }
+{ const s = fight(['reinforcements'], 5); s.round = 1; assert.equal(CH.extraUnits(s), 1); /* R3 08/11: desde a 1ª rodada */ s.round = 2; assert.equal(G.maxUnits(s, true), 4); assert.equal(G.maxUnits(s, false), 3); }
 { const s = fight(['reinforcements'], 9, 'boss'); assert.equal(CH.extraUnits(s), 0); }
-{ const s = run(['raidfury']); JourneyRaid.initialize(s, 'tree', { hp: 1, damage: 1, minions: 1 }, true); assert(Math.abs(s.raid.scale.hp - 1.15) < 1e-9); assert(Math.abs(s.raid.scale.damage - 1.05) < 1e-9); } // R3: +15% HP, +5% damage
-{ const s = run(['inflation']), b = run(null); s.current = b.current = { id: 'x', type: 'shop' }; assert.equal(T.price(s, 'upgrade', 10, 0), 12); assert.equal(T.price(b, 'upgrade', 10, 0), 10); }
-{ const s = run(['lightpurse']); assert.equal(T.gold(s, 16), 13); }
+{ const s = run(['raidfury']); JourneyRaid.initialize(s, 'tree', { hp: 1, damage: 1, minions: 1 }, true); assert(Math.abs(s.raid.scale.hp - 1.25) < 1e-9); assert(Math.abs(s.raid.scale.damage - 1.08) < 1e-9); } // R3: +15% HP, +5% damage
+{ const s = run(['inflation']), b = run(null); s.current = b.current = { id: 'x', type: 'shop' }; assert.equal(T.price(s, 'upgrade', 10, 0), 13); /* R3 08/11: +30% */ assert.equal(T.price(b, 'upgrade', 10, 0), 10); }
+{ const s = run(['lightpurse']); assert.equal(T.gold(s, 16), 12); /* R3 08/11: −27% */ }
 { const bs = fight(['scarce'], 9, 'boss'), e = fight(['scarce'], 5, 'elite'), bb = fight(null, 9, 'boss'), eb = fight(null, 5, 'elite'); for (const r of [1]) { bs.round = e.round = bb.round = eb.round = r; assert.equal(G.energyIncome(bs), G.energyIncome(bb) - 1); assert.equal(G.energyIncome(e), G.energyIncome(eb)); } bs.round = bb.round = 2; assert.equal(G.energyIncome(bs), G.energyIncome(bb)); } // R3: first round only
 // Enemy relic filter (post-CP1 fix): scope/tome/boots/shield can reach enemies whose cards match the relic.
 { const pool = cards => G.enemyRelicPool(cards.map(t => ({ type: t, level: 0 }))).map(a => a.id); const ranged = Object.values(G.BY).find(u => u.range > 100 && !u.order).id; assert(pool([ranged]).includes('scope')); const melee = Object.values(G.BY).find(u => u.range <= 100 && !u.traits.includes('Sentinel') && !u.traits.includes('Trailblazer') && !JourneyTraits.caster(u) && u.kind !== 'curse' && !/^boss_/.test(u.id)); if (melee) assert(!pool([melee.id]).includes('scope')); }
-{ const s = run(['bag']); assert.equal(G.bagCapacity(s), 13); assert(CH.cellBlocked(s, 3, 3)); assert(!CH.cellBlocked(s, 0, 0)); }
-{ const s = run(['heavydeck']), b = run(null); assert.equal(s.cards.length, b.cards.length + 1); const added = s.cards.at(-1).type; assert(b.cards.some(c => c.type === added), 'copy of a card already in the deck'); }
+{ const s = run(['bag']); assert.equal(G.bagCapacity(s), 11); /* R3 08/11: 5 casas bloqueadas */ assert(CH.cellBlocked(s, 3, 3)); assert(!CH.cellBlocked(s, 0, 0)); }
+{ const s = run(['heavydeck']), b = run(null); assert.equal(s.cards.length, b.cards.length + 2); const added = s.cards.slice(-2).map(c => c.type); assert(added.every(t => JOURNEY_CHALLENGE_TUNE.heavyPool.includes(t)), 'R3 08/11: 2 cartas básicas genéricas'); }
 // Energia Dissipada (replaces Árvore Contida): loses 1 of the leftover energy when the round ends.
 { const s = fight(['dissipate'], 5); s.energy = 3; s.phase = 'roundResult'; const before = s.energy; CH.roundEnd(s); assert.equal(s.energy, 2); s.energy = 0; CH.roundEnd(s); assert.equal(s.energy, 0); const b = fight(null, 5); b.energy = 3; CH.roundEnd(b); assert.equal(b.energy, 3); }
 { const s = run(['fewrelics']); assert.equal(T.relicCount(s, 3), 1); }
 { const st = T.profile(); st.respec = 300; st.unlocked = []; for (const id of ['pow_atk_1', 'vit_hp_1', 'pow_atk_2', 'vit_hp_2', 'pow_atk_3', 'first_impact']) assert(T.buy(null, id), id); // R3: outside a run, purchases use the respec budget
   st.unlocked = []; st.respec = 0; }
 assert.equal(CH.select(['treecap']),false,'retired challenges cannot be selected');
-assert.deepEqual(run(['cursed']).cards.filter(c => JourneyContent.isCurse(c)).map(c => c.type).sort(), ['exhaustion']);
+assert.deepEqual(run(['cursed']).cards.filter(c => JourneyContent.isCurse(c)).map(c => c.type).sort(), ['exhaustion', 'exhaustion']); /* R3 08/11: 2 maldições */
 { const pc = CH.profile(); pc.selected = ['veterans', 'scarce']; const s = G.fresh('vanguard', 3); s.training = { wins: 1 }; CH.start(s); assert.equal(s.challenges, undefined); assert.equal(CH.active(s, 'scarce'), false); }
 
 // Deferred content is absent from this integration.

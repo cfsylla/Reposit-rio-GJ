@@ -17,8 +17,8 @@ assert.ok(found, 'achou uma derrota com janela');
 const w = found.r.windows.at(-1);
 assert.ok(w.bought.length >= 1, 'a janela da derrota compra pelo menos 1 nó');
 assert.ok(w.bought.every(id => found.unlocked.includes(id)), 'nós comprados na derrota ficam no perfil');
-assert.strictEqual(found.h.earned - found.h0.earned, found.h.spent - found.h0.spent + found.h.lost - found.h0.lost, 'earned = spent + lost');
-assert.strictEqual(found.h.lost - found.h0.lost, w.left, 'só a sobra da janela da derrota é perdida');
+const x = found.r.xpR3; /* conta da própria run (o histórico do perfil é mexido pelo simulador entre runs) */
+assert.strictEqual(x.earned, x.spent + x.lost, 'earned = spent + lost'); assert.strictEqual(x.lost, w.left, 'só a sobra da janela da derrota é perdida');
 // 2. Sem XP suficiente para 1 nó, a derrota termina direto (sem janela)
 st().unlocked = []; let s = G.fresh('vanguard', 501); let t = T.ensure(s); t.xp = 3; s.phase = 'defeat';
 assert.notStrictEqual(P.finish(s, 'defeat'), false); assert.strictEqual(s.phase, 'defeat'); assert.ok(s.meta.ended, 'run encerrada sem janela');
