@@ -1,0 +1,9 @@
+boss 3 antes da 1ª vitória: mediana 1 p25 0 p75 1
+run 1 nós 0 | M1 boss 50%, M1 comum 33%, M2 comum 10%, M1 ordem 8%
+run 2 nós 1 | M1 boss 40%, M1 ordem 23%, M2 comum 18%, M1 comum 8%
+run 3 nós 2 | M1 ordem 53%, M1 boss 25%, M1 comum 8%, M2 ordem 5%
+run 5 nós 3 | M1 boss 40%, M1 ordem 15%, M2 comum 13%, M1 comum 8%
+run 8 nós 7 | M2 comum 28%, M1 ordem 25%, M2 boss 15%, M3 boss 13%
+run 10 nós 10 | M2 comum 23%, M3 boss 18%, vitória 18%, M1 boss 10%
+run 12 nós 14 | vitória 23%, M2 comum 20%, M1 ordem 15%, M2 ordem 10%
+run 15 nós 20 | vitória 23%, M2 boss 20%, M3 boss 18%, M1 boss 13%
