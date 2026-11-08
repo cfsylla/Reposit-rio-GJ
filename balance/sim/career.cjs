@@ -22,7 +22,7 @@ for (const deck of decks) for (const c of careers) {
   let unlocked = [], treeXp = 0;
   for (let k = 1; k <= runs; k++) {
     const seed = c * 1000 + k;
-    const pol = { prep: 'smart', route: 'greedy', events: 'safe', shop: 'balanced', tree: [...unlocked], treeXp, treeBuy: 'all', order: null, forcewin: false };
+    const pol = { prep: 'smart', route: process.env.GJ_ROUTE || 'greedy', events: 'safe', shop: 'balanced', tree: [...unlocked], treeXp, treeBuy: 'all', order: null, forcewin: false };
     const before = unlocked.length, cBefore = cost(unlocked);
     const h0 = Tree.profile().history ? { ...Tree.profile().history } : null; // R3 model: XP earned / spent / lost in this run
     const rec = playRun(deck, seed, pol, { dt: 1 / 60 });

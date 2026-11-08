@@ -14,5 +14,5 @@ const at = (act, node, stage) => { s.journey.act = act; s.current = node; s.mapB
 assert.strictEqual(at(1, { type: 'elite', campaign: 'blackfang' }, 4), 1.122);
 assert.strictEqual(at(2, { type: 'battle' }, 1), 1.118); assert.strictEqual(at(2, { type: 'battle' }, 3), 1, 'depois da entrada');
 assert.strictEqual(at(3, { type: 'elite', campaign: 'dawncrest' }, 5), 1.2); assert.strictEqual(at(3, { type: 'boss', campaign: 'ironbound' }, 9), 1.2);
-assert.strictEqual(at(2, { type: 'elite', campaign: 'monsters' }, 2), 1, 'raids fora'); assert.strictEqual(at(1, { type: 'battle' }, 1), 1, 'entrada do mapa 1 sem mudança');
-console.log('PASS escada-r3: básicos dos anéis 1-2 x3; força por barreira (ordem/entrada/boss) e raids sem mudança');
+assert.deepStrictEqual(B.raid, [1.3, 1.37, 1.46]); assert.deepStrictEqual(B.raidBoss, [1.04, 1.04, 1.04]); assert.strictEqual(at(2, { type: 'elite', campaign: 'monsters' }, 2), 1, 'raids usam o próprio ajuste (raid/raidBoss), não o power'); assert.strictEqual(at(1, { type: 'battle' }, 1), 1, 'entrada do mapa 1 sem mudança');
+console.log('PASS escada-r3: básicos dos anéis 1-2 x3; força por barreira (ordem/entrada/boss) ; raids x1,30/1,37/1,46 e Titan como boss x1,04');

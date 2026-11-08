@@ -13,7 +13,7 @@ function act(s){return eligible(s)?s.journey?.act||1:1;}
  * order = lutas de ordem (Blackfang/Dawncrest); entrance = primeiras lutas comuns/elite de cada mapa; other = demais lutas.
  * boss = luta de boss inteira (boss e aliados dele), além do JOURNEY_BOSS_TUNE por boss. Raids/Titans (sistema próprio) não passam por aqui. */
 /* valores calibrados na etapa 4 (iteração 10, carreiras: 1ª vitória run 15 com 17 nós) */
-const BARRIER=root.JOURNEY_BARRIER_TUNE={order:[1.122,1.12,1.2],entrance:[1,1.118,1.24],other:[1,1,1],boss:[1.022,1.071,1.2],entranceFights:2,...(root.JOURNEY_BARRIER_TUNE||{})};
+const BARRIER=root.JOURNEY_BARRIER_TUNE={order:[1.122,1.12,1.2],entrance:[1,1.118,1.24],other:[1,1,1],raid:[1.3,1.37,1.46],raidBoss:[1.04,1.04,1.04],boss:[1.022,1.071,1.2],entranceFights:2,...(root.JOURNEY_BARRIER_TUNE||{})};
 function barrier(s){const n=s?.current;if(!eligible(s)||!n||n.campaign==='monsters'||s.raid)return 1;const a=Math.max(0,Math.min(2,act(s)-1));if(n.type==='boss')return BARRIER.boss[a]||1;if(n.campaign==='blackfang'||n.campaign==='dawncrest')return BARRIER.order[a]||1;return (localStage(s)<=BARRIER.entranceFights?BARRIER.entrance[a]:BARRIER.other[a])||1;}
 function power(s){return (SPEC[act(s)]?.power||1)*barrier(s);}
 function localStage(s,upcoming=false){return Math.max(1,(s.mapBattles||0)-(s.journey?.battleStart||0)+(upcoming?1:0));}
@@ -40,6 +40,6 @@ function orderTotals(s){const out={monsters:0,blackfang:0,dawncrest:0};for(const
 const fresh=G.fresh;G.fresh=function(...args){const s=fresh(...args);ensure(s);return s;};
 const enter=G.enter;G.enter=function(s,id){ensure(s);return enter(s,id);};
 const finish=P.finish;P.finish=function(s,reason){if(reason==='victory'&&eligible(s)&&!s.meta?.ended&&s.current?.type==='boss'){const j=ensure(s);recordBoss(s);if(j&&j.act<3){s.phase='actComplete';return false;}}return finish(s,reason);};
-const attach=R.attachRun;R.attachRun=function(s,n){if(!eligible(s)||!ensure(s))return attach(s,n);if(n?.campaign==='monsters'){const scale=R.scaling(n.raidSlot===0?3:n.raidSlot===1?6:localStage(s,true),n.type==='boss'),p=power(s);R.initialize(s,n.raidKind||'tree',{hp:scale.hp*p*[1,1.25,1.25][act(s)-1],damage:scale.damage*p*[1,1.1,1.1][act(s)-1],minions:scale.minions*p*[1,1.1,1.1][act(s)-1]},true);}};
+const attach=R.attachRun;R.attachRun=function(s,n){if(!eligible(s)||!ensure(s))return attach(s,n);if(n?.campaign==='monsters'){const scale=R.scaling(n.raidSlot===0?3:n.raidSlot===1?6:localStage(s,true),n.type==='boss'),a3=Math.max(0,Math.min(2,act(s)-1)),p=power(s)*((n.type==='boss'?BARRIER.raidBoss:BARRIER.raid)[a3]||1);/* R3 (Carlos 08/11): força da raid e do Titan como boss, por mapa */R.initialize(s,n.raidKind||'tree',{hp:scale.hp*p*[1,1.25,1.25][act(s)-1],damage:scale.damage*p*[1,1.1,1.1][act(s)-1],minions:scale.minions*p*[1,1.1,1.1][act(s)-1]},true);}};
 root.JourneyActs={SPEC,BARRIER,barrier,ensure,act,power,currentCounts,orderHistory,orderTotals,localStage,played,prepareBoss,generate,recordBoss,advance};
 })(typeof globalThis!=='undefined'?globalThis:this);

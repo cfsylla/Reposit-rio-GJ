@@ -171,6 +171,8 @@ function chooseNode(s, nodes, pol, rnd) {
     let v = DEV[n.type] ?? 0;
     if (n.type === 'shop' && s.gold < 15) v = 1;
     if (pol.route === 'safe' && n.type === 'elite') v -= 3;
+    if (pol.route === 'titan' && n.campaign === 'monsters') v += 10; // Carlos 08/11: forçar a passagem pelos Titans
+    if (pol.route === 'notitan' && n.campaign === 'monsters') v -= 10; // e o oposto: evitar os Titans
     if (pol.route === 'order' && n.campaign) {
       // Chase a local order: prefer the order already beaten once on this map.
       const beat = { blackfang: (r.defeatedForces || []).length, dawncrest: (r.dawncrestForces || []).length, monsters: (r.monsterNodes || []).length }[n.campaign] || 0;
