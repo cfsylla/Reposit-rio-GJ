@@ -11,9 +11,9 @@ function ensure(s){if(!eligible(s))return null;if(!s.journey){if(s.meta?.ended)r
 function act(s){return eligible(s)?s.journey?.act||1:1;}
 /* R3 etapa 4 (escada de barreiras, Carlos 08/11/2026): multiplicador de vida e ataque dos inimigos por barreira e mapa.
  * order = lutas de ordem (Blackfang/Dawncrest); entrance = primeiras lutas comuns/elite de cada mapa; other = demais lutas.
- * Bosses (JOURNEY_BOSS_TUNE) e raids/Titans (sistema próprio) não passam por aqui. */
-const BARRIER=root.JOURNEY_BARRIER_TUNE={order:[1,1,1],entrance:[1,1,1],other:[1,1,1],entranceFights:2,...(root.JOURNEY_BARRIER_TUNE||{})};
-function barrier(s){const n=s?.current;if(!eligible(s)||!n||n.type==='boss'||n.campaign==='monsters'||s.raid)return 1;const a=Math.max(0,Math.min(2,act(s)-1));if(n.campaign==='blackfang'||n.campaign==='dawncrest')return BARRIER.order[a]||1;return (localStage(s)<=BARRIER.entranceFights?BARRIER.entrance[a]:BARRIER.other[a])||1;}
+ * boss = luta de boss inteira (boss e aliados dele), além do JOURNEY_BOSS_TUNE por boss. Raids/Titans (sistema próprio) não passam por aqui. */
+const BARRIER=root.JOURNEY_BARRIER_TUNE={order:[1,1,1],entrance:[1,1,1],other:[1,1,1],boss:[1,1,1],entranceFights:2,...(root.JOURNEY_BARRIER_TUNE||{})};
+function barrier(s){const n=s?.current;if(!eligible(s)||!n||n.campaign==='monsters'||s.raid)return 1;const a=Math.max(0,Math.min(2,act(s)-1));if(n.type==='boss')return BARRIER.boss[a]||1;if(n.campaign==='blackfang'||n.campaign==='dawncrest')return BARRIER.order[a]||1;return (localStage(s)<=BARRIER.entranceFights?BARRIER.entrance[a]:BARRIER.other[a])||1;}
 function power(s){return (SPEC[act(s)]?.power||1)*barrier(s);}
 function localStage(s,upcoming=false){return Math.max(1,(s.mapBattles||0)-(s.journey?.battleStart||0)+(upcoming?1:0));}
 function played(s){const j=ensure(s),seen=new Set(j?.seenMonsters||[]),ids=new Set([...(s.route||[]),...(s.campaignRoute?.monsterNodes||[])]);for(const n of s.map?.flat()||[])if(n.campaign==='monsters'&&ids.has(n.id))seen.add(n.raidKind||'tree');return seen;}
