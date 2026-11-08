@@ -1,0 +1,8 @@
+{
+ "fairyFights": 16,
+ "playerWin": 1,
+ "form2Rounds": 32,
+ "supportsBehindBossShare": 0,
+ "supportsOutOfReachShare": 0.028,
+ "healToBossPerForm2Round": 86
+}

@@ -19,7 +19,7 @@ for(const order of ['blackfang','dawncrest'])for(let seed=1;seed<100;seed++){con
 for(const id of ['titan','darkelf','fairy','primordial']){const s=fixture(id);s.phase='roundResult';s.bossEncounter.transition=true;G.nextRound(s);const b=battle(s),u=B.leader(b),attacker=b.units.find(v=>!v.side),pending=[];
  if(id==='titan'){for(let i=0;i<6;i++)B.modifyHit(b,attacker,u,20,true,{});assert.equal(b.boss.instability,18);R.actions(b,.1,pending);assert.equal(u.raidDamageTaken,1.4);assert(b.boss.staggerUntil>b.time);assert.equal(b.raid.attacks.length,0);}
  if(id==='darkelf'){R.actions(b,.1,pending);assert.equal(u.raidDamageTaken,.7);b.units.filter(v=>v.side&&!v.raidBoss).forEach(v=>v.hp=0);R.actions(b,.1,pending);assert.equal(u.raidDamageTaken,1.25);b.time=7;R.actions(b,.1,pending);assert.equal(b.units.filter(v=>v.side&&v.hp>0&&!v.raidBoss).length,3);}
- if(id==='fairy'){u.hp-=5000;for(let i=0;i<30;i++){b.time=6*(i+1);pending.length=0;R.actions(b,.1,pending);pending.push({target:u,heal:2000});B.beforeSettle(b,b.units,pending);}assert.equal(b.raid.healed,s.raid.maxHp*.05);}
+ if(id==='fairy'){u.hp-=5000;const src=b.units.find(v=>v!==u&&v.hp>0)||{};const p2=[];Game.heal(b,u,2000,p2,src);assert(Math.abs(p2[0].heal-u.maxhp*.0025)<1e-6,'R3: per-pulse heal cap 0.25% (replaces the cumulative 5%/round cap)');}
 }
 for(let a=2;a<=3;a++)for(let seed=1;seed<=50;seed++)assert(A.generate(seed,a).flat().filter(n=>n.campaign==='monsters').every(n=>!n.raidKind.startsWith('true_')));
 
