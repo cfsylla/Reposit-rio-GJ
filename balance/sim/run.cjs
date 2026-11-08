@@ -78,7 +78,7 @@ function playFight(s, pol, rec, dt) {
     if (s.phase === 'roundResult') { G.nextRound(s); continue; }
     break;
   }
-  fight.result = s.phase === 'defeat' ? 'loss' : 'win';
+  fight.result = s.phase === 'defeat' || (s.phase === 'tree' && Tree.ensure(s)?.session?.kind === 'defeat') ? 'loss' : 'win';
   fight.score = [...s.score];
   rec.fights.push(fight);
 }
@@ -250,7 +250,7 @@ function bossLab(s, node, pol, rec, dt) {
       if (G.enter(c, cn.id) && c.phase === 'prep') {
         const got = c.bossEncounter?.id;
         const f = { fights: [] }; playFight(c, pol, f, dt);
-        res = got !== id ? 'mismatch:' + got : ['tree', 'victory', 'actComplete'].includes(c.phase) ? 'win' : c.phase === 'defeat' ? 'loss' : 'other:' + c.phase + ':' + (c.bossEncounter?.form || '');
+        res = got !== id ? 'mismatch:' + got : (['victory', 'actComplete'].includes(c.phase) || (c.phase === 'tree' && Tree.ensure(c)?.session?.kind !== 'defeat')) ? 'win' : c.phase === 'defeat' ? 'loss' : 'other:' + c.phase + ':' + (c.bossEncounter?.form || '');
       }
     } catch (e) { res = 'error:' + e.message.slice(0, 60); }
     const back = JSON.parse(prof); for (const k of Object.keys(P.profile)) delete P.profile[k]; Object.assign(P.profile, back);

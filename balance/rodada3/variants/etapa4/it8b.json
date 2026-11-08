@@ -1,0 +1,123 @@
+{
+ "note": "etapa 4 passo por inclinação 2026-11-08T05:05:53.984Z",
+ "basicScale": {
+  "0": 3,
+  "1": 3,
+  "2": 3,
+  "3": 3
+ },
+ "barrierTune": {
+  "order": [
+   1.15,
+   1.176,
+   1.338
+  ],
+  "entrance": [
+   1,
+   1.142,
+   1.381
+  ],
+  "other": [
+   1,
+   1,
+   1
+  ],
+  "entranceFights": 2,
+  "boss": [
+   1.022,
+   1.454,
+   1.46
+  ]
+ },
+ "bossTune": {
+  "map": [
+   1.037,
+   0.965,
+   1.198
+  ],
+  "boss": {
+   "ib_marshal": {
+    "hp": 0.975,
+    "atk": 0.975
+   },
+   "ib_shogun": {
+    "hp": 1.14,
+    "atk": 1.14
+   },
+   "ib_jarl": {
+    "hp": 0.957,
+    "atk": 0.957
+   },
+   "ib_gunslinger": {
+    "hp": 1.326,
+    "atk": 1.326
+   },
+   "ib_piratequeen": {
+    "hp": 1.068,
+    "atk": 1.068
+   },
+   "ib_oracle": {
+    "hp": 0.928,
+    "atk": 0.928
+   },
+   "ib_hartlord": {
+    "hp": 0.796,
+    "atk": 0.796
+   },
+   "goblin": {
+    "hp": 1.899,
+    "atk": 1.899
+   },
+   "troll": {
+    "hp": 1.182,
+    "atk": 1.182
+   },
+   "orc": {
+    "hp": 0.587,
+    "atk": 0.587
+   },
+   "meowri": {
+    "hp": 1.211,
+    "atk": 1.211
+   },
+   "centaur": {
+    "hp": 0.991,
+    "atk": 0.991
+   },
+   "highelf": {
+    "hp": 0.898,
+    "atk": 0.898
+   },
+   "forestelf": {
+    "hp": 1.87,
+    "atk": 1.87
+   },
+   "ib_wayfarer": {
+    "hp": 1.409,
+    "atk": 1.409
+   },
+   "darkelf": {
+    "hp": 1.208,
+    "atk": 1.208
+   },
+   "fairy": {
+    "hp": 1.039,
+    "atk": 1.039
+   }
+  },
+  "true2": {
+   "ib_wayfarer": {
+    "hp": 1.409,
+    "damage": 1.409
+   },
+   "darkelf": {
+    "hp": 1.208,
+    "damage": 1.208
+   },
+   "fairy": {
+    "hp": 1.039,
+    "damage": 1.039
+   }
+  }
+ }
+}

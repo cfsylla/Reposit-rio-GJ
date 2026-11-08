@@ -17,6 +17,14 @@ const A = JSON.parse(fs.readFileSync(vA, 'utf8')), B = JSON.parse(fs.readFileSyn
 const get = (V, bar) => { const a = Number(bar[0]) - 1; if (bar.endsWith(':boss')) return (V.barrierTune?.boss || [1, 1, 1])[a]; const key = bar.includes('ordem') ? 'order' : 'entrance'; return (V.barrierTune || { order: [1, 1, 1], entrance: [1, 1, 1] })[key][a]; };
 const ONLY = process.env.ONLY ? process.env.ONLY.split(',') : null;
 const N = JSON.parse(JSON.stringify(B)), rep = [];
+if (process.env.APPLY_TO) { // APPLY_TO=<dirC>,<varC>: b de cada barreira vem do par A/B; o passo parte da medição C
+  const [dC, vC] = process.env.APPLY_TO.split(','), C = JSON.parse(fs.readFileSync(vC, 'utf8')), cC = cells(dC), M = JSON.parse(JSON.stringify(C));
+  for (const bar of Object.keys(META).filter(b => !ONLY || ONLY.includes(b))) {
+    const d = dev(cA, cB, bar), dc = dev(cC, cC, bar), ka = get(A, bar), kb = get(B, bar), kc = get(C, bar); if (!d || !dc) { rep.push(bar + ' sem dados'); continue; }
+    const bb = Math.max(1.5, Math.abs((d.a - d.b) / Math.log(kb / ka))); let lk = Math.log(kc) + dc.b / bb; lk = Math.min(Math.log(kc) + .25, Math.max(Math.log(kc) - .25, lk)); const k = +Math.exp(lk).toFixed(3);
+    const a = Number(bar[0]) - 1; if (bar.endsWith(':boss')) (M.barrierTune.boss ??= [1, 1, 1])[a] = k; else M.barrierTune[bar.includes('ordem') ? 'order' : 'entrance'][a] = k;
+    rep.push(`${bar.padEnd(10)} ${dc.det.map(x => x.replace(/\d+->/, '')).join('  ')} | b ${bb.toFixed(1)} desvio ${dc.b.toFixed(2)} | k ${kc} -> ${k}`); }
+  M.note = 'etapa 4 passo por inclinação ' + new Date().toISOString(); fs.writeFileSync(nextF, JSON.stringify(M, null, 1)); console.log(rep.join('\n')); process.exit(0); }
 for (const bar of Object.keys(META).filter(b => !ONLY || ONLY.includes(b))) {
   const d = dev(cA, cB, bar), ka = get(A, bar), kb = get(B, bar); if (!d) { rep.push(bar + ' sem dados'); continue; }
   let lk; if (Math.abs(Math.log(kb / ka)) > 1e-6 && Math.abs(d.b - d.a) > .05) lk = Math.log(kb) - d.b * (Math.log(kb) - Math.log(ka)) / (d.b - d.a); else lk = Math.log(kb) + d.b / 2.5;

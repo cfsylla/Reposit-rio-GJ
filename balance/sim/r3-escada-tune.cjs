@@ -8,15 +8,15 @@ const cur = JSON.parse(fs.readFileSync(curF, 'utf8'));
 const BT = cur.barrierTune || { order: [1, 1, 1], entrance: [1, 1, 1], other: [1, 1, 1], entranceFights: 2 };
 const BOSS = cur.bossTune || (() => { process.env.GJ_ROOT = process.env.GJ_ROOT || 'game_r3'; delete process.env.GJ_TREE_VARIANT; require('./engine.cjs'); return JSON.parse(JSON.stringify(globalThis.JOURNEY_BOSS_TUNE)); })();
 // metas de passagem por luta (%), por nós (Carlos 08/11/2026, escada de barreiras)
-const META = {
-  '1:ordem': { 0: 80, 2: 84, 4: 88, 7: 92, 10: 95, 13: 97 }, // revisado após carreiras it6 (mapa 1 travava a escada)
-  '1:boss': { 0: 40, 2: 50, 4: 60, 7: 72, 10: 85, 13: 90, 18: 95 },
-  '2:entrada': { 0: 70, 2: 75, 4: 80, 7: 87, 10: 92, 13: 95 },
-  '2:ordem': { 2: 65, 4: 70, 7: 78, 10: 85, 13: 90, 18: 95 },
-  '2:boss': { 4: 35, 7: 50, 10: 62, 13: 72, 18: 85, 23: 92 },
-  '3:entrada': { 7: 75, 10: 80, 13: 85, 18: 90, 23: 95 },
-  '3:ordem': { 10: 65, 13: 72, 18: 80, 23: 88, 28: 93 },
-  '3:boss': { 13: 15, 18: 22, 23: 32, 28: 45, 33: 58 },
+const META = { // revisado 08/11 (Carlos): janela na derrota + 1ª vitória com 16-18 nós; escada em nós reais das carreiras
+  '1:ordem': { 0: 80, 2: 85, 4: 89, 7: 93, 10: 96 },
+  '1:boss': { 0: 40, 2: 52, 4: 62, 7: 75, 10: 85, 13: 90 },
+  '2:entrada': { 0: 72, 2: 76, 4: 82, 7: 88, 10: 92, 13: 95 },
+  '2:ordem': { 2: 68, 4: 74, 7: 82, 10: 88, 13: 92 },
+  '2:boss': { 2: 35, 4: 45, 7: 58, 10: 70, 13: 80, 18: 88 },
+  '3:entrada': { 4: 72, 7: 78, 10: 84, 13: 88, 18: 93 },
+  '3:ordem': { 4: 60, 7: 68, 10: 75, 13: 82, 18: 88 },
+  '3:boss': { 7: 15, 10: 22, 13: 32, 18: 45, 23: 58, 28: 68 },
 };
 const ORD = ['blackfang', 'dawncrest'];
 const kind = (f, i) => f.type === 'boss' ? 'boss' : ORD.includes(f.campaign) ? 'ordem' : (f.raid || f.campaign === 'monsters') ? 'raid' : (f.act >= 2 && i < 2) ? 'entrada' : 'comuns';
