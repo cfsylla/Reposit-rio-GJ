@@ -4,7 +4,7 @@ const fs = require('fs'), path = require('path'); const dir = process.argv[2];
 const load = f => fs.readFileSync(path.join(dir, f), 'utf8').trim().split('\n').filter(Boolean).map(JSON.parse);
 const base = Object.fromEntries(load('none_-.jsonl').map(r => [r.deck + '|' + r.seed, r.result === 'victory' ? 1 : 0]));
 const bw = Object.values(base).reduce((a, b) => a + b, 0) / Object.keys(base).length;
-console.log(`Base (30 nós, 5 decks × 40 seeds): vitória ${(100 * bw).toFixed(1)}%  |  efeito = vitória com o item − base (pontos), margem ±1,96 erro pareado`);
+console.log(`Base (${process.env.TREE_LABEL || "30 nós"}, 5 decks × 40 seeds): vitória ${(100 * bw).toFixed(1)}%  |  efeito = vitória com o item − base (pontos), margem ±1,96 erro pareado`);
 const bands = { ch: [-10, -5, -12, -3], ad: [3, 7, 1, 9] };
 for (const kind of ['ch', 'ad']) {
   console.log(kind === 'ch' ? '\nDESAFIOS (meta: −5 a −10; exceções −3 a −12)' : '\nVANTAGENS (meta: +3 a +7; exceções +1 a +9; negativas aprovadas: Olho Treinado, Limpeza, Fusão Eficiente)');

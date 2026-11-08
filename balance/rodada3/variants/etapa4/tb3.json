@@ -1,0 +1,94 @@
+{
+ "bossTune": {
+  "map": [
+   1.037,
+   0.965,
+   1.198
+  ],
+  "boss": {
+   "ib_marshal": {
+    "hp": 0.975,
+    "atk": 0.975
+   },
+   "ib_shogun": {
+    "hp": 1.14,
+    "atk": 1.14
+   },
+   "ib_jarl": {
+    "hp": 0.957,
+    "atk": 0.957
+   },
+   "ib_gunslinger": {
+    "hp": 1.326,
+    "atk": 1.326
+   },
+   "ib_piratequeen": {
+    "hp": 1.068,
+    "atk": 1.068
+   },
+   "ib_oracle": {
+    "hp": 0.928,
+    "atk": 0.928
+   },
+   "ib_hartlord": {
+    "hp": 0.796,
+    "atk": 0.796
+   },
+   "goblin": {
+    "hp": 1.899,
+    "atk": 1.899
+   },
+   "troll": {
+    "hp": 1.182,
+    "atk": 1.182
+   },
+   "orc": {
+    "hp": 0.587,
+    "atk": 0.587
+   },
+   "meowri": {
+    "hp": 1.211,
+    "atk": 1.211
+   },
+   "centaur": {
+    "hp": 0.991,
+    "atk": 0.991
+   },
+   "highelf": {
+    "hp": 0.898,
+    "atk": 0.898
+   },
+   "forestelf": {
+    "hp": 1.87,
+    "atk": 1.87
+   },
+   "ib_wayfarer": {
+    "hp": 1.489,
+    "atk": 1.489
+   },
+   "darkelf": {
+    "hp": 1.275,
+    "atk": 1.275
+   },
+   "fairy": {
+    "hp": 1.738,
+    "atk": 1.738
+   }
+  },
+  "true2": {
+   "ib_wayfarer": {
+    "hp": 1.489,
+    "damage": 1.489
+   },
+   "darkelf": {
+    "hp": 1.275,
+    "damage": 1.275
+   },
+   "fairy": {
+    "hp": 1.738,
+    "damage": 1.738
+   }
+  }
+ },
+ "note": "etapa 4 tb3 (secante entre tb1 e tb2)"
+}
