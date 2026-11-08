@@ -146,3 +146,27 @@ Os traits do jogo têm 3 categorias: **Facção** (16), **Atributo** (7) e **Tem
 **Opção C (depois):** uma relíquia por **ordem** (Ironbound, Blackfang, Dawncrest), ligada às lutas de ordem e aos bosses, para dar identidade às campanhas.
 
 Todas entram na mesma régua por raridade (seção 2) e no mesmo laboratório.
+
+## 9. Decisões do Carlos (08/11) e lista final para implementar
+- Categorias aprovadas (podem surgir novas). Seção 3 aprovada sem cortes.
+- Sinergia: **A + B aprovadas**; **C só Blackfang e Dawncrest** (Ironbound já tem muitas sinergias).
+- Nova relíquia para **suportes** (pedido do Carlos):
+
+| Nome | Raridade | Categoria | Efeito | Forma |
+|---|---|---|---|---|
+| Amuleto Amplificador | incomum | Sinergia (suportes) | **Auras dos seus suportes têm +40% de raio** (alcance 120 → 168) | domino (2) |
+| Totem da Horda | rara | Sinergia (Blackfang) | Quando uma unidade **Blackfang** aliada cai, as outras Blackfang ganham **15% de carga** da habilidade (até 3× por rodada) | T (4) |
+| Bênção da Aurora | rara | Sinergia (Dawncrest) | Unidades **Dawncrest** aliadas começam a rodada com **escudo de 6% da vida**; ao derrotar um inimigo, renovam o escudo (1× por rodada) | quadrado (4) |
+
+**Total: 40 relíquias** = 25 atuais (4 mantidas, 8 com ajuste de valor, 13 com conceito novo) + 3 novas gerais (Eco Arcano, Corrente de Comando, Bússola do Saqueador) + 3 coringa (Brasão das Casas, Código de Honra, Forja dos Talentos) + 6 específicas (Martelo do Devastador, Grito de Guerra, Raiz de Ferro, Ampulheta da Paciência, Égide do Guardião, Bandeira Solitária) + 2 de ordem + Amuleto Amplificador.
+
+Distribuição por raridade (proposta): comuns 9, incomuns 15, raras 12, ultra raras 4.
+
+**Atenção:** com 40 relíquias, cada uma aparece com menos frequência nas escolhas (hoje 25). As de sinergia específicas serão as mais raras de ver casando com a build. Medir no laboratório se a oferta precisa de ajuste (ex.: mais opções por escolha).
+
+## 10. Plano de execução (quando liberado)
+1. **Implementação** em `game_r3`: efeitos novos, textos PT/EN, nomes padronizados, formatos, raridades, ícones (reaproveitando ícones existentes até haver arte), testes. Sem mexer em IDs existentes (saves). ~3 a 4 h de trabalho.
+2. **Laboratório** (24 decks × 20 seeds × 0/10/23 nós; 40 relíquias), com parciais: 10 decks de teste → Ironbound → Blackfang → Dawncrest + consolidado. ~6 h de processamento, em blocos.
+3. **Ajuste de valores** até cada relíquia entrar na faixa da sua raridade (1 a 2 rodadas).
+4. **Carreiras** para conferir a escada; compensar nos inimigos se a 1ª vitória sair cedo demais.
+5. Retomar Desafios e Vantagens.
