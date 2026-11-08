@@ -52,7 +52,8 @@
     for (const s of living) {
       const sp = SPEC[s.type]; if (!sp || s.raidBoss) continue;
       const k = growth(s) * tune(s), allies = living.filter(v => v.side === s.side);
-      for (const v of allies) if (v !== s && dist(s, v) <= sp.radius) { const vals = {}; for (const [key, x] of Object.entries(sp.buff)) vals[key] = x * k; G.grant(v, 'supportB_' + s.uid, .2, vals); } // each aura is its own bonus: auras from different emitters add up; the emitter is not affected
+      const R3r = sp.radius * (root.JourneyRelicsR3?.auraScale?.(b, s.side) || 1); // R3: Amuleto Amplificador
+      for (const v of allies) if (v !== s && dist(s, v) <= R3r) { const vals = {}; for (const [key, x] of Object.entries(sp.buff)) vals[key] = x * k; G.grant(v, 'supportB_' + s.uid, .2, vals); } // each aura is its own bonus: auras from different emitters add up; the emitter is not affected
       // Positioning: stay ~60 behind the frontline allies' centre unless an enemy is already in range.
       if (s.stun > 0 || s.motion) continue;
       const foes = living.filter(v => v.side !== s.side);
@@ -79,7 +80,8 @@
       const sp = SPEC[s.type]; if (!sp || !(sp.heal > 0) || s.hp <= 0 || s.raidBoss) continue; // pure buff auras never heal
       const last = s.supportBLast ?? 0; if (b.time - last < sp.every) continue; s.supportBLast = b.time;
       const rnd = () => .9 + .2 * (typeof b.random === 'function' ? b.random() : Math.random()); // battle RNG keeps replays deterministic
-      for (const v of living) if (v !== s && v.side === s.side && v.hp > 0 && dist(s, v) <= sp.radius) G.heal(b, v, s.maxhp * sp.heal * tune(s) * rnd(), pending, s); // % of the HEALER's max HP; emitter does not heal itself
+      const R3h = sp.radius * (root.JourneyRelicsR3?.auraScale?.(b, s.side) || 1);
+      for (const v of living) if (v !== s && v.side === s.side && v.hp > 0 && dist(s, v) <= R3h) G.heal(b, v, s.maxhp * sp.heal * tune(s) * rnd(), pending, s); // % of the HEALER's max HP; emitter does not heal itself
     }
   };
   root.JourneySupportB = { SPEC };
