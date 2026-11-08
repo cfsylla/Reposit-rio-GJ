@@ -4,11 +4,14 @@
 (function(root){'use strict';
 const G=root.Game,T=root.JourneyTraits,C=root.JourneyContent,Tree=root.JourneyTree;
 const RT=root.JOURNEY_RELIC_TUNE=root.JOURNEY_RELIC_TUNE||{};
-const DEF={tomeCharge:.30,sentinelTaunt:3,sentinelRange:120,precisionCharge:.10,executionCharge:.15,echoRefund:.60,chainCharge:.20,compass:1,devastatorBonus:.60,devastatorStun:.5,warcryHeal:.04,ironrootAt:.50,ironrootShield:.10,patienceT:3,aegisRange:140,loneReduction:.15,amplifier:1.4,hordeCharge:.15,hordeMax:3,dawnShield:.06,platingShield:.08};
+const DEF={slingDamage:1.5,slingStun:.5,contractElite:8,contractBoss:15,grimoireXp:.30,grimoireGold:.15,tomeCharge:.30,sentinelTaunt:3,sentinelRange:120,precisionCharge:.10,executionCharge:.15,echoRefund:.60,chainCharge:.20,compass:1,devastatorBonus:.60,devastatorStun:.5,warcryHeal:.04,ironrootAt:.50,ironrootShield:.10,patienceT:3,aegisRange:140,loneReduction:.15,amplifier:1.4,hordeCharge:.15,hordeMax:3,dawnShield:.06,platingShield:.08};
 for(const [k,v] of Object.entries(DEF))if(RT[k]===undefined)RT[k]=v;
 // id, nome EN, nome PT, raridade, formato, ícone, texto EN, texto PT, categoria
 const NEW=[
- ['echo','Arcane Echo','Eco arcano',3,'L5','✺','The first skill each ally uses in each round refunds 60% of its charge.','A primeira habilidade que cada aliado usa em cada rodada devolve 60% da carga.','rhythm'],
+ ['sling','Siege Sling','Funda de cerco',3,'cross','➶','At the start of each round, your units in the back-row corners are hurled onto the enemy back line, dealing 150% attack to the nearest enemy and stunning it for 0.5s.','No início de cada rodada, suas unidades nos cantos da última linha são arremessadas sobre a linha de fundo inimiga, causando 150% do ataque ao inimigo mais próximo e atordoando-o por 0,5 s.','offense'],
+ ['contract','Mercenary Contract','Contrato do mercenário',1,'line4','✒','Gain +8 gold for each elite, order or Titan encounter won, and +15 for each boss.','Ganhe +8 de ouro a cada confronto vencido contra elite, ordem ou Titã, e +15 contra boss.','economy'],
+ ['grimoire','Apprentice’s Grimoire','Grimório do aprendiz',2,'U','✎','Gain 30% more tree XP during the run, but 15% less gold from rewards.','Ganhe 30% mais XP da árvore durante a run, mas 15% menos ouro em recompensas.','economy'],
+ ['echo','Arcane Echo','Eco arcano',3,'cross','✺','The first skill each ally uses in each round refunds 60% of its charge.','A primeira habilidade que cada aliado usa em cada rodada devolve 60% da carga.','rhythm'],
  ['chain','Chain of Command','Corrente de comando',2,'line3','⛓','When an ally uses its skill, the nearest other ally with an active skill gains 20% charge.','Quando um aliado usa a habilidade, o aliado mais próximo com habilidade ativa ganha 20% de carga.','rhythm'],
  ['compass','Raider’s Compass','Bússola do saqueador',0,'dot','✧','Card choices offer 1 more option.','Escolhas de carta oferecem 1 opção a mais.','deck'],
  ['houses','Crest of Houses','Brasão das casas',2,'T','⚜','Faction traits activate with one fewer member.','Traits de facção ativam com 1 membro a menos.','synergy'],
@@ -59,6 +62,8 @@ for(const a of G.ARTIFACTS){const t=TEXT[a.id];if(t){a.name=t[0];a.namePT=t[1];a
 // categorias das existentes (Carlos 08/11)
 const CAT={banner:'offense',dormant_sword:'offense',ember:'offense',execution:'offense',precision:'offense',heart:'defense',colossal_heart:'defense',plating:'defense',recovery:'defense',fang:'defense',laststand:'defense',repulsion:'defense',spark:'rhythm',quickstart:'rhythm',bell:'rhythm',hourglass:'rhythm',captain_standard:'deck',travelers_mirror:'deck',profane_idol:'deck',luckycharm:'economy',merchant:'economy',scope:'synergy',tome:'synergy',boots:'synergy',shield:'synergy'};
 for(const a of G.ARTIFACTS)if(!a.category&&CAT[a.id])a.category=CAT[a.id];
+// Formatos novos (Carlos 08/11): Ampulheta = diagonal 3, Luneta = diagonal 2, Selo de repulsão = ponte. Mapeados sem uso: escada, cavalo.
+const RESHAPE={hourglass:'diag3',scope:'diag2',repulsion:'bridge'};for(const [id,sh] of Object.entries(RESHAPE)){const a=G.ARTIFACTS.find(a=>a.id===id);if(a){a.shape=sh;G.RELIC_FORMATS[id]=sh;}}
 const CATEGORIES={offense:{en:'Offense',pt:'Ofensiva'},defense:{en:'Defense',pt:'Defensiva'},rhythm:{en:'Rhythm',pt:'Ritmo'},deck:{en:'Deck and hand',pt:'Deck e mão'},economy:{en:'Economy',pt:'Economia'},synergy:{en:'Synergy',pt:'Sinergia'}};
 
 const has=(b,side,id)=>!!b?.relics?.[side]?.includes(id);
@@ -83,7 +88,10 @@ if(T){
     if(has(b,side,'tome')&&T.caster?.(kind(u)))charge(u,RT.tomeCharge);
     if(has(b,side,'plating'))addShield(u,RT.platingShield);
     if(has(b,side,'dawn')&&order(u)==='dawncrest')addShield(u,RT.dawnShield);
-    if(has(b,side,'patience')&&rank(u,'Patient'))u.r3PatientT=RT.patienceT;}}
+    if(has(b,side,'patience')&&rank(u,'Patient'))u.r3PatientT=RT.patienceT;}
+   for(const side of [0,1])if(has(b,side,'sling')){const mine=alive(b).filter(u=>u.side===side),backY=side?Math.min(...mine.map(u=>u.y)):Math.max(...mine.map(u=>u.y)),corners=mine.filter(u=>u.y===backY&&(u.x<=65||u.x>=365));
+    const foes=alive(b).filter(v=>v.side!==side&&!v.raidBoss);if(!foes.length)continue;const foeBack=side?Math.max(...foes.map(v=>v.y)):Math.min(...foes.map(v=>v.y));
+    for(const u of corners){const t=foes.filter(v=>v.y===foeBack).sort((x,y)=>Math.abs(x.x-u.x)-Math.abs(y.x-u.x))[0]||foes[0];u.x=t.x+(u.x<t.x?-28:28);u.y=t.y+(side?28:-28);u.motion=null;const dmg=u.atk*RT.slingDamage;if(!t.r3Invuln&&!(T.immune?.(b,t)))t.hp=Math.max(1,t.hp-dmg);t.stun=Math.max(t.stun||0,RT.slingStun);u.r3Slung=true;G.announce?.(b,u,'SLING');}}}
   for(const u of alive(b)){
    if(u.r3EchoPending){u.r3EchoPending=false;charge(u,RT.echoRefund);}
    if(u.stun>0&&has(b,u.side,'ironroot')&&rank(u,'Unyielding'))u.stun=0;
@@ -111,6 +119,8 @@ if(T){
    if(has(b,side,'horde')&&order(u)==='blackfang'&&(b.r3Horde?.[side]||0)<RT.hordeMax){b.r3Horde[side]++;for(const v of alive(b))if(v.side===side&&order(v)==='blackfang')charge(v,RT.hordeCharge);}}
   return r;};
 }
+// Contrato do mercenário: ouro extra por elite, ordem, Titã e boss vencidos
+const P=root.Progress;if(P?.encounterWin){const win=P.encounterWin;P.encounterWin=function(s){const before=s?.meta?.encounters?.length||0,r=win.apply(this,arguments);if(s?.artifacts?.includes('contract')&&(s.meta?.encounters?.length||0)>before){const t=s.current?.type;const add=t==='boss'?RT.contractBoss:t==='elite'?RT.contractElite:0;if(add){s.gold+=add;s.r3ContractGold=(s.r3ContractGold||0)+add;}}return r;};}
 // Bússola do saqueador: +1 opção nas escolhas de carta
 if(Tree?.offerCount){const offerCount=Tree.offerCount;Tree.offerCount=function(s,n){const v=offerCount.apply(this,arguments);return v+(s?.artifacts?.includes('compass')?RT.compass:0);};}
 // Ídolo profano: ao equipar pela 1ª vez na run, adiciona 1 Exaustão ao deck

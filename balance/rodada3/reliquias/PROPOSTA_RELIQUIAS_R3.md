@@ -170,3 +170,20 @@ Distribuição por raridade (proposta): comuns 9, incomuns 15, raras 12, ultra r
 3. **Ajuste de valores** até cada relíquia entrar na faixa da sua raridade (1 a 2 rodadas).
 4. **Carreiras** para conferir a escada; compensar nos inimigos se a 1ª vitória sair cedo demais.
 5. Retomar Desafios e Vantagens.
+
+## 11. Acréscimos (Carlos 08/11, implementados; nada rodado)
+| Nome | Raridade | Categoria | Efeito | Forma |
+|---|---|---|---|---|
+| Funda de Cerco (Siege Sling) | ultra rara | Ofensiva | No início de cada rodada, as unidades nos **cantos da última linha** são arremessadas sobre a linha de fundo inimiga: 150% do ataque no inimigo mais próximo e atordoamento de 0,5 s; depois lutam de lá | cruz (5) |
+| Contrato do Mercenário | incomum | Economia | +8 de ouro por vitória contra elite, ordem ou Titã; +15 contra boss | linha 4 |
+| Grimório do Aprendiz | rara | Economia (XP) | +30% de XP da árvore durante a run; −15% de ouro em recompensas | U (5) |
+
+**Total: 43 relíquias** (comuns 9, incomuns 16, raras 13, ultra raras 5).
+
+### Formatos (bolsa 4×4)
+Existentes: ponto (1), dominó (2), linha 3, L3, L4, L5, T (4), S (4), quadrado (4), P (5).
+Novos (todos no jogo): **diagonal 2** (`X-`/`-X`), **diagonal 3**, **ponte** (`X-X`), **linha 4**, **escada** (5: `X--`/`XX-`/`-XX`), **cruz** (5), **U** (5: `X-X`/`XXX`), **cavalo** (2: `X--`/`--X`).
+Em uso: Ampulheta de Combate → diagonal 3; Luneta do Atirador → diagonal 2; Selo de Repulsão → ponte; Eco Arcano e Funda de Cerco → cruz; Contrato do Mercenário → linha 4; Grimório do Aprendiz → U. **Mapeados sem uso**: escada, cavalo.
+
+### Égide do Guardião × Amuleto Amplificador
+Conceito parecido (aura maior), alvos diferentes: Égide = aura do temperamento Protetor (redução de dano, 90 → 140); Amplificador = auras dos suportes (cura e buffs, 120 → 168). **Decisão do Carlos (08/11): manter as duas como estão.**
