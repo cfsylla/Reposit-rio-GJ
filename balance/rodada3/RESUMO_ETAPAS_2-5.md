@@ -69,3 +69,6 @@ Base: 23 nós, 5 decks × 40 seeds (pareado), vitória **59%** (no CP3 eram 30 n
 | Limpeza 0, Fusão Eficiente −1, Olho Treinado −3,5 (negativas já aprovadas); **Juros −1** | ≤ 0 | fora (4) |
 
 Os 5 desafios ≈ 0 mexem em inimigos de lutas comuns/elites, que agora pesam menos (as barreiras concentram a dificuldade nas ordens, entradas e bosses). Recalibrar os desafios é decisão sua (item 4 da seção 5).
+
+## 7. Em espera (08/11): Desafios e Vantagens
+Decisão do Carlos: as relíquias vêm antes (podem mudar a base da run). Já gravado no jogo: desafios recalibrados para −7 a −12 (Veteranos +8, Tropas Resistentes +10%, Ataques Implacáveis +8%, Comandantes +2/+2, Bosses Implacáveis +7%, Reforços desde a 1ª rodada, Fúria das Raids +25%/+8%, Mercado +30%, Bolsa Leve −27%, Bagagem 5 casas, Deck Pesado +2 cartas genéricas, Caminho Amaldiçoado 2× Exaustão) e vantagens (Juros 100% até 150, Caçador de Elites +20, Bênção do Caminho 2× upgrade 1). Pendente: medição final isolada, escada de combinações (23/30/45/60 nós) e PDF — refazer depois das relíquias. Relíquias Escassas não responde a valor (já no mínimo de 1 opção).
