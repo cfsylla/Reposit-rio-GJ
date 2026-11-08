@@ -13,9 +13,9 @@
    * Goblin King (a boss) keeps two. Values = version B (provisional, character lab 06/11): remaining buff raised to restore
    * each support's lab index (Bard, Snow Troll, Feline Arcanist, Feline Drummer); Sage = damage reduction (Carlos 07/11: skill-only could not be compensated). */
   const SPEC = { // calibrated with balance/sim/tune.cjs: lab index = cost/rarity target (approved model B)
-    priestess: { radius: 120, every: 3, heal: .0833, buff: { guard: .17 } },
-    elf_harpist: { radius: 120, every: 3, heal: .0652, buff: { haste: .23 } },
-    flower_fairy: { radius: 120, every: 3, heal: .0833, buff: { skill: .35 } },
+    priestess: { radius: 120, every: 4, heal: .1111, buff: { guard: .17 } },
+    elf_harpist: { radius: 120, every: 5, heal: .1087, buff: { haste: .23 } },
+    flower_fairy: { radius: 120, every: 2, heal: .0556, buff: { skill: .35 } },
     snow_troll: { radius: 120, every: 2, heal: 0, buff: { guard: .42 } },
     shaman: { radius: 120, every: 3, heal: .0652, buff: { haste: .43 } },
     sage: { radius: 120, every: 3, heal: 0, buff: { guard: .45 } },
@@ -25,7 +25,8 @@
     feline_drummer: { radius: 120, every: 3, heal: 0, buff: { haste: .46 } },
   };
   /* R3 healing (Carlos 08/11/2026): a pulse heals a % of the HEALER's own max HP (about 15 HP per pulse at level 0, ~5 HP/s),
-   * never more often than every 3 s, with a random factor 0.9-1.1 from the battle RNG. Upgrades raise it through the healer's HP. */
+   * at its own rhythm (Fairy 2 s, Shaman 3 s, Priestess 4 s, Harpist 5 s; option B), random factor 0.9-1.1 from the battle RNG.
+   * Upgrades raise it through the healer's HP. */
   if (root.SUPPORT_B_SPEC) for (const [id, o] of Object.entries(root.SUPPORT_B_SPEC)) SPEC[id] = { ...SPEC[id], ...o }; // testing variants only
   // Upgrade/fusion growth is softened (half of the skill-power growth) to avoid runaway sustain.
   const growth = u => 1 + ((u.baseSkill ?? u.skill ?? 1) - 1) * .5; // base skill power: received buffs never feed auras

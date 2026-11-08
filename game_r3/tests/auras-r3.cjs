@@ -6,7 +6,7 @@ const G = Game, S = JourneySupportB, SPEC = S.SPEC;
 const HEAL = ['priestess', 'flower_fairy', 'elf_harpist', 'shaman'], PURE = ['bard', 'sage', 'snow_troll', 'feline_arcanist', 'feline_drummer', 'goblin_king'];
 for (const id of HEAL) assert(SPEC[id].heal > 0, id + ' heals');
 for (const id of PURE) { assert.equal(SPEC[id].heal, 0, id + ' heal 0'); assert(!/cura|heal/i.test(G.BY[id].detail + ' ' + G.BY[id].detailPT), id + ' text without heal'); }
-for (const id of HEAL) { assert(SPEC[id].every >= 3, id + ' heals at most every 3 s'); const per = G.BY[id].hp * SPEC[id].heal / SPEC[id].every; assert(per > 4.5 && per < 5.5, id + ' ~5 HP/s at level 0: ' + per); }
+for (const id of HEAL) { const per = G.BY[id].hp * SPEC[id].heal / SPEC[id].every; assert(per > 4.5 && per < 5.5, id + ' ~5 HP/s at level 0: ' + per); }
 for (const id of [...HEAL, ...PURE]) assert.equal(Object.keys(SPEC[id].buff).length, id === 'goblin_king' ? 2 : 1, id + ' buff count');
 function battle(mine) {
   const s = G.fresh('vanguard', 9); Object.assign(s, { artifacts: [], reserve: [], bag: { items: [] }, current: { id: 'x', type: 'battle', name: 'x', layer: 5 }, phase: 'prep', round: 5, mapBattles: 8, bench: Array(6).fill(null), fusions: {}, deployedAt: {}, hand: [], draw: [], discard: [] });
@@ -34,4 +34,4 @@ for (const id of [...PURE, ...HEAL]) {
 { const b = battle(['warrior']); const boss = b.units.find(u => u.side === 1); Object.assign(boss, { raidBoss: true, speed: 0, x: 215, y: 180 });
   const sup = { ...boss, uid: 'esup', type: 'priestess', raidBoss: false, speed: 60, x: 215, y: 120, hp: 180, maxhp: 180, range: 145, motion: null, stun: 0 };
   b.units.push(sup); JourneyTraits.beforeStep(b, 1 / 60); assert(sup.motion, 'support moves'); assert(sup.motion.y > sup.y, 'moves toward the front (y grows), not behind the boss'); }
-console.log('PASS R3 auras: Titan per-pulse heal cap, supports in front of a stationary boss, 4 healers heal % of their own max HP (~5 HP/s, every >= 3 s, ±10%), 6 pure buff auras heal 0 (no heal entry, no heal text), one buff each (Goblin King two), buffs still apply.');
+console.log('PASS R3 auras: Titan per-pulse heal cap, supports in front of a stationary boss, 4 healers heal % of their own max HP (~5 HP/s at their own rhythm, ±10%), 6 pure buff auras heal 0 (no heal entry, no heal text), one buff each (Goblin King two), buffs still apply.');
