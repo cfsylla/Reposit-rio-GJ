@@ -1,0 +1,35 @@
+Base (23 nós, 5 decks × 40 seeds): vitória 57.0%  |  efeito = vitória com o item − base (pontos), margem ±1,96 erro pareado
+
+DESAFIOS (meta: −5 a −10; exceções −3 a −12)
+  bag                 -9.5 ±8.5  na meta
+  bossrounds          -7.0 ±4.3  na meta
+  commanders          -8.0 ±8.9  na meta
+  cursed              -3.5 ±8.4  faixa de exceção
+  dissipate           -9.0 ±5.4  na meta
+  fewrelics           -2.5 ±7.4  FORA
+  heavydeck           -2.0 ±8.8  FORA
+  inflation           -8.5 ±7.5  na meta
+  lightpurse         -14.5 ±7.9  FORA
+  raidfury            -8.5 ±4.8  na meta
+  reinforcements      -9.0 ±5.8  na meta
+  relentless          -7.0 ±5.1  na meta
+  scarce              -7.5 ±6.4  na meta
+  tough              -12.0 ±5.5  faixa de exceção
+  veterans            -5.0 ±4.3  na meta
+
+VANTAGENS (meta: +3 a +7; exceções +1 a +9; negativas aprovadas: Olho Treinado, Limpeza, Fusão Eficiente)
+  cleanse            +  0.0 ±0.0  FORA
+  efficient_fusion   +  0.0 ±0.0  FORA
+  elite_experience   +  5.5 ±4.2  na meta
+  elite_hunter       +  7.0 ±6.1  faixa de exceção
+  flex_prep          +  8.5 ±7.7  faixa de exceção
+  full_purse         +  6.5 ±5.4  na meta
+  interest           +  5.5 ±4.0  na meta
+  path_blessing      +  7.0 ±8.6  faixa de exceção
+  planned_hand       +  7.5 ±5.0  faixa de exceção
+  pretraining        +  3.5 ±8.0  na meta
+  rehearsal          +  2.0 ±2.8  faixa de exceção
+  saved_energy       +  6.5 ±5.7  na meta
+  second_chance      +  1.5 ±1.7  faixa de exceção
+  trained_eye         -4.0 ±6.2  FORA
+  travel_relic       +  1.5 ±8.9  faixa de exceção
