@@ -54,3 +54,18 @@ Onde a run termina (mais comuns):
 5. Raids continuam fora do ajuste (o simulado passa ~100% delas; você sentia pressão).
 
 ## 6. Desafios e Vantagens: resultado
+Base: 23 nós, 5 decks × 40 seeds (pareado), vitória **59%** (no CP3 eram 30 nós ≈ 58%). Nenhum valor foi alterado.
+
+| Desafios | Efeito (pontos) | |
+|---|---|---|
+| Rodadas extras no boss, Implacável, Amaldiçoado, Dissipar, Bolsa Leve, Recursos Escassos, Inflação | −6 a −9 | ✅ na meta (7) |
+| Bolsa, Poucas Relíquias, Fúria das Raids | −3 a −4,5 | exceção (3) |
+| **Comandantes −1,5; Resistentes −2,5; Baralho Pesado +0,5; Reforços 0; Veteranos 0** | ≈ 0 | ⚠️ fora (5) |
+
+| Vantagens | Efeito (pontos) | |
+|---|---|---|
+| Bolsa Cheia +4,5, Mão Planejada +5,5, Relíquia de Viagem +4 | +4 a +5,5 | ✅ na meta (3) |
+| Experiência de Elite, Preparação Flexível, Bênção do Caminho, Energia Guardada +8; Caçador de Elites +1,5; Pré-treino +1; Ensaio +1; Segunda Chance +2,5 | +1 a +8 | exceção (8) |
+| Limpeza 0, Fusão Eficiente −1, Olho Treinado −3,5 (negativas já aprovadas); **Juros −1** | ≤ 0 | fora (4) |
+
+Os 5 desafios ≈ 0 mexem em inimigos de lutas comuns/elites, que agora pesam menos (as barreiras concentram a dificuldade nas ordens, entradas e bosses). Recalibrar os desafios é decisão sua (item 4 da seção 5).
