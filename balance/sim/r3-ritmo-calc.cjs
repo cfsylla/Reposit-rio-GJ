@@ -52,3 +52,4 @@ for (const r of RINGS) {
   const runOf = k => c.out.findIndex(x => x >= k) + 1;
   console.log(('Anéis ' + r.join('/')).padEnd(22), 'nós após run 1-15:', c.out.slice(0, 15).join(' '), '| fecha anel 1/2/3 na run', [10, 30, 50].map(runOf).join('/'), '| árvore completa na run', c.full, '| custo total', c.total);
 }
+module.exports = { career, BASE };
