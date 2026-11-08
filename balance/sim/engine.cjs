@@ -63,6 +63,8 @@ if (process.env.GJ_TREE_VARIANT) {
   const D = g.JourneyTreeData, T = g.JourneyTree, P = g.Progress, A = g.JourneyActs;
   if (tv.costDepth) for (const n of D.nodes) if (n.type === 'basic' && tv.costDepth[n.depth] !== undefined) n.cost = tv.costDepth[n.depth];
   if (tv.power) for (const [i, v] of tv.power.entries()) { if (!g.JourneyActs.SPEC[i + 1]) throw Error('variant: no act ' + (i + 1)); g.JourneyActs.SPEC[i + 1].power = v; }
+  // basicScale: { "<depth>": k } multiplies the effect values of BASIC nodes at that depth (proposal testing only)
+  if (tv.basicScale) for (const n of D.nodes) { const k = tv.basicScale[n.depth]; if (n.type === 'basic' && k && n.effect) for (const key of Object.keys(n.effect)) n.effect[key] *= k; }
   if (tv.costs) for (const [id, c] of Object.entries(tv.costs)) { if (!D.by[id]) throw Error('variant: unknown node ' + id); D.by[id].cost = c; }
   if (tv.xpFight || tv.xpBoss) {
     const inner = P.encounterWin;
