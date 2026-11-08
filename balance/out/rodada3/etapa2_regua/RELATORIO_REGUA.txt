@@ -1,0 +1,5 @@
+referência humana (árvore 0-4): lutas vencidas mediana 10 6/10/6/13/26 | rodadas perdidas por elite 0.42 | por luta de ordem 0.32 | boss mapa 1 2.2
+m1.0_none      n=200 lutas vencidas mediana 8 (p25 8, p75 10) | perdidas/elite 0.47 | /ordem 0.45 | boss1 1.73 | onde cai: mapa 1 antes da 6ª luta 18%, mapa 1 depois da 6ª luta 7%, boss 1 46%, mapa 2 28%, mapa 3+ 2%
+m1.2_none      n=200 lutas vencidas mediana 20 (p25 14, p75 26) | perdidas/elite 0.15 | /ordem 0.13 | boss1 1.09 | onde cai: mapa 1 antes da 6ª luta 1%, mapa 1 depois da 6ª luta 1%, boss 1 15%, mapa 2 33%, mapa 3+ 52%
+m1.4_none      n=200 lutas vencidas mediana 27 (p25 27, p75 27) | perdidas/elite 0.05 | /ordem 0.06 | boss1 0.59 | onde cai: mapa 1 antes da 6ª luta 0%, mapa 1 depois da 6ª luta 0%, boss 1 1%, mapa 2 9%, mapa 3+ 91%
+m1.6_none      n=200 lutas vencidas mediana 27 (p25 27, p75 27) | perdidas/elite 0.02 | /ordem 0.02 | boss1 0.40 | onde cai: mapa 1 antes da 6ª luta 0%, mapa 1 depois da 6ª luta 0%, boss 1 0%, mapa 2 1%, mapa 3+ 99%

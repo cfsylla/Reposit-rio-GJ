@@ -1,0 +1,241 @@
+[
+ {
+  "save": "27ea3778-Grand_Journey_Save_2026-11-07T2",
+  "run": 1,
+  "deck": "vanguard",
+  "reason": "defeat",
+  "encounters": 27,
+  "fightsWon": 27,
+  "orderFights": 5,
+  "orderRoundsLost": 2,
+  "order3_0": 4,
+  "eliteFights": 10,
+  "eliteRoundsLost": 8,
+  "elite3_0": 4,
+  "raidRoundsToWin": [
+   5
+  ],
+  "bossScores": [
+   [
+    4,
+    3
+   ],
+   [
+    4,
+    3
+   ]
+  ],
+  "maps": 3,
+  "treeXp": {
+   "gained": 82,
+   "spent": 72,
+   "lost": 10
+  }
+ },
+ {
+  "save": "27ea3778-Grand_Journey_Save_2026-11-07T2",
+  "run": 2,
+  "deck": "corsair",
+  "reason": "defeat",
+  "encounters": 27,
+  "fightsWon": 27,
+  "orderFights": 6,
+  "orderRoundsLost": 3,
+  "order3_0": 4,
+  "eliteFights": 10,
+  "eliteRoundsLost": 5,
+  "elite3_0": 6,
+  "raidRoundsToWin": [],
+  "bossScores": [
+   [
+    4,
+    3
+   ],
+   [
+    4,
+    1
+   ]
+  ],
+  "maps": 3,
+  "treeXp": {
+   "gained": 80,
+   "spent": 64,
+   "lost": 16
+  }
+ },
+ {
+  "save": "27ea3778-Grand_Journey_Save_2026-11-07T2",
+  "run": 3,
+  "deck": "fireline",
+  "reason": "defeat",
+  "encounters": 24,
+  "fightsWon": 24,
+  "orderFights": 5,
+  "orderRoundsLost": 0,
+  "order3_0": 5,
+  "eliteFights": 10,
+  "eliteRoundsLost": 0,
+  "elite3_0": 10,
+  "raidRoundsToWin": [],
+  "bossScores": [
+   [
+    4,
+    0
+   ],
+   [
+    4,
+    1
+   ]
+  ],
+  "maps": 3,
+  "treeXp": {
+   "gained": 73,
+   "spent": 72,
+   "lost": 1
+  }
+ },
+ {
+  "save": "27ea3778-Grand_Journey_Save_2026-11-07T2",
+  "run": 4,
+  "deck": "blades",
+  "reason": "victory",
+  "encounters": 27,
+  "fightsWon": 26,
+  "orderFights": 6,
+  "orderRoundsLost": 2,
+  "order3_0": 5,
+  "eliteFights": 9,
+  "eliteRoundsLost": 2,
+  "elite3_0": 8,
+  "raidRoundsToWin": [],
+  "bossScores": [
+   [
+    4,
+    3
+   ],
+   [
+    4,
+    0
+   ],
+   [
+    3,
+    3
+   ]
+  ],
+  "maps": 3,
+  "treeXp": {
+   "gained": 93,
+   "spent": 91,
+   "lost": 2
+  }
+ },
+ {
+  "save": "8671fb2f-Grand_Journey_Save_2026-11-08T0",
+  "run": 2,
+  "deck": "balanced",
+  "reason": "defeat",
+  "encounters": 6,
+  "fightsWon": 6,
+  "orderFights": 0,
+  "orderRoundsLost": 0,
+  "order3_0": 0,
+  "eliteFights": 1,
+  "eliteRoundsLost": 0,
+  "elite3_0": 1,
+  "raidRoundsToWin": [
+   4
+  ],
+  "bossScores": [],
+  "maps": 1,
+  "treeXp": {
+   "gained": 7,
+   "spent": 0,
+   "lost": 7
+  }
+ },
+ {
+  "save": "8671fb2f-Grand_Journey_Save_2026-11-08T0",
+  "run": 3,
+  "deck": "swift",
+  "reason": "defeat",
+  "encounters": 10,
+  "fightsWon": 10,
+  "orderFights": 1,
+  "orderRoundsLost": 2,
+  "order3_0": 0,
+  "eliteFights": 3,
+  "eliteRoundsLost": 3,
+  "elite3_0": 1,
+  "raidRoundsToWin": [
+   4
+  ],
+  "bossScores": [
+   [
+    4,
+    2
+   ]
+  ],
+  "maps": 2,
+  "treeXp": {
+   "gained": 18,
+   "spent": 16,
+   "lost": 2
+  }
+ },
+ {
+  "save": "8671fb2f-Grand_Journey_Save_2026-11-08T0",
+  "run": 4,
+  "deck": "astral",
+  "reason": "defeat",
+  "encounters": 6,
+  "fightsWon": 6,
+  "orderFights": 0,
+  "orderRoundsLost": 0,
+  "order3_0": 0,
+  "eliteFights": 1,
+  "eliteRoundsLost": 1,
+  "elite3_0": 0,
+  "raidRoundsToWin": [
+   2,
+   3
+  ],
+  "bossScores": [],
+  "maps": 1,
+  "treeXp": {
+   "gained": 9,
+   "spent": 8,
+   "lost": 1
+  }
+ },
+ {
+  "save": "8671fb2f-Grand_Journey_Save_2026-11-08T0",
+  "run": 5,
+  "deck": "vanguard",
+  "reason": "defeat",
+  "encounters": 13,
+  "fightsWon": 12,
+  "orderFights": 0,
+  "orderRoundsLost": 0,
+  "order3_0": 0,
+  "eliteFights": 1,
+  "eliteRoundsLost": 0,
+  "elite3_0": 1,
+  "raidRoundsToWin": [
+   3,
+   4,
+   4
+  ],
+  "bossScores": [
+   [
+    1,
+    4
+   ]
+  ],
+  "maps": 2,
+  "treeXp": {
+   "gained": 25,
+   "spent": 8,
+   "lost": 17
+  }
+ }
+]
