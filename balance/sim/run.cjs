@@ -180,8 +180,11 @@ function playRun(deck, seed, pol, opt) {
   if (process.env.GJ_START_GOLD) s.gold += Number(process.env.GJ_START_GOLD);
   let lastGold = s.gold, steps = 0;
   const trackGold = () => { if (s.gold > lastGold) rec.goldIn += s.gold - lastGold; lastGold = s.gold; };
+  // Captain's Standard (Carlos 08/11): o jogador escolhe a unidade vinculada; o simulador escolhe a de maior custo (melhor caso)
+  const standard = () => { if (!s.artifacts.includes('captain_standard') || !C?.setStandard || s.phase === 'battle') return; const st = C.state?.(s); if (st?.standard && s.cards.some(c => c.uid === st.standard)) return;
+    const u = s.cards.filter(c => G.BY[c.type] && G.BY[c.type].kind !== 'curse' && (G.BY[c.type].hp || 0) > 0).sort((a, b) => (G.BY[b.type].cost - G.BY[a.type].cost) || (b.level - a.level))[0]; if (u) C.setStandard(s, u.uid); };
   while (steps++ < 2000) {
-    trackGold();
+    trackGold(); standard();
     if (s.pendingRelic || s.phase === 'eventReward') { resolvePending(s, rec); trackGold(); continue; }
     switch (s.phase) {
       case 'map': {
