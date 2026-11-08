@@ -57,10 +57,14 @@ const fresh=G.fresh;G.fresh=function(...args){const st=profile();if(st.respec){s
 /* Mid window: opens by itself after the 6th fight of each map (once per map), before the next node is chosen. */
 const leave=G.leave;G.leave=function(s){const from=s.layer,ok=leave(s);if(ok&&s.phase==='map'&&active(s)){const t=ensure(s),a=A.act(s);if(t&&from===midLayer(a)&&!t.midClosed.includes(a)){t.session={act:a,kind:'mid',layer:from};s.phase='tree';}}return ok;};
 const encounter=P.encounterWin;P.encounterWin=function(s){const t=ensure(s),before=s.meta?.encounters?.length||0,r=encounter(s);if((s.meta?.encounters?.length||0)>before)award(s);return r;};
-const finish=P.finish;P.finish=function(s,reason){const t=ensure(s);if(t&&reason==='victory'&&!s.meta?.ended&&s.current?.type==='boss'&&!t.closed.includes(A.act(s))){A.recordBoss(s);t.session??={act:A.act(s),boss:s.current.id,kind:'boss'};s.phase='tree';return false;}if(t&&reason!=='victory'){lose(t,'defeat');t.session=null;t.goldCarry=0;}return finish(s,reason);};
+const finish=P.finish;P.finish=function(s,reason){const t=ensure(s);if(t&&reason==='victory'&&!s.meta?.ended&&s.current?.type==='boss'&&!t.closed.includes(A.act(s))){A.recordBoss(s);t.session??={act:A.act(s),boss:s.current.id,kind:'boss'};s.phase='tree';return false;}/* R3 etapa 4 (Carlos 08/11/2026): janela na derrota. Ao perder a run, se o XP não gasto compra pelo menos 1 nó, a árvore abre
+ * uma última vez (sem penalidade); ao fechar, a run termina e o que sobrar é perdido. Abandonar a run não abre a janela. */
+if(t&&reason==='defeat'&&!s.meta?.ended&&!t.defeatClosed&&t.xp>0&&nextLevelXp()>0&&t.xp>=nextLevelXp()){t.session={act:A.act(s),kind:'defeat'};s.phase='tree';return false;}
+if(t&&reason!=='victory'){lose(t,'defeat');t.session=null;t.goldCarry=0;}return finish(s,reason);};
 const abandon=P.abandon;P.abandon=function(s){const t0=ensure(s);const result=abandon(s);if(result){const t=t0||ensure(s);if(t){lose(t,'abandon');t.session=null;t.goldCarry=0;}}return result;};
 function continueRun(s){if(!buying(s))return false;const t=ensure(s),act=A.act(s);
  if(t.session.kind==='mid'){t.midClosed.push(act);t.session=null;s.phase='map';return true;}
+ if(t.session.kind==='defeat'){t.defeatClosed=true;t.session=null;lose(t,'defeat');t.goldCarry=0;s.phase='defeat';finish(s,'defeat');return true;}
  t.closed.push(act);t.session=null;if(act===3){lose(t,'victory');s.phase='victory';}finish(s,'victory');if(act<3){if(s.phase!=='actComplete')return false;return A.advance(s);}return s.phase==='victory';}
 function resume(s){const t=ensure(s);if(t&&s.phase==='actComplete'&&!t.closed.includes(A.act(s))){t.session={act:A.act(s),boss:s.current.id,kind:'boss'};s.phase='tree';}return t;}
 const advance=A.advance;A.advance=function(s){if(buying(s))return false;const ok=advance(s);if(ok)grantEntry(s);return ok;};
