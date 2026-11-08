@@ -13,10 +13,10 @@ const META = { // revisado 08/11 (Carlos): janela na derrota + 1ª vitória com 
   '1:boss': { 0: 40, 2: 52, 4: 62, 7: 75, 10: 85, 13: 90 },
   '2:entrada': { 0: 72, 2: 76, 4: 82, 7: 88, 10: 92, 13: 95 },
   '2:ordem': { 2: 68, 4: 74, 7: 82, 10: 88, 13: 92 },
-  '2:boss': { 2: 35, 4: 45, 7: 58, 10: 70, 13: 80, 18: 88 },
-  '3:entrada': { 4: 72, 7: 78, 10: 84, 13: 88, 18: 93 },
-  '3:ordem': { 4: 60, 7: 68, 10: 75, 13: 82, 18: 88 },
-  '3:boss': { 7: 15, 10: 22, 13: 32, 18: 45, 23: 58, 28: 68 },
+  '2:boss': { 2: 40, 4: 52, 7: 65, 10: 76, 13: 85, 18: 90 }, // it9: carreiras it8 = 1ª vitória run 18 com 22 nós
+  '3:entrada': { 4: 78, 7: 84, 10: 88, 13: 91, 18: 94 },
+  '3:ordem': { 4: 68, 7: 75, 10: 82, 13: 87, 18: 92 },
+  '3:boss': { 7: 20, 10: 28, 13: 38, 18: 50, 23: 62, 28: 70 },
 };
 const ORD = ['blackfang', 'dawncrest'];
 const kind = (f, i) => f.type === 'boss' ? 'boss' : ORD.includes(f.campaign) ? 'ordem' : (f.raid || f.campaign === 'monsters') ? 'raid' : (f.act >= 2 && i < 2) ? 'entrada' : 'comuns';

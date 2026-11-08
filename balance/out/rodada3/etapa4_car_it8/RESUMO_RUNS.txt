@@ -1,0 +1,7 @@
+runs 1-1: nós no início 0 | XP ganho 11.0 gasto 7.6 | chega M2 10% M3 0% vitória 0%
+runs 2-3: nós no início 1 | XP ganho 12.1 gasto 8.1 | chega M2 23% M3 3% vitória 0%
+runs 4-6: nós no início 3 | XP ganho 16.6 gasto 12.3 | chega M2 33% M3 11% vitória 0%
+runs 7-10: nós no início 7 | XP ganho 30.0 gasto 24.2 | chega M2 68% M3 29% vitória 8%
+runs 11-15: nós no início 16 | XP ganho 42.1 gasto 34.0 | chega M2 80% M3 45% vitória 13%
+runs 16-20: nós no início 24 | XP ganho 62.6 gasto 51.4 | chega M2 97% M3 79% vitória 33%
+runs 21-30: nós no início 38 | XP ganho 76.8 gasto 58.6 | chega M2 100% M3 91% vitória 67%
