@@ -1,0 +1,20 @@
+
+== Anéis: 40 carreiras
+nós ao fim da run (mediana [p10-p90]): r1 1 [0-1]  r2 2 [0-3]  r3 2 [0-4]  r4 2 [0-5]  r5 3 [1-7]  r8 4 [1-11]  r10 7 [3-15]  r13 10 [3-22]  r15 10 [5-23]  r20 17 [8-32]  r25 24 [12-41]  r30 30 [19-50]  r40 45 [33-60]
+1ª vitória: run 30 (p10 14, p90 38) com 24 nós (p10 17, p90 30) | árvore completa: run 99 (p90 99; 99 = não completou até a run 40)
+ run 1: termina em mapa 1 90%, mapa 2 10%
+ run 2: termina em mapa 1 73%, mapa 2 25%, mapa 3 3%
+ run 3: termina em mapa 1 90%, mapa 2 10%
+ run 5: termina em mapa 1 70%, mapa 2 25%, mapa 3 5%
+ run 8: termina em mapa 2 40%, mapa 1 53%, mapa 3 8%
+ run 12: termina em mapa 1 43%, mapa 2 43%, mapa 3 13%, vitória 3%
+
+== CP3: 40 carreiras
+nós ao fim da run (mediana [p10-p90]): r1 1 [0-1]  r2 2 [1-3]  r3 3 [2-5]  r4 3 [2-8]  r5 4 [2-10]  r8 7 [4-14]  r10 10 [6-17]  r13 12 [9-21]  r15 13 [10-22]  r20 15 [11-27]  r25 17 [12-36]  r30 22 [14-43]  r40 28 [17-58]
+1ª vitória: run 34 (p10 10, p90 99) com 21 nós (p10 11, p90 25) | árvore completa: run 99 (p90 99; 99 = não completou até a run 40)
+ run 1: termina em mapa 1 88%, mapa 2 13%
+ run 2: termina em mapa 1 65%, mapa 2 35%
+ run 3: termina em mapa 1 73%, mapa 2 25%, mapa 3 3%
+ run 5: termina em mapa 1 73%, mapa 2 23%, mapa 3 5%
+ run 8: termina em mapa 2 38%, mapa 1 50%, mapa 3 13%
+ run 12: termina em mapa 2 48%, mapa 1 43%, mapa 3 8%, vitória 3%

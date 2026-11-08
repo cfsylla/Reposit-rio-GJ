@@ -9,8 +9,8 @@ const BT = cur.barrierTune || { order: [1, 1, 1], entrance: [1, 1, 1], other: [1
 const BOSS = cur.bossTune || (() => { process.env.GJ_ROOT = process.env.GJ_ROOT || 'game_r3'; delete process.env.GJ_TREE_VARIANT; require('./engine.cjs'); return JSON.parse(JSON.stringify(globalThis.JOURNEY_BOSS_TUNE)); })();
 // metas de passagem por luta (%), por nós (Carlos 08/11/2026, escada de barreiras)
 const META = {
-  '1:ordem': { 0: 65, 2: 72, 4: 80, 7: 88, 10: 93, 13: 96 },
-  '1:boss': { 0: 30, 2: 40, 4: 50, 7: 65, 10: 80, 13: 88, 18: 95 },
+  '1:ordem': { 0: 80, 2: 84, 4: 88, 7: 92, 10: 95, 13: 97 }, // revisado após carreiras it6 (mapa 1 travava a escada)
+  '1:boss': { 0: 40, 2: 50, 4: 60, 7: 72, 10: 85, 13: 90, 18: 95 },
   '2:entrada': { 0: 70, 2: 75, 4: 80, 7: 87, 10: 92, 13: 95 },
   '2:ordem': { 2: 65, 4: 70, 7: 78, 10: 85, 13: 90, 18: 95 },
   '2:boss': { 4: 35, 7: 50, 10: 62, 13: 72, 18: 85, 23: 92 },
