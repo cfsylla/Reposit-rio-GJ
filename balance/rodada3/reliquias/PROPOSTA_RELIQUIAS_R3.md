@@ -91,3 +91,58 @@ Nenhuma, por enquanto: todas as fracas ganham conceito novo. Se você preferir e
 - **Medalhão da Precisão:** "chance crítica" → "chance de crítico" (termo usado no resto do jogo).
 - **Lente do Viajante × Espelho dos Viajantes:** dois nomes parecidos para relíquias diferentes. Sugestão: Lente do Viajante → **Luneta do Atirador** (EN: Marksman's Scope).
 - Sugestão de nomes EN para as originais: Ancient Banner, Vital Stone, Marksman's Scope, Tome of Stars, Wind Boots, Warding Seal, Precision Medallion, Combat Hourglass, Recovery Brooch, Merchant's Coin.
+
+## 6. Categorias propostas (pedido do Carlos 08/11)
+| Categoria | O que faz | Relíquias (com a proposta da seção 3) |
+|---|---|---|
+| **Ofensiva** | mais dano para o time todo | Estandarte Antigo, Espada Adormecida, Brasa Vingativa, Marca do Executor, Medalhão da Precisão |
+| **Defensiva** | vida, escudo, sobrevivência | Pedra Vital, Coração Colossal, Placas Reforçadas, Broche da Recuperação, Presa Vampírica, Última Resistência, Selo de Repulsão |
+| **Ritmo** | energia, carga de habilidade, começo da rodada | Centelha Eterna, Arranque Rápido, Sino de Abertura, Ampulheta de Combate, (nova) Eco Arcano, (nova) Corrente de Comando |
+| **Deck e mão** | o que entra no deck e na mão | Estandarte do Capitão, Espelho dos Viajantes, Ídolo Profano, (nova) Bússola do Saqueador |
+| **Economia** | ouro e loja | Amuleto da Sorte, Moeda do Mercador |
+| **Sinergia** | só para um subgrupo (facção, atributo, temperamento ou tipo de unidade) | Lente do Viajante (à distância), Tomo das Estrelas (conjuradores), Botas do Vento (Desbravador), Selo de Proteção (Sentinela) |
+
+## 7. Mapa de cobertura: quem tem relíquia própria hoje
+Os traits do jogo têm 3 categorias: **Facção** (16), **Atributo** (7) e **Temperamento** (6). Entre parênteses, nº de unidades com o trait.
+
+| Grupo | Trait (unidades) | Relíquia exclusiva hoje |
+|---|---|---|
+| Atributo | Sentinela (14) | **Selo de Proteção** |
+| Atributo | Desbravador (12) | **Botas do Vento** |
+| Atributo | Atalaia (9) | parcial: Lente do Viajante (vale para qualquer unidade à distância) |
+| Atributo | Predador (14) | parcial: Medalhão da Precisão (crítico para todos) |
+| Atributo | **Devastador (21)** | **nenhuma** |
+| Atributo | **Inabalável (17)** | **nenhuma** |
+| Atributo | Demolidor (7) | nenhuma |
+| Temperamento | Impulsivo (16) | parcial: Sino de Abertura (começo da rodada, para todos) |
+| Temperamento | Impiedoso (14) | parcial: Marca do Executor (alvos feridos, para todos) |
+| Temperamento | **Destemido (18)** | **nenhuma** |
+| Temperamento | **Paciente (17)** | **nenhuma** |
+| Temperamento | **Protetor (15)** | **nenhuma** |
+| Temperamento | **Audacioso (14)** | **nenhuma** |
+| Facção | Arcane (6) | parcial: Tomo das Estrelas (conjuradores = magos, bruxas, sacerdotes e Arcane) |
+| Facção | Dawnward Order (10), Legends of the East (9), Frostborn Clans (7), Goblin (7), Seasalt Crew (6), Verdant Covenant (6), Dark Elf (6), Meowri (6), High Elf (6), Wild West (5), Troll (5), Forest Elf (5), Orc (4), Centaur (4), Fairy (2) | **nenhuma** |
+
+**Resumo:** 2 atributos com relíquia exclusiva (Sentinela, Desbravador); 4 subgrupos com cobertura só indireta; **11 subgrupos grandes sem nada** (Devastador 21, Destemido 18, Inabalável 17, Paciente 17, Protetor 15, Audacioso 14 e as 15 facções além de Arcane).
+
+## 8. Novas relíquias de sinergia (ideias; sem stat puro)
+**Opção A: relíquias "coringa" que atendem muitos subgrupos de uma vez** (recomendo começar por aqui; 16 relíquias de facção seria muito conteúdo)
+| Nome | Raridade | Efeito | Cobre |
+|---|---|---|---|
+| Brasão das Casas | rara | **Traits de facção ativam com 1 membro a menos** (ex.: 1 Goblin já conta como 2; o 2º patamar pede 1 a menos) | as 16 facções |
+| Código de Honra | incomum | **Temperamentos contam +1 membro para o patamar** | os 6 temperamentos |
+| Forja dos Talentos | incomum | **Atributos contam +1 membro para o patamar** | os 7 atributos |
+
+**Opção B: relíquias específicas para os maiores subgrupos sem cobertura**
+| Nome | Raridade | Para | Efeito |
+|---|---|---|---|
+| Martelo do Devastador | incomum | Devastador (21) | O 1º golpe de cada Devastador na rodada também atinge inimigos colados ao alvo (50% do dano) |
+| Grito de Guerra | incomum | Destemido (18) | Críticos garantidos de Destemidos curam 4% da vida do atacante |
+| Raiz de Ferro | incomum | Inabalável (17) | Inabaláveis ignoram empurrões e atordoamentos; ao cair abaixo de 50% ganham escudo de 10% (1×/rodada) |
+| Ampulheta da Paciência | comum | Paciente (17) | Pacientes começam a rodada com 1 acúmulo |
+| Égide do Guardião | rara | Protetor (15) | A aura do Protetor alcança 140 (em vez de 90) e também reduz o dano de área |
+| Bandeira Solitária | comum | Audacioso (14) | Audaciosos isolados também ganham +15% de velocidade de ataque |
+
+**Opção C (depois):** uma relíquia por **ordem** (Ironbound, Blackfang, Dawncrest), ligada às lutas de ordem e aos bosses, para dar identidade às campanhas.
+
+Todas entram na mesma régua por raridade (seção 2) e no mesmo laboratório.
