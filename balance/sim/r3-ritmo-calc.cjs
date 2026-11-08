@@ -34,6 +34,8 @@ const OPT = {
   'B: custos fora do 1º/2º anel x2': { ...BASE, cost: n => n.depth <= 1 ? n.cost : n.cost * 2 },
   'C: A + B': { ...BASE, mult: [1, 1.5, 2], cost: n => n.depth <= 1 ? n.cost : n.cost * 2 },
   "B': custos fora dos 10 primeiros x1,75": { ...BASE, cost: n => n.depth <= 1 ? n.cost : Math.round(n.cost * 1.75) },
+  'B2: x2, milestones mantidos 48/54': { ...BASE, cost: n => n.depth <= 1 || n.type === 'milestone' ? n.cost : n.cost * 2 },
+  'B3: x2 com teto 54': { ...BASE, cost: n => n.depth <= 1 ? n.cost : Math.min(54, n.cost * 2) },
   'D: XP x0,5 (exceto mapa 1)': { ...BASE, mult: [1, 1, 1.5] },
 };
 for (const [k, R] of Object.entries(OPT)) {
