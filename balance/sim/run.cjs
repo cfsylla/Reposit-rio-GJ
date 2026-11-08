@@ -86,7 +86,7 @@ function playFight(s, pol, rec, dt) {
 function doShop(s, pol, rec) {
   const spend = (what, amt) => { rec.spent[what] = (rec.spent[what] || 0) + amt; };
   // 'balanced' shop policy: first secure a good relic that fits (while the bag holds < 4), then upgrades, then cards.
-  if (pol.shop === 'balanced' && s.artifacts.length < 4) {
+  if (pol.shop === 'balanced' && s.artifacts.length < 4 && process.env.GJ_NO_RELICS !== '1') {
     const ri = s.offers.artifacts.map((id, i) => [id, i]).filter(([id]) => id && Pol.relicRank(id) <= 14).sort((a, b) => Pol.relicRank(a[0]) - Pol.relicRank(b[0]));
     for (const [id, i] of ri) { const p = G.price(s, 'artifacts', id); if (s.gold >= p && G.packBag([...s.artifacts, id], s) && G.buy(s, 'artifacts', i)) { const before = s.gold; Pol.placeRelic(s, true); spend('relic', before - s.gold); break; } }
   }
@@ -142,7 +142,7 @@ function doEvent(s, pol, rec) {
 
 function resolvePending(s, rec) {
   for (let k = 0; k < 10; k++) {
-    if (s.pendingRelic) { Pol.placeRelic(s, true); continue; }
+    if (s.pendingRelic) { Pol.placeRelic(s, process.env.GJ_NO_RELICS !== '1'); continue; }
     if (s.phase === 'eventReward' && s.eventPending) {
       const r = s.eventPending;
       if (r.relic && r.artifactOptions.length) { const id = [...r.artifactOptions].sort((a, b) => Pol.relicRank(a) - Pol.relicRank(b))[0]; if (G.claimEvent(s, 'relic', id)) { Pol.placeRelic(s, true); continue; } r.relic = false; }
@@ -170,8 +170,14 @@ function playRun(deck, seed, pol, opt) {
     s.artifacts = [custom.startRelic]; s.reserve = []; s.bag = null; G.ensureBag(s);
     if (custom.order === 'blackfang') s.blackfangAvailable = true; if (custom.order === 'dawncrest') s.dawncrestAvailable = true;
   }
+
   const rnd = G.rng(seed ^ 0x5eed);
   const rec = { deck, seed, policy: pol, fights: [], events: [], spent: {}, goldIn: 0, nodes: [], treeBought: [], result: null };
+  // RELÍQUIAS (Carlos 08/11, só medição): GJ_NO_RELICS=1 joga sem relíquias; GJ_FORCE_RELIC=id começa com a relíquia equipada; GJ_START_GOLD=n ouro extra no início
+  if (process.env.GJ_NO_RELICS === '1') { s.artifacts = []; s.reserve = []; s.bag = null; G.ensureBag(s); }
+  if (process.env.GJ_FORCE_RELIC && !s.artifacts.includes(process.env.GJ_FORCE_RELIC)) { const F = process.env.GJ_FORCE_RELIC, items = G.packBag([...s.artifacts, F], s);
+    s.artifacts.push(F); if (items && G.commitBag(s, [...items, ...(s.reserve || []).map(id => ({ id, x: null, y: null, rotation: 0 }))])) rec.forcedRelic = F; else { s.artifacts.pop(); rec.forcedRelic = 'nao-coube:' + F; } }
+  if (process.env.GJ_START_GOLD) s.gold += Number(process.env.GJ_START_GOLD);
   let lastGold = s.gold, steps = 0;
   const trackGold = () => { if (s.gold > lastGold) rec.goldIn += s.gold - lastGold; lastGold = s.gold; };
   while (steps++ < 2000) {
@@ -195,7 +201,7 @@ function playRun(deck, seed, pol, opt) {
       case 'encounterWin': G.leave(s); break;
       case 'recruit': { const id = Pol.recruitPick(s, s.offers); if (!id || !G.recruit(s, id)) G.leave(s); break; }
       case 'upgrade': { const c = Pol.bestUpgradeTarget(s); if (!c || !G.upgrade(s, c.uid)) G.skipUpgrade(s); else if (s.phase === 'upgrade') G.leave(s); break; }
-      case 'relic': { if (E.AD?.canReroll(s) && (process.env.GJ_EYE_POLICY === 'strict' ? (!s.offers.some(id => G.packBag([...s.artifacts, id], s)) || Math.min(...s.offers.map(Pol.relicRank)) > 14) : Math.min(...s.offers.map(Pol.relicRank)) > 10)) E.AD.rerollRelic(s); const ids = [...s.offers].sort((a, b) => Pol.relicRank(a) - Pol.relicRank(b)); const fit = ids.find(id => G.packBag([...s.artifacts, id], s)); if (fit && G.claimRelic(s, fit) !== false) { Pol.placeRelic(s, true); if (s.phase === 'relic') G.leave(s); } else G.leave(s); break; }
+      case 'relic': { rec.relicOffers = (rec.relicOffers || 0) + 1; if (process.env.GJ_NO_RELICS === '1') { G.leave(s); break; } if (!s.offers.some(id => G.packBag([...s.artifacts, id], s))) rec.relicNoFit = (rec.relicNoFit || 0) + 1; if (E.AD?.canReroll(s) && (process.env.GJ_EYE_POLICY === 'strict' ? (!s.offers.some(id => G.packBag([...s.artifacts, id], s)) || Math.min(...s.offers.map(Pol.relicRank)) > 14) : Math.min(...s.offers.map(Pol.relicRank)) > 10)) E.AD.rerollRelic(s); const ids = [...s.offers].sort((a, b) => Pol.relicRank(a) - Pol.relicRank(b)); const fit = ids.find(id => G.packBag([...s.artifacts, id], s)); if (fit && G.claimRelic(s, fit) !== false) { Pol.placeRelic(s, true); if (s.phase === 'relic') G.leave(s); } else G.leave(s); break; }
       case 'shop': doShop(s, pol, rec); G.leave(s); break;
       case 'event': {
         const nodeId = s.current?.id ?? ('L' + s.layer);
