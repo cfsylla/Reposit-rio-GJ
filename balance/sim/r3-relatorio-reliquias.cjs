@@ -8,7 +8,8 @@ const DECK = Object.fromEntries(E.G.DECKS.map(d => [d.id, ENMAP[d.name] || d.nam
 const AR = Object.fromEntries(E.G.ARTIFACTS.map(a => [a.id, a])), RAR = ['comum', 'incomum', 'rara', 'ultra rara'];
 const DESC = a => typeof a.desc === 'string' ? a.desc : (a.desc?.pt || a.desc?.en || '');
 const jl = f => fs.existsSync(f) ? fs.readFileSync(f, 'utf8').split('\n').filter(Boolean).map(JSON.parse) : [];
-const TREES = [['0', ['rel_0', 'rel_ib_0', 'rel_bf_0', 'rel_dc_0']], ['10', ['rel_10', 'rel_ib_10', 'rel_bf_10', 'rel_dc_10']], ['23', ['rel_23', 'rel_ib_23', 'rel_bf_23', 'rel_dc_23']]];
+const PFX = process.env.PREFIX || 'rel'; // rel = medição de 08/11 (25 relíquias); rel2 = depois da proposta (43)
+const TREES = ['0', '10', '23'].map(t => [t, ['', '_ib', '_bf', '_dc'].map(f => PFX + f + '_' + t)]);
 const met = r => ({ v: r.result === 'victory' ? 1 : 0, w: r.wins || 0, m2: r.result === 'victory' || (r.deathAt?.act ?? 0) >= 2 ? 1 : 0, m3: r.result === 'victory' || (r.deathAt?.act ?? 0) >= 3 ? 1 : 0 });
 const load = (dirs, file) => dirs.flatMap(d => jl(path.join(R, d, file)));
 const D = {}; // D[tree] = { base: Map, cfg: { id: [records] } }
@@ -25,13 +26,14 @@ const RELICS = E.G.ARTIFACTS.map(a => a.id);
 const gold = { w10: delta('10', 'ouro35', 'w').m, v23: 100 * delta('23', 'ouro35', 'v').m };
 const S = RELICS.map(id => ({ id, a: AR[id], w0: delta('0', id, 'w'), w10: delta('10', id, 'w'), v10: delta('10', id, 'v'), v23: delta('23', id, 'v'), w23: delta('23', id, 'w') }));
 const score = s => (s.w10.m / Math.max(.1, gold.w10) + 100 * s.v23.m / Math.max(1, gold.v23)) / 2;
-for (const s of S) { s.sc = score(s); s.tier = s.sc >= 1.5 ? 'forte' : s.sc >= .6 ? 'média' : s.sc >= .2 ? 'fraca' : 'nula/negativa'; }
+const BAND = [[.8, 1.2], [1.1, 1.5], [1.4, 1.9], [1.8, 2.5]]; // faixa × ouro por raridade (Carlos 08/11)
+for (const s of S) { s.sc = score(s); s.tier = s.sc >= 1.5 ? 'forte' : s.sc >= .6 ? 'média' : s.sc >= .2 ? 'fraca' : 'nula/negativa'; const [lo, hi] = BAND[s.a.rarity]; s.band = s.sc < lo ? 'abaixo' : s.sc > hi ? 'acima' : 'na faixa'; }
 S.sort((a, b) => b.sc - a.sc);
 // ---------- capa
 const nb = t => D[t].base.size;
-h += `<h1>Grand Journey · Relíquias: o que temos hoje</h1><p class="sub">08/11/2026 · game_r3 (escada da etapa 4 + raids ajustadas) · laboratório pareado: o mesmo deck e seed com e sem a relíquia equipada desde o início · 24 decks × 20 seeds × 0/10/23 nós (${nb('0') + nb('10') + nb('23')} runs base + 27 configurações)</p>`;
+h += `<h1>Grand Journey · Relíquias: o que temos hoje</h1><p class="sub">08/11/2026 · game_r3 (escada da etapa 4 + raids ajustadas) · laboratório pareado: o mesmo deck e seed com e sem a relíquia equipada desde o início · 24 decks × 20 seeds × 0/10/23 nós (${nb('0') + nb('10') + nb('23')} runs base + ${Object.keys(D['10'].cfg).length} configurações)</p>`;
 const top = S.filter(s => s.tier === 'forte').map(s => s.a.name), bot = S.filter(s => s.tier === 'nula/negativa').map(s => s.a.name);
-h += `<div class="box"><b>Resumo.</b> As relíquias pesam muito: sem nenhuma, a vitória com 23 nós cai <b>${sg(100 * delta('23', 'semreliquia', 'v').m, 0)} pontos</b> e, com 10 nós, o jogador vence <b>${sg(delta('10', 'semreliquia', 'w').m)} lutas</b>. Mas a força está concentrada em poucas: <b>${top.join(', ')}</b>. Já <b>${bot.length}</b> das 25 rendem menos que 35 de ouro ou nada. Raridade e preço não acompanham a força, e a bolsa passa a ser limite a partir de ~10 nós.</div>`;
+h += `<div class="box"><b>Resumo.</b> As relíquias pesam muito: sem nenhuma, a vitória com 23 nós cai <b>${sg(100 * delta('23', 'semreliquia', 'v').m, 0)} pontos</b> e, com 10 nós, o jogador vence <b>${sg(delta('10', 'semreliquia', 'w').m)} lutas</b>. Mas a força está concentrada em poucas: <b>${top.join(', ')}</b>. Já <b>${bot.length}</b> das ${S.length} rendem menos que 35 de ouro ou nada. Raridade e preço não acompanham a força, e a bolsa passa a ser limite a partir de ~10 nós.</div>`;
 h += `<h3>Achados principais</h3><ol class="dec">
 <li><b>Concentração:</b> as relíquias gerais de vida/ataque (Pedra Vital, Colossal Heart, Estandarte) e a <b>Dormant Sword</b> (que vira +12% de ataque) dominam. A Dormant Sword chega a ${sg(100 * S.find(s => s.id === 'dormant_sword').v23.m, 0)} pontos de vitória com 23 nós.</li>
 <li><b>Raridade invertida:</b> várias raras e ultra raras ficam entre as piores (Travelers' Mirror, Repulsion Seal, Ampulheta de Combate, Last Stand), e comuns baratas entre as melhores. Ver seção 4.</li>
@@ -47,7 +49,7 @@ table(['Árvore', 'Base: lutas vencidas', 'Base: vitória', 'Sem relíquias: Δ 
 p('Com 0 nós quase ninguém vence a run; ali a medida útil é <b>lutas vencidas</b> (avanço). Com 23 nós a medida útil é <b>vitória</b>. "+35 de ouro" é a régua de preço: o que o ouro médio de uma relíquia renderia em cartas e upgrades.');
 // ---------- 2 tabela principal
 sec('2. Cada relíquia equipada desde o início (pareado, 24 decks × 20 seeds)');
-table(['Relíquia', 'Raridade', 'Preço', 'Formato', 'Δ lutas 0 nós', 'Δ lutas 10 nós', 'Δ vitória 10 nós', 'Δ vitória 23 nós', '× ouro', 'Classe'], S.map(s => [{ v: s.a.name, c: 'n' }, RAR[s.a.rarity], s.a.price, s.a.shape, { v: sg(s.w0.m, 2), s: col(s.w0.m, 1.5) }, { v: sg(s.w10.m, 2) + ' <small>±' + s.w10.e.toFixed(1) + '</small>', s: col(s.w10.m, 2) }, { v: sg(100 * s.v10.m, 0), s: col(100 * s.v10.m, 8) }, { v: sg(100 * s.v23.m, 0) + ' <small>±' + (100 * s.v23.e).toFixed(0) + '</small>', s: col(100 * s.v23.m, 12) }, s.sc.toFixed(1), { v: s.tier, s: s.tier === 'forte' ? 'background:#cfe9cf' : s.tier === 'média' ? 'background:#eef5d6' : s.tier === 'fraca' ? 'background:#f9e7b0' : 'background:#f6d5c8' }]), 'small');
+table(['Relíquia', 'Raridade', 'Preço', 'Formato', 'Δ lutas 0 nós', 'Δ lutas 10 nós', 'Δ vitória 10 nós', 'Δ vitória 23 nós', '× ouro', 'Faixa da raridade'], S.map(s => [{ v: s.a.name, c: 'n' }, RAR[s.a.rarity], s.a.price, s.a.shape, { v: sg(s.w0.m, 2), s: col(s.w0.m, 1.5) }, { v: sg(s.w10.m, 2) + ' <small>±' + s.w10.e.toFixed(1) + '</small>', s: col(s.w10.m, 2) }, { v: sg(100 * s.v10.m, 0), s: col(100 * s.v10.m, 8) }, { v: sg(100 * s.v23.m, 0) + ' <small>±' + (100 * s.v23.e).toFixed(0) + '</small>', s: col(100 * s.v23.m, 12) }, s.sc.toFixed(1), { v: s.band + ' <small>(' + BAND[s.a.rarity].join('–') + ')</small>', s: s.band === 'na faixa' ? 'background:#cfe9cf' : s.band === 'acima' ? 'background:#f9e7b0' : 'background:#f6d5c8' }]), 'small');
 p(`<b>× ouro</b> = efeito da relíquia dividido pelo efeito de +35 de ouro (média entre lutas com 10 nós e vitória com 23 nós). 1,0 = vale o mesmo que o ouro. Classes: forte ≥ 1,5; média 0,6–1,5; fraca 0,2–0,6; nula/negativa < 0,2. Margem típica: ±1,3 luta (10 nós) e ±8 pontos (23 nós) por relíquia; diferenças menores que isso não são conclusivas.`);
 h += '<h3>O que cada relíquia faz</h3>';
 table(['Relíquia', 'Efeito (texto do jogo)'], S.map(s => [{ v: s.a.name, c: 'n' }, { v: DESC(s.a), c: 'desc' }]), 'small');
