@@ -1,5 +1,5 @@
 {
- "note": "calibração das relíquias 2026-11-09T03:39:15.711Z",
+ "note": "calibração das relíquias 2026-11-09T03:39:15.711Z | 09/11 conceitos novos (Carlos): Ampulheta 100%, Eco toda habilidade 30%, Funda 1 s de atraso, invulnerável 1 s, atordoa 1,5 s, sem escudo",
  "relicTune": {
   "banner": 0.12,
   "heart": 0.124,
@@ -28,9 +28,11 @@
   "chainCharge": 0.5,
   "laststandHp": 0.244,
   "laststandInvuln": 1.623,
-  "hourglass": 0.8,
-  "echoRefund": 1,
-  "slingDamage": 9.72,
-  "slingStun": 3.24
+  "hourglass": 1,
+  "echoRefund": 0.3,
+  "slingDamage": 1.5,
+  "slingStun": 1.5,
+  "slingDelay": 1,
+  "slingInvuln": 1
  }
 }
