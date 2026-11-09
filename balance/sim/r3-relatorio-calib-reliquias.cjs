@@ -63,6 +63,37 @@ p('Os formatos não fizeram parte desta calibração: são os decididos em 08/11
 { const rows = [0, 1, 2, 3].map(r => { const L = E.G.ARTIFACTS.filter(a => a.rarity === r), cs = L.map(a => (E.G.relicShape?.(a.id) || []).length); return { r, L, avg: cs.reduce((a, b) => a + b, 0) / cs.length, min: Math.min(...cs), max: Math.max(...cs) }; });
   h += `<table class="small"><tr><th>Raridade</th><th>Relíquias</th><th>Casas (média · mín–máx)</th><th>Relíquias e formatos</th></tr>${rows.map(x => `<tr><td>${RAR[x.r]}</td><td>${x.L.length}</td><td>${x.avg.toFixed(1).replace('.', ',')} · ${x.min}–${x.max}</td><td class="desc">${x.L.map(a => `${a.name}: ${FMTPT(a.id)}`).join(' · ')}</td></tr>`).join('')}</table>`;
   const used = new Set(E.G.ARTIFACTS.map(a => E.G.RELIC_FORMATS[a.id])); p(`Formatos em uso: ${[...used].map(f => FNAME[f] || f).join(', ')}. Mapeados sem uso: escada, cavalo.`); }
+sec('1d. Casas ocupadas × ganho');
+{ const COL = ['#2a78d6', '#eb6834', '#1baf7a', '#eda100'];
+  const pts = fin.map(x => ({ ...x, c: (E.G.relicShape?.(x.id) || []).length })).filter(x => x.xp != null);
+  const pear = (A, B) => { const n = A.length, ma = A.reduce((a, b) => a + b) / n, mb = B.reduce((a, b) => a + b) / n; let q = 0, sa = 0, sb = 0; for (let i = 0; i < n; i++) { q += (A[i] - ma) * (B[i] - mb); sa += (A[i] - ma) ** 2; sb += (B[i] - mb) ** 2; } return q / Math.sqrt(sa * sb); };
+  const sem = pts.filter(x => !['sling', 'hourglass'].includes(x.id));
+  const rAll = pear(pts.map(x => x.c), pts.map(x => x.xp)), rSem = pear(sem.map(x => x.c), sem.map(x => x.xp)), rRC = pear(pts.map(x => x.r), pts.map(x => x.c));
+  const per = pts.map(x => x.xp / x.c).sort((a, b) => a - b), MED = per[Math.floor(per.length / 2)];
+  p(`21 relíquias gerais, valores gravados, × ouro pela régua média (${f2(GP)} lutas). Correlação casas × ganho: <b>r = ${f2(rAll)}</b> (todas) e <b>r = ${f2(rSem)}</b> sem Funda e Ampulheta (que medem quase nada por motivo de conceito/simulador). Raridade × casas: r = ${f2(rRC)}. Ou seja: <b>hoje o tamanho na bolsa quase não acompanha a força</b> — acompanha mais a raridade. Mediana do ganho por casa: <b>${f2(MED)} × ouro por casa</b>.`);
+  // gráfico
+  const W = 900, H = 330, L = 50, B = 36, T = 14, Rr = 230, X = c => L + (c - 0.5) * ((W - L - Rr) / 5), Y = v => T + (H - T - B) * (1 - (v + 0.2) / 2.9);
+  let g = `<svg viewBox="0 0 ${W} ${H}" width="100%" style="max-height:330px" font-family="DejaVu Sans,Arial" font-size="10">`;
+  for (const v of [0, 0.5, 1, 1.5, 2, 2.5]) g += `<line x1="${L}" x2="${W - Rr}" y1="${Y(v)}" y2="${Y(v)}" stroke="#e3e6ea"/><text x="${L - 6}" y="${Y(v) + 3}" text-anchor="end" fill="#667">${String(v).replace('.', ',')}</text>`;
+  for (let c = 1; c <= 5; c++) g += `<text x="${X(c)}" y="${H - B + 16}" text-anchor="middle" fill="#334">${c} casa${c > 1 ? 's' : ''}</text>`;
+  g += `<line x1="${X(0.5)}" x2="${X(5.5)}" y1="${Y(MED * 0.5)}" y2="${Y(MED * 5.5)}" stroke="#8a94a0" stroke-dasharray="4 4"/><text x="${X(1.6)}" y="${Y(MED * 1.6) + 16}" text-anchor="start" fill="#556">linha da mediana: ${f2(MED)} por casa</text>`;
+  g += `<text x="12" y="${T + (H - T - B) / 2}" transform="rotate(-90 12 ${T + (H - T - B) / 2})" text-anchor="middle" fill="#334">× ouro</text>`;
+  const byC = {}; for (const x of pts) (byC[x.c] = byC[x.c] || []).push(x);
+  for (const [c, L2] of Object.entries(byC)) { L2.sort((a, b) => a.xp - b.xp); L2.forEach((x, i) => { const cx = X(+c) + (i - (L2.length - 1) / 2) * 9, cy = Y(x.xp); g += `<circle cx="${cx}" cy="${cy}" r="5" fill="${COL[x.r]}" stroke="#fff" stroke-width="2"/>`; }); }
+  // rótulos à direita, por casa
+  g += `<g font-size="8.5">`; let ly = T + 4; for (let c = 1; c <= 5; c++) { const L2 = (byC[c] || []).slice().sort((a, b) => b.xp - a.xp); if (!L2.length) continue; g += `<text x="${W - Rr + 14}" y="${ly}" font-weight="bold" fill="#12324a">${c} casa${c > 1 ? 's' : ''}</text>`; ly += 11; for (const x of L2) { g += `<circle cx="${W - Rr + 18}" cy="${ly - 3}" r="3.5" fill="${COL[x.r]}"/><text x="${W - Rr + 26}" y="${ly}" fill="#334">${AR[x.id].name} ${f2(x.xp)}</text>`; ly += 10.5; } ly += 3; }
+  g += `</g></svg>`;
+  h += g + `<p><small>Cor = raridade: <span style="color:#2a78d6">●</span> comum · <span style="color:#eb6834">●</span> incomum · <span style="color:#1baf7a">●</span> rara · <span style="color:#eda100">●</span> ultra rara. Pontos lado a lado na mesma coluna têm o mesmo número de casas.</small></p>`;
+  // tabela
+  const sug = v => Math.max(1, Math.min(5, Math.round(v / MED)));
+  h += `<table class="small"><tr><th>Relíquia</th><th>Raridade</th><th>Formato atual (casas)</th><th>× ouro</th><th>Ganho por casa</th><th>Casas pela mediana (× ouro ÷ ${f2(MED)})</th><th>Leitura</th></tr>`;
+  for (const x of pts.slice().sort((a, b) => b.xp / b.c - a.xp / a.c)) { const sg = sug(x.xp), d = sg - x.c; h += `<tr><td class="n">${AR[x.id].name}</td><td>${RAR[x.r]}</td><td>${FMTPT(x.id)}</td><td>${f2(x.xp)}</td><td>${f2(x.xp / x.c)}</td><td>${sg}</td><td class="desc">${d >= 2 ? 'muito eficiente para o tamanho' : d === 1 ? 'eficiente para o tamanho' : d === 0 ? 'proporcional' : d === -1 ? 'pouco eficiente para o tamanho' : 'ocupa muito para o que dá'}</td></tr>`; }
+  h += `</table>`;
+  h += `<div class="box"><b>Como usar o formato para equilibrar</b><ul>
+<li>O formato é uma segunda alavanca além da raridade e do valor: uma relíquia forte pode ficar maior (custa espaço) e uma fraca, menor (cabe junto com outras).</li>
+<li>Regra simples: casas ≈ × ouro ÷ ${f2(MED)} (mediana atual). As que fogem mais: Precision Medallion e Lucky Charm (1 casa, muito eficientes), Repulsion Seal (ponte, 2 casas); do outro lado Recovery Brooch, Opening Bell, Vital Stone e Mercenary Contract ocupam mais do que entregam.</li>
+<li><b>Limite desta leitura:</b> o × ouro já inclui o custo do espaço (a relíquia ocupa a bolsa a run toda), mas com 10 nós a bolsa raramente enche (3,7 relíquias no fim, 10% das escolhas sem opção que caiba); com 23 nós enche mais (4,8 relíquias, 18% sem opção). Para separar o valor do efeito do custo da casa é preciso medir: <b>relíquias vazias</b> (sem efeito) de 1, 2, 3, 4 e 5 casas, com 10 e 23 nós. Proposta, ainda não rodada.</li></ul></div>`;
+}
 sec('2. Evolução por passo (× ouro, régua do próprio passo)');
 h += `<table class="small"><tr><th>Relíquia</th><th>Raridade</th>${STEPS.map(s => `<th>${s[1]}</th>`).join('')}</tr><tr><td class="n"><i>+35 de ouro (lutas)</i></td><td></td>${STEPS.map(s => `<td>${f2(gold[s[0]])}</td>`).join('')}</tr>`;
 for (const id of IDS) { const r = AR[id].rarity; h += `<tr><td class="n">${AR[id].name}</td><td>${RAR[r]}</td>${STEPS.map(([d]) => { const w = delta(d, 'rel_' + id, 'w'); const x = w && w.m / gold[d]; return `<td class="${cls(x, r)}">${w ? f2(x) : ''}</td>`; }).join('')}</tr>`; }
