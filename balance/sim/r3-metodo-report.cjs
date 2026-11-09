@@ -20,7 +20,7 @@ const f2 = x => x == null || isNaN(x) ? '—' : x.toFixed(2).replace('.', ','), 
 const pm = d => d ? `${s2(d.m)} <small>±${d.e.toFixed(2).replace('.', ',')}</small>` : '—';
 // ---- 1. custo dos formatos
 const FORMATS = Object.keys(FNAME);
-const cost = {}; for (const t of ['10', '23']) { cost[t] = {}; for (const f of FORMATS) { const d = delta('metodo_' + t, 'vazia_' + f); cost[t][f] = d; } }
+const cost = {}; for (const t of ['10', '23']) { cost[t] = {}; for (const f of FORMATS) { const d = delta('metodo_fmt_' + t, 'vazia_' + f); cost[t][f] = d; } }
 // custo por número de casas (média dos formatos com o mesmo número)
 const byCells = t => { const o = {}; for (const f of FORMATS) { const d = cost[t][f]; if (!d) continue; (o[CELLS(f)] = o[CELLS(f)] || []).push(-d.m); } return Object.fromEntries(Object.entries(o).map(([c, L]) => [c, L.reduce((a, b) => a + b, 0) / L.length])); };
 const C10 = byCells('10'), C23 = byCells('23');
@@ -45,7 +45,7 @@ h += `<div class="box"><b>Patamares (Carlos 09/11)</b>: comum +1 · incomum +1,5
 sec('1. Quanto custa cada formato (relíquias vazias, sem efeito)');
 p('Cada linha é a run com uma relíquia <b>sem efeito</b> ocupando a bolsa desde o início. Δ negativo = o espaço ocupado atrapalhou (menos relíquias depois).');
 h += `<table class="small"><tr><th>Formato</th><th>Casas</th><th>Δ lutas 10 nós</th><th>Δ lutas 23 nós</th><th>Δ vitória 23 nós (pts)</th></tr>`;
-for (const f of FORMATS) { const v23 = delta('metodo_23', 'vazia_' + f, 'v'); h += `<tr><td class="n">${FNAME[f]}</td><td>${CELLS(f)}</td><td>${pm(cost['10'][f])}</td><td>${pm(cost['23'][f])}</td><td>${v23 ? s2(100 * v23.m) : '—'}</td></tr>`; }
+for (const f of FORMATS) { const v23 = delta('metodo_fmt_23', 'vazia_' + f, 'v'); h += `<tr><td class="n">${FNAME[f]}</td><td>${CELLS(f)}</td><td>${pm(cost['10'][f])}</td><td>${pm(cost['23'][f])}</td><td>${v23 ? s2(100 * v23.m) : '—'}</td></tr>`; }
 h += `</table><p>Média por número de casas (custo = − Δ lutas): 10 nós ${Object.entries(C10).map(([c, v]) => `${c}: ${f2(v)}`).join(' · ')} | 23 nós ${Object.entries(C23).map(([c, v]) => `${c}: ${f2(v)}`).join(' · ')}</p>`;
 sec('2. Quanto vale cada tipo de efeito (bônus puros, sem relíquia)');
 p(`Bônus aplicado a todas as unidades do jogador, sem ocupar a bolsa. Referência: +35 de ouro no início = ${pm(gold)} lutas.`);
