@@ -80,3 +80,32 @@ if (process.env.GJ_TREE_VARIANT) {
   }
   module.exports.TREE_VARIANT = tv;
 }
+
+/* MÉTODO NOVO DAS RELÍQUIAS (Carlos 09/11, só medição; nenhum arquivo do jogo muda).
+ * GJ_TEST_FORMATS=1: cria relíquias VAZIAS (sem efeito) 'vazia_<formato>' só no mapa de formatos, para GJ_FORCE_RELIC;
+ *   não entram em ARTIFACTS, então nunca são oferecidas nem usadas por inimigos.
+ * GJ_PURE_BONUS="atk:0.1" (lista separada por vírgula): bônus puro para todas as unidades do jogador, sem relíquia.
+ *   atk/hp/skill = multiplicador; crit = pontos de chance (0.1 = +10); speed = velocidade de ataque;
+ *   shield = escudo (fração da vida máxima) no início de cada luta (6 s, como Placas); charge = carga inicial (fração). */
+if (process.env.GJ_TEST_FORMATS === '1') {
+  for (const f of ['dot', 'domino', 'diag2', 'bridge', 'line3', 'L3', 'diag3', 'square', 'T', 'S', 'line4', 'L4', 'cross', 'U', 'P', 'L5']) g.Game.RELIC_FORMATS['vazia_' + f] = f;
+  // só a relíquia forçada entra no catálogo (o jogo procura nele as relíquias possuídas); por ser possuída desde o início, nunca é oferecida
+  const F = process.env.GJ_FORCE_RELIC; if (F && F.startsWith('vazia_') && !g.Game.ARTIFACTS.some(a => a.id === F)) g.Game.ARTIFACTS.push({ id: F, name: F, namePT: F, desc: 'sem efeito (teste)', descPT: 'sem efeito (teste)', icon: '□', rarity: 0, price: 30, shape: g.Game.RELIC_FORMATS[F], playerOnly: true, category: 'test' });
+}
+if (process.env.GJ_PURE_BONUS) {
+  const PB = Object.fromEntries(process.env.GJ_PURE_BONUS.split(',').map(x => { const [k, v] = x.split(':'); return [k, Number(v)]; }));
+  const base = g.JourneyTree.stats;
+  g.JourneyTree.stats = function (st, c, s, enemy) {
+    st = base(st, c, s, enemy) || st;
+    if (!enemy) { if (PB.atk) st.atk *= 1 + PB.atk; if (PB.hp) st.hp *= 1 + PB.hp; if (PB.skill) st.skill *= 1 + PB.skill; if (PB.speed) st.rate /= 1 + PB.speed; if (PB.crit) st.crit = Math.min(.75, (st.crit || 0) + PB.crit); }
+    return st;
+  };
+  if (PB.shield || PB.charge) {
+    const T = g.JourneyTraits, bs = T.beforeStep;
+    T.beforeStep = function (b) { const r = bs.apply(this, arguments);
+      if (!b.pbInit) { b.pbInit = true; for (const u of b.units) { if (u.side) continue;
+        if (PB.shield) { u.shield = (u.shield || 0) + u.maxhp * PB.shield; u.shieldTime = Math.max(u.shieldTime || 0, 6); }
+        if (PB.charge && g.Game.BY[u.type]?.kind === 'active' && u.charge > 0) u.progress = Math.min(u.charge, (u.progress || 0) + u.charge * PB.charge); } }
+      return r; };
+  }
+}
