@@ -33,7 +33,8 @@ Resultado da escada (carreiras, antes das relíquias): 1ª vitória run ~15 (esc
   - Funda de Cerco: arremesso **1 s depois** do início da rodada (para não cair no meio da frente inimiga), cai **invulnerável por 1 s**, atordoa **1,5 s**, **sem escudo** (`slingDelay`, `slingInvuln`, `slingStun` fixos; só `slingDamage` calibrável).
   - Arquivos: `game_r3/dist/relics-r3.js`, `game_r3/dist/game-0.js` (Ampulheta 100%), testes `relics-r3.cjs` e `systems-v18.cjs` atualizados (**ainda não rodados**), `rel_c3.json` com os conceitos novos, `r3-reliquias-calib.cjs` com os botões novos.
 - Tempos medidos (4 núcleos): 10 nós × 40 seeds × 24 configurações ≈ 35 min; 23 nós × 20 seeds ≈ 20 min (40 seeds ≈ 40 min); carreiras 10 decks ≈ 10–15 min; parcial por facção (0/10/23 nós) ≈ 15–20 min cada.
-- **Aguardando autorização do Carlos** ("não rode nada ainda") para:
+- **Testes (09/11, item 1 autorizado):** testes R3 passam (relíquias com Eco/Ampulheta/Funda novos, escada, janela da derrota, anéis, systems-v18); suíte completa 65 testes: 18 falhas, **as mesmas 18 de antes da mudança** (comparada lado a lado com o commit anterior).
+- **Aguardando autorização do Carlos** (após analisar os testes) para:
   1. **Passo 3** (variante `rel_c3.json` já calculada) + conceitos novos propostos para 3 ultra raras: Ampulheta = começa com a habilidade pronta (100%); Eco Arcano = toda habilidade devolve 30% da carga; Funda de Cerco = ao cair ganha escudo 30% + 1 s invulnerável, atordoamento 1,5 s.
   2. Conferência com 23 nós; depois gravar os valores no jogo (`game-0.js` RT), parciais por facção (Ironbound / Blackfang / Dawncrest) e PDF consolidado; carreiras para conferir a escada (as relíquias dos inimigos também mudaram).
 
