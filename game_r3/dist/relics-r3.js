@@ -4,7 +4,7 @@
 (function(root){'use strict';
 const G=root.Game,T=root.JourneyTraits,C=root.JourneyContent,Tree=root.JourneyTree;
 const RT=root.JOURNEY_RELIC_TUNE=root.JOURNEY_RELIC_TUNE||{};
-const DEF={slingDamage:1.5,slingStun:1.5,slingDelay:1,slingInvuln:1,contractElite:8,contractBoss:15,grimoireXp:.30,grimoireGold:.15,tomeCharge:.30,sentinelTaunt:3,sentinelRange:120,precisionCharge:.10,executionCharge:.15,echoRefund:.30,chainCharge:.20,compass:1,devastatorBonus:.60,devastatorStun:.5,warcryHeal:.04,ironrootAt:.50,ironrootShield:.10,patienceT:3,aegisRange:140,loneReduction:.15,amplifier:1.4,hordeCharge:.15,hordeMax:3,dawnShield:.06,platingShield:.08};
+const DEF={slingDamage:1.5,slingStun:1.5,slingDelay:1,slingInvuln:1,contractElite:23,contractBoss:45,grimoireXp:.30,grimoireGold:.15,tomeCharge:.30,sentinelTaunt:3,sentinelRange:120,precisionCharge:.28,executionCharge:.28,echoRefund:.7,chainCharge:.5,compass:1,devastatorBonus:.60,devastatorStun:.5,warcryHeal:.04,ironrootAt:.50,ironrootShield:.10,patienceT:3,aegisRange:140,loneReduction:.15,amplifier:1.4,hordeCharge:.15,hordeMax:3,dawnShield:.06,platingShield:.16};
 for(const [k,v] of Object.entries(DEF))if(RT[k]===undefined)RT[k]=v;
 // id, nome EN, nome PT, raridade, formato, ícone, texto EN, texto PT, categoria
 const NEW=[
