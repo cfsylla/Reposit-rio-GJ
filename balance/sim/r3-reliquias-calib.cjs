@@ -19,7 +19,7 @@ const gw = delta(d10, '_ouro35_-', 'w'), gv = delta(d23, '_ouro35_-', 'v');
 const next = { ...cur }, rep = [`+35 de ouro: ${gw.toFixed(2)} lutas (10 nós), ${(100 * gv).toFixed(1)} pontos (23 nós)`];
 for (const [id, knobs] of Object.entries(KNOBS)) {
   const a = E.G.ARTIFACTS.find(a => a.id === id); if (!a) continue;
-  const x = (delta(d10, id, 'w') / gw + delta(d23, id, 'v') / gv) / 2, t = TARGET[a.rarity];
+  const x = process.env.METRIC === 'w10' ? delta(d10, id, 'w') / gw : (delta(d10, id, 'w') / gw + delta(d23, id, 'v') / gv) / 2, t = TARGET[a.rarity]; // METRIC=w10: só lutas com 10 nós (23 nós tem régua instável)
   const f = x > .15 ? Math.min(2, Math.max(.6, (t / x) ** .75)) : 1.8; // passo amortecido (efeito não é linear)
   const ch = knobs.map(k => { let v = RT[k] * f; if (LIMIT[k]) v = Math.min(LIMIT[k], v); v = INT.has(k) ? Math.max(1, Math.round(v)) : +v.toFixed(3); next[k] = v; return `${k} ${RT[k]} → ${v}`; });
   rep.push(`${a.name.padEnd(22)} raridade ${a.rarity} meta ${t} | × ouro ${x.toFixed(2)} | fator ${f.toFixed(2)} | ${ch.join(', ')}`);
