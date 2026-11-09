@@ -6,6 +6,9 @@ const fs = require('fs'), path = require('path'), R = 'balance/out/rodada3';
 process.env.GJ_ROOT ||= 'game_r3'; delete process.env.GJ_TREE_VARIANT;
 const log = console.log; console.log = () => {}; const E = require('./engine.cjs'); console.log = log;
 const G = E.G, AR = Object.fromEntries(G.ARTIFACTS.map(a => [a.id, a]));
+// raridades propostas pelo Carlos (rel_carlos1.relicRarity) valem para o patamar
+const VAR = JSON.parse(fs.readFileSync(process.env.RELVAR || 'balance/rodada3/variants/rel_carlos1.json', 'utf8')), RAROV = VAR.relicRarity || {};
+for (const [id, r] of Object.entries(RAROV)) if (AR[id]) AR[id].rarity = r;
 const RAR = ['comum', 'incomum', 'rara', 'ultra rara'], PAT = [1, 1.5, 2, 3], TOL = 0.4;
 const FNAME = { dot: 'ponto', domino: 'dominó', diag2: 'diagonal 2', bridge: 'ponte', line3: 'linha 3', L3: 'L3', diag3: 'diagonal 3', square: 'quadrado', T: 'T', S: 'S', line4: 'linha 4', L4: 'L4', cross: 'cruz', U: 'U', P: 'P', L5: 'L5' };
 const CELLS = f => ({ dot: 1, domino: 2, diag2: 2, bridge: 2, line3: 3, L3: 3, diag3: 3, square: 4, T: 4, S: 4, line4: 4, L4: 4, cross: 5, U: 5, P: 5, L5: 5 })[f];
@@ -38,6 +41,16 @@ const rows = G.ARTIFACTS.map(a => { const f = G.RELIC_FORMATS[a.id], net = delta
   // formato que deixaria efeito − custo mais perto do patamar
   let best = null; if (eff != null) for (const g of FORMATS) { const cg = fcost(g); if (cg == null) continue; const diff = Math.abs(eff - cg - p); if (!best || diff < best.diff) best = { g, diff, net: eff - cg }; }
   return { id: a.id, a, f, net, c, eff, p, best, gen: GEN.includes(a.id) }; });
+// ---- sugestão de valor (efeitos que escalam por um número): leva o efeito ao "patamar + custo do formato atual"
+const CURVE = [[0, 0], [5, bon['atk_0.05']?.m ?? 1], [10, bon['atk_0.1']?.m ?? 2.7], [20, bon['atk_0.2']?.m ?? 4.8], [40, 2 * (bon['atk_0.2']?.m ?? 4.8)]];
+const toAtk = l => { for (let i = 1; i < CURVE.length; i++) if (l <= CURVE[i][1]) { const [x0, y0] = CURVE[i - 1], [x1, y1] = CURVE[i]; return x0 + (x1 - x0) * (l - y0) / (y1 - y0); } return 40; };
+const TUNE = VAR.relicTune || {};
+const KN = { banner: ['banner'], heart: ['heart'], luckycharm: ['lucky'], bell: ['bell'], dormant_sword: ['swordBase', 'swordStep', 'swordCap'], precision: ['precisionCrit', 'precisionCharge'], plating: ['platingShield'], execution: ['execution', 'executionCharge'], merchant: ['merchant'], profane_idol: ['idol', 'idolCap'], contract: ['contractElite', 'contractBoss'], colossal_heart: ['colossal'], recovery: ['recovery'], ember: ['emberAtk', 'emberShield'], fang: ['fang'], repulsion: ['repulsionShield', 'repulsionStun'], chain: ['chainCharge'], echo: ['echoRefund'] };
+const PCT = new Set(['banner', 'heart', 'lucky', 'bell', 'swordBase', 'swordStep', 'swordCap', 'precisionCharge', 'platingShield', 'execution', 'executionCharge', 'merchant', 'idol', 'idolCap', 'colossal', 'recovery', 'emberAtk', 'emberShield', 'fang', 'repulsionShield', 'chainCharge', 'echoRefund']);
+const fmtV = (k, v) => k === 'precisionCrit' ? `${Math.round(v * 100)} pts` : k === 'repulsionStun' ? `${(Math.round(v * 10) / 10).toString().replace('.', ',')} s` : PCT.has(k) ? `${(Math.round(v * 1000) / 10).toString().replace('.', ',')}%` : String(Math.round(v));
+for (const r of rows) { const ks = KN[r.id]; if (!ks || r.eff == null) continue; const need = r.p + r.c; if (r.eff <= 0 || need <= 0) continue;
+  const k = toAtk(need) / Math.max(0.1, toAtk(r.eff)); if (Math.abs(k - 1) < 0.08) continue;
+  r.sug = ks.map(kk => TUNE[kk] != null ? `${kk} ${fmtV(kk, TUNE[kk])} → <b>${fmtV(kk, TUNE[kk] * k)}</b>` : '').filter(Boolean).join('<br>'); r.k = k; }
 // ---- HTML
 let h = ''; const sec = t => { h += `<h2>${t}</h2>`; }, p = t => { h += `<p>${t}</p>`; };
 const D = new Date().toLocaleDateString('pt-BR', { timeZone: 'America/Sao_Paulo' });
@@ -54,12 +67,12 @@ h += `<table class="small"><tr><th>Bônus</th><th>Δ lutas 10 nós</th><th>Equiv
 for (const [k, n] of BON) { const d = bon[k]; h += `<tr><td class="n">${n}</td><td>${pm(d)}</td><td>${d && atk1 ? f2(d.m / atk1) + '%' : '—'}</td></tr>`; }
 h += `</table>`;
 sec('3. As 43 relíquias pela regra');
-p('Δ medido = efeito − custo do formato atual (é o que a relíquia rende na run). Efeito = Δ medido + custo do formato. Coluna "formato que fecha" = formato cujo custo deixa efeito − custo mais perto do patamar (se nenhum chega, é o efeito que precisa mudar). Relíquias de nicho foram medidas em 08/11 nos 10 decks de teste, que em geral não têm o trait: o efeito delas aparece subestimado.');
-h += `<table class="small"><tr><th>Relíquia</th><th>Raridade</th><th>Patamar</th><th>Formato atual</th><th>Δ medido</th><th>Custo do formato</th><th>Efeito</th><th>Situação</th><th>Formato que fecha</th><th>Fonte</th></tr>`;
+p('Δ medido = efeito − custo do formato atual (é o que a relíquia rende na run). Efeito = Δ medido + custo do formato. Coluna "formato que fecha" = formato cujo custo deixa efeito − custo mais perto do patamar (se nenhum chega, é o efeito que precisa mudar). As 43 medidas com os valores propostos pelo Carlos (rel_carlos1) e as raridades propostas; robô compra relíquias sempre que couber (mesma condição dos formatos). Relíquias de nicho foram medidas nos 10 decks de teste, que em geral não têm o trait: o efeito delas aparece subestimado. Valor que fecha: estimativa pela curva do ataque (bônus puros) — precisa de conferência.');
+h += `<table class="small"><tr><th>Relíquia</th><th>Raridade</th><th>Patamar</th><th>Formato atual</th><th>Δ medido</th><th>Custo do formato</th><th>Efeito</th><th>Situação</th><th>Formato que fecha</th><th>Valor que fecha mantendo o formato (estimativa)</th><th>Fonte</th></tr>`;
 for (const r of rows.sort((a, b) => a.a.rarity - b.a.rarity || (b.net?.m ?? -9) - (a.net?.m ?? -9))) {
   const st = !r.net ? '?' : r.net.m > r.p + TOL ? 'acima' : r.net.m < r.p - TOL ? 'abaixo' : 'ok', cl = st === 'ok' ? 'ok' : st === 'acima' ? 'bad' : 'near';
   const fix = !r.best ? '—' : r.best.diff <= TOL ? `${FNAME[r.best.g]} (${CELLS(r.best.g)}) → ${s2(r.best.net)}` : `nenhum formato chega: efeito ${r.best.net > r.p ? 'alto' : 'baixo'} demais (${r.best.net > r.p ? 'reduzir' : 'aumentar'} o efeito)`;
-  h += `<tr><td class="n">${r.a.name}</td><td>${RAR[r.a.rarity]}</td><td>${s2(r.p)}</td><td>${FNAME[r.f] || r.f} (${CELLS(r.f)})</td><td>${pm(r.net)}</td><td>${f2(r.c)}</td><td>${f2(r.eff)}</td><td class="${cl}">${st}</td><td class="desc">${st === 'ok' ? 'já está' : fix}</td><td>${SRC(r.id) === NEWDIR ? 'valores Carlos' : r.gen ? 'gravado' : '08/11'}</td></tr>`;
+  h += `<tr><td class="n">${r.a.name}</td><td>${RAR[r.a.rarity]}</td><td>${s2(r.p)}</td><td>${FNAME[r.f] || r.f} (${CELLS(r.f)})</td><td>${pm(r.net)}</td><td>${f2(r.c)}</td><td>${f2(r.eff)}</td><td class="${cl}">${st}</td><td class="desc">${st === 'ok' ? 'já está' : fix}</td><td class="desc">${st === 'ok' ? '' : r.sug || (KN[r.id] ? '' : 'mudar o efeito (não é um número só)')}</td><td>${SRC(r.id) === NEWDIR ? 'valores Carlos' : r.gen ? 'gravado' : '08/11'}</td></tr>`;
 }
 h += `</table>`;
 const html = `<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><title>GJ Relíquias método</title><style>
