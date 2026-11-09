@@ -86,7 +86,8 @@ function playFight(s, pol, rec, dt) {
 function doShop(s, pol, rec) {
   const spend = (what, amt) => { rec.spent[what] = (rec.spent[what] || 0) + amt; };
   // 'balanced' shop policy: first secure a good relic that fits (while the bag holds < 4), then upgrades, then cards.
-  if (pol.shop === 'balanced' && s.artifacts.length < 4 && process.env.GJ_NO_RELICS !== '1') {
+  // GJ_RELIC_CAP (09/11): limite de relíquias para o robô comprar na loja (padrão 4); relíquias vazias de teste não contam
+  if (pol.shop === 'balanced' && s.artifacts.filter(id => !id.startsWith('vazia_')).length < Number(process.env.GJ_RELIC_CAP || 4) && process.env.GJ_NO_RELICS !== '1') {
     const ri = s.offers.artifacts.map((id, i) => [id, i]).filter(([id]) => id && Pol.relicRank(id) <= 14).sort((a, b) => Pol.relicRank(a[0]) - Pol.relicRank(b[0]));
     for (const [id, i] of ri) { const p = G.price(s, 'artifacts', id); if (s.gold >= p && G.packBag([...s.artifacts, id], s) && G.buy(s, 'artifacts', i)) { const before = s.gold; Pol.placeRelic(s, true); spend('relic', before - s.gold); break; } }
   }
