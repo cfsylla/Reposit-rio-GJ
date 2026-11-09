@@ -34,9 +34,13 @@ Resultado da escada (carreiras, antes das relíquias): 1ª vitória run ~15 (esc
   - Arquivos: `game_r3/dist/relics-r3.js`, `game_r3/dist/game-0.js` (Ampulheta 100%), testes `relics-r3.cjs` e `systems-v18.cjs` atualizados (**ainda não rodados**), `rel_c3.json` com os conceitos novos, `r3-reliquias-calib.cjs` com os botões novos.
 - Tempos medidos (4 núcleos): 10 nós × 40 seeds × 24 configurações ≈ 35 min; 23 nós × 20 seeds ≈ 20 min (40 seeds ≈ 40 min); carreiras 10 decks ≈ 10–15 min; parcial por facção (0/10/23 nós) ≈ 15–20 min cada.
 - **Testes (09/11, item 1 autorizado):** testes R3 passam (relíquias com Eco/Ampulheta/Funda novos, escada, janela da derrota, anéis, systems-v18); suíte completa 65 testes: 18 falhas, **as mesmas 18 de antes da mudança** (comparada lado a lado com o commit anterior).
-- **Aguardando autorização do Carlos** (após analisar os testes) para:
-  1. **Passo 3** (variante `rel_c3.json` já calculada) + conceitos novos propostos para 3 ultra raras: Ampulheta = começa com a habilidade pronta (100%); Eco Arcano = toda habilidade devolve 30% da carga; Funda de Cerco = ao cair ganha escudo 30% + 1 s invulnerável, atordoamento 1,5 s.
-  2. Conferência com 23 nós; depois gravar os valores no jogo (`game-0.js` RT), parciais por facção (Ironbound / Blackfang / Dawncrest) e PDF consolidado; carreiras para conferir a escada (as relíquias dos inimigos também mudaram).
+- **09/11 manhã — CALIBRAÇÃO CONCLUÍDA E GRAVADA** (Carlos autorizou rodar e gravar):
+  - Passo 3 (todas), passo 4 (só fora/perto da faixa), passo 5 (Eco e Funda). Valores finais arredondados em `balance/rodada3/variants/rel_final.json`, **gravados** em `game_r3/dist/game-0.js` (RT) e `relics-r3.js` (DEF) com `balance/sim/r3-grava-reliquias.cjs`.
+  - 16 de 21 na faixa pela régua média (+35 de ouro = 1,67 lutas). Eco gravado em **70%**. Funda gravada no conceito (150%), mede ≈0 porque o robô quase não usa os cantos.
+  - Conferência 23 nós (`relfinal_23`), parciais dos outros 14 decks por facção (`relfinal_outros_10`), carreiras (`etapa4_car_reliquias_final`): **1ª vitória run 15 com 17 nós, árvore completa run 39** (antes run 18 / 18 nós).
+  - Testes: suíte com as mesmas 18 falhas antigas; `relics-r3` e `content-v53` agora leem a tabela de valores. Texto da Espada mostra 2,5%.
+  - **PDF: `balance/rodada3/relatorios/R3_reliquias_calibracao.pdf`.**
+- **Para decisão do Carlos:** (1) Funda de Cerco — ensinar o robô a usar os cantos ou rever o gatilho; (2) Ampulheta (×0,6 mesmo com 100%: habilidades saem antes do contato) — manter ou mudar gatilho; (3) Mercador (50%) e Broche (5%) no teto, abaixo da faixa; (4) Eco e Last Stand são os mais fortes com 23 nós.
 
 ## Pendências depois das relíquias
 1. Desafios e Vantagens: medição final isolada, escada de combinações (1 desafio, 1+1… até 15+15; 23/30/45/60 nós), meta "tudo ligado" ~50–70% com árvore completa; PDF. Scripts prontos: `r3-dv-escada.sh`, `r3-postgame-tree.sh`.

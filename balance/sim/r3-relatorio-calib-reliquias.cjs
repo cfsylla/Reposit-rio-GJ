@@ -38,7 +38,7 @@ h += `<div class="box"><b>Resumo</b><ul>
 <li>Valores finais <b>gravados no jogo</b> (game_r3/dist/game-0.js e relics-r3.js), arredondados para números apresentáveis (variante <code>rel_final.json</code>).</li>
 <li><b>${nOk} de 21</b> relíquias na faixa da raridade pela régua média dos passos 2–5 (+35 de ouro = ${f2(GP)} lutas); ${nOkS} de 21 pela régua do próprio passo. A régua do ouro oscilou entre ${f2(Math.min(...POOL))} e ${f2(Math.max(...POOL))} lutas de um passo para outro (±0,6 de margem), por isso a régua média é a referência mais estável.</li>
 <li>Conceitos novos aprovados (09/11): Ampulheta começa com a habilidade pronta; Eco Arcano devolve carga em toda habilidade (calibrado para <b>70%</b>); Funda de Cerco com 1 s de atraso, cai invulnerável 1 s, atordoa 1,5 s, sem escudo.</li>
-<li><b>Para decisão:</b> Funda de Cerco e Ampulheta ficam abaixo da faixa por motivo de conceito/simulador (seção 4); Moeda do Mercador e Broche de Recuperação ficaram no teto de valor da calibração.</li></ul></div>`;
+<li><b>Carreiras</b> (seção 6): 1ª vitória na run 15 com 17 nós e árvore completa na run 39 (antes: run 18, 18 nós, árvore não completava até a run 40) — de volta à meta aprovada.</li><li><b>Outros 14 decks</b> (seção 5): mesma ordem geral; com a régua deles (+35 de ouro = 1,29 lutas, mais baixa) as comuns e incomuns ficam um pouco acima da faixa; Eco, Last Stand e as raras de combate ficam na faixa. Blackfang (2 decks) ganha menos com quase todas.</li><li><b>Para decisão:</b> Funda de Cerco e Ampulheta ficam abaixo da faixa por motivo de conceito/simulador (seção 4); Moeda do Mercador e Broche de Recuperação ficaram no teto de valor da calibração.</li></ul></div>`;
 // ---------- tabela final
 h += `<h2 class="cont">1. Valores finais gravados</h2>`;
 h += `<table class="small"><tr><th>Relíquia</th><th>Raridade</th><th>Faixa × ouro</th><th>Valores antes → gravados</th><th>Medido em</th><th>Δ lutas (10 nós)</th><th>× ouro (régua do passo)</th><th>× ouro (régua média)</th></tr>`;
@@ -54,10 +54,10 @@ h += `</table><p><small>Passo 4 mediu só Banner, Vital Stone, Profane Idol, Rep
 sec('3. Conferência com 23 nós (valores finais)');
 const g23 = delta('relfinal_23', 'ouro35_-', 'v'), b23 = jl(path.join(R, 'relfinal_23', 'base_-.jsonl'));
 if (b23.length) {
-  p(`Base: ${b23.length} runs, vitória ${(100 * b23.filter(r => r.result === 'victory').length / b23.length).toFixed(0)}%. +35 de ouro: ${f1(100 * g23.m)} pontos de vitória. Com 23 nós a régua de vitórias é instável (ver passos anteriores); serve para conferir a ordem e se nada ficou absurdo.`);
+  p(`Base: ${b23.length} runs, vitória ${(100 * b23.filter(r => r.result === 'victory').length / b23.length).toFixed(0)}%. +35 de ouro: ${f1(100 * g23.m)} pontos de vitória. Com 23 nós a régua de vitórias é instável (ver passos anteriores); serve para conferir a ordem e se nada ficou absurdo (sem cores de faixa nesta tabela).`);
   h += `<table class="small"><tr><th>Relíquia</th><th>Raridade</th><th>Δ vitória (pts)</th><th>Δ lutas vencidas</th><th>× ouro (vitória)</th></tr>`;
   const rows = IDS.map(id => ({ id, v: delta('relfinal_23', 'rel_' + id, 'v'), w: delta('relfinal_23', 'rel_' + id, 'w') })).filter(x => x.v).sort((a, b) => b.v.m - a.v.m);
-  for (const x of rows) { const r = AR[x.id].rarity, xr = x.v.m / g23.m; h += `<tr><td class="n">${AR[x.id].name}</td><td>${RAR[r]}</td><td>${f1(100 * x.v.m)} ±${(100 * x.v.e).toFixed(1).replace('.', ',')}</td><td>${f1(x.w.m)}</td><td class="${cls(xr, r)}">${f2(xr)}</td></tr>`; }
+  for (const x of rows) { const r = AR[x.id].rarity, xr = x.v.m / g23.m; h += `<tr><td class="n">${AR[x.id].name}</td><td>${RAR[r]}</td><td>${f1(100 * x.v.m)} ±${(100 * x.v.e).toFixed(1).replace('.', ',')}</td><td>${f1(x.w.m)}</td><td>${f2(xr)}</td></tr>`; }
   const sr = delta('relfinal_23', 'semreliquia_-', 'v'); h += `<tr><td class="n"><i>sem relíquias</i></td><td></td><td>${sr ? f1(100 * sr.m) : '—'}</td><td></td><td></td></tr></table>`;
 } else p('Conferência com 23 nós não disponível.');
 // ---------- conceitos
@@ -72,11 +72,11 @@ sec('5. Parciais por facção (outros 14 decks, 10 nós)');
 const OD = 'relfinal_outros_10', ob = jl(path.join(R, OD, 'base_-.jsonl'));
 if (ob.length) {
   const facs = ['Ironbound', 'Blackfang', 'Dawncrest'];
-  p(`Valores finais, ${ob.length} runs base (${[...new Set(ob.map(r => r.deck))].length} decks fora dos 10 de teste, 20 seeds). × ouro pela régua da própria facção (+35 de ouro). Facções com poucos decks têm margem grande.`);
-  const gf = Object.fromEntries(facs.map(f => [f, delta(OD, 'ouro35_-', 'w', r => FAC[r.deck] === f)]));
-  h += `<table class="small"><tr><th>Relíquia</th><th>Raridade</th>${facs.map(f => `<th>${f}<br><small>${[...new Set(ob.filter(r => FAC[r.deck] === f).map(r => DECK[r.deck]))].join(', ')}</small></th>`).join('')}<th>Todos (régua média ${f2(GP)})</th></tr>`;
-  h += `<tr><td class="n"><i>+35 de ouro (lutas)</i></td><td></td>${facs.map(f => `<td>${gf[f] ? f2(gf[f].m) : '—'}</td>`).join('')}<td>${f2(delta(OD, 'ouro35_-', 'w')?.m)}</td></tr>`;
-  for (const id of IDS) { const r = AR[id].rarity; h += `<tr><td class="n">${AR[id].name}</td><td>${RAR[r]}</td>${facs.map(f => { const w = delta(OD, 'rel_' + id, 'w', rr => FAC[rr.deck] === f); const x = w && gf[f] && w.m / gf[f].m; return `<td class="${cls(x, r)}">${w ? f2(x) : '—'}</td>`; }).join('')}${(() => { const w = delta(OD, 'rel_' + id, 'w'); const x = w && w.m / GP; return `<td class="${cls(x, r)}">${w ? f2(x) : '—'}</td>`; })()}</tr>`; }
+  const g14 = delta(OD, 'ouro35_-', 'w').m;
+  p(`Valores finais, ${ob.length} runs base (${[...new Set(ob.map(r => r.deck))].length} decks fora dos 10 de teste, 20 seeds). Por facção mostramos o <b>Δ lutas vencidas</b> (com 2–3 decks a régua do ouro por facção não é confiável: em Blackfang deu negativa). A última coluna é o × ouro dos 14 decks juntos, com a régua deles (+35 de ouro = ${f2(g14)} lutas).`);
+  h += `<table class="small"><tr><th>Relíquia</th><th>Raridade</th>${facs.map(f => `<th>${f} · Δ lutas<br><small>${[...new Set(ob.filter(r => FAC[r.deck] === f).map(r => DECK[r.deck]))].join(', ')}</small></th>`).join('')}<th>14 decks · × ouro</th></tr>`;
+  h += `<tr><td class="n"><i>+35 de ouro</i></td><td></td>${facs.map(f => { const w = delta(OD, 'ouro35_-', 'w', r => FAC[r.deck] === f); return `<td>${w ? f1(w.m) + ' ±' + w.e.toFixed(1).replace('.', ',') : '—'}</td>`; }).join('')}<td>1,00</td></tr>`;
+  for (const id of IDS) { const r = AR[id].rarity; h += `<tr><td class="n">${AR[id].name}</td><td>${RAR[r]}</td>${facs.map(f => { const w = delta(OD, 'rel_' + id, 'w', rr => FAC[rr.deck] === f); return `<td>${w ? f1(w.m) : '—'}</td>`; }).join('')}${(() => { const w = delta(OD, 'rel_' + id, 'w'); const x = w && w.m / g14; return `<td class="${cls(x, r)}">${w ? f2(x) : '—'}</td>`; })()}</tr>`; }
   h += `</table>`;
 } else p('Parciais por facção não rodadas nesta etapa.');
 // ---------- carreiras
