@@ -39,7 +39,7 @@ Resultado da escada (carreiras, antes das relíquias): 1ª vitória run ~15 (esc
   - 16 de 21 na faixa pela régua média (+35 de ouro = 1,67 lutas). Eco gravado em **70%**. Funda gravada no conceito (150%), mede ≈0 porque o robô quase não usa os cantos.
   - Conferência 23 nós (`relfinal_23`), parciais dos outros 14 decks por facção (`relfinal_outros_10`), carreiras (`etapa4_car_reliquias_final`): **1ª vitória run 15 com 17 nós, árvore completa run 39** (antes run 18 / 18 nós).
   - Testes: suíte com as mesmas 18 falhas antigas; `relics-r3` e `content-v53` agora leem a tabela de valores. Texto da Espada mostra 2,5%.
-  - **PDF: `balance/rodada3/relatorios/R3_reliquias_calibracao.pdf`.**
+  - **PDF: `balance/rodada3/relatorios/R3_reliquias_calibracao.pdf`** (seção 1b lista as 22 relíquias fora desta calibração, com motivo, texto e medição de 08/11).
 - **Para decisão do Carlos:** (1) Funda de Cerco — ensinar o robô a usar os cantos ou rever o gatilho; (2) Ampulheta (×0,6 mesmo com 100%: habilidades saem antes do contato) — manter ou mudar gatilho; (3) Mercador (50%) e Broche (5%) no teto, abaixo da faixa; (4) Eco e Last Stand são os mais fortes com 23 nós.
 
 ## Pendências depois das relíquias
