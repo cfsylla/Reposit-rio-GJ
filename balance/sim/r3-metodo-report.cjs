@@ -32,7 +32,8 @@ const gold = delta('metodo_10', 'ouro35');
 const atk1 = bon['atk_0.1'] ? bon['atk_0.1'].m / 10 : null; // lutas por 1% de ataque
 // ---- 3. relíquias
 const GEN = 'banner heart luckycharm bell dormant_sword precision plating execution merchant profane_idol contract colossal_heart recovery ember fang repulsion chain laststand hourglass echo sling'.split(' ');
-const SRC = id => ['banner', 'heart', 'profane_idol', 'repulsion', 'laststand'].includes(id) ? 'relc4_10' : id === 'echo' ? 'relc5_10' : GEN.includes(id) ? 'relc3_10' : 'rel2_10';
+const NEWDIR = process.env.RELDIR || 'relcarlos_10'; // 09/11: as 43 com os valores do Carlos (rel_carlos1), robô sem limite de compra (mesma condição dos formatos)
+const SRC = id => fs.existsSync(path.join(R, NEWDIR, 'rel_' + id + '.jsonl')) ? NEWDIR : ['banner', 'heart', 'profane_idol', 'repulsion', 'laststand'].includes(id) ? 'relc4_10' : id === 'echo' ? 'relc5_10' : GEN.includes(id) ? 'relc3_10' : 'rel2_10';
 const rows = G.ARTIFACTS.map(a => { const f = G.RELIC_FORMATS[a.id], net = delta(SRC(a.id), 'rel_' + a.id), c = fcost(f), eff = net && c != null ? net.m + c : null, p = PAT[a.rarity];
   // formato que deixaria efeito − custo mais perto do patamar
   let best = null; if (eff != null) for (const g of FORMATS) { const cg = fcost(g); if (cg == null) continue; const diff = Math.abs(eff - cg - p); if (!best || diff < best.diff) best = { g, diff, net: eff - cg }; }
@@ -57,8 +58,8 @@ p('Δ medido = efeito − custo do formato atual (é o que a relíquia rende na 
 h += `<table class="small"><tr><th>Relíquia</th><th>Raridade</th><th>Patamar</th><th>Formato atual</th><th>Δ medido</th><th>Custo do formato</th><th>Efeito</th><th>Situação</th><th>Formato que fecha</th><th>Fonte</th></tr>`;
 for (const r of rows.sort((a, b) => a.a.rarity - b.a.rarity || (b.net?.m ?? -9) - (a.net?.m ?? -9))) {
   const st = !r.net ? '?' : r.net.m > r.p + TOL ? 'acima' : r.net.m < r.p - TOL ? 'abaixo' : 'ok', cl = st === 'ok' ? 'ok' : st === 'acima' ? 'bad' : 'near';
-  const fix = !r.best ? '—' : r.best.diff <= TOL ? `${FNAME[r.best.g]} (${CELLS(r.best.g)}) → ${s2(r.best.net)}` : `nenhum: efeito ${r.eff > r.p ? 'alto' : 'baixo'} demais (${r.eff > r.p ? 'reduzir' : 'aumentar'} efeito)`;
-  h += `<tr><td class="n">${r.a.name}</td><td>${RAR[r.a.rarity]}</td><td>${s2(r.p)}</td><td>${FNAME[r.f] || r.f} (${CELLS(r.f)})</td><td>${pm(r.net)}</td><td>${f2(r.c)}</td><td>${f2(r.eff)}</td><td class="${cl}">${st}</td><td class="desc">${st === 'ok' ? 'já está' : fix}</td><td>${r.gen ? 'gravado' : '08/11'}</td></tr>`;
+  const fix = !r.best ? '—' : r.best.diff <= TOL ? `${FNAME[r.best.g]} (${CELLS(r.best.g)}) → ${s2(r.best.net)}` : `nenhum formato chega: efeito ${r.best.net > r.p ? 'alto' : 'baixo'} demais (${r.best.net > r.p ? 'reduzir' : 'aumentar'} o efeito)`;
+  h += `<tr><td class="n">${r.a.name}</td><td>${RAR[r.a.rarity]}</td><td>${s2(r.p)}</td><td>${FNAME[r.f] || r.f} (${CELLS(r.f)})</td><td>${pm(r.net)}</td><td>${f2(r.c)}</td><td>${f2(r.eff)}</td><td class="${cl}">${st}</td><td class="desc">${st === 'ok' ? 'já está' : fix}</td><td>${SRC(r.id) === NEWDIR ? 'valores Carlos' : r.gen ? 'gravado' : '08/11'}</td></tr>`;
 }
 h += `</table>`;
 const html = `<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><title>GJ Relíquias método</title><style>
