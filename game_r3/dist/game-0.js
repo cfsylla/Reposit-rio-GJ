@@ -312,6 +312,26 @@ function moveUnit(b,u,p,forced=false,teleport=false,maxTravel=Infinity){if(u.rai
 function pushUnit(b,origin,t,d){let dir=direction(origin,t);moveUnit(b,t,{x:t.x+dir.x*d,y:t.y+dir.y*d},true);}
 function lineTargets(u,target,targets,length,width=22){const d=direction(u,target);return targets.filter(t=>{let dx=t.x-u.x,dy=t.y-u.y,along=dx*d.x+dy*d.y;return along>=0&&along<=length&&Math.abs(dx*d.y-dy*d.x)<=width;});}
 function zone(b,u,kind,x,y,r,life,power){b.zones.push({owner:u,kind,x,y,r,life:kind==='totem'?life+.00001:life,full:life,power,next:kind==='totem'?1:0,ticks:0});}
+/* R3 (Carlos 10/11): a habilidade só ativa com alvo válido; senão a unidade guarda a carga e segue atacando/andando.
+ * Ferido = abaixo de 95% da vida. Investida = alcance de ataque + 100. Buff em aliados: aliado no raio e inimigo a até 100 de algum desses aliados. */
+const SKILL_RULES={
+ target:['feline_swordsman','feline_fighter','elf_noble','woodland_scout','woodland_flailer','centaur_crossbow','goblin_spearman','goblin_archer','goblin_brute','orc_berserker','orc_fighter','troll','dark_elf_archer','dark_elf_mage','musketeer','berserker','huntress','pirate_admiral','shackled_pirate','kinoichi','fighter','gunner','pirate','cannoneer','ronin','woodland_lancer','cowboy','goblin_bomber','miner','archer','sorceress','ranger','orc_warrior','duelist','mage'],
+ dash:['feline_rogue','centaur_swordsman','dark_elf_noble','shinobi','omnamusha','cavalier','goblin_rider'],
+ reach:{elf_archer:180,crossbowman:230,mountain_troll:120,lancer:110,samurai:120,elf_halberdier:85,blackfang_guardian:85,dark_elf_warrior:85,swordsman:85,martial_artist:80,centaur_lancer:148,eagle_druid:180,sheriff:180},
+ area:{warrior:62,bastion:75,bear_druid:85,gladiator:62},
+ allies:{feline_drummer:110,elf_guardian:85,goblin_king:110,bard:110,elf_harpist:110,shaman:85,pirate_captain:95,shieldmaiden:100,feline_arcanist:1e9},
+ heal:{flower_fairy:1e9,sage:1e9,priestess:95,snow_troll:85,glutton:0}};
+const SKILL_RULE_OF={};for(const id of SKILL_RULES.target)SKILL_RULE_OF[id]='target';for(const id of SKILL_RULES.dash)SKILL_RULE_OF[id]='dash';for(const k of ['reach','area','allies','heal'])for(const id of Object.keys(SKILL_RULES[k]))SKILL_RULE_OF[id]=k;
+function skillValid(b,u,target,targets,living){const rule=SKILL_RULE_OF[u.type];if(!rule)return true;
+ const gap=t=>t?distance(u,t)-(t.bodyRadius||0):1e9,hurt=t=>t.hp>0&&t.hp/t.maxhp<.95;
+ switch(rule){
+  case'target':return gap(target)<=u.range+1e-7;
+  case'dash':return gap(target)<=u.range+100;
+  case'reach':return gap(target)<=Math.max(u.range,SKILL_RULES.reach[u.type])+1e-7;
+  case'area':{const r=SKILL_RULES.area[u.type];return targets.some(t=>gap(t)<=r);}
+  case'allies':{const r=SKILL_RULES.allies[u.type],near=living.filter(t=>t.side===u.side&&distance(t,u)<=r);return near.length>0&&targets.some(e=>near.some(a=>distance(a,e)<=100));}
+  case'heal':{const r=SKILL_RULES.heal[u.type];if(!r)return hurt(u);const pool=living.filter(t=>t.side===u.side&&distance(t,u)<=r);if(u.type==='priestess')return pool.some(t=>hurt(t)||['stun','root','slow','breakTime','taunt'].some(k=>t[k]>0));return pool.some(hurt);}
+ }return true;}
 function activate(b,u,target,targets,living,pending){
  u.attackVisualUntil=b.time+.24;u.attackTarget=target?.uid;root.JourneyTree?.skill(b,u,pending);
  root.JourneyTraits?.beforeSkill(b,u);root.JourneyTraits?.castUsed(b,u);const power=u.atk*u.skill,dir=direction(u,target),near=r=>targets.filter(t=>distance(t,target)<=r);
@@ -487,7 +507,7 @@ function step(b,dt){
   u.cooldown=Math.max(0,u.cooldown-dt);
   if(u.charging&&(u.root>0||u.taunt>0))u.charging=false;
   if(u.raidBoss&&b.raid?.channel||u.massSlime&&b.time>=u.returnAt)continue;
-  if(skillReady(u)&&(root.JourneyTraits?.canCast(b,u)??true)){u.progress=0;u.skillCasts=(u.skillCasts||0)+1;activate(b,u,skillTarget,targets,living,pending);continue;}
+  if(skillReady(u)&&(root.JourneyTraits?.canCast(b,u)??true)&&skillValid(b,u,skillTarget,targets,living)){u.progress=0;u.skillCasts=(u.skillCasts||0)+1;activate(b,u,skillTarget,targets,living,pending);continue;}
   if(d>u.range+1e-7){if(u.root>0)continue;walkUnit(u,target,living,dt);}
   else if(u.cooldown<=0){
    u.attackVisualUntil=b.time+.24;u.attackTarget=target.uid;
