@@ -29,3 +29,12 @@ Hourglass of Patience — definida (Carlos 10/11): Pacientes começam cada rodad
 
 ## Mecânica nova (Carlos 10/11): habilidade só dispara com alvo válido
 Hoje: com a carga cheia, a habilidade dispara na hora contra o inimigo mais próximo, a qualquer distância (game-0.js: `skillReady && canCast → activate(skillTarget)`). Pedido: só ativar quando houver alvo válido; senão, a unidade guarda a carga até encontrar a condição. Regras aprovadas (10/11): ferido = abaixo de 95%; investida = alcance + 100; buff em aliados = aliado no raio e inimigo a até 100. **Implementado em `game_r3/dist/game-0.js` (`skillValid`), ainda NÃO testado nem medido.** As 17 cartas-herói de boss (hero_*) seguem a regra antiga (ativam ao encher). Muda o combate de todas as unidades (jogador e inimigos): exige remedir a base (escada, bosses, relíquias).
+
+## Ultra raras (Carlos 10/11) — todas mantidas
+| Relíquia | Definição | Motivo |
+|---|---|---|
+| Combat Hourglass | mantida (começa com 90% da carga) | deve melhorar com a mecânica nova (habilidade espera alvo válido) |
+| Everlasting Spark | mantida (+1 de energia em toda preparação) | boa; o robô provavelmente usa mal a energia extra |
+| Arcane Echo | mantida (toda habilidade devolve 30% da carga) | deve melhorar com a mecânica nova |
+| Siege Sling | mantida | — |
+| Last Stand | 1 de vida e invulnerável 2 s (definido antes) | — |
