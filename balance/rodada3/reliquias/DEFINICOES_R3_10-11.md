@@ -23,9 +23,9 @@ Hourglass of Patience — definida (Carlos 10/11): Pacientes começam cada rodad
 |---|---|---|
 | Travelers' Mirror | mantida (recrutadas vêm com +1 upgrade, até nível 2) | mede −1,9 abaixo do patamar com o robô (depende das escolhas do jogador) |
 | Dawn's Blessing | escudo de 10% (em vez de 6%) da vida máxima para Dawncrest no início da rodada; renova no 1º abate | com 6% já mede +3,0 ±2,1 nos decks Dawncrest (no patamar); 10% estimado ~+4 (acima) |
-| Horde Totem | efeito atual + 10% de dano (a confirmar: para quem e quando) | |
-| Guardian's Aegis | aura do Protetor 140 + 10% de velocidade (a confirmar: ataque ou movimento; para quem) | |
+| Horde Totem | efeito atual + **3% de dano por aliado Blackfang caído**, para todos os Blackfang vivos, sem limite | estimativa ~+0,5 nos decks Blackfang (abaixo, ~−2,5) |
+| Guardian's Aegis | aura do Protetor 140 + **10% de velocidade de movimento para os Protetores** | estimativa ~0 a +0,3 (abaixo, ~−2,8) |
 | Tome of Stars | conjuradores começam a rodada com a habilidade cheia, precisam de 20% menos carga e têm +25% de poder de habilidade | depende da mecânica nova abaixo |
 
 ## Mecânica nova (Carlos 10/11): habilidade só dispara com alvo válido
-Hoje: com a carga cheia, a habilidade dispara na hora contra o inimigo mais próximo, a qualquer distância (game-0.js: `skillReady && canCast → activate(skillTarget)`). Pedido: só ativar quando houver alvo válido; senão, a unidade guarda a carga até encontrar a condição. Regras por tipo de habilidade em definição. Muda o combate de todas as unidades (jogador e inimigos): exige remedir a base (escada, bosses, relíquias).
+Hoje: com a carga cheia, a habilidade dispara na hora contra o inimigo mais próximo, a qualquer distância (game-0.js: `skillReady && canCast → activate(skillTarget)`). Pedido: só ativar quando houver alvo válido; senão, a unidade guarda a carga até encontrar a condição. Regras por tipo aprovadas (10/11); classificação das 73 em `HABILIDADES_ATIVACAO_R3.md` (para aprovação). Muda o combate de todas as unidades (jogador e inimigos): exige remedir a base (escada, bosses, relíquias).
