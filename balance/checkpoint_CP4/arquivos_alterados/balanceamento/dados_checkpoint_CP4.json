@@ -1,0 +1,1501 @@
+{
+  "checkpoint": "GJ-v50-BAL-CP4",
+  "base": {
+    "publishedVersion": 50,
+    "internalContentVersion": 56,
+    "commit": "aed07ed41c8a002ab1d149882e068b7a7f6c4415"
+  },
+  "treeXp": {
+    "weights": {
+      "battle": 1,
+      "special": 2,
+      "boss": 4,
+      "trueBoss": 6,
+      "secretBoss": 8
+    },
+    "mult": [
+      1,
+      2,
+      3
+    ],
+    "midFight": 6,
+    "xpPerDiamond": 20
+  },
+  "treeAudit": {
+    "purchasableNodes": 60,
+    "totalCost": 1754,
+    "costs": {
+      "pow_atk_1": 8,
+      "pow_atk_2": 8,
+      "pow_atk_3": 16,
+      "pow_atk_4": 32,
+      "pow_atk_5": 16,
+      "pow_atk_6": 32,
+      "pow_crit_1": 30,
+      "pow_crit_2": 24,
+      "pow_cdamage_1": 30,
+      "pow_cdamage_2": 32,
+      "vit_hp_1": 8,
+      "vit_hp_2": 8,
+      "vit_hp_3": 16,
+      "vit_hp_4": 16,
+      "vit_hp_5": 30,
+      "vit_hp_6": 32,
+      "vit_heal_1": 30,
+      "vit_heal_2": 30,
+      "def_armor_1": 8,
+      "def_armor_2": 8,
+      "def_armor_3": 16,
+      "def_armor_4": 16,
+      "def_armor_5": 30,
+      "def_armor_6": 32,
+      "def_control_1": 30,
+      "def_control_2": 30,
+      "agi_rate_1": 8,
+      "agi_rate_2": 8,
+      "agi_rate_3": 16,
+      "agi_rate_4": 16,
+      "agi_rate_5": 30,
+      "agi_move_1": 30,
+      "agi_move_2": 32,
+      "agi_move_3": 32,
+      "exp_gold_1": 8,
+      "exp_gold_2": 8,
+      "exp_shop_1": 16,
+      "exp_shop_2": 16,
+      "first_impact": 36,
+      "execution": 45,
+      "penetration": 45,
+      "devastating": 56,
+      "urgent_heal": 36,
+      "second_wind": 36,
+      "survival": 53,
+      "formation": 36,
+      "strong_shields": 36,
+      "last_line": 53,
+      "sprint": 36,
+      "momentum": 36,
+      "readiness": 45,
+      "rhythm": 53,
+      "market": 36,
+      "candidates": 45,
+      "training_deal": 45,
+      "planned_purchase": 36,
+      "explorer": 45,
+      "provisions": 45,
+      "expanded_bag": 56,
+      "caravan": 56
+    },
+    "midWindowLayer": [
+      9,
+      8,
+      8
+    ]
+  },
+  "bossTune": {
+    "map": [
+      1.037,
+      0.965,
+      1.198
+    ],
+    "boss": {
+      "ib_marshal": {
+        "hp": 0.975,
+        "atk": 0.975
+      },
+      "ib_shogun": {
+        "hp": 1.14,
+        "atk": 1.14
+      },
+      "ib_jarl": {
+        "hp": 0.957,
+        "atk": 0.957
+      },
+      "ib_gunslinger": {
+        "hp": 1.326,
+        "atk": 1.326
+      },
+      "ib_piratequeen": {
+        "hp": 1.068,
+        "atk": 1.068
+      },
+      "ib_oracle": {
+        "hp": 0.928,
+        "atk": 0.928
+      },
+      "ib_hartlord": {
+        "hp": 0.796,
+        "atk": 0.796
+      },
+      "goblin": {
+        "hp": 1.899,
+        "atk": 1.899
+      },
+      "troll": {
+        "hp": 1.182,
+        "atk": 1.182
+      },
+      "orc": {
+        "hp": 0.587,
+        "atk": 0.587
+      },
+      "meowri": {
+        "hp": 1.211,
+        "atk": 1.211
+      },
+      "centaur": {
+        "hp": 0.991,
+        "atk": 0.991
+      },
+      "highelf": {
+        "hp": 0.898,
+        "atk": 0.898
+      },
+      "forestelf": {
+        "hp": 1.87,
+        "atk": 1.87
+      },
+      "ib_wayfarer": {
+        "hp": 1.489,
+        "atk": 1.489
+      },
+      "darkelf": {
+        "hp": 1.275,
+        "atk": 1.275
+      },
+      "fairy": {
+        "hp": 1.738,
+        "atk": 1.738
+      }
+    },
+    "true2": {
+      "ib_wayfarer": {
+        "hp": 1.489,
+        "damage": 1.489
+      },
+      "darkelf": {
+        "hp": 1.275,
+        "damage": 1.275
+      },
+      "fairy": {
+        "hp": 1.738,
+        "damage": 1.738
+      }
+    }
+  },
+  "supportsB": {
+    "priestess": {
+      "radius": 120,
+      "every": 4,
+      "heal": 0.1111,
+      "buff": {
+        "guard": 0.17
+      }
+    },
+    "elf_harpist": {
+      "radius": 120,
+      "every": 5,
+      "heal": 0.1087,
+      "buff": {
+        "haste": 0.23
+      }
+    },
+    "flower_fairy": {
+      "radius": 120,
+      "every": 2,
+      "heal": 0.0556,
+      "buff": {
+        "skill": 0.35
+      }
+    },
+    "snow_troll": {
+      "radius": 120,
+      "every": 2,
+      "heal": 0,
+      "buff": {
+        "guard": 0.42
+      }
+    },
+    "shaman": {
+      "radius": 120,
+      "every": 3,
+      "heal": 0.0652,
+      "buff": {
+        "haste": 0.43
+      }
+    },
+    "sage": {
+      "radius": 120,
+      "every": 3,
+      "heal": 0,
+      "buff": {
+        "guard": 0.45
+      }
+    },
+    "feline_arcanist": {
+      "radius": 120,
+      "every": 3,
+      "heal": 0,
+      "buff": {
+        "haste": 0.35
+      }
+    },
+    "bard": {
+      "radius": 120,
+      "every": 3,
+      "heal": 0,
+      "buff": {
+        "atk": 0.34
+      }
+    },
+    "goblin_king": {
+      "radius": 120,
+      "every": 3,
+      "heal": 0,
+      "buff": {
+        "atk": 0.32,
+        "haste": 0.27
+      }
+    },
+    "feline_drummer": {
+      "radius": 120,
+      "every": 3,
+      "heal": 0,
+      "buff": {
+        "haste": 0.46
+      }
+    }
+  },
+  "decks": [
+    {
+      "id": "vanguard",
+      "name": "Vanguarda da Aurora",
+      "counts": {
+        "warrior": 3,
+        "lancer": 4,
+        "bastion": 3,
+        "gladiator": 3,
+        "swordsman": 1,
+        "fighter": 2,
+        "archer": 2,
+        "ranger": 2
+      },
+      "startRelic": "banner"
+    },
+    {
+      "id": "balanced",
+      "name": "Encontro de Caminhos",
+      "counts": {
+        "fighter": 3,
+        "warrior": 3,
+        "ranger": 3,
+        "bastion": 3,
+        "samurai": 2,
+        "crossbowman": 2,
+        "priestess": 2,
+        "gladiator": 2
+      },
+      "startRelic": "banner"
+    },
+    {
+      "id": "swift",
+      "name": "Ventos do Acaso",
+      "counts": {
+        "lancer": 2,
+        "martial_artist": 3,
+        "pirate": 2,
+        "archer": 3,
+        "samurai": 3,
+        "cavalier": 3,
+        "mage": 2,
+        "kinoichi": 2
+      },
+      "startRelic": "bell"
+    },
+    {
+      "id": "arcane",
+      "name": "Círculo Arcano",
+      "counts": {
+        "bastion": 4,
+        "warrior": 4,
+        "mage": 2,
+        "sorceress": 2,
+        "gladiator": 2,
+        "bard": 2,
+        "sage": 1,
+        "priestess": 2,
+        "lancer": 1
+      },
+      "startRelic": "tome"
+    },
+    {
+      "id": "outlaws",
+      "name": "Lei do Gatilho",
+      "counts": {
+        "cowboy": 2,
+        "gunner": 3,
+        "miner": 3,
+        "fighter": 2,
+        "sheriff": 3,
+        "crossbowman": 2,
+        "bastion": 2,
+        "gladiator": 3
+      },
+      "startRelic": "precision"
+    },
+    {
+      "id": "fortress",
+      "name": "Fortaleza",
+      "counts": {
+        "bastion": 3,
+        "shieldmaiden": 3,
+        "gladiator": 3,
+        "ranger": 3,
+        "archer": 2,
+        "priestess": 3,
+        "lancer": 1,
+        "warrior": 2
+      },
+      "startRelic": "shield"
+    },
+    {
+      "id": "blades",
+      "name": "Lâminas do Oriente",
+      "counts": {
+        "shinobi": 2,
+        "omnamusha": 2,
+        "samurai": 3,
+        "fighter": 4,
+        "ronin": 1,
+        "martial_artist": 4,
+        "kinoichi": 2,
+        "shaolin": 2
+      },
+      "startRelic": "precision"
+    },
+    {
+      "id": "fireline",
+      "name": "Linha de Fogo",
+      "counts": {
+        "ranger": 3,
+        "archer": 2,
+        "crossbowman": 3,
+        "bastion": 3,
+        "musketeer": 3,
+        "gunner": 2,
+        "cannoneer": 2,
+        "priestess": 2
+      },
+      "startRelic": "scope"
+    },
+    {
+      "id": "astral",
+      "name": "Coro de Guerra",
+      "counts": {
+        "warrior": 3,
+        "swordsman": 3,
+        "samurai": 3,
+        "bard": 3,
+        "priestess": 2,
+        "archer": 4,
+        "lancer": 2
+      },
+      "startRelic": "recovery"
+    },
+    {
+      "id": "corsair",
+      "name": "Tripulação Salgada",
+      "counts": {
+        "pirate": 3,
+        "shackled_pirate": 2,
+        "pirate_captain": 4,
+        "miner": 2,
+        "cannoneer": 2,
+        "pirate_admiral": 3,
+        "gunner": 2,
+        "archer": 2
+      },
+      "startRelic": "hourglass"
+    },
+    {
+      "id": "north",
+      "name": "Clãs do Norte",
+      "counts": {
+        "viking": 3,
+        "berserker": 3,
+        "shieldmaiden": 3,
+        "fighter": 3,
+        "warrior": 3,
+        "huntress": 2,
+        "shaman": 2,
+        "glutton": 1
+      },
+      "startRelic": "ember"
+    },
+    {
+      "id": "verdant",
+      "name": "Círculo Verdejante",
+      "counts": {
+        "ranger": 3,
+        "archer": 3,
+        "bear_druid": 2,
+        "eagle_druid": 3,
+        "crossbowman": 2,
+        "lancer": 3,
+        "priestess": 2,
+        "fighter": 2
+      },
+      "startRelic": "plating"
+    },
+    {
+      "id": "keen",
+      "name": "Golpe Certeiro",
+      "counts": {
+        "fighter": 3,
+        "warrior": 3,
+        "berserker": 3,
+        "cowboy": 3,
+        "swordsman": 2,
+        "duelist": 2,
+        "huntress": 2,
+        "crossbowman": 2
+      },
+      "startRelic": "precision"
+    },
+    {
+      "id": "quake",
+      "name": "Terremoto",
+      "counts": {
+        "lancer": 3,
+        "martial_artist": 3,
+        "miner": 3,
+        "kinoichi": 3,
+        "bastion": 2,
+        "mage": 2,
+        "cannoneer": 2,
+        "priestess": 2
+      },
+      "startRelic": "banner"
+    },
+    {
+      "id": "executioners",
+      "name": "Executores",
+      "counts": {
+        "kinoichi": 2,
+        "cowboy": 2,
+        "musketeer": 3,
+        "gladiator": 3,
+        "bastion": 2,
+        "crossbowman": 2,
+        "huntress": 2,
+        "sheriff": 2,
+        "fighter": 2
+      },
+      "startRelic": "execution"
+    },
+    {
+      "id": "goblin_horde",
+      "name": "Horda Goblin",
+      "counts": {
+        "goblin_archer": 4,
+        "goblin_rider": 3,
+        "goblin_brute": 3,
+        "blackfang_guardian": 3,
+        "goblin_spearman": 1,
+        "goblin_bomber": 1,
+        "goblin_king": 3,
+        "orc_berserker": 2
+      },
+      "startRelic": "bell"
+    },
+    {
+      "id": "greenskins",
+      "name": "Peles Verdes",
+      "counts": {
+        "orc_warrior": 4,
+        "orc_berserker": 3,
+        "orc_fighter": 2,
+        "cave_troll": 3,
+        "goblin_brute": 2,
+        "goblin_spearman": 2,
+        "goblin_rider": 2,
+        "goblin_archer": 2
+      },
+      "startRelic": "banner"
+    },
+    {
+      "id": "dark_court",
+      "name": "Corte Sombria",
+      "counts": {
+        "dark_elf_noble": 3,
+        "dark_elf_archer": 3,
+        "dark_elf_warrior": 3,
+        "orc_warrior": 3,
+        "dark_elf_mage": 2,
+        "blackfang_guardian": 2,
+        "orc_fighter": 2,
+        "goblin_archer": 2
+      },
+      "startRelic": "precision"
+    },
+    {
+      "id": "blackfang_war",
+      "name": "Presas Negras",
+      "counts": {
+        "orc_warrior": 3,
+        "goblin_brute": 3,
+        "dark_elf_archer": 3,
+        "goblin_archer": 2,
+        "troll": 2,
+        "goblin_king": 2,
+        "dark_elf_noble": 2,
+        "mountain_troll": 2,
+        "snow_troll": 1
+      },
+      "startRelic": "heart"
+    },
+    {
+      "id": "meowri_band",
+      "name": "Bando Meowri",
+      "counts": {
+        "feline_swordsman": 3,
+        "feline_fighter": 3,
+        "feline_rogue": 3,
+        "woodland_lancer": 3,
+        "feline_arcanist": 2,
+        "feline_drummer": 2,
+        "centaur_swordsman": 2,
+        "elf_archer": 2
+      },
+      "startRelic": "laststand"
+    },
+    {
+      "id": "high_court",
+      "name": "Corte Alta Élfica",
+      "counts": {
+        "elf_noble": 3,
+        "elf_guardian": 3,
+        "elf_archer": 3,
+        "elf_halberdier": 3,
+        "woodland_lancer": 3,
+        "flower_fairy": 2,
+        "centaur_crossbow": 2,
+        "elf_harpist": 1
+      },
+      "startRelic": "recovery"
+    },
+    {
+      "id": "forest_guard",
+      "name": "Guarda da Floresta",
+      "counts": {
+        "woodland_predator": 3,
+        "woodland_lancer": 3,
+        "woodland_scout": 3,
+        "woodland_flailer": 3,
+        "elf_archer": 2,
+        "elf_noble": 2,
+        "centaur_lancer": 2,
+        "elf_guardian": 2
+      },
+      "startRelic": "scope"
+    },
+    {
+      "id": "centaur_charge",
+      "name": "Galope Centauro",
+      "counts": {
+        "centaur_crossbow": 3,
+        "centaur_lancer": 3,
+        "centaur_swordsman": 3,
+        "feline_fighter": 3,
+        "elf_archer": 2,
+        "woodland_scout": 2,
+        "flower_fairy": 2,
+        "elf_guardian": 2
+      },
+      "startRelic": "boots"
+    },
+    {
+      "id": "dawncrest_choir",
+      "name": "Coro de Dawncrest",
+      "counts": {
+        "feline_swordsman": 3,
+        "elf_halberdier": 3,
+        "woodland_flailer": 3,
+        "feline_drummer": 2,
+        "elf_harpist": 2,
+        "flower_fairy": 2,
+        "woodland_lancer": 3,
+        "centaur_swordsman": 2
+      },
+      "startRelic": "heart"
+    }
+  ],
+  "challenges": {
+    "list": [
+      {
+        "id": "veterans",
+        "en": "Veterans",
+        "pt": "Veteranos",
+        "enDesc": "Regular enemies have +8 upgrades.",
+        "ptDesc": "Inimigos comuns têm +8 upgrades."
+      },
+      {
+        "id": "tough",
+        "en": "Tough Troops",
+        "pt": "Tropas Resistentes",
+        "enDesc": "Enemy health +10%.",
+        "ptDesc": "Vida dos inimigos +10%."
+      },
+      {
+        "id": "relentless",
+        "en": "Relentless Attacks",
+        "pt": "Ataques Implacáveis",
+        "enDesc": "Enemy damage +8%.",
+        "ptDesc": "Dano dos inimigos +8%."
+      },
+      {
+        "id": "commanders",
+        "en": "Prepared Commanders",
+        "pt": "Comandantes Preparados",
+        "enDesc": "Elites, orders and bosses gain +2 relics and +2 upgrades.",
+        "ptDesc": "Elites, ordens e bosses ganham +2 relíquias e +2 upgrades."
+      },
+      {
+        "id": "bossrounds",
+        "en": "Relentless Bosses",
+        "pt": "Bosses Implacáveis",
+        "enDesc": "Map bosses (team and leader) have +7% health and damage.",
+        "ptDesc": "Bosses de mapa (time e líder) têm +7% de vida e de dano."
+      },
+      {
+        "id": "reinforcements",
+        "en": "Enemy Reinforcements",
+        "pt": "Reforços Inimigos",
+        "enDesc": "From the 1st round on, regular and elite enemies field +1 unit.",
+        "ptDesc": "Desde a 1ª rodada, inimigos comuns e elites colocam +1 unidade em campo."
+      },
+      {
+        "id": "raidfury",
+        "en": "Raid Fury",
+        "pt": "Fúria das Raids",
+        "enDesc": "Raid health +25% and damage +8%.",
+        "ptDesc": "Raids com +25% de vida e +8% de dano."
+      },
+      {
+        "id": "inflation",
+        "en": "Inflated Market",
+        "pt": "Mercado Inflacionado",
+        "enDesc": "Shop prices +30%.",
+        "ptDesc": "Preços da loja +30%."
+      },
+      {
+        "id": "lightpurse",
+        "en": "Light Purse",
+        "pt": "Bolsa Leve",
+        "enDesc": "Gold from victories −27%.",
+        "ptDesc": "Ouro por vitória −27%."
+      },
+      {
+        "id": "scarce",
+        "en": "Scarce Resources",
+        "pt": "Recursos Escassos",
+        "enDesc": "−1 energy in the first round against bosses.",
+        "ptDesc": "−1 de energia na primeira rodada contra bosses."
+      },
+      {
+        "id": "bag",
+        "en": "Limited Luggage",
+        "pt": "Bagagem Limitada",
+        "enDesc": "Blocks 5 Relic Bag cells.",
+        "ptDesc": "Bloqueia 5 casas da bolsa de relíquias."
+      },
+      {
+        "id": "heavydeck",
+        "en": "Heavy Deck",
+        "pt": "Deck Pesado",
+        "enDesc": "Start the run with +2 random basic generic cards (Warrior, Lancer, Fighter, Martial Artist, Miner, Pirate, Ranger or Shackled Pirate).",
+        "ptDesc": "Começa a run com +2 cartas básicas genéricas aleatórias (Warrior, Lancer, Fighter, Martial Artist, Miner, Pirate, Ranger ou Shackled Pirate)."
+      },
+      {
+        "id": "dissipate",
+        "en": "Dissipating Energy",
+        "pt": "Energia Dissipada",
+        "enDesc": "Lose 1 of the energy left over at the end of each round.",
+        "ptDesc": "Perde 1 da energia que sobrar ao fim de cada rodada."
+      },
+      {
+        "id": "fewrelics",
+        "en": "Scarce Relics",
+        "pt": "Relíquias Escassas",
+        "enDesc": "Relic choices offer 2 options less (minimum 1).",
+        "ptDesc": "Escolhas de relíquia oferecem 2 opções a menos (mínimo 1)."
+      },
+      {
+        "id": "cursed",
+        "en": "Cursed Path",
+        "pt": "Caminho Amaldiçoado",
+        "enDesc": "Start the run with 2 Exhaustion curses.",
+        "ptDesc": "Começa a run com 2 maldições Exaustão."
+      }
+    ],
+    "tune": {
+      "veterans": 8,
+      "commanders": 2,
+      "commanderRelics": 2,
+      "tough": 0.1,
+      "relentless": 0.08,
+      "bossRounds": 0,
+      "bossStats": 0.07,
+      "raidfury": 0.25,
+      "raidDamage": 0.08,
+      "inflation": 0.3,
+      "lightpurse": 0.27,
+      "bagCells": 5,
+      "curses": [
+        "exhaustion",
+        "exhaustion"
+      ],
+      "reinforceFromRound": 1,
+      "heavyCards": 2,
+      "heavyMode": "pool",
+      "dissipateMode": "fixed",
+      "dissipateFixed": 1,
+      "dissipateKeep": 2,
+      "scarceRounds": 1,
+      "heavyPool": [
+        "warrior",
+        "lancer",
+        "fighter",
+        "martial_artist",
+        "miner",
+        "pirate",
+        "ranger",
+        "shackled_pirate"
+      ],
+      "fewRelics": 2
+    }
+  },
+  "advantages": {
+    "list": [
+      {
+        "id": "travel_relic",
+        "en": "Travel Relic",
+        "pt": "Relíquia de Viagem",
+        "enDesc": "Start each run with +1 random common relic that fits the bag.",
+        "ptDesc": "Começa cada run com +1 relíquia comum aleatória que caiba na bolsa."
+      },
+      {
+        "id": "pretraining",
+        "en": "Pre-Training",
+        "pt": "Treino Prévio",
+        "enDesc": "2 random deck cards start with upgrade 1.",
+        "ptDesc": "2 cartas aleatórias do deck começam com upgrade 1."
+      },
+      {
+        "id": "flex_prep",
+        "en": "Flexible Preparation",
+        "pt": "Preparação Flexível",
+        "enDesc": "Once per round, refresh your hand for free.",
+        "ptDesc": "Uma vez por rodada, renova a mão de graça."
+      },
+      {
+        "id": "efficient_fusion",
+        "en": "Efficient Fusion",
+        "pt": "Fusão Eficiente",
+        "enDesc": "Every fusion completed refunds 1 energy.",
+        "ptDesc": "Toda fusão concluída devolve 1 de energia."
+      },
+      {
+        "id": "full_purse",
+        "en": "Full Purse",
+        "pt": "Bolsa Cheia",
+        "enDesc": "+20 starting gold.",
+        "ptDesc": "+20 de ouro inicial."
+      },
+      {
+        "id": "elite_experience",
+        "en": "Elite Experience",
+        "pt": "Experiência de Elite",
+        "enDesc": "Each elite defeated grants all your units +0.5% health and attack until the end of the run.",
+        "ptDesc": "Cada elite vencida dá +0,5% de vida e ataque a todas as suas unidades até o fim da run."
+      },
+      {
+        "id": "trained_eye",
+        "en": "Trained Eye",
+        "pt": "Olho Treinado",
+        "enDesc": "One free reroll on every relic choice.",
+        "ptDesc": "1 renovação grátis em toda escolha de relíquia."
+      },
+      {
+        "id": "rehearsal",
+        "en": "Rehearsal",
+        "pt": "Ensaio",
+        "enDesc": "The first card bought in each shop comes with upgrade 2.",
+        "ptDesc": "A primeira carta comprada em cada loja vem com upgrade 2."
+      },
+      {
+        "id": "planned_hand",
+        "en": "Planned Hand",
+        "pt": "Mão Planejada",
+        "enDesc": "Before the run, choose a deck card: one copy starts in your hand in every other confrontation (1st, 3rd, 5th...).",
+        "ptDesc": "Antes da run, escolhe uma carta do deck: uma cópia começa na mão em confrontos alternados (1º, 3º, 5º...)."
+      },
+      {
+        "id": "saved_energy",
+        "en": "Saved Energy",
+        "pt": "Energia Guardada",
+        "enDesc": "+1 energy in the first round of each confrontation.",
+        "ptDesc": "+1 de energia na primeira rodada de cada confronto."
+      },
+      {
+        "id": "cleanse",
+        "en": "Cleanse",
+        "pt": "Limpeza",
+        "enDesc": "One free card removal in the first shop of each map.",
+        "ptDesc": "Uma remoção de carta grátis na primeira loja de cada mapa."
+      },
+      {
+        "id": "path_blessing",
+        "en": "Path Blessing",
+        "pt": "Bênção do Caminho",
+        "enDesc": "Entering maps 2 and 3 upgrades 2 random deck cards to level 1.",
+        "ptDesc": "Ao entrar nos mapas 2 e 3, 2 cartas aleatórias do deck recebem upgrade 1."
+      },
+      {
+        "id": "interest",
+        "en": "Interest",
+        "pt": "Juros",
+        "enDesc": "Defeating each map boss grants 100% of your saved gold (max. 150).",
+        "ptDesc": "Vencer o boss de cada mapa concede 100% do ouro guardado (máx. 150)."
+      },
+      {
+        "id": "elite_hunter",
+        "en": "Elite Hunter",
+        "pt": "Caçador de Elites",
+        "enDesc": "Defeating an elite grants +20 gold.",
+        "ptDesc": "Vencer uma elite concede +20 de ouro."
+      },
+      {
+        "id": "second_chance",
+        "en": "Second Chance",
+        "pt": "Segunda Chance",
+        "enDesc": "Once per run, losing a confrontation (except bosses) replays only the last round: the score is kept and the enemy loses 1 point.",
+        "ptDesc": "Uma vez por run, perder um confronto (exceto bosses) repete só a última rodada: o placar continua e o inimigo perde 1 ponto."
+      }
+    ],
+    "tune": {
+      "pretraining": 2,
+      "pretrainingLevel": 1,
+      "pretrainingLevels": [
+        1,
+        1
+      ],
+      "rehearsalLevel": 2,
+      "eyeMode": "every",
+      "secondMode": "round",
+      "blessingLevel": 1,
+      "blessingCount": 1,
+      "blessingLevels": [
+        1,
+        1
+      ],
+      "flexUses": 1,
+      "flexScope": "round",
+      "fusionRefund": 1,
+      "fusionPerRound": 99,
+      "plannedCount": 1,
+      "plannedFreq": "alternate",
+      "eliteHp": 0.005,
+      "eliteAtk": 0.005,
+      "eliteCap": 99,
+      "fullPurse": 20,
+      "interest": 1,
+      "interestMax": 150,
+      "eliteGold": 20
+    }
+  },
+  "barrierTune": {
+    "order": [
+      1.122,
+      1.12,
+      1.2
+    ],
+    "entrance": [
+      1,
+      1.118,
+      1.24
+    ],
+    "other": [
+      1,
+      1,
+      1
+    ],
+    "raid": [
+      1.3,
+      1.37,
+      1.46
+    ],
+    "raidBoss": [
+      1.04,
+      1.04,
+      1.04
+    ],
+    "boss": [
+      1.022,
+      1.071,
+      1.2
+    ],
+    "entranceFights": 2
+  },
+  "relicTune": {
+    "swordBase": 0.015,
+    "swordStep": 0.015,
+    "swordCap": 0.09,
+    "idol": 0.14,
+    "idolCap": 0.42,
+    "banner": 0.08,
+    "heart": 0.08,
+    "scope": 0.15,
+    "tome": 0.25,
+    "shieldArmor": 0,
+    "precisionCrit": 0.1,
+    "bell": 0.17,
+    "bellTime": 4,
+    "colossal": 0.125,
+    "quickstart": 3,
+    "lucky": 0.21,
+    "merchant": 0.26,
+    "merchantRerolls": 1,
+    "execution": 0.22,
+    "emberAtk": 0.08,
+    "emberShield": 0.04,
+    "fang": 0.13,
+    "fangBoss": 2,
+    "laststandHp": 0,
+    "laststandInvuln": 2,
+    "repulsionAt": 0.3,
+    "repulsionStun": 0.8,
+    "repulsionShield": 0.115,
+    "hourglass": 0.9,
+    "bootsRate": 0.2,
+    "platingShield": 0.11,
+    "recovery": 0.05,
+    "recoveryLow": 0.4,
+    "platingTime": 6,
+    "loneDamage": 0.1,
+    "bootsMove": 0.1,
+    "bootsHits": 4,
+    "bootsStun": 1,
+    "bootsEvade": 2,
+    "shieldReduction": 0.15,
+    "patienceStart": 2,
+    "patienceEvery": 2,
+    "patienceMax": 5,
+    "hordeDamage": 0.03,
+    "aegisSpeed": 0.1,
+    "tomeCost": 0.8,
+    "slingDamage": 1.5,
+    "slingStun": 1.5,
+    "slingDelay": 1,
+    "slingInvuln": 1,
+    "contractElite": 20,
+    "contractBoss": 40,
+    "grimoireXp": 0.3,
+    "grimoireGold": 0.15,
+    "tomeCharge": 0.3,
+    "sentinelTaunt": 6,
+    "sentinelRange": 120,
+    "precisionCharge": 0.12,
+    "executionCharge": 0.15,
+    "echoRefund": 0.3,
+    "chainCharge": 0.43,
+    "compass": 1,
+    "devastatorBonus": 0.25,
+    "devastatorStun": 0.5,
+    "warcryHeal": 0.03,
+    "ironrootAt": 0.5,
+    "ironrootShield": 0.1,
+    "patienceT": 3,
+    "aegisRange": 140,
+    "loneReduction": 0.15,
+    "amplifier": 1.4,
+    "hordeCharge": 0.15,
+    "hordeMax": 3,
+    "dawnShield": 0.1
+  },
+  "relics": [
+    {
+      "id": "banner",
+      "name": "Ancient Banner",
+      "namePT": "Estandarte antigo",
+      "rarity": 1,
+      "price": 35,
+      "shape": "L3",
+      "category": "offense",
+      "desc": "All allies gain +8% attack.",
+      "descPT": "Todos os aliados têm +8% de ataque."
+    },
+    {
+      "id": "heart",
+      "name": "Vital Stone",
+      "namePT": "Pedra vital",
+      "rarity": 1,
+      "price": 35,
+      "shape": "L3",
+      "category": "defense",
+      "desc": "All allies gain +8% health.",
+      "descPT": "Todos os aliados têm +8% de vida."
+    },
+    {
+      "id": "scope",
+      "name": "Marksman’s Scope",
+      "namePT": "Luneta do atirador",
+      "rarity": 0,
+      "price": 30,
+      "shape": "diag2",
+      "category": "synergy",
+      "desc": "Ranged allies gain +15% attack. The first basic attack of each one in each round is a critical hit.",
+      "descPT": "Aliados com ataque à distância ganham +15% de ataque. O primeiro ataque básico de cada um em cada rodada é crítico."
+    },
+    {
+      "id": "tome",
+      "name": "Tome of Stars",
+      "namePT": "Tomo das estrelas",
+      "rarity": 2,
+      "price": 35,
+      "shape": "T",
+      "category": "synergy",
+      "desc": "Spellcasters start each round with their skill ready, need 20% less charge and gain +25% skill power.",
+      "descPT": "Conjuradores começam cada rodada com a habilidade pronta, precisam de 20% menos carga e ganham +25% de poder de habilidade."
+    },
+    {
+      "id": "boots",
+      "name": "Wind Boots",
+      "namePT": "Botas do vento",
+      "rarity": 1,
+      "price": 30,
+      "shape": "L3",
+      "category": "synergy",
+      "desc": "Each round, every Trailblazer evades the first 2 basic attacks it receives, gains +10% movement and +20% attack speed for its first 4 attacks, and its first basic attack stuns for 1s (raid bosses are not stunned).",
+      "descPT": "A cada rodada, cada Desbravador esquiva dos 2 primeiros ataques básicos recebidos, ganha +10% de movimento e +20% de velocidade de ataque nos 4 primeiros golpes, e seu primeiro ataque básico atordoa por 1 s (boss de raid não é atordoado)."
+    },
+    {
+      "id": "shield",
+      "name": "Warding Seal",
+      "namePT": "Selo de proteção",
+      "rarity": 0,
+      "price": 30,
+      "shape": "L3",
+      "category": "synergy",
+      "desc": "During the first 6s of each round, Sentinels take 15% less damage and draw the attacks of enemies within 120.",
+      "descPT": "Nos primeiros 6 s de cada rodada, Sentinelas recebem 15% menos dano e atraem os ataques dos inimigos a até 120."
+    },
+    {
+      "id": "precision",
+      "name": "Precision Medallion",
+      "namePT": "Medalhão da precisão",
+      "rarity": 0,
+      "price": 30,
+      "shape": "domino",
+      "category": "offense",
+      "desc": "All allies gain +10 percentage points of critical chance. Each critical hit charges 12% of the attacker's skill.",
+      "descPT": "Todos os aliados ganham +10 pontos percentuais de chance de crítico. Cada crítico carrega 12% da habilidade de quem acertou."
+    },
+    {
+      "id": "hourglass",
+      "name": "Combat Hourglass",
+      "namePT": "Ampulheta de combate",
+      "rarity": 3,
+      "price": 40,
+      "shape": "diag3",
+      "category": "rhythm",
+      "desc": "All allies with an active skill start each round with 90% charge.",
+      "descPT": "Todos os aliados com habilidade ativa começam cada rodada com 90% da carga."
+    },
+    {
+      "id": "recovery",
+      "name": "Recovery Brooch",
+      "namePT": "Broche da recuperação",
+      "rarity": 2,
+      "price": 40,
+      "shape": "square",
+      "category": "defense",
+      "desc": "All living allies recover 5% of their maximum health every 3 seconds; below 40% health, they recover twice as much.",
+      "descPT": "Todos os aliados vivos recuperam 5% da vida máxima a cada 3 segundos; abaixo de 40% de vida, recuperam o dobro."
+    },
+    {
+      "id": "merchant",
+      "name": "Merchant’s Coin",
+      "namePT": "Moeda do mercador",
+      "rarity": 1,
+      "price": 35,
+      "shape": "line3",
+      "category": "economy",
+      "desc": "Cards and relics in shops cost 26% less, and the first reroll in each shop is free.",
+      "descPT": "Cartas e relíquias na loja custam 26% menos, e a primeira renovação de cada loja é grátis."
+    },
+    {
+      "id": "quickstart",
+      "name": "Quick Start",
+      "namePT": "Arranque rápido",
+      "rarity": 1,
+      "price": 30,
+      "shape": "line3",
+      "category": "rhythm",
+      "desc": "Gain 3 extra energy in the first preparation of each encounter.",
+      "descPT": "Receba 3 de energia extra na primeira preparação de cada confronto."
+    },
+    {
+      "id": "spark",
+      "name": "Everlasting Spark",
+      "namePT": "Centelha eterna",
+      "rarity": 3,
+      "price": 40,
+      "shape": "L4",
+      "category": "rhythm",
+      "desc": "Gain 1 extra energy in every preparation, including the first.",
+      "descPT": "Receba 1 de energia extra em toda preparação, incluindo a primeira."
+    },
+    {
+      "id": "luckycharm",
+      "name": "Lucky Charm",
+      "namePT": "Amuleto da sorte",
+      "rarity": 0,
+      "price": 30,
+      "shape": "dot",
+      "category": "economy",
+      "desc": "Gain 21% more run gold from rewards. Does not affect diamonds or refunds.",
+      "descPT": "Receba 21% mais ouro da run em recompensas. Não afeta diamantes nem reembolsos."
+    },
+    {
+      "id": "plating",
+      "name": "Reinforced Plating",
+      "namePT": "Placas reforçadas",
+      "rarity": 0,
+      "price": 30,
+      "shape": "square",
+      "category": "defense",
+      "desc": "At the start of each round, all allies gain a shield of 11% of their maximum health for 6s.",
+      "descPT": "No início de cada rodada, todos os aliados ganham escudo de 11% da vida máxima por 6 s."
+    },
+    {
+      "id": "laststand",
+      "name": "Last Stand",
+      "namePT": "Última resistência",
+      "rarity": 3,
+      "price": 40,
+      "shape": "T",
+      "category": "defense",
+      "desc": "Once per round, the first ally taking lethal damage survives with 1 health and is invulnerable for 2s.",
+      "descPT": "Uma vez por rodada, o primeiro aliado a receber dano letal fica com 1 de vida e invulnerável por 2 s."
+    },
+    {
+      "id": "repulsion",
+      "name": "Repulsion Seal",
+      "namePT": "Selo de repulsão",
+      "rarity": 2,
+      "price": 35,
+      "shape": "bridge",
+      "category": "defense",
+      "desc": "Once per round, the first ally dropping below 30% health pushes nearby enemies away, stuns them for 0.8s and gains a 12% shield.",
+      "descPT": "Uma vez por rodada, o primeiro aliado a cair abaixo de 30% de vida empurra e atordoa por 0,8 s os inimigos próximos e ganha escudo de 12%."
+    },
+    {
+      "id": "fang",
+      "name": "Vampiric Fang",
+      "namePT": "Presa vampírica",
+      "rarity": 2,
+      "price": 35,
+      "shape": "L4",
+      "category": "defense",
+      "desc": "Basic attacks heal their attacker for 13% of the health damage dealt (26% against bosses).",
+      "descPT": "Ataques básicos curam o atacante em 13% do dano causado à vida (26% contra bosses)."
+    },
+    {
+      "id": "execution",
+      "name": "Executioner’s Mark",
+      "namePT": "Marca do executor",
+      "rarity": 0,
+      "price": 30,
+      "shape": "L3",
+      "category": "offense",
+      "desc": "Deal 22% more damage to enemies below 30% health. Defeating an enemy charges 15% of the attacker skill.",
+      "descPT": "Cause 22% mais dano a inimigos abaixo de 30% de vida. Derrotar um inimigo carrega 15% da habilidade de quem derrotou."
+    },
+    {
+      "id": "ember",
+      "name": "Vengeful Ember",
+      "namePT": "Brasa vingativa",
+      "rarity": 2,
+      "price": 35,
+      "shape": "T",
+      "category": "offense",
+      "desc": "Each fallen ally grants the survivors 8% more attack damage and a 4% shield this round, up to 3 times.",
+      "descPT": "Cada aliado derrotado concede aos sobreviventes 8% mais dano de ataque e escudo de 4% nesta rodada, até 3 vezes."
+    },
+    {
+      "id": "bell",
+      "name": "Opening Bell",
+      "namePT": "Sino de abertura",
+      "rarity": 0,
+      "price": 30,
+      "shape": "line3",
+      "category": "rhythm",
+      "desc": "All allies attack 17% faster during the first 4s of each round.",
+      "descPT": "Todos os aliados atacam 17% mais rápido nos primeiros 4 s de cada rodada."
+    },
+    {
+      "id": "captain_standard",
+      "name": "Captain’s Standard",
+      "namePT": "Estandarte do capitão",
+      "rarity": 1,
+      "price": 35,
+      "shape": "line3",
+      "category": "deck",
+      "desc": "Choose a physical unit card to guarantee in the first hand of each encounter. Deployment still costs energy.",
+      "descPT": "Escolha uma carta de unidade física para garantir na primeira mão de cada confronto. Posicionar continua custando energia."
+    },
+    {
+      "id": "profane_idol",
+      "name": "Profane Idol",
+      "namePT": "Ídolo profano",
+      "rarity": 1,
+      "price": 35,
+      "shape": "L3",
+      "category": "deck",
+      "desc": "When equipped, adds 1 Exhaustion to your run deck (once). All allies gain +14% attack per curse in your run deck, up to +42%.",
+      "descPT": "Ao equipar, adiciona 1 Exaustão ao deck da run (uma vez). Aliados recebem +14% de ataque por maldição no deck da run, até +42%."
+    },
+    {
+      "id": "colossal_heart",
+      "name": "Colossal Heart",
+      "namePT": "Coração colossal",
+      "rarity": 2,
+      "price": 40,
+      "shape": "square",
+      "category": "defense",
+      "desc": "All allies gain +13% health. The first hand of each encounter has 3 cards instead of 4.",
+      "descPT": "Aliados recebem +13% de vida. A primeira mão de cada confronto tem 3 cartas em vez de 4."
+    },
+    {
+      "id": "dormant_sword",
+      "name": "Dormant Sword",
+      "namePT": "Espada adormecida",
+      "rarity": 0,
+      "price": 30,
+      "shape": "line3",
+      "category": "offense",
+      "desc": "All allies gain +1.5% attack, plus 1.5% for each elite encounter won with this relic equipped, up to +9%. Bosses do not count.",
+      "descPT": "Aliados recebem +1,5% de ataque, e mais 1,5% a cada confronto de elite vencido com ela equipada, até +9%. Bosses não contam."
+    },
+    {
+      "id": "travelers_mirror",
+      "name": "Travelers’ Mirror",
+      "namePT": "Espelho dos viajantes",
+      "rarity": 2,
+      "price": 40,
+      "shape": "square",
+      "category": "deck",
+      "desc": "Recruited cards come with +1 upgrade (up to level 2). Shop purchases and duplication do not trigger this.",
+      "descPT": "Cartas recrutadas vêm com +1 upgrade (até o nível 2). Compras na loja e duplicações não ativam."
+    },
+    {
+      "id": "sling",
+      "name": "Siege Sling",
+      "namePT": "Funda de cerco",
+      "rarity": 3,
+      "price": 40,
+      "shape": "cross",
+      "category": "offense",
+      "desc": "1s after the start of each round, your units in the back-row corners are hurled onto the enemy back line, dealing 150% attack to the nearest enemy and stunning it for 1.5s; they land invulnerable for 1s.",
+      "descPT": "1 s depois do início de cada rodada, suas unidades nos cantos da última linha são arremessadas sobre a linha de fundo inimiga, causando 150% do ataque ao inimigo mais próximo e atordoando-o por 1,5 s; caem invulneráveis por 1 s."
+    },
+    {
+      "id": "contract",
+      "name": "Mercenary Contract",
+      "namePT": "Contrato do mercenário",
+      "rarity": 1,
+      "price": 35,
+      "shape": "line4",
+      "category": "economy",
+      "desc": "Gain +20 gold for each elite, order or Titan encounter won, and +40 for each boss.",
+      "descPT": "Ganhe +20 de ouro a cada confronto vencido contra elite, ordem ou Titã, e +40 contra boss."
+    },
+    {
+      "id": "grimoire",
+      "name": "Apprentice’s Grimoire",
+      "namePT": "Grimório do aprendiz",
+      "rarity": 2,
+      "price": 40,
+      "shape": "U",
+      "category": "economy",
+      "desc": "Gain 30% more tree XP during the run, but 15% less gold from rewards.",
+      "descPT": "Ganhe 30% mais XP da árvore durante a run, mas 15% menos ouro em recompensas."
+    },
+    {
+      "id": "echo",
+      "name": "Arcane Echo",
+      "namePT": "Eco arcano",
+      "rarity": 3,
+      "price": 40,
+      "shape": "cross",
+      "category": "rhythm",
+      "desc": "Every skill an ally uses refunds 30% of its charge.",
+      "descPT": "Toda habilidade que um aliado usa devolve 30% da carga."
+    },
+    {
+      "id": "chain",
+      "name": "Chain of Command",
+      "namePT": "Corrente de comando",
+      "rarity": 2,
+      "price": 40,
+      "shape": "line3",
+      "category": "rhythm",
+      "desc": "When an ally uses its skill, the nearest other ally with an active skill gains 43% charge.",
+      "descPT": "Quando um aliado usa a habilidade, o aliado mais próximo com habilidade ativa ganha 43% de carga."
+    },
+    {
+      "id": "compass",
+      "name": "Raider’s Compass",
+      "namePT": "Bússola do saqueador",
+      "rarity": 0,
+      "price": 30,
+      "shape": "dot",
+      "category": "deck",
+      "desc": "Card choices offer 1 more option.",
+      "descPT": "Escolhas de carta oferecem 1 opção a mais."
+    },
+    {
+      "id": "houses",
+      "name": "Crest of Houses",
+      "namePT": "Brasão das casas",
+      "rarity": 2,
+      "price": 40,
+      "shape": "T",
+      "category": "synergy",
+      "desc": "Faction traits activate with one fewer member.",
+      "descPT": "Traits de facção ativam com 1 membro a menos."
+    },
+    {
+      "id": "honor",
+      "name": "Code of Honor",
+      "namePT": "Código de honra",
+      "rarity": 1,
+      "price": 35,
+      "shape": "L3",
+      "category": "synergy",
+      "desc": "Temperament traits count one extra member.",
+      "descPT": "Temperamentos contam 1 membro a mais para o patamar."
+    },
+    {
+      "id": "talents",
+      "name": "Forge of Talents",
+      "namePT": "Forja dos talentos",
+      "rarity": 1,
+      "price": 35,
+      "shape": "L3",
+      "category": "synergy",
+      "desc": "Attribute traits count one extra member.",
+      "descPT": "Atributos contam 1 membro a mais para o patamar."
+    },
+    {
+      "id": "devastator",
+      "name": "Devastator’s Hammer",
+      "namePT": "Martelo do devastador",
+      "rarity": 1,
+      "price": 35,
+      "shape": "L3",
+      "category": "synergy",
+      "desc": "The first basic attack of each Devastator in each round deals +25% damage and stuns for 0.5s (raid bosses are not stunned).",
+      "descPT": "O primeiro ataque básico de cada Devastador em cada rodada causa +25% de dano e atordoa por 0,5 s (boss de raid não é atordoado)."
+    },
+    {
+      "id": "warcry",
+      "name": "War Cry",
+      "namePT": "Grito de guerra",
+      "rarity": 1,
+      "price": 35,
+      "shape": "domino",
+      "category": "synergy",
+      "desc": "Critical hits from Fearless allies heal them for 3% of their maximum health.",
+      "descPT": "Críticos de aliados Destemidos curam 3% da vida máxima deles."
+    },
+    {
+      "id": "ironroot",
+      "name": "Iron Root",
+      "namePT": "Raiz de ferro",
+      "rarity": 1,
+      "price": 35,
+      "shape": "L3",
+      "category": "synergy",
+      "desc": "Unyielding allies ignore stuns. Once per round, an Unyielding ally dropping below 50% health gains a 10% shield.",
+      "descPT": "Aliados Inabaláveis ignoram atordoamentos. Uma vez por rodada, um Inabalável que cai abaixo de 50% de vida ganha escudo de 10%."
+    },
+    {
+      "id": "patience",
+      "name": "Hourglass of Patience",
+      "namePT": "Ampulheta da paciência",
+      "rarity": 0,
+      "price": 30,
+      "shape": "domino",
+      "category": "synergy",
+      "desc": "Patient allies start each round with 2 stacks, gain a stack every 2s and can hold up to 5.",
+      "descPT": "Aliados Pacientes começam cada rodada com 2 acúmulos, ganham 1 a cada 2 s e acumulam até 5."
+    },
+    {
+      "id": "aegis",
+      "name": "Guardian’s Aegis",
+      "namePT": "Égide do guardião",
+      "rarity": 2,
+      "price": 40,
+      "shape": "square",
+      "category": "synergy",
+      "desc": "The Protector aura reaches 140 instead of 90, and Protectors gain +10% movement.",
+      "descPT": "A aura do Protetor alcança 140 em vez de 90, e Protetores ganham +10% de movimento."
+    },
+    {
+      "id": "lone",
+      "name": "Lonely Banner",
+      "namePT": "Bandeira solitária",
+      "rarity": 0,
+      "price": 30,
+      "shape": "domino",
+      "category": "synergy",
+      "desc": "Audacious allies with no living ally within 90 take 15% less damage and deal +10% damage.",
+      "descPT": "Aliados Audaciosos sem aliado vivo a até 90 recebem 15% menos dano e causam +10% de dano."
+    },
+    {
+      "id": "amplifier",
+      "name": "Amplifying Amulet",
+      "namePT": "Amuleto amplificador",
+      "rarity": 1,
+      "price": 35,
+      "shape": "domino",
+      "category": "synergy",
+      "desc": "Your supports’ auras have +40% radius.",
+      "descPT": "Auras dos seus suportes têm +40% de raio."
+    },
+    {
+      "id": "horde",
+      "name": "Horde Totem",
+      "namePT": "Totem da horda",
+      "rarity": 2,
+      "price": 40,
+      "shape": "T",
+      "category": "synergy",
+      "desc": "When a Blackfang ally falls, the other Blackfang allies gain 15% skill charge (up to 3 times per round), and every living Blackfang deals +3% damage for each fallen Blackfang ally.",
+      "descPT": "Quando um aliado Blackfang cai, os outros Blackfang ganham 15% de carga da habilidade (até 3 vezes por rodada), e todo Blackfang vivo causa +3% de dano por Blackfang aliado caído."
+    },
+    {
+      "id": "dawn",
+      "name": "Dawn’s Blessing",
+      "namePT": "Bênção da aurora",
+      "rarity": 2,
+      "price": 40,
+      "shape": "square",
+      "category": "synergy",
+      "desc": "Dawncrest allies start each round with a shield of 10% of their maximum health (6s); each one's first kill in the round renews it.",
+      "descPT": "Aliados Dawncrest começam cada rodada com escudo de 10% da vida máxima (6 s); o primeiro abate de cada um na rodada renova o escudo."
+    }
+  ]
+}

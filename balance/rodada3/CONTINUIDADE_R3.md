@@ -3,8 +3,14 @@
 Atualizado em 09/11/2026. Repositório `cfsylla/Reposit-rio-GJ`, branch `ccr-fc0114d7-9l2urp` (antes `ccr-189ed62b-9mch05`). Cópia de trabalho do jogo: `game_r3/`
 (base: publicação 50). Para retomar, diga ao Claude: **"continuar a partir de balance/rodada3/CONTINUIDADE_R3.md"**.
 
+## >>> ESTADO EM 10/11/2026: CHECKPOINT CP4 ENTREGUE PARA PLAYTEST <<<
+- Pacote: `balance/checkpoint_CP4/` e `balance/GJ-v50-BAL-CP4.zip` (formato do CP3; patches vs CP3 e vs v50 conferidos).
+- Conteúdo: suportes, árvore, escada, True Bosses, desafios/vantagens (08/11) + 43 relíquias com as definições do Carlos (10/11, `rodada3/reliquias/DEFINICOES_R3_10-11.md`) + habilidade só com alvo válido (`HABILIDADES_ATIVACAO_R3.md`) + nome Grand Union (IDs continuam ironbound).
+- **Decisão do Carlos: nenhum teste nem simulação depois de 10/11; validação pelo playtest dele.** Não rodar nada sem pedido explícito.
+- Próximo passo: aguardar o resultado do playtest do CP4.
+
 ## Regras de trabalho do Carlos
-- Responder **sempre em português**. Nada é aplicado sem aprovação (ajuste de valores dentro de um conceito aprovado pode ser iterado).
+- Responder **sempre em português**. A ordem Ironbound agora se chama **Grand Union** (só na tela; IDs `ironbound`). Nada é aplicado sem aprovação (ajuste de valores dentro de um conceito aprovado pode ser iterado).
 - **"Não rode nada"** = não simular até ele dizer "pode rodar". Avisar antes de avançar de etapa; nesta etapa ele pediu para **não avançar sem autorização**.
 - Medir antes de afirmar; entregas parciais com previsão de tempo; tabelas e PDF; commit + push na branch a cada passo.
 - Decks nos relatórios com **nome em inglês**.

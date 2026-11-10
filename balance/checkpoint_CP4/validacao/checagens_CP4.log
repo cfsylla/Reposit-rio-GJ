@@ -1,0 +1,18 @@
+Checagens do CP4 (2026-11-10 03:00:32 UTC) — sem testes e sem simulações (decisão do Carlos)
+
+1. Sintaxe (node --check) de todos os 64 arquivos .js de dist/:
+   OK, nenhum erro
+
+2. Motor carrega (scripts de dist/index.html até game-2.js) e cria uma run:
+   OK — relíquias 43 | unidades 94 | run criada com deck vanguard
+
+3. Página carrega no navegador (Chromium, servidor local), comparada à v50 original:
+   CP4: {"game":true,"relics":43,"r3":true,"title":"Grand Journey v56 — Prototype 1.0","body":"GRAND JOURNEY\nSTART"} erros: Failed to load resource: the server responded with a status of 404 (File not found) | Failed to load resource: the server responded with a st
+   v50: {"game":true,"relics":25,"r3":false,"title":"Grand Journey v56 — Prototype 1.0","body":"GRAND JOURNEY\nSTART"} erros: Failed to load resource: the server responded with a status of 404 (File not found) | Failed to load resource: the server responded with a s
+   Os erros listados são imagens e fontes ausentes nesta cópia do repositório (404) e aparecem iguais na v50 original; nenhum erro de script.
+
+4. Patches aplicados em cópias limpas:
+   checkpoint_CP4_vs_CP3.patch sobre o CP3 → arquivos idênticos ao CP4
+   checkpoint_CP4_vs_v50.patch sobre a v50 → arquivos idênticos ao CP4
+
+5. NÃO executado (decisão do Carlos): suíte de testes, carreiras, laboratórios de relíquias e qualquer simulação.
