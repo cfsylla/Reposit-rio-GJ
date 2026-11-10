@@ -10,7 +10,7 @@ const RT = globalThis.JOURNEY_RELIC_TUNE, R3 = globalThis.JourneyRelicsR3;
 const A = G.ARTIFACTS; assert.strictEqual(A.length, 43);
 for (const a of A) { assert(a.name && a.namePT && a.desc && a.descPT, a.id + ' textos'); assert(G.RELIC_FORMATS[a.id] && G.relicShape(a.id).length, a.id + ' formato'); assert(a.price >= 30, a.id + ' preço'); assert(a.category, a.id + ' categoria'); assert.strictEqual(globalThis.I18N_EXTRA[a.namePT], a.name); }
 assert.strictEqual(A.filter(a => R3.NEW.some(n => n[0] === a.id)).every(a => a.playerOnly), true, 'novas só do jogador');
-assert.deepStrictEqual([0, 1, 2, 3].map(r => A.filter(a => a.rarity === r).length), [12, 13, 13, 5], 'distribuição por raridade (Carlos 10/11)');
+assert.deepStrictEqual([0, 1, 2, 3].map(r => A.filter(a => a.rarity === r).length), [11, 14, 13, 5], 'distribuição por raridade (Carlos 10/11)');
 for (const [id, sh] of Object.entries({ hourglass: 'diag3', scope: 'diag2', repulsion: 'bridge', precision: 'domino', sling: 'cross', echo: 'cross', contract: 'line4', grimoire: 'U' })) assert.strictEqual(G.RELIC_FORMATS[id], sh, id + ' formato');
 { const keep = G.RELIC_FORMATS.compass; for (const [sh, n] of Object.entries({ diag2: 2, diag3: 3, bridge: 2, line4: 4, stairs: 5, cross: 5, U: 5, knight: 2 })) { G.RELIC_FORMATS.compass = sh; assert.strictEqual(G.relicShape('compass').length, n, 'formato ' + sh); } G.RELIC_FORMATS.compass = keep; }
 assert.strictEqual(G.RELIC_FORMATS.heart, 'L3'); assert.strictEqual(G.RELIC_FORMATS.spark, 'L4'); assert.strictEqual(G.RELIC_FORMATS.luckycharm, 'dot');
@@ -39,4 +39,4 @@ assert(RT.merchant > 0 && RT.merchant < 1); /* valor na tabela (Carlos 10/11) */
 const pol = { prep: 'smart', route: 'greedy', events: 'safe', shop: 'balanced', tree: 'nodes10', treeBuy: 'all', order: null, forcewin: false };
 for (const a of A) { process.env.GJ_FORCE_RELIC = a.id; for (const [deck, seed] of [['vanguard', 1], ['dark_court', 2]]) { const r = playRun(deck, seed, pol, { dt: 1 / 30 }); assert(['victory', 'defeat'].includes(r.result), a.id + ' ' + r.result); assert(!String(r.forcedRelic || '').startsWith('nao-coube') || a.id === 'banner', a.id + ' coube'); } }
 delete process.env.GJ_FORCE_RELIC;
-console.log('PASS relics-r3: 43 relíquias (12/13/13/5), formatos novos, Funda de cerco, Grimório, textos PT/EN, efeitos novos e runs com cada uma equipada');
+console.log('PASS relics-r3: 43 relíquias (11/14/13/5), formatos novos, Funda de cerco, Grimório, textos PT/EN, efeitos novos e runs com cada uma equipada');
