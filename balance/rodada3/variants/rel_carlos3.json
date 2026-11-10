@@ -1,5 +1,5 @@
 {
- "note": "10/11 definições do Carlos (comuns/incomuns) — valores que fecham o patamar; NÃO aplicado, NÃO rodado. Exigem código novo: shieldTime (redução das Sentinelas só nos primeiros 6 s), loneDamage, formato do Medalhão (dominó), Wind Boots nova.",
+ "note": "10/11 definições do Carlos (comuns/incomuns) — valores que fecham o patamar; NÃO aplicado, NÃO rodado. Exigem código novo: shieldTime (redução das Sentinelas só nos primeiros 6 s), loneDamage, formato do Medalhão (dominó), Wind Boots nova. | Hourglass of Patience: começa com 2 acúmulos, máximo 5, acúmulo a cada 2 s (código novo).",
  "relicTune": {
   "banner": 0.08,
   "heart": 0.08,
@@ -41,7 +41,10 @@
   "loneReduction": 0.15,
   "loneDamage": 0.1,
   "warcryHeal": 0.03,
-  "devastatorBonus": 0.25
+  "devastatorBonus": 0.25,
+  "patienceStart": 2,
+  "patienceMax": 5,
+  "patienceEvery": 2
  },
  "relicRarity": {
   "banner": 1,

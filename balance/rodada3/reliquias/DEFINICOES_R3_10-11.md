@@ -16,6 +16,6 @@ Regra do Carlos: entre as opções que fecham o patamar, escolher a de maior cha
 | Devastator's Hammer | incomum | L3 (3) | 1º ataque básico de cada Devastador por rodada: +25% de dano e atordoa 0,5 s (boss de raid, não) | estimativa mais incerta |
 | Wind Boots | incomum | L3 (3) | Ver proposta abaixo (velocidade de ataque NÃO pode ser a luta inteira) | código novo: esquiva (mecanismo de bloqueio do Shaolin, texto "evade") e contagem de golpes |
 
-Wind Boots — proposta (a confirmar): por rodada, cada Desbravador esquiva (evade) dos 2 primeiros ataques básicos recebidos; +10% de movimento; +20% de velocidade de ataque nos 4 primeiros golpes; o 1º ataque atordoa por 1 s (boss de raid, não). Estimativa ~+1,5 a +2 nos decks com Desbravadores — a medir.
-Hourglass of Patience: sem definição ainda (explicação enviada; ideias: começa com 2 acúmulos ou acúmulo a cada 2 s).
+Wind Boots — definida (Carlos 10/11): por rodada, cada Desbravador esquiva (evade) dos 2 primeiros ataques básicos recebidos; +10% de movimento; +20% de velocidade de ataque nos 4 primeiros golpes; o 1º ataque atordoa por 1 s (boss de raid, não). Estimativa ~+1,5 a +2 nos decks com Desbravadores — a medir.
+Hourglass of Patience — definida (Carlos 10/11): Pacientes começam cada rodada com 2 acúmulos, ganham 1 acúmulo a cada 2 s (em vez de 3) e o máximo passa de 3 para 5. Estimativa ~+1,2 a +1,6 nos decks com Pacientes (comum, patamar +1,5). Código novo no trait Paciente (dois pontos: dano e DEF).
 Pendente: raras e ultra raras.
