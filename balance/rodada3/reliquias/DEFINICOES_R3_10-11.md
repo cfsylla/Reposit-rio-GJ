@@ -18,4 +18,14 @@ Regra do Carlos: entre as opções que fecham o patamar, escolher a de maior cha
 
 Wind Boots — definida (Carlos 10/11): por rodada, cada Desbravador esquiva (evade) dos 2 primeiros ataques básicos recebidos; +10% de movimento; +20% de velocidade de ataque nos 4 primeiros golpes; o 1º ataque atordoa por 1 s (boss de raid, não). Estimativa ~+1,5 a +2 nos decks com Desbravadores — a medir.
 Hourglass of Patience — definida (Carlos 10/11): Pacientes começam cada rodada com 2 acúmulos, ganham 1 acúmulo a cada 2 s (em vez de 3) e o máximo passa de 3 para 5. Estimativa ~+1,2 a +1,6 nos decks com Pacientes (comum, patamar +1,5). Código novo no trait Paciente (dois pontos: dano e DEF).
-Pendente: raras e ultra raras.
+## Raras (Carlos 10/11) — parcial, com perguntas em aberto
+| Relíquia | Definição | Observação |
+|---|---|---|
+| Travelers' Mirror | mantida (recrutadas vêm com +1 upgrade, até nível 2) | mede −1,9 abaixo do patamar com o robô (depende das escolhas do jogador) |
+| Dawn's Blessing | escudo de 10% (em vez de 6%) da vida máxima para Dawncrest no início da rodada; renova no 1º abate | com 6% já mede +3,0 ±2,1 nos decks Dawncrest (no patamar); 10% estimado ~+4 (acima) |
+| Horde Totem | efeito atual + 10% de dano (a confirmar: para quem e quando) | |
+| Guardian's Aegis | aura do Protetor 140 + 10% de velocidade (a confirmar: ataque ou movimento; para quem) | |
+| Tome of Stars | conjuradores começam a rodada com a habilidade cheia, precisam de 20% menos carga e têm +25% de poder de habilidade | depende da mecânica nova abaixo |
+
+## Mecânica nova (Carlos 10/11): habilidade só dispara com alvo válido
+Hoje: com a carga cheia, a habilidade dispara na hora contra o inimigo mais próximo, a qualquer distância (game-0.js: `skillReady && canCast → activate(skillTarget)`). Pedido: só ativar quando houver alvo válido; senão, a unidade guarda a carga até encontrar a condição. Regras por tipo de habilidade em definição. Muda o combate de todas as unidades (jogador e inimigos): exige remedir a base (escada, bosses, relíquias).
