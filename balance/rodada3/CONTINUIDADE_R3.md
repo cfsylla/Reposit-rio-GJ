@@ -42,6 +42,15 @@ Resultado da escada (carreiras, antes das relíquias): 1ª vitória run ~15 (esc
   - **PDF: `balance/rodada3/relatorios/R3_reliquias_calibracao.pdf`** (seção 1b lista as 22 relíquias fora desta calibração, com motivo, texto e medição de 08/11).
 - **Para decisão do Carlos:** (1) Funda de Cerco — ensinar o robô a usar os cantos ou rever o gatilho; (2) Ampulheta (×0,6 mesmo com 100%: habilidades saem antes do contato) — manter ou mudar gatilho; (3) Mercador (50%) e Broche (5%) no teto, abaixo da faixa; (4) Eco e Last Stand são os mais fortes com 23 nós.
 
+## Relíquias — MÉTODO NOVO (Carlos 09–10/11; substitui a calibração por × ouro)
+- **Regra:** valor do efeito − custo do formato = patamar da raridade. A raridade define quanto a relíquia melhora a run; efeito e formato variam para chegar lá. Unidade: lutas vencidas a mais por run (10 nós, pareado, 10 decks × 40 seeds).
+- **Patamares aprovados (10/11): comum +1,5 · incomum +2 · rara +3 · ultra +4**, tolerância ±0,4.
+- Medido (sem mudar o jogo): custo dos 16 formatos com relíquias vazias (`metodo_fmt_10`, `metodo_fmt_23`): 1 casa 0,57 … 5 casas ~1,15, cruz 1,70 (10 nós); bônus puros (`metodo_10`): +10% ataque = +2,7 lutas, vida ≈ ataque, escudo/velocidade ≈ 0,8×, crítico/habilidade/carga ≈ 0,3× ou menos.
+- As 43 medidas com os valores/raridades propostos pelo Carlos (`rel_carlos1.json`, `relcarlos_10`), robô comprando relíquias sempre que couber (`GJ_RELIC_CAP=99`). Relatório: `balance/rodada3/relatorios/R3_reliquias_metodo.pdf`.
+- Com os patamares novos: 9 de 43 em ±0,4, 18 na margem estatística (±0,9). Acima: Placas, Bell, Medalhão (comuns). Abaixo: Ídolo, Ampulheta, Centelha, Eco, Funda; as 22 de nicho foram medidas em decks sem o trait.
+- Erro corrigido: o robô só comprava relíquia na loja com menos de 4 (afetava a calibração antiga). Valores calibrados de 09/11 seguem gravados no jogo; Carlos decidiu NÃO voltar, aguardar o método novo.
+- **Próximos passos (aguardando "pode rodar"):** variante com valores que fecham os patamares (120 seeds, ~3 h); nicho nos decks com o trait (~1 h); saves dos playtests do Carlos para ver a bolsa.
+
 ## Pendências depois das relíquias
 1. Desafios e Vantagens: medição final isolada, escada de combinações (1 desafio, 1+1… até 15+15; 23/30/45/60 nós), meta "tudo ligado" ~50–70% com árvore completa; PDF. Scripts prontos: `r3-dv-escada.sh`, `r3-postgame-tree.sh`.
 2. Novo pacote de checkpoint (CP4) no formato do CP3, quando o Carlos autorizar.

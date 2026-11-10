@@ -9,7 +9,7 @@ const G = E.G, AR = Object.fromEntries(G.ARTIFACTS.map(a => [a.id, a]));
 // raridades propostas pelo Carlos (rel_carlos1.relicRarity) valem para o patamar
 const VAR = JSON.parse(fs.readFileSync(process.env.RELVAR || 'balance/rodada3/variants/rel_carlos1.json', 'utf8')), RAROV = VAR.relicRarity || {};
 for (const [id, r] of Object.entries(RAROV)) if (AR[id]) AR[id].rarity = r;
-const RAR = ['comum', 'incomum', 'rara', 'ultra rara'], PAT = [1, 1.5, 2, 3], TOL = 0.4;
+const RAR = ['comum', 'incomum', 'rara', 'ultra rara'], PAT = [1.5, 2, 3, 4], TOL = 0.4;
 const FNAME = { dot: 'ponto', domino: 'dominó', diag2: 'diagonal 2', bridge: 'ponte', line3: 'linha 3', L3: 'L3', diag3: 'diagonal 3', square: 'quadrado', T: 'T', S: 'S', line4: 'linha 4', L4: 'L4', cross: 'cruz', U: 'U', P: 'P', L5: 'L5' };
 const CELLS = f => ({ dot: 1, domino: 2, diag2: 2, bridge: 2, line3: 3, L3: 3, diag3: 3, square: 4, T: 4, S: 4, line4: 4, L4: 4, cross: 5, U: 5, P: 5, L5: 5 })[f];
 const jl = f => fs.existsSync(f) ? fs.readFileSync(f, 'utf8').split('\n').filter(Boolean).map(JSON.parse) : [];
@@ -55,7 +55,7 @@ for (const r of rows) { const ks = KN[r.id]; if (!ks || r.eff == null) continue;
 let h = ''; const sec = t => { h += `<h2>${t}</h2>`; }, p = t => { h += `<p>${t}</p>`; };
 const D = new Date().toLocaleDateString('pt-BR', { timeZone: 'America/Sao_Paulo' });
 h += `<h1>Grand Journey · Relíquias: método novo (efeito, casas, raridade)</h1><p class="sub">${D} · game_r3 · regra do Carlos (09/11): <b>valor do efeito − custo do formato = patamar da raridade</b> · unidade: lutas vencidas a mais por run (10 nós), pareado (mesmo deck e seed) · 10 decks de teste × 40 seeds</p>`;
-h += `<div class="box"><b>Patamares (Carlos 09/11)</b>: comum +1 · incomum +1,5 · rara +2 · ultra rara +3 lutas por run, tolerância ±${String(TOL).replace('.', ',')}. A raridade define o patamar; efeito e formato variam para chegar nele.</div>`;
+h += `<div class="box"><b>Patamares (Carlos 10/11)</b>: comum +1,5 · incomum +2 · rara +3 · ultra rara +4 lutas por run, tolerância ±${String(TOL).replace('.', ',')}. A raridade define o patamar; efeito e formato variam para chegar nele.</div>`;
 sec('1. Quanto custa cada formato (relíquias vazias, sem efeito)');
 p('Cada linha é a run com uma relíquia <b>sem efeito</b> ocupando a bolsa desde o início. Δ negativo = o espaço ocupado atrapalhou (menos relíquias depois).');
 h += `<table class="small"><tr><th>Formato</th><th>Casas</th><th>Δ lutas 10 nós</th><th>Δ lutas 23 nós</th><th>Δ vitória 23 nós (pts)</th></tr>`;
