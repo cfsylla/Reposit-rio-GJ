@@ -1,7 +1,7 @@
 /* Approved playtest progression: order gates, 95 milestones, one-time diamond ledger. */
 (function(root){'use strict';
 const G=root.Game,P=root.Progress,A=root.JourneyActs,T=root.JourneyTree,C=root.JourneyChallenges,AD=root.JourneyAdvantages;
-const orders={blackfang:'Blackfang',dawncrest:'Dawncrest',ironbound:'Ironbound',monsters:'Titans'};
+const orders={blackfang:'Blackfang',dawncrest:'Dawncrest',ironbound:'Grand Union',monsters:'Titans'};
 const unique=(xs,id)=>{if(!xs.includes(id))xs.push(id);};
 function facts(){const p=P.profile;return p.milestoneProgress??={version:1,paid:[],bossMaps:{},allBossOrders:[],trueOrders:[],wonDecks:[],titans:[],training:false,customBuilt:false,customFive:false,customWon:false,bagFull:false,firstFusion:false,threeFused:false,treeBest:0,advBest:0,challengeBest:0,secretBoss:false};}
 function bossCardsUnlocked(order){return !!P.profile.bossOrders?.includes(order);}
