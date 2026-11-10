@@ -38,3 +38,10 @@ Hoje: com a carga cheia, a habilidade dispara na hora contra o inimigo mais pró
 | Arcane Echo | mantida (toda habilidade devolve 30% da carga) | deve melhorar com a mecânica nova |
 | Siege Sling | mantida | — |
 | Last Stand | 1 de vida e invulnerável 2 s (definido antes) | — |
+
+## Implementação (10/11) — gravado no game_r3, NÃO testado nem medido
+- Valores: `variants/rel_carlos3.json` gravado em game-0.js (RT) e relics-r3.js (DEF) com `r3-grava-reliquias.cjs`.
+- Raridades: Estandarte e Pedra vital incomuns (35); Espada, Medalhão, Placas e Marca comuns (30). Medalhão em dominó.
+- Mecânicas novas: Placas com duração; Selo só nos primeiros 6 s (redução + agro); Bandeira solitária +10% de dano; Paciência (2 acúmulos, a cada 2 s, máx. 5 — traits-v54.js); Botas (esquiva dos 2 primeiros básicos por rodada, +10% movimento, +20% vel. de ataque nos 4 primeiros golpes, atordoa 1 s); Totem da horda (+3% de dano por Blackfang caído); Égide (+10% de movimento dos Protetores); Tomo (começa pronta, −20% de carga, +25% de poder); Bênção 10%; Last Stand com 1 de vida.
+- Habilidade só ativa com alvo válido: 73 habilidades + as 17 cartas-herói de boss (cura: aliado < 95%; demais: alvo no alcance).
+- Testes que conferem valores antigos (relics-r3, systems-v18, content-v53) vão precisar de ajuste quando a suíte rodar.

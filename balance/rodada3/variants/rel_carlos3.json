@@ -1,5 +1,5 @@
 {
- "note": "10/11 definições do Carlos (comuns/incomuns) — valores que fecham o patamar; NÃO aplicado, NÃO rodado. Exigem código novo: shieldTime (redução das Sentinelas só nos primeiros 6 s), loneDamage, formato do Medalhão (dominó), Wind Boots nova. | Hourglass of Patience: começa com 2 acúmulos, máximo 5, acúmulo a cada 2 s (código novo).",
+ "note": "10/11: TODAS as definições do Carlos (43 relíquias) — gravadas no game_r3; ainda não testadas nem medidas.",
  "relicTune": {
   "banner": 0.08,
   "heart": 0.08,
@@ -35,16 +35,27 @@
   "slingDelay": 1,
   "slingInvuln": 1,
   "bellTime": 4,
-  "shieldArmor": 0.15,
+  "shieldArmor": 0,
   "sentinelTaunt": 6,
-  "shieldTime": 6,
   "loneReduction": 0.15,
   "loneDamage": 0.1,
   "warcryHeal": 0.03,
   "devastatorBonus": 0.25,
   "patienceStart": 2,
   "patienceMax": 5,
-  "patienceEvery": 2
+  "patienceEvery": 2,
+  "dawnShield": 0.1,
+  "hordeDamage": 0.03,
+  "aegisSpeed": 0.1,
+  "tome": 0.25,
+  "tomeCost": 0.8,
+  "bootsRate": 0.2,
+  "bootsStun": 1,
+  "bootsMove": 0.1,
+  "bootsHits": 4,
+  "bootsEvade": 2,
+  "shieldReduction": 0.15,
+  "platingTime": 6
  },
  "relicRarity": {
   "banner": 1,

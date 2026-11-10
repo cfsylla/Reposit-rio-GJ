@@ -4,7 +4,7 @@
 (function(root){'use strict';
 const G=root.Game,T=root.JourneyTraits,C=root.JourneyContent,Tree=root.JourneyTree;
 const RT=root.JOURNEY_RELIC_TUNE=root.JOURNEY_RELIC_TUNE||{};
-const DEF={slingDamage:1.5,slingStun:1.5,slingDelay:1,slingInvuln:1,contractElite:23,contractBoss:45,grimoireXp:.30,grimoireGold:.15,tomeCharge:.30,sentinelTaunt:3,sentinelRange:120,precisionCharge:.28,executionCharge:.28,echoRefund:.7,chainCharge:.5,compass:1,devastatorBonus:.60,devastatorStun:.5,warcryHeal:.04,ironrootAt:.50,ironrootShield:.10,patienceT:3,aegisRange:140,loneReduction:.15,amplifier:1.4,hordeCharge:.15,hordeMax:3,dawnShield:.06,platingShield:.16};
+const DEF={platingTime:6,loneDamage:.1,bootsMove:.1,bootsHits:4,bootsStun:1,bootsEvade:2,shieldReduction:.15,patienceStart:2,patienceEvery:2,patienceMax:5,hordeDamage:.03,aegisSpeed:.1,tomeCost:.8,slingDamage:1.5,slingStun:1.5,slingDelay:1,slingInvuln:1,contractElite:20,contractBoss:40,grimoireXp:.30,grimoireGold:.15,tomeCharge:.30,sentinelTaunt:6,sentinelRange:120,precisionCharge:.12,executionCharge:.15,echoRefund:.3,chainCharge:.43,compass:1,devastatorBonus:.25,devastatorStun:.5,warcryHeal:.03,ironrootAt:.50,ironrootShield:.10,patienceT:3,aegisRange:140,loneReduction:.15,amplifier:1.4,hordeCharge:.15,hordeMax:3,dawnShield:.1,platingShield:.11};
 for(const [k,v] of Object.entries(DEF))if(RT[k]===undefined)RT[k]=v;
 // id, nome EN, nome PT, raridade, formato, ícone, texto EN, texto PT, categoria
 const NEW=[
@@ -35,23 +35,23 @@ const TEXT={
  banner:['Ancient Banner','Estandarte antigo',`All allies gain +${P0(RT.banner)} attack.`,`Todos os aliados têm +${P0(RT.banner)} de ataque.`],
  heart:['Vital Stone','Pedra vital',`All allies gain +${P0(RT.heart)} health.`,`Todos os aliados têm +${P0(RT.heart)} de vida.`],
  scope:['Marksman’s Scope','Luneta do atirador',`Ranged allies gain +${P0(RT.scope)} attack. The first basic attack of each one in each round is a critical hit.`,`Aliados com ataque à distância ganham +${P0(RT.scope)} de ataque. O primeiro ataque básico de cada um em cada rodada é crítico.`],
- tome:['Tome of Stars','Tomo das estrelas',`Spellcasters gain +${P0(RT.tome)} skill power and start each round with ${P0(RT.tomeCharge)} charge.`,`Conjuradores ganham +${P0(RT.tome)} de poder de habilidade e começam cada rodada com ${P0(RT.tomeCharge)} da carga.`],
- boots:['Wind Boots','Botas do vento',`Trailblazers gain +20% movement and +${P0(RT.bootsRate)} attack speed. The first basic attack of each Trailblazer in each round stuns for 0.5s.`,`Desbravadores ganham +20% de movimento e +${P0(RT.bootsRate)} de velocidade de ataque. O primeiro ataque básico de cada Desbravador em cada rodada atordoa por 0,5 s.`],
- shield:['Warding Seal','Selo de proteção',`Sentinels take ${P0(RT.shieldArmor)} less damage and draw the attacks of nearby enemies during the first ${N(RT.sentinelTaunt)}s of each round.`,`Sentinelas recebem ${P0(RT.shieldArmor)} menos dano e atraem os ataques dos inimigos próximos nos ${N(RT.sentinelTaunt,1)} primeiros segundos de cada rodada.`],
- precision:['Precision Medallion','Medalhão da precisão',`All allies gain +${N(RT.precisionCrit*100)} percentage points of critical chance. Each critical hit charges ${P0(RT.precisionCharge)} of the attacker skill.`,`Todos os aliados ganham +${N(RT.precisionCrit*100,1)} pontos percentuais de chance de crítico. Cada crítico carrega ${P0(RT.precisionCharge)} da habilidade de quem acertou.`],
+ tome:['Tome of Stars','Tomo das estrelas',`Spellcasters start each round with their skill ready, need ${P0(1-RT.tomeCost)} less charge and gain +${P0(RT.tome)} skill power.`,`Conjuradores começam cada rodada com a habilidade pronta, precisam de ${P0(1-RT.tomeCost)} menos carga e ganham +${P0(RT.tome)} de poder de habilidade.`],
+ boots:['Wind Boots','Botas do vento',`Each round, every Trailblazer evades the first ${RT.bootsEvade} basic attacks it receives, gains +${P0(RT.bootsMove)} movement and +${P0(RT.bootsRate)} attack speed for its first ${RT.bootsHits} attacks, and its first basic attack stuns for ${N(RT.bootsStun)}s (raid bosses are not stunned).`,`A cada rodada, cada Desbravador esquiva dos ${RT.bootsEvade} primeiros ataques básicos recebidos, ganha +${P0(RT.bootsMove)} de movimento e +${P0(RT.bootsRate)} de velocidade de ataque nos ${RT.bootsHits} primeiros golpes, e seu primeiro ataque básico atordoa por ${N(RT.bootsStun,1)} s (boss de raid não é atordoado).`],
+ shield:['Warding Seal','Selo de proteção',`During the first ${N(RT.sentinelTaunt)}s of each round, Sentinels take ${P0(RT.shieldReduction)} less damage and draw the attacks of enemies within ${RT.sentinelRange}.`,`Nos primeiros ${N(RT.sentinelTaunt,1)} s de cada rodada, Sentinelas recebem ${P0(RT.shieldReduction)} menos dano e atraem os ataques dos inimigos a até ${RT.sentinelRange}.`],
+ precision:['Precision Medallion','Medalhão da precisão',`All allies gain +${N(RT.precisionCrit*100)} percentage points of critical chance. Each critical hit charges ${P0(RT.precisionCharge)} of the attacker's skill.`,`Todos os aliados ganham +${N(RT.precisionCrit*100)} pontos percentuais de chance de crítico. Cada crítico carrega ${P0(RT.precisionCharge)} da habilidade de quem acertou.`],
  hourglass:['Combat Hourglass','Ampulheta de combate',RT.hourglass>=1?'All allies with an active skill start each round with their skill ready.':`All allies with an active skill start each round with ${P0(RT.hourglass)} charge.`,RT.hourglass>=1?'Todos os aliados com habilidade ativa começam cada rodada com a habilidade pronta.':`Todos os aliados com habilidade ativa começam cada rodada com ${P0(RT.hourglass)} da carga.`],
  recovery:['Recovery Brooch','Broche da recuperação',`All living allies recover ${P1(RT.recovery)} of their maximum health every 3 seconds; below ${P0(RT.recoveryLow)} health, they recover twice as much.`,`Todos os aliados vivos recuperam ${P1(RT.recovery).replace('.',',')} da vida máxima a cada 3 segundos; abaixo de ${P0(RT.recoveryLow)} de vida, recuperam o dobro.`],
  merchant:['Merchant’s Coin','Moeda do mercador',`Cards and relics in shops cost ${P0(RT.merchant)} less, and the first reroll in each shop is free.`,`Cartas e relíquias na loja custam ${P0(RT.merchant)} menos, e a primeira renovação de cada loja é grátis.`],
  quickstart:['Quick Start','Arranque rápido',`Gain ${RT.quickstart} extra energy in the first preparation of each encounter.`,`Receba ${RT.quickstart} de energia extra na primeira preparação de cada confronto.`],
  spark:['Everlasting Spark','Centelha eterna','Gain 1 extra energy in every preparation, including the first.','Receba 1 de energia extra em toda preparação, incluindo a primeira.'],
  luckycharm:['Lucky Charm','Amuleto da sorte',`Gain ${P0(RT.lucky)} more run gold from rewards. Does not affect diamonds or refunds.`,`Receba ${P0(RT.lucky)} mais ouro da run em recompensas. Não afeta diamantes nem reembolsos.`],
- plating:['Reinforced Plating','Placas reforçadas',`At the start of each round, all allies gain a shield of ${P0(RT.platingShield)} of their maximum health.`,`No início de cada rodada, todos os aliados ganham escudo de ${P0(RT.platingShield)} da vida máxima.`],
- laststand:['Last Stand','Última resistência',`Once per round, the first ally taking lethal damage survives with ${P0(RT.laststandHp)} health and is invulnerable for ${N(RT.laststandInvuln)}s.`,`Uma vez por rodada, o primeiro aliado a receber dano letal fica com ${P0(RT.laststandHp)} da vida e invulnerável por ${N(RT.laststandInvuln,1)} s.`],
+ plating:['Reinforced Plating','Placas reforçadas',`At the start of each round, all allies gain a shield of ${P0(RT.platingShield)} of their maximum health for ${N(RT.platingTime)}s.`,`No início de cada rodada, todos os aliados ganham escudo de ${P0(RT.platingShield)} da vida máxima por ${N(RT.platingTime,1)} s.`],
+ laststand:['Last Stand','Última resistência',RT.laststandHp>0?`Once per round, the first ally taking lethal damage survives with ${P0(RT.laststandHp)} health and is invulnerable for ${N(RT.laststandInvuln)}s.`:`Once per round, the first ally taking lethal damage survives with 1 health and is invulnerable for ${N(RT.laststandInvuln)}s.`,RT.laststandHp>0?`Uma vez por rodada, o primeiro aliado a receber dano letal fica com ${P0(RT.laststandHp)} da vida e invulnerável por ${N(RT.laststandInvuln,1)} s.`:`Uma vez por rodada, o primeiro aliado a receber dano letal fica com 1 de vida e invulnerável por ${N(RT.laststandInvuln,1)} s.`],
  repulsion:['Repulsion Seal','Selo de repulsão',`Once per round, the first ally dropping below ${P0(RT.repulsionAt)} health pushes nearby enemies away, stuns them for ${N(RT.repulsionStun)}s and gains a ${P0(RT.repulsionShield)} shield.`,`Uma vez por rodada, o primeiro aliado a cair abaixo de ${P0(RT.repulsionAt)} de vida empurra e atordoa por ${N(RT.repulsionStun,1)} s os inimigos próximos e ganha escudo de ${P0(RT.repulsionShield)}.`],
  fang:['Vampiric Fang','Presa vampírica',`Basic attacks heal their attacker for ${P0(RT.fang)} of the health damage dealt (${P0(RT.fang*RT.fangBoss)} against bosses).`,`Ataques básicos curam o atacante em ${P0(RT.fang)} do dano causado à vida (${P0(RT.fang*RT.fangBoss)} contra bosses).`],
  execution:['Executioner’s Mark','Marca do executor',`Deal ${P0(RT.execution)} more damage to enemies below 30% health. Defeating an enemy charges ${P0(RT.executionCharge)} of the attacker skill.`,`Cause ${P0(RT.execution)} mais dano a inimigos abaixo de 30% de vida. Derrotar um inimigo carrega ${P0(RT.executionCharge)} da habilidade de quem derrotou.`],
  ember:['Vengeful Ember','Brasa vingativa',`Each fallen ally grants the survivors ${P0(RT.emberAtk)} more attack damage and a ${P0(RT.emberShield)} shield this round, up to 3 times.`,`Cada aliado derrotado concede aos sobreviventes ${P0(RT.emberAtk)} mais dano de ataque e escudo de ${P0(RT.emberShield)} nesta rodada, até 3 vezes.`],
- bell:['Opening Bell','Sino de abertura',`All allies attack ${P0(RT.bell)} faster during the first ${N(RT.bellTime)} seconds of each round.`,`Todos os aliados atacam ${P0(RT.bell)} mais rápido nos primeiros ${N(RT.bellTime,1)} segundos de cada rodada.`],
+ bell:['Opening Bell','Sino de abertura',`All allies attack ${P0(RT.bell)} faster during the first ${N(RT.bellTime)}s of each round.`,`Todos os aliados atacam ${P0(RT.bell)} mais rápido nos primeiros ${N(RT.bellTime,1)} s de cada rodada.`],
  captain_standard:['Captain’s Standard','Estandarte do capitão','Choose a physical unit card to guarantee in the first hand of each encounter. Deployment still costs energy.','Escolha uma carta de unidade física para garantir na primeira mão de cada confronto. Posicionar continua custando energia.'],
  profane_idol:['Profane Idol','Ídolo profano',`When equipped, adds 1 Exhaustion to your run deck (once). All allies gain +${P0(RT.idol??.06)} attack per curse in your run deck, up to +${P0(RT.idolCap??.30)}.`,`Ao equipar, adiciona 1 Exaustão ao deck da run (uma vez). Aliados recebem +${P0(RT.idol??.06)} de ataque por maldição no deck da run, até +${P0(RT.idolCap??.30)}.`],
  colossal_heart:['Colossal Heart','Coração colossal',`All allies gain +${P0(RT.colossal)} health. The first hand of each encounter has 3 cards instead of 4.`,`Aliados recebem +${P0(RT.colossal)} de vida. A primeira mão de cada confronto tem 3 cartas em vez de 4.`],
@@ -61,6 +61,13 @@ const TEXT={
  chain:['Chain of Command','Corrente de comando',`When an ally uses its skill, the nearest other ally with an active skill gains ${P0(RT.chainCharge)} charge.`,`Quando um aliado usa a habilidade, o aliado mais próximo com habilidade ativa ganha ${P0(RT.chainCharge)} de carga.`],
  sling:['Siege Sling','Funda de cerco',`${N(RT.slingDelay)}s after the start of each round, your units in the back-row corners are hurled onto the enemy back line, dealing ${P0(RT.slingDamage)} attack to the nearest enemy and stunning it for ${N(RT.slingStun)}s; they land invulnerable for ${N(RT.slingInvuln)}s.`,`${N(RT.slingDelay,1)} s depois do início de cada rodada, suas unidades nos cantos da última linha são arremessadas sobre a linha de fundo inimiga, causando ${P0(RT.slingDamage)} do ataque ao inimigo mais próximo e atordoando-o por ${N(RT.slingStun,1)} s; caem invulneráveis por ${N(RT.slingInvuln,1)} s.`],
  contract:['Mercenary Contract','Contrato do mercenário',`Gain +${RT.contractElite} gold for each elite, order or Titan encounter won, and +${RT.contractBoss} for each boss.`,`Ganhe +${RT.contractElite} de ouro a cada confronto vencido contra elite, ordem ou Titã, e +${RT.contractBoss} contra boss.`],
+ devastator:['Devastator’s Hammer','Martelo do devastador',`The first basic attack of each Devastator in each round deals +${P0(RT.devastatorBonus)} damage and stuns for ${N(RT.devastatorStun)}s (raid bosses are not stunned).`,`O primeiro ataque básico de cada Devastador em cada rodada causa +${P0(RT.devastatorBonus)} de dano e atordoa por ${N(RT.devastatorStun,1)} s (boss de raid não é atordoado).`],
+ warcry:['War Cry','Grito de guerra',`Critical hits from Fearless allies heal them for ${P0(RT.warcryHeal)} of their maximum health.`,`Críticos de aliados Destemidos curam ${P0(RT.warcryHeal)} da vida máxima deles.`],
+ patience:['Hourglass of Patience','Ampulheta da paciência',`Patient allies start each round with ${RT.patienceStart} stacks, gain a stack every ${N(RT.patienceEvery)}s and can hold up to ${RT.patienceMax}.`,`Aliados Pacientes começam cada rodada com ${RT.patienceStart} acúmulos, ganham 1 a cada ${N(RT.patienceEvery,1)} s e acumulam até ${RT.patienceMax}.`],
+ aegis:['Guardian’s Aegis','Égide do guardião',`The Protector aura reaches ${RT.aegisRange} instead of 90, and Protectors gain +${P0(RT.aegisSpeed)} movement.`,`A aura do Protetor alcança ${RT.aegisRange} em vez de 90, e Protetores ganham +${P0(RT.aegisSpeed)} de movimento.`],
+ lone:['Lonely Banner','Bandeira solitária',`Audacious allies with no living ally within 90 take ${P0(RT.loneReduction)} less damage and deal +${P0(RT.loneDamage)} damage.`,`Aliados Audaciosos sem aliado vivo a até 90 recebem ${P0(RT.loneReduction)} menos dano e causam +${P0(RT.loneDamage)} de dano.`],
+ horde:['Horde Totem','Totem da horda',`When a Blackfang ally falls, the other Blackfang allies gain ${P0(RT.hordeCharge)} skill charge (up to ${RT.hordeMax} times per round), and every living Blackfang deals +${P0(RT.hordeDamage)} damage for each fallen Blackfang ally.`,`Quando um aliado Blackfang cai, os outros Blackfang ganham ${P0(RT.hordeCharge)} de carga da habilidade (até ${RT.hordeMax} vezes por rodada), e todo Blackfang vivo causa +${P0(RT.hordeDamage)} de dano por Blackfang aliado caído.`],
+ dawn:['Dawn’s Blessing','Bênção da aurora',`Dawncrest allies start each round with a shield of ${P0(RT.dawnShield)} of their maximum health (6s); each one's first kill in the round renews it.`,`Aliados Dawncrest começam cada rodada com escudo de ${P0(RT.dawnShield)} da vida máxima (6 s); o primeiro abate de cada um na rodada renova o escudo.`],
  grimoire:['Apprentice’s Grimoire','Grimório do aprendiz',`Gain ${P0(RT.grimoireXp)} more tree XP during the run, but ${P0(RT.grimoireGold)} less gold from rewards.`,`Ganhe ${P0(RT.grimoireXp)} mais XP da árvore durante a run, mas ${P0(RT.grimoireGold)} menos ouro em recompensas.`]
 };
 const g=typeof window!=='undefined'?window:globalThis,EXTRA=g.I18N_EXTRA=g.I18N_EXTRA||{};
@@ -69,7 +76,9 @@ for(const a of G.ARTIFACTS){const t=TEXT[a.id];if(t){a.name=t[0];a.namePT=t[1];a
 const CAT={banner:'offense',dormant_sword:'offense',ember:'offense',execution:'offense',precision:'offense',heart:'defense',colossal_heart:'defense',plating:'defense',recovery:'defense',fang:'defense',laststand:'defense',repulsion:'defense',spark:'rhythm',quickstart:'rhythm',bell:'rhythm',hourglass:'rhythm',captain_standard:'deck',travelers_mirror:'deck',profane_idol:'deck',luckycharm:'economy',merchant:'economy',scope:'synergy',tome:'synergy',boots:'synergy',shield:'synergy'};
 for(const a of G.ARTIFACTS)if(!a.category&&CAT[a.id])a.category=CAT[a.id];
 // Formatos novos (Carlos 08/11): Ampulheta = diagonal 3, Luneta = diagonal 2, Selo de repulsão = ponte. Mapeados sem uso: escada, cavalo.
-const RESHAPE={hourglass:'diag3',scope:'diag2',repulsion:'bridge'};for(const [id,sh] of Object.entries(RESHAPE)){const a=G.ARTIFACTS.find(a=>a.id===id);if(a){a.shape=sh;G.RELIC_FORMATS[id]=sh;}}
+const RESHAPE={hourglass:'diag3',scope:'diag2',repulsion:'bridge',precision:'domino'};
+// Raridades (Carlos 10/11): Estandarte e Pedra vital incomuns; Espada, Medalhão, Placas e Marca comuns. Preço segue a raridade.
+const RARITY10={banner:1,heart:1,dormant_sword:0,precision:0,plating:0,execution:0},PRICE10=[30,35,40,40];for(const [id,r] of Object.entries(RARITY10)){const a=G.ARTIFACTS.find(a=>a.id===id);if(a){a.rarity=r;a.price=PRICE10[r];}}for(const [id,sh] of Object.entries(RESHAPE)){const a=G.ARTIFACTS.find(a=>a.id===id);if(a){a.shape=sh;G.RELIC_FORMATS[id]=sh;}}
 const CATEGORIES={offense:{en:'Offense',pt:'Ofensiva'},defense:{en:'Defense',pt:'Defensiva'},rhythm:{en:'Rhythm',pt:'Ritmo'},deck:{en:'Deck and hand',pt:'Deck e mão'},economy:{en:'Economy',pt:'Economia'},synergy:{en:'Synergy',pt:'Sinergia'}};
 
 const has=(b,side,id)=>!!b?.relics?.[side]?.includes(id);
@@ -82,6 +91,7 @@ const addShield=(u,frac,time=6)=>{u.shield=(u.shield||0)+u.maxhp*frac;u.shieldTi
 function bump(counts,owned,enemy){const bonus={faction:owned.includes('houses')?1:0,temperament:owned.includes('honor')?1:0,attribute:owned.includes('talents')?1:0};if(!bonus.faction&&!bonus.temperament&&!bonus.attribute)return counts;
  const out={...counts};for(const id of Object.keys(out)){const cat=T?.D?.[id]?.category;if(cat&&bonus[cat]&&out[id]>0)out[id]+=bonus[cat];}return out;}
 const API=root.JourneyRelicsR3={NEW,CATEGORIES,
+ evade(b,a,t){if(!t||!has(b,t.side,'boots')||!rank(t,'Trailblazer')||(t.r3Evaded||0)>=RT.bootsEvade)return false;t.r3Evaded=(t.r3Evaded||0)+1;G.announce?.(b,t,'EVADE');return true;},
  traitCounts(b,counts){for(const side of [0,1])counts[side]=bump(counts[side],b.relics?.[side]||[]);},
  statCounts(s,counts,enemy){return bump(counts,enemy?(s?.ai?.artifacts||[]):(s?.artifacts||[]));},
  protectorRange(b,side){return has(b,side,'aegis')?RT.aegisRange:90;},
@@ -91,10 +101,13 @@ if(T){
  const beforeStep=T.beforeStep;T.beforeStep=function(b,dt){const r=beforeStep.apply(this,arguments);
   if(!b.r3Init){b.r3Init=true;b.r3Horde=[0,0];
    for(const u of b.units){const side=u.side;
-    if(has(b,side,'tome')&&T.caster?.(kind(u)))charge(u,RT.tomeCharge);
-    if(has(b,side,'plating'))addShield(u,RT.platingShield);
+    
+    if(has(b,side,'plating'))addShield(u,RT.platingShield,RT.platingTime);
     if(has(b,side,'dawn')&&order(u)==='dawncrest')addShield(u,RT.dawnShield);
-    if(has(b,side,'patience')&&rank(u,'Patient'))u.r3PatientT=RT.patienceT;}
+    if(has(b,side,'patience')&&rank(u,'Patient')){u.r3PatientEvery=RT.patienceEvery;u.r3PatientMax=RT.patienceMax;u.r3PatientT=RT.patienceStart*RT.patienceEvery;}
+    if(has(b,side,'aegis')&&rank(u,'Protector'))u.speed*=1+RT.aegisSpeed;
+    if(has(b,side,'tome')&&T.caster?.(kind(u))&&kind(u)?.kind==='active'&&u.charge>0){u.charge=['attacks','received'].includes(kind(u).trigger?.kind)?Math.max(1,Math.round(u.charge*RT.tomeCost)):u.charge*RT.tomeCost;u.progress=u.charge;}
+    if(has(b,side,'boots')&&rank(u,'Trailblazer')){G.grant?.(u,'r3boots',1e6,{haste:RT.bootsRate});u.r3BootsHaste=true;}}
    b.r3Sling=[[],[]];for(const side of [0,1])if(has(b,side,'sling')){const mine=alive(b).filter(u=>u.side===side),backY=side?Math.min(...mine.map(u=>u.y)):Math.max(...mine.map(u=>u.y));b.r3Sling[side]=mine.filter(u=>u.y===backY&&(u.x<=65||u.x>=365));}}
   if(b.r3Sling&&!b.r3SlingDone&&b.time>=RT.slingDelay){b.r3SlingDone=true; // Carlos 09/11: atraso de 1 s para não cair no meio da frente inimiga
    for(const side of [0,1]){const corners=b.r3Sling[side].filter(u=>!u.dead&&u.hp>0);if(!corners.length)continue;
@@ -103,15 +116,19 @@ if(T){
   for(const u of alive(b)){
    if(u.r3EchoPending){u.r3EchoPending=false;charge(u,RT.echoRefund);}
    if(u.stun>0&&has(b,u.side,'ironroot')&&rank(u,'Unyielding'))u.stun=0;
+   if(u.r3BootsHaste&&(u.hits||0)>=RT.bootsHits){u.r3BootsHaste=false;if(u.bonuses)delete u.bonuses.r3boots;G.refreshSkill?.(u);}
    if(b.time<RT.sentinelTaunt&&has(b,u.side,'shield')&&rank(u,'Sentinel'))for(const v of alive(b))if(v.side!==u.side&&!v.raidBoss&&G.distance(u,v)<=RT.sentinelRange&&!(v.taunt>0)){v.tauntUid=u.uid;v.taunt=RT.sentinelTaunt-b.time;}}
   return r;};
  const immune=T.immune;T.immune=function(b,t){return (t.r3Invuln||0)>b.time||immune.apply(this,arguments);};
- const damage=T.damage;T.damage=function(b,a,t,n,skill,options){n=damage.apply(this,arguments)??n;if(!a||skill||options?.dot)return n;
-  if(has(b,a.side,'boots')&&rank(a,'Trailblazer')&&!a.r3Boots){a.r3Boots=true;if(!t.raidBoss)t.stun=Math.max(t.stun||0,.5);}
+ const damage=T.damage;T.damage=function(b,a,t,n,skill,options){n=damage.apply(this,arguments)??n;
+  if(a&&!options?.dot){if(has(b,a.side,'lone')&&rank(a,'Audacious')&&!alive(b).some(v=>v!==a&&v.side===a.side&&G.distance(a,v)<=90))n*=1+RT.loneDamage;
+   if(has(b,a.side,'horde')&&order(a)==='blackfang'&&b.r3HordeFallen?.[a.side])n*=1+RT.hordeDamage*b.r3HordeFallen[a.side];}
+  if(!a||skill||options?.dot)return n;
+  if(has(b,a.side,'boots')&&rank(a,'Trailblazer')&&!a.r3Boots){a.r3Boots=true;if(!t.raidBoss)t.stun=Math.max(t.stun||0,RT.bootsStun);}
   if(has(b,a.side,'devastator')&&rank(a,'Devastator')&&!a.r3Dev){a.r3Dev=true;n*=1+RT.devastatorBonus;if(!t.raidBoss)t.stun=Math.max(t.stun||0,RT.devastatorStun);}
   return n;};
  const crit=T.crit;T.crit=function(b,a,c){const v=crit.apply(this,arguments);if(a&&has(b,a.side,'scope')&&a.range>100&&!a.r3Scope){a.r3Scope=true;return 1;}return v;};
- const reduction=T.reduction;T.reduction=function(b,t,n){n=reduction.apply(this,arguments)??n;if(has(b,t.side,'lone')&&rank(t,'Audacious')&&!alive(b).some(v=>v!==t&&v.side===t.side&&G.distance(t,v)<=90))n=Math.min(.65,1-(1-n)*(1-RT.loneReduction));return n;};
+ const reduction=T.reduction;T.reduction=function(b,t,n){n=reduction.apply(this,arguments)??n;if(has(b,t.side,'shield')&&rank(t,'Sentinel')&&b.time<RT.sentinelTaunt)n=Math.min(.65,1-(1-n)*(1-RT.shieldReduction));if(has(b,t.side,'lone')&&rank(t,'Audacious')&&!alive(b).some(v=>v!==t&&v.side===t.side&&G.distance(t,v)<=90))n=Math.min(.65,1-(1-n)*(1-RT.loneReduction));return n;};
  const afterSkill=T.afterSkill;T.afterSkill=function(b,u){const r=afterSkill.apply(this,arguments);
   if(has(b,u.side,'echo'))u.r3EchoPending=true; // Carlos 09/11: toda habilidade devolve a carga
   if(has(b,u.side,'chain')){const near=alive(b).filter(v=>v!==u&&v.side===u.side&&kind(v)?.kind==='active').sort((x,y)=>G.distance(u,x)-G.distance(u,y))[0];if(near)charge(near,RT.chainCharge);}
@@ -124,7 +141,8 @@ if(T){
     if(has(b,src.side,'execution'))charge(src,RT.executionCharge);
     if(has(b,src.side,'dawn')&&order(src)==='dawncrest'&&!src.r3Dawn&&src.hp>0){src.r3Dawn=true;addShield(src,RT.dawnShield);}}}
   for(const u of b.units)if(u.hp<=0&&!u.r3Dead){u.r3Dead=true;const side=u.side;
-   if(has(b,side,'horde')&&order(u)==='blackfang'&&(b.r3Horde?.[side]||0)<RT.hordeMax){b.r3Horde[side]++;for(const v of alive(b))if(v.side===side&&order(v)==='blackfang')charge(v,RT.hordeCharge);}}
+   if(has(b,side,'horde')&&order(u)==='blackfang'){b.r3HordeFallen=b.r3HordeFallen||[0,0];b.r3HordeFallen[side]++;}
+    if(has(b,side,'horde')&&order(u)==='blackfang'&&(b.r3Horde?.[side]||0)<RT.hordeMax){b.r3Horde[side]++;for(const v of alive(b))if(v.side===side&&order(v)==='blackfang')charge(v,RT.hordeCharge);}}
   return r;};
 }
 // Contrato do mercenário: ouro extra por elite, ordem, Titã e boss vencidos
