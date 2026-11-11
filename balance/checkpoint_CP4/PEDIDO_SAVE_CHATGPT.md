@@ -54,3 +54,29 @@ Em cada item de `completed[]`: `goldIn` (ouro ganho no nó), `goldOut` (gasto no
 - O jogo se comporta exatamente igual a antes (nada de balanceamento foi tocado).
 
 Por favor, me mande no final a lista dos arquivos alterados e um exemplo de um item de `encounters[]` completo, com os campos novos preenchidos.
+
+---
+
+## Adendo: respostas às duas dúvidas
+
+**1. Formação e relíquias por round**
+- O lado do jogador vai **em cada round**: `rounds[i].player`, com `formation`, `relics` (com `cells`), `bagCellsUsed` e `bagCellsTotal`. A estrutura é a mesma descrita para `player`.
+- Pela mesma lógica, `rounds[i].enemy` traz a formação inimiga daquele round: `type`, `level`, posição e reforços, se houver.
+- `encounters[].player` continua existindo e guarda o estado do **round 1**, para facilitar a leitura rápida.
+- Se nada mudou entre um round e outro, pode repetir o conteúdo mesmo assim. Prefiro repetido a ter que reconstruir.
+
+**2. enemyScale com bônus em atributos diferentes**
+`enemyScale` passa a ser um **objeto**: um multiplicador final por atributo, já com todas as fontes combinadas. Ao lado dele vem a lista das fontes:
+
+```json
+"enemyScale": { "hp": 1.25, "damage": 1.12, "attackSpeed": 1.00, "armor": 1.00, "skill": 1.00 },
+"enemyScaleSources": [
+  { "source": "barrier:order",       "hp": 1.12, "damage": 1.12 },
+  { "source": "challenge:veteranos", "hp": 1.08 },
+  { "source": "challenge:comandantes", "addLevel": 2 }
+]
+```
+
+- **Atributos:** use os que o código realmente modifica. Se houver outros além de `hp`, `damage`, `attackSpeed`, `armor` e `skill`, inclua com o nome do código. Atributo sem bônus fica `1`.
+- **Bônus que não são multiplicador:** nível extra, cartas extras e rodadas extras no boss vão como soma na fonte (`addLevel`, `addCards`, `addRounds` ou o nome equivalente no código), e não entram no objeto `enemyScale`.
+- **Nome das fontes:** `tipo:id`, por exemplo `barrier:order`, `barrier:entry`, `barrier:boss`, `challenge:<id>` ou `raid:<id>`.
