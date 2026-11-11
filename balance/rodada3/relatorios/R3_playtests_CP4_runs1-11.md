@@ -75,7 +75,7 @@ Só a run 11 tem os campos novos do save (versão 2). Nas runs 1 a 10, a luta da
 | Crossbowman | 9 | 14 | 0 s | 6 732 | 21 |
 
 - **A regra de ativação funciona:** no máximo 6 s de espera por unidade em 26 lutas, e nenhuma unidade travou.
-- **Bastion faz o papel de tanque:** recebeu 63% do dano tomado pelo time.
+- **Bastion faz o papel de tanque:** recebeu 58% do dano tomado pelo time.
 
 **Bolsa e relíquias**
 - **Bolsa:** 15 de 16 casas ocupadas.
