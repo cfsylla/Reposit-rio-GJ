@@ -39,3 +39,7 @@ Outros pontos da análise das runs 1-11 (`balance/rodada3/relatorios/R3_playtest
 - Boss do mapa 2 (Orc) com fator ×0,70, mais fraco que a entrada do próprio mapa.
 - Boss 3 derrotado 0 vezes antes da 1ª vitória (meta 2-3).
 - Mapa 3 sem loja na rota da run 11 (terminou com 200 de ouro parado).
+
+## Bug na versão publicada (11/11): desafio Reforços Inimigos sem efeito
+- Run Vanguard (vitória, desafio ativo): em todas as lutas comuns e elites o inimigo teve o mesmo número de unidades do jogador (2v2, 3v3, 4v4). O código de referência do CP4 dá +1 unidade e +2 de energia ao inimigo.
+- Mensagem para o ChatGPT: `BUG_REFORCOS_CHATGPT.md`.
