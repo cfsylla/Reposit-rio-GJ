@@ -82,3 +82,42 @@ Marcos 17 a 20: o boss de cada ordem no mapa 2 já existe como marco. Exige segu
 
 ## 5. Contagem
 95 atuais − 6 retirados + 10 novos = **99** marcos. 22 deles têm desbloqueio. Os bosses dos mapas 1 e 2 liberam só o mapa seguinte.
+
+## 6. Blackfang e Dawncrest (aprovado pelo Carlos, 12/11)
+**Revelação.** Vencer o boss da ordem no mapa 3 revela a ordem e libera 1 deck, o mais fraco. A partir daí, cartas e relíquias da ordem entram no drop dos combates e no recrutamento.
+
+**Boosters de ordem.** As cartas de boss (hero) ficam fora dos boosters e vão para o catálogo ao vencer o True Boss, como hoje.
+
+| Ordem | Booster | Cartas |
+|---|---|---|
+| Blackfang | Goblin Raiders | goblin_spearman, goblin_archer, goblin_rider, goblin_brute, goblin_bomber, goblin_king, orc_warrior, orc_berserker, orc_fighter |
+| Blackfang | Shadows & Stone | dark_elf_noble, dark_elf_archer, dark_elf_warrior, dark_elf_mage, blackfang_guardian, cave_troll, snow_troll, troll, mountain_troll |
+| Dawncrest | Wild Hearts | feline_swordsman, feline_rogue, feline_arcanist, feline_drummer, feline_fighter, centaur_crossbow, centaur_lancer, centaur_swordsman, flower_fairy |
+| Dawncrest | Elven Courts | elf_noble, elf_guardian, elf_archer, elf_halberdier, elf_harpist, woodland_predator, woodland_lancer, woodland_scout, woodland_flailer |
+
+**Marcos de Blackfang**
+| Marco | Libera |
+|---|---|
+| Derrotar o Boss Blackfang no mapa 3 | revela a ordem + deck Greenskins |
+| Vencer uma run com Greenskins | booster Goblin Raiders |
+| Derrotar os Bosses Blackfang nos 3 mapas em uma run | deck Goblin Horde |
+| Vencer uma run com Goblin Horde | booster Shadows & Stone |
+| Derrotar o True Boss Blackfang | deck Blackfang War (+ cartas de boss no catálogo) |
+| Vencer uma run com Blackfang War | deck Dark Court |
+
+**Marcos de Dawncrest**
+| Marco | Libera |
+|---|---|
+| Derrotar o Boss Dawncrest no mapa 3 | revela a ordem + deck Dawncrest Choir |
+| Vencer uma run com Dawncrest Choir | booster Wild Hearts |
+| Derrotar os Bosses Dawncrest nos 3 mapas em uma run | deck High Court |
+| Vencer uma run com High Court | booster Elven Courts |
+| Derrotar o True Boss Dawncrest | deck Meowri Band (+ cartas de boss no catálogo) |
+| Vencer uma run com Meowri Band | deck Centaur Charge |
+| Vencer uma run com Centaur Charge | deck Forest Guard |
+
+Os bosses da ordem nos mapas 1 e 2 (fora os marcos 17 e 18 da Grand Union) e as coleções das ordens dão só diamante.
+
+**Ocultação ("?????").** Vale **só nos marcos**: o nome da ordem, dos decks e dos boosters dela aparece como "?????" até a revelação. Por exemplo: "Derrotar o Boss ????? no mapa 2 → Keen Edge".
+- **Na run nada é ocultado:** inimigos, lutas e mapa mostram tudo normalmente.
+- **Boosters, cartas e decks da ordem:** não precisam de "?????", porque só ficam visíveis depois de liberados.
