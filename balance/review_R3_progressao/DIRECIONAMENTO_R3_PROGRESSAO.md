@@ -120,7 +120,7 @@ A tabela completa está no **Anexo A** (`ANEXO_A_MARCOS.md`).
 - **2 liberam só o mapa seguinte:** boss do mapa 1 e boss do mapa 2.
 - **62 dão só o diamante.**
 - **"Vencer o 1º confronto"** é o marco `firstSteps`, com gatilho na 1ª vitória em combate. Concluir o tutorial não cumpre o marco.
-- **Decks emprestados não são mais vendidos na loja de diamantes.** Os decks só são liberados por marco.
+- **Compra direta de decks emprestados (25 diamantes):** continua como na v56. Liberar por marco não impede a compra. O preço e o papel dessa compra serão revistos na economia permanente.
 
 ## 5. Liberação de cartas e relíquias na loja de diamantes
 **Regra do Carlos**
