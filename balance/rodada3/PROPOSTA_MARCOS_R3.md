@@ -17,8 +17,8 @@ Status: **proposta em discussão com o Carlos**. Ainda não foi enviada ao ChatG
 | Vencer 3 confrontos com 3 personagens de Legends of the East | facção: decisão do Carlos |
 | Vencer 3 confrontos com 3 Atiradores | facção: decisão do Carlos |
 | Vencer 3 confrontos com 3 Arcanos | facção: decisão do Carlos |
-| *Encerrar 3 runs com pelo menos 5 nós* | *sugestão: é passivo e não orienta nenhuma escolha* |
-| *Derrotar 3 decks inimigos diferentes* | *sugestão: é passivo e não orienta nenhuma escolha* |
+| Encerrar 3 runs com pelo menos 5 nós | passivo (aprovado pelo Carlos) |
+| Derrotar 3 decks inimigos diferentes | passivo (aprovado pelo Carlos) |
 
 ## 2. Marcos novos (orientam escolhas de rota e de montagem)
 | Marco novo | O que orienta |
@@ -32,9 +32,13 @@ Status: **proposta em discussão com o Carlos**. Ainda não foi enviada ao ChatG
 | Vencer uma Raid | rotas com raid |
 | Vencer uma run com 1 Desafio ativo | início do pós-jogo (hoje só existem 5, 10 e 15) |
 | Vencer uma run com 3 Desafios ativos | pós-jogo |
+| Vencer as 2 lutas de entrada do mapa 3 | chegar ao mapa 3 com o time pronto |
 
-## 3. Marcos com desbloqueio (12 decks + 10 boosters)
-A ordem é a da dificuldade estimada. A coluna "Saiu na run" vem da 1ª campanha de playtest do Carlos (CP4).
+## 3. Marcos com desbloqueio (12 decks + 10 boosters), todos alcançáveis antes da 1ª vitória
+- Vencer o boss do mapa 1 libera **só o mapa 2**, e vencer o boss do mapa 2 libera **só o mapa 3**. Esses dois marcos não liberam mais nenhum item.
+- Nada da Grand Union é liberado no pós-jogo. A 1ª vitória, os Desafios e os True Bosses não liberam decks nem boosters.
+
+A ordem é a da dificuldade estimada. "Saiu na run" vem da 1ª campanha de playtest do Carlos (CP4).
 
 | # | Marco | Saiu na run | Desbloqueio | Tipo |
 |---|---|---|---|---|
@@ -45,34 +49,36 @@ A ordem é a da dificuldade estimada. A coluna "Saiu na run" vem da 1ª campanha
 | 5 | Vencer 3 confrontos sem perder round em uma run | 2 | Iron Wall | booster |
 | 6 | Resolver 3 eventos em uma run | 6 | Legends of the East | booster |
 | 7 | **Novo:** Recrutar 3 cartas em uma run | — | Salt Crew (médio, run 13) | deck |
-| 8 | Derrotar o boss do mapa 1 (libera o mapa 2) | 6 | Arcane Circle (médio, run 11) | deck |
-| 9 | **Novo:** Levar uma carta ao nível 2 | — | Heavy Hitters | booster |
-| 10 | **Novo:** Gastar 100 de ouro em uma run | — | Sharpshooters | booster |
-| 11 | **Novo:** Vencer as 2 lutas de ordem de uma mesma ordem em um mapa | — | Fortress (médio, run 12) | deck |
+| 8 | **Novo:** Levar uma carta ao nível 2 | — | Heavy Hitters | booster |
+| 9 | **Novo:** Gastar 100 de ouro em uma run | — | Sharpshooters | booster |
+| 10 | **Novo:** Vencer as 2 lutas de ordem de uma mesma ordem em um mapa | — | Fortress (médio, run 12) | deck |
+| 11 | Derrotar o Boss da Grand Union no mapa 1 | 9 | Earthquake (médio, run 14) | deck |
 | 12 | Preencher toda a bolsa de relíquias | 9 | Verdant & Arcane | booster |
 | 13 | Terminar um confronto com 3 unidades fundidas | 9 | Verdant Circle (médio, run 12) | deck |
 | 14 | **Novo:** Vencer 3 elites em uma run | — | Hunters & Raiders | booster |
-| 15 | Derrotar o boss do mapa 2 (libera o mapa 3) | 10 | Earthquake (médio, run 14) | deck |
-| 16 | **Novo:** Vencer uma Raid | — | Keen Edge (médio, run 14) | deck |
-| 17 | **Novo:** Vencer 6 confrontos sem perder round em uma run | — | Mystic Support | booster |
-| 18 | Vencer uma run pela primeira vez | 11 | Winds of Chance (forte, run 10) | deck |
-| 19 | Derrotar o True Boss da Grand Union | — | Northern Wilds | booster |
-| 20 | **Novo:** Vencer uma run com 1 Desafio ativo | 12 | Fireline (forte, run 7) | deck |
-| 21 | **Novo:** Vencer uma run com 3 Desafios ativos | — | War Choir (forte, run 9) | deck |
-| 22 | Vencer uma run com 5 Desafios ativos | — | Northern Blood (forte, run 9) | deck |
+| 15 | **Novo:** Vencer uma Raid | — | Northern Wilds | booster |
+| 16 | **Novo:** Vencer 6 confrontos sem perder round em uma run | — | Mystic Support | booster |
+| 17 | Derrotar o Boss Blackfang no mapa 2 | 11 | Keen Edge (médio, run 14) | deck |
+| 18 | Derrotar o Boss Dawncrest no mapa 2 | — | Arcane Circle (médio, run 11) | deck |
+| 19 | Derrotar o Boss Titans no mapa 2 | — | Winds of Chance (forte, run 10) | deck |
+| 20 | Derrotar o Boss da Grand Union no mapa 2 | 10 | War Choir (forte, run 9) | deck |
+| 21 | Adquirir 25% dos nós da árvore | ~11 | Northern Blood (forte, run 9) | deck |
+| 22 | **Novo:** Vencer as 2 lutas de entrada do mapa 3 | 10 | Fireline (forte, run 7) | deck |
 
 Os números entre parênteses são a 1ª vitória mediana do deck no simulador (quanto menor, mais forte).
+Marcos 17 a 20: o boss de cada ordem no mapa 2 já existe como marco. Exige seguir as lutas de ordem daquela ordem no mapa, então orienta a rota.
 
 ## 4. Marcos só com diamante (ficam como estão)
 - Vencer uma run com cada deck (24) e "Vencer uma run com todos os decks emprestados".
-- Boss de cada ordem em cada mapa (12) e os bosses de uma mesma ordem nos 3 mapas (4).
+- Os bosses de cada ordem nos mapas 1 e 3 que não estão na tabela, e os bosses de uma mesma ordem nos 3 mapas (4).
 - True Bosses de Blackfang, Dawncrest e Titans. Liberar Blackfang e Dawncrest pelo True Boss continua como hoje.
 - Coleções de cartas por facção e coleção de relíquias. Dependem de compra com diamante, então viram objetivos de coleção.
 - Árvore 25%, 50%, 75% e 100%.
-- Vantagens 5, 10 e 15. Desafios 10 e 15.
+- Vantagens 5, 10 e 15. Desafios 1, 3, 5, 10 e 15 (só diamante).
+- Vencer uma run pela primeira vez (só diamante).
 - Titãs (os nove).
 - Treino e decks custom: montar, 5 nós com custom e vencer com custom.
 - Secret Boss. Fica fora da integração, como hoje.
 
 ## 5. Contagem
-95 atuais − 4 de facção (− 2 sugeridos) + 9 novos = **100 (ou 98)** marcos. 22 deles têm desbloqueio.
+95 atuais − 6 retirados + 10 novos = **99** marcos. 22 deles têm desbloqueio. Os bosses dos mapas 1 e 2 liberam só o mapa seguinte.
