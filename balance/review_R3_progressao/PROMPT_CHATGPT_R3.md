@@ -3,6 +3,7 @@ Olá! Segue o pacote **Review R3 de Progressão**, aprovado por mim a partir dos
 Arquivos:
 - `DIRECIONAMENTO_R3_PROGRESSAO.md`: o documento principal, com tudo o que deve ser feito (seções 1 a 11).
 - `ANEXO_A_MARCOS.md`: a tabela completa dos marcos: retirados, novos e desbloqueio de cada um, incluindo Blackfang e Dawncrest.
+- `ANEXO_C_RELIQUIAS.md`: o destino das 25 relíquias que hoje estão fora do pool dos inimigos (pool inimigo, pool de ordem ou marco).
 - `ANEXO_B_BUG_REFORCOS.md`: o bug do desafio Reforços Inimigos, com as evidências.
 
 **Autorização**
@@ -23,5 +24,5 @@ No final, me devolva o que está na seção 11 do documento principal:
 - a lista dos arquivos alterados;
 - as confirmações pedidas;
 - o exemplo de luta com Reforços;
-- a lista final dos 99 marcos;
+- a lista final dos 102 marcos;
 - o que ficou diferente do pedido.

@@ -88,6 +88,7 @@ Marcos 17 a 20: o boss de cada ordem no mapa 2 já existe como marco. Exige segu
 - Secret Boss. Fica fora da integração, como hoje.
 
 ## 5. Contagem
+> Atualizada pelo **Anexo C**: são **102 marcos**, sendo 44 com desbloqueio (inclui 9 relíquias) e 56 só com diamante. Os números abaixo são de antes do Anexo C.
 95 atuais − 6 retirados + 10 novos = **99** marcos:
 - **35 com desbloqueio:** 22 da Grand Union (seção 3) e 13 de Blackfang e Dawncrest (seção 6). Cada um libera 1 deck ou 1 booster. Os marcos de boss da ordem no mapa 3 também revelam a ordem.
 - **2 que liberam só o mapa seguinte:** boss do mapa 1 e boss do mapa 2.

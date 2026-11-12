@@ -115,14 +115,16 @@ A tabela completa está no **Anexo A** (`ANEXO_A_MARCOS.md`).
 | `challenges_1` | Vencer uma run com 1 Desafio ativo |
 | `challenges_3` | Vencer uma run com 3 Desafios ativos |
 
-**Total:** 99 marcos.
+**Total:** 102 marcos, contando os 3 novos do Anexo C.
 - **35 liberam 1 deck ou 1 booster:** 22 da Grand Union (Anexo A, seção 3) e 13 de Blackfang e Dawncrest (Anexo A, seção 6).
 - **2 liberam só o mapa seguinte:** boss do mapa 1 e boss do mapa 2.
-- **62 dão só o diamante.**
+- **9 liberam 1 relíquia:** Anexo C.
+- **56 dão só o diamante.**
 - **"Vencer o 1º confronto"** é o marco `firstSteps`, com gatilho na 1ª vitória em combate. Concluir o tutorial não cumpre o marco.
 - **Compra direta de decks emprestados (25 diamantes):** continua como na v56. Liberar por marco não impede a compra. O preço e o papel dessa compra serão revistos na economia permanente.
 
 ## 5. Liberação de cartas e relíquias na loja de diamantes
+> **Veja também o Anexo C** (`ANEXO_C_RELIQUIAS.md`): as 25 relíquias que hoje estão fora do pool dos inimigos. 14 entram no pool dos inimigos, 2 entram só no pool da própria ordem e 9 passam a ser liberadas por marco. Em caso de conflito, vale o Anexo C.
 **Regra do Carlos**
 - Cartas e relíquias só entram no catálogo da loja de diamantes pelo **drop dos combates**. Liberar não é possuir: o item fica à venda.
 - O jogador **nunca** recebe carta ou relíquia permanente sem gastar diamantes.
@@ -221,5 +223,5 @@ Detalhes no **Anexo B** (`ANEXO_B_BUG_REFORCOS.md`).
    - um perfil novo começa só com o mapa 1 e os 3 decks iniciais;
    - vencer o boss 1 encerra a run com vitória de capítulo e libera o mapa 2.
 3. Um item de `encounters[]` de luta comum com Reforços ativo, mostrando 2v3 no round 1.
-4. A lista final dos 99 marcos com o desbloqueio de cada um.
+4. A lista final dos 102 marcos, com o desbloqueio de cada um.
 5. O que não foi possível implementar, ou o que ficou diferente do pedido, e por quê.
