@@ -68,20 +68,30 @@ A ordem é a da dificuldade estimada. "Saiu na run" vem da 1ª campanha de playt
 Os números entre parênteses são a 1ª vitória mediana do deck no simulador (quanto menor, mais forte).
 Marcos 17 a 20: o boss de cada ordem no mapa 2 já existe como marco. Exige seguir as lutas de ordem daquela ordem no mapa, então orienta a rota.
 
-## 4. Marcos só com diamante (ficam como estão)
-- Vencer uma run com cada deck (24) e "Vencer uma run com todos os decks emprestados".
-- Os bosses de cada ordem nos mapas 1 e 3 que não estão na tabela, e os bosses de uma mesma ordem nos 3 mapas (4).
-- True Bosses de Blackfang, Dawncrest e Titans. Liberar Blackfang e Dawncrest pelo True Boss continua como hoje.
-- Coleções de cartas por facção e coleção de relíquias. Dependem de compra com diamante, então viram objetivos de coleção.
-- Árvore 25%, 50%, 75% e 100%.
-- Vantagens 5, 10 e 15. Desafios 1, 3, 5, 10 e 15 (só diamante).
-- Vencer uma run pela primeira vez (só diamante).
+## 4. Marcos só com diamante (todos os que não aparecem nas tabelas das seções 3 e 6)
+- Vencer uma run com cada deck (24). Exceção: as vitórias com decks de Blackfang e Dawncrest que estão na seção 6.
+- "Vencer uma run com todos os decks emprestados".
+- Bosses de cada ordem por mapa que não estão nas tabelas:
+  - Blackfang e Dawncrest nos mapas 1;
+  - Grand Union e Titans no mapa 3;
+  - Titans no mapa 1.
+
+  Ficam de fora desta lista: Grand Union nos mapas 1 e 2, Blackfang, Dawncrest e Titans no mapa 2, e Blackfang e Dawncrest no mapa 3.
+- Bosses da Grand Union e de Titans nos 3 mapas em uma run. Os de Blackfang e Dawncrest estão na seção 6.
+- True Bosses da Grand Union e de Titans. Os de Blackfang e Dawncrest estão na seção 6. As cartas de boss (hero) de cada ordem continuam indo para o catálogo ao vencer o True Boss.
+- Coleções de cartas por facção e coleção de relíquias.
+- Árvore 50%, 75% e 100%. A de 25% está na seção 3.
+- Vantagens 5, 10 e 15. Desafios 1, 3, 5, 10 e 15.
+- Vencer uma run pela primeira vez.
 - Titãs (os nove).
 - Treino e decks custom: montar, 5 nós com custom e vencer com custom.
 - Secret Boss. Fica fora da integração, como hoje.
 
 ## 5. Contagem
-95 atuais − 6 retirados + 10 novos = **99** marcos. 22 deles têm desbloqueio. Os bosses dos mapas 1 e 2 liberam só o mapa seguinte.
+95 atuais − 6 retirados + 10 novos = **99** marcos:
+- **35 com desbloqueio:** 22 da Grand Union (seção 3) e 13 de Blackfang e Dawncrest (seção 6). Cada um libera 1 deck ou 1 booster. Os marcos de boss da ordem no mapa 3 também revelam a ordem.
+- **2 que liberam só o mapa seguinte:** boss do mapa 1 e boss do mapa 2.
+- **Os outros 62 dão só o diamante.**
 
 ## 6. Blackfang e Dawncrest (aprovado pelo Carlos, 12/11)
 **Revelação.** Vencer o boss da ordem no mapa 3 revela a ordem e libera 1 deck, o mais fraco. A partir daí, cartas e relíquias da ordem entram no drop dos combates e no recrutamento.

@@ -115,7 +115,12 @@ A tabela completa está no **Anexo A** (`ANEXO_A_MARCOS.md`).
 | `challenges_1` | Vencer uma run com 1 Desafio ativo |
 | `challenges_3` | Vencer uma run com 3 Desafios ativos |
 
-**Total:** 99 marcos. Os desbloqueios estão no Anexo A: 22 para a Grand Union (seção 3 do anexo) e 13 para as ordens (seção 6 do anexo).
+**Total:** 99 marcos.
+- **35 liberam 1 deck ou 1 booster:** 22 da Grand Union (Anexo A, seção 3) e 13 de Blackfang e Dawncrest (Anexo A, seção 6).
+- **2 liberam só o mapa seguinte:** boss do mapa 1 e boss do mapa 2.
+- **62 dão só o diamante.**
+- **"Vencer o 1º confronto"** é o marco `firstSteps`, com gatilho na 1ª vitória em combate. Concluir o tutorial não cumpre o marco.
+- **Decks emprestados não são mais vendidos na loja de diamantes.** Os decks só são liberados por marco.
 
 ## 5. Liberação de cartas e relíquias na loja de diamantes
 **Regra do Carlos**
@@ -137,7 +142,8 @@ A tabela completa está no **Anexo A** (`ANEXO_A_MARCOS.md`).
   - depois da 1ª ordem do mapa 2 (Ember, Spark e Boots), ele liberou Aegis.
 
   Corrigir: só cartas e relíquias **daquele inimigo** podem ser liberadas.
-- **Tirar toda liberação de carta, relíquia ou booster vinda de marco.** Hoje acontece, por exemplo, com Precision ("elite"), Merchant ("spender"), Recovery ("boss"), Banner ("decks"), Boots ("eastern") e outras.
+- **Tirar toda liberação de carta e relíquia vinda de marco.** Hoje acontece, por exemplo, com Precision ("elite"), Merchant ("spender"), Recovery ("boss"), Banner ("decks"), Boots ("eastern") e outras.
+- **Boosters:** os antigos saem, e os novos (seção 3) são liberados **só por marco**, conforme o Anexo A.
 - **Mantém como está:**
   - as cartas de boss (hero) vão para o catálogo ao vencer o True Boss da ordem;
   - cartas e relíquias exclusivas de Blackfang e Dawncrest só entram no drop depois da revelação da ordem (seção 6).
