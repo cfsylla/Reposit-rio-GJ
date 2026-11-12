@@ -43,3 +43,13 @@ Outros pontos da análise das runs 1-11 (`balance/rodada3/relatorios/R3_playtest
 ## Bug na versão publicada (11/11): desafio Reforços Inimigos sem efeito
 - Run Vanguard (vitória, desafio ativo): em todas as lutas comuns e elites o inimigo teve o mesmo número de unidades do jogador (2v2, 3v3, 4v4). O código de referência do CP4 dá +1 unidade e +2 de energia ao inimigo.
 - Mensagem para o ChatGPT: `BUG_REFORCOS_CHATGPT.md`.
+
+## Economia permanente: diamantes na campanha de playtest do CP4 (save de 12/11, 13 runs)
+| Runs | Resultado | Diamantes por run |
+|---|---|---|
+| 1-4 | derrota no mapa 1 | 2, 6, 6, 2 |
+| 5-9 | derrota no boss 1 ou no mapa 2 | 11, 17, 14, 22, 16 |
+| 10 | derrota no mapa 3 | 41 |
+| 11-13 | vitória (45 nós) | 47, 42, 42 |
+- Soma registrada nas runs: 268. Saldo atual: 299, com 31 vindos de fora das runs (origem não registrada no save). Nenhum gasto de diamante registrado (`cards` e `relics` vazios).
+- Os diamantes de bônus das runs (`bonusDiamonds`) vão de 0 a 5 e já estão somados no total da run.
