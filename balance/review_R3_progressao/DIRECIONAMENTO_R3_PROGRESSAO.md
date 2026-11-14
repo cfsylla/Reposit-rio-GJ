@@ -82,6 +82,7 @@ Base: a fonte atual do Site (v56). Os nomes de arquivo e de função citados sã
 | `bst_elven` | Dawncrest | Elven Courts | elf_noble, elf_guardian, elf_archer, elf_halberdier, elf_harpist, woodland_predator, woodland_lancer, woodland_scout, woodland_flailer |
 
 ## 4. Marcos
+> **Ordem de exibição, textos finais (EN/PT) e rótulo do tipo de recompensa (Booster Pack / Retail Deck / Relic): Anexo D** (`ANEXO_D_ORDEM_E_TEXTOS.md`). O Anexo D também define a ordem dos decks e reordena as sequências de Blackfang e Dawncrest. Em caso de conflito, vale o Anexo D.
 A tabela completa está no **Anexo A** (`ANEXO_A_MARCOS.md`).
 
 **Regras**

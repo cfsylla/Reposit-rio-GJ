@@ -4,6 +4,7 @@ Arquivos:
 - `DIRECIONAMENTO_R3_PROGRESSAO.md`: o documento principal, com tudo o que deve ser feito (seções 1 a 11).
 - `ANEXO_A_MARCOS.md`: a tabela completa dos marcos: retirados, novos e desbloqueio de cada um, incluindo Blackfang e Dawncrest.
 - `ANEXO_C_RELIQUIAS.md`: o destino das 25 relíquias que hoje estão fora do pool dos inimigos (pool inimigo, pool de ordem ou marco).
+- `ANEXO_D_ORDEM_E_TEXTOS.md`: ordem dos decks, ordem dos 102 marcos e texto final de cada marco, com o tipo da recompensa explícito (Booster Pack, Retail Deck ou Relic). Vale sobre os Anexos A e C em caso de conflito.
 - `ANEXO_B_BUG_REFORCOS.md`: o bug do desafio Reforços Inimigos, com as evidências.
 
 **Autorização**
