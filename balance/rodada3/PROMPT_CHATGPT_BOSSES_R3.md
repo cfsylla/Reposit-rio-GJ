@@ -29,4 +29,7 @@ Olá! Preciso de um ajuste de dificuldade nos **bosses dos mapas 2 e 3**, a part
 
 **O que me devolver**
 1. O arquivo e a linha alterados.
-2. Confirmação de que, num save novo, a luta contra o boss do mapa 2 mostra a fonte `map:2` com o valor novo em `enemyScaleSources` (o mesmo para o mapa 3).
+2. Confirmação no save exportado.
+   - Na luta contra o boss do mapa 2, a fonte `boss:<id>` de `enemyScaleSources` (que hoje junta o fator do mapa e o fator do boss) deve subir na proporção 1,10 / 0,965 (+14%).
+   - No mapa 3, deve subir na proporção 1,35 / 1,198 (+12,7%).
+   - Exemplo: o boss Orc no mapa 2 passa de cerca de 0,566 para cerca de 0,645.
