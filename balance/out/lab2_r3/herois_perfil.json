@@ -1,0 +1,172 @@
+{
+ "hero_ib_marshal": {
+  "hp": 390,
+  "atk": 21,
+  "defense": 52,
+  "rate": 1.65,
+  "speed": 30,
+  "crit": 0.03,
+  "limit": 7,
+  "skill": 1.0
+ },
+ "hero_goblin": {
+  "hp": 390,
+  "atk": 21,
+  "defense": 26,
+  "rate": 1.38,
+  "speed": 30,
+  "crit": 0.03,
+  "limit": 7,
+  "skill": 1.0
+ },
+ "hero_ib_piratequeen": {
+  "hp": 320,
+  "atk": 47,
+  "defense": 38,
+  "rate": 1.65,
+  "speed": 30,
+  "crit": 0.08,
+  "limit": 7,
+  "skill": 1.0
+ },
+ "hero_troll": {
+  "hp": 390,
+  "atk": 47,
+  "defense": 26,
+  "rate": 1.38,
+  "speed": 49,
+  "crit": 0.03,
+  "limit": 6,
+  "skill": 1.0
+ },
+ "hero_ib_shogun": {
+  "hp": 390,
+  "atk": 47,
+  "defense": 38,
+  "rate": 1.38,
+  "speed": 49,
+  "crit": 0.12,
+  "limit": 6,
+  "skill": 1.0
+ },
+ "hero_orc": {
+  "hp": 320,
+  "atk": 36,
+  "defense": 16,
+  "rate": 1.05,
+  "speed": 60,
+  "crit": 0.08,
+  "limit": 6,
+  "skill": 1.0
+ },
+ "hero_ib_jarl": {
+  "hp": 250,
+  "atk": 36,
+  "defense": 26,
+  "rate": 1.38,
+  "speed": 49,
+  "crit": 0.12,
+  "limit": 6,
+  "skill": 1.0
+ },
+ "hero_ib_wayfarer": {
+  "hp": 250,
+  "atk": 47,
+  "defense": 16,
+  "rate": 1.38,
+  "speed": 49,
+  "crit": 0.12,
+  "limit": 6,
+  "skill": 1.0
+ },
+ "hero_meowri": {
+  "hp": 250,
+  "atk": 30,
+  "defense": 26,
+  "rate": 0.84,
+  "speed": 60,
+  "crit": 0.12,
+  "limit": 6,
+  "skill": 1.0
+ },
+ "hero_darkelf": {
+  "hp": 250,
+  "atk": 36,
+  "defense": 16,
+  "rate": 1.05,
+  "speed": 60,
+  "crit": 0.25,
+  "limit": 6,
+  "skill": 1.0
+ },
+ "hero_centaur": {
+  "hp": 320,
+  "atk": 36,
+  "defense": 26,
+  "rate": 1.05,
+  "speed": 74,
+  "crit": 0.12,
+  "limit": 6,
+  "skill": 1.0
+ },
+ "hero_ib_hartlord": {
+  "hp": 320,
+  "atk": 36,
+  "defense": 38,
+  "rate": 1.38,
+  "speed": 74,
+  "crit": 0.08,
+  "limit": 6,
+  "skill": 1.0
+ },
+ "hero_ib_gunslinger": {
+  "hp": 320,
+  "atk": 36,
+  "defense": 26,
+  "rate": 1.05,
+  "speed": 74,
+  "crit": 0.18,
+  "limit": 6,
+  "skill": 1.0
+ },
+ "hero_forestelf": {
+  "hp": 205,
+  "atk": 30,
+  "defense": 8,
+  "rate": 0.84,
+  "speed": 74,
+  "crit": 0.18,
+  "limit": 6,
+  "skill": 1.0
+ },
+ "hero_highelf": {
+  "hp": 250,
+  "atk": 36,
+  "defense": 16,
+  "rate": 1.05,
+  "speed": 49,
+  "crit": 0.18,
+  "limit": 6,
+  "skill": 1.0
+ },
+ "hero_ib_oracle": {
+  "hp": 250,
+  "atk": 14,
+  "defense": 26,
+  "rate": 1.38,
+  "speed": 30,
+  "crit": 0.03,
+  "limit": 5,
+  "skill": 1.25
+ },
+ "hero_fairy": {
+  "hp": 205,
+  "atk": 14,
+  "defense": 8,
+  "rate": 1.05,
+  "speed": 74,
+  "crit": 0.03,
+  "limit": 5,
+  "skill": 1.0
+ }
+}
