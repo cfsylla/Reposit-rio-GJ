@@ -5,6 +5,7 @@ Só registro dos saves. Nenhuma análise ou simulação foi feita.
 | Run | Data | Deck | Desafio | Resultado | Onde terminou | Nós | Árvore | Ouro final | Diamantes |
 |---|---|---|---|---|---|---|---|---|---|
 | 1 | 20/11 | Dawn Vanguard | — | **vitória de capítulo** (libera o mapa 2) | boss do mapa 1 (Centaur Leader, Dawncrest), 4×3 | 15 | 2 nós comprados (XP 18 ganho / 16 gasto / 2 perdido) | 103 | 14 (saldo 24) |
+| 2 | 20/11 | Balanced | — | derrota | boss do mapa 1 (Orc Emperor, Blackfang), 2×4 | 15 | 3 nós comprados (XP 10 ganho / 8 gasto / 2 perdido) | 52 | 10 (+1 bônus; saldo 36) |
 
 **Run 1:**
 - Rota Dawncrest: Woodlands e Felines.
@@ -13,4 +14,11 @@ Só registro dos saves. Nenhuma análise ou simulação foi feita.
 - Marcos: fusion_first, firstSteps, elite, sweeps, elites_three, order_pair, sweeps_six, boss, boss_dawncrest_map1, fusion_three.
 - Liberado: decks Blades, Executioners, Fortress, Verdant, Balanced e Outlaws; boosters Dawnward, Iron Wall, Hunters e Mystic; relíquias Fang, Recovery, Last Stand e Contract; cartas Priestess e Fighter.
 
-**Observação:** o campo `build` do save diz `v57-R3`, embora a carreira seja da v64. Pode ser só o rótulo do build que não foi atualizado. Conferir com o ChatGPT.
+**Run 2:**
+- Boss Blackfang (Orc Emperor) no mapa 1. Derrota por 2×4.
+- 2 elites, 5 vitórias sem perder round, 50 de ouro gasto, 4 eventos.
+- Relíquias no fim: banner, bell.
+- Marcos: spender e events.
+- Liberado: boosters Frontier e East, relíquia Quickstart.
+
+**Observação:** o campo `build` dos saves diz `v57-R3`, embora a carreira seja da v64. Pode ser só o rótulo do build que não foi atualizado. Conferir com o ChatGPT.
