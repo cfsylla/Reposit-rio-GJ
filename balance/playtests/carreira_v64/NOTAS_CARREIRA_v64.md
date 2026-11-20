@@ -6,6 +6,7 @@ Só registro dos saves. Nenhuma análise ou simulação foi feita.
 |---|---|---|---|---|---|---|---|---|---|
 | 1 | 20/11 | Dawn Vanguard | — | **vitória de capítulo** (libera o mapa 2) | boss do mapa 1 (Centaur Leader, Dawncrest), 4×3 | 15 | 2 nós comprados (XP 18 ganho / 16 gasto / 2 perdido) | 103 | 14 (saldo 24) |
 | 2 | 20/11 | Balanced | — | derrota | boss do mapa 1 (Orc Emperor, Blackfang), 2×4 | 15 | 3 nós comprados (XP 10 ganho / 8 gasto / 2 perdido) | 52 | 10 (+1 bônus; saldo 36) |
+| 3 | 20/11 | Blades | — | derrota | raid do mapa 1 (Lich Lord, Monstros, camada 9), 0×5 | 10 | 3 nós (XP 7 ganho / 0 gasto / 7 perdido) | 50 | 7 (+1 bônus; saldo 45) |
 
 **Run 1:**
 - Rota Dawncrest: Woodlands e Felines.
@@ -20,5 +21,13 @@ Só registro dos saves. Nenhuma análise ou simulação foi feita.
 - Relíquias no fim: banner, bell.
 - Marcos: spender e events.
 - Liberado: boosters Frontier e East, relíquia Quickstart.
+
+**Run 3:**
+- Rota Monstros. Derrota na raid do 2º nó de Monstros do mapa 1 (Lich Lord), por 0×5.
+- 6 lutas, 2 elites, 3 vitórias sem perder round, 2 recrutamentos, 20 de ouro gasto.
+- Relíquia no fim: precision.
+- Marcos: raid_win e card_level2.
+- Liberado: boosters Northern e Heavy.
+- Os 7 de XP foram perdidos: não davam para comprar o próximo nó.
 
 **Observação:** o campo `build` dos saves diz `v57-R3`, embora a carreira seja da v64. Pode ser só o rótulo do build que não foi atualizado. Conferir com o ChatGPT.
