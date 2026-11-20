@@ -16,6 +16,8 @@ const SEEDS = Number(a.seeds || 3), LEVELS = (a.levels || '0,2,F').split(','), F
 
 const SB = Number(a.seedbase || 13);
 /* GJ_UNIT_OVERRIDES='{"hero_x":{"hp":300,"atk":40,"cost":4,"trigger":{"kind":"time","limit":7}}}' — só para calibração (não muda o jogo) */
+if (process.env.GJ_HERO_MODE) { const HM = JSON.parse(process.env.GJ_HERO_MODE), BC = globalThis.JourneyBossCards, BD = globalThis.JourneyBosses.D, act = BC.activate;
+  BC.activate = function (b, u, ...rest) { const m = HM[u.type]; if (!m) return act.call(this, b, u, ...rest); const boss = BC.cards[u.type].boss, old = BD[boss].mode; BD[boss].mode = m; try { return act.call(this, b, u, ...rest); } finally { BD[boss].mode = old; } }; }
 if (process.env.GJ_UNIT_OVERRIDES) for (const [id, o] of Object.entries(JSON.parse(process.env.GJ_UNIT_OVERRIDES))) Object.assign(G.BY[id], o);
 const R3 = globalThis.JourneyRelicsR3, TR = globalThis.JourneyTraits; let FORCE = null;
 { const oT = R3.traitCounts, oS = R3.statCounts;
