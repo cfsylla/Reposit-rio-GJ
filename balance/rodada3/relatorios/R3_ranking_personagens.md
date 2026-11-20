@@ -26,6 +26,23 @@ Fonte: o laboratório de personagens do simulador. Cada personagem substitui um 
 - **Efeito esperado (estimativa, sem medição):** hoje a armadilha depende de o inimigo andar até um ponto 35 à frente do Ranger, e muitas vezes não ativa. Arremessada no alvo, deve acertar quase sempre. O recuo também protege o Ranger. Por isso o índice dele (hoje 1,01, 58º lugar) deve **subir**. Quanto, só a medição dirá.
 - **Na próxima rodada do laboratório,** quando o Carlos autorizar, o Ranger será medido nas duas versões (publicada e planejada), e o ranking vai dizer qual é qual.
 
+### Medição do Ranger nas duas versões (laboratório, 20/11)
+Rodada no código atual (`game_r3`), com 15 seeds. A versão planejada foi implementada só numa cópia do simulador, não no jogo.
+
+| Versão | Nível 0 | Nível 2 | Fundido | Dano médio (nível 0 / 2 / fundido) | Tempo vivo (nível 0) |
+|---|---|---|---|---|---|
+| Publicada | **1,02** | 1,09 | 1,16 | 200 / 317 / 411 | 93% |
+| Planejada | **1,02** | 1,11 | 1,19 | 213 / 347 / 458 | 95% |
+
+- **Conclusão:** a alteração planejada melhora pouco.
+  - No nível 0, o índice é igual (o dano sobe 6%, mas não muda o resultado).
+  - No nível 2, sobe +0,01; fundido, +0,03.
+  - Com isso, o Ranger continua na mesma faixa do ranking (perto do 55º lugar, junto de Warrior e Martial Artist).
+- **Por que o ganho é pequeno:** a armadilha sai cerca de 1,5 vez por luta e causa um único golpe de 1,6 × poder com imobilização de 1,5 s. Acertar com mais frequência ajuda, mas pesa pouco no total da luta.
+- **Ruído da medição:** cerca de ±0,02 a 0,04. O Ranger também aparece entre os adversários do painel "fortress", e com a versão planejada os índices de referência mudaram até 0,04 (Cowboy foi de 1,03 para 0,99).
+- **Referências no código atual (nível 0):** Archer 1,05, Crossbowman 1,04, Gunner 1,03, Cowboy 1,03, Musketeer 1,04, Huntress 1,07, Elf Archer 1,00, Goblin Archer 1,01. Vários estão abaixo dos valores do CP1 (o Musketeer foi de 1,11 para 1,04), então **o ranking do CP1 já está desatualizado**. Um ranking atual exige rodar os 77 personagens de novo.
+- Dados: `balance/out/lab_ranger_r3/`.
+
 ## Ranking
 
 | # | Personagem | ID | Ordem | Facção | Custo | Raridade | Nível 0 | Nível 2 | Fundido | Curva | Medição |
