@@ -85,7 +85,7 @@ for r, i in enumerate(rows, 2):
         if h in vals: cell.value = vals[h]
     L0 = f"{col['Índice L0']}{r}"
     ws[f"{col['Pos. geral']}{r}"] = f"=RANK({L0},${col['Índice L0']}$2:${col['Índice L0']}${last})"
-    ws[f"{col['Pos. no grupo']}{r}"] = f"=COUNTIFS(${col['Grupo']}$2:${col['Grupo']}${last},{col['Grupo']}{r},${col['Índice L0']}$2:${col['Índice L0']}${last},\">\"&{L0})+1"
+    ws[f"{col['Pos. no grupo']}{r}"] = f"=SUMPRODUCT((${col['Grupo']}$2:${col['Grupo']}${last}={col['Grupo']}{r})*(${col['Índice L0']}$2:${col['Índice L0']}${last}>{L0}))+1"
     ws[f"{col['Índice esperado']}{r}"] = f"=1+0.04*({col['Custo (energia)']}{r}-2)+0.02*MATCH({col['Raridade']}{r},{{\"Comum\",\"Incomum\",\"Rara\",\"Ultra\"}},0)-0.02"
     ws[f"{col['Vs curva']}{r}"] = f"={L0}-{col['Índice esperado']}{r}"
     for h in ('Pos. geral', 'Pos. no grupo', 'Índice esperado', 'Vs curva'): ws[f"{col[h]}{r}"].font = body
