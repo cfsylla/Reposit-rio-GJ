@@ -16,7 +16,7 @@ for f in glob.glob(os.path.join(D, '*', 's*.jsonl')):
         res.setdefault(r['id'], {})[r['config']] = r['index']
 RAR = ['Comum', 'Incomum', 'Rara', 'Ultra']
 GRP_ORDER = ['Grand Union', 'Blackfang', 'Dawncrest', 'Heróis']
-done = [i for i in cards if i in res and 'L0' in res[i]]
+done = [i for i in cards if i in res and len(res[i]) >= (11 if cards[i]['grp'] == 'Heróis' else 12) - (2 if any(not traits.get(t, {}).get('thr') for t in cards[i]['traits']) else 0)]
 rows = sorted(done, key=lambda i: -res[i]['L0'])
 
 F = 'Arial'
