@@ -8,6 +8,26 @@ Fonte: o laboratório de personagens do simulador. Cada personagem substitui um 
 - **Curva**: diferença em relação à força esperada pelo custo e pela raridade (1,00 + 0,04 × (custo − 2) + 0,02 × raridade). Positivo = mais forte do que custa.
 - ⚠️ **Suportes e utilitários** (cura, aura, buff, invocação) ficam no fim porque o laboratório mede o personagem lutando no lugar de um lutador, não o efeito que ele dá ao time. Por isso estão marcados com (S).
 
+## Alterações planejadas e qual versão o ranking considera
+| Personagem | Versão no ranking | Alteração planejada (ainda não implementada no jogo) |
+|---|---|---|
+| Ranger ¹ | **Versão publicada** (medida no laboratório do CP1). A alteração planejada **não** está considerada. | ver abaixo |
+
+**¹ Ranger: Armadilha de caçador**
+| | Versão publicada (medida) | Alteração planejada |
+|---|---|---|
+| Onde a armadilha cai | 35 unidades à frente do Ranger | arremessada até a distância de alcance médio |
+| Ativação | quando um inimigo entra na área | se houver inimigo na trajetória, ativa no primeiro atingido, naquele ponto |
+| Movimento do Ranger | nenhum | recua 55 unidades ao arremessar (igual à Gunner) |
+| Área de ativação | raio 20 | raio 22 (+10%) |
+| Alvos | 1 inimigo, uma vez (a armadilha some ao ativar) | igual: 1 inimigo, uma vez, mesmo com vários na área |
+| Dano e efeito | 1,6 × poder e imobiliza por 1,5 s; dura até 5 s se não ativar | iguais |
+
+- **Efeito esperado (estimativa, sem medição):** hoje a armadilha depende de o inimigo andar até um ponto 35 à frente do Ranger, e muitas vezes não ativa. Arremessada no alvo, deve acertar quase sempre. O recuo também protege o Ranger. Por isso o índice dele (hoje 1,01, 58º lugar) deve **subir**. Quanto, só a medição dirá.
+- **Na próxima rodada do laboratório,** quando o Carlos autorizar, o Ranger será medido nas duas versões (publicada e planejada), e o ranking vai dizer qual é qual.
+
+## Ranking
+
 | # | Personagem | ID | Ordem | Facção | Custo | Raridade | Nível 0 | Nível 2 | Fundido | Curva | Medição |
 |---|---|---|---|---|---|---|---|---|---|---|---|
 | 1 | Cannoneer | `cannoneer` | Grand Union | Seasalt Crew | 4 | Rara | 1.13 | 1.38 | 1.54 | +0.01 | P1 |
@@ -67,7 +87,7 @@ Fonte: o laboratório de personagens do simulador. Cada personagem substitui um 
 | 55 | Espadachim Meowri | `feline_swordsman` | Dawncrest | Meowri | 2 | Comum | 1.02 | 1.13 | 1.23 | +0.02 | lab1 |
 | 56 | Miner | `miner` | Grand Union | Wild West | 2 | Comum | 1.02 | 1.12 | 1.21 | +0.02 | lab1 |
 | 57 | Orc Lutadora | `orc_fighter` | Blackfang | Orc | 2 | Incomum | 1.01 | 1.16 | 1.31 | -0.01 | P1 |
-| 58 | Ranger | `ranger` | Grand Union | Verdant Covenant | 2 | Comum | 1.01 | 1.10 | 1.15 | +0.01 | lab1 |
+| 58 | Ranger ¹ | `ranger` | Grand Union | Verdant Covenant | 2 | Comum | 1.01 | 1.10 | 1.15 | +0.01 | lab1 |
 | 59 | Viking | `viking` | Grand Union | Frostborn Clans | 3 | Comum | 1.01 | 1.08 | 1.19 | -0.03 | lab1 |
 | 60 | Glutton | `glutton` | Grand Union | Frostborn Clans | 3 | Comum | 1.01 | 1.07 | 1.20 | -0.03 | lab1 |
 | 61 | Lancer | `lancer` | Grand Union | Dawnward Order | 2 | Comum | 1.01 | 1.08 | 1.21 | +0.01 | lab1 |
