@@ -1,0 +1,189 @@
+{
+ "hero_goblin": {
+  "hp": 230,
+  "atk": 25,
+  "defense": 10,
+  "rate": 1.2,
+  "range": 145,
+  "speed": 30,
+  "cost": 3,
+  "limit": 10,
+  "mode": "volley"
+ },
+ "hero_troll": {
+  "hp": 280,
+  "atk": 30,
+  "defense": 17,
+  "rate": 1.2,
+  "range": 62,
+  "speed": 49,
+  "cost": 3,
+  "limit": 10,
+  "mode": "slam"
+ },
+ "hero_orc": {
+  "hp": 230,
+  "atk": 30,
+  "defense": 10,
+  "rate": 1.2,
+  "range": 34,
+  "speed": 60,
+  "cost": 3,
+  "limit": 10,
+  "mode": "cleave"
+ },
+ "hero_meowri": {
+  "hp": 230,
+  "atk": 25,
+  "defense": 10,
+  "rate": 1.2,
+  "range": 34,
+  "speed": 60,
+  "cost": 3,
+  "limit": 10,
+  "mode": "volley"
+ },
+ "hero_centaur": {
+  "hp": 230,
+  "atk": 30,
+  "defense": 10,
+  "rate": 1.2,
+  "range": 62,
+  "speed": 74,
+  "cost": 3,
+  "limit": 10,
+  "mode": "cleave"
+ },
+ "hero_highelf": {
+  "hp": 190,
+  "atk": 30,
+  "defense": 10,
+  "rate": 1.2,
+  "range": 145,
+  "speed": 49,
+  "cost": 3,
+  "limit": 10,
+  "mode": "light"
+ },
+ "hero_forestelf": {
+  "hp": 230,
+  "atk": 30,
+  "defense": 10,
+  "rate": 1.2,
+  "range": 145,
+  "speed": 74,
+  "cost": 3,
+  "limit": 10,
+  "mode": "roots"
+ },
+ "hero_darkelf": {
+  "hp": 230,
+  "atk": 30,
+  "defense": 10,
+  "rate": 1.2,
+  "range": 34,
+  "speed": 60,
+  "cost": 4,
+  "limit": 10,
+  "mode": "cleave"
+ },
+ "hero_fairy": {
+  "hp": 190,
+  "atk": 18,
+  "defense": 10,
+  "rate": 1.2,
+  "range": 145,
+  "speed": 74,
+  "cost": 4,
+  "limit": 10,
+  "mode": "heal"
+ },
+ "hero_ib_marshal": {
+  "hp": 280,
+  "atk": 30,
+  "defense": 22,
+  "rate": 1.2,
+  "range": 34,
+  "speed": 30,
+  "cost": 3,
+  "limit": 10,
+  "mode": "guard"
+ },
+ "hero_ib_shogun": {
+  "hp": 230,
+  "atk": 30,
+  "defense": 10,
+  "rate": 1.2,
+  "range": 62,
+  "speed": 49,
+  "cost": 3,
+  "limit": 10,
+  "mode": "cleave"
+ },
+ "hero_ib_jarl": {
+  "hp": 280,
+  "atk": 30,
+  "defense": 17,
+  "rate": 1.2,
+  "range": 34,
+  "speed": 49,
+  "cost": 3,
+  "limit": 10,
+  "mode": "slam"
+ },
+ "hero_ib_gunslinger": {
+  "hp": 230,
+  "atk": 25,
+  "defense": 10,
+  "rate": 1.2,
+  "range": 145,
+  "speed": 74,
+  "cost": 3,
+  "limit": 10,
+  "mode": "volley"
+ },
+ "hero_ib_piratequeen": {
+  "hp": 230,
+  "atk": 30,
+  "defense": 10,
+  "rate": 1.2,
+  "range": 62,
+  "speed": 30,
+  "cost": 3,
+  "limit": 10,
+  "mode": "cleave"
+ },
+ "hero_ib_oracle": {
+  "hp": 190,
+  "atk": 30,
+  "defense": 10,
+  "rate": 1.2,
+  "range": 145,
+  "speed": 30,
+  "cost": 3,
+  "limit": 10,
+  "mode": "light"
+ },
+ "hero_ib_hartlord": {
+  "hp": 230,
+  "atk": 30,
+  "defense": 10,
+  "rate": 1.2,
+  "range": 62,
+  "speed": 74,
+  "cost": 3,
+  "limit": 10,
+  "mode": "roots"
+ },
+ "hero_ib_wayfarer": {
+  "hp": 190,
+  "atk": 30,
+  "defense": 10,
+  "rate": 1.2,
+  "range": 34,
+  "speed": 49,
+  "cost": 4,
+  "limit": 10,
+  "mode": "light"
+ }
+}

@@ -15,6 +15,8 @@ const a = {}; process.argv.slice(2).forEach((v, i, arr) => { if (i % 2 === 0) a[
 const SEEDS = Number(a.seeds || 3), LEVELS = (a.levels || '0,2,F').split(','), FL = Number(a.fill || 0);
 
 const SB = Number(a.seedbase || 13);
+/* GJ_UNIT_OVERRIDES='{"hero_x":{"hp":300,"atk":40,"cost":4,"trigger":{"kind":"time","limit":7}}}' — só para calibração (não muda o jogo) */
+if (process.env.GJ_UNIT_OVERRIDES) for (const [id, o] of Object.entries(JSON.parse(process.env.GJ_UNIT_OVERRIDES))) Object.assign(G.BY[id], o);
 const R3 = globalThis.JourneyRelicsR3, TR = globalThis.JourneyTraits; let FORCE = null;
 { const oT = R3.traitCounts, oS = R3.statCounts;
   R3.traitCounts = function (b, counts) { oT.call(this, b, counts); if (FORCE) counts[0] = Object.assign({}, counts[0], FORCE); };
