@@ -1,0 +1,1 @@
+{"hero": "hero_goblin", "k": 1.863, "index": 1.149, "log": [[1.2, 0.991], [1.6, 1.087], [1.9065545653254063, 1.16], [1.8625523952596472, 1.149]], "stats": {"hp": 726, "atk": 39, "defense": 48, "rate": 1.38, "speed": 30, "crit": 0.03, "skillScale": 1.0, "cost": 4, "rarity": 3, "trigger": {"kind": "time", "limit": 7}}}

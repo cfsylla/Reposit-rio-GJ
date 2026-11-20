@@ -1,0 +1,1 @@
+{"hero": "hero_highelf", "k": 1.173, "index": 1.149, "log": [[1.2, 1.16], [1.6, 1.292], [1.172584113496692, 1.149]], "stats": {"hp": 293, "atk": 42, "defense": 19, "rate": 1.05, "speed": 49, "crit": 0.18, "skillScale": 1.0, "cost": 4, "rarity": 3, "trigger": {"kind": "time", "limit": 6}}}

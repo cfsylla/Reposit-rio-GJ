@@ -1,189 +1,274 @@
 {
- "hero_ib_gunslinger": {
-  "hp": 391,
-  "atk": 42,
-  "rate": 1.0,
-  "cost": 4,
-  "trigger": {
-   "kind": "time",
-   "limit": 7
-  },
-  "rarity": 3
- },
- "hero_ib_hartlord": {
-  "hp": 427,
-  "atk": 56,
-  "rate": 1.0,
-  "cost": 4,
-  "trigger": {
-   "kind": "time",
-   "limit": 7
-  },
-  "rarity": 3
- },
- "hero_ib_jarl": {
-  "hp": 520,
-  "atk": 56,
-  "rate": 1.0,
-  "cost": 4,
-  "trigger": {
-   "kind": "time",
-   "limit": 7
-  },
-  "rarity": 3
- },
  "hero_ib_marshal": {
-  "hp": 476,
-  "atk": 51,
-  "rate": 1.0,
+  "hp": 577,
+  "atk": 31,
+  "defense": 77,
+  "rate": 1.65,
+  "speed": 30,
+  "crit": 0.03,
+  "skillScale": 1.0,
   "cost": 4,
+  "rarity": 3,
   "trigger": {
    "kind": "time",
    "limit": 7
   },
-  "rarity": 3
- },
- "hero_ib_oracle": {
-  "hp": 323,
-  "atk": 51,
-  "rate": 1.0,
-  "cost": 4,
-  "trigger": {
-   "kind": "time",
-   "limit": 7
-  },
-  "rarity": 3
- },
- "hero_ib_piratequeen": {
-  "hp": 434,
-  "atk": 57,
-  "rate": 1.0,
-  "cost": 4,
-  "trigger": {
-   "kind": "time",
-   "limit": 7
-  },
-  "rarity": 3
- },
- "hero_ib_shogun": {
-  "hp": 455,
-  "atk": 59,
-  "rate": 1.0,
-  "cost": 4,
-  "trigger": {
-   "kind": "time",
-   "limit": 7
-  },
-  "rarity": 3
- },
- "hero_ib_wayfarer": {
-  "hp": 423,
-  "atk": 67,
-  "rate": 1.0,
-  "cost": 4,
-  "trigger": {
-   "kind": "time",
-   "limit": 7
-  },
-  "rarity": 3
- },
- "hero_darkelf": {
-  "hp": 447,
-  "atk": 58,
-  "rate": 1.0,
-  "cost": 4,
-  "trigger": {
-   "kind": "time",
-   "limit": 7
-  },
-  "rarity": 3
+  "mode": "guard"
  },
  "hero_goblin": {
-  "hp": 444,
-  "atk": 48,
-  "rate": 1.0,
+  "hp": 726,
+  "atk": 39,
+  "defense": 48,
+  "rate": 1.38,
+  "speed": 30,
+  "crit": 0.03,
+  "skillScale": 1.0,
   "cost": 4,
+  "rarity": 3,
   "trigger": {
    "kind": "time",
    "limit": 7
   },
-  "rarity": 3
+  "mode": "volley"
  },
- "hero_orc": {
-  "hp": 434,
-  "atk": 57,
-  "rate": 1.0,
+ "hero_ib_piratequeen": {
+  "hp": 431,
+  "atk": 63,
+  "defense": 51,
+  "rate": 1.65,
+  "speed": 30,
+  "crit": 0.08,
+  "skillScale": 1.0,
   "cost": 4,
+  "rarity": 3,
   "trigger": {
    "kind": "time",
    "limit": 7
   },
-  "rarity": 3
+  "mode": "cleave"
  },
  "hero_troll": {
-  "hp": 476,
+  "hp": 497,
+  "atk": 60,
+  "defense": 33,
+  "rate": 1.38,
+  "speed": 49,
+  "crit": 0.03,
+  "skillScale": 1.0,
+  "cost": 4,
+  "rarity": 3,
+  "trigger": {
+   "kind": "time",
+   "limit": 6
+  },
+  "mode": "slam"
+ },
+ "hero_ib_shogun": {
+  "hp": 470,
+  "atk": 57,
+  "defense": 46,
+  "rate": 1.38,
+  "speed": 49,
+  "crit": 0.12,
+  "skillScale": 1.0,
+  "cost": 4,
+  "rarity": 3,
+  "trigger": {
+   "kind": "time",
+   "limit": 6
+  },
+  "mode": "cleave"
+ },
+ "hero_orc": {
+  "hp": 457,
   "atk": 51,
-  "rate": 1.0,
+  "defense": 23,
+  "rate": 1.05,
+  "speed": 60,
+  "crit": 0.08,
+  "skillScale": 1.0,
   "cost": 4,
+  "rarity": 3,
   "trigger": {
    "kind": "time",
-   "limit": 7
+   "limit": 6
   },
-  "rarity": 3
+  "mode": "cleave"
  },
- "hero_centaur": {
-  "hp": 420,
-  "atk": 55,
-  "rate": 1.0,
+ "hero_ib_jarl": {
+  "hp": 435,
+  "atk": 63,
+  "defense": 45,
+  "rate": 1.38,
+  "speed": 49,
+  "crit": 0.12,
+  "skillScale": 1.0,
   "cost": 4,
+  "rarity": 3,
   "trigger": {
    "kind": "time",
-   "limit": 7
+   "limit": 6
   },
-  "rarity": 3
+  "mode": "slam"
  },
- "hero_fairy": {
-  "hp": 444,
-  "atk": 42,
-  "rate": 1.0,
+ "hero_ib_wayfarer": {
+  "hp": 435,
+  "atk": 82,
+  "defense": 28,
+  "rate": 1.38,
+  "speed": 49,
+  "crit": 0.12,
+  "skillScale": 1.0,
   "cost": 4,
+  "rarity": 3,
   "trigger": {
    "kind": "time",
-   "limit": 7
+   "limit": 6
   },
-  "rarity": 3
- },
- "hero_forestelf": {
-  "hp": 330,
-  "atk": 43,
-  "rate": 1.0,
-  "cost": 4,
-  "trigger": {
-   "kind": "time",
-   "limit": 7
-  },
-  "rarity": 3
- },
- "hero_highelf": {
-  "hp": 289,
-  "atk": 46,
-  "rate": 1.0,
-  "cost": 4,
-  "trigger": {
-   "kind": "time",
-   "limit": 7
-  },
-  "rarity": 3
+  "mode": "cleave"
  },
  "hero_meowri": {
-  "hp": 551,
-  "atk": 60,
-  "rate": 1.0,
+  "hp": 414,
+  "atk": 50,
+  "defense": 43,
+  "rate": 0.84,
+  "speed": 60,
+  "crit": 0.12,
+  "skillScale": 1.0,
   "cost": 4,
+  "rarity": 3,
   "trigger": {
    "kind": "time",
-   "limit": 7
+   "limit": 6
   },
-  "rarity": 3
+  "mode": "volley"
+ },
+ "hero_darkelf": {
+  "hp": 385,
+  "atk": 55,
+  "defense": 25,
+  "rate": 1.05,
+  "speed": 60,
+  "crit": 0.25,
+  "skillScale": 1.0,
+  "cost": 4,
+  "rarity": 3,
+  "trigger": {
+   "kind": "time",
+   "limit": 6
+  },
+  "mode": "cleave"
+ },
+ "hero_centaur": {
+  "hp": 432,
+  "atk": 49,
+  "defense": 35,
+  "rate": 1.05,
+  "speed": 74,
+  "crit": 0.12,
+  "skillScale": 1.0,
+  "cost": 4,
+  "rarity": 3,
+  "trigger": {
+   "kind": "time",
+   "limit": 6
+  },
+  "mode": "cleave"
+ },
+ "hero_ib_hartlord": {
+  "hp": 429,
+  "atk": 48,
+  "defense": 51,
+  "rate": 1.38,
+  "speed": 74,
+  "crit": 0.08,
+  "skillScale": 1.0,
+  "cost": 4,
+  "rarity": 3,
+  "trigger": {
+   "kind": "time",
+   "limit": 6
+  },
+  "mode": "roots"
+ },
+ "hero_ib_gunslinger": {
+  "hp": 365,
+  "atk": 41,
+  "defense": 30,
+  "rate": 1.05,
+  "speed": 74,
+  "crit": 0.18,
+  "skillScale": 1.0,
+  "cost": 4,
+  "rarity": 3,
+  "trigger": {
+   "kind": "time",
+   "limit": 6
+  },
+  "mode": "volley"
+ },
+ "hero_forestelf": {
+  "hp": 270,
+  "atk": 39,
+  "defense": 11,
+  "rate": 0.84,
+  "speed": 74,
+  "crit": 0.18,
+  "skillScale": 1.0,
+  "cost": 4,
+  "rarity": 3,
+  "trigger": {
+   "kind": "time",
+   "limit": 6
+  },
+  "mode": "roots"
+ },
+ "hero_highelf": {
+  "hp": 293,
+  "atk": 42,
+  "defense": 19,
+  "rate": 1.05,
+  "speed": 49,
+  "crit": 0.18,
+  "skillScale": 1.0,
+  "cost": 4,
+  "rarity": 3,
+  "trigger": {
+   "kind": "time",
+   "limit": 6
+  },
+  "mode": "light"
+ },
+ "hero_ib_oracle": {
+  "hp": 558,
+  "atk": 31,
+  "defense": 58,
+  "rate": 1.38,
+  "speed": 30,
+  "crit": 0.03,
+  "skillScale": 1.25,
+  "cost": 4,
+  "rarity": 3,
+  "trigger": {
+   "kind": "time",
+   "limit": 5
+  },
+  "mode": "light"
+ },
+ "hero_fairy": {
+  "hp": 481,
+  "atk": 33,
+  "defense": 19,
+  "rate": 1.05,
+  "speed": 74,
+  "crit": 0.03,
+  "skillScale": 1.0,
+  "cost": 4,
+  "rarity": 3,
+  "trigger": {
+   "kind": "time",
+   "limit": 5
+  },
+  "mode": "heal"
  }
 }

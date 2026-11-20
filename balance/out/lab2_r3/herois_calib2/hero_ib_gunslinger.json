@@ -1,0 +1,1 @@
+{"hero": "hero_ib_gunslinger", "k": 1.142, "index": 1.155, "log": [[1.2, 1.174], [1.6, 1.323], [1.14178343041785, 1.155]], "stats": {"hp": 365, "atk": 41, "defense": 30, "rate": 1.05, "speed": 74, "crit": 0.18, "skillScale": 1.0, "cost": 4, "rarity": 3, "trigger": {"kind": "time", "limit": 6}}}

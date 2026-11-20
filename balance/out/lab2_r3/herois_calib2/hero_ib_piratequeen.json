@@ -1,0 +1,1 @@
+{"hero": "hero_ib_piratequeen", "k": 1.345, "index": 1.145, "log": [[1.2, 1.096], [1.6, 1.237], [1.3453415949766936, 1.145]], "stats": {"hp": 431, "atk": 63, "defense": 51, "rate": 1.65, "speed": 30, "crit": 0.08, "skillScale": 1.0, "cost": 4, "rarity": 3, "trigger": {"kind": "time", "limit": 7}}}

@@ -1,0 +1,1 @@
+{"hero": "hero_meowri", "k": 1.655, "index": 1.141, "log": [[1.2, 1.033], [1.6, 1.129], [1.6983645726479826, 1.166], [1.6554976712753746, 1.141]], "stats": {"hp": 414, "atk": 50, "defense": 43, "rate": 0.84, "speed": 60, "crit": 0.12, "skillScale": 1.0, "cost": 4, "rarity": 3, "trigger": {"kind": "time", "limit": 6}}}

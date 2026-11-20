@@ -1,0 +1,1 @@
+{"hero": "hero_ib_shogun", "k": 1.205, "index": 1.153, "log": [[1.2, 1.16], [1.6, 1.328], [1.1781036476877085, 1.137], [1.2048037461535681, 1.153]], "stats": {"hp": 470, "atk": 57, "defense": 46, "rate": 1.38, "speed": 49, "crit": 0.12, "skillScale": 1.0, "cost": 4, "rarity": 3, "trigger": {"kind": "time", "limit": 6}}}

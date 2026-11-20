@@ -1,0 +1,1 @@
+{"hero": "hero_ib_wayfarer", "k": 1.742, "index": 1.151, "log": [[1.2, 1.024], [1.6, 1.12], [1.7417012430132772, 1.151]], "stats": {"hp": 435, "atk": 82, "defense": 28, "rate": 1.38, "speed": 49, "crit": 0.12, "skillScale": 1.0, "cost": 4, "rarity": 3, "trigger": {"kind": "time", "limit": 6}}}

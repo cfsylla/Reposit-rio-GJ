@@ -1,0 +1,1 @@
+{"hero": "hero_darkelf", "k": 1.538, "index": 1.143, "log": [[1.2, 1.054], [1.6, 1.166], [1.5382455750964952, 1.143]], "stats": {"hp": 385, "atk": 55, "defense": 25, "rate": 1.05, "speed": 60, "crit": 0.25, "skillScale": 1.0, "cost": 4, "rarity": 3, "trigger": {"kind": "time", "limit": 6}}}

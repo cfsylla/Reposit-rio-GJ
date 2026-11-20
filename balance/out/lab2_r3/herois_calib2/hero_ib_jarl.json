@@ -1,0 +1,1 @@
+{"hero": "hero_ib_jarl", "k": 1.741, "index": 1.147, "log": [[1.2, 1.02], [1.6, 1.106], [1.8379489081641822, 1.179], [1.7412924057939179, 1.147]], "stats": {"hp": 435, "atk": 63, "defense": 45, "rate": 1.38, "speed": 49, "crit": 0.12, "skillScale": 1.0, "cost": 4, "rarity": 3, "trigger": {"kind": "time", "limit": 6}}}

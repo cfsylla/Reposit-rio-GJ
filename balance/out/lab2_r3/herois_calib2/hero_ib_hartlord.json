@@ -1,0 +1,1 @@
+{"hero": "hero_ib_hartlord", "k": 1.341, "index": 1.145, "log": [[1.2, 1.104], [1.6, 1.255], [1.3151222724012832, 1.139], [1.3409263595952232, 1.145]], "stats": {"hp": 429, "atk": 48, "defense": 51, "rate": 1.38, "speed": 74, "crit": 0.08, "skillScale": 1.0, "cost": 4, "rarity": 3, "trigger": {"kind": "time", "limit": 6}}}

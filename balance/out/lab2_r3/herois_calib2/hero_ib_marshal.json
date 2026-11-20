@@ -1,0 +1,1 @@
+{"hero": "hero_ib_marshal", "k": 1.48, "index": 1.147, "log": [[1.2, 1.061], [1.6, 1.185], [1.4798957305546834, 1.147]], "stats": {"hp": 577, "atk": 31, "defense": 77, "rate": 1.65, "speed": 30, "crit": 0.03, "skillScale": 1.0, "cost": 4, "rarity": 3, "trigger": {"kind": "time", "limit": 7}}}

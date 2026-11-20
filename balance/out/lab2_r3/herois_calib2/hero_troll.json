@@ -1,0 +1,1 @@
+{"hero": "hero_troll", "k": 1.274, "index": 1.149, "log": [[1.2, 1.133], [1.6, 1.278], [1.2434608483931038, 1.137], [1.2743235653530731, 1.149]], "stats": {"hp": 497, "atk": 60, "defense": 33, "rate": 1.38, "speed": 49, "crit": 0.03, "skillScale": 1.0, "cost": 4, "rarity": 3, "trigger": {"kind": "time", "limit": 6}}}

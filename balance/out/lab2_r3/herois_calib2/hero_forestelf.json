@@ -1,0 +1,1 @@
+{"hero": "hero_forestelf", "k": 1.316, "index": 1.157, "log": [[1.2, 1.135], [1.6, 1.213], [1.270169378540172, 1.139], [1.315740221776993, 1.157]], "stats": {"hp": 270, "atk": 39, "defense": 11, "rate": 0.84, "speed": 74, "crit": 0.18, "skillScale": 1.0, "cost": 4, "rarity": 3, "trigger": {"kind": "time", "limit": 6}}}

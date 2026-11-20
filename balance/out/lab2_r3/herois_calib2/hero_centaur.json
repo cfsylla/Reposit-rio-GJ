@@ -1,0 +1,1 @@
+{"hero": "hero_centaur", "k": 1.35, "index": 1.145, "log": [[1.2, 1.1], [1.6, 1.226], [1.3501842335421355, 1.145]], "stats": {"hp": 432, "atk": 49, "defense": 35, "rate": 1.05, "speed": 74, "crit": 0.12, "skillScale": 1.0, "cost": 4, "rarity": 3, "trigger": {"kind": "time", "limit": 6}}}
