@@ -1,6 +1,6 @@
 # Raridades — lista final aprovada (Carlos, 20/11)
 
-Decisões: lista aprovada; quando os dados apontam 2 níveis, muda 2 níveis; Harpista e Fada das Flores baixam a raridade. Heróis: todos Ultra (sem mudança de raridade; revisão de atributos à parte).
+Decisões: lista aprovada; quando os dados apontam 2 níveis, muda 2 níveis; Harpista e Fada das Flores baixam a raridade (Harpista fica Incomum, decisão do Carlos). Heróis: todos Ultra (sem mudança de raridade; revisão de atributos à parte).
 
 | Grupo | Personagem | ID | Custo | Antes | **Depois** | Preço (◇) |
 |---|---|---|---|---|---|---|
@@ -27,6 +27,6 @@ Decisões: lista aprovada; quando os dados apontam 2 níveis, muda 2 níveis; Ha
 | Dawncrest | Arqueiro Alto Elfo | `elf_archer` | 2 | Comum | **Incomum** | 10 → 15 |
 | Dawncrest | Lutador Meowri | `feline_fighter` | 2 | Comum | **Incomum** | 10 → 15 |
 | Dawncrest | Fada das Flores | `flower_fairy` | 3 | Rara | **Comum** | 20 → 10 |
-| Dawncrest | Harpista Alta Elfa | `elf_harpist` | 4 | Ultra | **Comum** | 25 → 10 |
+| Dawncrest | Harpista Alta Elfa | `elf_harpist` | 4 | Ultra | **Incomum** | 25 → 15 |
 
-24 mudanças. Distribuição dos 77 personagens: antes 24/28/21/4, depois 25/30/17/5 (comum/incomum/rara/ultra).
+24 mudanças. Distribuição dos 77 personagens: antes 24/28/21/4, depois 24/31/17/5 (comum/incomum/rara/ultra).
