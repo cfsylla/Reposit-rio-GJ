@@ -1,0 +1,1 @@
+{"hero": "hero_ib_oracle", "skillScale": 3.946, "index": 1.157, "log": [[1.5, 1.005], [2.5, 1.058], [5.726322572341928, 1.231], [3.9455645562115853, 1.157]], "stats": {"hp": 300, "atk": 17, "defense": 31, "rate": 1.38, "speed": 30, "crit": 0.03, "skillScale": 3.946, "cost": 4, "rarity": 3, "trigger": {"kind": "time", "limit": 4}}}

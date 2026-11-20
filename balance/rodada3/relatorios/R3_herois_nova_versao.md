@@ -21,11 +21,17 @@ Calibração: vida, ataque e defesa do perfil × fator do herói, até o índice
 | Frontier Legend | Atirador | volley | 365 | 41 | 30 | 1.05 | 74 | 18% | 6 | — | ×1.14 | 0.98 → **1.16** |
 | Forest Elf King | Atirador | roots | 270 | 39 | 11 | 0.84 | 74 | 18% | 6 | — | ×1.32 | 1.02 → **1.16** |
 | High Elf King | Atirador | light | 293 | 42 | 19 | 1.05 | 49 | 18% | 6 | — | ×1.17 | 0.99 → **1.15** |
-| Grand Oracle | Suporte | light | 558 | 31 | 58 | 1.38 | 30 | 3% | 5 | +25% | ×2.23 | 0.97 → **1.14** |
-| Fairy Queen | Suporte | heal | 481 | 33 | 19 | 1.05 | 74 | 3% | 5 | — | ×2.35 | 0.97 → **1.15** |
+| Grand Oracle | Suporte | light | 300 | 17 | 31 | 1.38 | 30 | 3% | **4** | **×3.95** | ×1,20 | 0.97 → **1.16** |
+| Fairy Queen | Suporte | heal | 246 | 17 | 10 | 1.05 | 74 | 3% | **4** | **×2.26** | ×1,20 | 0.97 → **1.16** |
 
-## Ponto de atenção: suportes
-Grand Oracle e Fairy Queen precisaram de fator ×2,2–2,3 (o ataque baixo deles quase não conta no laboratório). Com isso viraram os mais resistentes da lista (Oracle 558 de vida e 58 de defesa), o que foge do papel de suporte.
-Alternativa: manter vida e defesa do perfil (fator ~1,2) e colocar o orçamento na **habilidade** (cura e escudo maiores, carga menor). Precisa de decisão do Carlos e de nova calibração só para os dois.
+## Suportes: força na habilidade (alternativa aprovada pelo Carlos)
+Grand Oracle e Fairy Queen mantêm vida, ataque e defesa do perfil × 1,2 e carga de **4 s**; o resto da força vai para o **poder da habilidade** (multiplica cura, escudo e golpe), calibrado até o índice 1,15.
 
-Dados: `balance/out/lab2_r3/herois_calib2/`. Defesa, alcance e velocidade de movimento seguem o perfil; ID e versões de boss inalterados.
+| Herói | Habilidade (a cada 4 s) | Hoje (carta) | Nova |
+|---|---|---|---|
+| Grand Oracle | golpe de 160% ATQ + cura o aliado mais ferido | cura 8% da vida máxima dele | golpe ≈ 6.3× ATQ e cura **32%** da vida máxima |
+| Fairy Queen | cura e dá escudo nos 2 aliados mais feridos | 10% de cura + escudo de 10% (4 s) | **23%** de cura + escudo de **23%** (4 s) |
+
+Na coluna "Poder da hab." da tabela, o valor é o multiplicador aplicado ao efeito-base da habilidade.
+
+Dados: `balance/out/lab2_r3/herois_calib2/` e `herois_calib3/`. Defesa, alcance e velocidade de movimento seguem o perfil; ID e versões de boss inalterados.

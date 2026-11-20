@@ -240,34 +240,34 @@
   "mode": "light"
  },
  "hero_ib_oracle": {
-  "hp": 558,
-  "atk": 31,
-  "defense": 58,
+  "hp": 300,
+  "atk": 17,
+  "defense": 31,
   "rate": 1.38,
   "speed": 30,
   "crit": 0.03,
-  "skillScale": 1.25,
+  "skillScale": 3.946,
   "cost": 4,
   "rarity": 3,
   "trigger": {
    "kind": "time",
-   "limit": 5
+   "limit": 4
   },
   "mode": "light"
  },
  "hero_fairy": {
-  "hp": 481,
-  "atk": 33,
-  "defense": 19,
+  "hp": 246,
+  "atk": 17,
+  "defense": 10,
   "rate": 1.05,
   "speed": 74,
   "crit": 0.03,
-  "skillScale": 1.0,
+  "skillScale": 2.256,
   "cost": 4,
   "rarity": 3,
   "trigger": {
    "kind": "time",
-   "limit": 5
+   "limit": 4
   },
   "mode": "heal"
  }

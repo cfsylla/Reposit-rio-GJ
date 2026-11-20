@@ -1,0 +1,1 @@
+{"hero": "hero_fairy", "skillScale": 2.256, "index": 1.155, "log": [[1.5, 1.096], [2.5, 1.164], [2.2560258030320224, 1.155]], "stats": {"hp": 246, "atk": 17, "defense": 10, "rate": 1.05, "speed": 74, "crit": 0.03, "skillScale": 2.256, "cost": 4, "rarity": 3, "trigger": {"kind": "time", "limit": 4}}}
