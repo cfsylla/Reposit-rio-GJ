@@ -1,0 +1,17 @@
+hero_goblin
+hero_troll
+hero_orc
+hero_meowri
+hero_centaur
+hero_highelf
+hero_forestelf
+hero_darkelf
+hero_fairy
+hero_ib_marshal
+hero_ib_shogun
+hero_ib_jarl
+hero_ib_gunslinger
+hero_ib_piratequeen
+hero_ib_oracle
+hero_ib_hartlord
+hero_ib_wayfarer
