@@ -54,12 +54,13 @@ ws.column_dimensions['A'].width = 150
 
 # --- Cartas
 ws = wb.create_sheet('Ranking')
-H = ['Pos. geral', 'Pos. no grupo', 'Grupo', 'Personagem', 'Nome PT', 'ID', 'Facção/raça', 'Atributo', 'Temperamento',
+H = ['Pos. geral', 'Pos. no grupo', 'Grupo', 'Personagem', 'Índice L0', 'Índice esperado', 'Vs curva', 'Nome PT', 'ID', 'Facção/raça', 'Atributo', 'Temperamento',
      'Custo (energia)', 'Raridade', 'Vida', 'Ataque', 'Defesa', 'Intervalo de ataque (s)', 'Velocidade', 'Crítico', 'Alcance', 'Alcance (rótulo)', 'Área', 'Área (rótulo)',
      'Habilidade', 'Tipo', 'Carga da habilidade (s)', 'Descrição da habilidade',
-     'Índice L0', 'Índice L1', 'Índice L2', 'Índice fundido',
+     'Índice L1', 'Índice L2', 'Índice fundido',
      'Trait 1 · 1º patamar', 'Trait 1 · 2º patamar', 'Trait 2 · 1º patamar', 'Trait 2 · 2º patamar', 'Trait 3 · 1º patamar', 'Trait 3 · 2º patamar',
-     'Todos os traits · 1º patamar', 'Todos os traits · 2º patamar', 'Índice esperado', 'Vs curva']
+     'Todos os traits · 1º patamar', 'Todos os traits · 2º patamar']
+IDX = ['Índice L0', 'Índice esperado', 'Índice L1', 'Índice L2', 'Índice fundido'] + [h for h in H if 'patamar' in h]
 for j, h in enumerate(H, 1):
     c = ws.cell(row=1, column=j, value=h); c.font = hdr_font; c.fill = hdr_fill; c.alignment = Alignment(wrap_text=True, vertical='center')
 col = {h: get_column_letter(j) for j, h in enumerate(H, 1)}
@@ -72,23 +73,28 @@ for r, i in enumerate(rows, 2):
         if not tn or not traits.get(tn, {}).get('thr'): return None
         return x.get(f"T:{tn}:{traits[tn]['thr'][lvl]}")
     trig = c.get('trigger') or {}
-    vals = [None, None, c['grp'], c['name'], c['namePT'], i, t[0], t[1], t[2], c['cost'], RAR[c['rarity']], c['hp'], c['atk'], c['def'], c['rate'], c['speed'], c['crit'], c['range'], c['rangeLabel'], c['area'], c['areaLabel'],
-            c['ability'], 'ativa' if c['kind'] == 'active' else 'passiva', trig.get('limit'), c['detailPT'] or c['detail'],
-            x.get('L0'), x.get('L1'), x.get('L2'), x.get('F'), tv(0, 0), tv(0, 1), tv(1, 0), tv(1, 1), tv(2, 0), tv(2, 1), x.get('ALL:1'), x.get('ALL:2')]
-    for j, v in enumerate(vals, 1):
-        cell = ws.cell(row=r, column=j, value=v); cell.font = body
+    vals = {'Grupo': c['grp'], 'Personagem': c['name'], 'Nome PT': c['namePT'], 'ID': i, 'Facção/raça': t[0], 'Atributo': t[1], 'Temperamento': t[2],
+            'Custo (energia)': c['cost'], 'Raridade': RAR[c['rarity']], 'Vida': c['hp'], 'Ataque': c['atk'], 'Defesa': c['def'], 'Intervalo de ataque (s)': c['rate'],
+            'Velocidade': c['speed'], 'Crítico': c['crit'], 'Alcance': c['range'], 'Alcance (rótulo)': c['rangeLabel'], 'Área': c['area'], 'Área (rótulo)': c['areaLabel'],
+            'Habilidade': c['ability'], 'Tipo': 'ativa' if c['kind'] == 'active' else 'passiva', 'Carga da habilidade (s)': trig.get('limit'),
+            'Descrição da habilidade': c['detailPT'] or c['detail'], 'Índice L0': x.get('L0'), 'Índice L1': x.get('L1'), 'Índice L2': x.get('L2'), 'Índice fundido': x.get('F'),
+            'Trait 1 · 1º patamar': tv(0, 0), 'Trait 1 · 2º patamar': tv(0, 1), 'Trait 2 · 1º patamar': tv(1, 0), 'Trait 2 · 2º patamar': tv(1, 1),
+            'Trait 3 · 1º patamar': tv(2, 0), 'Trait 3 · 2º patamar': tv(2, 1), 'Todos os traits · 1º patamar': x.get('ALL:1'), 'Todos os traits · 2º patamar': x.get('ALL:2')}
+    for h in H:
+        cell = ws[f"{col[h]}{r}"]; cell.font = body
+        if h in vals: cell.value = vals[h]
     L0 = f"{col['Índice L0']}{r}"
     ws[f"{col['Pos. geral']}{r}"] = f"=RANK({L0},${col['Índice L0']}$2:${col['Índice L0']}${last})"
     ws[f"{col['Pos. no grupo']}{r}"] = f"=COUNTIFS(${col['Grupo']}$2:${col['Grupo']}${last},{col['Grupo']}{r},${col['Índice L0']}$2:${col['Índice L0']}${last},\">\"&{L0})+1"
     ws[f"{col['Índice esperado']}{r}"] = f"=1+0.04*({col['Custo (energia)']}{r}-2)+0.02*MATCH({col['Raridade']}{r},{{\"Comum\",\"Incomum\",\"Rara\",\"Ultra\"}},0)-0.02"
     ws[f"{col['Vs curva']}{r}"] = f"={L0}-{col['Índice esperado']}{r}"
     for h in ('Pos. geral', 'Pos. no grupo', 'Índice esperado', 'Vs curva'): ws[f"{col[h]}{r}"].font = body
-    for h in H[25:39]: ws[f"{col[h]}{r}"].number_format = '0.00'
+    for h in IDX: ws[f"{col[h]}{r}"].number_format = '0.00'
     ws[f"{col['Vs curva']}{r}"].number_format = '+0.00;-0.00;0.00'
     ws[f"{col['Crítico']}{r}"].number_format = '0%'
 widths = {'Personagem': 18, 'Nome PT': 18, 'ID': 18, 'Habilidade': 22, 'Descrição da habilidade': 60, 'Grupo': 12, 'Facção/raça': 16, 'Atributo': 13, 'Temperamento': 13}
 for h, L in col.items(): ws.column_dimensions[L].width = widths.get(h, 11)
-ws.row_dimensions[1].height = 45; ws.freeze_panes = 'E2'; ws.auto_filter.ref = f"A1:{get_column_letter(len(H))}{last}"
+ws.row_dimensions[1].height = 45; ws.freeze_panes = 'H2'; ws.auto_filter.ref = f"A1:{get_column_letter(len(H))}{last}"
 ws[f"{col['Índice esperado']}1"].comment = Comment('Curva de força do CP1: 1 + 0,04 × (custo − 2) + 0,02 × raridade (Comum 0, Incomum 1, Rara 2, Ultra 3).', 'Claude')
 
 # --- Traits
