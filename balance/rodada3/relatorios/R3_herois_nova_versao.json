@@ -1,0 +1,189 @@
+{
+ "hero_ib_gunslinger": {
+  "hp": 391,
+  "atk": 42,
+  "rate": 1.0,
+  "cost": 4,
+  "trigger": {
+   "kind": "time",
+   "limit": 7
+  },
+  "rarity": 3
+ },
+ "hero_ib_hartlord": {
+  "hp": 427,
+  "atk": 56,
+  "rate": 1.0,
+  "cost": 4,
+  "trigger": {
+   "kind": "time",
+   "limit": 7
+  },
+  "rarity": 3
+ },
+ "hero_ib_jarl": {
+  "hp": 520,
+  "atk": 56,
+  "rate": 1.0,
+  "cost": 4,
+  "trigger": {
+   "kind": "time",
+   "limit": 7
+  },
+  "rarity": 3
+ },
+ "hero_ib_marshal": {
+  "hp": 476,
+  "atk": 51,
+  "rate": 1.0,
+  "cost": 4,
+  "trigger": {
+   "kind": "time",
+   "limit": 7
+  },
+  "rarity": 3
+ },
+ "hero_ib_oracle": {
+  "hp": 323,
+  "atk": 51,
+  "rate": 1.0,
+  "cost": 4,
+  "trigger": {
+   "kind": "time",
+   "limit": 7
+  },
+  "rarity": 3
+ },
+ "hero_ib_piratequeen": {
+  "hp": 434,
+  "atk": 57,
+  "rate": 1.0,
+  "cost": 4,
+  "trigger": {
+   "kind": "time",
+   "limit": 7
+  },
+  "rarity": 3
+ },
+ "hero_ib_shogun": {
+  "hp": 455,
+  "atk": 59,
+  "rate": 1.0,
+  "cost": 4,
+  "trigger": {
+   "kind": "time",
+   "limit": 7
+  },
+  "rarity": 3
+ },
+ "hero_ib_wayfarer": {
+  "hp": 423,
+  "atk": 67,
+  "rate": 1.0,
+  "cost": 4,
+  "trigger": {
+   "kind": "time",
+   "limit": 7
+  },
+  "rarity": 3
+ },
+ "hero_darkelf": {
+  "hp": 447,
+  "atk": 58,
+  "rate": 1.0,
+  "cost": 4,
+  "trigger": {
+   "kind": "time",
+   "limit": 7
+  },
+  "rarity": 3
+ },
+ "hero_goblin": {
+  "hp": 444,
+  "atk": 48,
+  "rate": 1.0,
+  "cost": 4,
+  "trigger": {
+   "kind": "time",
+   "limit": 7
+  },
+  "rarity": 3
+ },
+ "hero_orc": {
+  "hp": 434,
+  "atk": 57,
+  "rate": 1.0,
+  "cost": 4,
+  "trigger": {
+   "kind": "time",
+   "limit": 7
+  },
+  "rarity": 3
+ },
+ "hero_troll": {
+  "hp": 476,
+  "atk": 51,
+  "rate": 1.0,
+  "cost": 4,
+  "trigger": {
+   "kind": "time",
+   "limit": 7
+  },
+  "rarity": 3
+ },
+ "hero_centaur": {
+  "hp": 420,
+  "atk": 55,
+  "rate": 1.0,
+  "cost": 4,
+  "trigger": {
+   "kind": "time",
+   "limit": 7
+  },
+  "rarity": 3
+ },
+ "hero_fairy": {
+  "hp": 444,
+  "atk": 42,
+  "rate": 1.0,
+  "cost": 4,
+  "trigger": {
+   "kind": "time",
+   "limit": 7
+  },
+  "rarity": 3
+ },
+ "hero_forestelf": {
+  "hp": 330,
+  "atk": 43,
+  "rate": 1.0,
+  "cost": 4,
+  "trigger": {
+   "kind": "time",
+   "limit": 7
+  },
+  "rarity": 3
+ },
+ "hero_highelf": {
+  "hp": 289,
+  "atk": 46,
+  "rate": 1.0,
+  "cost": 4,
+  "trigger": {
+   "kind": "time",
+   "limit": 7
+  },
+  "rarity": 3
+ },
+ "hero_meowri": {
+  "hp": 551,
+  "atk": 60,
+  "rate": 1.0,
+  "cost": 4,
+  "trigger": {
+   "kind": "time",
+   "limit": 7
+  },
+  "rarity": 3
+ }
+}
