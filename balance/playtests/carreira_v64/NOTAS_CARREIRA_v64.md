@@ -8,6 +8,7 @@ Só registro dos saves. Nenhuma análise ou simulação foi feita.
 | 2 | 20/11 | Balanced | — | derrota | boss do mapa 1 (Orc Emperor, Blackfang), 2×4 | 15 | 3 nós comprados (XP 10 ganho / 8 gasto / 2 perdido) | 52 | 10 (+1 bônus; saldo 36) |
 | 3 | 20/11 | Blades | — | derrota | raid do mapa 1 (Lich Lord, Monstros, camada 9), 0×5 | 10 | 3 nós (XP 7 ganho / 0 gasto / 7 perdido) | 50 | 7 (+1 bônus; saldo 45) |
 | 4 | 20/11 | Outlaws | — | derrota | boss do mapa 2 (Ancient Dragon, Monstros), 0×5 | 30 | 8 nós (XP 42 ganho / 40 gasto / 2 perdido) | 38 | 28 (+3 bônus; saldo 77) |
+| 5 | 20/11 | Executioners | — | **vitória de capítulo** (libera o mapa 3) | boss do mapa 2 (Goblin King, Blackfang), 4×3 | 30 | 12 nós (XP 48 ganho / 48 gasto / 0 perdido) | 271 | 30 (+4 bônus; saldo 110) |
 
 **Run 1:**
 - Rota Dawncrest: Woodlands e Felines.
@@ -38,5 +39,13 @@ Só registro dos saves. Nenhuma análise ou simulação foi feita.
 - Relíquias no fim: precision, bell, scope, execution, fang.
 - Marcos: shop_relics_two, spender_100, boss_blackfang_map1 e xp_forty.
 - Liberado: booster Sharpshooters; relíquias Heart, Merchant, Profane Idol e Grimoire; cartas Swordsman e Warrior.
+
+**Run 5:**
+- Blackfang nos mapas 1 e 2: venceu os bosses Troll e Goblin King.
+- 18 lutas, 5 elites, 13 vitórias sem perder round, 4 recrutamentos.
+- Só 24 de ouro gasto: terminou com 271 guardados.
+- Relíquias no fim: bell, scope, plating, chain, quickstart.
+- Marcos: recruit_three, map2boss e boss_blackfang_map2.
+- Liberado: decks Corsair e Keen; relíquias Scope e Bell; carta Miner. Mapa 3.
 
 **Observação:** o campo `build` dos saves diz `v57-R3`, embora a carreira seja da v64. Pode ser só o rótulo do build que não foi atualizado. Conferir com o ChatGPT.
