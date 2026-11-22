@@ -87,3 +87,12 @@ Atualizado em 22/11/2026 (2ª rodada de decisões). Chat dedicado ao endgame.
 - **Emboscada** (antes "Primeiro Golpe": na 1ª rodada de cada confronto, exceto bosses, o inimigo coloca 1 unidade a menos): **entra no catálogo** no lugar da Final Union (pode ser forte; os testes vão dizer).
 - **Final Union** (antes "Pureza"): patamar extra das traits, com efeito visual marcante (o símbolo da trait aparece no início da rodada; se várias ativarem, uma depois da outra). **Fica para depois**, precisa amadurecer. Motivos: só 2 facções têm 6 personagens recrutáveis (Fada 1, Orc e Centauro 3, Wild West, Troll e Forest Elf 4, outras 6 facções 5), e 6 personagens em campo só existem na 5ª rodada. Regra estudada: ≥ 4 personagens diferentes e todo o campo com a trait (relíquias de trait contam +1); força = patamar de 4 × 1,3.
 - **Catálogo: 18 vantagens** = 15 atuais + Troféu de Boss + Vitória Limpa + Emboscada. Nada rodado ainda.
+## 11. Vantagens atuais: revisão (22/11)
+| Vantagem | Hoje | Novo |
+|---|---|---|
+| Preparação Flexível | 1 renovação grátis da mão por rodada | **1 renovação grátis da mão por confronto** |
+| Bolsa Cheia | +20 de ouro inicial | **+40 de ouro inicial** |
+| Segunda Chance | 1 vez por run, perder um confronto (exceto boss) repete só a última rodada; o inimigo perde 1 ponto | **1 vez por run, perder um confronto (inclusive boss) dá mais uma rodada**: o limite de derrotas sobe em 1 (ex.: elite em x:3 joga até perder a 4ª). Aparece na tela "Segunda Chance" |
+| Limpeza | 1 remoção grátis na 1ª loja de cada mapa | **1 remoção grátis em cada loja** |
+| Olho Treinado | 1 renovação grátis em toda escolha de relíquia | **1 renovação grátis em toda escolha de relíquia e de recrutamento** |
+Nada rodado ainda.
