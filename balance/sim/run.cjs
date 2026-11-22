@@ -107,6 +107,13 @@ function doShop(s, pol, rec) {
   }
   // curses removal if any
   for (const c of s.cards.filter(Pol.isCurse)) { const p = G.price(s, 'remove', c.uid); if (s.gold >= p && G.shopService(s, 'remove', c.uid)) spend('removeCurse', p); }
+  // Limpeza (remoção grátis): sem maldição para tirar, remove a carta de menor sinergia entre os personagens com menos de 3 cópias
+  // (menos cópias, menor valor, sem upgrade), mantendo pelo menos 8 cartas no deck.
+  if (G.price(s, 'remove', s.cards[0]?.uid) === 0 && s.cards.filter(c => !Pol.isCurse(c)).length > 8) {
+    const cand = s.cards.filter(c => !Pol.isCurse(c) && c.level === 0 && G.copies(s, c.type) < 3)
+      .sort((x, y) => (G.copies(s, x.type) * 10 + Pol.baseValue(x) / 10) - (G.copies(s, y.type) * 10 + Pol.baseValue(y) / 10));
+    if (cand.length && G.shopService(s, 'remove', cand[0].uid)) spend('removeFree', 0);
+  }
 }
 
 function fillSelection(s) {
