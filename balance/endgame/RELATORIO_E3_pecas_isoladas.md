@@ -61,3 +61,29 @@ Comparação por tipo de luta (`balance/endgame/calib/comparar.py`): % de lutas 
 - Nas raids, você perde mais que o simulador (com 0 a 9 nós: 25% contra 4%).
 - **Amostra humana pequena:** de 1 a 12 lutas por célula. Serve como ordem de grandeza.
 - **Repetição das lutas reais:** não é viável, porque os saves não guardam quais unidades estavam fundidas.
+
+## 4. Etapa 3b: ajuste de valores (dentro dos conceitos aprovados)
+Mesmo método (20 nós, 480 runs pareadas cada). Dados em `balance/out/endgame/e3b_ref/`.
+
+| Peça | Valor testado | Efeito | Margem | Leitura |
+|---|---|---|---|---|
+| Reforços Inimigos | desde a 1ª rodada (atual) | −36,9 | ±4,6 | forte demais |
+| | a partir da 2ª rodada | −28,5 | ±4,6 | forte demais |
+| | a partir da 3ª rodada | −17,5 | ±4,0 | forte demais |
+| | **a partir da 4ª rodada** | **−5,8** | ±2,2 | **na meta** (usado na etapa 4) |
+| Fadiga da Jornada | −6% / −5% / −4% | −27,9 / −23,5 / −17,1 | ±4 | fortes demais |
+| | −3% | −11,7 | ±3,6 | limite da exceção |
+| | **−2%** | **−6,7** | ±3,4 | **na meta** |
+| Menos Apoio no Mapa | 1 camada por mapa | +0,2 | ±5,4 | ≈ 0 |
+| | **2 camadas por mapa** | **−11,5** | ±5,4 | **exceção (−3 a −12)** |
+| Mais Elites no Mapa | 2 camadas | +4,4 | ±5,7 | ≈ 0 |
+| | 3 camadas | −0,2 | ±5,6 | ≈ 0 |
+| Relíquias Amaldiçoadas | 33% / 50% / 66% | +4,0 / +4,0 / +0,6 | ±5–6 | ≈ 0 em todas |
+
+**Leitura:**
+- **Reforços:** com 1 unidade a mais desde a 1ª rodada, o desafio é o mais forte do jogo. "A partir da 4ª rodada" só aparece nas lutas apertadas (a vitória é com 3). Fica na meta, mas muda a sensação do desafio. Alternativa a decidir: valer só em elites.
+- **Fadiga:** a faixa que você pediu (−4% a −6%) dá −17 a −28 no simulador. **−2% fica na meta.** Lembrando que você vale cerca de 5 nós a mais que o simulador e deve sentir menos.
+- **Menos Apoio:** 2 camadas por mapa entram na faixa.
+- **Mais Elites e Relíquias Amaldiçoadas não pesam para o simulador** em nenhum valor testado. É provável que pesem mais para um humano (escolha de rota; Fardo e Correntes ocupam a mão). Opções para decidir:
+  - **Mais Elites:** manter e avaliar em playtest; ou dar às elites convertidas a força das ordens (×1,12), o que mudaria o conceito;
+  - **Relíquias Amaldiçoadas:** incluir Exaustão no sorteio (hoje fora por decisão sua) ou validar em playtest.
