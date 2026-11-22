@@ -277,5 +277,6 @@ Multiplicador de vida e ataque dos inimigos por barreira, nos mapas 1 / 2 / 3:
 | Review R3 de progressão | `review_R3_progressao/` (documento principal e anexos A a D) |
 | Review R3 de cartas | `review_R3_cartas/` |
 | Ranking, raridades e heróis | `rodada3/relatorios/R3_ranking_personagens_lab2.xlsx`, `R3_proposta_raridades.md`, `R3_raridades_final.md`, `R3_herois_nova_versao.md` |
+| Análise de todas as campanhas (para endgame e economia) | `rodada3/relatorios/R3_playtests_campanhas.md` e `.xlsx` |
 | Playtests | `rodada3/relatorios/R3_playtests_CP4_runs1-11.md`, `R3_carreira_v57_runs1-9.md`; saves em `playtests/carreira_v57_R3/` e `playtests/carreira_v58/` |
 | Desafios e Vantagens | `rodada3/relatorios/R3_desafios_vantagens.pdf`, `BRIEFING_CHATGPT_DESAFIOS_VANTAGENS.md` |
