@@ -50,7 +50,11 @@ Atualizado em 22/11/2026 (2ª rodada de decisões). Chat dedicado ao endgame.
 - **Derrota Custa Ouro:** **−33% do ouro da vitória por rodada perdida**, em qualquer luta. Se a perda chegar a 100% ou mais, o ouro da vitória vai a zero. Exemplos: 3×1 perde 33%; 3×2 e 4×2 perdem 66%; 4×3 zera.
 - **Loja com Menos Opções:** confirmada. 2 recrutas e 1 relíquia, também depois do refresh.
 
-## 5. Pontos ainda abertos
-1. **Mais Elites:** sortear as 2 camadas entre as de batalhas simples? Evitar 2 camadas vizinhas? Excluir a camada logo antes do boss?
-2. **Derrota Custa Ouro:** a perda vale só para o ouro base da vitória ou também para bônus como o do Caçador de Elites? Raids e forma 2 do True Boss contam cada derrota como rodada perdida?
-3. **Catálogo:** são 15 desafios + 7 candidatos = 22 peças. Os 15 finais (e os blocos) saem depois da medição.
+## 5. Decisões da 3ª rodada (22/11)
+- **Mais Elites:** as 2 camadas são sorteadas entre as camadas de batalhas simples, **sem camadas vizinhas** e **sem a camada logo antes do boss**.
+- **Derrota Custa Ouro:**
+  - a perda vale **só para o ouro base da vitória**. Bônus como o do Caçador de Elites não são afetados;
+  - nas raids e na forma 2 do True Boss, **cada derrota conta como rodada perdida**.
+
+## 6. Pontos ainda abertos
+1. **Catálogo:** são 15 desafios + 7 candidatos = 22 peças. Os 15 finais (e os blocos) saem depois da medição.
