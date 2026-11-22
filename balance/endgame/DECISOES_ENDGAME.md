@@ -1,7 +1,7 @@
 # Endgame: decisões e especificação dos Desafios da Jornada
 
-Atualizado em 22/11/2026. Chat dedicado ao endgame.
-**Nada foi simulado nem alterado no jogo.** Aguardando o pacote do jogo atualizado, enviado pelo ChatGPT, para montar a base de medição.
+Atualizado em 22/11/2026 (2ª rodada de decisões). Chat dedicado ao endgame.
+**Nada foi simulado nem alterado no jogo.** A base de medição é a **v65** (pacote leve do ChatGPT, commit `b0e45f18`), guardada em `game_v65/`.
 
 ## 1. Ponto de partida do endgame (decisão do Carlos)
 - **O endgame começa na 1ª vitória:** run 7 a 11, árvore com **17 a 21 nós** (cerca de 1/3 dos 60 nós).
@@ -33,11 +33,24 @@ Atualizado em 22/11/2026. Chat dedicado ao endgame.
 | **Loja com Menos Opções** | A loja mostra **2 recrutas e 1 relíquia** (hoje: 3 e 2) |
 | **Derrota Custa Ouro** (revisto) | A perda de rodadas reduz o ouro da vitória: vencer por 3×1 perde 33% do ouro da luta; por 3×2, 66% |
 
-## 4. Pontos abertos (para decisão)
-1. **Mais Elites:** sortear as 2 camadas entre as batalhas elegíveis? Evitar 2 camadas vizinhas? Excluir as camadas com nós de ordem e a camada logo antes do boss?
-2. **Mais Elites + Menos Apoio:** as camadas de apoio convertidas em batalha podem virar elite?
-3. **Relíquias Amaldiçoadas + Ídolo profano:** as maldições do desafio contam para o bônus do Ídolo?
-4. **Debuff no jogador:** nome novo e valor (hipótese de teste: 4% a 6% nos 4 atributos).
-5. **Decks Reforçados:** método (troca das cartas mais fracas pelo ranking `lab2`, ajuste de cópias para fusão, ou listas feitas à mão), o que fazer com os bosses de ordem (time com 4 cópias) e como mostrar na tela.
-6. **Derrota Custa Ouro:** regra nos bosses (vitória com 4) e nas raids (limite de 5 derrotas). Proposta: perda = rodadas perdidas ÷ rodadas necessárias para vencer. Decidir se vale só para o ouro base da vitória ou também para os bônus (por exemplo, Caçador de Elites).
-7. **Catálogo:** são 15 desafios + 7 candidatos = 22 peças. Os 15 finais saem depois da medição.
+## 4. Decisões da 2ª rodada (22/11)
+- **Começo do endgame:** considerar liberar os desafios **em blocos**, misturando fáceis e difíceis para manter o ritmo. O passo da escala (1% ou 3%) será decidido depois da medição.
+- **Mais Elites:**
+  - só **batalhas simples** viram elite. Ordens não são batalhas normais e ficam fora;
+  - XP e drops a mais são aceitos: **mais risco, mais recompensa** (o jogador também pode perder a run).
+- **Mais Elites + Menos Apoio:** as camadas de apoio convertidas em batalha **podem virar elite**.
+- **Ídolo profano + Relíquias Amaldiçoadas:** as maldições do desafio **contam** para o Ídolo (mais risco, mais recompensa).
+- **Fadiga da Jornada** (novo nome do debuff no jogador): testar de **−4% a −6%** em ataque, vida, defesa e velocidade de ataque.
+- **Decks Reforçados:**
+  - regra para teste: as 2 cartas mais fracas do deck (pelo ranking `lab2`) saem, e entram as 2 mais fortes da mesma facção ou trait que não estão no deck;
+  - medir quanto o deck fica mais forte; ajuste fino depois;
+  - **bosses entram também**;
+  - decks com 4 cópias por personagem: trocar o personagem mais fraco ou com menos sinergia por um mais forte;
+  - na tela: nome do deck + "Deck Reforçado".
+- **Derrota Custa Ouro:** **−33% do ouro da vitória por rodada perdida**, em qualquer luta. Se a perda chegar a 100% ou mais, o ouro da vitória vai a zero. Exemplos: 3×1 perde 33%; 3×2 e 4×2 perdem 66%; 4×3 zera.
+- **Loja com Menos Opções:** confirmada. 2 recrutas e 1 relíquia, também depois do refresh.
+
+## 5. Pontos ainda abertos
+1. **Mais Elites:** sortear as 2 camadas entre as de batalhas simples? Evitar 2 camadas vizinhas? Excluir a camada logo antes do boss?
+2. **Derrota Custa Ouro:** a perda vale só para o ouro base da vitória ou também para bônus como o do Caçador de Elites? Raids e forma 2 do True Boss contam cada derrota como rodada perdida?
+3. **Catálogo:** são 15 desafios + 7 candidatos = 22 peças. Os 15 finais (e os blocos) saem depois da medição.

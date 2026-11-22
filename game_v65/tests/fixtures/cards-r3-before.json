@@ -1,0 +1,4576 @@
+{
+  "bosses": {
+    "goblin": {
+      "order": "blackfang",
+      "base": "goblin_king",
+      "en": "Goblin King",
+      "pt": "Rei Goblin",
+      "hp": 384,
+      "atk": 21,
+      "def": 26,
+      "aps": 0.75,
+      "range": 145,
+      "deck": [
+        "goblin_spearman",
+        "goblin_archer",
+        "goblin_rider",
+        "goblin_brute",
+        "goblin_bomber"
+      ],
+      "skillEn": "Royal volley",
+      "skillPt": "Salva real",
+      "descEn": "Every 10s, fire a 140% ATK volley and mark the target for 4s. Goblins deal 15% more damage to it. The first fallen ally calls one spearman while the King lives.",
+      "descPt": "A cada 10s, dispara uma salva de 140% ATQ e marca o alvo por 4s. Goblins causam +15% de dano nele. O primeiro aliado caído chama um lanceiro enquanto o Rei vive."
+    },
+    "troll": {
+      "order": "blackfang",
+      "base": "mountain_troll",
+      "en": "Troll King",
+      "pt": "Rei Troll",
+      "hp": 533,
+      "atk": 35,
+      "def": 38,
+      "aps": 0.55,
+      "range": 62,
+      "deck": [
+        "troll",
+        "cave_troll",
+        "snow_troll",
+        "mountain_troll",
+        "orc_warrior"
+      ],
+      "skillEn": "Mountain breaker",
+      "skillPt": "Quebra-montanhas",
+      "descEn": "Every 12s, wind up for 1.5s and smash a frontal area for 180% ATK, stunning for 0.8s. Then regenerate 1% HP/s for 4s. Control interrupts the wind-up and regeneration.",
+      "descPt": "A cada 12s, prepara um golpe por 1,5s e atinge uma área frontal com 180% ATQ e atordoamento de 0,8s. Regenera 1% PV/s por 4s. Controle interrompe a preparação e a regeneração."
+    },
+    "orc": {
+      "order": "blackfang",
+      "base": "orc_berserker",
+      "en": "Orc Emperor",
+      "pt": "Imperador Orc",
+      "hp": 520,
+      "atk": 37,
+      "def": 32,
+      "aps": 0.9,
+      "range": 34,
+      "deck": [
+        "orc_warrior",
+        "orc_berserker",
+        "orc_fighter",
+        "blackfang_guardian",
+        "goblin_archer"
+      ],
+      "skillEn": "Imperial cleave",
+      "skillPt": "Clivagem imperial",
+      "descEn": "Every 6 attacks, strike for 220% ATK and splash 110% nearby. Once below 50% HP, allies gain 20% attack speed for 5s while the Emperor loses 25% DEF.",
+      "descPt": "A cada 6 ataques, golpeia com 220% ATQ e 110% nos próximos. Uma vez abaixo de 50% PV, aliados ganham +20% velocidade de ataque por 5s e o Imperador perde 25% DEF."
+    },
+    "meowri": {
+      "order": "dawncrest",
+      "base": "feline_swordsman",
+      "en": "Meowri Queen",
+      "pt": "Rainha Meowri",
+      "hp": 368,
+      "atk": 27,
+      "def": 24,
+      "aps": 1.2,
+      "range": 34,
+      "deck": [
+        "feline_swordsman",
+        "feline_rogue",
+        "feline_arcanist",
+        "feline_drummer",
+        "feline_fighter"
+      ],
+      "skillEn": "Nine-lives assault",
+      "skillPt": "Investida das nove vidas",
+      "descEn": "Every 8 attacks, dash to the furthest enemy, strike three times for 65% ATK, then retreat. Meowri gain 10 percentage points of critical chance for 4s.",
+      "descPt": "A cada 8 ataques, avança até o inimigo mais distante, golpeia três vezes com 65% ATQ e recua. Meowri ganham 10 pontos percentuais de crítico por 4s."
+    },
+    "centaur": {
+      "order": "dawncrest",
+      "base": "centaur_swordsman",
+      "en": "Centaur Leader",
+      "pt": "Líder Centauro",
+      "hp": 510,
+      "atk": 36,
+      "def": 30,
+      "aps": 0.75,
+      "range": 62,
+      "deck": [
+        "centaur_swordsman",
+        "centaur_lancer",
+        "centaur_crossbow",
+        "elf_harpist",
+        "elf_archer"
+      ],
+      "skillEn": "Royal charge",
+      "skillPt": "Carga real",
+      "descEn": "Every 11s, charge along a line for 160% ATK and push enemies. Centaurs move 15% faster while the leader lives. The first charge gives them an 8% HP shield for 4s.",
+      "descPt": "A cada 11s, investe em linha com 160% ATQ e empurra inimigos. Centauros se movem 15% mais rápido enquanto o líder vive. A primeira carga concede escudo de 8% PV por 4s."
+    },
+    "highelf": {
+      "order": "dawncrest",
+      "base": "elf_noble",
+      "en": "High Elf King",
+      "pt": "Rei High Elf",
+      "hp": 368,
+      "atk": 34,
+      "def": 20,
+      "aps": 0.85,
+      "range": 145,
+      "deck": [
+        "elf_noble",
+        "elf_guardian",
+        "elf_archer",
+        "elf_halberdier",
+        "elf_harpist"
+      ],
+      "skillEn": "Sovereign light",
+      "skillPt": "Luz soberana",
+      "descEn": "Every 12s, deal 180% ATK and shield the weakest ally for 12% of their HP. While the King lives, each ally’s first offensive skill per round deals 15% more damage.",
+      "descPt": "A cada 12s, causa 180% ATQ e protege o aliado mais ferido com escudo de 12% PV. Enquanto o Rei vive, a primeira habilidade ofensiva de cada aliado na rodada causa +15% de dano."
+    },
+    "forestelf": {
+      "order": "dawncrest",
+      "base": "woodland_scout",
+      "en": "Forest Elf King",
+      "pt": "Rei Forest Elf",
+      "hp": 424,
+      "atk": 27,
+      "def": 26,
+      "aps": 1.05,
+      "range": 145,
+      "deck": [
+        "woodland_predator",
+        "woodland_lancer",
+        "woodland_scout",
+        "woodland_flailer",
+        "flower_fairy"
+      ],
+      "skillEn": "Crown of roots",
+      "skillPt": "Coroa de raízes",
+      "descEn": "Every 10s, roots in an area deal 100% ATK and immobilize for 1.2s. Allies deal 15% more damage to rooted enemies while the King lives.",
+      "descPt": "A cada 10s, raízes em área causam 100% ATQ e imobilizam por 1,2s. Aliados causam +15% de dano em inimigos enraizados enquanto o Rei vive."
+    },
+    "darkelf": {
+      "order": "blackfang",
+      "base": "dark_elf_noble",
+      "en": "Dark Elf King",
+      "pt": "Rei Dark Elf",
+      "hp": 600,
+      "atk": 34,
+      "def": 28,
+      "aps": 1,
+      "range": 34,
+      "deck": [
+        "dark_elf_noble",
+        "dark_elf_archer",
+        "dark_elf_warrior",
+        "dark_elf_mage",
+        "blackfang_guardian"
+      ],
+      "true": true,
+      "hp2": 22000,
+      "atk2": 68,
+      "def2": 28,
+      "skillEn": "Crimson court / Broken seals",
+      "skillPt": "Corte carmesim / Selos partidos",
+      "descEn": "Form I: every 6 attacks, slash for 180% ATK and reduce healing by 30% for 4s. Form II: three seals each reduce incoming damage by 10%. Break all three to expose the King for 6s. A warned beam sweeps the arena.",
+      "descPt": "Forma I: a cada 6 ataques, corta com 180% ATQ e reduz curas em 30% por 4s. Forma II: três selos reduzem o dano recebido em 10% cada. Quebre todos para expor o Rei por 6s. Um feixe anunciado atravessa a arena."
+    },
+    "fairy": {
+      "order": "dawncrest",
+      "base": "flower_fairy",
+      "en": "Fairy Queen",
+      "pt": "Rainha Fada",
+      "hp": 576,
+      "atk": 30,
+      "def": 22,
+      "aps": 0.85,
+      "range": 145,
+      "deck": [
+        "flower_fairy",
+        "elf_harpist",
+        "feline_arcanist",
+        "woodland_scout",
+        "elf_guardian"
+      ],
+      "true": true,
+      "hp2": 20000,
+      "atk2": 54,
+      "def2": 22,
+      "skillEn": "Bloom / Thorn court",
+      "skillPt": "Florescer / Corte dos espinhos",
+      "descEn": "Form I: every 10s, shield and heal two allies. Form II: two attendants alternate healing and attacking. Kill them to weaken the next burst. Boss healing is limited to 5% maximum HP per round.",
+      "descPt": "Forma I: a cada 10s, cura e protege dois aliados. Forma II: duas auxiliares alternam cura e ataque. Derrote-as para enfraquecer a próxima explosão. A cura do boss é limitada a 5% PV máximo por rodada."
+    },
+    "primordial": {
+      "order": "monsters",
+      "base": "raid_ancient_dragon",
+      "en": "Primordial Chimera",
+      "pt": "Quimera Primordial",
+      "hp": 800,
+      "atk": 42,
+      "def": 30,
+      "aps": 0.8,
+      "range": 80,
+      "deck": [
+        "raid_wyvern",
+        "raid_swamp_basilisk",
+        "raid_manticore_cub",
+        "raid_serpent_man",
+        "raid_carnivorous_sprout"
+      ],
+      "true": true,
+      "hp2": 24000,
+      "atk2": 66,
+      "def2": 26,
+      "skillEn": "Three instincts",
+      "skillPt": "Três instintos",
+      "descEn": "Form I: command a team of lesser monsters and breathe fire every 10s. Form II: each round announces a dominant head: fire cone, poison line, or close impact. Only one head acts at a time.",
+      "descPt": "Forma I: comanda monstros menores e sopra fogo a cada 10s. Forma II: cada rodada anuncia uma cabeça dominante: cone de fogo, linha venenosa ou impacto próximo. Apenas uma cabeça age por vez."
+    },
+    "titan": {
+      "order": "monsters",
+      "base": "raid_stone_colossus",
+      "en": "Chimera Titan",
+      "pt": "Titã da Quimera",
+      "hp": 960,
+      "atk": 46,
+      "def": 40,
+      "aps": 0.65,
+      "range": 62,
+      "deck": [
+        "raid_stone_golem",
+        "raid_skeleton_warrior",
+        "raid_serpent_man",
+        "raid_manticore_cub",
+        "raid_swamp_basilisk"
+      ],
+      "true": true,
+      "hp2": 26000,
+      "atk2": 78,
+      "def2": 38,
+      "skillEn": "Unstable core",
+      "skillPt": "Núcleo instável",
+      "descEn": "Form I: lead a durable monster team and slam every 12s. Form II: landed basic attacks add 1 instability, offensive skills add 3. At 18, the Titan kneels for 6s, stops attacking and takes 40% more damage. Slow warned stomps target clustered enemies.",
+      "descPt": "Forma I: lidera monstros resistentes e golpeia a cada 12s. Forma II: ataques básicos acertados geram 1 instabilidade; habilidades ofensivas, 3. Aos 18, ajoelha por 6s, para de atacar e recebe +40% de dano. Pisões lentos e anunciados miram grupos."
+    },
+    "ib_marshal": {
+      "order": "ironbound",
+      "base": "bastion",
+      "en": "Marshal",
+      "pt": "Marechal",
+      "hp": 576,
+      "atk": 32,
+      "aps": 0.85,
+      "range": 34,
+      "deck": [
+        "warrior",
+        "lancer",
+        "bastion",
+        "musketeer",
+        "cavalier"
+      ],
+      "mode": "guard",
+      "skillEn": "Rallying standard",
+      "skillPt": "Estandarte de união",
+      "descEn": "Every 10s: Strike for 160% ATK and shield the two weakest allies for 10% of their maximum HP for 4s.",
+      "descPt": "A cada 10s: Golpeia por 160% ATQ e protege os dois aliados mais feridos com escudo de 10% PV máximo por 4s.",
+      "def": 36
+    },
+    "ib_shogun": {
+      "order": "ironbound",
+      "base": "samurai",
+      "en": "Shogun",
+      "pt": "Xogum",
+      "hp": 480,
+      "atk": 38,
+      "aps": 0.85,
+      "range": 62,
+      "deck": [
+        "samurai",
+        "ronin",
+        "shinobi",
+        "omnamusha",
+        "shaolin"
+      ],
+      "mode": "cleave",
+      "skillEn": "Sovereign strike",
+      "skillPt": "Golpe soberano",
+      "descEn": "Every 10s: Strike the target for 180% ATK and nearby enemies within 70 for 90% ATK.",
+      "descPt": "A cada 10s: Golpeia o alvo por 180% ATQ e inimigos a até 70 dele por 90% ATQ.",
+      "def": 26
+    },
+    "ib_jarl": {
+      "order": "ironbound",
+      "base": "viking",
+      "en": "Runic Jarl",
+      "pt": "Jarl Rúnico",
+      "hp": 656,
+      "atk": 38,
+      "aps": 0.85,
+      "range": 34,
+      "deck": [
+        "viking",
+        "shieldmaiden",
+        "shaman",
+        "berserker",
+        "huntress"
+      ],
+      "mode": "slam",
+      "skillEn": "Runic impact",
+      "skillPt": "Impacto rúnico",
+      "descEn": "Every 10s: Strike enemies within 70 of the target for 140% ATK and stun them for 0.6s.",
+      "descPt": "A cada 10s: Atinge inimigos a até 70 do alvo por 140% ATQ e atordoa por 0,6s.",
+      "def": 32
+    },
+    "ib_gunslinger": {
+      "order": "ironbound",
+      "base": "sheriff",
+      "en": "Frontier Legend",
+      "pt": "Lenda da Fronteira",
+      "hp": 400,
+      "atk": 35,
+      "aps": 0.85,
+      "range": 145,
+      "deck": [
+        "sheriff",
+        "cowboy",
+        "gunner",
+        "miner",
+        "musketeer"
+      ],
+      "mode": "volley",
+      "skillEn": "Frontier volley",
+      "skillPt": "Salva da fronteira",
+      "descEn": "Every 10s: Fire three shots at the target, each dealing 65% ATK.",
+      "descPt": "A cada 10s: Dispara três tiros no alvo, cada um causando 65% ATQ.",
+      "def": 20
+    },
+    "ib_piratequeen": {
+      "order": "ironbound",
+      "base": "pirate_admiral",
+      "en": "Pirate Queen",
+      "pt": "Rainha Pirata",
+      "hp": 520,
+      "atk": 37,
+      "aps": 0.85,
+      "range": 62,
+      "deck": [
+        "pirate",
+        "pirate_captain",
+        "cannoneer",
+        "pirate_admiral",
+        "shackled_pirate"
+      ],
+      "mode": "cleave",
+      "skillEn": "Sovereign strike",
+      "skillPt": "Golpe soberano",
+      "descEn": "Every 10s: Strike the target for 180% ATK and nearby enemies within 70 for 90% ATK.",
+      "descPt": "A cada 10s: Golpeia o alvo por 180% ATQ e inimigos a até 70 dele por 90% ATQ.",
+      "def": 28
+    },
+    "ib_oracle": {
+      "order": "ironbound",
+      "base": "sage",
+      "en": "Grand Oracle",
+      "pt": "Grande Oráculo",
+      "hp": 384,
+      "atk": 35,
+      "aps": 0.85,
+      "range": 145,
+      "deck": [
+        "mage",
+        "sage",
+        "sorceress",
+        "priestess",
+        "bard"
+      ],
+      "mode": "light",
+      "skillEn": "Guiding light",
+      "skillPt": "Luz guia",
+      "descEn": "Every 10s: Strike for 160% ATK and heal the weakest ally for 8% of their maximum HP.",
+      "descPt": "A cada 10s: Golpeia por 160% ATQ e cura o aliado mais ferido em 8% PV máximo.",
+      "def": 22
+    },
+    "ib_hartlord": {
+      "order": "ironbound",
+      "base": "cavalier",
+      "en": "Hart Lord",
+      "pt": "Senhor dos Cervos",
+      "hp": 544,
+      "atk": 34,
+      "aps": 0.85,
+      "range": 62,
+      "deck": [
+        "ranger",
+        "archer",
+        "bear_druid",
+        "eagle_druid",
+        "crossbowman"
+      ],
+      "mode": "roots",
+      "skillEn": "Verdant crown",
+      "skillPt": "Coroa verdejante",
+      "descEn": "Every 10s: Strike enemies within 70 of the target for 100% ATK and root them for 1.2s.",
+      "descPt": "A cada 10s: Atinge inimigos a até 70 do alvo por 100% ATQ e enraíza por 1,2s.",
+      "def": 28
+    },
+    "ib_wayfarer": {
+      "order": "ironbound",
+      "base": "swordsman",
+      "en": "First Wayfarer",
+      "pt": "Primeiro Viajante",
+      "hp": 640,
+      "atk": 38,
+      "aps": 0.85,
+      "range": 34,
+      "deck": [
+        "warrior",
+        "ranger",
+        "mage",
+        "shaman",
+        "pirate"
+      ],
+      "mode": "light",
+      "skillEn": "Guiding light",
+      "skillPt": "Luz guia",
+      "descEn": "Every 10s: Strike for 160% ATK and heal the weakest ally for 8% of their maximum HP. Form II: every 11s, a warned impact deals 170% ATK in a radius of 65 after 1.3s.",
+      "descPt": "A cada 10s: Golpeia por 160% ATQ e cura o aliado mais ferido em 8% PV máximo. Forma II: a cada 11s, um impacto anunciado causa 170% ATQ em raio de 65 após 1,3s.",
+      "def": 30,
+      "true": true,
+      "hp2": 23000,
+      "atk2": 68,
+      "def2": 30
+    }
+  },
+  "tune": {
+    "map": [
+      1.037,
+      1.1,
+      1.35
+    ],
+    "boss": {
+      "ib_marshal": {
+        "hp": 0.975,
+        "atk": 0.975
+      },
+      "ib_shogun": {
+        "hp": 1.14,
+        "atk": 1.14
+      },
+      "ib_jarl": {
+        "hp": 0.957,
+        "atk": 0.957
+      },
+      "ib_gunslinger": {
+        "hp": 1.326,
+        "atk": 1.326
+      },
+      "ib_piratequeen": {
+        "hp": 1.068,
+        "atk": 1.068
+      },
+      "ib_oracle": {
+        "hp": 0.928,
+        "atk": 0.928
+      },
+      "ib_hartlord": {
+        "hp": 0.796,
+        "atk": 0.796
+      },
+      "goblin": {
+        "hp": 1.899,
+        "atk": 1.899
+      },
+      "troll": {
+        "hp": 1.182,
+        "atk": 1.182
+      },
+      "orc": {
+        "hp": 0.587,
+        "atk": 0.587
+      },
+      "meowri": {
+        "hp": 1.211,
+        "atk": 1.211
+      },
+      "centaur": {
+        "hp": 0.991,
+        "atk": 0.991
+      },
+      "highelf": {
+        "hp": 0.898,
+        "atk": 0.898
+      },
+      "forestelf": {
+        "hp": 1.87,
+        "atk": 1.87
+      },
+      "ib_wayfarer": {
+        "hp": 1.489,
+        "atk": 1.489
+      },
+      "darkelf": {
+        "hp": 1.275,
+        "atk": 1.275
+      },
+      "fairy": {
+        "hp": 1.738,
+        "atk": 1.738
+      }
+    },
+    "true2": {
+      "ib_wayfarer": {
+        "hp": 1.489,
+        "damage": 1.489
+      },
+      "darkelf": {
+        "hp": 1.275,
+        "damage": 1.275
+      },
+      "fairy": {
+        "hp": 1.738,
+        "damage": 1.738
+      }
+    }
+  },
+  "units": {
+    "warrior": {
+      "hp": 290,
+      "atk": 27,
+      "defense": 26,
+      "rate": 1.08,
+      "speed": 49,
+      "crit": 0.07,
+      "range": 34,
+      "area": 0,
+      "trigger": {
+        "kind": "attacks",
+        "limit": 5,
+        "startFull": false
+      },
+      "ability": "Golpe circular",
+      "detail": "Gira a espada e acerta todos os inimigos próximos. Mantém a habilidade atual como referência de dano em área.",
+      "traits": [
+        "Dawnward Order",
+        "Devastator",
+        "Fearless"
+      ],
+      "cost": 2,
+      "ratings": {
+        "hp": 4,
+        "atk": 3,
+        "defense": 3,
+        "attackSpeed": 3,
+        "speed": 3,
+        "crit": 2,
+        "skill": 3
+      }
+    },
+    "lancer": {
+      "hp": 230,
+      "atk": 27,
+      "defense": 26,
+      "rate": 1.08,
+      "speed": 60,
+      "crit": 0.07,
+      "range": 62,
+      "area": 35,
+      "trigger": {
+        "kind": "attacks",
+        "limit": 5,
+        "startFull": false
+      },
+      "ability": "Investida da aurora",
+      "detail": "Avança em linha curta até o alvo, perfurando inimigos no trajeto. O alvo final é empurrado para trás.",
+      "traits": [
+        "Dawnward Order",
+        "Demolisher",
+        "Impulsive"
+      ],
+      "cost": 2,
+      "ratings": {
+        "hp": 3,
+        "atk": 3,
+        "defense": 3,
+        "attackSpeed": 3,
+        "speed": 4,
+        "crit": 2,
+        "skill": 3
+      }
+    },
+    "bastion": {
+      "hp": 360,
+      "atk": 20,
+      "defense": 52,
+      "rate": 1.65,
+      "speed": 30,
+      "crit": 0.03,
+      "range": 34,
+      "area": 0,
+      "trigger": {
+        "kind": "received",
+        "limit": 6,
+        "startFull": false
+      },
+      "ability": "Aqui ninguém passa",
+      "detail": "Bate o escudo, afasta inimigos próximos e provoca os atingidos por 2 segundos, fazendo-os priorizar Bastion.",
+      "traits": [
+        "Dawnward Order",
+        "Sentinel",
+        "Protector"
+      ],
+      "cost": 3,
+      "ratings": {
+        "hp": 5,
+        "atk": 2,
+        "defense": 5,
+        "attackSpeed": 1,
+        "speed": 1,
+        "crit": 1,
+        "skill": 4
+      }
+    },
+    "shinobi": {
+      "hp": 225,
+      "atk": 44,
+      "defense": 8,
+      "rate": 0.68,
+      "speed": 74,
+      "crit": 0.25,
+      "range": 34,
+      "area": 0,
+      "trigger": {
+        "kind": "time",
+        "limit": 6,
+        "startFull": false
+      },
+      "ability": "Passo das sombras",
+      "detail": "Teletransporta-se para trás do alvo atual e desfere um golpe. Se o espaço estiver ocupado, usa o ponto livre mais próximo.",
+      "traits": [
+        "Legends of the East",
+        "Predator",
+        "Audacious"
+      ],
+      "cost": 3,
+      "ratings": {
+        "hp": 3,
+        "atk": 5,
+        "defense": 1,
+        "attackSpeed": 5,
+        "speed": 5,
+        "crit": 5,
+        "skill": 4
+      }
+    },
+    "kinoichi": {
+      "hp": 243,
+      "atk": 36,
+      "defense": 16,
+      "rate": 0.86,
+      "speed": 74,
+      "crit": 0.18,
+      "range": 62,
+      "area": 35,
+      "skillScale": 1.35,
+      "trigger": {
+        "kind": "time",
+        "limit": 7,
+        "startFull": false
+      },
+      "ability": "Corrente da lua",
+      "detail": "Lança a corrente no inimigo mais distante dentro do alcance da skill e o puxa para perto, interrompendo sua ação atual.",
+      "traits": [
+        "Legends of the East",
+        "Demolisher",
+        "Ruthless"
+      ],
+      "cost": 2,
+      "ratings": {
+        "hp": 3,
+        "atk": 4,
+        "defense": 2,
+        "attackSpeed": 4,
+        "speed": 5,
+        "crit": 4,
+        "skill": 5
+      }
+    },
+    "samurai": {
+      "hp": 348,
+      "atk": 42,
+      "defense": 38,
+      "rate": 1.35,
+      "speed": 49,
+      "crit": 0.12,
+      "range": 34,
+      "area": 0,
+      "trigger": {
+        "kind": "damage",
+        "limit": 4.5,
+        "startFull": false
+      },
+      "ability": "Corte do horizonte",
+      "detail": "Atravessa o alvo em uma arrancada reta, cortando os inimigos no percurso e terminando logo depois dele.",
+      "traits": [
+        "Legends of the East",
+        "Devastator",
+        "Impulsive"
+      ],
+      "cost": 3,
+      "ratings": {
+        "hp": 5,
+        "atk": 5,
+        "defense": 4,
+        "attackSpeed": 2,
+        "speed": 3,
+        "crit": 3,
+        "skill": 4
+      }
+    },
+    "omnamusha": {
+      "hp": 253,
+      "atk": 30,
+      "defense": 26,
+      "rate": 0.68,
+      "speed": 60,
+      "crit": 0.18,
+      "range": 34,
+      "area": 0,
+      "trigger": {
+        "kind": "attacks",
+        "limit": 5,
+        "startFull": false
+      },
+      "ability": "Dança das lâminas",
+      "detail": "Desloca-se para uma lateral livre do alvo, corta e cruza para a outra lateral com um segundo corte. Não atravessa a arena inteira.",
+      "traits": [
+        "Legends of the East",
+        "Predator",
+        "Audacious"
+      ],
+      "cost": 3,
+      "ratings": {
+        "hp": 3,
+        "atk": 3,
+        "defense": 3,
+        "attackSpeed": 5,
+        "speed": 4,
+        "crit": 4,
+        "skill": 3
+      }
+    },
+    "ronin": {
+      "hp": 299,
+      "atk": 59,
+      "defense": 16,
+      "rate": 1.35,
+      "speed": 49,
+      "crit": 0.25,
+      "range": 34,
+      "area": 0,
+      "trigger": {
+        "kind": "received",
+        "limit": 3,
+        "startFull": false
+      },
+      "ability": "Passo do contra-ataque",
+      "detail": "Após resolver o terceiro golpe, dá um passo lateral e contra-ataca o agressor se ele estiver ao alcance da espada. O passo não anula o dano recebido.",
+      "traits": [
+        "Legends of the East",
+        "Predator",
+        "Audacious"
+      ],
+      "cost": 3,
+      "ratings": {
+        "hp": 4,
+        "atk": 5,
+        "defense": 2,
+        "attackSpeed": 2,
+        "speed": 3,
+        "crit": 5,
+        "skill": 4
+      }
+    },
+    "fighter": {
+      "hp": 232,
+      "atk": 22,
+      "defense": 16,
+      "rate": 0.68,
+      "speed": 60,
+      "crit": 0.12,
+      "range": 34,
+      "area": 0,
+      "trigger": {
+        "kind": "attacks",
+        "limit": 5,
+        "startFull": false
+      },
+      "ability": "Combo ascendente",
+      "detail": "Desfere dois socos no alvo e termina com um golpe que o empurra. Avança até a nova posição para manter a pressão.",
+      "traits": [
+        "Legends of the East",
+        "Unyielding",
+        "Fearless"
+      ],
+      "cost": 2,
+      "ratings": {
+        "hp": 3,
+        "atk": 2,
+        "defense": 2,
+        "attackSpeed": 5,
+        "speed": 4,
+        "crit": 3,
+        "skill": 3
+      }
+    },
+    "martial_artist": {
+      "hp": 230,
+      "atk": 27,
+      "defense": 26,
+      "rate": 0.86,
+      "speed": 60,
+      "crit": 0.07,
+      "range": 62,
+      "area": 35,
+      "trigger": {
+        "kind": "received",
+        "limit": 4,
+        "startFull": false
+      },
+      "ability": "Varredura do dragão",
+      "detail": "Gira o bastão em um arco frontal, atingindo e afastando os inimigos acertados. Depois recua um passo para recuperar distância.",
+      "traits": [
+        "Legends of the East",
+        "Demolisher",
+        "Impulsive"
+      ],
+      "cost": 2,
+      "ratings": {
+        "hp": 3,
+        "atk": 3,
+        "defense": 3,
+        "attackSpeed": 4,
+        "speed": 4,
+        "crit": 2,
+        "skill": 4
+      }
+    },
+    "shaolin": {
+      "hp": 406,
+      "atk": 28,
+      "defense": 38,
+      "rate": 1.08,
+      "speed": 49,
+      "crit": 0.03,
+      "range": 34,
+      "area": 0,
+      "trigger": {
+        "kind": "block",
+        "limit": 6,
+        "startFull": false
+      },
+      "ability": "Postura serena",
+      "detail": "Block every sixth incoming basic attack. Specials and damage over time are not blocked.",
+      "detailPT": "Bloqueia cada sexto ataque básico recebido. Especiais e dano contínuo não são bloqueados.",
+      "traits": [
+        "Legends of the East",
+        "Sentinel",
+        "Patient"
+      ],
+      "cost": 3,
+      "ratings": {
+        "hp": 5,
+        "atk": 3,
+        "defense": 4,
+        "attackSpeed": 3,
+        "speed": 3,
+        "crit": 1,
+        "skill": 4
+      }
+    },
+    "cowboy": {
+      "hp": 184,
+      "atk": 22,
+      "defense": 16,
+      "rate": 0.86,
+      "speed": 49,
+      "crit": 0.25,
+      "range": 145,
+      "area": 0,
+      "trigger": {
+        "kind": "attacks",
+        "limit": 5,
+        "startFull": false
+      },
+      "ability": "Bala ricocheteante",
+      "detail": "Atira no alvo atual e faz a bala ricochetear em até dois outros inimigos próximos. Cada inimigo pode ser atingido uma única vez.",
+      "traits": [
+        "Wild West",
+        "Predator",
+        "Ruthless"
+      ],
+      "cost": 3,
+      "ratings": {
+        "hp": 2,
+        "atk": 2,
+        "defense": 2,
+        "attackSpeed": 4,
+        "speed": 3,
+        "crit": 5,
+        "skill": 3
+      }
+    },
+    "gunner": {
+      "hp": 180,
+      "atk": 35,
+      "defense": 8,
+      "rate": 1.08,
+      "speed": 49,
+      "crit": 0.18,
+      "range": 180,
+      "area": 0,
+      "trigger": {
+        "kind": "received",
+        "limit": 4,
+        "startFull": false
+      },
+      "ability": "Disparo de recuo",
+      "detail": "Recua um trecho curto na direção oposta ao alvo enquanto dispara um tiro potente. Se estiver junto à borda, busca espaço lateral.",
+      "traits": [
+        "Wild West",
+        "Predator",
+        "Audacious"
+      ],
+      "cost": 3,
+      "ratings": {
+        "hp": 2,
+        "atk": 4,
+        "defense": 1,
+        "attackSpeed": 3,
+        "speed": 3,
+        "crit": 4,
+        "skill": 3
+      }
+    },
+    "miner": {
+      "hp": 290,
+      "atk": 35,
+      "defense": 16,
+      "rate": 1.35,
+      "speed": 39,
+      "crit": 0.07,
+      "range": 62,
+      "area": 35,
+      "trigger": {
+        "kind": "time",
+        "limit": 7,
+        "startFull": false
+      },
+      "ability": "Pavio curto",
+      "detail": "Arremessa dinamite na posição atual do alvo. Após 1 segundo ela explode, causando dano em área e empurrando inimigos para fora do centro.",
+      "traits": [
+        "Wild West",
+        "Demolisher",
+        "Patient"
+      ],
+      "cost": 2,
+      "ratings": {
+        "hp": 4,
+        "atk": 4,
+        "defense": 2,
+        "attackSpeed": 2,
+        "speed": 2,
+        "crit": 2,
+        "skill": 3
+      }
+    },
+    "pirate_captain": {
+      "hp": 363,
+      "atk": 34,
+      "defense": 26,
+      "rate": 1.08,
+      "speed": 49,
+      "crit": 0.12,
+      "range": 145,
+      "area": 0,
+      "trigger": {
+        "kind": "time",
+        "limit": 8,
+        "startFull": false
+      },
+      "ability": "Bandeira de abordagem",
+      "detail": "Crava uma bandeira em sua posição. Por 4 segundos, aliados dentro da área recebem velocidade de ataque e proteção contra deslocamentos forçados.",
+      "traits": [
+        "Seasalt Crew",
+        "Unyielding",
+        "Protector"
+      ],
+      "cost": 3,
+      "ratings": {
+        "hp": 5,
+        "atk": 4,
+        "defense": 3,
+        "attackSpeed": 3,
+        "speed": 3,
+        "crit": 3,
+        "skill": 5
+      }
+    },
+    "pirate": {
+      "hp": 230,
+      "atk": 27,
+      "defense": 16,
+      "rate": 0.86,
+      "speed": 60,
+      "crit": 0.18,
+      "range": 34,
+      "area": 0,
+      "trigger": {
+        "kind": "attacks",
+        "limit": 5,
+        "startFull": false
+      },
+      "ability": "Gancho de abordagem",
+      "detail": "Prende o gancho no alvo atual, puxa o próprio corpo até ele e golpeia. Se já estiver corpo a corpo, passa para um flanco livre antes do golpe.",
+      "traits": [
+        "Seasalt Crew",
+        "Trailblazer",
+        "Impulsive"
+      ],
+      "cost": 2,
+      "ratings": {
+        "hp": 3,
+        "atk": 3,
+        "defense": 2,
+        "attackSpeed": 4,
+        "speed": 4,
+        "crit": 4,
+        "skill": 3
+      }
+    },
+    "cannoneer": {
+      "hp": 247,
+      "atk": 38,
+      "defense": 26,
+      "rate": 1.65,
+      "speed": 30,
+      "crit": 0.03,
+      "range": 180,
+      "area": 50,
+      "skillScale": 0.85,
+      "trigger": {
+        "kind": "damage",
+        "limit": 4.5,
+        "startFull": false
+      },
+      "ability": "Tiro de dispersão",
+      "detail": "Dispara uma bala explosiva no alvo atual. A explosão atinge uma área e arremessa os atingidos para longe do ponto de impacto.",
+      "traits": [
+        "Seasalt Crew",
+        "Demolisher",
+        "Impulsive"
+      ],
+      "cost": 4,
+      "ratings": {
+        "hp": 3,
+        "atk": 4,
+        "defense": 3,
+        "attackSpeed": 1,
+        "speed": 1,
+        "crit": 1,
+        "skill": 3
+      }
+    },
+    "ranger": {
+      "hp": 230,
+      "atk": 27,
+      "defense": 16,
+      "rate": 1.08,
+      "speed": 60,
+      "crit": 0.12,
+      "range": 145,
+      "area": 0,
+      "trigger": {
+        "kind": "time",
+        "limit": 6,
+        "startFull": false
+      },
+      "ability": "Armadilha de caçador",
+      "detail": "Arremessa uma armadilha até alcance médio e recua 55 unidades. O primeiro inimigo na trajetória a ativa. A área de ativação é 10% maior. Cada armadilha causa dano e imobiliza um único inimigo por 1,5 segundo, uma única vez. Dura até 5 segundos.",
+      "traits": [
+        "Verdant Covenant",
+        "Lookout",
+        "Patient"
+      ],
+      "cost": 2,
+      "ratings": {
+        "hp": 3,
+        "atk": 3,
+        "defense": 2,
+        "attackSpeed": 3,
+        "speed": 4,
+        "crit": 3,
+        "skill": 4
+      }
+    },
+    "archer": {
+      "hp": 180,
+      "atk": 20,
+      "defense": 8,
+      "rate": 0.68,
+      "speed": 60,
+      "crit": 0.12,
+      "range": 180,
+      "area": 0,
+      "trigger": {
+        "kind": "attacks",
+        "limit": 6,
+        "startFull": false
+      },
+      "ability": "Chuva persistente",
+      "detail": "Marca uma área na posição atual do alvo. Flechas caem em três ondas durante 2 segundos; inimigos podem entrar ou sair da zona.",
+      "traits": [
+        "Verdant Covenant",
+        "Lookout",
+        "Impulsive"
+      ],
+      "cost": 2,
+      "ratings": {
+        "hp": 2,
+        "atk": 2,
+        "defense": 1,
+        "attackSpeed": 5,
+        "speed": 4,
+        "crit": 3,
+        "skill": 3
+      }
+    },
+    "crossbowman": {
+      "hp": 230,
+      "atk": 45,
+      "defense": 26,
+      "rate": 1.65,
+      "speed": 39,
+      "crit": 0.18,
+      "range": 180,
+      "area": 0,
+      "trigger": {
+        "kind": "damage",
+        "limit": 4,
+        "startFull": false
+      },
+      "ability": "Virote de contenção",
+      "detail": "Dispara um virote que atravessa os inimigos em linha. O primeiro atingido fica imobilizado por 1 segundo; os demais recebem o dano.",
+      "traits": [
+        "Verdant Covenant",
+        "Predator",
+        "Ruthless"
+      ],
+      "cost": 3,
+      "ratings": {
+        "hp": 3,
+        "atk": 5,
+        "defense": 3,
+        "attackSpeed": 1,
+        "speed": 2,
+        "crit": 4,
+        "skill": 3
+      }
+    },
+    "mage": {
+      "hp": 216,
+      "atk": 32,
+      "defense": 8,
+      "rate": 1.35,
+      "speed": 39,
+      "crit": 0.03,
+      "range": 145,
+      "area": 35,
+      "skillScale": 1.2,
+      "trigger": {
+        "kind": "time",
+        "limit": 7,
+        "startFull": false
+      },
+      "ability": "Orbes astrais",
+      "detail": "Invoca três orbes que orbitam ao seu redor. Cada um dos próximos três ataques básicos lança um orbe no alvo, causando uma pequena explosão no impacto. Os orbes não recarregam a própria skill.",
+      "traits": [
+        "Arcane",
+        "Demolisher",
+        "Impulsive"
+      ],
+      "cost": 3,
+      "ratings": {
+        "hp": 3,
+        "atk": 4,
+        "defense": 1,
+        "attackSpeed": 2,
+        "speed": 2,
+        "crit": 1,
+        "skill": 5
+      }
+    },
+    "sorceress": {
+      "hp": 261,
+      "atk": 29,
+      "defense": 8,
+      "rate": 1.08,
+      "speed": 49,
+      "crit": 0.07,
+      "range": 145,
+      "area": 0,
+      "skillScale": 1.45,
+      "trigger": {
+        "kind": "time",
+        "limit": 8,
+        "startFull": false
+      },
+      "ability": "Vórtice esmeralda",
+      "detail": "Abre um vórtice na posição atual do alvo. Durante 1,5 segundo, ele puxa gradualmente inimigos próximos para o centro e então explode.",
+      "traits": [
+        "Arcane",
+        "Devastator",
+        "Impulsive"
+      ],
+      "cost": 3,
+      "ratings": {
+        "hp": 4,
+        "atk": 3,
+        "defense": 1,
+        "attackSpeed": 3,
+        "speed": 3,
+        "crit": 2,
+        "skill": 5
+      }
+    },
+    "sage": {
+      "hp": 230,
+      "atk": 14,
+      "defense": 26,
+      "rate": 1.35,
+      "speed": 30,
+      "crit": 0.03,
+      "range": 145,
+      "area": 0,
+      "trigger": {
+        "kind": "passive",
+        "limit": 0,
+        "startFull": false
+      },
+      "ability": "Resgate arcano",
+      "detail": "Passive aura (radius 120). Other allies inside gain 45% less damage taken. Does not affect itself; auras from different supports add up. Keeps behind the frontline. Upgrades and fusion raise the aura by half the usual growth.",
+      "detailPT": "Aura passiva (raio 120). Outros aliados dentro dela recebem 45% menos dano recebido. Não afeta a si mesmo; auras de suportes diferentes se somam. Fica atrás da linha de frente. Upgrade e fusão aumentam a aura pela metade do crescimento normal.",
+      "traits": [
+        "Arcane",
+        "Unyielding",
+        "Protector"
+      ],
+      "cost": 3,
+      "ratings": {
+        "hp": 3,
+        "atk": 1,
+        "defense": 3,
+        "attackSpeed": 2,
+        "speed": 1,
+        "crit": 1,
+        "skill": 5
+      }
+    },
+    "priestess": {
+      "hp": 180,
+      "atk": 20,
+      "defense": 16,
+      "rate": 1.08,
+      "speed": 49,
+      "crit": 0.03,
+      "range": 145,
+      "area": 0,
+      "trigger": {
+        "kind": "passive",
+        "limit": 0,
+        "startFull": false
+      },
+      "ability": "Santuário de luz",
+      "detail": "Passive aura (radius 120). Every 4s heals other allies inside it for 11.1% of this unit's max HP (±10%). Other allies inside gain 17% less damage taken. Does not affect itself; auras from different supports add up. Keeps behind the frontline. Upgrades and fusion raise the aura by half the usual growth.",
+      "detailPT": "Aura passiva (raio 120). A cada 4s cura os outros aliados dentro dela em 11,1% da vida máxima desta unidade (±10%). Outros aliados dentro dela recebem 17% menos dano recebido. Não afeta a si mesmo; auras de suportes diferentes se somam. Fica atrás da linha de frente. Upgrade e fusão aumentam a aura pela metade do crescimento normal.",
+      "traits": [
+        "Arcane",
+        "Unyielding",
+        "Patient"
+      ],
+      "cost": 4,
+      "ratings": {
+        "hp": 2,
+        "atk": 2,
+        "defense": 2,
+        "attackSpeed": 3,
+        "speed": 3,
+        "crit": 1,
+        "skill": 5
+      }
+    },
+    "cavalier": {
+      "hp": 432,
+      "atk": 42,
+      "defense": 38,
+      "rate": 1.3513513513513513,
+      "speed": 74,
+      "crit": 0.07,
+      "range": 62,
+      "area": 0,
+      "trigger": {
+        "kind": "attacks",
+        "limit": 6,
+        "startFull": true
+      },
+      "ability": "Royal Charge",
+      "detail": "Once per round, charge the nearest enemy. On contact, replace the opening basic attack with a strike for 180% attack and stun for 1 second. Control effects interrupt the charge.",
+      "traits": [
+        "Dawnward Order",
+        "Trailblazer",
+        "Impulsive"
+      ],
+      "cost": 4,
+      "ratings": {
+        "hp": 4,
+        "atk": 4,
+        "defense": 4,
+        "attackSpeed": 2,
+        "speed": 5,
+        "crit": 2,
+        "skill": 4
+      }
+    },
+    "musketeer": {
+      "hp": 230,
+      "atk": 45,
+      "defense": 26,
+      "rate": 1.639344262295082,
+      "speed": 39,
+      "crit": 0.12,
+      "range": 180,
+      "area": 0,
+      "trigger": {
+        "kind": "attacks",
+        "limit": 4,
+        "startFull": false
+      },
+      "ability": "Armorbreaker Shot",
+      "detail": "After 4 basic attacks, shoot the current target for 220% attack, ignoring 50% defense. Remain in position.",
+      "traits": [
+        "Dawnward Order",
+        "Lookout",
+        "Ruthless"
+      ],
+      "cost": 3,
+      "ratings": {
+        "hp": 2,
+        "atk": 5,
+        "defense": 3,
+        "attackSpeed": 1,
+        "speed": 2,
+        "crit": 3,
+        "skill": 4
+      }
+    },
+    "swordsman": {
+      "hp": 290,
+      "atk": 45,
+      "defense": 16,
+      "rate": 1.3513513513513513,
+      "speed": 49,
+      "crit": 0.12,
+      "range": 62,
+      "area": 0,
+      "trigger": {
+        "kind": "damage",
+        "limit": 4,
+        "startFull": false
+      },
+      "ability": "Sundering Slash",
+      "detail": "After 5 basic attacks, slash a 90-degree cone over a range of 85, dealing 170% attack and reducing defense by 20% for 3 seconds. Repeated effects refresh duration.",
+      "traits": [
+        "Dawnward Order",
+        "Devastator",
+        "Fearless"
+      ],
+      "cost": 3,
+      "ratings": {
+        "hp": 3,
+        "atk": 5,
+        "defense": 2,
+        "attackSpeed": 2,
+        "speed": 3,
+        "crit": 3,
+        "skill": 4
+      }
+    },
+    "duelist": {
+      "hp": 288,
+      "atk": 34,
+      "defense": 16,
+      "rate": 0.6802721088435374,
+      "speed": 60,
+      "crit": 0.25,
+      "range": 34,
+      "area": 0,
+      "trigger": {
+        "kind": "attacks",
+        "limit": 5,
+        "startFull": false
+      },
+      "ability": "Perfect Riposte",
+      "detail": "Take a 1.2s stance. Block the next basic and counter for 180% ATK in melee range. Does not block specials. Minimum skill interval 6s.",
+      "detailPT": "Assume postura por 1,2s. Bloqueia próximo básico e contra-ataca por 180% ATQ em alcance corpo a corpo. Não bloqueia especiais. Intervalo mínimo 6s.",
+      "traits": [
+        "Dawnward Order",
+        "Predator",
+        "Audacious"
+      ],
+      "cost": 3,
+      "ratings": {
+        "hp": 2,
+        "atk": 3,
+        "defense": 2,
+        "attackSpeed": 5,
+        "speed": 4,
+        "crit": 5,
+        "skill": 4
+      }
+    },
+    "viking": {
+      "hp": 290,
+      "atk": 35,
+      "defense": 26,
+      "rate": 1.3513513513513513,
+      "speed": 49,
+      "crit": 0.12,
+      "range": 34,
+      "area": 0,
+      "trigger": {
+        "kind": "health",
+        "limit": 0.5,
+        "startFull": false
+      },
+      "ability": "Battle Fury",
+      "detail": "Attack 30% faster while at or below 50% health. The bonus ends when health rises above 50%.",
+      "traits": [
+        "Frostborn Clans",
+        "Devastator",
+        "Fearless"
+      ],
+      "cost": 3,
+      "ratings": {
+        "hp": 3,
+        "atk": 4,
+        "defense": 3,
+        "attackSpeed": 2,
+        "speed": 3,
+        "crit": 3,
+        "skill": 4
+      }
+    },
+    "shieldmaiden": {
+      "hp": 348,
+      "atk": 24,
+      "defense": 38,
+      "rate": 1.075268817204301,
+      "speed": 49,
+      "crit": 0.07,
+      "range": 34,
+      "area": 0,
+      "trigger": {
+        "kind": "received",
+        "limit": 5,
+        "startFull": false
+      },
+      "ability": "Stand Together",
+      "detail": "Shield yourself for 7.5% caster max HP for 2.5s and a wounded ally within 100 for 15% for 4s. Minimum skill interval 6s.",
+      "detailPT": "Protege a si com 7,5% da vida máxima do conjurador por 2,5s e um aliado ferido a até 100 com 15% por 4s. Intervalo mínimo 6s.",
+      "traits": [
+        "Frostborn Clans",
+        "Sentinel",
+        "Protector"
+      ],
+      "cost": 3,
+      "ratings": {
+        "hp": 3,
+        "atk": 2,
+        "defense": 4,
+        "attackSpeed": 3,
+        "speed": 3,
+        "crit": 2,
+        "skill": 4
+      }
+    },
+    "shaman": {
+      "hp": 230,
+      "atk": 20,
+      "defense": 16,
+      "rate": 1.075268817204301,
+      "speed": 49,
+      "crit": 0.03,
+      "range": 145,
+      "area": 0,
+      "trigger": {
+        "kind": "passive",
+        "limit": 0,
+        "startFull": false
+      },
+      "ability": "Ancestral Totem",
+      "detail": "Passive aura (radius 120). Every 3s heals other allies inside it for 6.5% of this unit's max HP (±10%). Other allies inside gain +43% attack speed. Does not affect itself; auras from different supports add up. Keeps behind the frontline. Upgrades and fusion raise the aura by half the usual growth.",
+      "detailPT": "Aura passiva (raio 120). A cada 3s cura os outros aliados dentro dela em 6,5% da vida máxima desta unidade (±10%). Outros aliados dentro dela recebem +43% de velocidade de ataque. Não afeta a si mesmo; auras de suportes diferentes se somam. Fica atrás da linha de frente. Upgrade e fusão aumentam a aura pela metade do crescimento normal.",
+      "traits": [
+        "Frostborn Clans",
+        "Unyielding",
+        "Patient"
+      ],
+      "cost": 4,
+      "ratings": {
+        "hp": 2,
+        "atk": 2,
+        "defense": 2,
+        "attackSpeed": 3,
+        "speed": 3,
+        "crit": 1,
+        "skill": 4
+      }
+    },
+    "berserker": {
+      "hp": 290,
+      "atk": 35,
+      "defense": 8,
+      "rate": 0.8620689655172414,
+      "speed": 60,
+      "crit": 0.12,
+      "range": 34,
+      "area": 0,
+      "trigger": {
+        "kind": "damage",
+        "limit": 4,
+        "startFull": false
+      },
+      "ability": "Bloodied Axes",
+      "detail": "Strike twice for 90% ATK each. Recover 12.5% of actual health damage dealt, excluding shields and overkill.",
+      "detailPT": "Dois golpes de 90% ATQ. Recupera 12,5% do dano efetivo à vida, excluindo escudos e excesso de dano.",
+      "traits": [
+        "Frostborn Clans",
+        "Devastator",
+        "Fearless"
+      ],
+      "cost": 3,
+      "ratings": {
+        "hp": 3,
+        "atk": 4,
+        "defense": 1,
+        "attackSpeed": 4,
+        "speed": 4,
+        "crit": 3,
+        "skill": 4
+      }
+    },
+    "huntress": {
+      "hp": 230,
+      "atk": 35,
+      "defense": 16,
+      "rate": 1.075268817204301,
+      "speed": 60,
+      "crit": 0.18,
+      "range": 145,
+      "area": 0,
+      "trigger": {
+        "kind": "attacks",
+        "limit": 5,
+        "startFull": false
+      },
+      "ability": "Marked Prey",
+      "detail": "After 5 basic attacks, throw a spear for 150% attack and mark the target for 4 seconds. The target takes 15% more damage from allied basic attacks. Repeated marks refresh duration without stacking.",
+      "traits": [
+        "Frostborn Clans",
+        "Predator",
+        "Ruthless"
+      ],
+      "cost": 3,
+      "ratings": {
+        "hp": 2,
+        "atk": 4,
+        "defense": 2,
+        "attackSpeed": 3,
+        "speed": 4,
+        "crit": 4,
+        "skill": 4
+      }
+    },
+    "glutton": {
+      "hp": 360,
+      "atk": 27,
+      "defense": 26,
+      "rate": 1.639344262295082,
+      "speed": 30,
+      "crit": 0.03,
+      "range": 34,
+      "area": 0,
+      "trigger": {
+        "kind": "received",
+        "limit": 6,
+        "startFull": false
+      },
+      "ability": "Snack Break",
+      "detail": "Recover 10% max HP, up to full health. Minimum skill interval 6s.",
+      "detailPT": "Recupera 10% da vida máxima, sem exceder o máximo. Intervalo mínimo 6s.",
+      "traits": [
+        "Frostborn Clans",
+        "Unyielding",
+        "Patient"
+      ],
+      "cost": 3,
+      "ratings": {
+        "hp": 4,
+        "atk": 3,
+        "defense": 3,
+        "attackSpeed": 1,
+        "speed": 1,
+        "crit": 1,
+        "skill": 4
+      }
+    },
+    "bear_druid": {
+      "hp": 432,
+      "atk": 42,
+      "defense": 38,
+      "rate": 1.3513513513513513,
+      "speed": 49,
+      "crit": 0.07,
+      "range": 62,
+      "area": 0,
+      "trigger": {
+        "kind": "received",
+        "limit": 5,
+        "startFull": false
+      },
+      "ability": "Ursine Roar",
+      "detail": "Enemies within 85 lose 20% ATK for 3s; self takes 7.5% less damage for 3s. Minimum skill interval 6s.",
+      "detailPT": "Inimigos a até 85 perdem 20% ATQ por 3s; próprio recebe 7,5% menos dano por 3s. Intervalo mínimo 6s.",
+      "traits": [
+        "Verdant Covenant",
+        "Sentinel",
+        "Fearless"
+      ],
+      "cost": 3,
+      "ratings": {
+        "hp": 4,
+        "atk": 4,
+        "defense": 4,
+        "attackSpeed": 2,
+        "speed": 3,
+        "crit": 2,
+        "skill": 4
+      }
+    },
+    "eagle_druid": {
+      "hp": 306,
+      "atk": 46,
+      "defense": 8,
+      "rate": 0.8620689655172414,
+      "speed": 74,
+      "crit": 0.18,
+      "range": 34,
+      "area": 0,
+      "skillScale": 1.7,
+      "trigger": {
+        "kind": "time",
+        "limit": 6,
+        "startFull": false
+      },
+      "ability": "Skyfall",
+      "detail": "After 5 basic attacks, leap to the farthest enemy within 180 range and deal 170% attack in a radius of 35 on landing. Land in the nearest free space and remain there. You can take damage during the leap.",
+      "traits": [
+        "Verdant Covenant",
+        "Trailblazer",
+        "Audacious"
+      ],
+      "cost": 2,
+      "ratings": {
+        "hp": 1,
+        "atk": 3,
+        "defense": 1,
+        "attackSpeed": 4,
+        "speed": 5,
+        "crit": 4,
+        "skill": 4
+      }
+    },
+    "pirate_admiral": {
+      "hp": 360,
+      "atk": 45,
+      "defense": 38,
+      "rate": 1.639344262295082,
+      "speed": 30,
+      "crit": 0.07,
+      "range": 62,
+      "area": 0,
+      "trigger": {
+        "kind": "received",
+        "limit": 6,
+        "startFull": false
+      },
+      "ability": "Deckbreaker",
+      "detail": "After 5 basic attacks, slam the ground at the current target, dealing 200% attack within 65 range of impact and stunning enemies for 1 second.",
+      "traits": [
+        "Seasalt Crew",
+        "Sentinel",
+        "Patient"
+      ],
+      "cost": 4,
+      "ratings": {
+        "hp": 4,
+        "atk": 5,
+        "defense": 4,
+        "attackSpeed": 1,
+        "speed": 1,
+        "crit": 2,
+        "skill": 4
+      }
+    },
+    "shackled_pirate": {
+      "hp": 247,
+      "atk": 30,
+      "defense": 16,
+      "rate": 1.3513513513513513,
+      "speed": 39,
+      "crit": 0.07,
+      "range": 62,
+      "area": 0,
+      "trigger": {
+        "kind": "received",
+        "limit": 4,
+        "startFull": false
+      },
+      "ability": "Chain Sweep",
+      "detail": "After 5 basic attacks, swing the chain around yourself, dealing 150% attack within 65 range and slowing enemy movement by 30% for 3 seconds. Repeated slows refresh duration without stacking.",
+      "traits": [
+        "Seasalt Crew",
+        "Unyielding",
+        "Fearless"
+      ],
+      "cost": 2,
+      "ratings": {
+        "hp": 3,
+        "atk": 4,
+        "defense": 2,
+        "attackSpeed": 2,
+        "speed": 2,
+        "crit": 2,
+        "skill": 4
+      }
+    },
+    "goblin_spearman": {
+      "hp": 180,
+      "atk": 27,
+      "defense": 8,
+      "rate": 0.8620689655172414,
+      "speed": 60,
+      "crit": 0.12,
+      "range": 62,
+      "area": 0,
+      "trigger": {
+        "kind": "attacks",
+        "limit": 5,
+        "startFull": false
+      },
+      "ability": "Estocada traiçoeira",
+      "detail": "Causa 160% do ataque ao alvo e recua 35 unidades.",
+      "traits": [
+        "Goblin",
+        "Trailblazer",
+        "Ruthless"
+      ],
+      "cost": 2,
+      "ratings": {
+        "hp": 2,
+        "atk": 3,
+        "defense": 1,
+        "attackSpeed": 3,
+        "speed": 4,
+        "crit": 2,
+        "skill": 4
+      }
+    },
+    "goblin_archer": {
+      "hp": 180,
+      "atk": 20,
+      "defense": 8,
+      "rate": 0.8620689655172414,
+      "speed": 60,
+      "crit": 0.12,
+      "range": 180,
+      "area": 0,
+      "trigger": {
+        "kind": "attacks",
+        "limit": 6,
+        "startFull": false
+      },
+      "ability": "Flecha farpada",
+      "detail": "Causa 140% do ataque e reduz o movimento do alvo em 30% por 3 segundos.",
+      "traits": [
+        "Goblin",
+        "Lookout",
+        "Ruthless"
+      ],
+      "cost": 2,
+      "ratings": {
+        "hp": 2,
+        "atk": 2,
+        "defense": 1,
+        "attackSpeed": 3,
+        "speed": 4,
+        "crit": 2,
+        "skill": 4
+      }
+    },
+    "goblin_rider": {
+      "hp": 363,
+      "atk": 34,
+      "defense": 26,
+      "rate": 1.075268817204301,
+      "speed": 74,
+      "crit": 0.07,
+      "range": 62,
+      "area": 0,
+      "trigger": {
+        "kind": "attacks",
+        "limit": 6,
+        "startFull": true
+      },
+      "ability": "Atropelo",
+      "detail": "Começa carregado. Avança pelo chão, causa 160% do ataque e empurra o alvo 45 unidades, acompanhando o avanço. Controle interrompe a investida.",
+      "traits": [
+        "Goblin",
+        "Trailblazer",
+        "Impulsive"
+      ],
+      "cost": 3,
+      "ratings": {
+        "hp": 4,
+        "atk": 3,
+        "defense": 3,
+        "attackSpeed": 3,
+        "speed": 5,
+        "crit": 1,
+        "skill": 4
+      }
+    },
+    "goblin_brute": {
+      "hp": 290,
+      "atk": 35,
+      "defense": 16,
+      "rate": 1.075268817204301,
+      "speed": 49,
+      "crit": 0.07,
+      "range": 34,
+      "area": 0,
+      "trigger": {
+        "kind": "received",
+        "limit": 5,
+        "startFull": false
+      },
+      "ability": "Pancada brutal",
+      "detail": "Causa 170% do ataque ao alvo e atordoa por 0,8 segundo.",
+      "traits": [
+        "Goblin",
+        "Unyielding",
+        "Fearless"
+      ],
+      "cost": 3,
+      "ratings": {
+        "hp": 4,
+        "atk": 4,
+        "defense": 2,
+        "attackSpeed": 3,
+        "speed": 3,
+        "crit": 1,
+        "skill": 4
+      }
+    },
+    "goblin_bomber": {
+      "hp": 225,
+      "atk": 44,
+      "defense": 8,
+      "rate": 1.639344262295082,
+      "speed": 60,
+      "crit": 0.12,
+      "range": 145,
+      "area": 35,
+      "trigger": {
+        "kind": "time",
+        "limit": 7,
+        "startFull": false
+      },
+      "ability": "Bomba incendiária",
+      "detail": "Após 1 segundo, a bomba explode por 150% do ataque em raio 55. Deixa fogo por 3 segundos, causando 20% do ataque por segundo.",
+      "traits": [
+        "Goblin",
+        "Demolisher",
+        "Impulsive"
+      ],
+      "cost": 3,
+      "ratings": {
+        "hp": 2,
+        "atk": 4,
+        "defense": 1,
+        "attackSpeed": 2,
+        "speed": 4,
+        "crit": 2,
+        "skill": 4
+      }
+    },
+    "goblin_king": {
+      "hp": 360,
+      "atk": 20,
+      "defense": 26,
+      "rate": 1.3513513513513513,
+      "speed": 30,
+      "crit": 0.03,
+      "range": 145,
+      "area": 0,
+      "trigger": {
+        "kind": "passive",
+        "limit": 0,
+        "startFull": false
+      },
+      "ability": "Ordem do rei",
+      "detail": "Passive aura (radius 120). Other allies inside gain +32% damage and +27% attack speed. Does not affect itself; auras from different supports add up. Keeps behind the frontline. Upgrades and fusion raise the aura by half the usual growth.",
+      "detailPT": "Aura passiva (raio 120). Outros aliados dentro dela recebem +32% de dano e +27% de velocidade de ataque. Não afeta a si mesmo; auras de suportes diferentes se somam. Fica atrás da linha de frente. Upgrade e fusão aumentam a aura pela metade do crescimento normal.",
+      "traits": [
+        "Goblin",
+        "Unyielding",
+        "Protector"
+      ],
+      "cost": 4,
+      "ratings": {
+        "hp": 5,
+        "atk": 2,
+        "defense": 3,
+        "attackSpeed": 2,
+        "speed": 1,
+        "crit": 1,
+        "skill": 4
+      }
+    },
+    "orc_warrior": {
+      "hp": 363,
+      "atk": 34,
+      "defense": 38,
+      "rate": 1.3513513513513513,
+      "speed": 39,
+      "crit": 0.07,
+      "range": 34,
+      "area": 0,
+      "trigger": {
+        "kind": "received",
+        "limit": 5,
+        "startFull": false
+      },
+      "ability": "Escudo de guerra",
+      "detail": "Gain a shield for 7.5% max HP for 2.5s and push the nearby target 30. Minimum skill interval 6s. Only hits damaging health charge this skill.",
+      "detailPT": "Recebe escudo de 7,5% da vida máxima por 2,5s e empurra o alvo próximo 30. Intervalo mínimo 6s. Apenas golpes que ferem a vida carregam a habilidade.",
+      "traits": [
+        "Orc",
+        "Sentinel",
+        "Protector"
+      ],
+      "cost": 3,
+      "ratings": {
+        "hp": 4,
+        "atk": 3,
+        "defense": 4,
+        "attackSpeed": 2,
+        "speed": 2,
+        "crit": 1,
+        "skill": 4
+      }
+    },
+    "orc_berserker": {
+      "hp": 290,
+      "atk": 35,
+      "defense": 16,
+      "rate": 0.8620689655172414,
+      "speed": 60,
+      "crit": 0.12,
+      "range": 34,
+      "area": 0,
+      "trigger": {
+        "kind": "damage",
+        "limit": 4,
+        "startFull": false
+      },
+      "ability": "Caçada sangrenta",
+      "detail": "Avança até o inimigo com menor percentual de vida em alcance 120 e golpeia por 180% do ataque. Sem candidato, usa o alvo atual.",
+      "traits": [
+        "Orc",
+        "Devastator",
+        "Fearless"
+      ],
+      "cost": 3,
+      "ratings": {
+        "hp": 4,
+        "atk": 4,
+        "defense": 2,
+        "attackSpeed": 3,
+        "speed": 4,
+        "crit": 2,
+        "skill": 4
+      }
+    },
+    "orc_fighter": {
+      "hp": 299,
+      "atk": 35,
+      "defense": 16,
+      "rate": 0.6802721088435374,
+      "speed": 60,
+      "crit": 0.18,
+      "range": 34,
+      "area": 0,
+      "trigger": {
+        "kind": "attacks",
+        "limit": 6,
+        "startFull": false
+      },
+      "ability": "Lâminas cruzadas",
+      "detail": "Dois cortes no alvo, cada um por 100% do ataque, ignorando 25% da defesa.",
+      "traits": [
+        "Orc",
+        "Devastator",
+        "Ruthless"
+      ],
+      "cost": 2,
+      "ratings": {
+        "hp": 3,
+        "atk": 3,
+        "defense": 2,
+        "attackSpeed": 4,
+        "speed": 4,
+        "crit": 4,
+        "skill": 4
+      }
+    },
+    "cave_troll": {
+      "hp": 360,
+      "atk": 35,
+      "defense": 16,
+      "rate": 1.3513513513513513,
+      "speed": 49,
+      "crit": 0.07,
+      "range": 62,
+      "area": 0,
+      "trigger": {
+        "kind": "passive",
+        "limit": 0,
+        "startFull": false
+      },
+      "ability": "Carne regenerativa",
+      "detail": "After 5s without health damage, regenerate 1% max HP per second. New health damage interrupts regeneration.",
+      "detailPT": "Após 5s sem dano à vida, regenera 1% da vida máxima por segundo. Novo dano à vida interrompe a regeneração.",
+      "traits": [
+        "Troll",
+        "Unyielding",
+        "Fearless"
+      ],
+      "cost": 3,
+      "ratings": {
+        "hp": 5,
+        "atk": 4,
+        "defense": 2,
+        "attackSpeed": 2,
+        "speed": 3,
+        "crit": 1,
+        "skill": 4
+      }
+    },
+    "snow_troll": {
+      "hp": 290,
+      "atk": 20,
+      "defense": 26,
+      "rate": 1.3513513513513513,
+      "speed": 39,
+      "crit": 0.03,
+      "range": 145,
+      "area": 0,
+      "trigger": {
+        "kind": "passive",
+        "limit": 0,
+        "startFull": false
+      },
+      "ability": "Proteção ancestral",
+      "detail": "Passive aura (radius 120). Other allies inside gain 42% less damage taken. Does not affect itself; auras from different supports add up. Keeps behind the frontline. Upgrades and fusion raise the aura by half the usual growth.",
+      "detailPT": "Aura passiva (raio 120). Outros aliados dentro dela recebem 42% menos dano recebido. Não afeta a si mesmo; auras de suportes diferentes se somam. Fica atrás da linha de frente. Upgrade e fusão aumentam a aura pela metade do crescimento normal.",
+      "traits": [
+        "Troll",
+        "Unyielding",
+        "Protector"
+      ],
+      "cost": 4,
+      "ratings": {
+        "hp": 4,
+        "atk": 2,
+        "defense": 3,
+        "attackSpeed": 2,
+        "speed": 2,
+        "crit": 1,
+        "skill": 4
+      }
+    },
+    "troll": {
+      "hp": 360,
+      "atk": 45,
+      "defense": 38,
+      "rate": 1.639344262295082,
+      "speed": 30,
+      "crit": 0.03,
+      "range": 62,
+      "area": 0,
+      "trigger": {
+        "kind": "received",
+        "limit": 6,
+        "startFull": false
+      },
+      "ability": "Queda da rocha",
+      "detail": "Atinge o chão junto ao alvo por 180% do ataque em raio 65 e imobiliza por 1,2 segundo.",
+      "traits": [
+        "Troll",
+        "Sentinel",
+        "Patient"
+      ],
+      "cost": 4,
+      "ratings": {
+        "hp": 5,
+        "atk": 5,
+        "defense": 4,
+        "attackSpeed": 2,
+        "speed": 1,
+        "crit": 1,
+        "skill": 4
+      }
+    },
+    "mountain_troll": {
+      "hp": 414,
+      "atk": 52,
+      "defense": 26,
+      "rate": 1.639344262295082,
+      "speed": 49,
+      "crit": 0.07,
+      "range": 62,
+      "area": 0,
+      "trigger": {
+        "kind": "time",
+        "limit": 8,
+        "startFull": false
+      },
+      "ability": "Investida demolidora",
+      "detail": "Avança até 120 unidades rumo ao alvo. Atinge cada inimigo no trajeto uma vez por 170% do ataque e o empurra 45 unidades.",
+      "traits": [
+        "Troll",
+        "Devastator",
+        "Impulsive"
+      ],
+      "cost": 4,
+      "ratings": {
+        "hp": 5,
+        "atk": 5,
+        "defense": 3,
+        "attackSpeed": 2,
+        "speed": 3,
+        "crit": 1,
+        "skill": 4
+      }
+    },
+    "dark_elf_noble": {
+      "hp": 288,
+      "atk": 44,
+      "defense": 16,
+      "rate": 0.8620689655172414,
+      "speed": 60,
+      "crit": 0.25,
+      "range": 34,
+      "area": 0,
+      "trigger": {
+        "kind": "attacks",
+        "limit": 5,
+        "startFull": false
+      },
+      "ability": "Passo sombrio",
+      "detail": "Teleporta para um espaço livre atrás do alvo e golpeia por 180% do ataque. Sem invulnerabilidade.",
+      "traits": [
+        "Dark Elf",
+        "Predator",
+        "Audacious"
+      ],
+      "cost": 3,
+      "ratings": {
+        "hp": 3,
+        "atk": 4,
+        "defense": 2,
+        "attackSpeed": 3,
+        "speed": 4,
+        "crit": 5,
+        "skill": 4
+      }
+    },
+    "dark_elf_archer": {
+      "hp": 180,
+      "atk": 35,
+      "defense": 8,
+      "rate": 1.075268817204301,
+      "speed": 60,
+      "crit": 0.18,
+      "range": 180,
+      "area": 0,
+      "trigger": {
+        "kind": "attacks",
+        "limit": 5,
+        "startFull": false
+      },
+      "ability": "Flecha executora",
+      "detail": "Atira no inimigo com menor percentual de vida em alcance 180 por 180% do ataque, ou 240% se estiver abaixo de 30% de vida.",
+      "traits": [
+        "Dark Elf",
+        "Lookout",
+        "Ruthless"
+      ],
+      "cost": 3,
+      "ratings": {
+        "hp": 2,
+        "atk": 4,
+        "defense": 1,
+        "attackSpeed": 3,
+        "speed": 4,
+        "crit": 4,
+        "skill": 4
+      }
+    },
+    "dark_elf_warrior": {
+      "hp": 290,
+      "atk": 35,
+      "defense": 38,
+      "rate": 1.3513513513513513,
+      "speed": 49,
+      "crit": 0.12,
+      "range": 62,
+      "area": 0,
+      "trigger": {
+        "kind": "received",
+        "limit": 5,
+        "startFull": false
+      },
+      "ability": "Guarda punitiva",
+      "detail": "Slash a cone (range 85) for 160% ATK, then take 10% less damage for 3s. Minimum skill interval 6s.",
+      "detailPT": "Corta cone (alcance 85) por 160% ATQ e recebe 10% menos dano por 3s. Intervalo mínimo 6s.",
+      "traits": [
+        "Dark Elf",
+        "Sentinel",
+        "Fearless"
+      ],
+      "cost": 3,
+      "ratings": {
+        "hp": 4,
+        "atk": 4,
+        "defense": 4,
+        "attackSpeed": 2,
+        "speed": 3,
+        "crit": 2,
+        "skill": 4
+      }
+    },
+    "dark_elf_mage": {
+      "hp": 288,
+      "atk": 43,
+      "defense": 8,
+      "rate": 1.3513513513513513,
+      "speed": 39,
+      "crit": 0.07,
+      "range": 145,
+      "area": 0,
+      "skillScale": 1.6,
+      "trigger": {
+        "kind": "time",
+        "limit": 8,
+        "startFull": false
+      },
+      "ability": "Grilhões arcanos",
+      "detail": "Atinge uma área de raio 55 na posição do alvo por 150% do ataque e imobiliza por 1,5 segundo.",
+      "traits": [
+        "Dark Elf",
+        "Devastator",
+        "Patient"
+      ],
+      "cost": 3,
+      "ratings": {
+        "hp": 2,
+        "atk": 3,
+        "defense": 1,
+        "attackSpeed": 2,
+        "speed": 2,
+        "crit": 1,
+        "skill": 4
+      }
+    },
+    "feline_swordsman": {
+      "hp": 230,
+      "atk": 27,
+      "defense": 26,
+      "rate": 0.8620689655172414,
+      "speed": 60,
+      "crit": 0.12,
+      "range": 34,
+      "area": 0,
+      "trigger": {
+        "kind": "attacks",
+        "limit": 5,
+        "startFull": false
+      },
+      "ability": "Estocada audaz",
+      "detail": "Causa 160% do ataque ao alvo e ganha 20% de velocidade de ataque por 3 segundos.",
+      "traits": [
+        "Meowri",
+        "Devastator",
+        "Fearless"
+      ],
+      "cost": 2,
+      "ratings": {
+        "hp": 3,
+        "atk": 3,
+        "defense": 3,
+        "attackSpeed": 4,
+        "speed": 4,
+        "crit": 3,
+        "skill": 4
+      }
+    },
+    "feline_rogue": {
+      "hp": 216,
+      "atk": 42,
+      "defense": 8,
+      "rate": 0.6802721088435374,
+      "speed": 74,
+      "crit": 0.25,
+      "range": 34,
+      "area": 0,
+      "trigger": {
+        "kind": "attacks",
+        "limit": 6,
+        "startFull": false
+      },
+      "ability": "Salto traiçoeiro",
+      "detail": "Salta atrás do alvo e desfere dois golpes de 90% do ataque; cada golpe causa 110% se o alvo estiver mirando outro aliado.",
+      "traits": [
+        "Meowri",
+        "Predator",
+        "Audacious"
+      ],
+      "cost": 3,
+      "ratings": {
+        "hp": 2,
+        "atk": 4,
+        "defense": 1,
+        "attackSpeed": 5,
+        "speed": 5,
+        "crit": 5,
+        "skill": 4
+      }
+    },
+    "feline_arcanist": {
+      "hp": 180,
+      "atk": 20,
+      "defense": 16,
+      "rate": 1.075268817204301,
+      "speed": 49,
+      "crit": 0.07,
+      "range": 145,
+      "area": 0,
+      "trigger": {
+        "kind": "passive",
+        "limit": 0,
+        "startFull": false
+      },
+      "ability": "Égide esmeralda",
+      "detail": "Passive aura (radius 120). Other allies inside gain +35% attack speed. Does not affect itself; auras from different supports add up. Keeps behind the frontline. Upgrades and fusion raise the aura by half the usual growth.",
+      "detailPT": "Aura passiva (raio 120). Outros aliados dentro dela recebem +35% de velocidade de ataque. Não afeta a si mesmo; auras de suportes diferentes se somam. Fica atrás da linha de frente. Upgrade e fusão aumentam a aura pela metade do crescimento normal.",
+      "traits": [
+        "Meowri",
+        "Unyielding",
+        "Patient"
+      ],
+      "cost": 3,
+      "ratings": {
+        "hp": 2,
+        "atk": 2,
+        "defense": 2,
+        "attackSpeed": 3,
+        "speed": 3,
+        "crit": 2,
+        "skill": 4
+      }
+    },
+    "feline_drummer": {
+      "hp": 230,
+      "atk": 14,
+      "defense": 16,
+      "rate": 1.3513513513513513,
+      "speed": 49,
+      "crit": 0.03,
+      "range": 145,
+      "area": 0,
+      "trigger": {
+        "kind": "passive",
+        "limit": 0,
+        "startFull": false
+      },
+      "ability": "Ritmo da marcha",
+      "detail": "Passive aura (radius 120). Other allies inside gain +46% attack speed. Does not affect itself; auras from different supports add up. Keeps behind the frontline. Upgrades and fusion raise the aura by half the usual growth.",
+      "detailPT": "Aura passiva (raio 120). Outros aliados dentro dela recebem +46% de velocidade de ataque. Não afeta a si mesmo; auras de suportes diferentes se somam. Fica atrás da linha de frente. Upgrade e fusão aumentam a aura pela metade do crescimento normal.",
+      "traits": [
+        "Meowri",
+        "Unyielding",
+        "Patient"
+      ],
+      "cost": 3,
+      "ratings": {
+        "hp": 3,
+        "atk": 1,
+        "defense": 2,
+        "attackSpeed": 2,
+        "speed": 3,
+        "crit": 1,
+        "skill": 4
+      }
+    },
+    "feline_fighter": {
+      "hp": 230,
+      "atk": 27,
+      "defense": 16,
+      "rate": 0.6802721088435374,
+      "speed": 60,
+      "crit": 0.12,
+      "range": 34,
+      "area": 0,
+      "trigger": {
+        "kind": "attacks",
+        "limit": 6,
+        "startFull": false
+      },
+      "ability": "Sequência de garras",
+      "detail": "Desfere três golpes de 65% do ataque. O último empurra o alvo 30 unidades e o lutador o acompanha.",
+      "traits": [
+        "Meowri",
+        "Trailblazer",
+        "Impulsive"
+      ],
+      "cost": 2,
+      "ratings": {
+        "hp": 3,
+        "atk": 3,
+        "defense": 2,
+        "attackSpeed": 5,
+        "speed": 4,
+        "crit": 3,
+        "skill": 4
+      }
+    },
+    "elf_noble": {
+      "hp": 230,
+      "atk": 35,
+      "defense": 16,
+      "rate": 1.075268817204301,
+      "speed": 49,
+      "crit": 0.18,
+      "range": 145,
+      "area": 0,
+      "trigger": {
+        "kind": "attacks",
+        "limit": 5,
+        "startFull": false
+      },
+      "ability": "Disparo de comando",
+      "detail": "Dispara por 180% do ataque. Os dois outros aliados mais próximos ganham 15% de ataque por 3 segundos, sem mudar seus alvos.",
+      "traits": [
+        "High Elf",
+        "Predator",
+        "Ruthless"
+      ],
+      "cost": 3,
+      "ratings": {
+        "hp": 3,
+        "atk": 4,
+        "defense": 2,
+        "attackSpeed": 3,
+        "speed": 3,
+        "crit": 4,
+        "skill": 4
+      }
+    },
+    "elf_guardian": {
+      "hp": 432,
+      "atk": 24,
+      "defense": 38,
+      "rate": 1.3513513513513513,
+      "speed": 39,
+      "crit": 0.07,
+      "range": 34,
+      "area": 0,
+      "trigger": {
+        "kind": "received",
+        "limit": 5,
+        "startFull": false
+      },
+      "ability": "Muralha rubra",
+      "detail": "After health-damaging basic hits, grant damage reduction for 3s: self 12.5%, other allies within 85 15%. Minimum skill interval 6s.",
+      "detailPT": "Após golpes básicos que ferem a vida, concede redução de dano por 3s: próprio 12,5%, outros aliados a até 85 15%. Intervalo mínimo 6s.",
+      "traits": [
+        "High Elf",
+        "Sentinel",
+        "Protector"
+      ],
+      "cost": 3,
+      "ratings": {
+        "hp": 5,
+        "atk": 2,
+        "defense": 4,
+        "attackSpeed": 2,
+        "speed": 2,
+        "crit": 2,
+        "skill": 4
+      }
+    },
+    "elf_archer": {
+      "hp": 144,
+      "atk": 22,
+      "defense": 8,
+      "rate": 0.8620689655172414,
+      "speed": 60,
+      "crit": 0.12,
+      "range": 180,
+      "area": 0,
+      "trigger": {
+        "kind": "attacks",
+        "limit": 6,
+        "startFull": false
+      },
+      "ability": "Flecha solar",
+      "detail": "Atinge até três inimigos em linha: o primeiro recebe 170% do ataque e os demais, 100%.",
+      "traits": [
+        "High Elf",
+        "Lookout",
+        "Patient"
+      ],
+      "cost": 2,
+      "ratings": {
+        "hp": 2,
+        "atk": 3,
+        "defense": 1,
+        "attackSpeed": 4,
+        "speed": 4,
+        "crit": 3,
+        "skill": 4
+      }
+    },
+    "elf_halberdier": {
+      "hp": 290,
+      "atk": 35,
+      "defense": 26,
+      "rate": 1.075268817204301,
+      "speed": 49,
+      "crit": 0.07,
+      "range": 62,
+      "area": 0,
+      "trigger": {
+        "kind": "attacks",
+        "limit": 5,
+        "startFull": false
+      },
+      "ability": "Varredura da aurora",
+      "detail": "Causa 160% do ataque em cone frontal de alcance 85 e empurra os alvos 35 unidades. Permanece no lugar.",
+      "traits": [
+        "High Elf",
+        "Devastator",
+        "Impulsive"
+      ],
+      "cost": 3,
+      "ratings": {
+        "hp": 4,
+        "atk": 4,
+        "defense": 3,
+        "attackSpeed": 3,
+        "speed": 3,
+        "crit": 2,
+        "skill": 4
+      }
+    },
+    "woodland_predator": {
+      "hp": 288,
+      "atk": 34,
+      "defense": 16,
+      "rate": 0.6802721088435374,
+      "speed": 74,
+      "crit": 0.18,
+      "range": 34,
+      "area": 0,
+      "trigger": {
+        "kind": "passive",
+        "limit": 0,
+        "startFull": false
+      },
+      "ability": "Caçada implacável",
+      "detail": "Cada ataque básico consecutivo no mesmo alvo concede 5% de velocidade de ataque, até 30%. Trocar de alvo reinicia o bônus.",
+      "traits": [
+        "Forest Elf",
+        "Predator",
+        "Ruthless"
+      ],
+      "cost": 3,
+      "ratings": {
+        "hp": 3,
+        "atk": 3,
+        "defense": 2,
+        "attackSpeed": 5,
+        "speed": 5,
+        "crit": 4,
+        "skill": 4
+      }
+    },
+    "woodland_lancer": {
+      "hp": 230,
+      "atk": 27,
+      "defense": 26,
+      "rate": 1.075268817204301,
+      "speed": 60,
+      "crit": 0.07,
+      "range": 62,
+      "area": 0,
+      "trigger": {
+        "kind": "attacks",
+        "limit": 5,
+        "startFull": false
+      },
+      "ability": "Ponta dupla",
+      "detail": "Causa 150% do ataque ao alvo principal e 100% a um segundo inimigo próximo. Sem segundo alvo, não há golpe adicional.",
+      "traits": [
+        "Forest Elf",
+        "Sentinel",
+        "Protector"
+      ],
+      "cost": 2,
+      "ratings": {
+        "hp": 3,
+        "atk": 3,
+        "defense": 3,
+        "attackSpeed": 3,
+        "speed": 4,
+        "crit": 2,
+        "skill": 4
+      }
+    },
+    "woodland_scout": {
+      "hp": 180,
+      "atk": 27,
+      "defense": 8,
+      "rate": 0.8620689655172414,
+      "speed": 74,
+      "crit": 0.18,
+      "range": 180,
+      "area": 0,
+      "trigger": {
+        "kind": "time",
+        "limit": 6,
+        "startFull": false
+      },
+      "ability": "Disparo evasivo",
+      "detail": "Recua 45 unidades e dispara por 150% do ataque, reduzindo o movimento do alvo em 30% por 3 segundos.",
+      "traits": [
+        "Forest Elf",
+        "Lookout",
+        "Audacious"
+      ],
+      "cost": 3,
+      "ratings": {
+        "hp": 2,
+        "atk": 3,
+        "defense": 1,
+        "attackSpeed": 4,
+        "speed": 5,
+        "crit": 4,
+        "skill": 4
+      }
+    },
+    "woodland_flailer": {
+      "hp": 290,
+      "atk": 35,
+      "defense": 26,
+      "rate": 1.3513513513513513,
+      "speed": 49,
+      "crit": 0.12,
+      "range": 62,
+      "area": 0,
+      "trigger": {
+        "kind": "attacks",
+        "limit": 5,
+        "startFull": false
+      },
+      "ability": "Quebra-guarda",
+      "detail": "Causa 180% do ataque e reduz a defesa em 25% por 4 segundos. O golpe causa 50% de dano adicional somente à parcela absorvida por escudos.",
+      "traits": [
+        "Forest Elf",
+        "Devastator",
+        "Fearless"
+      ],
+      "cost": 3,
+      "ratings": {
+        "hp": 4,
+        "atk": 4,
+        "defense": 3,
+        "attackSpeed": 2,
+        "speed": 3,
+        "crit": 3,
+        "skill": 4
+      }
+    },
+    "flower_fairy": {
+      "hp": 180,
+      "atk": 14,
+      "defense": 8,
+      "rate": 1.075268817204301,
+      "speed": 74,
+      "crit": 0.03,
+      "range": 145,
+      "area": 0,
+      "trigger": {
+        "kind": "passive",
+        "limit": 0,
+        "startFull": false
+      },
+      "ability": "Pólen restaurador",
+      "detail": "Passive aura (radius 120). Every 2s heals other allies inside it for 5.6% of this unit's max HP (±10%). Other allies inside gain +35% skill power. Does not affect itself; auras from different supports add up. Keeps behind the frontline. Upgrades and fusion raise the aura by half the usual growth.",
+      "detailPT": "Aura passiva (raio 120). A cada 2s cura os outros aliados dentro dela em 5,6% da vida máxima desta unidade (±10%). Outros aliados dentro dela recebem +35% de poder de habilidade. Não afeta a si mesmo; auras de suportes diferentes se somam. Fica atrás da linha de frente. Upgrade e fusão aumentam a aura pela metade do crescimento normal.",
+      "traits": [
+        "Fairy",
+        "Trailblazer",
+        "Patient"
+      ],
+      "cost": 3,
+      "ratings": {
+        "hp": 2,
+        "atk": 1,
+        "defense": 1,
+        "attackSpeed": 3,
+        "speed": 5,
+        "crit": 1,
+        "skill": 4
+      }
+    },
+    "elf_harpist": {
+      "hp": 230,
+      "atk": 14,
+      "defense": 16,
+      "rate": 1.3513513513513513,
+      "speed": 49,
+      "crit": 0.03,
+      "range": 145,
+      "area": 0,
+      "trigger": {
+        "kind": "passive",
+        "limit": 0,
+        "startFull": false
+      },
+      "ability": "Canção do alvorecer",
+      "detail": "Passive aura (radius 120). Every 5s heals other allies inside it for 10.9% of this unit's max HP (±10%). Other allies inside gain +23% attack speed. Does not affect itself; auras from different supports add up. Keeps behind the frontline. Upgrades and fusion raise the aura by half the usual growth.",
+      "detailPT": "Aura passiva (raio 120). A cada 5s cura os outros aliados dentro dela em 10,9% da vida máxima desta unidade (±10%). Outros aliados dentro dela recebem +23% de velocidade de ataque. Não afeta a si mesmo; auras de suportes diferentes se somam. Fica atrás da linha de frente. Upgrade e fusão aumentam a aura pela metade do crescimento normal.",
+      "traits": [
+        "High Elf",
+        "Unyielding",
+        "Patient"
+      ],
+      "cost": 4,
+      "ratings": {
+        "hp": 3,
+        "atk": 1,
+        "defense": 2,
+        "attackSpeed": 2,
+        "speed": 3,
+        "crit": 1,
+        "skill": 4
+      }
+    },
+    "centaur_crossbow": {
+      "hp": 230,
+      "atk": 35,
+      "defense": 16,
+      "rate": 1.075268817204301,
+      "speed": 74,
+      "crit": 0.12,
+      "range": 180,
+      "area": 0,
+      "trigger": {
+        "kind": "attacks",
+        "limit": 5,
+        "startFull": false
+      },
+      "ability": "Rajada a galope",
+      "detail": "Desloca-se 50 unidades lateralmente enquanto dispara três tiros de 70% do ataque no alvo. Continua vulnerável durante o movimento.",
+      "traits": [
+        "Centaur",
+        "Lookout",
+        "Audacious"
+      ],
+      "cost": 3,
+      "ratings": {
+        "hp": 3,
+        "atk": 4,
+        "defense": 2,
+        "attackSpeed": 3,
+        "speed": 5,
+        "crit": 3,
+        "skill": 4
+      }
+    },
+    "centaur_lancer": {
+      "hp": 414,
+      "atk": 40,
+      "defense": 38,
+      "rate": 1.3513513513513513,
+      "speed": 74,
+      "crit": 0.07,
+      "range": 62,
+      "area": 0,
+      "trigger": {
+        "kind": "time",
+        "limit": 8,
+        "startFull": false
+      },
+      "ability": "Investida protetora",
+      "detail": "Avança até 120 unidades contra o inimigo próximo do outro aliado com menor percentual de vida, causa 170% do ataque e provoca por 2 segundos. Sem alvo elegível, busca o alvo atual.",
+      "traits": [
+        "Centaur",
+        "Trailblazer",
+        "Protector"
+      ],
+      "cost": 3,
+      "ratings": {
+        "hp": 5,
+        "atk": 4,
+        "defense": 4,
+        "attackSpeed": 2,
+        "speed": 5,
+        "crit": 2,
+        "skill": 4
+      }
+    },
+    "centaur_swordsman": {
+      "hp": 290,
+      "atk": 35,
+      "defense": 26,
+      "rate": 1.075268817204301,
+      "speed": 74,
+      "crit": 0.12,
+      "range": 34,
+      "area": 0,
+      "trigger": {
+        "kind": "attacks",
+        "limit": 6,
+        "startFull": false
+      },
+      "ability": "Corte de passagem",
+      "detail": "Atravessa o alvo, causa 170% do ataque e termina 45 unidades atrás dele, em espaço livre. Atinge apenas esse alvo.",
+      "traits": [
+        "Centaur",
+        "Devastator",
+        "Audacious"
+      ],
+      "cost": 3,
+      "ratings": {
+        "hp": 4,
+        "atk": 4,
+        "defense": 3,
+        "attackSpeed": 3,
+        "speed": 5,
+        "crit": 3,
+        "skill": 4
+      }
+    },
+    "sheriff": {
+      "hp": 290,
+      "atk": 35,
+      "defense": 26,
+      "rate": 1.075268817204301,
+      "speed": 74,
+      "crit": 0.18,
+      "range": 145,
+      "area": 0,
+      "trigger": {
+        "kind": "time",
+        "limit": 7,
+        "startFull": false
+      },
+      "ability": "Laço da lei",
+      "detail": "Laça o inimigo mais distante em alcance 180, puxa até 60 unidades, dispara por 160% do ataque e enraíza por 1 segundo. Cavalo e cavaleiro são uma unidade.",
+      "traits": [
+        "Wild West",
+        "Trailblazer",
+        "Ruthless"
+      ],
+      "cost": 4,
+      "ratings": {
+        "hp": 4,
+        "atk": 4,
+        "defense": 3,
+        "attackSpeed": 3,
+        "speed": 5,
+        "crit": 4,
+        "skill": 4
+      }
+    },
+    "bard": {
+      "hp": 230,
+      "atk": 14,
+      "defense": 16,
+      "rate": 1.3513513513513513,
+      "speed": 49,
+      "crit": 0.03,
+      "range": 145,
+      "area": 0,
+      "trigger": {
+        "kind": "passive",
+        "limit": 0,
+        "startFull": false
+      },
+      "ability": "Balada heroica",
+      "detail": "Passive aura (radius 120). Other allies inside gain +34% damage. Does not affect itself; auras from different supports add up. Keeps behind the frontline. Upgrades and fusion raise the aura by half the usual growth.",
+      "detailPT": "Aura passiva (raio 120). Outros aliados dentro dela recebem +34% de dano. Não afeta a si mesmo; auras de suportes diferentes se somam. Fica atrás da linha de frente. Upgrade e fusão aumentam a aura pela metade do crescimento normal.",
+      "traits": [
+        "Arcane",
+        "Unyielding",
+        "Patient"
+      ],
+      "cost": 3,
+      "ratings": {
+        "hp": 3,
+        "atk": 1,
+        "defense": 2,
+        "attackSpeed": 2,
+        "speed": 3,
+        "crit": 1,
+        "skill": 4
+      }
+    },
+    "gladiator": {
+      "hp": 363,
+      "atk": 34,
+      "defense": 38,
+      "rate": 1.075268817204301,
+      "speed": 39,
+      "crit": 0.07,
+      "range": 62,
+      "area": 0,
+      "trigger": {
+        "kind": "received",
+        "limit": 5,
+        "startFull": false
+      },
+      "ability": "Resposta da arena",
+      "detail": "Após receber 5 ataques básicos, contra-ataca o agressor em alcance 62, ou o alvo atual nesse alcance, por 180% do ataque e reduz seu ataque em 20% por 3 segundos.",
+      "traits": [
+        "Dawnward Order",
+        "Sentinel",
+        "Fearless"
+      ],
+      "cost": 3,
+      "ratings": {
+        "hp": 4,
+        "atk": 3,
+        "defense": 4,
+        "attackSpeed": 3,
+        "speed": 2,
+        "crit": 2,
+        "skill": 4
+      }
+    },
+    "blackfang_guardian": {
+      "hp": 450,
+      "atk": 34,
+      "defense": 38,
+      "rate": 1.3513513513513513,
+      "speed": 30,
+      "crit": 0.07,
+      "range": 62,
+      "area": 0,
+      "trigger": {
+        "kind": "received",
+        "limit": 6,
+        "startFull": false
+      },
+      "ability": "Bastião sombrio",
+      "detail": "Strike a cone for 140% ATK and taunt for 2s. Gain a 10% max-HP shield for 2.5s. Minimum skill interval 6s.",
+      "detailPT": "Atinge cone por 140% ATQ e provoca por 2s. Recebe escudo de 10% da vida máxima por 2,5s. Intervalo mínimo 6s.",
+      "traits": [
+        "Dark Elf",
+        "Sentinel",
+        "Protector"
+      ],
+      "cost": 3,
+      "ratings": {
+        "hp": 5,
+        "atk": 3,
+        "defense": 4,
+        "attackSpeed": 2,
+        "speed": 1,
+        "crit": 2,
+        "skill": 4
+      }
+    },
+    "raid_ancient_tree": {
+      "hp": 17000,
+      "atk": 52,
+      "defense": 20,
+      "rate": 1.5,
+      "speed": 0,
+      "crit": 0,
+      "range": 650,
+      "area": 0,
+      "trigger": {
+        "kind": "passive",
+        "limit": 0
+      },
+      "ability": "",
+      "detail": "",
+      "traits": [],
+      "cost": 0
+    },
+    "raid_carnivorous_sprout": {
+      "hp": 400,
+      "atk": 34,
+      "defense": 12,
+      "rate": 1.35,
+      "speed": 38,
+      "crit": 0,
+      "range": 34,
+      "area": 0,
+      "trigger": {
+        "kind": "passive",
+        "limit": 0
+      },
+      "ability": "",
+      "detail": "",
+      "traits": [],
+      "cost": 0
+    },
+    "raid_stone_colossus": {
+      "hp": 15500,
+      "atk": 50,
+      "defense": 24,
+      "rate": 1.65,
+      "speed": 0,
+      "crit": 0,
+      "range": 650,
+      "area": 0,
+      "trigger": {
+        "kind": "passive",
+        "limit": 0
+      },
+      "ability": "",
+      "detail": "",
+      "traits": [],
+      "cost": 0
+    },
+    "raid_stone_golem": {
+      "hp": 400,
+      "atk": 30,
+      "defense": 30,
+      "rate": 1.35,
+      "speed": 32,
+      "crit": 0,
+      "range": 34,
+      "area": 0,
+      "trigger": {
+        "kind": "passive",
+        "limit": 0
+      },
+      "ability": "",
+      "detail": "",
+      "traits": [],
+      "cost": 0
+    },
+    "raid_slime_king": {
+      "hp": 18000,
+      "atk": 54,
+      "defense": 14,
+      "rate": 1.45,
+      "speed": 0,
+      "crit": 0,
+      "range": 650,
+      "area": 0,
+      "trigger": {
+        "kind": "passive",
+        "limit": 0
+      },
+      "ability": "",
+      "detail": "",
+      "traits": [],
+      "cost": 0
+    },
+    "raid_slime": {
+      "hp": 480,
+      "atk": 30,
+      "defense": 8,
+      "rate": 1.35,
+      "speed": 40,
+      "crit": 0,
+      "range": 34,
+      "area": 0,
+      "trigger": {
+        "kind": "passive",
+        "limit": 0
+      },
+      "ability": "",
+      "detail": "",
+      "traits": [],
+      "cost": 0
+    },
+    "raid_ancient_dragon": {
+      "hp": 15500,
+      "atk": 48,
+      "defense": 22,
+      "rate": 1.6,
+      "speed": 0,
+      "crit": 0,
+      "range": 650,
+      "area": 0,
+      "trigger": {
+        "kind": "passive",
+        "limit": 0
+      },
+      "ability": "",
+      "detail": "",
+      "traits": [],
+      "cost": 0
+    },
+    "raid_wyvern": {
+      "hp": 350,
+      "atk": 26,
+      "defense": 12,
+      "rate": 1.35,
+      "speed": 68,
+      "crit": 0,
+      "range": 34,
+      "area": 0,
+      "trigger": {
+        "kind": "passive",
+        "limit": 0
+      },
+      "ability": "",
+      "detail": "",
+      "traits": [],
+      "cost": 0
+    },
+    "raid_swamp_hydra": {
+      "hp": 16500,
+      "atk": 50,
+      "defense": 18,
+      "rate": 1.6,
+      "speed": 0,
+      "crit": 0,
+      "range": 650,
+      "area": 0,
+      "trigger": {
+        "kind": "passive",
+        "limit": 0
+      },
+      "ability": "",
+      "detail": "",
+      "traits": [],
+      "cost": 0
+    },
+    "raid_swamp_basilisk": {
+      "hp": 410,
+      "atk": 30,
+      "defense": 15,
+      "rate": 1.35,
+      "speed": 42,
+      "crit": 0,
+      "range": 34,
+      "area": 0,
+      "trigger": {
+        "kind": "passive",
+        "limit": 0
+      },
+      "ability": "",
+      "detail": "",
+      "traits": [],
+      "cost": 0
+    },
+    "raid_kraken": {
+      "hp": 17500,
+      "atk": 54,
+      "defense": 20,
+      "rate": 1.65,
+      "speed": 0,
+      "crit": 0,
+      "range": 650,
+      "area": 0,
+      "trigger": {
+        "kind": "passive",
+        "limit": 0
+      },
+      "ability": "",
+      "detail": "",
+      "traits": [],
+      "cost": 0
+    },
+    "raid_tentacular_spawn": {
+      "hp": 420,
+      "atk": 29,
+      "defense": 14,
+      "rate": 1.35,
+      "speed": 45,
+      "crit": 0,
+      "range": 34,
+      "area": 0,
+      "trigger": {
+        "kind": "passive",
+        "limit": 0
+      },
+      "ability": "",
+      "detail": "",
+      "traits": [],
+      "cost": 0
+    },
+    "raid_lich_lord": {
+      "hp": 17000,
+      "atk": 56,
+      "defense": 16,
+      "rate": 1.5,
+      "speed": 0,
+      "crit": 0,
+      "range": 650,
+      "area": 0,
+      "trigger": {
+        "kind": "passive",
+        "limit": 0
+      },
+      "ability": "",
+      "detail": "",
+      "traits": [],
+      "cost": 0
+    },
+    "raid_skeleton_warrior": {
+      "hp": 350,
+      "atk": 32,
+      "defense": 18,
+      "rate": 1.35,
+      "speed": 40,
+      "crit": 0,
+      "range": 34,
+      "area": 0,
+      "trigger": {
+        "kind": "passive",
+        "limit": 0
+      },
+      "ability": "",
+      "detail": "",
+      "traits": [],
+      "cost": 0
+    },
+    "raid_naga_queen": {
+      "hp": 16500,
+      "atk": 48,
+      "defense": 18,
+      "rate": 1.55,
+      "speed": 0,
+      "crit": 0,
+      "range": 650,
+      "area": 0,
+      "trigger": {
+        "kind": "passive",
+        "limit": 0
+      },
+      "ability": "",
+      "detail": "",
+      "traits": [],
+      "cost": 0
+    },
+    "raid_serpent_man": {
+      "hp": 390,
+      "atk": 27,
+      "defense": 18,
+      "rate": 1.35,
+      "speed": 43,
+      "crit": 0,
+      "range": 34,
+      "area": 0,
+      "trigger": {
+        "kind": "passive",
+        "limit": 0
+      },
+      "ability": "",
+      "detail": "",
+      "traits": [],
+      "cost": 0
+    },
+    "raid_manticore": {
+      "hp": 17000,
+      "atk": 54,
+      "defense": 18,
+      "rate": 1.55,
+      "speed": 0,
+      "crit": 0,
+      "range": 650,
+      "area": 0,
+      "trigger": {
+        "kind": "passive",
+        "limit": 0
+      },
+      "ability": "",
+      "detail": "",
+      "traits": [],
+      "cost": 0
+    },
+    "raid_manticore_cub": {
+      "hp": 370,
+      "atk": 30,
+      "defense": 12,
+      "rate": 1.35,
+      "speed": 54,
+      "crit": 0,
+      "range": 34,
+      "area": 0,
+      "trigger": {
+        "kind": "passive",
+        "limit": 0
+      },
+      "ability": "",
+      "detail": "",
+      "traits": [],
+      "cost": 0
+    },
+    "boss_goblin": {
+      "id": "boss_goblin",
+      "index": 44,
+      "name": "Goblin King",
+      "family": "warrior",
+      "race": "goblin",
+      "order": "blackfang",
+      "faction": "blackfang",
+      "variant": 0,
+      "color": "#b65454",
+      "rarity": 3,
+      "cost": 0,
+      "hp": 384,
+      "atk": 21,
+      "defense": 26,
+      "rate": 1.3333333333333333,
+      "speed": 45,
+      "crit": 0.05,
+      "range": 145,
+      "area": 0,
+      "traits": [
+        "Goblin",
+        "Unyielding",
+        "Protector"
+      ],
+      "ratings": {
+        "hp": 5,
+        "atk": 2,
+        "defense": 3,
+        "attackSpeed": 2,
+        "speed": 1,
+        "crit": 1,
+        "skill": 4
+      },
+      "kind": "passive",
+      "charge": 0,
+      "ability": "Royal volley",
+      "detail": "Every 10s, fire a 140% ATK volley and mark the target for 4s. Goblins deal 15% more damage to it. The first fallen ally calls one spearman while the King lives.",
+      "rangeLabel": "Médio",
+      "areaLabel": "Alvo único",
+      "trigger": {
+        "kind": "passive",
+        "limit": 0
+      },
+      "enemyOnly": true
+    },
+    "boss_troll": {
+      "id": "boss_troll",
+      "index": 51,
+      "name": "Troll King",
+      "family": "warrior",
+      "race": "troll",
+      "order": "blackfang",
+      "faction": "blackfang",
+      "variant": 0,
+      "color": "#b65454",
+      "rarity": 2,
+      "cost": 0,
+      "hp": 533,
+      "atk": 35,
+      "defense": 38,
+      "rate": 1.8181818181818181,
+      "speed": 45,
+      "crit": 0.05,
+      "range": 62,
+      "area": 0,
+      "traits": [
+        "Troll",
+        "Devastator",
+        "Impulsive"
+      ],
+      "ratings": {
+        "hp": 5,
+        "atk": 5,
+        "defense": 3,
+        "attackSpeed": 2,
+        "speed": 3,
+        "crit": 1,
+        "skill": 4
+      },
+      "kind": "passive",
+      "charge": 0,
+      "ability": "Mountain breaker",
+      "detail": "Every 12s, wind up for 1.5s and smash a frontal area for 180% ATK, stunning for 0.8s. Then regenerate 1% HP/s for 4s. Control interrupts the wind-up and regeneration.",
+      "rangeLabel": "Curto",
+      "areaLabel": "Alvo único",
+      "trigger": {
+        "kind": "passive",
+        "limit": 0
+      },
+      "enemyOnly": true
+    },
+    "boss_orc": {
+      "id": "boss_orc",
+      "index": 46,
+      "name": "Orc Emperor",
+      "family": "warrior",
+      "race": "orc",
+      "order": "blackfang",
+      "faction": "blackfang",
+      "variant": 0,
+      "color": "#b65454",
+      "rarity": 1,
+      "cost": 0,
+      "hp": 520,
+      "atk": 37,
+      "defense": 32,
+      "rate": 1.1111111111111112,
+      "speed": 45,
+      "crit": 0.05,
+      "range": 34,
+      "area": 0,
+      "traits": [
+        "Orc",
+        "Devastator",
+        "Fearless"
+      ],
+      "ratings": {
+        "hp": 4,
+        "atk": 4,
+        "defense": 2,
+        "attackSpeed": 3,
+        "speed": 4,
+        "crit": 2,
+        "skill": 4
+      },
+      "kind": "passive",
+      "charge": 0,
+      "ability": "Imperial cleave",
+      "detail": "Every 6 attacks, strike for 220% ATK and splash 110% nearby. Once below 50% HP, allies gain 20% attack speed for 5s while the Emperor loses 25% DEF.",
+      "rangeLabel": "Corpo a corpo",
+      "areaLabel": "Alvo único",
+      "trigger": {
+        "kind": "passive",
+        "limit": 0
+      },
+      "enemyOnly": true
+    },
+    "boss_meowri": {
+      "id": "boss_meowri",
+      "index": 56,
+      "name": "Meowri Queen",
+      "family": "warrior",
+      "faction": "dawncrest",
+      "variant": 0,
+      "color": "#d7b86c",
+      "rarity": 0,
+      "cost": 0,
+      "hp": 368,
+      "atk": 27,
+      "defense": 24,
+      "rate": 0.8333333333333334,
+      "speed": 45,
+      "crit": 0.05,
+      "range": 34,
+      "area": 0,
+      "traits": [
+        "Meowri",
+        "Devastator",
+        "Fearless"
+      ],
+      "kind": "passive",
+      "charge": 5,
+      "ability": "Nine-lives assault",
+      "detail": "Every 8 attacks, dash to the furthest enemy, strike three times for 65% ATK, then retreat. Meowri gain 10 percentage points of critical chance for 4s.",
+      "rangeLabel": "Corpo a corpo",
+      "areaLabel": "Alvo único",
+      "ratings": {
+        "hp": 3,
+        "atk": 3,
+        "defense": 3,
+        "attackSpeed": 4,
+        "speed": 4,
+        "crit": 3,
+        "skill": 4
+      },
+      "order": "dawncrest",
+      "trigger": {
+        "kind": "passive",
+        "limit": 0
+      },
+      "enemyOnly": true
+    },
+    "boss_centaur": {
+      "id": "boss_centaur",
+      "index": 73,
+      "name": "Centaur Leader",
+      "family": "warrior",
+      "faction": "dawncrest",
+      "variant": 0,
+      "color": "#d7b86c",
+      "rarity": 0,
+      "cost": 0,
+      "hp": 510,
+      "atk": 36,
+      "defense": 30,
+      "rate": 1.3333333333333333,
+      "speed": 45,
+      "crit": 0.05,
+      "range": 62,
+      "area": 0,
+      "traits": [
+        "Centaur",
+        "Devastator",
+        "Audacious"
+      ],
+      "kind": "passive",
+      "charge": 6,
+      "ability": "Royal charge",
+      "detail": "Every 11s, charge along a line for 160% ATK and push enemies. Centaurs move 15% faster while the leader lives. The first charge gives them an 8% HP shield for 4s.",
+      "rangeLabel": "Corpo a corpo",
+      "areaLabel": "Alvo único",
+      "ratings": {
+        "hp": 4,
+        "atk": 4,
+        "defense": 3,
+        "attackSpeed": 3,
+        "speed": 5,
+        "crit": 3,
+        "skill": 4
+      },
+      "order": "dawncrest",
+      "trigger": {
+        "kind": "passive",
+        "limit": 0
+      },
+      "enemyOnly": true
+    },
+    "boss_highelf": {
+      "id": "boss_highelf",
+      "index": 61,
+      "name": "High Elf King",
+      "family": "cowboy",
+      "faction": "dawncrest",
+      "variant": 0,
+      "color": "#d7b86c",
+      "rarity": 2,
+      "cost": 0,
+      "hp": 368,
+      "atk": 34,
+      "defense": 20,
+      "rate": 1.1764705882352942,
+      "speed": 45,
+      "crit": 0.05,
+      "range": 145,
+      "area": 0,
+      "traits": [
+        "High Elf",
+        "Predator",
+        "Ruthless"
+      ],
+      "kind": "passive",
+      "charge": 5,
+      "ability": "Sovereign light",
+      "detail": "Every 12s, deal 180% ATK and shield the weakest ally for 12% of their HP. While the King lives, each ally’s first offensive skill per round deals 15% more damage.",
+      "rangeLabel": "Longo",
+      "areaLabel": "Alvo único",
+      "ratings": {
+        "hp": 3,
+        "atk": 4,
+        "defense": 2,
+        "attackSpeed": 3,
+        "speed": 3,
+        "crit": 4,
+        "skill": 4
+      },
+      "order": "dawncrest",
+      "trigger": {
+        "kind": "passive",
+        "limit": 0
+      },
+      "enemyOnly": true
+    },
+    "boss_forestelf": {
+      "id": "boss_forestelf",
+      "index": 67,
+      "name": "Forest Elf King",
+      "family": "archer",
+      "faction": "dawncrest",
+      "variant": 0,
+      "color": "#d7b86c",
+      "rarity": 1,
+      "cost": 0,
+      "hp": 424,
+      "atk": 27,
+      "defense": 26,
+      "rate": 0.9523809523809523,
+      "speed": 45,
+      "crit": 0.05,
+      "range": 145,
+      "area": 0,
+      "traits": [
+        "Forest Elf",
+        "Lookout",
+        "Audacious"
+      ],
+      "kind": "passive",
+      "charge": 0,
+      "ability": "Crown of roots",
+      "detail": "Every 10s, roots in an area deal 100% ATK and immobilize for 1.2s. Allies deal 15% more damage to rooted enemies while the King lives.",
+      "rangeLabel": "Longo",
+      "areaLabel": "Alvo único",
+      "ratings": {
+        "hp": 2,
+        "atk": 3,
+        "defense": 1,
+        "attackSpeed": 4,
+        "speed": 5,
+        "crit": 4,
+        "skill": 4
+      },
+      "order": "dawncrest",
+      "trigger": {
+        "kind": "passive",
+        "limit": 0
+      },
+      "enemyOnly": true
+    },
+    "boss_darkelf": {
+      "id": "boss_darkelf",
+      "index": 52,
+      "name": "Dark Elf King",
+      "family": "warrior",
+      "race": "dark_elf",
+      "order": "blackfang",
+      "faction": "blackfang",
+      "variant": 0,
+      "color": "#b65454",
+      "rarity": 2,
+      "cost": 0,
+      "hp": 600,
+      "atk": 34,
+      "defense": 28,
+      "rate": 1,
+      "speed": 45,
+      "crit": 0.05,
+      "range": 34,
+      "area": 0,
+      "traits": [
+        "Dark Elf",
+        "Predator",
+        "Audacious"
+      ],
+      "ratings": {
+        "hp": 3,
+        "atk": 4,
+        "defense": 2,
+        "attackSpeed": 3,
+        "speed": 4,
+        "crit": 5,
+        "skill": 4
+      },
+      "kind": "passive",
+      "charge": 5,
+      "ability": "Crimson court / Broken seals",
+      "detail": "Form I: every 6 attacks, slash for 180% ATK and reduce healing by 30% for 4s. Form II: three seals each reduce incoming damage by 10%. Break all three to expose the King for 6s. A warned beam sweeps the arena.",
+      "rangeLabel": "Corpo a corpo",
+      "areaLabel": "Alvo único",
+      "trigger": {
+        "kind": "passive",
+        "limit": 0
+      },
+      "enemyOnly": true
+    },
+    "boss_darkelf_2": {
+      "id": "boss_darkelf_2",
+      "index": 52,
+      "name": "Dark Elf King II",
+      "family": "warrior",
+      "race": "dark_elf",
+      "order": "blackfang",
+      "faction": "blackfang",
+      "variant": 0,
+      "color": "#b65454",
+      "rarity": 2,
+      "cost": 0,
+      "hp": 22000,
+      "atk": 68,
+      "defense": 28,
+      "rate": 1,
+      "speed": 0,
+      "crit": 0.05,
+      "range": 650,
+      "area": 0,
+      "traits": [
+        "Dark Elf",
+        "Predator",
+        "Audacious"
+      ],
+      "ratings": {
+        "hp": 3,
+        "atk": 4,
+        "defense": 2,
+        "attackSpeed": 3,
+        "speed": 4,
+        "crit": 5,
+        "skill": 4
+      },
+      "kind": "passive",
+      "charge": 5,
+      "ability": "Crimson court / Broken seals",
+      "detail": "Form I: every 6 attacks, slash for 180% ATK and reduce healing by 30% for 4s. Form II: three seals each reduce incoming damage by 10%. Break all three to expose the King for 6s. A warned beam sweeps the arena.",
+      "rangeLabel": "Corpo a corpo",
+      "areaLabel": "Alvo único",
+      "trigger": {
+        "kind": "passive",
+        "limit": 0
+      },
+      "enemyOnly": true
+    },
+    "boss_fairy": {
+      "id": "boss_fairy",
+      "index": 69,
+      "name": "Fairy Queen",
+      "family": "mage",
+      "faction": "dawncrest",
+      "variant": 0,
+      "color": "#d7b86c",
+      "rarity": 2,
+      "cost": 0,
+      "hp": 576,
+      "atk": 30,
+      "defense": 22,
+      "rate": 1.1764705882352942,
+      "speed": 45,
+      "crit": 0.05,
+      "range": 145,
+      "area": 0,
+      "traits": [
+        "Fairy",
+        "Trailblazer",
+        "Patient"
+      ],
+      "kind": "passive",
+      "charge": 0,
+      "ability": "Bloom / Thorn court",
+      "detail": "Form I: every 10s, shield and heal two allies. Form II: two attendants alternate healing and attacking. Kill them to weaken the next burst. Boss healing is limited to 5% maximum HP per round.",
+      "rangeLabel": "Longo",
+      "areaLabel": "Alvo único",
+      "ratings": {
+        "hp": 2,
+        "atk": 1,
+        "defense": 1,
+        "attackSpeed": 3,
+        "speed": 5,
+        "crit": 1,
+        "skill": 4
+      },
+      "order": "dawncrest",
+      "trigger": {
+        "kind": "passive",
+        "limit": 0
+      },
+      "enemyOnly": true
+    },
+    "boss_fairy_2": {
+      "id": "boss_fairy_2",
+      "index": 69,
+      "name": "Fairy Queen II",
+      "family": "mage",
+      "faction": "dawncrest",
+      "variant": 0,
+      "color": "#d7b86c",
+      "rarity": 2,
+      "cost": 0,
+      "hp": 20000,
+      "atk": 54,
+      "defense": 22,
+      "rate": 1.1764705882352942,
+      "speed": 0,
+      "crit": 0.05,
+      "range": 650,
+      "area": 0,
+      "traits": [
+        "Fairy",
+        "Trailblazer",
+        "Patient"
+      ],
+      "kind": "passive",
+      "charge": 0,
+      "ability": "Bloom / Thorn court",
+      "detail": "Form I: every 10s, shield and heal two allies. Form II: two attendants alternate healing and attacking. Kill them to weaken the next burst. Boss healing is limited to 5% maximum HP per round.",
+      "rangeLabel": "Longo",
+      "areaLabel": "Alvo único",
+      "ratings": {
+        "hp": 2,
+        "atk": 1,
+        "defense": 1,
+        "attackSpeed": 3,
+        "speed": 5,
+        "crit": 1,
+        "skill": 4
+      },
+      "order": "dawncrest",
+      "trigger": {
+        "kind": "passive",
+        "limit": 0
+      },
+      "enemyOnly": true
+    },
+    "boss_primordial": {
+      "id": "boss_primordial",
+      "name": "Primordial Chimera",
+      "hp": 800,
+      "atk": 42,
+      "defense": 30,
+      "rate": 1.25,
+      "speed": 45,
+      "range": 80,
+      "color": "#ff9f59",
+      "crit": 0.05,
+      "area": 0,
+      "traits": [],
+      "kind": "passive",
+      "trigger": {
+        "kind": "passive",
+        "limit": 0
+      },
+      "family": "monster",
+      "cost": 0,
+      "ability": "Three instincts",
+      "detail": "Form I: command a team of lesser monsters and breathe fire every 10s. Form II: each round announces a dominant head: fire cone, poison line, or close impact. Only one head acts at a time.",
+      "enemyOnly": true
+    },
+    "boss_primordial_2": {
+      "id": "boss_primordial_2",
+      "name": "Primordial Chimera II",
+      "hp": 24000,
+      "atk": 66,
+      "defense": 26,
+      "rate": 1.25,
+      "speed": 0,
+      "range": 650,
+      "color": "#ff9f59",
+      "crit": 0.05,
+      "area": 0,
+      "traits": [],
+      "kind": "passive",
+      "trigger": {
+        "kind": "passive",
+        "limit": 0
+      },
+      "family": "monster",
+      "cost": 0,
+      "ability": "Three instincts",
+      "detail": "Form I: command a team of lesser monsters and breathe fire every 10s. Form II: each round announces a dominant head: fire cone, poison line, or close impact. Only one head acts at a time.",
+      "enemyOnly": true
+    },
+    "boss_titan": {
+      "id": "boss_titan",
+      "name": "Chimera Titan",
+      "hp": 960,
+      "atk": 46,
+      "defense": 40,
+      "rate": 1.5384615384615383,
+      "speed": 45,
+      "range": 62,
+      "color": "#68eff4",
+      "crit": 0.05,
+      "area": 0,
+      "traits": [],
+      "kind": "passive",
+      "trigger": {
+        "kind": "passive",
+        "limit": 0
+      },
+      "family": "monster",
+      "cost": 0,
+      "ability": "Unstable core",
+      "detail": "Form I: lead a durable monster team and slam every 12s. Form II: landed basic attacks add 1 instability, offensive skills add 3. At 18, the Titan kneels for 6s, stops attacking and takes 40% more damage. Slow warned stomps target clustered enemies.",
+      "enemyOnly": true
+    },
+    "boss_titan_2": {
+      "id": "boss_titan_2",
+      "name": "Chimera Titan II",
+      "hp": 26000,
+      "atk": 78,
+      "defense": 38,
+      "rate": 1.5384615384615383,
+      "speed": 0,
+      "range": 650,
+      "color": "#68eff4",
+      "crit": 0.05,
+      "area": 0,
+      "traits": [],
+      "kind": "passive",
+      "trigger": {
+        "kind": "passive",
+        "limit": 0
+      },
+      "family": "monster",
+      "cost": 0,
+      "ability": "Unstable core",
+      "detail": "Form I: lead a durable monster team and slam every 12s. Form II: landed basic attacks add 1 instability, offensive skills add 3. At 18, the Titan kneels for 6s, stops attacking and takes 40% more damage. Slow warned stomps target clustered enemies.",
+      "enemyOnly": true
+    },
+    "boss_ib_marshal": {
+      "id": "boss_ib_marshal",
+      "index": 3,
+      "name": "Marshal",
+      "family": "warrior",
+      "variant": 0,
+      "color": "#7d9b67",
+      "ratings": {
+        "hp": 5,
+        "atk": 2,
+        "defense": 5,
+        "attackSpeed": 1,
+        "speed": 1,
+        "crit": 1,
+        "skill": 4
+      },
+      "rangeLabel": "Corpo a corpo",
+      "areaLabel": "Alvo único",
+      "cost": 0,
+      "ability": "Rallying standard",
+      "charge": 6,
+      "kind": "passive",
+      "effect": "bastion",
+      "traits": [
+        "Dawnward Order",
+        "Sentinel",
+        "Protector"
+      ],
+      "detail": "Every 10s: Strike for 160% ATK and shield the two weakest allies for 10% of their maximum HP for 4s.",
+      "hp": 576,
+      "atk": 32,
+      "defense": 36,
+      "rate": 1.1764705882352942,
+      "speed": 45,
+      "crit": 0.05,
+      "range": 34,
+      "area": 0,
+      "trigger": {
+        "kind": "passive",
+        "limit": 0
+      },
+      "rarity": 0,
+      "faction": "dawn",
+      "enemyOnly": true
+    },
+    "boss_ib_shogun": {
+      "id": "boss_ib_shogun",
+      "index": 6,
+      "name": "Shogun",
+      "family": "warrior",
+      "variant": 1,
+      "color": "#df964b",
+      "ratings": {
+        "hp": 5,
+        "atk": 5,
+        "defense": 4,
+        "attackSpeed": 2,
+        "speed": 3,
+        "crit": 3,
+        "skill": 4
+      },
+      "rangeLabel": "Corpo a corpo",
+      "areaLabel": "Alvo único",
+      "cost": 0,
+      "ability": "Sovereign strike",
+      "charge": 0,
+      "kind": "passive",
+      "effect": "samurai",
+      "traits": [
+        "Legends of the East",
+        "Devastator",
+        "Impulsive"
+      ],
+      "detail": "Every 10s: Strike the target for 180% ATK and nearby enemies within 70 for 90% ATK.",
+      "hp": 480,
+      "atk": 38,
+      "defense": 26,
+      "rate": 1.1764705882352942,
+      "speed": 45,
+      "crit": 0.05,
+      "range": 62,
+      "area": 0,
+      "trigger": {
+        "kind": "passive",
+        "limit": 0
+      },
+      "rarity": 1,
+      "faction": "east",
+      "enemyOnly": true
+    },
+    "boss_ib_jarl": {
+      "id": "boss_ib_jarl",
+      "index": 29,
+      "name": "Runic Jarl",
+      "family": "warrior",
+      "variant": 0,
+      "color": "#bba582",
+      "ratings": {
+        "hp": 3,
+        "atk": 4,
+        "defense": 3,
+        "attackSpeed": 2,
+        "speed": 3,
+        "crit": 3,
+        "skill": 4
+      },
+      "rangeLabel": "Corpo a corpo",
+      "areaLabel": "Alvo único",
+      "cost": 0,
+      "rarity": 0,
+      "faction": "north",
+      "ability": "Runic impact",
+      "charge": 0,
+      "kind": "passive",
+      "effect": "viking",
+      "traits": [
+        "Frostborn Clans",
+        "Devastator",
+        "Fearless"
+      ],
+      "detail": "Every 10s: Strike enemies within 70 of the target for 140% ATK and stun them for 0.6s.",
+      "hp": 656,
+      "atk": 38,
+      "defense": 32,
+      "rate": 1.1764705882352942,
+      "speed": 45,
+      "crit": 0.05,
+      "range": 34,
+      "area": 0,
+      "trigger": {
+        "kind": "passive",
+        "limit": 0
+      },
+      "enemyOnly": true
+    },
+    "boss_ib_gunslinger": {
+      "id": "boss_ib_gunslinger",
+      "index": 74,
+      "name": "Frontier Legend",
+      "family": "cowboy",
+      "faction": "west",
+      "variant": 0,
+      "color": "#d7b86c",
+      "rarity": 2,
+      "cost": 0,
+      "hp": 400,
+      "atk": 35,
+      "defense": 20,
+      "rate": 1.1764705882352942,
+      "speed": 45,
+      "crit": 0.05,
+      "range": 145,
+      "area": 0,
+      "traits": [
+        "Wild West",
+        "Trailblazer",
+        "Ruthless"
+      ],
+      "kind": "passive",
+      "charge": 0,
+      "ability": "Frontier volley",
+      "detail": "Every 10s: Fire three shots at the target, each dealing 65% ATK.",
+      "rangeLabel": "Longo",
+      "areaLabel": "Alvo único",
+      "ratings": {
+        "hp": 4,
+        "atk": 4,
+        "defense": 3,
+        "attackSpeed": 3,
+        "speed": 5,
+        "crit": 4,
+        "skill": 4
+      },
+      "trigger": {
+        "kind": "passive",
+        "limit": 0
+      },
+      "enemyOnly": true
+    },
+    "boss_ib_piratequeen": {
+      "id": "boss_ib_piratequeen",
+      "index": 37,
+      "name": "Pirate Queen",
+      "family": "warrior",
+      "variant": 0,
+      "color": "#c78c6b",
+      "ratings": {
+        "hp": 4,
+        "atk": 5,
+        "defense": 4,
+        "attackSpeed": 1,
+        "speed": 1,
+        "crit": 2,
+        "skill": 4
+      },
+      "rangeLabel": "Curto",
+      "areaLabel": "Alvo único",
+      "cost": 0,
+      "rarity": 3,
+      "faction": "sea",
+      "ability": "Sovereign strike",
+      "charge": 6,
+      "kind": "passive",
+      "effect": "pirate_admiral",
+      "traits": [
+        "Seasalt Crew",
+        "Sentinel",
+        "Patient"
+      ],
+      "detail": "Every 10s: Strike the target for 180% ATK and nearby enemies within 70 for 90% ATK.",
+      "hp": 520,
+      "atk": 37,
+      "defense": 28,
+      "rate": 1.1764705882352942,
+      "speed": 45,
+      "crit": 0.05,
+      "range": 62,
+      "area": 0,
+      "trigger": {
+        "kind": "passive",
+        "limit": 0
+      },
+      "enemyOnly": true
+    },
+    "boss_ib_oracle": {
+      "id": "boss_ib_oracle",
+      "index": 23,
+      "name": "Grand Oracle",
+      "family": "priest",
+      "variant": 0,
+      "color": "#c9bd91",
+      "ratings": {
+        "hp": 3,
+        "atk": 1,
+        "defense": 3,
+        "attackSpeed": 2,
+        "speed": 1,
+        "crit": 1,
+        "skill": 5
+      },
+      "rangeLabel": "Médio",
+      "areaLabel": "Alvo único",
+      "cost": 0,
+      "ability": "Guiding light",
+      "charge": 0,
+      "kind": "passive",
+      "effect": "sage",
+      "traits": [
+        "Arcane",
+        "Unyielding",
+        "Protector"
+      ],
+      "detail": "Every 10s: Strike for 160% ATK and heal the weakest ally for 8% of their maximum HP.",
+      "hp": 384,
+      "atk": 35,
+      "defense": 22,
+      "rate": 1.1764705882352942,
+      "speed": 45,
+      "crit": 0.05,
+      "range": 145,
+      "area": 0,
+      "trigger": {
+        "kind": "passive",
+        "limit": 0
+      },
+      "rarity": 3,
+      "faction": "arcane",
+      "enemyOnly": true
+    },
+    "boss_ib_hartlord": {
+      "id": "boss_ib_hartlord",
+      "index": 25,
+      "name": "Hart Lord",
+      "family": "warrior",
+      "variant": 0,
+      "color": "#8fa7d1",
+      "ratings": {
+        "hp": 4,
+        "atk": 4,
+        "defense": 4,
+        "attackSpeed": 2,
+        "speed": 5,
+        "crit": 2,
+        "skill": 4
+      },
+      "rangeLabel": "Curto",
+      "areaLabel": "Alvo único",
+      "cost": 0,
+      "rarity": 2,
+      "faction": "dawn",
+      "ability": "Verdant crown",
+      "charge": 6,
+      "kind": "passive",
+      "effect": "cavalier",
+      "traits": [
+        "Dawnward Order",
+        "Trailblazer",
+        "Impulsive"
+      ],
+      "detail": "Every 10s: Strike enemies within 70 of the target for 100% ATK and root them for 1.2s.",
+      "hp": 544,
+      "atk": 34,
+      "defense": 28,
+      "rate": 1.1764705882352942,
+      "speed": 45,
+      "crit": 0.05,
+      "range": 62,
+      "area": 0,
+      "trigger": {
+        "kind": "passive",
+        "limit": 0
+      },
+      "enemyOnly": true
+    },
+    "boss_ib_wayfarer": {
+      "id": "boss_ib_wayfarer",
+      "index": 27,
+      "name": "First Wayfarer",
+      "family": "warrior",
+      "variant": 0,
+      "color": "#8fa7d1",
+      "ratings": {
+        "hp": 3,
+        "atk": 5,
+        "defense": 2,
+        "attackSpeed": 2,
+        "speed": 3,
+        "crit": 3,
+        "skill": 4
+      },
+      "rangeLabel": "Curto",
+      "areaLabel": "Alvo único",
+      "cost": 0,
+      "rarity": 1,
+      "faction": "dawn",
+      "ability": "Guiding light",
+      "charge": 0,
+      "kind": "passive",
+      "effect": "swordsman",
+      "traits": [
+        "Dawnward Order",
+        "Devastator",
+        "Fearless"
+      ],
+      "detail": "Every 10s: Strike for 160% ATK and heal the weakest ally for 8% of their maximum HP. Form II: every 11s, a warned impact deals 170% ATK in a radius of 65 after 1.3s.",
+      "hp": 640,
+      "atk": 38,
+      "defense": 30,
+      "rate": 1.1764705882352942,
+      "speed": 45,
+      "crit": 0.05,
+      "range": 34,
+      "area": 0,
+      "trigger": {
+        "kind": "passive",
+        "limit": 0
+      },
+      "enemyOnly": true
+    },
+    "boss_ib_wayfarer_2": {
+      "id": "boss_ib_wayfarer_2",
+      "index": 27,
+      "name": "First Wayfarer II",
+      "family": "warrior",
+      "variant": 0,
+      "color": "#8fa7d1",
+      "ratings": {
+        "hp": 3,
+        "atk": 5,
+        "defense": 2,
+        "attackSpeed": 2,
+        "speed": 3,
+        "crit": 3,
+        "skill": 4
+      },
+      "rangeLabel": "Curto",
+      "areaLabel": "Alvo único",
+      "cost": 0,
+      "rarity": 1,
+      "faction": "dawn",
+      "ability": "Guiding light",
+      "charge": 0,
+      "kind": "passive",
+      "effect": "swordsman",
+      "traits": [
+        "Dawnward Order",
+        "Devastator",
+        "Fearless"
+      ],
+      "detail": "Every 10s: Strike for 160% ATK and heal the weakest ally for 8% of their maximum HP. Form II: every 11s, a warned impact deals 170% ATK in a radius of 65 after 1.3s.",
+      "hp": 23000,
+      "atk": 68,
+      "defense": 30,
+      "rate": 1.1764705882352942,
+      "speed": 0,
+      "crit": 0.05,
+      "range": 650,
+      "area": 0,
+      "trigger": {
+        "kind": "passive",
+        "limit": 0
+      },
+      "enemyOnly": true
+    },
+    "boss_seal": {
+      "id": "boss_seal",
+      "index": 55,
+      "name": "Crimson Seal",
+      "family": "mage",
+      "race": "dark_elf",
+      "order": "blackfang",
+      "faction": "blackfang",
+      "variant": 0,
+      "color": "#b65454",
+      "rarity": 2,
+      "cost": 0,
+      "hp": 700,
+      "atk": 0,
+      "defense": 10,
+      "rate": 99,
+      "speed": 0,
+      "crit": 0.07,
+      "range": 0,
+      "area": 0,
+      "traits": [],
+      "ratings": {
+        "hp": 2,
+        "atk": 3,
+        "defense": 1,
+        "attackSpeed": 2,
+        "speed": 2,
+        "crit": 1,
+        "skill": 4
+      },
+      "kind": "passive",
+      "charge": 0,
+      "ability": "Grilhões arcanos",
+      "detail": "Atinge uma área de raio 55 na posição do alvo por 150% do ataque e imobiliza por 1,5 segundo.",
+      "rangeLabel": "Médio",
+      "areaLabel": "Alvo único",
+      "trigger": {
+        "kind": "passive",
+        "limit": 0
+      },
+      "skillScale": 1.6,
+      "enemyOnly": true
+    },
+    "burden": {
+      "detail": "Unplayable. Occupies a hand slot until discarded or refreshed. Remains in the run deck.",
+      "traits": [],
+      "cost": 0
+    },
+    "exhaustion": {
+      "detail": "On entering your hand, lose up to 1 energy and automatically discard this card. No replacement draw.",
+      "traits": [],
+      "cost": 0
+    },
+    "chains": {
+      "detail": "Pay 1 energy to set aside until the next encounter, without another benefit. Or keep it in your hand.",
+      "traits": [],
+      "cost": 1
+    },
+    "omen": {
+      "detail": "Each copy in hand reduces the field limit by 1, minimum 1. Already deployed units stay.",
+      "traits": [],
+      "cost": 0
+    }
+  },
+  "heroRatings": {
+    "hero_goblin": {
+      "hp": 5,
+      "atk": 2,
+      "defense": 3,
+      "attackSpeed": 2,
+      "speed": 1,
+      "crit": 1,
+      "skill": 4
+    },
+    "hero_troll": {
+      "hp": 5,
+      "atk": 5,
+      "defense": 3,
+      "attackSpeed": 2,
+      "speed": 3,
+      "crit": 1,
+      "skill": 4
+    },
+    "hero_orc": {
+      "hp": 4,
+      "atk": 4,
+      "defense": 2,
+      "attackSpeed": 3,
+      "speed": 4,
+      "crit": 2,
+      "skill": 4
+    },
+    "hero_meowri": {
+      "hp": 3,
+      "atk": 3,
+      "defense": 3,
+      "attackSpeed": 4,
+      "speed": 4,
+      "crit": 3,
+      "skill": 4
+    },
+    "hero_centaur": {
+      "hp": 4,
+      "atk": 4,
+      "defense": 3,
+      "attackSpeed": 3,
+      "speed": 5,
+      "crit": 3,
+      "skill": 4
+    },
+    "hero_highelf": {
+      "hp": 3,
+      "atk": 4,
+      "defense": 2,
+      "attackSpeed": 3,
+      "speed": 3,
+      "crit": 4,
+      "skill": 4
+    },
+    "hero_forestelf": {
+      "hp": 2,
+      "atk": 3,
+      "defense": 1,
+      "attackSpeed": 4,
+      "speed": 5,
+      "crit": 4,
+      "skill": 4
+    },
+    "hero_darkelf": {
+      "hp": 3,
+      "atk": 4,
+      "defense": 2,
+      "attackSpeed": 3,
+      "speed": 4,
+      "crit": 5,
+      "skill": 4
+    },
+    "hero_fairy": {
+      "hp": 2,
+      "atk": 1,
+      "defense": 1,
+      "attackSpeed": 3,
+      "speed": 5,
+      "crit": 1,
+      "skill": 4
+    },
+    "hero_ib_marshal": {
+      "hp": 5,
+      "atk": 2,
+      "defense": 5,
+      "attackSpeed": 1,
+      "speed": 1,
+      "crit": 1,
+      "skill": 4
+    },
+    "hero_ib_shogun": {
+      "hp": 5,
+      "atk": 5,
+      "defense": 4,
+      "attackSpeed": 2,
+      "speed": 3,
+      "crit": 3,
+      "skill": 4
+    },
+    "hero_ib_jarl": {
+      "hp": 3,
+      "atk": 4,
+      "defense": 3,
+      "attackSpeed": 2,
+      "speed": 3,
+      "crit": 3,
+      "skill": 4
+    },
+    "hero_ib_gunslinger": {
+      "hp": 4,
+      "atk": 4,
+      "defense": 3,
+      "attackSpeed": 3,
+      "speed": 5,
+      "crit": 4,
+      "skill": 4
+    },
+    "hero_ib_piratequeen": {
+      "hp": 4,
+      "atk": 5,
+      "defense": 4,
+      "attackSpeed": 1,
+      "speed": 1,
+      "crit": 2,
+      "skill": 4
+    },
+    "hero_ib_oracle": {
+      "hp": 3,
+      "atk": 1,
+      "defense": 3,
+      "attackSpeed": 2,
+      "speed": 1,
+      "crit": 1,
+      "skill": 5
+    },
+    "hero_ib_hartlord": {
+      "hp": 4,
+      "atk": 4,
+      "defense": 4,
+      "attackSpeed": 2,
+      "speed": 5,
+      "crit": 2,
+      "skill": 4
+    },
+    "hero_ib_wayfarer": {
+      "hp": 3,
+      "atk": 5,
+      "defense": 2,
+      "attackSpeed": 2,
+      "speed": 3,
+      "crit": 3,
+      "skill": 4
+    }
+  }
+}

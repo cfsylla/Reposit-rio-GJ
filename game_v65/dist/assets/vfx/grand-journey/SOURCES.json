@@ -1,0 +1,62 @@
+[
+  {
+    "file": "gj_fx_a01_corte_basico_v002.png",
+    "library_file_id": "libfile_a8bc42564df88191bbfef3caf8282141",
+    "sha256": "7e1b7ca33241572592de1d96e6e950c2a1a983d8823bcfc742fe7863dcaa01e5",
+    "approved": true
+  },
+  {
+    "file": "gj_fx_a02_corte_pesado_v001.png",
+    "library_file_id": "libfile_06be6a8422c08191acd1ad53f6104dc3",
+    "sha256": "3a28bae7350b2af8cb5ef0e5d4f7d9b45945f76f968334329b4d8c5ec0f954f2",
+    "approved": true
+  },
+  {
+    "file": "gj_fx_a02_circular_v001.png",
+    "library_file_id": "libfile_e87b5ce630c88191a4e36f0077ccac2b",
+    "sha256": "7c2d711e8a6d4385f395bf98143f7d9772d5587561510f12af5eff54f6ee1978",
+    "approved": true
+  },
+  {
+    "file": "gj_fx_a03_estocada_v001.png",
+    "library_file_id": "libfile_979586d922108191824725f4f0c4ed6e",
+    "sha256": "3e30495f8698cd5a7f130c8428e23f749eec3df6cf1a31b3dac85f27bc600c1f",
+    "approved": true
+  },
+  {
+    "file": "gj_fx_a04_impacto_leve_v001.png",
+    "library_file_id": "libfile_6bfcf16323ac8191a91932f31aac6bb0",
+    "sha256": "1b08bd156c14bf6b301b8d70a686c0500c244580ee018d29e00e0e8b008b3c6b",
+    "approved": true
+  },
+  {
+    "file": "gj_fx_a05_impacto_pesado_v001.png",
+    "library_file_id": "libfile_cee9323acebc81918a5eb154def28d9b",
+    "sha256": "3b76b26d6d0503d5041bffd6eac9553202f6315de58639a64613183b14503b35",
+    "approved": true
+  },
+  {
+    "file": "gj_fx_a06_impacto_chao_v001.png",
+    "library_file_id": "libfile_eb5432334ec881919659f9d931526796",
+    "sha256": "2bca0157e793a16f811708805123367ff862b4ce2adc75e37a55b76f6a2b329e",
+    "approved": true
+  },
+  {
+    "file": "gj_fx_a07_critico_v001.png",
+    "library_file_id": "libfile_15def01ee51c8191a657076a99f50f7f",
+    "sha256": "b855cc1985bdb290138a856a2fff215768a7ac74fb1cf1f2ac67c8420a307a04",
+    "approved": true
+  },
+  {
+    "file": "gj_fx_a08_cruzado_v001.png",
+    "library_file_id": "libfile_2e7da651cf388191becd51a6a72f8d74",
+    "sha256": "71dbe159c9bfe9bcc2ec11ad83ae543e93fa33a228032a1947d7838109683c0f",
+    "approved": true
+  },
+  {
+    "file": "gj_fx_a08_combo2_v001.png",
+    "library_file_id": "libfile_aac988ca613481918a75f11de27c8115",
+    "sha256": "cc59ee1e092f060922b36be1cf05243e1884540313216dbb0a0bc0359e6d677c",
+    "approved": true
+  }
+]

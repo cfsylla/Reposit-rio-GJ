@@ -1,0 +1,102 @@
+[
+  {
+    "effect": "slash",
+    "source": "Cethiel \u2014 Weapon Slash"
+  },
+  {
+    "effect": "arcane",
+    "source": "Cethiel \u2014 Arcane Magic"
+  },
+  {
+    "effect": "heal",
+    "source": "Sentient Dream Studio \u2014 Pixel Holy"
+  },
+  {
+    "effect": "shield-emblem",
+    "source": "Cethiel \u2014 Angel Shield"
+  },
+  {
+    "effect": "hit",
+    "source": "Matt Walkden \u2014 Robot Warfare"
+  },
+  {
+    "effect": "bullet-hit",
+    "source": "Matt Walkden \u2014 Robot Warfare"
+  },
+  {
+    "effect": "muzzle",
+    "source": "Matt Walkden \u2014 Robot Warfare"
+  },
+  {
+    "effect": "explosion",
+    "source": "Ansimuz \u2014 Explosion Animations"
+  },
+  {
+    "effect": "arrow",
+    "source": "AntumDeluge compilation / Dungeon Crawl Stone Soup \u2014 CC0 Ranged Icons"
+  },
+  {
+    "effect": "bolt",
+    "source": "AntumDeluge compilation / Dungeon Crawl Stone Soup \u2014 CC0 Ranged Icons"
+  },
+  {
+    "effect": "crit",
+    "source": "The Cooked Works \u2014 Cooked FX Pixel"
+  },
+  {
+    "effect": "ground",
+    "source": "The Cooked Works \u2014 Cooked FX Pixel"
+  },
+  {
+    "effect": "blood",
+    "source": "The Cooked Works \u2014 Cooked FX Pixel"
+  },
+  {
+    "effect": "shield",
+    "source": "The Cooked Works \u2014 Cooked FX Pixel"
+  },
+  {
+    "effect": "buff",
+    "source": "The Cooked Works \u2014 Cooked FX Pixel"
+  },
+  {
+    "effect": "debuff",
+    "source": "The Cooked Works \u2014 Cooked FX Pixel"
+  },
+  {
+    "effect": "stun",
+    "source": "The Cooked Works \u2014 Cooked FX Pixel"
+  },
+  {
+    "effect": "poison",
+    "source": "The Cooked Works \u2014 Cooked FX Pixel"
+  },
+  {
+    "effect": "burn",
+    "source": "The Cooked Works \u2014 Cooked FX Pixel"
+  },
+  {
+    "effect": "dash",
+    "source": "The Cooked Works \u2014 Cooked FX Pixel"
+  },
+  {
+    "effect": "dust",
+    "source": "The Cooked Works \u2014 Cooked FX Pixel"
+  },
+  {
+    "effect": "poof",
+    "source": "The Cooked Works \u2014 Cooked FX Pixel"
+  },
+  {
+    "effect": "portal",
+    "source": "The Cooked Works \u2014 Cooked FX Pixel"
+  },
+  {
+    "effect": "sparkles",
+    "source": "The Cooked Works \u2014 Cooked FX Pixel"
+  },
+  {
+    "effect": "fusion-spark",
+    "source": "Kenney \u2014 Particle Pack"
+  }
+]
