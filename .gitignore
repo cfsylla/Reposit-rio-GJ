@@ -9,3 +9,5 @@ balance/entrega/Backup_sessao_balanceamento*.zip
 balance/entrega/*.bundle
 balance/entrega/GJ-v54-BAL-CP1.zip
 balance/out/**/*.tmp
+# endgame: resultados em andamento; entram no repositório com git add -f ao fim de cada etapa
+balance/out/endgame/*_ref/
