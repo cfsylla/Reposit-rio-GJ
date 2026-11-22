@@ -56,5 +56,13 @@ Atualizado em 22/11/2026 (2ª rodada de decisões). Chat dedicado ao endgame.
   - a perda vale **só para o ouro base da vitória**. Bônus como o do Caçador de Elites não são afetados;
   - nas raids e na forma 2 do True Boss, **cada derrota conta como rodada perdida**.
 
-## 6. Pontos ainda abertos
+## 6. Decisões depois das etapas 1 a 4 (22/11)
+- **Escala de força inimiga:** **+2% de vida, ataque e defesa por desafio ativo**, em todo combate e todo boss.
+- **Fadiga da Jornada:** **−3%** em ataque, vida, defesa e velocidade de ataque das unidades do jogador.
+- **Tropas Resistentes + Ataques Implacáveis:** viram **um desafio só** (vida e ataque dos inimigos). Valores a definir.
+- **Reserva (saem do catálogo, podem voltar):** Recursos Escassos; Fúria das Raids (fácil de evitar: o jogador ativa o desafio e não segue os Monstros); Relíquias Escassas.
+- **Bolsa Leve:** ouro por vitória **−30%**.
+- **Bagagem Limitada:** bloqueia **4 casas** (a fileira de baixo). Com 5 o visual fica estranho.
+- **Ainda em aberto:** Reforços Inimigos (rodada de início) e Menos Apoio (1 ou 2 camadas).
+## 7. Pontos ainda abertos
 1. **Catálogo:** são 15 desafios + 7 candidatos = 22 peças. Os 15 finais (e os blocos) saem depois da medição.
