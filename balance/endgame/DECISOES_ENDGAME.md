@@ -82,3 +82,8 @@ Atualizado em 22/11/2026 (2ª rodada de decisões). Chat dedicado ao endgame.
 - **Blocos assimétricos:** o começo do endgame está fácil, e o jogador que avança fácil cresce a árvore e continua com facilidade. Os blocos precisam ser mais fortes no começo. Opção em estudo: 6 blocos de 3.
 ## 9. Pontos ainda abertos
 1. **Catálogo:** são 15 desafios + 7 candidatos = 22 peças. Os 15 finais (e os blocos) saem depois da medição.
+## 10. Vantagens: novas (22/11)
+- **Aprovadas para entrar:** Troféu de Boss (cada boss de mapa vencido: +3% de vida e ataque até o fim da run) e Vitória Limpa (vencer um confronto sem perder rodada: +8 de ouro). Valores provisórios.
+- **Emboscada** (antes "Primeiro Golpe": na 1ª rodada de cada confronto, exceto bosses, o inimigo coloca 1 unidade a menos): vai para a **reserva**, mas entra nos testes.
+- **Final Union** (antes "Pureza"): patamar extra das traits, com efeito visual marcante (o símbolo da trait aparece no início da rodada; se várias ativarem, uma depois da outra). Regra de ativação em estudo (os personagens de várias facções não chegam a 6, e com 6 em campo só existe a 5ª rodada).
+- Com isso, o catálogo chega a 18 vantagens: 15 atuais + Troféu de Boss + Vitória Limpa + Final Union.
