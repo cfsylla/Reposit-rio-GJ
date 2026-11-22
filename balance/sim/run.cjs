@@ -13,7 +13,7 @@ function args() {
   for (let i = 0; i < v.length; i += 2) a[v[i].replace(/^--/, '')] = v[i + 1];
   const range = x => { if (!x) return [1]; return x.split(',').flatMap(p => { const [lo, hi] = p.split('-').map(Number); return hi ? Array.from({ length: hi - lo + 1 }, (_, i) => lo + i) : [lo]; }); };
   return { decks: (a.decks || 'vanguard').split(','), seeds: range(a.seeds), prep: a.prep || 'smart', route: a.route || 'greedy', events: a.events || 'decline',
-    tree: a.tree || 'none', challenges: a.challenges ? a.challenges.split(',').filter(Boolean) : null, advantages: a.advantages || null, forcewin: a.forcewin === '1', shop: a.shop || 'upgrade-first', out: a.out, dt: Number(a.dt || 1 / 60), order: a.order || null, verbose: !!a.verbose, treebuy: a.treebuy || null };
+    tree: a.tree || 'none', challenges: a.challenges ? a.challenges.split(',').filter(Boolean) : null, blocks: a.blocks ? a.blocks.split('|').map(b => b.split(',').filter(Boolean)) : null, level: a.level ? Number(a.level) : null, advantages: a.advantages || null, forcewin: a.forcewin === '1', shop: a.shop || 'upgrade-first', out: a.out, dt: Number(a.dt || 1 / 60), order: a.order || null, verbose: !!a.verbose, treebuy: a.treebuy || null };
 }
 
 /* Permanent tree presets (profile state BEFORE the run; in-run purchases still happen after each boss). */
@@ -163,6 +163,12 @@ function playRun(deck, seed, pol, opt) {
   const prof = Tree.profile(); prof.unlocked = [...(Array.isArray(pol.tree) ? pol.tree : treePreset(pol.tree) || [])];
   // level model (game_p5+): banked XP = given career XP, or exactly the cost of the preset (no free points)
   if (Tree.level) prof.totalXp = pol.treeXp ?? prof.unlocked.reduce((t, id) => t + TreeData.by[id].cost, 0);
+  // ENDGAME (22/11): escada por blocos. --blocks "a,b,c|d,e,f|..." --level N: blocos anteriores inteiros + sorteio (por seed) dentro do bloco atual,
+  // representando o jogador que não sabe quanto cada desafio pesa.
+  if (pol.blocks && pol.level) { const r = G.rng((seed ^ 0xb10c5) >>> 0), sel = []; let left = pol.level;
+    for (const b of pol.blocks) { if (left <= 0) break; const pick = [...b]; for (let i = pick.length - 1; i > 0; i--) { const j = Math.floor(r() * (i + 1)); [pick[i], pick[j]] = [pick[j], pick[i]]; }
+      sel.push(...pick.slice(0, Math.min(left, b.length))); left -= b.length; }
+    pol = { ...pol, challenges: sel }; }
   if (E.CH) { const pc = E.CH.profile(); pc.unlocked = !!pol.challenges; pc.available = E.CH.MAX_LEVEL; pc.selected = [...(pol.challenges || [])]; }
   if (E.AD) { const ids = !pol.advantages ? [] : pol.advantages === 'all' ? E.AD.LIST.map(a => a.id) : String(pol.advantages).split(',').filter(Boolean); P.profile.advantages = [...ids]; }
   const custom = CUSTOM[deck];
@@ -288,7 +294,7 @@ function finalize(s, rec) {
 }
 
 if (require.main === module) {
-  const opt = args(), pol = { challenges: opt.challenges, advantages: opt.advantages, prep: opt.prep, route: opt.route, events: opt.events, tree: opt.tree, shop: opt.shop, order: opt.order, forcewin: opt.forcewin, treeBuy: opt.treebuy };
+  const opt = args(), pol = { challenges: opt.challenges, advantages: opt.advantages, prep: opt.prep, route: opt.route, events: opt.events, tree: opt.tree, shop: opt.shop, order: opt.order, forcewin: opt.forcewin, treeBuy: opt.treebuy, blocks: opt.blocks, level: opt.level };
   const out = opt.out ? fs.createWriteStream(opt.out) : null;
   const t0 = Date.now();
   for (const deck of opt.decks) for (const seed of opt.seeds) {
