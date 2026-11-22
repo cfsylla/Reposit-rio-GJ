@@ -64,5 +64,12 @@ Atualizado em 22/11/2026 (2ª rodada de decisões). Chat dedicado ao endgame.
 - **Bolsa Leve:** ouro por vitória **−30%**.
 - **Bagagem Limitada:** bloqueia **4 casas** (a fileira de baixo). Com 5 o visual fica estranho.
 - **Ainda em aberto:** Reforços Inimigos (rodada de início) e Menos Apoio (1 ou 2 camadas).
-## 7. Pontos ainda abertos
+## 7. Decisões (22/11, depois da lista dos 22 desafios)
+- **A faixa de −5 a −10 é referência**, não regra: nem todo desafio precisa ficar dentro dela.
+- **Reforços Inimigos:** a partir da **3ª rodada** (medido: −17,5 com 20 nós).
+- **Menos Apoio no Mapa:** **2 camadas** por mapa (−11,5).
+- **Tropas + Ataques num desafio só**, mantendo **+10% de vida e +8% de dano** (efeito juntos ainda não medido).
+- **Catálogo: 18 desafios**, em **3 blocos de 6**. O bloco seguinte só é liberado depois de vencer uma run com **o bloco atual inteiro ligado** (como no Astral Ascent).
+- **Vantagens:** depois de validar os desafios. Também serão liberadas por blocos.
+## 8. Pontos ainda abertos
 1. **Catálogo:** são 15 desafios + 7 candidatos = 22 peças. Os 15 finais (e os blocos) saem depois da medição.
