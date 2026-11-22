@@ -71,5 +71,14 @@ Atualizado em 22/11/2026 (2ª rodada de decisões). Chat dedicado ao endgame.
 - **Tropas + Ataques num desafio só**, mantendo **+10% de vida e +8% de dano** (efeito juntos ainda não medido).
 - **Catálogo: 18 desafios**, em **3 blocos de 6**. O bloco seguinte só é liberado depois de vencer uma run com **o bloco atual inteiro ligado** (como no Astral Ascent).
 - **Vantagens:** depois de validar os desafios. Também serão liberadas por blocos.
-## 8. Pontos ainda abertos
+## 8. Regras dos blocos (22/11)
+- **Blocos acumulam:**
+  - bloco 1 = níveis 1 a 6, com escolha livre entre os 6 desafios;
+  - bloco 2 = níveis 7 a 12, com o bloco 1 inteiro ligado + 1 a 6 desafios do bloco 2;
+  - bloco 3 = níveis 13 a 18, com os blocos 1 e 2 inteiros + 1 a 6 desafios do bloco 3;
+  - no nível máximo, tudo fica ligado.
+- **Escolha livre dentro do bloco.** O jogador não sabe quanto cada desafio pesa.
+- **Insígnia:** continua sendo 1 por nível inédito. Ao ganhar a 7ª Insígnia, libera o 2º bloco, e assim por diante (a confirmar: bloco de vantagens ou de desafios).
+- **Blocos assimétricos:** o começo do endgame está fácil, e o jogador que avança fácil cresce a árvore e continua com facilidade. Os blocos precisam ser mais fortes no começo. Opção em estudo: 6 blocos de 3.
+## 9. Pontos ainda abertos
 1. **Catálogo:** são 15 desafios + 7 candidatos = 22 peças. Os 15 finais (e os blocos) saem depois da medição.
