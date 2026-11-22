@@ -58,6 +58,8 @@ function sources(s){
   list.push({source:'barrier:'+kind,hp:A.barrier(s),damage:A.barrier(s)});
   if(C.active(s,'tough'))list.push({source:'challenge:tough',hp:1+c.tough});
   if(C.active(s,'relentless'))list.push({source:'challenge:relentless',damage:1+c.relentless});
+  if(C.active(s,'fortified'))list.push({source:'challenge:fortified',hp:1+c.fortifiedHp,damage:1+c.fortifiedAtk});
+  {const k=root.JourneyChallengesEndgame?.scaleOf?.(s)||1;if(k!==1)list.push({source:'challenge:globalScale',hp:k,damage:k,defense:k});}
   if(c.bossStats&&C.active(s,'bossrounds')&&s.current.type==='boss'&&!s.current.trueBoss)list.push({source:'challenge:bossrounds',hp:1+c.bossStats,damage:1+c.bossStats});
   const elite=['boss','elite'].includes(s.current.type),addLevel=C.upgrades(s,elite,s.current.type==='boss');
   if(addLevel)list.push({source:'challenge:'+(elite?'commanders':'veterans'),addLevel});

@@ -4,11 +4,11 @@ const {G,P,Tree:T,C}=require('./cp4-engine.cjs');
 
 P.load(P.freshProfile());
 P.completeTutorial();
-P.profile.challenges={unlocked:true,available:3,selected:['tough','relentless','reinforcements']};
+P.profile.challenges={unlocked:true,available:3,selected:['reinforcements','fortified','moreelites']};
 let s=G.fresh('vanguard',56);
 const node=G.available(s)[0];
 assert(G.enter(s,node.id));
-assert.deepEqual(s.meta.challenges,['tough','relentless','reinforcements']);
+assert.deepEqual(s.meta.challenges,['reinforcements','fortified','moreelites']);
 
 function round(slot, handicap) {
   s.board.fill(null);
@@ -46,8 +46,8 @@ assert(e.rounds.every(r=>r.winner==='enemy'&&r.playerAlive===0&&r.enemyAlive>0))
 assert.notEqual(e.rounds[0].player.formation[0].x,e.rounds[1].player.formation[0].x);
 assert.deepEqual(e.player,e.rounds[0].player);
 assert.equal(e.player.bagCellsUsed,e.player.relics.reduce((sum,r)=>sum+r.cells.length,0));
-assert(e.enemyScaleSources.some(x=>x.source==='challenge:tough'));
-assert(e.enemyScaleSources.some(x=>x.source==='challenge:relentless'));
+assert(e.enemyScaleSources.some(x=>x.source==='challenge:fortified'));
+assert(e.enemyScaleSources.some(x=>x.source==='challenge:globalScale'));
 assert.equal(e.units[0].deaths,3);
 assert.equal(P.profile.stats.bosses,0);
 
@@ -79,6 +79,8 @@ assert.equal(s.meta.completed[0].goldIn,8);
 
 // In the engine's formation and in the exported encounter, round 1 really is 2v3.
 P.load(P.freshProfile());P.completeTutorial();
+// Endgame (22/11): o Reforços passou a valer a partir da 3ª rodada; este teste confere só a telemetria, então usa a regra antiga.
+const reinforceFrom=JourneyChallenges.TUNE.reinforceFromRound;JourneyChallenges.TUNE.reinforceFromRound=1;
 P.profile.challenges={unlocked:true,available:1,selected:['reinforcements']};
 s=G.fresh('vanguard',56);
 assert(G.enter(s,G.available(s)[0].id));
@@ -92,6 +94,7 @@ const reinforcementExample=s.meta.encounters.at(-1);
 assert.equal(reinforcementExample.rounds[0].player.formation.length,2);
 assert.equal(reinforcementExample.rounds[0].enemy.formation.length,3);
 assert(reinforcementExample.rounds[0].enemyScaleSources.some(source=>source.source==='challenge:reinforcements'));
+JourneyChallenges.TUNE.reinforceFromRound=reinforceFrom;
 
 const backup={format:'grand-journey',schema:JourneyTelemetry.exportSchema,profile:P.profile,state:s};
 assert(JourneyTelemetry.validExport(JSON.parse(JSON.stringify(backup))));

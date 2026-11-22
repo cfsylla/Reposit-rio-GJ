@@ -1,19 +1,22 @@
 /* Endgame (Claude, 22/11/2026) — TESTE. Escala geral e 7 desafios candidatos. Nada é ativado por padrão:
  * - escala geral: TUNE.globalScale (0 = desligada); vida, ataque e defesa dos inimigos × (1 + globalScale × nº de desafios ativos),
  *   em todo combate e todo boss (raids, Titãs e forma 2 do True Boss pelo fator da raid: vida e dano);
+ * - Inimigos Fortalecidos (fortified) substitui Tropas Resistentes e Ataques Implacáveis (agora na reserva);
  * - candidatos (só valem quando escolhidos na run): moreelites, cursedrelics, fatigue, reinforceddecks, lesssupport, smallshop, lostgold.
  * Carregar depois de challenges.js e advantages.js (index.html). Decisões em balance/endgame/DECISOES_ENDGAME.md. */
 (function(root){'use strict';
 const G=root.Game,P=root.Progress,CH=root.JourneyChallenges,T=root.JourneyTree,R=root.JourneyRaid,A=root.JourneyActs,C=root.JourneyContent;
 if(!G||!CH)return;
-const TUNE=CH.TUNE,DEF={globalScale:0,fatigue:.05,cursedRelicChance:1/3,cursedRelicPool:['burden','chains'],lostGoldPerRound:1/3,moreElitesLayers:2,lessSupportLayers:1,reinforcedSwaps:2,reinforcedTeamSwaps:1,smallShopCards:2,smallShopRelics:1};
+/* Valores decididos por Carlos em 22/11: escala 2%, Fadiga −3%, Menos Apoio 2 camadas, Inimigos Fortalecidos +10% vida / +8% dano; blocos 6×3. */
+const TUNE=CH.TUNE,DEF={globalScale:.02,fatigue:.03,fortifiedHp:.10,fortifiedAtk:.08,cursedRelicChance:1/3,cursedRelicPool:['burden','chains'],lostGoldPerRound:1/3,moreElitesLayers:2,lessSupportLayers:2,reinforcedSwaps:2,reinforcedTeamSwaps:1,smallShopCards:2,smallShopRelics:1,blocks:[['reinforcements','fortified','moreelites'],['commanders','fatigue','cursedrelics'],['lesssupport','heavydeck','smallshop'],['inflation','cursed','bossrounds'],['lightpurse','veterans','dissipate'],['reinforceddecks','lostgold','bag']]};
 for(const [k,v] of Object.entries(DEF))if(!(k in TUNE))TUNE[k]=v;
 const NEW=[
+ {id:'fortified',en:'Fortified Enemies',pt:'Inimigos Fortalecidos',enDesc:'Enemy health +10% and damage +8%.',ptDesc:'Vida dos inimigos +10% e dano +8%.'},
  {id:'moreelites',en:'More Elites',pt:'Mais Elites no Mapa',enDesc:'In each map, 2 whole layers of simple battles become elite battles.',ptDesc:'Em cada mapa, 2 camadas inteiras de batalhas simples viram batalhas de elite.'},
  {id:'cursedrelics',en:'Cursed Relics',pt:'Relíquias Amaldiçoadas',enDesc:'Each relic you obtain has a 33% chance to add Burden or Chains to your deck.',ptDesc:'Cada relíquia obtida tem 33% de chance de adicionar Fardo ou Correntes ao deck.'},
- {id:'fatigue',en:'Journey Fatigue',pt:'Fadiga da Jornada',enDesc:'Your units have −5% attack, health, defense and attack speed.',ptDesc:'Suas unidades têm −5% de ataque, vida, defesa e velocidade de ataque.'},
+ {id:'fatigue',en:'Journey Fatigue',pt:'Fadiga da Jornada',enDesc:'Your units have −3% attack, health, defense and attack speed.',ptDesc:'Suas unidades têm −3% de ataque, vida, defesa e velocidade de ataque.'},
  {id:'reinforceddecks',en:'Reinforced Decks',pt:'Decks Reforçados',enDesc:'Elites and bosses swap their weakest cards for stronger ones.',ptDesc:'Elites e bosses trocam as cartas mais fracas por outras mais fortes.'},
- {id:'lesssupport',en:'Less Support',pt:'Menos Apoio no Mapa',enDesc:'In each map, 1 support layer becomes a layer of battles.',ptDesc:'Em cada mapa, 1 camada de apoio vira uma camada de batalhas.'},
+ {id:'lesssupport',en:'Less Support',pt:'Menos Apoio no Mapa',enDesc:'In each map, 2 support layers become layers of battles.',ptDesc:'Em cada mapa, 2 camadas de apoio viram camadas de batalhas.'},
  {id:'smallshop',en:'Smaller Shop',pt:'Loja com Menos Opções',enDesc:'Shops offer 2 recruits and 1 relic.',ptDesc:'A loja oferece 2 recrutas e 1 relíquia.'},
  {id:'lostgold',en:'Costly Victories',pt:'Derrota Custa Ouro',enDesc:'Each lost round removes 33% of the victory gold of that fight.',ptDesc:'Cada rodada perdida tira 33% do ouro da vitória daquela luta.'},
 ];
@@ -25,7 +28,8 @@ const scaleOf=s=>1+(TUNE.globalScale||0)*count(s);
 const rand=(s,salt)=>G.rng(((s.seed>>>0)^Math.imul(salt>>>0,0x9e3779b1))>>>0)();
 
 /* 1) Escala geral: inimigos fora de raid (comum, elite, ordem, evento, boss de mapa, forma 1 do True Boss). */
-const es=CH.enemyStats;CH.enemyStats=function(s,c,st){es(s,c,st);const k=scaleOf(s);if(k!==1){st.hp*=k;st.atk*=k;st.defense*=k;}return st;};
+/* Inimigos Fortalecidos (junta Tropas Resistentes e Ataques Implacáveis): mesmos valores, fora das raids (como antes). */
+const es=CH.enemyStats;CH.enemyStats=function(s,c,st){es(s,c,st);if(active(s,'fortified')){st.hp*=1+TUNE.fortifiedHp;st.atk*=1+TUNE.fortifiedAtk;}const k=scaleOf(s);if(k!==1){st.hp*=k;st.atk*=k;st.defense*=k;}return st;};
 /* Raids, Titãs e forma 2 do True Boss: fator da raid (vida e dano). */
 if(R?.initialize){const init=R.initialize;R.initialize=function(s,kind,scale,...rest){const k=scaleOf(s);if(k!==1&&scale){rest[1]=[...(rest[1]||[{source:'raid:'+kind,...scale}]),{source:'challenge:globalScale',hp:k,damage:k}];scale={...scale,hp:scale.hp*k,damage:scale.damage*k,minions:(scale.minions||1)*k};}return init.call(this,s,kind,scale,...rest);};}
 

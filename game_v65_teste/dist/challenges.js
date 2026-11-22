@@ -10,38 +10,46 @@
 const G=root.Game,P=root.Progress,T=root.JourneyTree,C=root.JourneyContent,R=root.JourneyRaid,B=root.JourneyBosses;
 const LIST=[
  {id:'veterans',en:'Veterans',pt:'Veteranos',enDesc:'Regular enemies have +8 upgrades.',ptDesc:'Inimigos comuns têm +8 upgrades.'},
- {id:'tough',en:'Tough Troops',pt:'Tropas Resistentes',enDesc:'Enemy health +10%.',ptDesc:'Vida dos inimigos +10%.'},
- {id:'relentless',en:'Relentless Attacks',pt:'Ataques Implacáveis',enDesc:'Enemy damage +8%.',ptDesc:'Dano dos inimigos +8%.'},
+ {id:'tough',reserve:true,en:'Tough Troops',pt:'Tropas Resistentes',enDesc:'Enemy health +10%.',ptDesc:'Vida dos inimigos +10%.'},
+ {id:'relentless',reserve:true,en:'Relentless Attacks',pt:'Ataques Implacáveis',enDesc:'Enemy damage +8%.',ptDesc:'Dano dos inimigos +8%.'},
  {id:'commanders',en:'Prepared Commanders',pt:'Comandantes Preparados',enDesc:'Elites, orders and bosses gain +2 relics and +2 upgrades.',ptDesc:'Elites, ordens e bosses ganham +2 relíquias e +2 upgrades.'},
  {id:'bossrounds',en:'Relentless Bosses',pt:'Bosses Implacáveis',enDesc:'Map bosses (team and leader) have +7% health and damage.',ptDesc:'Bosses de mapa (time e líder) têm +7% de vida e de dano.'},
- {id:'reinforcements',en:'Enemy Reinforcements',pt:'Reforços Inimigos',enDesc:'From the 1st round on, regular and elite enemies field +1 unit.',ptDesc:'Desde a 1ª rodada, inimigos comuns e elites colocam +1 unidade em campo.'},
- {id:'raidfury',en:'Raid Fury',pt:'Fúria das Raids',enDesc:'Raid health +25% and damage +8%.',ptDesc:'Raids com +25% de vida e +8% de dano.'},
+ {id:'reinforcements',en:'Enemy Reinforcements',pt:'Reforços Inimigos',enDesc:'From the 3rd round on, regular and elite enemies field +1 unit.',ptDesc:'A partir da 3ª rodada, inimigos comuns e elites colocam +1 unidade em campo.'},
+ {id:'raidfury',reserve:true,en:'Raid Fury',pt:'Fúria das Raids',enDesc:'Raid health +25% and damage +8%.',ptDesc:'Raids com +25% de vida e +8% de dano.'},
  {id:'inflation',en:'Inflated Market',pt:'Mercado Inflacionado',enDesc:'Shop prices +30%.',ptDesc:'Preços da loja +30%.'},
- {id:'lightpurse',en:'Light Purse',pt:'Bolsa Leve',enDesc:'Gold from victories −27%.',ptDesc:'Ouro por vitória −27%.'},
- {id:'scarce',en:'Scarce Resources',pt:'Recursos Escassos',enDesc:'−1 energy in the first round against bosses.',ptDesc:'−1 de energia na primeira rodada contra bosses.'},
- {id:'bag',en:'Limited Luggage',pt:'Bagagem Limitada',enDesc:'Blocks 5 Relic Bag cells.',ptDesc:'Bloqueia 5 casas da bolsa de relíquias.'},
+ {id:'lightpurse',en:'Light Purse',pt:'Bolsa Leve',enDesc:'Gold from victories −30%.',ptDesc:'Ouro por vitória −30%.'},
+ {id:'scarce',reserve:true,en:'Scarce Resources',pt:'Recursos Escassos',enDesc:'−1 energy in the first round against bosses.',ptDesc:'−1 de energia na primeira rodada contra bosses.'},
+ {id:'bag',en:'Limited Luggage',pt:'Bagagem Limitada',enDesc:'Blocks the bottom row of the Relic Bag (4 cells).',ptDesc:'Bloqueia a fileira de baixo da bolsa de relíquias (4 casas).'},
  {id:'heavydeck',en:'Heavy Deck',pt:'Deck Pesado',enDesc:'Start the run with +2 random basic generic cards (Warrior, Lancer, Fighter, Martial Artist, Miner, Pirate, Ranger or Shackled Pirate).',ptDesc:'Começa a run com +2 cartas básicas genéricas aleatórias (Warrior, Lancer, Fighter, Martial Artist, Miner, Pirate, Ranger ou Shackled Pirate).'},
  {id:'dissipate',en:'Dissipating Energy',pt:'Energia Dissipada',enDesc:'Lose 1 of the energy left over at the end of each round.',ptDesc:'Perde 1 da energia que sobrar ao fim de cada rodada.'},
- {id:'fewrelics',en:'Scarce Relics',pt:'Relíquias Escassas',enDesc:'Relic choices offer 2 options less (minimum 1).',ptDesc:'Escolhas de relíquia oferecem 2 opções a menos (mínimo 1).'},
+ {id:'fewrelics',reserve:true,en:'Scarce Relics',pt:'Relíquias Escassas',enDesc:'Relic choices offer 2 options less (minimum 1).',ptDesc:'Escolhas de relíquia oferecem 2 opções a menos (mínimo 1).'},
  {id:'cursed',en:'Cursed Path',pt:'Caminho Amaldiçoado',enDesc:'Start the run with 2 Exhaustion curses.',ptDesc:'Começa a run com 2 maldições Exaustão.'},
 ];
 const BY=Object.fromEntries(LIST.map(c=>[c.id,c]));
-const MAX_LEVEL=LIST.length;
+/* Endgame (22/11): o catálogo são os desafios sem 'reserve'; desafios novos podem ser acrescentados depois (challenges-endgame.js). */
+const catalog=()=>LIST.filter(c=>!c.reserve);
+const maxLevel=()=>catalog().length;
 // Single intensity per challenge (revision 2: the level is the number of active challenges). Calibrated by simulation.
-const TUNE=root.JOURNEY_CHALLENGE_TUNE={/* R3 (Carlos 08/11/2026): recalibrados para −7 a −12 pontos cada (23 nós) */veterans:8,commanders:2,commanderRelics:2,tough:.10,relentless:.08,bossRounds:0,bossStats:.07,raidfury:.25,raidDamage:.08,inflation:.30,lightpurse:.27,bagCells:5,curses:['exhaustion','exhaustion'],reinforceFromRound:1,heavyCards:2,heavyMode:'pool',dissipateMode:'fixed',dissipateFixed:1,dissipateKeep:2,scarceRounds:1,heavyPool:['warrior','lancer','fighter','martial_artist','miner','pirate','ranger','shackled_pirate'],fewRelics:2,...(root.JOURNEY_CHALLENGE_TUNE||{})};
+const TUNE=root.JOURNEY_CHALLENGE_TUNE={/* R3 (Carlos 08/11/2026): recalibrados para −7 a −12 pontos cada (23 nós). Endgame (Carlos 22/11): Reforços a partir da 3ª rodada, Bolsa −30%, Bagagem 4 casas (fileira de baixo) */veterans:8,commanders:2,commanderRelics:2,tough:.10,relentless:.08,bossRounds:0,bossStats:.07,raidfury:.25,raidDamage:.08,inflation:.30,lightpurse:.30,bagCells:4,curses:['exhaustion','exhaustion'],reinforceFromRound:3,heavyCards:2,heavyMode:'pool',dissipateMode:'fixed',dissipateFixed:1,dissipateKeep:2,scarceRounds:1,heavyPool:['warrior','lancer','fighter','martial_artist','miner','pirate','ranger','shackled_pirate'],fewRelics:2,...(root.JOURNEY_CHALLENGE_TUNE||{})};
 const BAG_CELLS=[[3,3],[2,3],[1,3],[0,3],[3,2]];
 
-function profile(){const p=P.profile;const pc=p.challenges??={};pc.unlocked=!!pc.unlocked;pc.available=Math.max(pc.unlocked?1:0,Math.min(MAX_LEVEL,Math.floor(pc.available||0)));
- pc.won=[...new Set((pc.won||[]).filter(n=>Number.isInteger(n)&&n>=1&&n<=MAX_LEVEL))];pc.completed=[...new Set((pc.completed||[]).filter(id=>BY[id]))];pc.selected=clean(pc.selected);if(pc.selected.length>pc.available)pc.selected=pc.selected.slice(0,pc.available);
+function profile(){const p=P.profile;const pc=p.challenges??={};pc.unlocked=!!pc.unlocked;pc.available=Math.max(pc.unlocked?1:0,Math.min(maxLevel(),Math.floor(pc.available||0)));
+ pc.won=[...new Set((pc.won||[]).filter(n=>Number.isInteger(n)&&n>=1&&n<=maxLevel()))];pc.completed=[...new Set((pc.completed||[]).filter(id=>BY[id]))];pc.selected=clean(pc.selected);if(pc.selected.length>pc.available)pc.selected=pc.selected.slice(0,pc.available);
  p.insignia=Number.isFinite(p.insignia)?p.insignia:0;return pc;}
-function clean(sel){const ids=Array.isArray(sel)?sel:Object.keys(sel||{});return [...new Set(ids.filter(id=>BY[id]))];}
+function clean(sel){const ids=Array.isArray(sel)?sel:Object.keys(sel||{});return [...new Set(ids.filter(id=>BY[id]&&!BY[id].reserve))];}
+/* Blocos (Carlos 22/11): os blocos acumulam. Seleção válida = blocos anteriores inteiros + qualquer parte do bloco seguinte.
+ * Como o nível segue sendo a quantidade de desafios ativos e vencer N libera N+1, o bloco seguinte só aparece depois de vencer
+ * uma run com o bloco atual inteiro ligado. TUNE.blocks = lista de blocos (ids). Sem blocos definidos, a escolha é livre. */
+function blocks(){return Array.isArray(TUNE.blocks)&&TUNE.blocks.length?TUNE.blocks:null;}
+function blockValid(sel){const B=blocks();if(!B)return true;const set=new Set(sel);let i=0;while(i<B.length&&B[i].every(id=>set.has(id)))i++;const allowed=new Set([...B.slice(0,i).flat(),...(B[i]||[])]);return sel.every(id=>allowed.has(id));}
+function blockOf(id){const B=blocks();return B?B.findIndex(b=>b.includes(id)):-1;}
 function level(sel){return clean(sel).length;}
 function highestWon(){return Math.max(0,...profile().won);}
 function eligible(s){return !!s&&!s.training&&!s.tutorialReplay;}
 function active(s,id){return eligible(s)&&!!s.challenges?.includes?.(id);}
 /* Selection: free combination, limited to the unlocked level (number of challenges). */
-function select(ids){const pc=profile();const list=clean(ids);if(Array.isArray(ids)&&ids.some(id=>!BY[id]))return false;if(!pc.unlocked||list.length>pc.available)return false;pc.selected=list;return true;}
-function toggle(id){const pc=profile();if(!pc.unlocked||!BY[id])return false;const on=pc.selected.includes(id);if(!on&&pc.selected.length>=pc.available)return false;pc.selected=on?pc.selected.filter(x=>x!==id):[...pc.selected,id];return true;}
+function select(ids){const pc=profile();const list=clean(ids);if(Array.isArray(ids)&&ids.some(id=>!BY[id]))return false;if(!pc.unlocked||list.length>pc.available||!blockValid(list))return false;pc.selected=list;return true;}
+function toggle(id){const pc=profile();if(!pc.unlocked||!BY[id])return false;const on=pc.selected.includes(id);if(!on&&pc.selected.length>=pc.available)return false;const next=on?pc.selected.filter(x=>x!==id):[...pc.selected,id];if(!blockValid(next))return false;pc.selected=next;return true;}
 function start(s){if(!eligible(s)||s.challenges)return;const pc=profile();s.challenges=pc.unlocked?clean(s.pendingChallenges??pc.selected).slice(0,pc.available):[];delete s.pendingChallenges;s.challengeLevel=s.challenges.length;
  if(active(s,'cursed'))for(const id of TUNE.curses)C?.addCurse(s,id);if(active(s,'heavydeck')&&TUNE.heavyMode==='copy')for(let i=0;i<TUNE.heavyCards;i++){const ts=[...new Set(s.cards.filter(c=>!C?.isCurse(c)).map(c=>c.type))].filter(t=>G.copies(s,t)<G.MAX_COPIES);if(ts.length)G.newCard(s,ts[Math.floor(G.random(s)*ts.length)]);}if(active(s,'heavydeck')&&TUNE.heavyMode!=='copy')for(let i=0;i<TUNE.heavyCards;i++){const pool=TUNE.heavyPool.filter(t=>G.BY[t]&&G.copies(s,t)<G.MAX_COPIES);if(pool.length)G.newCard(s,pool[Math.floor(G.random(s)*pool.length)]);}if(active(s,'bag'))G.ensureBag(s);root.JourneyAdvantages?.start?.(s);}
 const enter=G.enter;G.enter=function(s,id){if(!G.available(s).some(n=>n.id===id))return false;start(s);return enter(s,id);};
@@ -74,12 +82,13 @@ if(R?.initialize){const init=R.initialize;R.initialize=function(s,kind,scale,...
  * counts as completed. Defeats change nothing. */
 function recordVictory(s){const pc=profile(),n=(s.challenges||[]).length,out={level:n,insignia:0,unlocked:false};
  if(!pc.unlocked){pc.unlocked=true;pc.available=Math.max(pc.available,1);out.unlocked=true;}
- if(n>=1){if(!pc.won.includes(n)){pc.won.push(n);P.profile.insignia+=1;out.insignia=1;}pc.available=Math.min(MAX_LEVEL,Math.max(pc.available,n+1));for(const id of s.challenges)if(!pc.completed.includes(id))pc.completed.push(id);}
+ if(n>=1){if(!pc.won.includes(n)){pc.won.push(n);P.profile.insignia+=1;out.insignia=1;}pc.available=Math.min(maxLevel(),Math.max(pc.available,n+1));for(const id of s.challenges)if(!pc.completed.includes(id))pc.completed.push(id);}
  return out;}
 function recordFinished(s){if(!eligible(s)||!s.meta?.ended||s.meta.reason!=='victory'||s.meta.challengesRecorded)return;const got=recordVictory(s);s.meta.challengesRecorded=true;s.meta.challengeLevel=got.level;s.meta.insignia=got.insignia;s.meta.challengesUnlocked=got.unlocked;s.meta.completedChallenges=[...(s.challenges||[])];}
 const finish=P.finish;P.finish=function(s,reason){const r=finish(s,reason);recordFinished(s);return r;};
 // The tree closes the run through its captured finish function, so record that route too.
 if(T?.continueRun){const next=T.continueRun;T.continueRun=function(s){const r=next(s);recordFinished(s);return r;};}
 
-root.JourneyChallenges={LIST,roundEnd,BY,TUNE,MAX_LEVEL,profile,clean,level,highestWon,select,toggle,start,active,upgrades,enemyRelics,extraUnits,extraBossRounds,energy,bagBlocked,cellBlocked,enemyStats,recordVictory};
+root.JourneyChallenges={LIST,catalog,blocks,blockValid,blockOf,roundEnd,BY,TUNE,profile,clean,level,highestWon,select,toggle,start,active,upgrades,enemyRelics,extraUnits,extraBossRounds,energy,bagBlocked,cellBlocked,enemyStats,recordVictory};
+Object.defineProperty(root.JourneyChallenges,'MAX_LEVEL',{get:maxLevel,enumerable:true});
 })(typeof globalThis!=='undefined'?globalThis:this);
