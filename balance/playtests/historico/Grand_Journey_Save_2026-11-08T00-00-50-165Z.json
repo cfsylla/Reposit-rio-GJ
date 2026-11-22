@@ -1,0 +1,5437 @@
+{
+  "format": "grand-journey",
+  "schema": 1,
+  "profile": {
+    "schema": 1,
+    "blackfangUnlocked": false,
+    "dawncrestUnlocked": false,
+    "name": "Traveler",
+    "customDecks": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "unlockHistory": [
+      {
+        "kind": "milestone",
+        "id": "fusion_first",
+        "at": "2026-11-07T22:48:21.084Z"
+      },
+      {
+        "kind": "milestone",
+        "id": "firstSteps",
+        "at": "2026-11-07T22:48:26.686Z"
+      },
+      {
+        "kind": "deck",
+        "id": "balanced",
+        "at": "2026-11-07T22:48:26.686Z"
+      },
+      {
+        "kind": "deck",
+        "id": "swift",
+        "at": "2026-11-07T22:48:26.686Z"
+      },
+      {
+        "kind": "milestone",
+        "id": "elite",
+        "at": "2026-11-07T22:52:23.333Z"
+      },
+      {
+        "kind": "deck",
+        "id": "blades",
+        "at": "2026-11-07T22:52:23.333Z"
+      },
+      {
+        "kind": "deck",
+        "id": "keen",
+        "at": "2026-11-07T22:52:23.333Z"
+      },
+      {
+        "kind": "relic",
+        "id": "precision",
+        "at": "2026-11-07T22:52:23.333Z"
+      },
+      {
+        "kind": "milestone",
+        "id": "sweeps",
+        "at": "2026-11-07T22:53:01.245Z"
+      },
+      {
+        "kind": "deck",
+        "id": "fortress",
+        "at": "2026-11-07T22:53:01.245Z"
+      },
+      {
+        "kind": "deck",
+        "id": "executioners",
+        "at": "2026-11-07T22:53:01.245Z"
+      },
+      {
+        "kind": "relic",
+        "id": "shield",
+        "at": "2026-11-07T22:53:01.245Z"
+      },
+      {
+        "kind": "relic",
+        "id": "luckycharm",
+        "at": "2026-11-07T23:05:02.743Z"
+      },
+      {
+        "kind": "milestone",
+        "id": "spender",
+        "at": "2026-11-07T23:05:02.744Z"
+      },
+      {
+        "kind": "deck",
+        "id": "outlaws",
+        "at": "2026-11-07T23:05:02.744Z"
+      },
+      {
+        "kind": "relic",
+        "id": "merchant",
+        "at": "2026-11-07T23:05:02.744Z"
+      },
+      {
+        "kind": "relic",
+        "id": "ember",
+        "at": "2026-11-07T23:07:20.023Z"
+      },
+      {
+        "kind": "milestone",
+        "id": "decks",
+        "at": "2026-11-07T23:07:20.024Z"
+      },
+      {
+        "kind": "deck",
+        "id": "corsair",
+        "at": "2026-11-07T23:07:20.024Z"
+      },
+      {
+        "kind": "relic",
+        "id": "banner",
+        "at": "2026-11-07T23:07:20.024Z"
+      },
+      {
+        "kind": "booster",
+        "id": "frontier",
+        "at": "2026-11-07T23:07:20.025Z"
+      },
+      {
+        "kind": "card",
+        "id": "viking",
+        "at": "2026-11-07T23:09:20.841Z"
+      },
+      {
+        "kind": "milestone",
+        "id": "boss",
+        "at": "2026-11-07T23:11:58.177Z"
+      },
+      {
+        "kind": "deck",
+        "id": "arcane",
+        "at": "2026-11-07T23:11:58.177Z"
+      },
+      {
+        "kind": "deck",
+        "id": "astral",
+        "at": "2026-11-07T23:11:58.177Z"
+      },
+      {
+        "kind": "relic",
+        "id": "recovery",
+        "at": "2026-11-07T23:11:58.177Z"
+      },
+      {
+        "kind": "booster",
+        "id": "oaths",
+        "at": "2026-11-07T23:11:58.177Z"
+      },
+      {
+        "kind": "milestone",
+        "id": "boss_ironbound_map1",
+        "at": "2026-11-07T23:11:58.177Z"
+      },
+      {
+        "kind": "milestone",
+        "id": "fusion_three",
+        "at": "2026-11-07T23:11:58.178Z"
+      },
+      {
+        "kind": "milestone",
+        "id": "journeys",
+        "at": "2026-11-07T23:40:53.270Z"
+      },
+      {
+        "kind": "relic",
+        "id": "heart",
+        "at": "2026-11-07T23:40:53.270Z"
+      },
+      {
+        "kind": "card",
+        "id": "ranger",
+        "at": "2026-11-07T23:49:58.647Z"
+      },
+      {
+        "kind": "milestone",
+        "id": "boss_monsters_map1",
+        "at": "2026-11-07T23:53:24.777Z"
+      }
+    ],
+    "diamonds": 61,
+    "cards": {},
+    "relics": {},
+    "catalogCards": [
+      "viking",
+      "ranger"
+    ],
+    "catalogRelics": [
+      "precision",
+      "shield",
+      "luckycharm",
+      "merchant",
+      "ember",
+      "banner",
+      "recovery",
+      "heart"
+    ],
+    "decks": [
+      "vanguard",
+      "balanced",
+      "swift",
+      "blades",
+      "keen",
+      "fortress",
+      "executioners",
+      "outlaws",
+      "corsair",
+      "arcane",
+      "astral"
+    ],
+    "onboarding": {
+      "status": "completed",
+      "fusionSeen": true,
+      "menuSeen": true
+    },
+    "boosters": [
+      "first",
+      "frontier",
+      "oaths"
+    ],
+    "milestones": [
+      "fusion_first",
+      "firstSteps",
+      "elite",
+      "sweeps",
+      "spender",
+      "decks",
+      "boss",
+      "boss_ironbound_map1",
+      "fusion_three",
+      "journeys",
+      "boss_monsters_map1"
+    ],
+    "stats": {
+      "firstSteps": 1,
+      "runs": 5,
+      "wins": 0,
+      "losses": 5,
+      "abandoned": 0,
+      "qualifiedRuns": 4,
+      "elites": 13,
+      "bosses": 2,
+      "bestEvents": 2,
+      "bestSpent": 143,
+      "bestSweeps": 7,
+      "bestShooters": 1,
+      "bestArcanists": 0,
+      "bestEastern": 0,
+      "bestNorthern": 0,
+      "defeatedDecks": [
+        "executioners",
+        "blades",
+        "blackfang_shadows",
+        "enemy_north16",
+        "fortress",
+        "enemy_dawn16"
+      ],
+      "bestByDeck": {
+        "vanguard": 21,
+        "balanced": 9,
+        "swift": 16,
+        "astral": 10
+      }
+    },
+    "runs": [
+      {
+        "schema": 1,
+        "unlockStart": 0,
+        "id": "06a872bc-d684-4dfc-a929-86e767c91b0e",
+        "startedAt": "2026-11-07T22:47:57.655Z",
+        "completed": [
+          {
+            "id": "c1",
+            "type": "battle",
+            "layer": 0,
+            "event": null
+          },
+          {
+            "id": "n1_0",
+            "type": "recruit",
+            "layer": 1,
+            "event": null
+          }
+        ],
+        "encounters": [
+          {
+            "key": "c1:1",
+            "type": "battle",
+            "deck": null,
+            "relics": [],
+            "score": [
+              3,
+              0
+            ],
+            "round": 3,
+            "formation": [
+              {
+                "type": "fighter",
+                "level": 0
+              },
+              {
+                "type": "lancer",
+                "level": 0
+              },
+              {
+                "type": "warrior",
+                "level": 0
+              },
+              {
+                "type": "gladiator",
+                "level": 0
+              }
+            ],
+            "event": false
+          }
+        ],
+        "events": [],
+        "spent": 0,
+        "sweeps": 1,
+        "shooters": 0,
+        "arcanists": 0,
+        "eastern": 0,
+        "northern": 0,
+        "elites": 0,
+        "bosses": 0,
+        "ended": true,
+        "endedAt": "2026-11-07T22:48:49.307Z",
+        "reason": "defeat",
+        "diamonds": 1,
+        "deck": "vanguard",
+        "finalGold": 14,
+        "finalCards": [
+          {
+            "uid": "p1",
+            "type": "warrior",
+            "level": 0
+          },
+          {
+            "uid": "p2",
+            "type": "warrior",
+            "level": 0
+          },
+          {
+            "uid": "p3",
+            "type": "warrior",
+            "level": 0
+          },
+          {
+            "uid": "p4",
+            "type": "lancer",
+            "level": 0
+          },
+          {
+            "uid": "p5",
+            "type": "lancer",
+            "level": 0
+          },
+          {
+            "uid": "p6",
+            "type": "lancer",
+            "level": 0
+          },
+          {
+            "uid": "p7",
+            "type": "lancer",
+            "level": 0
+          },
+          {
+            "uid": "p8",
+            "type": "bastion",
+            "level": 0
+          },
+          {
+            "uid": "p9",
+            "type": "bastion",
+            "level": 0
+          },
+          {
+            "uid": "p10",
+            "type": "bastion",
+            "level": 0
+          },
+          {
+            "uid": "p11",
+            "type": "gladiator",
+            "level": 0
+          },
+          {
+            "uid": "p12",
+            "type": "gladiator",
+            "level": 0
+          },
+          {
+            "uid": "p13",
+            "type": "gladiator",
+            "level": 0
+          },
+          {
+            "uid": "p14",
+            "type": "swordsman",
+            "level": 0
+          },
+          {
+            "uid": "p15",
+            "type": "fighter",
+            "level": 0
+          },
+          {
+            "uid": "p16",
+            "type": "fighter",
+            "level": 0
+          },
+          {
+            "uid": "p17",
+            "type": "archer",
+            "level": 0
+          },
+          {
+            "uid": "p18",
+            "type": "archer",
+            "level": 0
+          },
+          {
+            "uid": "p19",
+            "type": "ranger",
+            "level": 0
+          },
+          {
+            "uid": "p20",
+            "type": "ranger",
+            "level": 0
+          },
+          {
+            "uid": "p21",
+            "type": "mage",
+            "level": 0
+          }
+        ],
+        "relics": [
+          "banner"
+        ],
+        "storedRelics": [],
+        "unlocks": [
+          {
+            "kind": "milestone",
+            "id": "fusion_first",
+            "at": "2026-11-07T22:48:21.084Z"
+          },
+          {
+            "kind": "milestone",
+            "id": "firstSteps",
+            "at": "2026-11-07T22:48:26.686Z"
+          },
+          {
+            "kind": "deck",
+            "id": "balanced",
+            "at": "2026-11-07T22:48:26.686Z"
+          },
+          {
+            "kind": "deck",
+            "id": "swift",
+            "at": "2026-11-07T22:48:26.686Z"
+          }
+        ],
+        "treeXp": {
+          "gained": 1,
+          "spent": 0,
+          "lost": 1
+        }
+      },
+      {
+        "schema": 1,
+        "unlockStart": 4,
+        "id": "004ebad4-6b71-483c-9da3-7cd16bd26ed3",
+        "startedAt": "2026-11-07T22:49:17.487Z",
+        "completed": [
+          {
+            "id": "c1",
+            "type": "battle",
+            "layer": 0,
+            "event": null
+          },
+          {
+            "id": "n1_2",
+            "type": "upgrade",
+            "layer": 1,
+            "event": null
+          },
+          {
+            "id": "n2_2",
+            "type": "battle",
+            "layer": 2,
+            "event": null
+          },
+          {
+            "id": "n3_2",
+            "type": "shop",
+            "layer": 3,
+            "event": null
+          },
+          {
+            "id": "n4_2",
+            "type": "elite",
+            "layer": 4,
+            "event": null
+          },
+          {
+            "id": "n5_2",
+            "type": "elite",
+            "layer": 5,
+            "event": null
+          },
+          {
+            "id": "n6_1",
+            "type": "relic",
+            "layer": 6,
+            "event": null
+          },
+          {
+            "id": "n7_1",
+            "type": "battle",
+            "layer": 7,
+            "event": null
+          },
+          {
+            "id": "n8_1",
+            "type": "event",
+            "layer": 8,
+            "event": "ataque"
+          }
+        ],
+        "encounters": [
+          {
+            "key": "c1:1",
+            "type": "battle",
+            "deck": null,
+            "relics": [],
+            "score": [
+              3,
+              0
+            ],
+            "round": 3,
+            "formation": [
+              {
+                "type": "fighter",
+                "level": 0
+              },
+              {
+                "type": "bastion",
+                "level": 0
+              },
+              {
+                "type": "warrior",
+                "level": 0
+              },
+              {
+                "type": "ranger",
+                "level": 0
+              }
+            ],
+            "event": false
+          },
+          {
+            "key": "n2_2:2",
+            "type": "battle",
+            "deck": "e1_militia",
+            "relics": [],
+            "score": [
+              3,
+              0
+            ],
+            "round": 3,
+            "formation": [
+              {
+                "type": "fighter",
+                "level": 0
+              },
+              {
+                "type": "gladiator",
+                "level": 0
+              },
+              {
+                "type": "priestess",
+                "level": 0
+              }
+            ],
+            "event": false
+          },
+          {
+            "key": "n4_2:3",
+            "type": "elite",
+            "deck": null,
+            "relics": [],
+            "score": [
+              1,
+              3
+            ],
+            "round": 4,
+            "formation": [
+              {
+                "type": "fighter",
+                "level": 0
+              },
+              {
+                "type": "bastion",
+                "level": 0
+              },
+              {
+                "type": "warrior",
+                "level": 1
+              },
+              {
+                "type": "ranger",
+                "level": 0
+              },
+              {
+                "type": "crossbowman",
+                "level": 0
+              }
+            ],
+            "event": false
+          },
+          {
+            "key": "n5_2:4",
+            "type": "elite",
+            "deck": "executioners",
+            "relics": [
+              "plating"
+            ],
+            "score": [
+              3,
+              0
+            ],
+            "round": 3,
+            "formation": [
+              {
+                "type": "warrior",
+                "level": 1
+              },
+              {
+                "type": "gladiator",
+                "level": 0
+              },
+              {
+                "type": "fighter",
+                "level": 0
+              }
+            ],
+            "event": false
+          },
+          {
+            "key": "n7_1:5",
+            "type": "battle",
+            "deck": "e1_militia",
+            "relics": [],
+            "score": [
+              3,
+              0
+            ],
+            "round": 3,
+            "formation": [
+              {
+                "type": "fighter",
+                "level": 0
+              },
+              {
+                "type": "gladiator",
+                "level": 0
+              },
+              {
+                "type": "warrior",
+                "level": 1
+              },
+              {
+                "type": "musketeer",
+                "level": 0
+              }
+            ],
+            "event": false
+          },
+          {
+            "key": "n8_1:event1:6",
+            "type": "battle",
+            "deck": "e1_raiders",
+            "relics": [],
+            "score": [
+              3,
+              0
+            ],
+            "round": 3,
+            "formation": [
+              {
+                "type": "warrior",
+                "level": 1
+              },
+              {
+                "type": "bastion",
+                "level": 0
+              },
+              {
+                "type": "gladiator",
+                "level": 0
+              },
+              {
+                "type": "ranger",
+                "level": 0
+              }
+            ],
+            "event": true
+          }
+        ],
+        "events": [
+          {
+            "kind": "goldSpent",
+            "node": "n3_2",
+            "at": "2026-11-07T22:50:43.838Z",
+            "amount": 12
+          },
+          {
+            "kind": "goldSpent",
+            "node": "n3_2",
+            "at": "2026-11-07T22:50:48.510Z",
+            "amount": 12
+          },
+          {
+            "kind": "eventAccepted",
+            "node": "n8_1",
+            "at": "2026-11-07T22:54:29.333Z",
+            "event": "ataque"
+          }
+        ],
+        "spent": 24,
+        "sweeps": 5,
+        "shooters": 0,
+        "arcanists": 0,
+        "eastern": 0,
+        "northern": 0,
+        "elites": 2,
+        "bosses": 0,
+        "ended": true,
+        "bonusDiamonds": 1,
+        "rewards": [
+          {
+            "kind": "diamond",
+            "amount": 1
+          }
+        ],
+        "endedAt": "2026-11-07T22:55:14.582Z",
+        "reason": "defeat",
+        "diamonds": 7,
+        "deck": "balanced",
+        "finalGold": 56,
+        "finalCards": [
+          {
+            "uid": "p1",
+            "type": "fighter",
+            "level": 0
+          },
+          {
+            "uid": "p2",
+            "type": "fighter",
+            "level": 0
+          },
+          {
+            "uid": "p3",
+            "type": "fighter",
+            "level": 0
+          },
+          {
+            "uid": "p4",
+            "type": "warrior",
+            "level": 1
+          },
+          {
+            "uid": "p5",
+            "type": "warrior",
+            "level": 0
+          },
+          {
+            "uid": "p6",
+            "type": "warrior",
+            "level": 0
+          },
+          {
+            "uid": "p7",
+            "type": "ranger",
+            "level": 0
+          },
+          {
+            "uid": "p8",
+            "type": "ranger",
+            "level": 0
+          },
+          {
+            "uid": "p9",
+            "type": "ranger",
+            "level": 0
+          },
+          {
+            "uid": "p10",
+            "type": "bastion",
+            "level": 0
+          },
+          {
+            "uid": "p11",
+            "type": "bastion",
+            "level": 0
+          },
+          {
+            "uid": "p12",
+            "type": "bastion",
+            "level": 0
+          },
+          {
+            "uid": "p13",
+            "type": "samurai",
+            "level": 0
+          },
+          {
+            "uid": "p14",
+            "type": "samurai",
+            "level": 0
+          },
+          {
+            "uid": "p15",
+            "type": "crossbowman",
+            "level": 0
+          },
+          {
+            "uid": "p16",
+            "type": "crossbowman",
+            "level": 0
+          },
+          {
+            "uid": "p17",
+            "type": "priestess",
+            "level": 0
+          },
+          {
+            "uid": "p18",
+            "type": "priestess",
+            "level": 0
+          },
+          {
+            "uid": "p19",
+            "type": "gladiator",
+            "level": 0
+          },
+          {
+            "uid": "p20",
+            "type": "gladiator",
+            "level": 0
+          },
+          {
+            "uid": "p21",
+            "type": "gladiator",
+            "level": 0
+          },
+          {
+            "uid": "p22",
+            "type": "musketeer",
+            "level": 0
+          },
+          {
+            "uid": "p23",
+            "type": "cavalier",
+            "level": 0
+          }
+        ],
+        "relics": [
+          "banner",
+          "bell"
+        ],
+        "storedRelics": [],
+        "unlocks": [
+          {
+            "kind": "milestone",
+            "id": "elite",
+            "at": "2026-11-07T22:52:23.333Z"
+          },
+          {
+            "kind": "deck",
+            "id": "blades",
+            "at": "2026-11-07T22:52:23.333Z"
+          },
+          {
+            "kind": "deck",
+            "id": "keen",
+            "at": "2026-11-07T22:52:23.333Z"
+          },
+          {
+            "kind": "relic",
+            "id": "precision",
+            "at": "2026-11-07T22:52:23.333Z"
+          },
+          {
+            "kind": "milestone",
+            "id": "sweeps",
+            "at": "2026-11-07T22:53:01.245Z"
+          },
+          {
+            "kind": "deck",
+            "id": "fortress",
+            "at": "2026-11-07T22:53:01.245Z"
+          },
+          {
+            "kind": "deck",
+            "id": "executioners",
+            "at": "2026-11-07T22:53:01.245Z"
+          },
+          {
+            "kind": "relic",
+            "id": "shield",
+            "at": "2026-11-07T22:53:01.245Z"
+          }
+        ],
+        "treeXp": {
+          "gained": 7,
+          "spent": 0,
+          "lost": 7
+        }
+      },
+      {
+        "schema": 1,
+        "unlockStart": 12,
+        "id": "a35d2b4f-c7ec-446e-9db4-602a27ec7caa",
+        "startedAt": "2026-11-07T22:56:05.704Z",
+        "completed": [
+          {
+            "id": "c1",
+            "type": "battle",
+            "layer": 0,
+            "event": null
+          },
+          {
+            "id": "n1_2",
+            "type": "event",
+            "layer": 1,
+            "event": "santuario"
+          },
+          {
+            "id": "n2_2",
+            "type": "battle",
+            "layer": 2,
+            "event": null
+          },
+          {
+            "id": "n3_2",
+            "type": "relic",
+            "layer": 3,
+            "event": null
+          },
+          {
+            "id": "n4_2",
+            "type": "elite",
+            "layer": 4,
+            "event": null
+          },
+          {
+            "id": "n5_2",
+            "type": "elite",
+            "layer": 5,
+            "event": null
+          },
+          {
+            "id": "n6_1",
+            "type": "shop",
+            "layer": 6,
+            "event": null
+          },
+          {
+            "id": "n7_1",
+            "type": "battle",
+            "layer": 7,
+            "event": null
+          },
+          {
+            "id": "n8_1",
+            "type": "recruit",
+            "layer": 8,
+            "event": null
+          },
+          {
+            "id": "n9_1",
+            "type": "elite",
+            "layer": 9,
+            "event": null
+          },
+          {
+            "id": "n10_1",
+            "type": "battle",
+            "layer": 10,
+            "event": null
+          },
+          {
+            "id": "n11_1",
+            "type": "shop",
+            "layer": 11,
+            "event": null
+          },
+          {
+            "id": "n12_1",
+            "type": "elite",
+            "layer": 12,
+            "event": null
+          },
+          {
+            "id": "n13_1",
+            "type": "relic",
+            "layer": 13,
+            "event": null
+          },
+          {
+            "id": "boss",
+            "type": "boss",
+            "layer": 14,
+            "event": null
+          },
+          {
+            "id": "a2_n0_0",
+            "type": "battle",
+            "layer": 0,
+            "event": null
+          }
+        ],
+        "encounters": [
+          {
+            "key": "c1:1",
+            "type": "battle",
+            "deck": null,
+            "relics": [],
+            "score": [
+              3,
+              0
+            ],
+            "round": 3,
+            "formation": [
+              {
+                "type": "samurai",
+                "level": 0
+              },
+              {
+                "type": "archer",
+                "level": 0
+              },
+              {
+                "type": "lancer",
+                "level": 0
+              },
+              {
+                "type": "cavalier",
+                "level": 0
+              }
+            ],
+            "event": false
+          },
+          {
+            "key": "n2_2:2",
+            "type": "battle",
+            "deck": "e1_militia",
+            "relics": [],
+            "score": [
+              3,
+              0
+            ],
+            "round": 3,
+            "formation": [
+              {
+                "type": "samurai",
+                "level": 0
+              },
+              {
+                "type": "archer",
+                "level": 0
+              },
+              {
+                "type": "martial_artist",
+                "level": 0
+              },
+              {
+                "type": "cavalier",
+                "level": 0
+              }
+            ],
+            "event": false
+          },
+          {
+            "key": "n4_2:3",
+            "type": "elite",
+            "deck": null,
+            "relics": [],
+            "score": [
+              1,
+              3
+            ],
+            "round": 4,
+            "formation": [
+              {
+                "type": "cavalier",
+                "level": 0
+              },
+              {
+                "type": "samurai",
+                "level": 0
+              },
+              {
+                "type": "archer",
+                "level": 0
+              },
+              {
+                "type": "mage",
+                "level": 0
+              },
+              {
+                "type": "lancer",
+                "level": 0
+              }
+            ],
+            "event": false
+          },
+          {
+            "key": "n5_2:4",
+            "type": "elite",
+            "deck": "blades",
+            "relics": [
+              "spark"
+            ],
+            "score": [
+              3,
+              1
+            ],
+            "round": 4,
+            "formation": [
+              {
+                "type": "samurai",
+                "level": 0
+              },
+              {
+                "type": "martial_artist",
+                "level": 0
+              },
+              {
+                "type": "martial_artist",
+                "level": 0
+              },
+              {
+                "type": "cavalier",
+                "level": 0
+              },
+              {
+                "type": "archer",
+                "level": 0
+              }
+            ],
+            "event": false
+          },
+          {
+            "key": "n7_1:5",
+            "type": "battle",
+            "deck": "e1_patrol",
+            "relics": [],
+            "score": [
+              3,
+              0
+            ],
+            "round": 3,
+            "formation": [
+              {
+                "type": "samurai",
+                "level": 0
+              },
+              {
+                "type": "martial_artist",
+                "level": 0
+              },
+              {
+                "type": "lancer",
+                "level": 0
+              }
+            ],
+            "event": false
+          },
+          {
+            "key": "n9_1:6",
+            "type": "elite",
+            "deck": "blackfang_shadows",
+            "relics": [
+              "recovery",
+              "ember"
+            ],
+            "score": [
+              3,
+              2
+            ],
+            "round": 5,
+            "formation": [
+              {
+                "type": "martial_artist",
+                "level": 0
+              },
+              {
+                "type": "lancer",
+                "level": 0
+              },
+              {
+                "type": "samurai",
+                "level": 0
+              },
+              {
+                "type": "cavalier",
+                "level": 0
+              },
+              {
+                "type": "archer",
+                "level": 0
+              },
+              {
+                "type": "mage",
+                "level": 0
+              }
+            ],
+            "event": false
+          },
+          {
+            "key": "n10_1:7",
+            "type": "battle",
+            "deck": "e1_patrol",
+            "relics": [],
+            "score": [
+              3,
+              0
+            ],
+            "round": 3,
+            "formation": [
+              {
+                "type": "archer",
+                "level": 0
+              },
+              {
+                "type": "lancer",
+                "level": 0
+              },
+              {
+                "type": "cavalier",
+                "level": 0
+              },
+              {
+                "type": "martial_artist",
+                "level": 0
+              }
+            ],
+            "event": false
+          },
+          {
+            "key": "n12_1:8",
+            "type": "elite",
+            "deck": "enemy_north16",
+            "relics": [
+              "precision",
+              "bell"
+            ],
+            "score": [
+              3,
+              0
+            ],
+            "round": 3,
+            "formation": [
+              {
+                "type": "mage",
+                "level": 1
+              },
+              {
+                "type": "lancer",
+                "level": 0
+              },
+              {
+                "type": "martial_artist",
+                "level": 0
+              },
+              {
+                "type": "archer",
+                "level": 0
+              }
+            ],
+            "event": false
+          },
+          {
+            "key": "boss:9",
+            "type": "boss",
+            "deck": "ironbound_boss",
+            "relics": [
+              "laststand",
+              "hourglass"
+            ],
+            "score": [
+              4,
+              2
+            ],
+            "round": 6,
+            "formation": [
+              {
+                "type": "lancer",
+                "level": 0
+              },
+              {
+                "type": "samurai",
+                "level": 0
+              },
+              {
+                "type": "mage",
+                "level": 1
+              },
+              {
+                "type": "martial_artist",
+                "level": 1
+              },
+              {
+                "type": "cavalier",
+                "level": 0
+              },
+              {
+                "type": "archer",
+                "level": 0
+              }
+            ],
+            "event": false
+          },
+          {
+            "key": "a2_n0_0:10",
+            "type": "battle",
+            "deck": "e2_gunmen",
+            "relics": [],
+            "score": [
+              3,
+              0
+            ],
+            "round": 3,
+            "formation": [
+              {
+                "type": "samurai",
+                "level": 0
+              },
+              {
+                "type": "mage",
+                "level": 1
+              },
+              {
+                "type": "lancer",
+                "level": 0
+              },
+              {
+                "type": "martial_artist",
+                "level": 0
+              }
+            ],
+            "event": false
+          }
+        ],
+        "events": [
+          {
+            "kind": "goldSpent",
+            "node": "n6_1",
+            "at": "2026-11-07T23:05:02.742Z",
+            "amount": 30
+          },
+          {
+            "kind": "goldSpent",
+            "node": "n11_1",
+            "at": "2026-11-07T23:08:18.320Z",
+            "amount": 8
+          },
+          {
+            "kind": "goldSpent",
+            "node": "n11_1",
+            "at": "2026-11-07T23:08:29.878Z",
+            "amount": 10
+          },
+          {
+            "kind": "goldSpent",
+            "node": "n11_1",
+            "at": "2026-11-07T23:08:31.174Z",
+            "amount": 10
+          },
+          {
+            "kind": "goldSpent",
+            "node": "n11_1",
+            "at": "2026-11-07T23:08:32.807Z",
+            "amount": 10
+          },
+          {
+            "kind": "goldSpent",
+            "node": "n11_1",
+            "at": "2026-11-07T23:08:35.678Z",
+            "amount": 10
+          },
+          {
+            "kind": "goldSpent",
+            "node": "n11_1",
+            "at": "2026-11-07T23:08:36.687Z",
+            "amount": 10
+          },
+          {
+            "kind": "goldSpent",
+            "node": "n11_1",
+            "at": "2026-11-07T23:08:37.838Z",
+            "amount": 10
+          },
+          {
+            "kind": "refreshHand",
+            "node": "boss",
+            "at": "2026-11-07T23:11:03.859Z"
+          },
+          {
+            "kind": "refreshHand",
+            "node": "boss",
+            "at": "2026-11-07T23:11:17.628Z"
+          },
+          {
+            "kind": "refreshHand",
+            "node": "boss",
+            "at": "2026-11-07T23:11:40.314Z"
+          }
+        ],
+        "spent": 98,
+        "sweeps": 6,
+        "shooters": 0,
+        "arcanists": 0,
+        "eastern": 0,
+        "northern": 0,
+        "elites": 4,
+        "bosses": 1,
+        "ended": true,
+        "bonusDiamonds": 1,
+        "rewards": [
+          {
+            "kind": "diamond",
+            "amount": 1
+          },
+          {
+            "kind": "relic",
+            "id": "ember"
+          },
+          {
+            "kind": "card",
+            "id": "viking"
+          }
+        ],
+        "actHistory": [
+          {
+            "act": 1,
+            "order": "ironbound",
+            "boss": "ironbound_boss",
+            "bossId": "ib_shogun",
+            "raidKind": null,
+            "trueBoss": false,
+            "counts": {
+              "monsters": 1,
+              "blackfang": 1,
+              "dawncrest": 0
+            },
+            "orderEncounters": [
+              {
+                "id": "n4_2",
+                "order": "monsters",
+                "forceId": "monster_tree",
+                "raidKind": "tree"
+              },
+              {
+                "id": "n9_1",
+                "order": "blackfang",
+                "forceId": "blackfang_shadows",
+                "raidKind": null
+              }
+            ],
+            "route": [
+              "c1",
+              "n1_2",
+              "n2_2",
+              "n3_2",
+              "n4_2",
+              "n5_2",
+              "n6_1",
+              "n7_1",
+              "n8_1",
+              "n9_1",
+              "n10_1",
+              "n11_1",
+              "n12_1",
+              "n13_1",
+              "boss"
+            ],
+            "battles": 9
+          }
+        ],
+        "endedAt": "2026-11-07T23:14:01.670Z",
+        "reason": "defeat",
+        "diamonds": 16,
+        "deck": "swift",
+        "finalGold": 30,
+        "finalCards": [
+          {
+            "uid": "p1",
+            "type": "lancer",
+            "level": 0
+          },
+          {
+            "uid": "p2",
+            "type": "lancer",
+            "level": 0
+          },
+          {
+            "uid": "p3",
+            "type": "martial_artist",
+            "level": 1
+          },
+          {
+            "uid": "p4",
+            "type": "martial_artist",
+            "level": 1
+          },
+          {
+            "uid": "p5",
+            "type": "martial_artist",
+            "level": 1
+          },
+          {
+            "uid": "p6",
+            "type": "pirate",
+            "level": 0
+          },
+          {
+            "uid": "p7",
+            "type": "pirate",
+            "level": 0
+          },
+          {
+            "uid": "p8",
+            "type": "archer",
+            "level": 0
+          },
+          {
+            "uid": "p9",
+            "type": "archer",
+            "level": 0
+          },
+          {
+            "uid": "p10",
+            "type": "archer",
+            "level": 0
+          },
+          {
+            "uid": "p11",
+            "type": "samurai",
+            "level": 0
+          },
+          {
+            "uid": "p12",
+            "type": "samurai",
+            "level": 0
+          },
+          {
+            "uid": "p13",
+            "type": "samurai",
+            "level": 0
+          },
+          {
+            "uid": "p14",
+            "type": "cavalier",
+            "level": 0
+          },
+          {
+            "uid": "p15",
+            "type": "cavalier",
+            "level": 0
+          },
+          {
+            "uid": "p16",
+            "type": "cavalier",
+            "level": 0
+          },
+          {
+            "uid": "p17",
+            "type": "mage",
+            "level": 1
+          },
+          {
+            "uid": "p18",
+            "type": "mage",
+            "level": 1
+          },
+          {
+            "uid": "p19",
+            "type": "kinoichi",
+            "level": 0
+          },
+          {
+            "uid": "p20",
+            "type": "kinoichi",
+            "level": 0
+          },
+          {
+            "uid": "p21",
+            "type": "mage",
+            "level": 1
+          },
+          {
+            "uid": "p22",
+            "type": "martial_artist",
+            "level": 0
+          }
+        ],
+        "relics": [
+          "bell",
+          "recovery",
+          "banner",
+          "plating"
+        ],
+        "storedRelics": [],
+        "unlocks": [
+          {
+            "kind": "relic",
+            "id": "luckycharm",
+            "at": "2026-11-07T23:05:02.743Z"
+          },
+          {
+            "kind": "milestone",
+            "id": "spender",
+            "at": "2026-11-07T23:05:02.744Z"
+          },
+          {
+            "kind": "deck",
+            "id": "outlaws",
+            "at": "2026-11-07T23:05:02.744Z"
+          },
+          {
+            "kind": "relic",
+            "id": "merchant",
+            "at": "2026-11-07T23:05:02.744Z"
+          },
+          {
+            "kind": "relic",
+            "id": "ember",
+            "at": "2026-11-07T23:07:20.023Z"
+          },
+          {
+            "kind": "milestone",
+            "id": "decks",
+            "at": "2026-11-07T23:07:20.024Z"
+          },
+          {
+            "kind": "deck",
+            "id": "corsair",
+            "at": "2026-11-07T23:07:20.024Z"
+          },
+          {
+            "kind": "relic",
+            "id": "banner",
+            "at": "2026-11-07T23:07:20.024Z"
+          },
+          {
+            "kind": "booster",
+            "id": "frontier",
+            "at": "2026-11-07T23:07:20.025Z"
+          },
+          {
+            "kind": "card",
+            "id": "viking",
+            "at": "2026-11-07T23:09:20.841Z"
+          },
+          {
+            "kind": "milestone",
+            "id": "boss",
+            "at": "2026-11-07T23:11:58.177Z"
+          },
+          {
+            "kind": "deck",
+            "id": "arcane",
+            "at": "2026-11-07T23:11:58.177Z"
+          },
+          {
+            "kind": "deck",
+            "id": "astral",
+            "at": "2026-11-07T23:11:58.177Z"
+          },
+          {
+            "kind": "relic",
+            "id": "recovery",
+            "at": "2026-11-07T23:11:58.177Z"
+          },
+          {
+            "kind": "booster",
+            "id": "oaths",
+            "at": "2026-11-07T23:11:58.177Z"
+          },
+          {
+            "kind": "milestone",
+            "id": "boss_ironbound_map1",
+            "at": "2026-11-07T23:11:58.177Z"
+          },
+          {
+            "kind": "milestone",
+            "id": "fusion_three",
+            "at": "2026-11-07T23:11:58.178Z"
+          }
+        ],
+        "treeXp": {
+          "gained": 18,
+          "spent": 16,
+          "lost": 2
+        }
+      },
+      {
+        "schema": 1,
+        "unlockStart": 29,
+        "id": "be7d214e-10cf-4d39-b0e7-14af2fbe0e1c",
+        "startedAt": "2026-11-07T23:33:18.278Z",
+        "completed": [
+          {
+            "id": "c1",
+            "type": "battle",
+            "layer": 0,
+            "event": null
+          },
+          {
+            "id": "n1_0",
+            "type": "upgrade",
+            "layer": 1,
+            "event": null
+          },
+          {
+            "id": "n2_0",
+            "type": "battle",
+            "layer": 2,
+            "event": null
+          },
+          {
+            "id": "n3_0",
+            "type": "event",
+            "layer": 3,
+            "event": "sombras"
+          },
+          {
+            "id": "n4_0",
+            "type": "elite",
+            "layer": 4,
+            "event": null
+          },
+          {
+            "id": "n5_1",
+            "type": "elite",
+            "layer": 5,
+            "event": null
+          },
+          {
+            "id": "n6_1",
+            "type": "relic",
+            "layer": 6,
+            "event": null
+          },
+          {
+            "id": "n7_1",
+            "type": "battle",
+            "layer": 7,
+            "event": null
+          },
+          {
+            "id": "n8_1",
+            "type": "event",
+            "layer": 8,
+            "event": "cofre"
+          },
+          {
+            "id": "n9_1",
+            "type": "elite",
+            "layer": 9,
+            "event": null
+          }
+        ],
+        "encounters": [
+          {
+            "key": "c1:1",
+            "type": "battle",
+            "deck": null,
+            "relics": [],
+            "score": [
+              3,
+              0
+            ],
+            "round": 3,
+            "formation": [
+              {
+                "type": "warrior",
+                "level": 0
+              },
+              {
+                "type": "samurai",
+                "level": 0
+              },
+              {
+                "type": "swordsman",
+                "level": 0
+              },
+              {
+                "type": "archer",
+                "level": 0
+              }
+            ],
+            "event": false
+          },
+          {
+            "key": "n2_0:2",
+            "type": "battle",
+            "deck": "e1_patrol",
+            "relics": [],
+            "score": [
+              3,
+              0
+            ],
+            "round": 3,
+            "formation": [
+              {
+                "type": "samurai",
+                "level": 0
+              },
+              {
+                "type": "warrior",
+                "level": 0
+              },
+              {
+                "type": "archer",
+                "level": 1
+              },
+              {
+                "type": "bard",
+                "level": 0
+              }
+            ],
+            "event": false
+          },
+          {
+            "key": "n4_0:3",
+            "type": "elite",
+            "deck": null,
+            "relics": [],
+            "score": [
+              1,
+              1
+            ],
+            "round": 2,
+            "formation": [
+              {
+                "type": "warrior",
+                "level": 0
+              },
+              {
+                "type": "swordsman",
+                "level": 0
+              },
+              {
+                "type": "priestess",
+                "level": 0
+              }
+            ],
+            "event": false
+          },
+          {
+            "key": "n5_1:4",
+            "type": "elite",
+            "deck": "fortress",
+            "relics": [
+              "heart"
+            ],
+            "score": [
+              3,
+              1
+            ],
+            "round": 4,
+            "formation": [
+              {
+                "type": "samurai",
+                "level": 0
+              },
+              {
+                "type": "warrior",
+                "level": 0
+              },
+              {
+                "type": "swordsman",
+                "level": 0
+              },
+              {
+                "type": "archer",
+                "level": 1
+              },
+              {
+                "type": "bard",
+                "level": 0
+              }
+            ],
+            "event": false
+          },
+          {
+            "key": "n7_1:5",
+            "type": "battle",
+            "deck": "e1_patrol",
+            "relics": [],
+            "score": [
+              3,
+              0
+            ],
+            "round": 3,
+            "formation": [
+              {
+                "type": "swordsman",
+                "level": 0
+              },
+              {
+                "type": "samurai",
+                "level": 0
+              },
+              {
+                "type": "bard",
+                "level": 0
+              },
+              {
+                "type": "archer",
+                "level": 0
+              }
+            ],
+            "event": false
+          },
+          {
+            "key": "n9_1:6",
+            "type": "elite",
+            "deck": null,
+            "relics": [],
+            "score": [
+              1,
+              2
+            ],
+            "round": 3,
+            "formation": [
+              {
+                "type": "samurai",
+                "level": 0
+              },
+              {
+                "type": "priestess",
+                "level": 0
+              },
+              {
+                "type": "archer",
+                "level": 1
+              },
+              {
+                "type": "bard",
+                "level": 0
+              }
+            ],
+            "event": false
+          }
+        ],
+        "events": [
+          {
+            "kind": "eventAccepted",
+            "node": "n3_0",
+            "at": "2026-11-07T23:35:09.488Z",
+            "event": "sombras"
+          },
+          {
+            "kind": "eventAccepted",
+            "node": "n8_1",
+            "at": "2026-11-07T23:38:39.020Z",
+            "event": "cofre"
+          }
+        ],
+        "spent": 0,
+        "sweeps": 3,
+        "shooters": 1,
+        "arcanists": 0,
+        "eastern": 0,
+        "northern": 0,
+        "elites": 3,
+        "bosses": 0,
+        "ended": true,
+        "bonusDiamonds": 1,
+        "rewards": [
+          {
+            "kind": "diamond",
+            "amount": 1
+          }
+        ],
+        "endedAt": "2026-11-07T23:40:53.269Z",
+        "reason": "defeat",
+        "diamonds": 9,
+        "deck": "astral",
+        "finalGold": 122,
+        "finalCards": [
+          {
+            "uid": "p1",
+            "type": "warrior",
+            "level": 0
+          },
+          {
+            "uid": "p2",
+            "type": "warrior",
+            "level": 0
+          },
+          {
+            "uid": "p3",
+            "type": "warrior",
+            "level": 0
+          },
+          {
+            "uid": "p4",
+            "type": "swordsman",
+            "level": 0
+          },
+          {
+            "uid": "p5",
+            "type": "swordsman",
+            "level": 0
+          },
+          {
+            "uid": "p6",
+            "type": "swordsman",
+            "level": 0
+          },
+          {
+            "uid": "p7",
+            "type": "samurai",
+            "level": 0
+          },
+          {
+            "uid": "p8",
+            "type": "samurai",
+            "level": 0
+          },
+          {
+            "uid": "p9",
+            "type": "samurai",
+            "level": 0
+          },
+          {
+            "uid": "p10",
+            "type": "bard",
+            "level": 0
+          },
+          {
+            "uid": "p11",
+            "type": "bard",
+            "level": 0
+          },
+          {
+            "uid": "p12",
+            "type": "bard",
+            "level": 0
+          },
+          {
+            "uid": "p13",
+            "type": "priestess",
+            "level": 0
+          },
+          {
+            "uid": "p14",
+            "type": "priestess",
+            "level": 0
+          },
+          {
+            "uid": "p15",
+            "type": "archer",
+            "level": 1
+          },
+          {
+            "uid": "p16",
+            "type": "archer",
+            "level": 0
+          },
+          {
+            "uid": "p17",
+            "type": "archer",
+            "level": 0
+          },
+          {
+            "uid": "p18",
+            "type": "archer",
+            "level": 0
+          },
+          {
+            "uid": "p19",
+            "type": "lancer",
+            "level": 0
+          },
+          {
+            "uid": "p20",
+            "type": "lancer",
+            "level": 0
+          },
+          {
+            "uid": "p21",
+            "type": "burden",
+            "level": 0
+          }
+        ],
+        "relics": [
+          "recovery",
+          "fang"
+        ],
+        "storedRelics": [],
+        "unlocks": [
+          {
+            "kind": "milestone",
+            "id": "journeys",
+            "at": "2026-11-07T23:40:53.270Z"
+          },
+          {
+            "kind": "relic",
+            "id": "heart",
+            "at": "2026-11-07T23:40:53.270Z"
+          }
+        ],
+        "treeXp": {
+          "gained": 9,
+          "spent": 8,
+          "lost": 1
+        }
+      },
+      {
+        "schema": 1,
+        "unlockStart": 31,
+        "id": "3eb0b6f8-750e-4aeb-9357-9b326706d462",
+        "startedAt": "2026-11-07T23:41:05.615Z",
+        "completed": [
+          {
+            "id": "c1",
+            "type": "battle",
+            "layer": 0,
+            "event": null
+          },
+          {
+            "id": "n1_2",
+            "type": "event",
+            "layer": 1,
+            "event": "sombras"
+          },
+          {
+            "id": "n2_2",
+            "type": "battle",
+            "layer": 2,
+            "event": null
+          },
+          {
+            "id": "n3_2",
+            "type": "shop",
+            "layer": 3,
+            "event": null
+          },
+          {
+            "id": "n4_2",
+            "type": "elite",
+            "layer": 4,
+            "event": null
+          },
+          {
+            "id": "n5_2",
+            "type": "battle",
+            "layer": 5,
+            "event": null
+          },
+          {
+            "id": "n6_2",
+            "type": "relic",
+            "layer": 6,
+            "event": null
+          },
+          {
+            "id": "n7_2",
+            "type": "battle",
+            "layer": 7,
+            "event": null
+          },
+          {
+            "id": "n8_2",
+            "type": "upgrade",
+            "layer": 8,
+            "event": null
+          },
+          {
+            "id": "n9_2",
+            "type": "elite",
+            "layer": 9,
+            "event": null
+          },
+          {
+            "id": "n10_2",
+            "type": "elite",
+            "layer": 10,
+            "event": null
+          },
+          {
+            "id": "n11_2",
+            "type": "shop",
+            "layer": 11,
+            "event": null
+          },
+          {
+            "id": "n12_2",
+            "type": "battle",
+            "layer": 12,
+            "event": null
+          },
+          {
+            "id": "n13_2",
+            "type": "upgrade",
+            "layer": 13,
+            "event": null
+          },
+          {
+            "id": "boss",
+            "type": "boss",
+            "layer": 14,
+            "event": null
+          },
+          {
+            "id": "a2_n0_0",
+            "type": "battle",
+            "layer": 0,
+            "event": null
+          },
+          {
+            "id": "a2_n1_1",
+            "type": "battle",
+            "layer": 1,
+            "event": null
+          },
+          {
+            "id": "a2_n2_2",
+            "type": "event",
+            "layer": 2,
+            "event": "profanado"
+          },
+          {
+            "id": "a2_n3_1",
+            "type": "elite",
+            "layer": 3,
+            "event": null
+          },
+          {
+            "id": "a2_n4_1",
+            "type": "relic",
+            "layer": 4,
+            "event": null
+          },
+          {
+            "id": "a2_n5_2",
+            "type": "battle",
+            "layer": 5,
+            "event": null
+          }
+        ],
+        "encounters": [
+          {
+            "key": "c1:1",
+            "type": "battle",
+            "deck": null,
+            "relics": [],
+            "score": [
+              3,
+              0
+            ],
+            "round": 3,
+            "formation": [
+              {
+                "type": "warrior",
+                "level": 0
+              },
+              {
+                "type": "lancer",
+                "level": 0
+              }
+            ],
+            "event": false
+          },
+          {
+            "key": "n2_2:2",
+            "type": "battle",
+            "deck": "e1_militia",
+            "relics": [],
+            "score": [
+              3,
+              0
+            ],
+            "round": 3,
+            "formation": [
+              {
+                "type": "gladiator",
+                "level": 0
+              },
+              {
+                "type": "fighter",
+                "level": 0
+              },
+              {
+                "type": "ranger",
+                "level": 0
+              },
+              {
+                "type": "lancer",
+                "level": 0
+              }
+            ],
+            "event": false
+          },
+          {
+            "key": "n4_2:3",
+            "type": "elite",
+            "deck": null,
+            "relics": [],
+            "score": [
+              1,
+              2
+            ],
+            "round": 3,
+            "formation": [
+              {
+                "type": "warrior",
+                "level": 0
+              },
+              {
+                "type": "bastion",
+                "level": 0
+              },
+              {
+                "type": "ranger",
+                "level": 0
+              },
+              {
+                "type": "archer",
+                "level": 0
+              }
+            ],
+            "event": false
+          },
+          {
+            "key": "n5_2:4",
+            "type": "battle",
+            "deck": "e1_hunters",
+            "relics": [],
+            "score": [
+              3,
+              0
+            ],
+            "round": 3,
+            "formation": [
+              {
+                "type": "gladiator",
+                "level": 1
+              },
+              {
+                "type": "lancer",
+                "level": 0
+              },
+              {
+                "type": "archer",
+                "level": 0
+              },
+              {
+                "type": "ranger",
+                "level": 0
+              }
+            ],
+            "event": false
+          },
+          {
+            "key": "n7_2:5",
+            "type": "battle",
+            "deck": "e1_raiders",
+            "relics": [],
+            "score": [
+              3,
+              0
+            ],
+            "round": 3,
+            "formation": [
+              {
+                "type": "warrior",
+                "level": 0
+              },
+              {
+                "type": "fighter",
+                "level": 0
+              },
+              {
+                "type": "archer",
+                "level": 0
+              },
+              {
+                "type": "lancer",
+                "level": 0
+              }
+            ],
+            "event": false
+          },
+          {
+            "key": "n9_2:6",
+            "type": "elite",
+            "deck": null,
+            "relics": [],
+            "score": [
+              1,
+              3
+            ],
+            "round": 4,
+            "formation": [
+              {
+                "type": "warrior",
+                "level": 0
+              },
+              {
+                "type": "bastion",
+                "level": 0
+              },
+              {
+                "type": "ranger",
+                "level": 0
+              },
+              {
+                "type": "lancer",
+                "level": 0
+              },
+              {
+                "type": "archer",
+                "level": 0
+              }
+            ],
+            "event": false
+          },
+          {
+            "key": "n10_2:7",
+            "type": "elite",
+            "deck": "enemy_dawn16",
+            "relics": [
+              "fang",
+              "laststand"
+            ],
+            "score": [
+              3,
+              0
+            ],
+            "round": 3,
+            "formation": [
+              {
+                "type": "warrior",
+                "level": 0
+              },
+              {
+                "type": "gladiator",
+                "level": 1
+              },
+              {
+                "type": "lancer",
+                "level": 1
+              },
+              {
+                "type": "archer",
+                "level": 0
+              }
+            ],
+            "event": false
+          },
+          {
+            "key": "n12_2:8",
+            "type": "battle",
+            "deck": "e1_raiders",
+            "relics": [],
+            "score": [
+              3,
+              0
+            ],
+            "round": 3,
+            "formation": [
+              {
+                "type": "bastion",
+                "level": 0
+              },
+              {
+                "type": "warrior",
+                "level": 1
+              },
+              {
+                "type": "gladiator",
+                "level": 1
+              },
+              {
+                "type": "archer",
+                "level": 0
+              }
+            ],
+            "event": false
+          },
+          {
+            "key": "boss:9",
+            "type": "boss",
+            "deck": null,
+            "relics": [],
+            "score": [
+              1,
+              4
+            ],
+            "round": 5,
+            "formation": [
+              {
+                "type": "fighter",
+                "level": 0
+              },
+              {
+                "type": "gladiator",
+                "level": 1
+              },
+              {
+                "type": "bastion",
+                "level": 0
+              },
+              {
+                "type": "warrior",
+                "level": 2
+              },
+              {
+                "type": "archer",
+                "level": 0
+              },
+              {
+                "type": "lancer",
+                "level": 1
+              }
+            ],
+            "event": false
+          },
+          {
+            "key": "a2_n0_0:10",
+            "type": "battle",
+            "deck": "e2_dojo",
+            "relics": [],
+            "score": [
+              3,
+              2
+            ],
+            "round": 5,
+            "formation": [
+              {
+                "type": "warrior",
+                "level": 2
+              },
+              {
+                "type": "gladiator",
+                "level": 0
+              },
+              {
+                "type": "bastion",
+                "level": 0
+              },
+              {
+                "type": "swordsman",
+                "level": 0
+              },
+              {
+                "type": "lancer",
+                "level": 1
+              },
+              {
+                "type": "ranger",
+                "level": 0
+              }
+            ],
+            "event": false
+          },
+          {
+            "key": "a2_n1_1:11",
+            "type": "battle",
+            "deck": "e2_garrison",
+            "relics": [],
+            "score": [
+              3,
+              2
+            ],
+            "round": 5,
+            "formation": [
+              {
+                "type": "warrior",
+                "level": 2
+              },
+              {
+                "type": "bastion",
+                "level": 1
+              },
+              {
+                "type": "gladiator",
+                "level": 1
+              },
+              {
+                "type": "lancer",
+                "level": 1
+              },
+              {
+                "type": "fighter",
+                "level": 1
+              },
+              {
+                "type": "archer",
+                "level": 0
+              }
+            ],
+            "event": false
+          },
+          {
+            "key": "a2_n3_1:12",
+            "type": "elite",
+            "deck": null,
+            "relics": [],
+            "score": [
+              1,
+              3
+            ],
+            "round": 4,
+            "formation": [
+              {
+                "type": "fighter",
+                "level": 1
+              },
+              {
+                "type": "gladiator",
+                "level": 1
+              },
+              {
+                "type": "warrior",
+                "level": 2
+              },
+              {
+                "type": "lancer",
+                "level": 1
+              }
+            ],
+            "event": false
+          },
+          {
+            "key": "a2_n5_2:13",
+            "type": "battle",
+            "deck": "e2_gunmen",
+            "relics": [],
+            "score": [
+              3,
+              0
+            ],
+            "round": 3,
+            "formation": [
+              {
+                "type": "bastion",
+                "level": 0
+              },
+              {
+                "type": "gladiator",
+                "level": 0
+              },
+              {
+                "type": "warrior",
+                "level": 2
+              },
+              {
+                "type": "lancer",
+                "level": 0
+              }
+            ],
+            "event": false
+          }
+        ],
+        "events": [
+          {
+            "kind": "eventAccepted",
+            "node": "n1_2",
+            "at": "2026-11-07T23:44:13.863Z",
+            "event": "sombras"
+          },
+          {
+            "kind": "goldSpent",
+            "node": "n3_2",
+            "at": "2026-11-07T23:44:56.572Z",
+            "amount": 40
+          },
+          {
+            "kind": "goldSpent",
+            "node": "n3_2",
+            "at": "2026-11-07T23:45:01.670Z",
+            "amount": 10
+          },
+          {
+            "kind": "goldSpent",
+            "node": "n11_2",
+            "at": "2026-11-07T23:50:05.158Z",
+            "amount": 8
+          },
+          {
+            "kind": "goldSpent",
+            "node": "n11_2",
+            "at": "2026-11-07T23:50:20.581Z",
+            "amount": 35
+          },
+          {
+            "kind": "goldSpent",
+            "node": "n11_2",
+            "at": "2026-11-07T23:50:26.423Z",
+            "amount": 10
+          },
+          {
+            "kind": "goldSpent",
+            "node": "n11_2",
+            "at": "2026-11-07T23:50:29.326Z",
+            "amount": 10
+          },
+          {
+            "kind": "goldSpent",
+            "node": "n11_2",
+            "at": "2026-11-07T23:50:34.489Z",
+            "amount": 10
+          },
+          {
+            "kind": "refreshHand",
+            "node": "a2_n1_1",
+            "at": "2026-11-07T23:56:41.617Z"
+          },
+          {
+            "kind": "goldSpent",
+            "node": "a2_n2_2",
+            "at": "2026-11-07T23:57:23.521Z",
+            "amount": 20
+          },
+          {
+            "kind": "eventAccepted",
+            "node": "a2_n2_2",
+            "at": "2026-11-07T23:57:23.525Z",
+            "event": "profanado"
+          }
+        ],
+        "spent": 143,
+        "sweeps": 7,
+        "shooters": 0,
+        "arcanists": 0,
+        "eastern": 0,
+        "northern": 0,
+        "elites": 4,
+        "bosses": 1,
+        "ended": true,
+        "rewards": [
+          {
+            "kind": "card",
+            "id": "ranger"
+          }
+        ],
+        "actHistory": [
+          {
+            "act": 1,
+            "order": "monsters",
+            "boss": "monster_boss_slime",
+            "bossId": null,
+            "raidKind": "slime",
+            "trueBoss": false,
+            "counts": {
+              "monsters": 2,
+              "blackfang": 0,
+              "dawncrest": 0
+            },
+            "orderEncounters": [
+              {
+                "id": "n4_2",
+                "order": "monsters",
+                "forceId": "monster_dragon",
+                "raidKind": "dragon"
+              },
+              {
+                "id": "n9_2",
+                "order": "monsters",
+                "forceId": "monster_hydra",
+                "raidKind": "hydra"
+              }
+            ],
+            "route": [
+              "c1",
+              "n1_2",
+              "n2_2",
+              "n3_2",
+              "n4_2",
+              "n5_2",
+              "n6_2",
+              "n7_2",
+              "n8_2",
+              "n9_2",
+              "n10_2",
+              "n11_2",
+              "n12_2",
+              "n13_2",
+              "boss"
+            ],
+            "battles": 9
+          }
+        ],
+        "endedAt": "2026-11-08T00:00:50.141Z",
+        "reason": "defeat",
+        "diamonds": 17,
+        "deck": "vanguard",
+        "finalGold": 63,
+        "finalCards": [
+          {
+            "uid": "p1",
+            "type": "warrior",
+            "level": 2
+          },
+          {
+            "uid": "p2",
+            "type": "warrior",
+            "level": 0
+          },
+          {
+            "uid": "p3",
+            "type": "warrior",
+            "level": 0
+          },
+          {
+            "uid": "p4",
+            "type": "lancer",
+            "level": 1
+          },
+          {
+            "uid": "p5",
+            "type": "lancer",
+            "level": 0
+          },
+          {
+            "uid": "p6",
+            "type": "lancer",
+            "level": 0
+          },
+          {
+            "uid": "p7",
+            "type": "lancer",
+            "level": 0
+          },
+          {
+            "uid": "p8",
+            "type": "bastion",
+            "level": 1
+          },
+          {
+            "uid": "p9",
+            "type": "bastion",
+            "level": 0
+          },
+          {
+            "uid": "p10",
+            "type": "bastion",
+            "level": 0
+          },
+          {
+            "uid": "p11",
+            "type": "gladiator",
+            "level": 1
+          },
+          {
+            "uid": "p12",
+            "type": "gladiator",
+            "level": 0
+          },
+          {
+            "uid": "p13",
+            "type": "gladiator",
+            "level": 0
+          },
+          {
+            "uid": "p14",
+            "type": "swordsman",
+            "level": 0
+          },
+          {
+            "uid": "p15",
+            "type": "fighter",
+            "level": 1
+          },
+          {
+            "uid": "p16",
+            "type": "fighter",
+            "level": 0
+          },
+          {
+            "uid": "p17",
+            "type": "archer",
+            "level": 0
+          },
+          {
+            "uid": "p18",
+            "type": "archer",
+            "level": 0
+          },
+          {
+            "uid": "p19",
+            "type": "ranger",
+            "level": 0
+          },
+          {
+            "uid": "p20",
+            "type": "ranger",
+            "level": 0
+          },
+          {
+            "uid": "p22",
+            "type": "fighter",
+            "level": 0
+          }
+        ],
+        "relics": [
+          "banner",
+          "scope",
+          "fang",
+          "plating",
+          "precision"
+        ],
+        "storedRelics": [],
+        "unlocks": [
+          {
+            "kind": "card",
+            "id": "ranger",
+            "at": "2026-11-07T23:49:58.647Z"
+          },
+          {
+            "kind": "milestone",
+            "id": "boss_monsters_map1",
+            "at": "2026-11-07T23:53:24.777Z"
+          }
+        ],
+        "treeXp": {
+          "gained": 25,
+          "spent": 8,
+          "lost": 17
+        }
+      }
+    ],
+    "notices": [
+      {
+        "en": "Milestone completed: Perform your first fusion",
+        "pt": "Milestone concluído: Realizar a primeira fusão"
+      },
+      {
+        "en": "Milestone completed: Complete the tutorial or win your first encounter",
+        "pt": "Milestone concluído: Concluir o tutorial ou vencer seu primeiro confronto"
+      },
+      {
+        "en": "Milestone completed: Defeat an elite",
+        "pt": "Milestone concluído: Derrotar um elite"
+      },
+      {
+        "en": "Elite reward: +1 diamond at the end of this run",
+        "pt": "Recompensa do elite: +1 diamante ao encerrar a run"
+      },
+      {
+        "en": "Milestone completed: Win 3 encounters without losing a round in one run",
+        "pt": "Milestone concluído: Vencer 3 confrontos sem perder rodadas em uma run"
+      },
+      {
+        "en": "Elite reward: +1 diamond at the end of this run",
+        "pt": "Recompensa do elite: +1 diamante ao encerrar a run"
+      },
+      {
+        "en": "Milestone completed: Spend 30 gold in one run",
+        "pt": "Milestone concluído: Gastar 30 de ouro em uma run"
+      },
+      {
+        "en": "Purchase unlocked: Vengeful Ember",
+        "pt": "Compra liberada: Vengeful Ember"
+      },
+      {
+        "en": "Milestone completed: Defeat 3 different enemy decks",
+        "pt": "Milestone concluído: Derrotar 3 baralhos inimigos diferentes"
+      },
+      {
+        "en": "Purchase unlocked: Viking",
+        "pt": "Compra liberada: Viking"
+      },
+      {
+        "en": "Milestone completed: Defeat the Boss",
+        "pt": "Milestone concluído: Derrotar o Boss"
+      },
+      {
+        "en": "Milestone completed: Defeat the Ironbound Boss on map 1",
+        "pt": "Milestone concluído: Derrotar o Boss Ironbound no mapa 1"
+      },
+      {
+        "en": "Milestone completed: Finish an encounter with three fused units on the field",
+        "pt": "Milestone concluído: Terminar um confronto com três unidades fundidas em campo"
+      },
+      {
+        "en": "Elite reward: +1 diamond at the end of this run",
+        "pt": "Recompensa do elite: +1 diamante ao encerrar a run"
+      },
+      {
+        "en": "Milestone completed: Finish 3 runs with at least 5 completed nodes",
+        "pt": "Milestone concluído: Encerrar 3 runs com pelo menos 5 nós concluídos"
+      },
+      {
+        "en": "Purchase unlocked: Ranger",
+        "pt": "Compra liberada: Ranger"
+      },
+      {
+        "en": "Milestone completed: Defeat the Titans Boss on map 1",
+        "pt": "Milestone concluído: Derrotar o Boss Titans no mapa 1"
+      }
+    ],
+    "lastPack": null,
+    "milestoneProgress": {
+      "version": 1,
+      "paid": [
+        "fusion_first",
+        "firstSteps",
+        "elite",
+        "sweeps",
+        "spender",
+        "decks",
+        "boss",
+        "boss_ironbound_map1",
+        "fusion_three",
+        "journeys",
+        "boss_monsters_map1"
+      ],
+      "bossMaps": {
+        "ironbound": [
+          1
+        ],
+        "monsters": [
+          1
+        ]
+      },
+      "allBossOrders": [],
+      "trueOrders": [],
+      "wonDecks": [],
+      "titans": [
+        "naga",
+        "tree",
+        "colossus",
+        "dragon",
+        "hydra",
+        "slime"
+      ],
+      "training": false,
+      "customBuilt": false,
+      "customFive": false,
+      "customWon": false,
+      "bagFull": false,
+      "firstFusion": true,
+      "threeFused": true,
+      "treeBest": 4,
+      "advBest": 0,
+      "challengeBest": 0,
+      "secretBoss": false
+    },
+    "bossOrders": [],
+    "orderGateVersion": 1,
+    "skillTree": {
+      "version": 2,
+      "unlocked": [
+        "vit_hp_1",
+        "pow_atk_1",
+        "pow_atk_2",
+        "agi_rate_1"
+      ],
+      "purchases": [
+        {
+          "id": "vit_hp_1",
+          "cost": 8,
+          "run": 3090803271,
+          "act": 1,
+          "window": "mid"
+        },
+        {
+          "id": "pow_atk_1",
+          "cost": 8,
+          "run": 3090803271,
+          "act": 1,
+          "window": "boss"
+        },
+        {
+          "id": "pow_atk_2",
+          "cost": 8,
+          "run": 3093035842,
+          "act": 1,
+          "window": "mid"
+        },
+        {
+          "id": "agi_rate_1",
+          "cost": 8,
+          "run": 3093503182,
+          "act": 1,
+          "window": "mid"
+        }
+      ],
+      "respec": 0,
+      "history": {
+        "earned": 60,
+        "spent": 32,
+        "lost": 28,
+        "respecLost": 0,
+        "diamonds": 0
+      }
+    },
+    "advantages": [],
+    "challenges": {
+      "unlocked": false,
+      "available": 0,
+      "won": [],
+      "completed": [],
+      "selected": []
+    },
+    "insignia": 0
+  },
+  "state": {
+    "version": 20,
+    "seed": 3093503182,
+    "randomState": 2728295652,
+    "serial": 22,
+    "deck": "vanguard",
+    "phase": "defeat",
+    "cards": [
+      {
+        "uid": "p1",
+        "type": "warrior",
+        "level": 2
+      },
+      {
+        "uid": "p2",
+        "type": "warrior",
+        "level": 0
+      },
+      {
+        "uid": "p3",
+        "type": "warrior",
+        "level": 0
+      },
+      {
+        "uid": "p4",
+        "type": "lancer",
+        "level": 1
+      },
+      {
+        "uid": "p5",
+        "type": "lancer",
+        "level": 0
+      },
+      {
+        "uid": "p6",
+        "type": "lancer",
+        "level": 0
+      },
+      {
+        "uid": "p7",
+        "type": "lancer",
+        "level": 0
+      },
+      {
+        "uid": "p8",
+        "type": "bastion",
+        "level": 1
+      },
+      {
+        "uid": "p9",
+        "type": "bastion",
+        "level": 0
+      },
+      {
+        "uid": "p10",
+        "type": "bastion",
+        "level": 0
+      },
+      {
+        "uid": "p11",
+        "type": "gladiator",
+        "level": 1
+      },
+      {
+        "uid": "p12",
+        "type": "gladiator",
+        "level": 0
+      },
+      {
+        "uid": "p13",
+        "type": "gladiator",
+        "level": 0
+      },
+      {
+        "uid": "p14",
+        "type": "swordsman",
+        "level": 0
+      },
+      {
+        "uid": "p15",
+        "type": "fighter",
+        "level": 1
+      },
+      {
+        "uid": "p16",
+        "type": "fighter",
+        "level": 0
+      },
+      {
+        "uid": "p17",
+        "type": "archer",
+        "level": 0
+      },
+      {
+        "uid": "p18",
+        "type": "archer",
+        "level": 0
+      },
+      {
+        "uid": "p19",
+        "type": "ranger",
+        "level": 0
+      },
+      {
+        "uid": "p20",
+        "type": "ranger",
+        "level": 0
+      },
+      {
+        "uid": "p22",
+        "type": "fighter",
+        "level": 0
+      }
+    ],
+    "artifacts": [
+      "banner",
+      "scope",
+      "fang",
+      "plating",
+      "precision"
+    ],
+    "gold": 63,
+    "map": [
+      [
+        {
+          "id": "a2_n0_0",
+          "type": "battle",
+          "layer": 0,
+          "lane": 0,
+          "act": 2,
+          "x": 0.5,
+          "name": "Confronto",
+          "eventId": "cofre",
+          "links": [
+            "a2_n1_0",
+            "a2_n1_1",
+            "a2_n1_2"
+          ]
+        }
+      ],
+      [
+        {
+          "id": "a2_n1_0",
+          "layer": 1,
+          "lane": 0,
+          "act": 2,
+          "x": 0.1,
+          "links": [
+            "a2_n2_0",
+            "a2_n2_1"
+          ],
+          "type": "battle",
+          "name": "Confronto",
+          "eventId": "despedida"
+        },
+        {
+          "id": "a2_n1_1",
+          "layer": 1,
+          "lane": 1,
+          "act": 2,
+          "x": 0.5,
+          "links": [
+            "a2_n2_1",
+            "a2_n2_2"
+          ],
+          "type": "battle",
+          "name": "Confronto",
+          "eventId": "profanado"
+        },
+        {
+          "id": "a2_n1_2",
+          "layer": 1,
+          "lane": 2,
+          "act": 2,
+          "x": 0.9,
+          "links": [
+            "a2_n2_3",
+            "a2_n2_2"
+          ],
+          "type": "battle",
+          "name": "Confronto",
+          "eventId": "altar"
+        }
+      ],
+      [
+        {
+          "id": "a2_n2_0",
+          "layer": 2,
+          "lane": 0,
+          "act": 2,
+          "x": 0.1,
+          "links": [
+            "a2_n3_0"
+          ],
+          "type": "upgrade",
+          "name": "Santuário de treino",
+          "eventId": "reflexos"
+        },
+        {
+          "id": "a2_n2_1",
+          "layer": 2,
+          "lane": 1,
+          "act": 2,
+          "x": 0.3666666666666667,
+          "links": [
+            "a2_n3_1"
+          ],
+          "type": "recruit",
+          "name": "Caravana",
+          "eventId": "tesouro"
+        },
+        {
+          "id": "a2_n2_2",
+          "layer": 2,
+          "lane": 2,
+          "act": 2,
+          "x": 0.6333333333333333,
+          "links": [
+            "a2_n3_1"
+          ],
+          "type": "event",
+          "name": "Santuário profanado",
+          "eventId": "profanado"
+        },
+        {
+          "id": "a2_n2_3",
+          "layer": 2,
+          "lane": 3,
+          "act": 2,
+          "x": 0.9000000000000001,
+          "links": [
+            "a2_n3_2"
+          ],
+          "type": "shop",
+          "name": "Mercado da estrada",
+          "eventId": "ataque"
+        }
+      ],
+      [
+        {
+          "id": "a2_n3_0",
+          "layer": 3,
+          "lane": 0,
+          "act": 2,
+          "x": 0.1,
+          "links": [
+            "a2_n4_0",
+            "a2_n4_1"
+          ],
+          "type": "elite",
+          "name": "Blackfang",
+          "eventId": "contrabando",
+          "campaign": "blackfang",
+          "forceId": "blackfang_shadows"
+        },
+        {
+          "id": "a2_n3_1",
+          "layer": 3,
+          "lane": 1,
+          "act": 2,
+          "x": 0.5,
+          "links": [
+            "a2_n4_0",
+            "a2_n4_1"
+          ],
+          "type": "elite",
+          "name": "Raid",
+          "eventId": "altar",
+          "campaign": "monsters",
+          "forceId": "monster_tree",
+          "raidKind": "tree",
+          "raidSlot": 0
+        },
+        {
+          "id": "a2_n3_2",
+          "layer": 3,
+          "lane": 2,
+          "act": 2,
+          "x": 0.9,
+          "links": [
+            "a2_n4_1",
+            "a2_n4_0"
+          ],
+          "type": "elite",
+          "name": "Dawncrest",
+          "eventId": "dojo",
+          "campaign": "dawncrest",
+          "forceId": "dawncrest_woodlands"
+        }
+      ],
+      [
+        {
+          "id": "a2_n4_0",
+          "layer": 4,
+          "lane": 0,
+          "act": 2,
+          "x": 0.1,
+          "links": [
+            "a2_n5_0",
+            "a2_n5_1"
+          ],
+          "type": "event",
+          "name": "Cofre amaldiçoado",
+          "eventId": "cofre"
+        },
+        {
+          "id": "a2_n4_1",
+          "layer": 4,
+          "lane": 1,
+          "act": 2,
+          "x": 0.9,
+          "links": [
+            "a2_n5_2",
+            "a2_n5_1"
+          ],
+          "type": "relic",
+          "name": "Relicário",
+          "eventId": "forja"
+        }
+      ],
+      [
+        {
+          "id": "a2_n5_0",
+          "layer": 5,
+          "lane": 0,
+          "act": 2,
+          "x": 0.1,
+          "links": [
+            "a2_n6_0"
+          ],
+          "type": "battle",
+          "name": "Confronto",
+          "eventId": "tesouro"
+        },
+        {
+          "id": "a2_n5_1",
+          "layer": 5,
+          "lane": 1,
+          "act": 2,
+          "x": 0.5,
+          "links": [
+            "a2_n6_1",
+            "a2_n6_2"
+          ],
+          "type": "battle",
+          "name": "Confronto",
+          "eventId": "cofre"
+        },
+        {
+          "id": "a2_n5_2",
+          "layer": 5,
+          "lane": 2,
+          "act": 2,
+          "x": 0.9,
+          "links": [
+            "a2_n6_3"
+          ],
+          "type": "battle",
+          "name": "Confronto",
+          "eventId": "camara"
+        }
+      ],
+      [
+        {
+          "id": "a2_n6_0",
+          "layer": 6,
+          "lane": 0,
+          "act": 2,
+          "x": 0.1,
+          "links": [
+            "a2_n7_0"
+          ],
+          "type": "elite",
+          "name": "Companhia de elite",
+          "eventId": "mercador"
+        },
+        {
+          "id": "a2_n6_1",
+          "layer": 6,
+          "lane": 1,
+          "act": 2,
+          "x": 0.3666666666666667,
+          "links": [
+            "a2_n7_1"
+          ],
+          "type": "battle",
+          "name": "Confronto",
+          "eventId": "altar"
+        },
+        {
+          "id": "a2_n6_2",
+          "layer": 6,
+          "lane": 2,
+          "act": 2,
+          "x": 0.6333333333333333,
+          "links": [
+            "a2_n7_1"
+          ],
+          "type": "elite",
+          "name": "Companhia de elite",
+          "eventId": "ataque"
+        },
+        {
+          "id": "a2_n6_3",
+          "layer": 6,
+          "lane": 3,
+          "act": 2,
+          "x": 0.9000000000000001,
+          "links": [
+            "a2_n7_2"
+          ],
+          "type": "battle",
+          "name": "Confronto",
+          "eventId": "reflexos"
+        }
+      ],
+      [
+        {
+          "id": "a2_n7_0",
+          "layer": 7,
+          "lane": 0,
+          "act": 2,
+          "x": 0.1,
+          "links": [
+            "a2_n8_0",
+            "a2_n8_1"
+          ],
+          "type": "relic",
+          "name": "Relicário",
+          "eventId": "reflexos"
+        },
+        {
+          "id": "a2_n7_1",
+          "layer": 7,
+          "lane": 1,
+          "act": 2,
+          "x": 0.5,
+          "links": [
+            "a2_n8_1",
+            "a2_n8_2"
+          ],
+          "type": "recruit",
+          "name": "Caravana",
+          "eventId": "sombras"
+        },
+        {
+          "id": "a2_n7_2",
+          "layer": 7,
+          "lane": 2,
+          "act": 2,
+          "x": 0.9,
+          "links": [
+            "a2_n8_3",
+            "a2_n8_2"
+          ],
+          "type": "upgrade",
+          "name": "Santuário de treino",
+          "eventId": "resgate"
+        }
+      ],
+      [
+        {
+          "id": "a2_n8_0",
+          "layer": 8,
+          "lane": 0,
+          "act": 2,
+          "x": 0.1,
+          "links": [
+            "a2_n9_0"
+          ],
+          "type": "battle",
+          "name": "Confronto",
+          "eventId": "dojo"
+        },
+        {
+          "id": "a2_n8_1",
+          "layer": 8,
+          "lane": 1,
+          "act": 2,
+          "x": 0.3666666666666667,
+          "links": [
+            "a2_n9_1"
+          ],
+          "type": "elite",
+          "name": "Companhia de elite",
+          "eventId": "contrabando"
+        },
+        {
+          "id": "a2_n8_2",
+          "layer": 8,
+          "lane": 2,
+          "act": 2,
+          "x": 0.6333333333333333,
+          "links": [
+            "a2_n9_1"
+          ],
+          "type": "elite",
+          "name": "Companhia de elite",
+          "eventId": "camara"
+        },
+        {
+          "id": "a2_n8_3",
+          "layer": 8,
+          "lane": 3,
+          "act": 2,
+          "x": 0.9000000000000001,
+          "links": [
+            "a2_n9_2"
+          ],
+          "type": "battle",
+          "name": "Confronto",
+          "eventId": "chave"
+        }
+      ],
+      [
+        {
+          "id": "a2_n9_0",
+          "layer": 9,
+          "lane": 0,
+          "act": 2,
+          "x": 0.1,
+          "links": [
+            "a2_n10_0",
+            "a2_n10_1"
+          ],
+          "type": "event",
+          "name": "Forja instável",
+          "eventId": "forja"
+        },
+        {
+          "id": "a2_n9_1",
+          "layer": 9,
+          "lane": 1,
+          "act": 2,
+          "x": 0.5,
+          "links": [
+            "a2_n10_1",
+            "a2_n10_2"
+          ],
+          "type": "recruit",
+          "name": "Caravana",
+          "eventId": "contrabando"
+        },
+        {
+          "id": "a2_n9_2",
+          "layer": 9,
+          "lane": 2,
+          "act": 2,
+          "x": 0.9,
+          "links": [
+            "a2_n10_3",
+            "a2_n10_2"
+          ],
+          "type": "shop",
+          "name": "Mercado da estrada",
+          "eventId": "ataque"
+        }
+      ],
+      [
+        {
+          "id": "a2_n10_0",
+          "layer": 10,
+          "lane": 0,
+          "act": 2,
+          "x": 0.1,
+          "links": [
+            "a2_n11_0"
+          ],
+          "type": "elite",
+          "name": "Dawncrest",
+          "eventId": "cofre",
+          "campaign": "dawncrest",
+          "forceId": "dawncrest_felines"
+        },
+        {
+          "id": "a2_n10_1",
+          "layer": 10,
+          "lane": 1,
+          "act": 2,
+          "x": 0.3666666666666667,
+          "links": [
+            "a2_n11_0"
+          ],
+          "type": "battle",
+          "name": "Confronto",
+          "eventId": "mestre"
+        },
+        {
+          "id": "a2_n10_2",
+          "layer": 10,
+          "lane": 2,
+          "act": 2,
+          "x": 0.6333333333333333,
+          "links": [
+            "a2_n11_1"
+          ],
+          "type": "elite",
+          "name": "Blackfang",
+          "eventId": "altar",
+          "campaign": "blackfang",
+          "forceId": "blackfang_brutal"
+        },
+        {
+          "id": "a2_n10_3",
+          "layer": 10,
+          "lane": 3,
+          "act": 2,
+          "x": 0.9000000000000001,
+          "links": [
+            "a2_n11_1"
+          ],
+          "type": "elite",
+          "name": "Raid",
+          "eventId": "mestre",
+          "campaign": "monsters",
+          "forceId": "monster_naga",
+          "raidKind": "naga",
+          "raidSlot": 1
+        }
+      ],
+      [
+        {
+          "id": "a2_n11_0",
+          "layer": 11,
+          "lane": 0,
+          "act": 2,
+          "x": 0.1,
+          "links": [
+            "a2_n12_0",
+            "a2_n12_1"
+          ],
+          "type": "relic",
+          "name": "Relicário",
+          "eventId": "reflexos"
+        },
+        {
+          "id": "a2_n11_1",
+          "layer": 11,
+          "lane": 1,
+          "act": 2,
+          "x": 0.9,
+          "links": [
+            "a2_n12_2"
+          ],
+          "type": "event",
+          "name": "Altar da renovação",
+          "eventId": "altar"
+        }
+      ],
+      [
+        {
+          "id": "a2_n12_0",
+          "layer": 12,
+          "lane": 0,
+          "act": 2,
+          "x": 0.1,
+          "links": [
+            "a2_n13_0",
+            "a2_n13_1"
+          ],
+          "type": "battle",
+          "name": "Confronto",
+          "eventId": "caravana"
+        },
+        {
+          "id": "a2_n12_1",
+          "layer": 12,
+          "lane": 1,
+          "act": 2,
+          "x": 0.5,
+          "links": [
+            "a2_n13_1",
+            "a2_n13_2"
+          ],
+          "type": "battle",
+          "name": "Confronto",
+          "eventId": "banquete"
+        },
+        {
+          "id": "a2_n12_2",
+          "layer": 12,
+          "lane": 2,
+          "act": 2,
+          "x": 0.9,
+          "links": [
+            "a2_n13_3",
+            "a2_n13_2"
+          ],
+          "type": "elite",
+          "name": "Companhia de elite",
+          "eventId": "reflexos"
+        }
+      ],
+      [
+        {
+          "id": "a2_n13_0",
+          "layer": 13,
+          "lane": 0,
+          "act": 2,
+          "x": 0.1,
+          "links": [
+            "a2_boss"
+          ],
+          "type": "relic",
+          "name": "Relicário",
+          "eventId": "altar"
+        },
+        {
+          "id": "a2_n13_1",
+          "layer": 13,
+          "lane": 1,
+          "act": 2,
+          "x": 0.3666666666666667,
+          "links": [
+            "a2_boss"
+          ],
+          "type": "upgrade",
+          "name": "Santuário de treino",
+          "eventId": "contrabando"
+        },
+        {
+          "id": "a2_n13_2",
+          "layer": 13,
+          "lane": 2,
+          "act": 2,
+          "x": 0.6333333333333333,
+          "links": [
+            "a2_boss"
+          ],
+          "type": "event",
+          "name": "Lago dos reflexos",
+          "eventId": "reflexos"
+        },
+        {
+          "id": "a2_n13_3",
+          "layer": 13,
+          "lane": 3,
+          "act": 2,
+          "x": 0.9000000000000001,
+          "links": [
+            "a2_boss"
+          ],
+          "type": "recruit",
+          "name": "Caravana",
+          "eventId": "dojo"
+        }
+      ],
+      [
+        {
+          "id": "a2_boss",
+          "type": "boss",
+          "layer": 14,
+          "lane": 0,
+          "act": 2,
+          "x": 0.5,
+          "name": "Ironbound",
+          "eventId": "aposta",
+          "links": [],
+          "campaign": "ironbound",
+          "forceId": "ironbound_boss",
+          "trueBoss": false,
+          "finalBoss": false,
+          "bossId": "ib_hartlord"
+        }
+      ]
+    ],
+    "campaignRoute": {
+      "schema": 1,
+      "act": 2,
+      "defeatedForces": [],
+      "wonNodes": [],
+      "dawncrestForces": [],
+      "dawncrestNodes": [],
+      "monsterNodes": [
+        "a2_n3_1"
+      ],
+      "boss": "ironbound_boss",
+      "bossDefeated": false
+    },
+    "blackfangAvailable": false,
+    "dawncrestAvailable": false,
+    "mapBattles": 14,
+    "relicOpportunities": 4,
+    "eventHistory": [
+      "sombras",
+      "profanado"
+    ],
+    "layer": 6,
+    "route": [
+      "a2_n0_0",
+      "a2_n1_1",
+      "a2_n2_2",
+      "a2_n3_1",
+      "a2_n4_1",
+      "a2_n5_2",
+      "a2_n6_3"
+    ],
+    "current": {
+      "id": "a2_n6_3",
+      "layer": 6,
+      "lane": 3,
+      "act": 2,
+      "x": 0.9000000000000001,
+      "links": [
+        "a2_n7_2"
+      ],
+      "type": "battle",
+      "name": "Confronto",
+      "eventId": "reflexos"
+    },
+    "encounters": 14,
+    "round": 3,
+    "score": [
+      0,
+      3
+    ],
+    "energy": 1,
+    "board": [
+      "p15",
+      "p9",
+      null,
+      "p1",
+      null,
+      null,
+      null,
+      null,
+      "p20",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "draw": [
+      "p6",
+      "p12",
+      "p18",
+      "p17",
+      "p16",
+      "p3",
+      "p13",
+      "p11",
+      "p5",
+      "p14",
+      "p7",
+      "p10",
+      "p8"
+    ],
+    "discard": [],
+    "hand": [
+      "p19",
+      "p22"
+    ],
+    "offers": null,
+    "log": [],
+    "battleSerial": 50,
+    "roundResult": "loss",
+    "bench": [
+      "p2",
+      "p4",
+      null,
+      null,
+      null,
+      null
+    ],
+    "fusions": {},
+    "deployedAt": {
+      "p1": 1,
+      "p9": 2,
+      "p20": 3,
+      "p2": 4,
+      "p15": 5,
+      "p4": 6
+    },
+    "deploySerial": 6,
+    "meta": {
+      "schema": 1,
+      "unlockStart": 31,
+      "id": "3eb0b6f8-750e-4aeb-9357-9b326706d462",
+      "startedAt": "2026-11-07T23:41:05.615Z",
+      "completed": [
+        {
+          "id": "c1",
+          "type": "battle",
+          "layer": 0,
+          "event": null
+        },
+        {
+          "id": "n1_2",
+          "type": "event",
+          "layer": 1,
+          "event": "sombras"
+        },
+        {
+          "id": "n2_2",
+          "type": "battle",
+          "layer": 2,
+          "event": null
+        },
+        {
+          "id": "n3_2",
+          "type": "shop",
+          "layer": 3,
+          "event": null
+        },
+        {
+          "id": "n4_2",
+          "type": "elite",
+          "layer": 4,
+          "event": null
+        },
+        {
+          "id": "n5_2",
+          "type": "battle",
+          "layer": 5,
+          "event": null
+        },
+        {
+          "id": "n6_2",
+          "type": "relic",
+          "layer": 6,
+          "event": null
+        },
+        {
+          "id": "n7_2",
+          "type": "battle",
+          "layer": 7,
+          "event": null
+        },
+        {
+          "id": "n8_2",
+          "type": "upgrade",
+          "layer": 8,
+          "event": null
+        },
+        {
+          "id": "n9_2",
+          "type": "elite",
+          "layer": 9,
+          "event": null
+        },
+        {
+          "id": "n10_2",
+          "type": "elite",
+          "layer": 10,
+          "event": null
+        },
+        {
+          "id": "n11_2",
+          "type": "shop",
+          "layer": 11,
+          "event": null
+        },
+        {
+          "id": "n12_2",
+          "type": "battle",
+          "layer": 12,
+          "event": null
+        },
+        {
+          "id": "n13_2",
+          "type": "upgrade",
+          "layer": 13,
+          "event": null
+        },
+        {
+          "id": "boss",
+          "type": "boss",
+          "layer": 14,
+          "event": null
+        },
+        {
+          "id": "a2_n0_0",
+          "type": "battle",
+          "layer": 0,
+          "event": null
+        },
+        {
+          "id": "a2_n1_1",
+          "type": "battle",
+          "layer": 1,
+          "event": null
+        },
+        {
+          "id": "a2_n2_2",
+          "type": "event",
+          "layer": 2,
+          "event": "profanado"
+        },
+        {
+          "id": "a2_n3_1",
+          "type": "elite",
+          "layer": 3,
+          "event": null
+        },
+        {
+          "id": "a2_n4_1",
+          "type": "relic",
+          "layer": 4,
+          "event": null
+        },
+        {
+          "id": "a2_n5_2",
+          "type": "battle",
+          "layer": 5,
+          "event": null
+        }
+      ],
+      "encounters": [
+        {
+          "key": "c1:1",
+          "type": "battle",
+          "deck": null,
+          "relics": [],
+          "score": [
+            3,
+            0
+          ],
+          "round": 3,
+          "formation": [
+            {
+              "type": "warrior",
+              "level": 0
+            },
+            {
+              "type": "lancer",
+              "level": 0
+            }
+          ],
+          "event": false
+        },
+        {
+          "key": "n2_2:2",
+          "type": "battle",
+          "deck": "e1_militia",
+          "relics": [],
+          "score": [
+            3,
+            0
+          ],
+          "round": 3,
+          "formation": [
+            {
+              "type": "gladiator",
+              "level": 0
+            },
+            {
+              "type": "fighter",
+              "level": 0
+            },
+            {
+              "type": "ranger",
+              "level": 0
+            },
+            {
+              "type": "lancer",
+              "level": 0
+            }
+          ],
+          "event": false
+        },
+        {
+          "key": "n4_2:3",
+          "type": "elite",
+          "deck": null,
+          "relics": [],
+          "score": [
+            1,
+            2
+          ],
+          "round": 3,
+          "formation": [
+            {
+              "type": "warrior",
+              "level": 0
+            },
+            {
+              "type": "bastion",
+              "level": 0
+            },
+            {
+              "type": "ranger",
+              "level": 0
+            },
+            {
+              "type": "archer",
+              "level": 0
+            }
+          ],
+          "event": false
+        },
+        {
+          "key": "n5_2:4",
+          "type": "battle",
+          "deck": "e1_hunters",
+          "relics": [],
+          "score": [
+            3,
+            0
+          ],
+          "round": 3,
+          "formation": [
+            {
+              "type": "gladiator",
+              "level": 1
+            },
+            {
+              "type": "lancer",
+              "level": 0
+            },
+            {
+              "type": "archer",
+              "level": 0
+            },
+            {
+              "type": "ranger",
+              "level": 0
+            }
+          ],
+          "event": false
+        },
+        {
+          "key": "n7_2:5",
+          "type": "battle",
+          "deck": "e1_raiders",
+          "relics": [],
+          "score": [
+            3,
+            0
+          ],
+          "round": 3,
+          "formation": [
+            {
+              "type": "warrior",
+              "level": 0
+            },
+            {
+              "type": "fighter",
+              "level": 0
+            },
+            {
+              "type": "archer",
+              "level": 0
+            },
+            {
+              "type": "lancer",
+              "level": 0
+            }
+          ],
+          "event": false
+        },
+        {
+          "key": "n9_2:6",
+          "type": "elite",
+          "deck": null,
+          "relics": [],
+          "score": [
+            1,
+            3
+          ],
+          "round": 4,
+          "formation": [
+            {
+              "type": "warrior",
+              "level": 0
+            },
+            {
+              "type": "bastion",
+              "level": 0
+            },
+            {
+              "type": "ranger",
+              "level": 0
+            },
+            {
+              "type": "lancer",
+              "level": 0
+            },
+            {
+              "type": "archer",
+              "level": 0
+            }
+          ],
+          "event": false
+        },
+        {
+          "key": "n10_2:7",
+          "type": "elite",
+          "deck": "enemy_dawn16",
+          "relics": [
+            "fang",
+            "laststand"
+          ],
+          "score": [
+            3,
+            0
+          ],
+          "round": 3,
+          "formation": [
+            {
+              "type": "warrior",
+              "level": 0
+            },
+            {
+              "type": "gladiator",
+              "level": 1
+            },
+            {
+              "type": "lancer",
+              "level": 1
+            },
+            {
+              "type": "archer",
+              "level": 0
+            }
+          ],
+          "event": false
+        },
+        {
+          "key": "n12_2:8",
+          "type": "battle",
+          "deck": "e1_raiders",
+          "relics": [],
+          "score": [
+            3,
+            0
+          ],
+          "round": 3,
+          "formation": [
+            {
+              "type": "bastion",
+              "level": 0
+            },
+            {
+              "type": "warrior",
+              "level": 1
+            },
+            {
+              "type": "gladiator",
+              "level": 1
+            },
+            {
+              "type": "archer",
+              "level": 0
+            }
+          ],
+          "event": false
+        },
+        {
+          "key": "boss:9",
+          "type": "boss",
+          "deck": null,
+          "relics": [],
+          "score": [
+            1,
+            4
+          ],
+          "round": 5,
+          "formation": [
+            {
+              "type": "fighter",
+              "level": 0
+            },
+            {
+              "type": "gladiator",
+              "level": 1
+            },
+            {
+              "type": "bastion",
+              "level": 0
+            },
+            {
+              "type": "warrior",
+              "level": 2
+            },
+            {
+              "type": "archer",
+              "level": 0
+            },
+            {
+              "type": "lancer",
+              "level": 1
+            }
+          ],
+          "event": false
+        },
+        {
+          "key": "a2_n0_0:10",
+          "type": "battle",
+          "deck": "e2_dojo",
+          "relics": [],
+          "score": [
+            3,
+            2
+          ],
+          "round": 5,
+          "formation": [
+            {
+              "type": "warrior",
+              "level": 2
+            },
+            {
+              "type": "gladiator",
+              "level": 0
+            },
+            {
+              "type": "bastion",
+              "level": 0
+            },
+            {
+              "type": "swordsman",
+              "level": 0
+            },
+            {
+              "type": "lancer",
+              "level": 1
+            },
+            {
+              "type": "ranger",
+              "level": 0
+            }
+          ],
+          "event": false
+        },
+        {
+          "key": "a2_n1_1:11",
+          "type": "battle",
+          "deck": "e2_garrison",
+          "relics": [],
+          "score": [
+            3,
+            2
+          ],
+          "round": 5,
+          "formation": [
+            {
+              "type": "warrior",
+              "level": 2
+            },
+            {
+              "type": "bastion",
+              "level": 1
+            },
+            {
+              "type": "gladiator",
+              "level": 1
+            },
+            {
+              "type": "lancer",
+              "level": 1
+            },
+            {
+              "type": "fighter",
+              "level": 1
+            },
+            {
+              "type": "archer",
+              "level": 0
+            }
+          ],
+          "event": false
+        },
+        {
+          "key": "a2_n3_1:12",
+          "type": "elite",
+          "deck": null,
+          "relics": [],
+          "score": [
+            1,
+            3
+          ],
+          "round": 4,
+          "formation": [
+            {
+              "type": "fighter",
+              "level": 1
+            },
+            {
+              "type": "gladiator",
+              "level": 1
+            },
+            {
+              "type": "warrior",
+              "level": 2
+            },
+            {
+              "type": "lancer",
+              "level": 1
+            }
+          ],
+          "event": false
+        },
+        {
+          "key": "a2_n5_2:13",
+          "type": "battle",
+          "deck": "e2_gunmen",
+          "relics": [],
+          "score": [
+            3,
+            0
+          ],
+          "round": 3,
+          "formation": [
+            {
+              "type": "bastion",
+              "level": 0
+            },
+            {
+              "type": "gladiator",
+              "level": 0
+            },
+            {
+              "type": "warrior",
+              "level": 2
+            },
+            {
+              "type": "lancer",
+              "level": 0
+            }
+          ],
+          "event": false
+        }
+      ],
+      "events": [
+        {
+          "kind": "eventAccepted",
+          "node": "n1_2",
+          "at": "2026-11-07T23:44:13.863Z",
+          "event": "sombras"
+        },
+        {
+          "kind": "goldSpent",
+          "node": "n3_2",
+          "at": "2026-11-07T23:44:56.572Z",
+          "amount": 40
+        },
+        {
+          "kind": "goldSpent",
+          "node": "n3_2",
+          "at": "2026-11-07T23:45:01.670Z",
+          "amount": 10
+        },
+        {
+          "kind": "goldSpent",
+          "node": "n11_2",
+          "at": "2026-11-07T23:50:05.158Z",
+          "amount": 8
+        },
+        {
+          "kind": "goldSpent",
+          "node": "n11_2",
+          "at": "2026-11-07T23:50:20.581Z",
+          "amount": 35
+        },
+        {
+          "kind": "goldSpent",
+          "node": "n11_2",
+          "at": "2026-11-07T23:50:26.423Z",
+          "amount": 10
+        },
+        {
+          "kind": "goldSpent",
+          "node": "n11_2",
+          "at": "2026-11-07T23:50:29.326Z",
+          "amount": 10
+        },
+        {
+          "kind": "goldSpent",
+          "node": "n11_2",
+          "at": "2026-11-07T23:50:34.489Z",
+          "amount": 10
+        },
+        {
+          "kind": "refreshHand",
+          "node": "a2_n1_1",
+          "at": "2026-11-07T23:56:41.617Z"
+        },
+        {
+          "kind": "goldSpent",
+          "node": "a2_n2_2",
+          "at": "2026-11-07T23:57:23.521Z",
+          "amount": 20
+        },
+        {
+          "kind": "eventAccepted",
+          "node": "a2_n2_2",
+          "at": "2026-11-07T23:57:23.525Z",
+          "event": "profanado"
+        }
+      ],
+      "spent": 143,
+      "sweeps": 7,
+      "shooters": 0,
+      "arcanists": 0,
+      "eastern": 0,
+      "northern": 0,
+      "elites": 4,
+      "bosses": 1,
+      "ended": true,
+      "rewards": [
+        {
+          "kind": "card",
+          "id": "ranger"
+        }
+      ],
+      "actHistory": [
+        {
+          "act": 1,
+          "order": "monsters",
+          "boss": "monster_boss_slime",
+          "bossId": null,
+          "raidKind": "slime",
+          "trueBoss": false,
+          "counts": {
+            "monsters": 2,
+            "blackfang": 0,
+            "dawncrest": 0
+          },
+          "orderEncounters": [
+            {
+              "id": "n4_2",
+              "order": "monsters",
+              "forceId": "monster_dragon",
+              "raidKind": "dragon"
+            },
+            {
+              "id": "n9_2",
+              "order": "monsters",
+              "forceId": "monster_hydra",
+              "raidKind": "hydra"
+            }
+          ],
+          "route": [
+            "c1",
+            "n1_2",
+            "n2_2",
+            "n3_2",
+            "n4_2",
+            "n5_2",
+            "n6_2",
+            "n7_2",
+            "n8_2",
+            "n9_2",
+            "n10_2",
+            "n11_2",
+            "n12_2",
+            "n13_2",
+            "boss"
+          ],
+          "battles": 9
+        }
+      ],
+      "endedAt": "2026-11-08T00:00:50.141Z",
+      "reason": "defeat",
+      "diamonds": 17,
+      "unlocks": [
+        {
+          "kind": "card",
+          "id": "ranger",
+          "at": "2026-11-07T23:49:58.647Z"
+        },
+        {
+          "kind": "milestone",
+          "id": "boss_monsters_map1",
+          "at": "2026-11-07T23:53:24.777Z"
+        }
+      ],
+      "treeXp": {
+        "gained": 25,
+        "spent": 8,
+        "lost": 17
+      }
+    },
+    "bag": {
+      "items": [
+        {
+          "id": "banner",
+          "key": "r0",
+          "x": 0,
+          "y": 0,
+          "rotation": 2
+        },
+        {
+          "id": "scope",
+          "key": "r1",
+          "rotation": 1,
+          "x": 3,
+          "y": 0
+        },
+        {
+          "id": "fang",
+          "key": "r2",
+          "rotation": 0,
+          "x": 2,
+          "y": 0
+        },
+        {
+          "id": "plating",
+          "key": "r3",
+          "rotation": 0,
+          "x": 0,
+          "y": 2
+        },
+        {
+          "id": "precision",
+          "key": "r4",
+          "rotation": 0,
+          "x": 0,
+          "y": 1
+        }
+      ]
+    },
+    "reserve": [],
+    "journey": {
+      "schema": 1,
+      "act": 2,
+      "history": [
+        {
+          "act": 1,
+          "order": "monsters",
+          "boss": "monster_boss_slime",
+          "bossId": null,
+          "raidKind": "slime",
+          "trueBoss": false,
+          "counts": {
+            "monsters": 2,
+            "blackfang": 0,
+            "dawncrest": 0
+          },
+          "orderEncounters": [
+            {
+              "id": "n4_2",
+              "order": "monsters",
+              "forceId": "monster_dragon",
+              "raidKind": "dragon"
+            },
+            {
+              "id": "n9_2",
+              "order": "monsters",
+              "forceId": "monster_hydra",
+              "raidKind": "hydra"
+            }
+          ],
+          "route": [
+            "c1",
+            "n1_2",
+            "n2_2",
+            "n3_2",
+            "n4_2",
+            "n5_2",
+            "n6_2",
+            "n7_2",
+            "n8_2",
+            "n9_2",
+            "n10_2",
+            "n11_2",
+            "n12_2",
+            "n13_2",
+            "boss"
+          ],
+          "battles": 9
+        }
+      ],
+      "seenMonsters": [
+        "dragon",
+        "hydra",
+        "slime"
+      ],
+      "battleStart": 9,
+      "tree": {
+        "version": 1,
+        "xp": 0,
+        "earned": [
+          "1:c1",
+          "1:n2_2",
+          "1:n4_2",
+          "1:n5_2",
+          "1:n7_2",
+          "1:n9_2",
+          "1:n10_2",
+          "1:n12_2",
+          "1:boss",
+          "2:a2_n0_0",
+          "2:a2_n1_1",
+          "2:a2_n3_1",
+          "2:a2_n5_2"
+        ],
+        "closed": [
+          1
+        ],
+        "shops": {
+          "n3_2": {
+            "freeUsed": false,
+            "upgradeUsed": true
+          },
+          "n11_2": {
+            "freeUsed": false,
+            "upgradeUsed": true
+          }
+        },
+        "firstRecruit": [],
+        "firstCard": [
+          1
+        ],
+        "provisionMaps": [],
+        "session": null,
+        "goldCarry": 0,
+        "midClosed": [
+          1
+        ],
+        "spent": 8,
+        "lost": 17,
+        "gain": 25,
+        "lastAward": 2
+      },
+      "mapDrawings": {}
+    },
+    "bossCardsAvailable": [],
+    "challenges": [],
+    "challengeLevel": 0,
+    "adv": {
+      "owned": [],
+      "planned": null,
+      "shops": {},
+      "cleanse": [],
+      "eye": [],
+      "interest": [],
+      "firstShops": {
+        "1": "n3_2"
+      },
+      "second": false
+    },
+    "content": {
+      "schema": 1,
+      "exiled": [],
+      "sword": 0,
+      "swordWins": [],
+      "nextFeast": 0,
+      "activeFeast": 0,
+      "opening": false,
+      "exhaustionLost": 0,
+      "lastDraw": [
+        "p4",
+        "p22"
+      ]
+    },
+    "tutorialOpponent": false,
+    "roundStats": [
+      {
+        "key": "0:p15",
+        "uid": "p15",
+        "type": "fighter",
+        "side": 0,
+        "level": 1,
+        "dealt": 234.9789750000001,
+        "taken": 272.0444375
+      },
+      {
+        "key": "0:p9",
+        "uid": "p9",
+        "type": "bastion",
+        "side": 0,
+        "level": 0,
+        "dealt": 84.47974432299009,
+        "taken": 373.5924921526799
+      },
+      {
+        "key": "0:p1",
+        "uid": "p1",
+        "type": "warrior",
+        "side": 0,
+        "level": 2,
+        "dealt": 556.9668983581357,
+        "taken": 393.8506840518908
+      },
+      {
+        "key": "0:p20",
+        "uid": "p20",
+        "type": "ranger",
+        "side": 0,
+        "level": 0,
+        "dealt": 416.15220268558755,
+        "taken": 242.32739985895628
+      },
+      {
+        "key": "1:e0_1",
+        "uid": "e0_1",
+        "type": "shinobi",
+        "side": 1,
+        "level": 1,
+        "dealt": 360.16313018292686,
+        "taken": 252.64800000000005
+      },
+      {
+        "key": "1:e1_0",
+        "uid": "e1_0",
+        "type": "samurai",
+        "side": 1,
+        "level": 1,
+        "dealt": 605.3389642239886,
+        "taken": 364.9768603667136
+      },
+      {
+        "key": "1:e7_1",
+        "uid": "e7_1",
+        "type": "shaolin",
+        "side": 1,
+        "level": 0,
+        "dealt": 159.31410512354938,
+        "taken": 414.44479999999993
+      },
+      {
+        "key": "1:e2_2",
+        "uid": "e2_2",
+        "type": "fighter",
+        "side": 1,
+        "level": 1,
+        "dealt": 156.99881403306227,
+        "taken": 260.50816
+      }
+    ],
+    "encounterStats": [
+      {
+        "key": "0:p1",
+        "uid": "p1",
+        "type": "warrior",
+        "side": 0,
+        "level": 2,
+        "dealt": 819.59390382358,
+        "taken": 1153.732034325163
+      },
+      {
+        "key": "0:p9",
+        "uid": "p9",
+        "type": "bastion",
+        "side": 0,
+        "level": 0,
+        "dealt": 388.04127824544486,
+        "taken": 1121.8254003159452
+      },
+      {
+        "key": "1:e0_1",
+        "uid": "e0_1",
+        "type": "shinobi",
+        "side": 1,
+        "level": 1,
+        "dealt": 1390.2967961838287,
+        "taken": 508.5573750000001
+      },
+      {
+        "key": "1:e2_2",
+        "uid": "e2_2",
+        "type": "fighter",
+        "side": 1,
+        "level": 1,
+        "dealt": 703.1614749795162,
+        "taken": 510.21821102040815
+      },
+      {
+        "key": "0:p20",
+        "uid": "p20",
+        "type": "ranger",
+        "side": 0,
+        "level": 0,
+        "dealt": 631.0452388244437,
+        "taken": 481.03653314527503
+      },
+      {
+        "key": "1:e1_0",
+        "uid": "e1_0",
+        "type": "samurai",
+        "side": 1,
+        "level": 1,
+        "dealt": 775.8660289994889,
+        "taken": 640.4390098730605
+      },
+      {
+        "key": "0:p15",
+        "uid": "p15",
+        "type": "fighter",
+        "side": 0,
+        "level": 1,
+        "dealt": 234.9789750000001,
+        "taken": 272.0444375
+      },
+      {
+        "key": "1:e7_1",
+        "uid": "e7_1",
+        "type": "shaolin",
+        "side": 1,
+        "level": 0,
+        "dealt": 159.31410512354938,
+        "taken": 414.44479999999993
+      }
+    ],
+    "handFrozen": true,
+    "lastFusion": null,
+    "enemyRevealed": true,
+    "eventEncounter": null,
+    "ai": {
+      "cards": [
+        {
+          "uid": "e0_0",
+          "type": "shinobi",
+          "level": 1
+        },
+        {
+          "uid": "e0_1",
+          "type": "shinobi",
+          "level": 1
+        },
+        {
+          "uid": "e0_2",
+          "type": "shinobi",
+          "level": 1
+        },
+        {
+          "uid": "e1_0",
+          "type": "samurai",
+          "level": 1
+        },
+        {
+          "uid": "e1_1",
+          "type": "samurai",
+          "level": 1
+        },
+        {
+          "uid": "e1_2",
+          "type": "samurai",
+          "level": 1
+        },
+        {
+          "uid": "e2_0",
+          "type": "fighter",
+          "level": 1
+        },
+        {
+          "uid": "e2_1",
+          "type": "fighter",
+          "level": 1
+        },
+        {
+          "uid": "e2_2",
+          "type": "fighter",
+          "level": 1
+        },
+        {
+          "uid": "e3_0",
+          "type": "martial_artist",
+          "level": 1
+        },
+        {
+          "uid": "e3_1",
+          "type": "martial_artist",
+          "level": 1
+        },
+        {
+          "uid": "e3_2",
+          "type": "martial_artist",
+          "level": 1
+        },
+        {
+          "uid": "e4_0",
+          "type": "omnamusha",
+          "level": 0
+        },
+        {
+          "uid": "e4_1",
+          "type": "omnamusha",
+          "level": 0
+        },
+        {
+          "uid": "e5_0",
+          "type": "kinoichi",
+          "level": 0
+        },
+        {
+          "uid": "e5_1",
+          "type": "kinoichi",
+          "level": 0
+        },
+        {
+          "uid": "e6_0",
+          "type": "ronin",
+          "level": 0
+        },
+        {
+          "uid": "e6_1",
+          "type": "ronin",
+          "level": 0
+        },
+        {
+          "uid": "e7_0",
+          "type": "shaolin",
+          "level": 0
+        },
+        {
+          "uid": "e7_1",
+          "type": "shaolin",
+          "level": 0
+        }
+      ],
+      "draw": [
+        "e5_1",
+        "e0_2",
+        "e2_1",
+        "e4_1",
+        "e6_1",
+        "e3_1",
+        "e3_0",
+        "e0_0"
+      ],
+      "discard": [
+        "e7_0",
+        "e1_1",
+        "e3_2",
+        "e6_0",
+        "e1_2",
+        "e4_0",
+        "e5_0"
+      ],
+      "hand": [],
+      "board": [
+        "e0_1",
+        "e1_0",
+        "e7_1",
+        "e2_2",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "bench": [
+        "e2_0",
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "fusions": {},
+      "deployedAt": {
+        "e0_1": 1,
+        "e2_2": 2,
+        "e1_0": 3,
+        "e2_0": 4,
+        "e7_1": 5
+      },
+      "deploySerial": 5,
+      "lastRound": 3,
+      "energy": 1,
+      "elite": false,
+      "deckId": "e2_dojo",
+      "deckName": "Dojô",
+      "strategy": "balanced",
+      "boostedTypes": [
+        "fighter",
+        "samurai"
+      ],
+      "artifacts": [],
+      "relicTests": [],
+      "relicRolls": 0,
+      "round": 3,
+      "phase": "prep",
+      "returnable": {
+        "e0_1": {
+          "round": 1,
+          "paid": 3
+        },
+        "e2_2": {
+          "round": 1,
+          "paid": 2
+        },
+        "e1_0": {
+          "round": 2,
+          "paid": 3
+        },
+        "e2_0": {
+          "round": 3,
+          "paid": 2
+        },
+        "e7_1": {
+          "round": 3,
+          "paid": 3
+        }
+      }
+    },
+    "sceneryId": "5270",
+    "lastSceneryId": "5270",
+    "sceneryEncounter": 14,
+    "returnable": {},
+    "previousEnemyFormation": {
+      "encounter": "3093503182:2:14:a2_n6_3",
+      "round": 3,
+      "units": [
+        {
+          "type": "shinobi",
+          "x": 65,
+          "y": 225,
+          "level": 1,
+          "fused": false,
+          "large": false,
+          "stats": {
+            "hp": 252.64800000000002,
+            "maxhp": 252.64800000000002,
+            "atk": 49.40672,
+            "defense": 8.8,
+            "rate": 0.6181818181818182,
+            "speed": 81.4,
+            "range": 34,
+            "crit": 0.275
+          }
+        },
+        {
+          "type": "samurai",
+          "x": 140,
+          "y": 225,
+          "level": 1,
+          "fused": false,
+          "large": false,
+          "stats": {
+            "hp": 390.76223999999996,
+            "maxhp": 390.76223999999996,
+            "atk": 47.16096,
+            "defense": 41.800000000000004,
+            "rate": 1.2272727272727273,
+            "speed": 53.900000000000006,
+            "range": 34,
+            "crit": 0.132
+          }
+        },
+        {
+          "type": "shaolin",
+          "x": 215,
+          "y": 225,
+          "level": 0,
+          "fused": false,
+          "large": false,
+          "stats": {
+            "hp": 414.4448,
+            "maxhp": 414.4448,
+            "atk": 28.5824,
+            "defense": 38,
+            "rate": 1.08,
+            "speed": 49,
+            "range": 34,
+            "crit": 0.03
+          }
+        },
+        {
+          "type": "fighter",
+          "x": 290,
+          "y": 225,
+          "level": 1,
+          "fused": false,
+          "large": false,
+          "stats": {
+            "hp": 260.50816,
+            "maxhp": 260.50816,
+            "atk": 24.70336,
+            "defense": 17.6,
+            "rate": 0.6181818181818182,
+            "speed": 66,
+            "range": 34,
+            "crit": 0.132
+          }
+        }
+      ]
+    },
+    "statsBattleSerial": 50,
+    "statsNodeId": "a2_n6_3",
+    "fusionOrigins": {
+      "p1": [
+        {
+          "uid": "p1",
+          "kind": "field",
+          "pos": 3
+        },
+        {
+          "uid": "p3",
+          "kind": "bench",
+          "pos": 0
+        },
+        {
+          "uid": "p2",
+          "kind": "bench",
+          "pos": 6
+        }
+      ],
+      "p7": [
+        {
+          "uid": "p7",
+          "kind": "field",
+          "pos": 7
+        },
+        {
+          "uid": "p4",
+          "kind": "bench",
+          "pos": 1
+        },
+        {
+          "uid": "p6",
+          "kind": "bench",
+          "pos": 6
+        }
+      ],
+      "p6": [
+        {
+          "uid": "p6",
+          "kind": "field",
+          "pos": 7
+        },
+        {
+          "uid": "p5",
+          "kind": "bench",
+          "pos": 3
+        },
+        {
+          "uid": "p7",
+          "kind": "bench",
+          "pos": 6
+        }
+      ],
+      "p3": [
+        {
+          "uid": "p3",
+          "kind": "field",
+          "pos": 0
+        },
+        {
+          "uid": "p1",
+          "kind": "bench",
+          "pos": 0
+        },
+        {
+          "uid": "p2",
+          "kind": "bench",
+          "pos": 6
+        }
+      ],
+      "p5": [
+        {
+          "uid": "p5",
+          "kind": "field",
+          "pos": 7
+        },
+        {
+          "uid": "p6",
+          "kind": "bench",
+          "pos": 3
+        },
+        {
+          "uid": "p4",
+          "kind": "bench",
+          "pos": 6
+        }
+      ],
+      "p4": [
+        {
+          "uid": "p4",
+          "kind": "field",
+          "pos": 7
+        },
+        {
+          "uid": "p7",
+          "kind": "bench",
+          "pos": 4
+        },
+        {
+          "uid": "p5",
+          "kind": "bench",
+          "pos": 6
+        }
+      ],
+      "p13": [
+        {
+          "uid": "p13",
+          "kind": "field",
+          "pos": 2
+        },
+        {
+          "uid": "p11",
+          "kind": "bench",
+          "pos": 3
+        },
+        {
+          "uid": "p12",
+          "kind": "bench",
+          "pos": 6
+        }
+      ]
+    },
+    "fusionSerial": 13,
+    "lastGoldReward": 16,
+    "eventPending": null,
+    "pendingRelic": null
+  },
+  "raidBattle": null,
+  "muted": false,
+  "savedAt": 1794096050163,
+  "gameVersion": 20,
+  "exportedAt": "2026-11-08T00:00:50.165Z"
+}
