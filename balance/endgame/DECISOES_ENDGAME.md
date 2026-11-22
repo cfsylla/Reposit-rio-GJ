@@ -96,3 +96,5 @@ Atualizado em 22/11/2026 (2ª rodada de decisões). Chat dedicado ao endgame.
 | Limpeza | 1 remoção grátis na 1ª loja de cada mapa | **1 remoção grátis em cada loja** |
 | Olho Treinado | 1 renovação grátis em toda escolha de relíquia | **1 renovação grátis em toda escolha de relíquia e de recrutamento** |
 Nada rodado ainda.
+
+- Confirmações: Segunda Chance igual em raids/Titãs/True Boss forma 2; rodada extra conta para Derrota Custa Ouro; Olho Treinado vale no nó de recrutamento.
