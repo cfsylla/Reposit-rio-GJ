@@ -1,0 +1,648 @@
+base nodes20 vanguard 1-20
+veterans nodes20 vanguard 1-20 --challenges veterans
+tough nodes20 vanguard 1-20 --challenges tough
+relentless nodes20 vanguard 1-20 --challenges relentless
+commanders nodes20 vanguard 1-20 --challenges commanders
+bossrounds nodes20 vanguard 1-20 --challenges bossrounds
+reinforcements nodes20 vanguard 1-20 --challenges reinforcements
+raidfury nodes20 vanguard 1-20 --challenges raidfury
+inflation nodes20 vanguard 1-20 --challenges inflation
+lightpurse nodes20 vanguard 1-20 --challenges lightpurse
+scarce nodes20 vanguard 1-20 --challenges scarce
+bag nodes20 vanguard 1-20 --challenges bag
+heavydeck nodes20 vanguard 1-20 --challenges heavydeck
+dissipate nodes20 vanguard 1-20 --challenges dissipate
+fewrelics nodes20 vanguard 1-20 --challenges fewrelics
+cursed nodes20 vanguard 1-20 --challenges cursed
+moreelites nodes20 vanguard 1-20 --challenges moreelites
+cursedrelics nodes20 vanguard 1-20 --challenges cursedrelics
+fatigue nodes20 vanguard 1-20 --challenges fatigue
+reinforceddecks nodes20 vanguard 1-20 --challenges reinforceddecks
+lesssupport nodes20 vanguard 1-20 --challenges lesssupport
+smallshop nodes20 vanguard 1-20 --challenges smallshop
+lostgold nodes20 vanguard 1-20 --challenges lostgold
+fatigue4 nodes20 vanguard 1-20 VAR=balance/tree_variants/eg/fat4.json --challenges fatigue
+fatigue6 nodes20 vanguard 1-20 VAR=balance/tree_variants/eg/fat6.json --challenges fatigue
+calib nodes10 vanguard 1-20
+calib nodes15 vanguard 1-20
+base nodes20 balanced 1-20
+veterans nodes20 balanced 1-20 --challenges veterans
+tough nodes20 balanced 1-20 --challenges tough
+relentless nodes20 balanced 1-20 --challenges relentless
+commanders nodes20 balanced 1-20 --challenges commanders
+bossrounds nodes20 balanced 1-20 --challenges bossrounds
+reinforcements nodes20 balanced 1-20 --challenges reinforcements
+raidfury nodes20 balanced 1-20 --challenges raidfury
+inflation nodes20 balanced 1-20 --challenges inflation
+lightpurse nodes20 balanced 1-20 --challenges lightpurse
+scarce nodes20 balanced 1-20 --challenges scarce
+bag nodes20 balanced 1-20 --challenges bag
+heavydeck nodes20 balanced 1-20 --challenges heavydeck
+dissipate nodes20 balanced 1-20 --challenges dissipate
+fewrelics nodes20 balanced 1-20 --challenges fewrelics
+cursed nodes20 balanced 1-20 --challenges cursed
+moreelites nodes20 balanced 1-20 --challenges moreelites
+cursedrelics nodes20 balanced 1-20 --challenges cursedrelics
+fatigue nodes20 balanced 1-20 --challenges fatigue
+reinforceddecks nodes20 balanced 1-20 --challenges reinforceddecks
+lesssupport nodes20 balanced 1-20 --challenges lesssupport
+smallshop nodes20 balanced 1-20 --challenges smallshop
+lostgold nodes20 balanced 1-20 --challenges lostgold
+fatigue4 nodes20 balanced 1-20 VAR=balance/tree_variants/eg/fat4.json --challenges fatigue
+fatigue6 nodes20 balanced 1-20 VAR=balance/tree_variants/eg/fat6.json --challenges fatigue
+calib nodes10 balanced 1-20
+calib nodes15 balanced 1-20
+base nodes20 swift 1-20
+veterans nodes20 swift 1-20 --challenges veterans
+tough nodes20 swift 1-20 --challenges tough
+relentless nodes20 swift 1-20 --challenges relentless
+commanders nodes20 swift 1-20 --challenges commanders
+bossrounds nodes20 swift 1-20 --challenges bossrounds
+reinforcements nodes20 swift 1-20 --challenges reinforcements
+raidfury nodes20 swift 1-20 --challenges raidfury
+inflation nodes20 swift 1-20 --challenges inflation
+lightpurse nodes20 swift 1-20 --challenges lightpurse
+scarce nodes20 swift 1-20 --challenges scarce
+bag nodes20 swift 1-20 --challenges bag
+heavydeck nodes20 swift 1-20 --challenges heavydeck
+dissipate nodes20 swift 1-20 --challenges dissipate
+fewrelics nodes20 swift 1-20 --challenges fewrelics
+cursed nodes20 swift 1-20 --challenges cursed
+moreelites nodes20 swift 1-20 --challenges moreelites
+cursedrelics nodes20 swift 1-20 --challenges cursedrelics
+fatigue nodes20 swift 1-20 --challenges fatigue
+reinforceddecks nodes20 swift 1-20 --challenges reinforceddecks
+lesssupport nodes20 swift 1-20 --challenges lesssupport
+smallshop nodes20 swift 1-20 --challenges smallshop
+lostgold nodes20 swift 1-20 --challenges lostgold
+fatigue4 nodes20 swift 1-20 VAR=balance/tree_variants/eg/fat4.json --challenges fatigue
+fatigue6 nodes20 swift 1-20 VAR=balance/tree_variants/eg/fat6.json --challenges fatigue
+calib nodes10 swift 1-20
+calib nodes15 swift 1-20
+base nodes20 arcane 1-20
+veterans nodes20 arcane 1-20 --challenges veterans
+tough nodes20 arcane 1-20 --challenges tough
+relentless nodes20 arcane 1-20 --challenges relentless
+commanders nodes20 arcane 1-20 --challenges commanders
+bossrounds nodes20 arcane 1-20 --challenges bossrounds
+reinforcements nodes20 arcane 1-20 --challenges reinforcements
+raidfury nodes20 arcane 1-20 --challenges raidfury
+inflation nodes20 arcane 1-20 --challenges inflation
+lightpurse nodes20 arcane 1-20 --challenges lightpurse
+scarce nodes20 arcane 1-20 --challenges scarce
+bag nodes20 arcane 1-20 --challenges bag
+heavydeck nodes20 arcane 1-20 --challenges heavydeck
+dissipate nodes20 arcane 1-20 --challenges dissipate
+fewrelics nodes20 arcane 1-20 --challenges fewrelics
+cursed nodes20 arcane 1-20 --challenges cursed
+moreelites nodes20 arcane 1-20 --challenges moreelites
+cursedrelics nodes20 arcane 1-20 --challenges cursedrelics
+fatigue nodes20 arcane 1-20 --challenges fatigue
+reinforceddecks nodes20 arcane 1-20 --challenges reinforceddecks
+lesssupport nodes20 arcane 1-20 --challenges lesssupport
+smallshop nodes20 arcane 1-20 --challenges smallshop
+lostgold nodes20 arcane 1-20 --challenges lostgold
+fatigue4 nodes20 arcane 1-20 VAR=balance/tree_variants/eg/fat4.json --challenges fatigue
+fatigue6 nodes20 arcane 1-20 VAR=balance/tree_variants/eg/fat6.json --challenges fatigue
+calib nodes10 arcane 1-20
+calib nodes15 arcane 1-20
+base nodes20 outlaws 1-20
+veterans nodes20 outlaws 1-20 --challenges veterans
+tough nodes20 outlaws 1-20 --challenges tough
+relentless nodes20 outlaws 1-20 --challenges relentless
+commanders nodes20 outlaws 1-20 --challenges commanders
+bossrounds nodes20 outlaws 1-20 --challenges bossrounds
+reinforcements nodes20 outlaws 1-20 --challenges reinforcements
+raidfury nodes20 outlaws 1-20 --challenges raidfury
+inflation nodes20 outlaws 1-20 --challenges inflation
+lightpurse nodes20 outlaws 1-20 --challenges lightpurse
+scarce nodes20 outlaws 1-20 --challenges scarce
+bag nodes20 outlaws 1-20 --challenges bag
+heavydeck nodes20 outlaws 1-20 --challenges heavydeck
+dissipate nodes20 outlaws 1-20 --challenges dissipate
+fewrelics nodes20 outlaws 1-20 --challenges fewrelics
+cursed nodes20 outlaws 1-20 --challenges cursed
+moreelites nodes20 outlaws 1-20 --challenges moreelites
+cursedrelics nodes20 outlaws 1-20 --challenges cursedrelics
+fatigue nodes20 outlaws 1-20 --challenges fatigue
+reinforceddecks nodes20 outlaws 1-20 --challenges reinforceddecks
+lesssupport nodes20 outlaws 1-20 --challenges lesssupport
+smallshop nodes20 outlaws 1-20 --challenges smallshop
+lostgold nodes20 outlaws 1-20 --challenges lostgold
+fatigue4 nodes20 outlaws 1-20 VAR=balance/tree_variants/eg/fat4.json --challenges fatigue
+fatigue6 nodes20 outlaws 1-20 VAR=balance/tree_variants/eg/fat6.json --challenges fatigue
+calib nodes10 outlaws 1-20
+calib nodes15 outlaws 1-20
+base nodes20 fortress 1-20
+veterans nodes20 fortress 1-20 --challenges veterans
+tough nodes20 fortress 1-20 --challenges tough
+relentless nodes20 fortress 1-20 --challenges relentless
+commanders nodes20 fortress 1-20 --challenges commanders
+bossrounds nodes20 fortress 1-20 --challenges bossrounds
+reinforcements nodes20 fortress 1-20 --challenges reinforcements
+raidfury nodes20 fortress 1-20 --challenges raidfury
+inflation nodes20 fortress 1-20 --challenges inflation
+lightpurse nodes20 fortress 1-20 --challenges lightpurse
+scarce nodes20 fortress 1-20 --challenges scarce
+bag nodes20 fortress 1-20 --challenges bag
+heavydeck nodes20 fortress 1-20 --challenges heavydeck
+dissipate nodes20 fortress 1-20 --challenges dissipate
+fewrelics nodes20 fortress 1-20 --challenges fewrelics
+cursed nodes20 fortress 1-20 --challenges cursed
+moreelites nodes20 fortress 1-20 --challenges moreelites
+cursedrelics nodes20 fortress 1-20 --challenges cursedrelics
+fatigue nodes20 fortress 1-20 --challenges fatigue
+reinforceddecks nodes20 fortress 1-20 --challenges reinforceddecks
+lesssupport nodes20 fortress 1-20 --challenges lesssupport
+smallshop nodes20 fortress 1-20 --challenges smallshop
+lostgold nodes20 fortress 1-20 --challenges lostgold
+fatigue4 nodes20 fortress 1-20 VAR=balance/tree_variants/eg/fat4.json --challenges fatigue
+fatigue6 nodes20 fortress 1-20 VAR=balance/tree_variants/eg/fat6.json --challenges fatigue
+calib nodes10 fortress 1-20
+calib nodes15 fortress 1-20
+base nodes20 blades 1-20
+veterans nodes20 blades 1-20 --challenges veterans
+tough nodes20 blades 1-20 --challenges tough
+relentless nodes20 blades 1-20 --challenges relentless
+commanders nodes20 blades 1-20 --challenges commanders
+bossrounds nodes20 blades 1-20 --challenges bossrounds
+reinforcements nodes20 blades 1-20 --challenges reinforcements
+raidfury nodes20 blades 1-20 --challenges raidfury
+inflation nodes20 blades 1-20 --challenges inflation
+lightpurse nodes20 blades 1-20 --challenges lightpurse
+scarce nodes20 blades 1-20 --challenges scarce
+bag nodes20 blades 1-20 --challenges bag
+heavydeck nodes20 blades 1-20 --challenges heavydeck
+dissipate nodes20 blades 1-20 --challenges dissipate
+fewrelics nodes20 blades 1-20 --challenges fewrelics
+cursed nodes20 blades 1-20 --challenges cursed
+moreelites nodes20 blades 1-20 --challenges moreelites
+cursedrelics nodes20 blades 1-20 --challenges cursedrelics
+fatigue nodes20 blades 1-20 --challenges fatigue
+reinforceddecks nodes20 blades 1-20 --challenges reinforceddecks
+lesssupport nodes20 blades 1-20 --challenges lesssupport
+smallshop nodes20 blades 1-20 --challenges smallshop
+lostgold nodes20 blades 1-20 --challenges lostgold
+fatigue4 nodes20 blades 1-20 VAR=balance/tree_variants/eg/fat4.json --challenges fatigue
+fatigue6 nodes20 blades 1-20 VAR=balance/tree_variants/eg/fat6.json --challenges fatigue
+calib nodes10 blades 1-20
+calib nodes15 blades 1-20
+base nodes20 fireline 1-20
+veterans nodes20 fireline 1-20 --challenges veterans
+tough nodes20 fireline 1-20 --challenges tough
+relentless nodes20 fireline 1-20 --challenges relentless
+commanders nodes20 fireline 1-20 --challenges commanders
+bossrounds nodes20 fireline 1-20 --challenges bossrounds
+reinforcements nodes20 fireline 1-20 --challenges reinforcements
+raidfury nodes20 fireline 1-20 --challenges raidfury
+inflation nodes20 fireline 1-20 --challenges inflation
+lightpurse nodes20 fireline 1-20 --challenges lightpurse
+scarce nodes20 fireline 1-20 --challenges scarce
+bag nodes20 fireline 1-20 --challenges bag
+heavydeck nodes20 fireline 1-20 --challenges heavydeck
+dissipate nodes20 fireline 1-20 --challenges dissipate
+fewrelics nodes20 fireline 1-20 --challenges fewrelics
+cursed nodes20 fireline 1-20 --challenges cursed
+moreelites nodes20 fireline 1-20 --challenges moreelites
+cursedrelics nodes20 fireline 1-20 --challenges cursedrelics
+fatigue nodes20 fireline 1-20 --challenges fatigue
+reinforceddecks nodes20 fireline 1-20 --challenges reinforceddecks
+lesssupport nodes20 fireline 1-20 --challenges lesssupport
+smallshop nodes20 fireline 1-20 --challenges smallshop
+lostgold nodes20 fireline 1-20 --challenges lostgold
+fatigue4 nodes20 fireline 1-20 VAR=balance/tree_variants/eg/fat4.json --challenges fatigue
+fatigue6 nodes20 fireline 1-20 VAR=balance/tree_variants/eg/fat6.json --challenges fatigue
+calib nodes10 fireline 1-20
+calib nodes15 fireline 1-20
+base nodes20 astral 1-20
+veterans nodes20 astral 1-20 --challenges veterans
+tough nodes20 astral 1-20 --challenges tough
+relentless nodes20 astral 1-20 --challenges relentless
+commanders nodes20 astral 1-20 --challenges commanders
+bossrounds nodes20 astral 1-20 --challenges bossrounds
+reinforcements nodes20 astral 1-20 --challenges reinforcements
+raidfury nodes20 astral 1-20 --challenges raidfury
+inflation nodes20 astral 1-20 --challenges inflation
+lightpurse nodes20 astral 1-20 --challenges lightpurse
+scarce nodes20 astral 1-20 --challenges scarce
+bag nodes20 astral 1-20 --challenges bag
+heavydeck nodes20 astral 1-20 --challenges heavydeck
+dissipate nodes20 astral 1-20 --challenges dissipate
+fewrelics nodes20 astral 1-20 --challenges fewrelics
+cursed nodes20 astral 1-20 --challenges cursed
+moreelites nodes20 astral 1-20 --challenges moreelites
+cursedrelics nodes20 astral 1-20 --challenges cursedrelics
+fatigue nodes20 astral 1-20 --challenges fatigue
+reinforceddecks nodes20 astral 1-20 --challenges reinforceddecks
+lesssupport nodes20 astral 1-20 --challenges lesssupport
+smallshop nodes20 astral 1-20 --challenges smallshop
+lostgold nodes20 astral 1-20 --challenges lostgold
+fatigue4 nodes20 astral 1-20 VAR=balance/tree_variants/eg/fat4.json --challenges fatigue
+fatigue6 nodes20 astral 1-20 VAR=balance/tree_variants/eg/fat6.json --challenges fatigue
+calib nodes10 astral 1-20
+calib nodes15 astral 1-20
+base nodes20 corsair 1-20
+veterans nodes20 corsair 1-20 --challenges veterans
+tough nodes20 corsair 1-20 --challenges tough
+relentless nodes20 corsair 1-20 --challenges relentless
+commanders nodes20 corsair 1-20 --challenges commanders
+bossrounds nodes20 corsair 1-20 --challenges bossrounds
+reinforcements nodes20 corsair 1-20 --challenges reinforcements
+raidfury nodes20 corsair 1-20 --challenges raidfury
+inflation nodes20 corsair 1-20 --challenges inflation
+lightpurse nodes20 corsair 1-20 --challenges lightpurse
+scarce nodes20 corsair 1-20 --challenges scarce
+bag nodes20 corsair 1-20 --challenges bag
+heavydeck nodes20 corsair 1-20 --challenges heavydeck
+dissipate nodes20 corsair 1-20 --challenges dissipate
+fewrelics nodes20 corsair 1-20 --challenges fewrelics
+cursed nodes20 corsair 1-20 --challenges cursed
+moreelites nodes20 corsair 1-20 --challenges moreelites
+cursedrelics nodes20 corsair 1-20 --challenges cursedrelics
+fatigue nodes20 corsair 1-20 --challenges fatigue
+reinforceddecks nodes20 corsair 1-20 --challenges reinforceddecks
+lesssupport nodes20 corsair 1-20 --challenges lesssupport
+smallshop nodes20 corsair 1-20 --challenges smallshop
+lostgold nodes20 corsair 1-20 --challenges lostgold
+fatigue4 nodes20 corsair 1-20 VAR=balance/tree_variants/eg/fat4.json --challenges fatigue
+fatigue6 nodes20 corsair 1-20 VAR=balance/tree_variants/eg/fat6.json --challenges fatigue
+calib nodes10 corsair 1-20
+calib nodes15 corsair 1-20
+base nodes20 north 1-20
+veterans nodes20 north 1-20 --challenges veterans
+tough nodes20 north 1-20 --challenges tough
+relentless nodes20 north 1-20 --challenges relentless
+commanders nodes20 north 1-20 --challenges commanders
+bossrounds nodes20 north 1-20 --challenges bossrounds
+reinforcements nodes20 north 1-20 --challenges reinforcements
+raidfury nodes20 north 1-20 --challenges raidfury
+inflation nodes20 north 1-20 --challenges inflation
+lightpurse nodes20 north 1-20 --challenges lightpurse
+scarce nodes20 north 1-20 --challenges scarce
+bag nodes20 north 1-20 --challenges bag
+heavydeck nodes20 north 1-20 --challenges heavydeck
+dissipate nodes20 north 1-20 --challenges dissipate
+fewrelics nodes20 north 1-20 --challenges fewrelics
+cursed nodes20 north 1-20 --challenges cursed
+moreelites nodes20 north 1-20 --challenges moreelites
+cursedrelics nodes20 north 1-20 --challenges cursedrelics
+fatigue nodes20 north 1-20 --challenges fatigue
+reinforceddecks nodes20 north 1-20 --challenges reinforceddecks
+lesssupport nodes20 north 1-20 --challenges lesssupport
+smallshop nodes20 north 1-20 --challenges smallshop
+lostgold nodes20 north 1-20 --challenges lostgold
+fatigue4 nodes20 north 1-20 VAR=balance/tree_variants/eg/fat4.json --challenges fatigue
+fatigue6 nodes20 north 1-20 VAR=balance/tree_variants/eg/fat6.json --challenges fatigue
+calib nodes10 north 1-20
+calib nodes15 north 1-20
+base nodes20 verdant 1-20
+veterans nodes20 verdant 1-20 --challenges veterans
+tough nodes20 verdant 1-20 --challenges tough
+relentless nodes20 verdant 1-20 --challenges relentless
+commanders nodes20 verdant 1-20 --challenges commanders
+bossrounds nodes20 verdant 1-20 --challenges bossrounds
+reinforcements nodes20 verdant 1-20 --challenges reinforcements
+raidfury nodes20 verdant 1-20 --challenges raidfury
+inflation nodes20 verdant 1-20 --challenges inflation
+lightpurse nodes20 verdant 1-20 --challenges lightpurse
+scarce nodes20 verdant 1-20 --challenges scarce
+bag nodes20 verdant 1-20 --challenges bag
+heavydeck nodes20 verdant 1-20 --challenges heavydeck
+dissipate nodes20 verdant 1-20 --challenges dissipate
+fewrelics nodes20 verdant 1-20 --challenges fewrelics
+cursed nodes20 verdant 1-20 --challenges cursed
+moreelites nodes20 verdant 1-20 --challenges moreelites
+cursedrelics nodes20 verdant 1-20 --challenges cursedrelics
+fatigue nodes20 verdant 1-20 --challenges fatigue
+reinforceddecks nodes20 verdant 1-20 --challenges reinforceddecks
+lesssupport nodes20 verdant 1-20 --challenges lesssupport
+smallshop nodes20 verdant 1-20 --challenges smallshop
+lostgold nodes20 verdant 1-20 --challenges lostgold
+fatigue4 nodes20 verdant 1-20 VAR=balance/tree_variants/eg/fat4.json --challenges fatigue
+fatigue6 nodes20 verdant 1-20 VAR=balance/tree_variants/eg/fat6.json --challenges fatigue
+calib nodes10 verdant 1-20
+calib nodes15 verdant 1-20
+base nodes20 keen 1-20
+veterans nodes20 keen 1-20 --challenges veterans
+tough nodes20 keen 1-20 --challenges tough
+relentless nodes20 keen 1-20 --challenges relentless
+commanders nodes20 keen 1-20 --challenges commanders
+bossrounds nodes20 keen 1-20 --challenges bossrounds
+reinforcements nodes20 keen 1-20 --challenges reinforcements
+raidfury nodes20 keen 1-20 --challenges raidfury
+inflation nodes20 keen 1-20 --challenges inflation
+lightpurse nodes20 keen 1-20 --challenges lightpurse
+scarce nodes20 keen 1-20 --challenges scarce
+bag nodes20 keen 1-20 --challenges bag
+heavydeck nodes20 keen 1-20 --challenges heavydeck
+dissipate nodes20 keen 1-20 --challenges dissipate
+fewrelics nodes20 keen 1-20 --challenges fewrelics
+cursed nodes20 keen 1-20 --challenges cursed
+moreelites nodes20 keen 1-20 --challenges moreelites
+cursedrelics nodes20 keen 1-20 --challenges cursedrelics
+fatigue nodes20 keen 1-20 --challenges fatigue
+reinforceddecks nodes20 keen 1-20 --challenges reinforceddecks
+lesssupport nodes20 keen 1-20 --challenges lesssupport
+smallshop nodes20 keen 1-20 --challenges smallshop
+lostgold nodes20 keen 1-20 --challenges lostgold
+fatigue4 nodes20 keen 1-20 VAR=balance/tree_variants/eg/fat4.json --challenges fatigue
+fatigue6 nodes20 keen 1-20 VAR=balance/tree_variants/eg/fat6.json --challenges fatigue
+calib nodes10 keen 1-20
+calib nodes15 keen 1-20
+base nodes20 quake 1-20
+veterans nodes20 quake 1-20 --challenges veterans
+tough nodes20 quake 1-20 --challenges tough
+relentless nodes20 quake 1-20 --challenges relentless
+commanders nodes20 quake 1-20 --challenges commanders
+bossrounds nodes20 quake 1-20 --challenges bossrounds
+reinforcements nodes20 quake 1-20 --challenges reinforcements
+raidfury nodes20 quake 1-20 --challenges raidfury
+inflation nodes20 quake 1-20 --challenges inflation
+lightpurse nodes20 quake 1-20 --challenges lightpurse
+scarce nodes20 quake 1-20 --challenges scarce
+bag nodes20 quake 1-20 --challenges bag
+heavydeck nodes20 quake 1-20 --challenges heavydeck
+dissipate nodes20 quake 1-20 --challenges dissipate
+fewrelics nodes20 quake 1-20 --challenges fewrelics
+cursed nodes20 quake 1-20 --challenges cursed
+moreelites nodes20 quake 1-20 --challenges moreelites
+cursedrelics nodes20 quake 1-20 --challenges cursedrelics
+fatigue nodes20 quake 1-20 --challenges fatigue
+reinforceddecks nodes20 quake 1-20 --challenges reinforceddecks
+lesssupport nodes20 quake 1-20 --challenges lesssupport
+smallshop nodes20 quake 1-20 --challenges smallshop
+lostgold nodes20 quake 1-20 --challenges lostgold
+fatigue4 nodes20 quake 1-20 VAR=balance/tree_variants/eg/fat4.json --challenges fatigue
+fatigue6 nodes20 quake 1-20 VAR=balance/tree_variants/eg/fat6.json --challenges fatigue
+calib nodes10 quake 1-20
+calib nodes15 quake 1-20
+base nodes20 executioners 1-20
+veterans nodes20 executioners 1-20 --challenges veterans
+tough nodes20 executioners 1-20 --challenges tough
+relentless nodes20 executioners 1-20 --challenges relentless
+commanders nodes20 executioners 1-20 --challenges commanders
+bossrounds nodes20 executioners 1-20 --challenges bossrounds
+reinforcements nodes20 executioners 1-20 --challenges reinforcements
+raidfury nodes20 executioners 1-20 --challenges raidfury
+inflation nodes20 executioners 1-20 --challenges inflation
+lightpurse nodes20 executioners 1-20 --challenges lightpurse
+scarce nodes20 executioners 1-20 --challenges scarce
+bag nodes20 executioners 1-20 --challenges bag
+heavydeck nodes20 executioners 1-20 --challenges heavydeck
+dissipate nodes20 executioners 1-20 --challenges dissipate
+fewrelics nodes20 executioners 1-20 --challenges fewrelics
+cursed nodes20 executioners 1-20 --challenges cursed
+moreelites nodes20 executioners 1-20 --challenges moreelites
+cursedrelics nodes20 executioners 1-20 --challenges cursedrelics
+fatigue nodes20 executioners 1-20 --challenges fatigue
+reinforceddecks nodes20 executioners 1-20 --challenges reinforceddecks
+lesssupport nodes20 executioners 1-20 --challenges lesssupport
+smallshop nodes20 executioners 1-20 --challenges smallshop
+lostgold nodes20 executioners 1-20 --challenges lostgold
+fatigue4 nodes20 executioners 1-20 VAR=balance/tree_variants/eg/fat4.json --challenges fatigue
+fatigue6 nodes20 executioners 1-20 VAR=balance/tree_variants/eg/fat6.json --challenges fatigue
+calib nodes10 executioners 1-20
+calib nodes15 executioners 1-20
+base nodes20 goblin_horde 1-20
+veterans nodes20 goblin_horde 1-20 --challenges veterans
+tough nodes20 goblin_horde 1-20 --challenges tough
+relentless nodes20 goblin_horde 1-20 --challenges relentless
+commanders nodes20 goblin_horde 1-20 --challenges commanders
+bossrounds nodes20 goblin_horde 1-20 --challenges bossrounds
+reinforcements nodes20 goblin_horde 1-20 --challenges reinforcements
+raidfury nodes20 goblin_horde 1-20 --challenges raidfury
+inflation nodes20 goblin_horde 1-20 --challenges inflation
+lightpurse nodes20 goblin_horde 1-20 --challenges lightpurse
+scarce nodes20 goblin_horde 1-20 --challenges scarce
+bag nodes20 goblin_horde 1-20 --challenges bag
+heavydeck nodes20 goblin_horde 1-20 --challenges heavydeck
+dissipate nodes20 goblin_horde 1-20 --challenges dissipate
+fewrelics nodes20 goblin_horde 1-20 --challenges fewrelics
+cursed nodes20 goblin_horde 1-20 --challenges cursed
+moreelites nodes20 goblin_horde 1-20 --challenges moreelites
+cursedrelics nodes20 goblin_horde 1-20 --challenges cursedrelics
+fatigue nodes20 goblin_horde 1-20 --challenges fatigue
+reinforceddecks nodes20 goblin_horde 1-20 --challenges reinforceddecks
+lesssupport nodes20 goblin_horde 1-20 --challenges lesssupport
+smallshop nodes20 goblin_horde 1-20 --challenges smallshop
+lostgold nodes20 goblin_horde 1-20 --challenges lostgold
+fatigue4 nodes20 goblin_horde 1-20 VAR=balance/tree_variants/eg/fat4.json --challenges fatigue
+fatigue6 nodes20 goblin_horde 1-20 VAR=balance/tree_variants/eg/fat6.json --challenges fatigue
+calib nodes10 goblin_horde 1-20
+calib nodes15 goblin_horde 1-20
+base nodes20 greenskins 1-20
+veterans nodes20 greenskins 1-20 --challenges veterans
+tough nodes20 greenskins 1-20 --challenges tough
+relentless nodes20 greenskins 1-20 --challenges relentless
+commanders nodes20 greenskins 1-20 --challenges commanders
+bossrounds nodes20 greenskins 1-20 --challenges bossrounds
+reinforcements nodes20 greenskins 1-20 --challenges reinforcements
+raidfury nodes20 greenskins 1-20 --challenges raidfury
+inflation nodes20 greenskins 1-20 --challenges inflation
+lightpurse nodes20 greenskins 1-20 --challenges lightpurse
+scarce nodes20 greenskins 1-20 --challenges scarce
+bag nodes20 greenskins 1-20 --challenges bag
+heavydeck nodes20 greenskins 1-20 --challenges heavydeck
+dissipate nodes20 greenskins 1-20 --challenges dissipate
+fewrelics nodes20 greenskins 1-20 --challenges fewrelics
+cursed nodes20 greenskins 1-20 --challenges cursed
+moreelites nodes20 greenskins 1-20 --challenges moreelites
+cursedrelics nodes20 greenskins 1-20 --challenges cursedrelics
+fatigue nodes20 greenskins 1-20 --challenges fatigue
+reinforceddecks nodes20 greenskins 1-20 --challenges reinforceddecks
+lesssupport nodes20 greenskins 1-20 --challenges lesssupport
+smallshop nodes20 greenskins 1-20 --challenges smallshop
+lostgold nodes20 greenskins 1-20 --challenges lostgold
+fatigue4 nodes20 greenskins 1-20 VAR=balance/tree_variants/eg/fat4.json --challenges fatigue
+fatigue6 nodes20 greenskins 1-20 VAR=balance/tree_variants/eg/fat6.json --challenges fatigue
+calib nodes10 greenskins 1-20
+calib nodes15 greenskins 1-20
+base nodes20 dark_court 1-20
+veterans nodes20 dark_court 1-20 --challenges veterans
+tough nodes20 dark_court 1-20 --challenges tough
+relentless nodes20 dark_court 1-20 --challenges relentless
+commanders nodes20 dark_court 1-20 --challenges commanders
+bossrounds nodes20 dark_court 1-20 --challenges bossrounds
+reinforcements nodes20 dark_court 1-20 --challenges reinforcements
+raidfury nodes20 dark_court 1-20 --challenges raidfury
+inflation nodes20 dark_court 1-20 --challenges inflation
+lightpurse nodes20 dark_court 1-20 --challenges lightpurse
+scarce nodes20 dark_court 1-20 --challenges scarce
+bag nodes20 dark_court 1-20 --challenges bag
+heavydeck nodes20 dark_court 1-20 --challenges heavydeck
+dissipate nodes20 dark_court 1-20 --challenges dissipate
+fewrelics nodes20 dark_court 1-20 --challenges fewrelics
+cursed nodes20 dark_court 1-20 --challenges cursed
+moreelites nodes20 dark_court 1-20 --challenges moreelites
+cursedrelics nodes20 dark_court 1-20 --challenges cursedrelics
+fatigue nodes20 dark_court 1-20 --challenges fatigue
+reinforceddecks nodes20 dark_court 1-20 --challenges reinforceddecks
+lesssupport nodes20 dark_court 1-20 --challenges lesssupport
+smallshop nodes20 dark_court 1-20 --challenges smallshop
+lostgold nodes20 dark_court 1-20 --challenges lostgold
+fatigue4 nodes20 dark_court 1-20 VAR=balance/tree_variants/eg/fat4.json --challenges fatigue
+fatigue6 nodes20 dark_court 1-20 VAR=balance/tree_variants/eg/fat6.json --challenges fatigue
+calib nodes10 dark_court 1-20
+calib nodes15 dark_court 1-20
+base nodes20 blackfang_war 1-20
+veterans nodes20 blackfang_war 1-20 --challenges veterans
+tough nodes20 blackfang_war 1-20 --challenges tough
+relentless nodes20 blackfang_war 1-20 --challenges relentless
+commanders nodes20 blackfang_war 1-20 --challenges commanders
+bossrounds nodes20 blackfang_war 1-20 --challenges bossrounds
+reinforcements nodes20 blackfang_war 1-20 --challenges reinforcements
+raidfury nodes20 blackfang_war 1-20 --challenges raidfury
+inflation nodes20 blackfang_war 1-20 --challenges inflation
+lightpurse nodes20 blackfang_war 1-20 --challenges lightpurse
+scarce nodes20 blackfang_war 1-20 --challenges scarce
+bag nodes20 blackfang_war 1-20 --challenges bag
+heavydeck nodes20 blackfang_war 1-20 --challenges heavydeck
+dissipate nodes20 blackfang_war 1-20 --challenges dissipate
+fewrelics nodes20 blackfang_war 1-20 --challenges fewrelics
+cursed nodes20 blackfang_war 1-20 --challenges cursed
+moreelites nodes20 blackfang_war 1-20 --challenges moreelites
+cursedrelics nodes20 blackfang_war 1-20 --challenges cursedrelics
+fatigue nodes20 blackfang_war 1-20 --challenges fatigue
+reinforceddecks nodes20 blackfang_war 1-20 --challenges reinforceddecks
+lesssupport nodes20 blackfang_war 1-20 --challenges lesssupport
+smallshop nodes20 blackfang_war 1-20 --challenges smallshop
+lostgold nodes20 blackfang_war 1-20 --challenges lostgold
+fatigue4 nodes20 blackfang_war 1-20 VAR=balance/tree_variants/eg/fat4.json --challenges fatigue
+fatigue6 nodes20 blackfang_war 1-20 VAR=balance/tree_variants/eg/fat6.json --challenges fatigue
+calib nodes10 blackfang_war 1-20
+calib nodes15 blackfang_war 1-20
+base nodes20 meowri_band 1-20
+veterans nodes20 meowri_band 1-20 --challenges veterans
+tough nodes20 meowri_band 1-20 --challenges tough
+relentless nodes20 meowri_band 1-20 --challenges relentless
+commanders nodes20 meowri_band 1-20 --challenges commanders
+bossrounds nodes20 meowri_band 1-20 --challenges bossrounds
+reinforcements nodes20 meowri_band 1-20 --challenges reinforcements
+raidfury nodes20 meowri_band 1-20 --challenges raidfury
+inflation nodes20 meowri_band 1-20 --challenges inflation
+lightpurse nodes20 meowri_band 1-20 --challenges lightpurse
+scarce nodes20 meowri_band 1-20 --challenges scarce
+bag nodes20 meowri_band 1-20 --challenges bag
+heavydeck nodes20 meowri_band 1-20 --challenges heavydeck
+dissipate nodes20 meowri_band 1-20 --challenges dissipate
+fewrelics nodes20 meowri_band 1-20 --challenges fewrelics
+cursed nodes20 meowri_band 1-20 --challenges cursed
+moreelites nodes20 meowri_band 1-20 --challenges moreelites
+cursedrelics nodes20 meowri_band 1-20 --challenges cursedrelics
+fatigue nodes20 meowri_band 1-20 --challenges fatigue
+reinforceddecks nodes20 meowri_band 1-20 --challenges reinforceddecks
+lesssupport nodes20 meowri_band 1-20 --challenges lesssupport
+smallshop nodes20 meowri_band 1-20 --challenges smallshop
+lostgold nodes20 meowri_band 1-20 --challenges lostgold
+fatigue4 nodes20 meowri_band 1-20 VAR=balance/tree_variants/eg/fat4.json --challenges fatigue
+fatigue6 nodes20 meowri_band 1-20 VAR=balance/tree_variants/eg/fat6.json --challenges fatigue
+calib nodes10 meowri_band 1-20
+calib nodes15 meowri_band 1-20
+base nodes20 high_court 1-20
+veterans nodes20 high_court 1-20 --challenges veterans
+tough nodes20 high_court 1-20 --challenges tough
+relentless nodes20 high_court 1-20 --challenges relentless
+commanders nodes20 high_court 1-20 --challenges commanders
+bossrounds nodes20 high_court 1-20 --challenges bossrounds
+reinforcements nodes20 high_court 1-20 --challenges reinforcements
+raidfury nodes20 high_court 1-20 --challenges raidfury
+inflation nodes20 high_court 1-20 --challenges inflation
+lightpurse nodes20 high_court 1-20 --challenges lightpurse
+scarce nodes20 high_court 1-20 --challenges scarce
+bag nodes20 high_court 1-20 --challenges bag
+heavydeck nodes20 high_court 1-20 --challenges heavydeck
+dissipate nodes20 high_court 1-20 --challenges dissipate
+fewrelics nodes20 high_court 1-20 --challenges fewrelics
+cursed nodes20 high_court 1-20 --challenges cursed
+moreelites nodes20 high_court 1-20 --challenges moreelites
+cursedrelics nodes20 high_court 1-20 --challenges cursedrelics
+fatigue nodes20 high_court 1-20 --challenges fatigue
+reinforceddecks nodes20 high_court 1-20 --challenges reinforceddecks
+lesssupport nodes20 high_court 1-20 --challenges lesssupport
+smallshop nodes20 high_court 1-20 --challenges smallshop
+lostgold nodes20 high_court 1-20 --challenges lostgold
+fatigue4 nodes20 high_court 1-20 VAR=balance/tree_variants/eg/fat4.json --challenges fatigue
+fatigue6 nodes20 high_court 1-20 VAR=balance/tree_variants/eg/fat6.json --challenges fatigue
+calib nodes10 high_court 1-20
+calib nodes15 high_court 1-20
+base nodes20 forest_guard 1-20
+veterans nodes20 forest_guard 1-20 --challenges veterans
+tough nodes20 forest_guard 1-20 --challenges tough
+relentless nodes20 forest_guard 1-20 --challenges relentless
+commanders nodes20 forest_guard 1-20 --challenges commanders
+bossrounds nodes20 forest_guard 1-20 --challenges bossrounds
+reinforcements nodes20 forest_guard 1-20 --challenges reinforcements
+raidfury nodes20 forest_guard 1-20 --challenges raidfury
+inflation nodes20 forest_guard 1-20 --challenges inflation
+lightpurse nodes20 forest_guard 1-20 --challenges lightpurse
+scarce nodes20 forest_guard 1-20 --challenges scarce
+bag nodes20 forest_guard 1-20 --challenges bag
+heavydeck nodes20 forest_guard 1-20 --challenges heavydeck
+dissipate nodes20 forest_guard 1-20 --challenges dissipate
+fewrelics nodes20 forest_guard 1-20 --challenges fewrelics
+cursed nodes20 forest_guard 1-20 --challenges cursed
+moreelites nodes20 forest_guard 1-20 --challenges moreelites
+cursedrelics nodes20 forest_guard 1-20 --challenges cursedrelics
+fatigue nodes20 forest_guard 1-20 --challenges fatigue
+reinforceddecks nodes20 forest_guard 1-20 --challenges reinforceddecks
+lesssupport nodes20 forest_guard 1-20 --challenges lesssupport
+smallshop nodes20 forest_guard 1-20 --challenges smallshop
+lostgold nodes20 forest_guard 1-20 --challenges lostgold
+fatigue4 nodes20 forest_guard 1-20 VAR=balance/tree_variants/eg/fat4.json --challenges fatigue
+fatigue6 nodes20 forest_guard 1-20 VAR=balance/tree_variants/eg/fat6.json --challenges fatigue
+calib nodes10 forest_guard 1-20
+calib nodes15 forest_guard 1-20
+base nodes20 centaur_charge 1-20
+veterans nodes20 centaur_charge 1-20 --challenges veterans
+tough nodes20 centaur_charge 1-20 --challenges tough
+relentless nodes20 centaur_charge 1-20 --challenges relentless
+commanders nodes20 centaur_charge 1-20 --challenges commanders
+bossrounds nodes20 centaur_charge 1-20 --challenges bossrounds
+reinforcements nodes20 centaur_charge 1-20 --challenges reinforcements
+raidfury nodes20 centaur_charge 1-20 --challenges raidfury
+inflation nodes20 centaur_charge 1-20 --challenges inflation
+lightpurse nodes20 centaur_charge 1-20 --challenges lightpurse
+scarce nodes20 centaur_charge 1-20 --challenges scarce
+bag nodes20 centaur_charge 1-20 --challenges bag
+heavydeck nodes20 centaur_charge 1-20 --challenges heavydeck
+dissipate nodes20 centaur_charge 1-20 --challenges dissipate
+fewrelics nodes20 centaur_charge 1-20 --challenges fewrelics
+cursed nodes20 centaur_charge 1-20 --challenges cursed
+moreelites nodes20 centaur_charge 1-20 --challenges moreelites
+cursedrelics nodes20 centaur_charge 1-20 --challenges cursedrelics
+fatigue nodes20 centaur_charge 1-20 --challenges fatigue
+reinforceddecks nodes20 centaur_charge 1-20 --challenges reinforceddecks
+lesssupport nodes20 centaur_charge 1-20 --challenges lesssupport
+smallshop nodes20 centaur_charge 1-20 --challenges smallshop
+lostgold nodes20 centaur_charge 1-20 --challenges lostgold
+fatigue4 nodes20 centaur_charge 1-20 VAR=balance/tree_variants/eg/fat4.json --challenges fatigue
+fatigue6 nodes20 centaur_charge 1-20 VAR=balance/tree_variants/eg/fat6.json --challenges fatigue
+calib nodes10 centaur_charge 1-20
+calib nodes15 centaur_charge 1-20
+base nodes20 dawncrest_choir 1-20
+veterans nodes20 dawncrest_choir 1-20 --challenges veterans
+tough nodes20 dawncrest_choir 1-20 --challenges tough
+relentless nodes20 dawncrest_choir 1-20 --challenges relentless
+commanders nodes20 dawncrest_choir 1-20 --challenges commanders
+bossrounds nodes20 dawncrest_choir 1-20 --challenges bossrounds
+reinforcements nodes20 dawncrest_choir 1-20 --challenges reinforcements
+raidfury nodes20 dawncrest_choir 1-20 --challenges raidfury
+inflation nodes20 dawncrest_choir 1-20 --challenges inflation
+lightpurse nodes20 dawncrest_choir 1-20 --challenges lightpurse
+scarce nodes20 dawncrest_choir 1-20 --challenges scarce
+bag nodes20 dawncrest_choir 1-20 --challenges bag
+heavydeck nodes20 dawncrest_choir 1-20 --challenges heavydeck
+dissipate nodes20 dawncrest_choir 1-20 --challenges dissipate
+fewrelics nodes20 dawncrest_choir 1-20 --challenges fewrelics
+cursed nodes20 dawncrest_choir 1-20 --challenges cursed
+moreelites nodes20 dawncrest_choir 1-20 --challenges moreelites
+cursedrelics nodes20 dawncrest_choir 1-20 --challenges cursedrelics
+fatigue nodes20 dawncrest_choir 1-20 --challenges fatigue
+reinforceddecks nodes20 dawncrest_choir 1-20 --challenges reinforceddecks
+lesssupport nodes20 dawncrest_choir 1-20 --challenges lesssupport
+smallshop nodes20 dawncrest_choir 1-20 --challenges smallshop
+lostgold nodes20 dawncrest_choir 1-20 --challenges lostgold
+fatigue4 nodes20 dawncrest_choir 1-20 VAR=balance/tree_variants/eg/fat4.json --challenges fatigue
+fatigue6 nodes20 dawncrest_choir 1-20 VAR=balance/tree_variants/eg/fat6.json --challenges fatigue
+calib nodes10 dawncrest_choir 1-20
+calib nodes15 dawncrest_choir 1-20
