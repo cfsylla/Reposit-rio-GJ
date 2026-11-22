@@ -8,22 +8,22 @@ const G=root.Game,P=root.Progress,T=root.JourneyTree,C=root.JourneyContent,A=roo
 const LIST=[
  {id:'travel_relic',en:'Travel Relic',pt:'Relíquia de Viagem',enDesc:'Start each run with +1 random common relic that fits the bag.',ptDesc:'Começa cada run com +1 relíquia comum aleatória que caiba na bolsa.'},
  {id:'pretraining',en:'Pre-Training',pt:'Treino Prévio',enDesc:'2 random deck cards start with upgrade 1.',ptDesc:'2 cartas aleatórias do deck começam com upgrade 1.'},
- {id:'flex_prep',en:'Flexible Preparation',pt:'Preparação Flexível',enDesc:'Once per round, refresh your hand for free.',ptDesc:'Uma vez por rodada, renova a mão de graça.'},
+ {id:'flex_prep',en:'Flexible Preparation',pt:'Preparação Flexível',enDesc:'Once per confrontation, refresh your hand for free.',ptDesc:'Uma vez por confronto, renova a mão de graça.'},
  {id:'efficient_fusion',en:'Efficient Fusion',pt:'Fusão Eficiente',enDesc:'Every fusion completed refunds 1 energy.',ptDesc:'Toda fusão concluída devolve 1 de energia.'},
- {id:'full_purse',en:'Full Purse',pt:'Bolsa Cheia',enDesc:'+20 starting gold.',ptDesc:'+20 de ouro inicial.'},
+ {id:'full_purse',en:'Full Purse',pt:'Bolsa Cheia',enDesc:'+40 starting gold.',ptDesc:'+40 de ouro inicial.'},
  {id:'elite_experience',en:'Elite Experience',pt:'Experiência de Elite',enDesc:'Each elite defeated grants all your units +0.5% health and attack until the end of the run.',ptDesc:'Cada elite vencida dá +0,5% de vida e ataque a todas as suas unidades até o fim da run.'},
- {id:'trained_eye',en:'Trained Eye',pt:'Olho Treinado',enDesc:'One free reroll on every relic choice.',ptDesc:'1 renovação grátis em toda escolha de relíquia.'},
+ {id:'trained_eye',en:'Trained Eye',pt:'Olho Treinado',enDesc:'One free reroll on every relic choice and every recruit node.',ptDesc:'1 renovação grátis em toda escolha de relíquia e em todo nó de recrutamento.'},
  {id:'rehearsal',en:'Rehearsal',pt:'Ensaio',enDesc:'The first card bought in each shop comes with upgrade 2.',ptDesc:'A primeira carta comprada em cada loja vem com upgrade 2.'},
  {id:'planned_hand',en:'Planned Hand',pt:'Mão Planejada',enDesc:'Before the run, choose a deck card: one copy starts in your hand in every other confrontation (1st, 3rd, 5th...).',ptDesc:'Antes da run, escolhe uma carta do deck: uma cópia começa na mão em confrontos alternados (1º, 3º, 5º...).'},
  {id:'saved_energy',en:'Saved Energy',pt:'Energia Guardada',enDesc:'+1 energy in the first round of each confrontation.',ptDesc:'+1 de energia na primeira rodada de cada confronto.'},
- {id:'cleanse',en:'Cleanse',pt:'Limpeza',enDesc:'One free card removal in the first shop of each map.',ptDesc:'Uma remoção de carta grátis na primeira loja de cada mapa.'},
+ {id:'cleanse',en:'Cleanse',pt:'Limpeza',enDesc:'One free card removal in every shop.',ptDesc:'Uma remoção de carta grátis em cada loja.'},
  {id:'path_blessing',en:'Path Blessing',pt:'Bênção do Caminho',enDesc:'Entering maps 2 and 3 upgrades 2 random deck cards to level 1.',ptDesc:'Ao entrar nos mapas 2 e 3, 2 cartas aleatórias do deck recebem upgrade 1.'},
  {id:'interest',en:'Interest',pt:'Juros',enDesc:'Defeating each map boss grants 100% of your saved gold (max. 150).',ptDesc:'Vencer o boss de cada mapa concede 100% do ouro guardado (máx. 150).'},
  {id:'elite_hunter',en:'Elite Hunter',pt:'Caçador de Elites',enDesc:'Defeating an elite grants +20 gold.',ptDesc:'Vencer uma elite concede +20 de ouro.'},
- {id:'second_chance',en:'Second Chance',pt:'Segunda Chance',enDesc:'Once per run, losing a confrontation (except bosses) replays only the last round: the score is kept and the enemy loses 1 point.',ptDesc:'Uma vez por run, perder um confronto (exceto bosses) repete só a última rodada: o placar continua e o inimigo perde 1 ponto.'},
+ {id:'second_chance',en:'Second Chance',pt:'Segunda Chance',enDesc:'Once per run, losing a confrontation (bosses included) grants one more round: the defeat limit rises by 1.',ptDesc:'Uma vez por run, perder um confronto (inclusive boss) dá mais uma rodada: o limite de derrotas sobe em 1.'},
 ];
 const BY=Object.fromEntries(LIST.map(a=>[a.id,a]));
-const TUNE=root.JOURNEY_ADVANTAGE_TUNE={pretraining:2,pretrainingLevel:1,pretrainingLevels:[1,1],rehearsalLevel:2,eyeMode:'every',secondMode:'round',blessingLevel:1,blessingCount:1,blessingLevels:[1,1],flexUses:1,flexScope:'round',fusionRefund:1,fusionPerRound:99,plannedCount:1,plannedFreq:'alternate',eliteHp:.005,eliteAtk:.005,eliteCap:99,fullPurse:20,/* R3 (Carlos 08/11/2026): Juros e Caçador de Elites para +2 a +7 */interest:1,interestMax:150,eliteGold:20,...(root.JOURNEY_ADVANTAGE_TUNE||{})};
+const TUNE=root.JOURNEY_ADVANTAGE_TUNE={pretraining:2,pretrainingLevel:1,pretrainingLevels:[1,1],rehearsalLevel:2,eyeMode:'every',secondMode:'extra',blessingLevel:1,blessingCount:1,blessingLevels:[1,1],flexUses:1,flexScope:'confront',fusionRefund:1,fusionPerRound:99,plannedCount:1,plannedFreq:'alternate',eliteHp:.005,eliteAtk:.005,eliteCap:99,fullPurse:40,cleanseScope:'shop',/* R3 (Carlos 08/11/2026): Juros e Caçador de Elites para +2 a +7 */interest:1,interestMax:150,eliteGold:20,...(root.JOURNEY_ADVANTAGE_TUNE||{})};
 
 function owned(){const p=P.profile;p.advantages=[...new Set((p.advantages||[]).filter(id=>BY[id]))];return p.advantages;}
 function eligible(s){return !!s&&!s.training&&!s.tutorialReplay;}
@@ -76,17 +76,22 @@ function choosePlanned(s,type){if(!plannedOptions(s).includes(type))return false
 if(C?.draw){const draw=C.draw;C.draw=function(s,n){if(has(s,'planned_hand')&&s.adv?.planned&&s.round===1&&!s.hand.length&&s.adv.plannedAt!==s.encounters&&s.phase==='prep'){s.adv.plannedAt=s.encounters;if(plannedApplies(s))for(let k=0;k<TUNE.plannedCount;k++){const i=s.draw.findIndex(id=>s.cards.find(c=>c.uid===id)?.type===s.adv.planned);if(i>=0){const [id]=s.draw.splice(i,1);s.draw.push(id);}}}return draw(s,n);};}
 /* Experiência de Elite: additive stacks, player units only, whole run. */
 if(T?.stats){const stats=T.stats;T.stats=function(st,c,s,enemy){st=stats(st,c,s,enemy)||st;const k=!enemy&&has(s,'elite_experience')?Math.min(TUNE.eliteCap,s.adv?.eliteStacks||0):0;if(k){st.hp*=1+TUNE.eliteHp*k;st.atk*=1+TUNE.eliteAtk*k;}return st;};}
+/* Limpeza (22/11): uma remoção grátis em cada loja (cleanseScope 'shop'); 'map' = 1ª loja de cada mapa (antigo). */
+function cleanseFree(s){if(!s.adv)return false;if(TUNE.cleanseScope==='shop')return !s.adv.cleanse.includes(s.current.id);return !s.adv?.cleanse.includes(act(s))&&(!s.adv?.firstShops?.[act(s)]||s.adv.firstShops[act(s)]===s.current.id);}
 function energy(s,enemy){return !enemy&&has(s,'saved_energy')&&s.round===1?1:0;}
-if(T){const price=T.price;T.price=function(s,kind,base,merchant){const a=price(s,kind,base,merchant);if(kind==='remove'&&has(s,'cleanse')&&s.current?.type==='shop'&&!s.adv?.cleanse.includes(act(s))&&(!s.adv?.firstShops?.[act(s)]||s.adv.firstShops[act(s)]===s.current.id))return 0;return a;};}
-const service=G.shopService;G.shopService=function(s,kind,id){const free=kind==='remove'&&has(s,'cleanse')&&s.current?.type==='shop'&&!s.adv?.cleanse.includes(act(s))&&(!s.adv?.firstShops?.[act(s)]||s.adv.firstShops[act(s)]===s.current.id);const ok=service(s,kind,id);if(ok&&free)s.adv.cleanse.push(act(s));return ok;};
+if(T){const price=T.price;T.price=function(s,kind,base,merchant){const a=price(s,kind,base,merchant);if(kind==='remove'&&has(s,'cleanse')&&s.current?.type==='shop'&&cleanseFree(s))return 0;return a;};}
+const service=G.shopService;G.shopService=function(s,kind,id){const free=kind==='remove'&&has(s,'cleanse')&&s.current?.type==='shop'&&cleanseFree(s);const ok=service(s,kind,id);if(ok&&free)s.adv.cleanse.push(TUNE.cleanseScope==='shop'?s.current.id:act(s));return ok;};
 const purchase=G.buy;G.buy=function(s,kind,index){const before=s.cards.length,ok=purchase(s,kind,index);if(ok&&kind==='cards'&&has(s,'rehearsal')&&s.current?.type==='shop'&&!s.adv?.shops[s.current.id]&&s.cards.length>before){const c=s.cards[s.cards.length-1];if(c.level<TUNE.rehearsalLevel){const level=c.level;c.level=TUNE.rehearsalLevel;root.JourneyTelemetry?.upgrade(s,c,level);}s.adv.shops[s.current.id]=true;}return ok;};
 const advance=A.advance;A.advance=function(s){const before=act(s),ok=advance(s);if(ok&&has(s,'path_blessing')&&act(s)>before&&act(s)>=2)for(const L of (TUNE.blessingLevels||Array(TUNE.blessingCount).fill(TUNE.blessingLevel))){const c=pick(s,s.cards.filter(c=>!C?.isCurse(c)&&c.level<L));if(c)c.level=L;}return ok;};
 const encounter=P.encounterWin;P.encounterWin=function(s){const before=s.meta?.encounters?.length||0,r=encounter(s),recorded=(s.meta?.encounters?.length||0)>before;if(recorded&&has(s,'elite_experience')&&s.current?.type==='elite'&&!s.eventEncounter&&s.adv)s.adv.eliteStacks=(s.adv.eliteStacks||0)+1;if(recorded&&has(s,'elite_hunter')&&s.current?.type==='elite'&&!s.eventEncounter)G.rewardGold?G.rewardGold(s,TUNE.eliteGold):(s.gold+=TUNE.eliteGold);return r;};
+/* Segunda Chance (22/11): 1 vez por run, ao perder qualquer confronto (inclusive boss, raid, Titã e 2ª forma do True Boss), o limite de derrotas sobe em 1: o placar fica com uma derrota a menos do limite e joga mais uma rodada. A rodada extra perdida conta para Derrota Custa Ouro (s.adv.secondAt). */
+function secondChance(s){if(!eligible(s)||s.meta?.ended||!has(s,'second_chance')||!s.adv||s.adv.second||!s.current||s.phase!=='defeat')return false;s.adv.second=s.current.id;s.adv.secondAt=s.encounters;s.secondChanceNotice=true;s.score[1]=Math.max(0,(s.score[1]||1)-1);s.phase='roundResult';return true;}
 const finish=P.finish;P.finish=function(s,reason){
- if(eligible(s)&&reason==='defeat'&&!s.meta?.ended&&has(s,'second_chance')&&!s.adv?.second&&s.current&&['battle','elite'].includes(s.current.type)&&!s.eventEncounter&&!s.raid){
+ if(TUNE.secondMode==='extra'&&reason==='defeat'&&secondChance(s))return false;
+ if(TUNE.secondMode!=='extra'&&eligible(s)&&reason==='defeat'&&!s.meta?.ended&&has(s,'second_chance')&&!s.adv?.second&&s.current&&['battle','elite'].includes(s.current.type)&&!s.eventEncounter&&!s.raid){
   s.adv.second=s.current.id;if(TUNE.secondMode==='round'){s.score[1]=Math.max(0,G.winsNeeded(s)-1);s.phase='roundResult';G.nextRound(s);return false;}s.mapBattles=Math.max(0,(s.mapBattles||1)-1);s.encounters=Math.max(0,(s.encounters||1)-1);G.startConfront(s,s.current);return false;}
  if(eligible(s)&&reason==='victory'&&has(s,'interest')&&s.current?.type==='boss'&&s.adv&&!s.adv.interest.includes(act(s))){s.adv.interest.push(act(s));s.gold+=Math.min(TUNE.interestMax,Math.floor(s.gold*TUNE.interest));}
  return finish(s,reason);};
 
-root.JourneyAdvantages={LIST,flexLeft,plannedOptions,choosePlanned,BY,TUNE,owned,has,buy,deactivate,reset,start,canReroll,rerollRelic,energy};
+root.JourneyAdvantages={secondChance,LIST,flexLeft,plannedOptions,choosePlanned,BY,TUNE,owned,has,buy,deactivate,reset,start,canReroll,rerollRelic,energy};
 })(typeof globalThis!=='undefined'?globalThis:this);

@@ -211,7 +211,7 @@ function playRun(deck, seed, pol, opt) {
       }
       case 'prep': playFight(s, pol, rec, opt.dt); break;
       case 'encounterWin': G.leave(s); break;
-      case 'recruit': { const id = Pol.recruitPick(s, s.offers); if (!id || !G.recruit(s, id)) G.leave(s); break; }
+      case 'recruit': { if (E.AD?.canRerollRecruit?.(s) && !s.offers.some(id => G.copies(s, id) >= 1)) { E.AD.rerollRecruit(s); rec.eyeRecruit = (rec.eyeRecruit || 0) + 1; } const id = Pol.recruitPick(s, s.offers); if (!id || !G.recruit(s, id)) G.leave(s); break; }
       case 'upgrade': { const c = Pol.bestUpgradeTarget(s); if (!c || !G.upgrade(s, c.uid)) G.skipUpgrade(s); else if (s.phase === 'upgrade') G.leave(s); break; }
       case 'relic': { rec.relicOffers = (rec.relicOffers || 0) + 1; if (process.env.GJ_NO_RELICS === '1') { G.leave(s); break; } if (!s.offers.some(id => G.packBag([...s.artifacts, id], s))) rec.relicNoFit = (rec.relicNoFit || 0) + 1; if (E.AD?.canReroll(s) && (process.env.GJ_EYE_POLICY === 'strict' ? (!s.offers.some(id => G.packBag([...s.artifacts, id], s)) || Math.min(...s.offers.map(Pol.relicRank)) > 14) : Math.min(...s.offers.map(Pol.relicRank)) > 10)) E.AD.rerollRelic(s); const ids = [...s.offers].sort((a, b) => Pol.relicRank(a) - Pol.relicRank(b)); const fit = ids.find(id => G.packBag([...s.artifacts, id], s)); if (fit && G.claimRelic(s, fit) !== false) { Pol.placeRelic(s, true); if (s.phase === 'relic') G.leave(s); } else G.leave(s); break; }
       case 'shop': (rec.shopOffers ??= []).push([s.offers.cards.length, s.offers.artifacts.length]); doShop(s, pol, rec); G.leave(s); break;
@@ -277,7 +277,7 @@ function bossLab(s, node, pol, rec, dt) {
 }
 function finalize(s, rec) {
   if (s.challenges) { rec.challenges = s.challenges; rec.challengeLevel = s.challengeLevel; rec.insignia = s.meta?.insignia || 0; }
-  if (s.lgLost) rec.lgLost = s.lgLost; if (s.crCurses) rec.crCurses = s.crCurses;
+  if (s.lgLost) rec.lgLost = s.lgLost; if (s.crCurses) rec.crCurses = s.crCurses; if (s.adv) rec.advUse = { second: s.adv.second ? 1 : 0, trophies: s.adv.trophies?.length || 0, clean: s.adv.clean || 0, flex: Object.keys(s.adv.flex || {}).length, cleanse: s.adv.cleanse?.length || 0 };
   if (Tree.level) { rec.treeXp = Tree.profile().totalXp; rec.treeLevel = Tree.level(); }
   { const t = Tree.ensure?.(s); if (t?.earned) { const xa = [0, 0, 0], xb = [0, 0, 0]; // round 3: XP earned per map (fights / boss), from the engine's own award keys
       for (const k of t.earned) { const [a, id] = String(k).split(':'), i = Number(a) - 1; if (!(i >= 0 && i < 3)) continue; const isBoss = /boss/.test(id);
