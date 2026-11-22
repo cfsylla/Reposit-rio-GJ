@@ -1,0 +1,384 @@
+base nodes20 vanguard 1-20
+adv nodes20 vanguard 1-20 --advantages all
+ch15 nodes20 vanguard 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed
+ch15adv nodes20 vanguard 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed --advantages all
+base nodes20 balanced 1-20
+adv nodes20 balanced 1-20 --advantages all
+ch15 nodes20 balanced 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed
+ch15adv nodes20 balanced 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed --advantages all
+base nodes20 swift 1-20
+adv nodes20 swift 1-20 --advantages all
+ch15 nodes20 swift 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed
+ch15adv nodes20 swift 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed --advantages all
+base nodes20 arcane 1-20
+adv nodes20 arcane 1-20 --advantages all
+ch15 nodes20 arcane 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed
+ch15adv nodes20 arcane 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed --advantages all
+base nodes20 outlaws 1-20
+adv nodes20 outlaws 1-20 --advantages all
+ch15 nodes20 outlaws 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed
+ch15adv nodes20 outlaws 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed --advantages all
+base nodes20 fortress 1-20
+adv nodes20 fortress 1-20 --advantages all
+ch15 nodes20 fortress 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed
+ch15adv nodes20 fortress 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed --advantages all
+base nodes20 blades 1-20
+adv nodes20 blades 1-20 --advantages all
+ch15 nodes20 blades 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed
+ch15adv nodes20 blades 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed --advantages all
+base nodes20 fireline 1-20
+adv nodes20 fireline 1-20 --advantages all
+ch15 nodes20 fireline 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed
+ch15adv nodes20 fireline 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed --advantages all
+base nodes20 astral 1-20
+adv nodes20 astral 1-20 --advantages all
+ch15 nodes20 astral 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed
+ch15adv nodes20 astral 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed --advantages all
+base nodes20 corsair 1-20
+adv nodes20 corsair 1-20 --advantages all
+ch15 nodes20 corsair 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed
+ch15adv nodes20 corsair 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed --advantages all
+base nodes20 north 1-20
+adv nodes20 north 1-20 --advantages all
+ch15 nodes20 north 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed
+ch15adv nodes20 north 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed --advantages all
+base nodes20 verdant 1-20
+adv nodes20 verdant 1-20 --advantages all
+ch15 nodes20 verdant 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed
+ch15adv nodes20 verdant 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed --advantages all
+base nodes20 keen 1-20
+adv nodes20 keen 1-20 --advantages all
+ch15 nodes20 keen 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed
+ch15adv nodes20 keen 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed --advantages all
+base nodes20 quake 1-20
+adv nodes20 quake 1-20 --advantages all
+ch15 nodes20 quake 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed
+ch15adv nodes20 quake 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed --advantages all
+base nodes20 executioners 1-20
+adv nodes20 executioners 1-20 --advantages all
+ch15 nodes20 executioners 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed
+ch15adv nodes20 executioners 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed --advantages all
+base nodes20 goblin_horde 1-20
+adv nodes20 goblin_horde 1-20 --advantages all
+ch15 nodes20 goblin_horde 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed
+ch15adv nodes20 goblin_horde 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed --advantages all
+base nodes20 greenskins 1-20
+adv nodes20 greenskins 1-20 --advantages all
+ch15 nodes20 greenskins 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed
+ch15adv nodes20 greenskins 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed --advantages all
+base nodes20 dark_court 1-20
+adv nodes20 dark_court 1-20 --advantages all
+ch15 nodes20 dark_court 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed
+ch15adv nodes20 dark_court 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed --advantages all
+base nodes20 blackfang_war 1-20
+adv nodes20 blackfang_war 1-20 --advantages all
+ch15 nodes20 blackfang_war 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed
+ch15adv nodes20 blackfang_war 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed --advantages all
+base nodes20 meowri_band 1-20
+adv nodes20 meowri_band 1-20 --advantages all
+ch15 nodes20 meowri_band 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed
+ch15adv nodes20 meowri_band 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed --advantages all
+base nodes20 high_court 1-20
+adv nodes20 high_court 1-20 --advantages all
+ch15 nodes20 high_court 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed
+ch15adv nodes20 high_court 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed --advantages all
+base nodes20 forest_guard 1-20
+adv nodes20 forest_guard 1-20 --advantages all
+ch15 nodes20 forest_guard 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed
+ch15adv nodes20 forest_guard 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed --advantages all
+base nodes20 centaur_charge 1-20
+adv nodes20 centaur_charge 1-20 --advantages all
+ch15 nodes20 centaur_charge 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed
+ch15adv nodes20 centaur_charge 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed --advantages all
+base nodes20 dawncrest_choir 1-20
+adv nodes20 dawncrest_choir 1-20 --advantages all
+ch15 nodes20 dawncrest_choir 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed
+ch15adv nodes20 dawncrest_choir 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed --advantages all
+base nodes30 vanguard 1-20
+adv nodes30 vanguard 1-20 --advantages all
+ch15 nodes30 vanguard 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed
+ch15adv nodes30 vanguard 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed --advantages all
+base nodes30 balanced 1-20
+adv nodes30 balanced 1-20 --advantages all
+ch15 nodes30 balanced 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed
+ch15adv nodes30 balanced 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed --advantages all
+base nodes30 swift 1-20
+adv nodes30 swift 1-20 --advantages all
+ch15 nodes30 swift 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed
+ch15adv nodes30 swift 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed --advantages all
+base nodes30 arcane 1-20
+adv nodes30 arcane 1-20 --advantages all
+ch15 nodes30 arcane 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed
+ch15adv nodes30 arcane 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed --advantages all
+base nodes30 outlaws 1-20
+adv nodes30 outlaws 1-20 --advantages all
+ch15 nodes30 outlaws 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed
+ch15adv nodes30 outlaws 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed --advantages all
+base nodes30 fortress 1-20
+adv nodes30 fortress 1-20 --advantages all
+ch15 nodes30 fortress 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed
+ch15adv nodes30 fortress 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed --advantages all
+base nodes30 blades 1-20
+adv nodes30 blades 1-20 --advantages all
+ch15 nodes30 blades 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed
+ch15adv nodes30 blades 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed --advantages all
+base nodes30 fireline 1-20
+adv nodes30 fireline 1-20 --advantages all
+ch15 nodes30 fireline 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed
+ch15adv nodes30 fireline 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed --advantages all
+base nodes30 astral 1-20
+adv nodes30 astral 1-20 --advantages all
+ch15 nodes30 astral 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed
+ch15adv nodes30 astral 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed --advantages all
+base nodes30 corsair 1-20
+adv nodes30 corsair 1-20 --advantages all
+ch15 nodes30 corsair 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed
+ch15adv nodes30 corsair 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed --advantages all
+base nodes30 north 1-20
+adv nodes30 north 1-20 --advantages all
+ch15 nodes30 north 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed
+ch15adv nodes30 north 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed --advantages all
+base nodes30 verdant 1-20
+adv nodes30 verdant 1-20 --advantages all
+ch15 nodes30 verdant 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed
+ch15adv nodes30 verdant 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed --advantages all
+base nodes30 keen 1-20
+adv nodes30 keen 1-20 --advantages all
+ch15 nodes30 keen 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed
+ch15adv nodes30 keen 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed --advantages all
+base nodes30 quake 1-20
+adv nodes30 quake 1-20 --advantages all
+ch15 nodes30 quake 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed
+ch15adv nodes30 quake 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed --advantages all
+base nodes30 executioners 1-20
+adv nodes30 executioners 1-20 --advantages all
+ch15 nodes30 executioners 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed
+ch15adv nodes30 executioners 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed --advantages all
+base nodes30 goblin_horde 1-20
+adv nodes30 goblin_horde 1-20 --advantages all
+ch15 nodes30 goblin_horde 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed
+ch15adv nodes30 goblin_horde 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed --advantages all
+base nodes30 greenskins 1-20
+adv nodes30 greenskins 1-20 --advantages all
+ch15 nodes30 greenskins 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed
+ch15adv nodes30 greenskins 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed --advantages all
+base nodes30 dark_court 1-20
+adv nodes30 dark_court 1-20 --advantages all
+ch15 nodes30 dark_court 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed
+ch15adv nodes30 dark_court 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed --advantages all
+base nodes30 blackfang_war 1-20
+adv nodes30 blackfang_war 1-20 --advantages all
+ch15 nodes30 blackfang_war 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed
+ch15adv nodes30 blackfang_war 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed --advantages all
+base nodes30 meowri_band 1-20
+adv nodes30 meowri_band 1-20 --advantages all
+ch15 nodes30 meowri_band 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed
+ch15adv nodes30 meowri_band 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed --advantages all
+base nodes30 high_court 1-20
+adv nodes30 high_court 1-20 --advantages all
+ch15 nodes30 high_court 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed
+ch15adv nodes30 high_court 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed --advantages all
+base nodes30 forest_guard 1-20
+adv nodes30 forest_guard 1-20 --advantages all
+ch15 nodes30 forest_guard 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed
+ch15adv nodes30 forest_guard 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed --advantages all
+base nodes30 centaur_charge 1-20
+adv nodes30 centaur_charge 1-20 --advantages all
+ch15 nodes30 centaur_charge 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed
+ch15adv nodes30 centaur_charge 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed --advantages all
+base nodes30 dawncrest_choir 1-20
+adv nodes30 dawncrest_choir 1-20 --advantages all
+ch15 nodes30 dawncrest_choir 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed
+ch15adv nodes30 dawncrest_choir 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed --advantages all
+base nodes45 vanguard 1-20
+adv nodes45 vanguard 1-20 --advantages all
+ch15 nodes45 vanguard 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed
+ch15adv nodes45 vanguard 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed --advantages all
+base nodes45 balanced 1-20
+adv nodes45 balanced 1-20 --advantages all
+ch15 nodes45 balanced 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed
+ch15adv nodes45 balanced 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed --advantages all
+base nodes45 swift 1-20
+adv nodes45 swift 1-20 --advantages all
+ch15 nodes45 swift 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed
+ch15adv nodes45 swift 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed --advantages all
+base nodes45 arcane 1-20
+adv nodes45 arcane 1-20 --advantages all
+ch15 nodes45 arcane 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed
+ch15adv nodes45 arcane 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed --advantages all
+base nodes45 outlaws 1-20
+adv nodes45 outlaws 1-20 --advantages all
+ch15 nodes45 outlaws 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed
+ch15adv nodes45 outlaws 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed --advantages all
+base nodes45 fortress 1-20
+adv nodes45 fortress 1-20 --advantages all
+ch15 nodes45 fortress 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed
+ch15adv nodes45 fortress 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed --advantages all
+base nodes45 blades 1-20
+adv nodes45 blades 1-20 --advantages all
+ch15 nodes45 blades 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed
+ch15adv nodes45 blades 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed --advantages all
+base nodes45 fireline 1-20
+adv nodes45 fireline 1-20 --advantages all
+ch15 nodes45 fireline 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed
+ch15adv nodes45 fireline 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed --advantages all
+base nodes45 astral 1-20
+adv nodes45 astral 1-20 --advantages all
+ch15 nodes45 astral 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed
+ch15adv nodes45 astral 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed --advantages all
+base nodes45 corsair 1-20
+adv nodes45 corsair 1-20 --advantages all
+ch15 nodes45 corsair 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed
+ch15adv nodes45 corsair 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed --advantages all
+base nodes45 north 1-20
+adv nodes45 north 1-20 --advantages all
+ch15 nodes45 north 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed
+ch15adv nodes45 north 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed --advantages all
+base nodes45 verdant 1-20
+adv nodes45 verdant 1-20 --advantages all
+ch15 nodes45 verdant 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed
+ch15adv nodes45 verdant 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed --advantages all
+base nodes45 keen 1-20
+adv nodes45 keen 1-20 --advantages all
+ch15 nodes45 keen 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed
+ch15adv nodes45 keen 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed --advantages all
+base nodes45 quake 1-20
+adv nodes45 quake 1-20 --advantages all
+ch15 nodes45 quake 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed
+ch15adv nodes45 quake 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed --advantages all
+base nodes45 executioners 1-20
+adv nodes45 executioners 1-20 --advantages all
+ch15 nodes45 executioners 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed
+ch15adv nodes45 executioners 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed --advantages all
+base nodes45 goblin_horde 1-20
+adv nodes45 goblin_horde 1-20 --advantages all
+ch15 nodes45 goblin_horde 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed
+ch15adv nodes45 goblin_horde 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed --advantages all
+base nodes45 greenskins 1-20
+adv nodes45 greenskins 1-20 --advantages all
+ch15 nodes45 greenskins 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed
+ch15adv nodes45 greenskins 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed --advantages all
+base nodes45 dark_court 1-20
+adv nodes45 dark_court 1-20 --advantages all
+ch15 nodes45 dark_court 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed
+ch15adv nodes45 dark_court 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed --advantages all
+base nodes45 blackfang_war 1-20
+adv nodes45 blackfang_war 1-20 --advantages all
+ch15 nodes45 blackfang_war 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed
+ch15adv nodes45 blackfang_war 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed --advantages all
+base nodes45 meowri_band 1-20
+adv nodes45 meowri_band 1-20 --advantages all
+ch15 nodes45 meowri_band 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed
+ch15adv nodes45 meowri_band 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed --advantages all
+base nodes45 high_court 1-20
+adv nodes45 high_court 1-20 --advantages all
+ch15 nodes45 high_court 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed
+ch15adv nodes45 high_court 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed --advantages all
+base nodes45 forest_guard 1-20
+adv nodes45 forest_guard 1-20 --advantages all
+ch15 nodes45 forest_guard 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed
+ch15adv nodes45 forest_guard 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed --advantages all
+base nodes45 centaur_charge 1-20
+adv nodes45 centaur_charge 1-20 --advantages all
+ch15 nodes45 centaur_charge 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed
+ch15adv nodes45 centaur_charge 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed --advantages all
+base nodes45 dawncrest_choir 1-20
+adv nodes45 dawncrest_choir 1-20 --advantages all
+ch15 nodes45 dawncrest_choir 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed
+ch15adv nodes45 dawncrest_choir 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed --advantages all
+base nodes60 vanguard 1-20
+adv nodes60 vanguard 1-20 --advantages all
+ch15 nodes60 vanguard 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed
+ch15adv nodes60 vanguard 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed --advantages all
+base nodes60 balanced 1-20
+adv nodes60 balanced 1-20 --advantages all
+ch15 nodes60 balanced 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed
+ch15adv nodes60 balanced 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed --advantages all
+base nodes60 swift 1-20
+adv nodes60 swift 1-20 --advantages all
+ch15 nodes60 swift 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed
+ch15adv nodes60 swift 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed --advantages all
+base nodes60 arcane 1-20
+adv nodes60 arcane 1-20 --advantages all
+ch15 nodes60 arcane 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed
+ch15adv nodes60 arcane 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed --advantages all
+base nodes60 outlaws 1-20
+adv nodes60 outlaws 1-20 --advantages all
+ch15 nodes60 outlaws 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed
+ch15adv nodes60 outlaws 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed --advantages all
+base nodes60 fortress 1-20
+adv nodes60 fortress 1-20 --advantages all
+ch15 nodes60 fortress 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed
+ch15adv nodes60 fortress 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed --advantages all
+base nodes60 blades 1-20
+adv nodes60 blades 1-20 --advantages all
+ch15 nodes60 blades 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed
+ch15adv nodes60 blades 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed --advantages all
+base nodes60 fireline 1-20
+adv nodes60 fireline 1-20 --advantages all
+ch15 nodes60 fireline 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed
+ch15adv nodes60 fireline 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed --advantages all
+base nodes60 astral 1-20
+adv nodes60 astral 1-20 --advantages all
+ch15 nodes60 astral 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed
+ch15adv nodes60 astral 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed --advantages all
+base nodes60 corsair 1-20
+adv nodes60 corsair 1-20 --advantages all
+ch15 nodes60 corsair 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed
+ch15adv nodes60 corsair 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed --advantages all
+base nodes60 north 1-20
+adv nodes60 north 1-20 --advantages all
+ch15 nodes60 north 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed
+ch15adv nodes60 north 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed --advantages all
+base nodes60 verdant 1-20
+adv nodes60 verdant 1-20 --advantages all
+ch15 nodes60 verdant 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed
+ch15adv nodes60 verdant 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed --advantages all
+base nodes60 keen 1-20
+adv nodes60 keen 1-20 --advantages all
+ch15 nodes60 keen 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed
+ch15adv nodes60 keen 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed --advantages all
+base nodes60 quake 1-20
+adv nodes60 quake 1-20 --advantages all
+ch15 nodes60 quake 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed
+ch15adv nodes60 quake 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed --advantages all
+base nodes60 executioners 1-20
+adv nodes60 executioners 1-20 --advantages all
+ch15 nodes60 executioners 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed
+ch15adv nodes60 executioners 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed --advantages all
+base nodes60 goblin_horde 1-20
+adv nodes60 goblin_horde 1-20 --advantages all
+ch15 nodes60 goblin_horde 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed
+ch15adv nodes60 goblin_horde 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed --advantages all
+base nodes60 greenskins 1-20
+adv nodes60 greenskins 1-20 --advantages all
+ch15 nodes60 greenskins 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed
+ch15adv nodes60 greenskins 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed --advantages all
+base nodes60 dark_court 1-20
+adv nodes60 dark_court 1-20 --advantages all
+ch15 nodes60 dark_court 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed
+ch15adv nodes60 dark_court 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed --advantages all
+base nodes60 blackfang_war 1-20
+adv nodes60 blackfang_war 1-20 --advantages all
+ch15 nodes60 blackfang_war 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed
+ch15adv nodes60 blackfang_war 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed --advantages all
+base nodes60 meowri_band 1-20
+adv nodes60 meowri_band 1-20 --advantages all
+ch15 nodes60 meowri_band 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed
+ch15adv nodes60 meowri_band 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed --advantages all
+base nodes60 high_court 1-20
+adv nodes60 high_court 1-20 --advantages all
+ch15 nodes60 high_court 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed
+ch15adv nodes60 high_court 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed --advantages all
+base nodes60 forest_guard 1-20
+adv nodes60 forest_guard 1-20 --advantages all
+ch15 nodes60 forest_guard 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed
+ch15adv nodes60 forest_guard 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed --advantages all
+base nodes60 centaur_charge 1-20
+adv nodes60 centaur_charge 1-20 --advantages all
+ch15 nodes60 centaur_charge 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed
+ch15adv nodes60 centaur_charge 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed --advantages all
+base nodes60 dawncrest_choir 1-20
+adv nodes60 dawncrest_choir 1-20 --advantages all
+ch15 nodes60 dawncrest_choir 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed
+ch15adv nodes60 dawncrest_choir 1-20 --challenges veterans,tough,relentless,commanders,bossrounds,reinforcements,raidfury,inflation,lightpurse,scarce,bag,heavydeck,dissipate,fewrelics,cursed --advantages all

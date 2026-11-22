@@ -13,7 +13,7 @@ function args() {
   for (let i = 0; i < v.length; i += 2) a[v[i].replace(/^--/, '')] = v[i + 1];
   const range = x => { if (!x) return [1]; return x.split(',').flatMap(p => { const [lo, hi] = p.split('-').map(Number); return hi ? Array.from({ length: hi - lo + 1 }, (_, i) => lo + i) : [lo]; }); };
   return { decks: (a.decks || 'vanguard').split(','), seeds: range(a.seeds), prep: a.prep || 'smart', route: a.route || 'greedy', events: a.events || 'decline',
-    tree: a.tree || 'none', challenges: a.challenges ? a.challenges.split(',').filter(Boolean) : null, advantages: a.advantages || null, forcewin: a.forcewin === '1', shop: a.shop || 'upgrade-first', out: a.out, dt: Number(a.dt || 1 / 60), order: a.order || null, verbose: !!a.verbose };
+    tree: a.tree || 'none', challenges: a.challenges ? a.challenges.split(',').filter(Boolean) : null, advantages: a.advantages || null, forcewin: a.forcewin === '1', shop: a.shop || 'upgrade-first', out: a.out, dt: Number(a.dt || 1 / 60), order: a.order || null, verbose: !!a.verbose, treebuy: a.treebuy || null };
 }
 
 /* Permanent tree presets (profile state BEFORE the run; in-run purchases still happen after each boss). */
@@ -45,7 +45,11 @@ function allocate(budget) {
     if (!pick) return have; have.push(pick); left -= cost(pick);
   }
 }
-function treePreset(name) { const m = /^cap(\d+)$/.exec(name || ''); return m ? allocate(Number(m[1])) : TREE_PRESETS[name]; }
+/* nodesN (round 3, Carlos 05/11: reference = node count, half tree = 30): first N nodes in the same buy policy, no budget limit. */
+function allocateNodes(n) { const have = [], conn = id => TreeData.by[id].links.some(l => l === 'origin' || have.includes(l));
+  while (have.length < n) { let pick = TREE_BUY_ORDER.find(id => !have.includes(id) && conn(id)); if (!pick) pick = TreeData.nodes.filter(x => x.id !== 'origin' && !have.includes(x.id) && conn(x.id)).sort((x, y) => x.cost - y.cost || (x.category === 'expedition') - (y.category === 'expedition'))[0]?.id; if (!pick) break; have.push(pick); }
+  return have; }
+function treePreset(name) { const m = /^cap(\d+)$/.exec(name || ''), k = /^nodes(\d+)$/.exec(name || ''); return m ? allocate(Number(m[1])) : k ? allocateNodes(Number(k[1])) : TREE_PRESETS[name]; }
 const TREE_BUY_ORDER = ['pow_atk_1', 'vit_hp_1', 'def_armor_1', 'agi_rate_1', 'pow_atk_2', 'vit_hp_2', 'def_armor_2', 'agi_rate_2', 'pow_atk_3', 'vit_hp_3', 'vit_hp_4',
   'def_armor_3', 'def_armor_4', 'agi_rate_3', 'agi_rate_4', 'pow_atk_5', 'first_impact', 'second_wind', 'formation', 'strong_shields', 'sprint', 'momentum'];
 
@@ -74,7 +78,7 @@ function playFight(s, pol, rec, dt) {
     if (s.phase === 'roundResult') { G.nextRound(s); continue; }
     break;
   }
-  fight.result = s.phase === 'defeat' ? 'loss' : 'win';
+  fight.result = s.phase === 'defeat' || (s.phase === 'tree' && Tree.ensure(s)?.session?.kind === 'defeat') ? 'loss' : 'win';
   fight.score = [...s.score];
   rec.fights.push(fight);
 }
@@ -82,7 +86,8 @@ function playFight(s, pol, rec, dt) {
 function doShop(s, pol, rec) {
   const spend = (what, amt) => { rec.spent[what] = (rec.spent[what] || 0) + amt; };
   // 'balanced' shop policy: first secure a good relic that fits (while the bag holds < 4), then upgrades, then cards.
-  if (pol.shop === 'balanced' && s.artifacts.length < 4) {
+  // GJ_RELIC_CAP (09/11): limite de relíquias para o robô comprar na loja (padrão 4); relíquias vazias de teste não contam
+  if (pol.shop === 'balanced' && s.artifacts.filter(id => !id.startsWith('vazia_')).length < Number(process.env.GJ_RELIC_CAP || 4) && process.env.GJ_NO_RELICS !== '1') {
     const ri = s.offers.artifacts.map((id, i) => [id, i]).filter(([id]) => id && Pol.relicRank(id) <= 14).sort((a, b) => Pol.relicRank(a[0]) - Pol.relicRank(b[0]));
     for (const [id, i] of ri) { const p = G.price(s, 'artifacts', id); if (s.gold >= p && G.packBag([...s.artifacts, id], s) && G.buy(s, 'artifacts', i)) { const before = s.gold; Pol.placeRelic(s, true); spend('relic', before - s.gold); break; } }
   }
@@ -138,7 +143,7 @@ function doEvent(s, pol, rec) {
 
 function resolvePending(s, rec) {
   for (let k = 0; k < 10; k++) {
-    if (s.pendingRelic) { Pol.placeRelic(s, true); continue; }
+    if (s.pendingRelic) { Pol.placeRelic(s, process.env.GJ_NO_RELICS !== '1'); continue; }
     if (s.phase === 'eventReward' && s.eventPending) {
       const r = s.eventPending;
       if (r.relic && r.artifactOptions.length) { const id = [...r.artifactOptions].sort((a, b) => Pol.relicRank(a) - Pol.relicRank(b))[0]; if (G.claimEvent(s, 'relic', id)) { Pol.placeRelic(s, true); continue; } r.relic = false; }
@@ -153,6 +158,8 @@ function resolvePending(s, rec) {
 const CUSTOM = process.env.GJ_DECKS ? Object.fromEntries(JSON.parse(fs.readFileSync(process.env.GJ_DECKS, 'utf8')).decks.map(d => [d.id, d])) : {};
 function playRun(deck, seed, pol, opt) {
   P.load(P.freshProfile()); P.completeTutorial();
+  // ENDGAME (v65, 22/11): trava de mapas da Review R3. Premissa do endgame = 3 mapas liberados (GJ_MAPS para mudar).
+  if ('mapsUnlocked' in P.profile) P.profile.mapsUnlocked = Number(process.env.GJ_MAPS || 3);
   const prof = Tree.profile(); prof.unlocked = [...(Array.isArray(pol.tree) ? pol.tree : treePreset(pol.tree) || [])];
   // level model (game_p5+): banked XP = given career XP, or exactly the cost of the preset (no free points)
   if (Tree.level) prof.totalXp = pol.treeXp ?? prof.unlocked.reduce((t, id) => t + TreeData.by[id].cost, 0);
@@ -166,23 +173,33 @@ function playRun(deck, seed, pol, opt) {
     s.artifacts = [custom.startRelic]; s.reserve = []; s.bag = null; G.ensureBag(s);
     if (custom.order === 'blackfang') s.blackfangAvailable = true; if (custom.order === 'dawncrest') s.dawncrestAvailable = true;
   }
+
   const rnd = G.rng(seed ^ 0x5eed);
   const rec = { deck, seed, policy: pol, fights: [], events: [], spent: {}, goldIn: 0, nodes: [], treeBought: [], result: null };
+  // RELÍQUIAS (Carlos 08/11, só medição): GJ_NO_RELICS=1 joga sem relíquias; GJ_FORCE_RELIC=id começa com a relíquia equipada; GJ_START_GOLD=n ouro extra no início
+  if (process.env.GJ_NO_RELICS === '1') { s.artifacts = []; s.reserve = []; s.bag = null; G.ensureBag(s); }
+  if (process.env.GJ_FORCE_RELIC && !s.artifacts.includes(process.env.GJ_FORCE_RELIC)) { const F = process.env.GJ_FORCE_RELIC, items = G.packBag([...s.artifacts, F], s);
+    s.artifacts.push(F); if (items && G.commitBag(s, [...items, ...(s.reserve || []).map(id => ({ id, x: null, y: null, rotation: 0 }))])) rec.forcedRelic = F; else { s.artifacts.pop(); rec.forcedRelic = 'nao-coube:' + F; } }
+  if (process.env.GJ_START_GOLD) s.gold += Number(process.env.GJ_START_GOLD);
   let lastGold = s.gold, steps = 0;
   const trackGold = () => { if (s.gold > lastGold) rec.goldIn += s.gold - lastGold; lastGold = s.gold; };
+  // Captain's Standard (Carlos 08/11): o jogador escolhe a unidade vinculada; o simulador escolhe a de maior custo (melhor caso)
+  const standard = () => { if (!s.artifacts.includes('captain_standard') || !C?.setStandard || s.phase === 'battle') return; const st = C.state?.(s); if (st?.standard && s.cards.some(c => c.uid === st.standard)) return;
+    const u = s.cards.filter(c => G.BY[c.type] && G.BY[c.type].kind !== 'curse' && (G.BY[c.type].hp || 0) > 0).sort((a, b) => (G.BY[b.type].cost - G.BY[a.type].cost) || (b.level - a.level))[0]; if (u) C.setStandard(s, u.uid); };
   while (steps++ < 2000) {
-    trackGold();
+    trackGold(); standard();
     if (s.pendingRelic || s.phase === 'eventReward') { resolvePending(s, rec); trackGold(); continue; }
     switch (s.phase) {
       case 'map': {
         const nodes = G.available(s); if (!nodes.length) { rec.result = 'stuck-map'; return finalize(s, rec); }
         const n = Pol.chooseNode(s, nodes, pol, rnd); rec.nodes.push(A.act(s) + ':' + n.type + (n.campaign ? '/' + n.campaign : ''));
+        if (process.env.GJ_BOSS_LAB && n.type === 'boss') bossLab(s, n, pol, rec, opt.dt);
         if (!G.enter(s, n.id)) { rec.result = 'enter-failed'; return finalize(s, rec); }
         if (E.AD && s.adv) { // advantages that need a player choice
-          const tw = E.AD.twinOptions(s); if (tw.length) { const t = Pol.recruitPick(s, tw) || tw[0]; E.AD.twin(s, t); }
+          const tw = E.AD.twinOptions?.(s) || []; if (tw.length) { const t = Pol.recruitPick(s, tw) || tw[0]; E.AD.twin(s, t); }
           for (let g = 0; g < 4; g++) { const ft = E.CH?.forcedTwinOptions?.(s) || []; if (!ft.length) break; const t2 = Pol.recruitPick(s, ft) || ft[0]; if (!E.CH.forcedTwin(s, t2)) break; }
           const po = E.AD.plannedOptions?.(s) || []; if (po.length) { const key = Pol.bestUpgradeTarget(s)?.type; E.AD.choosePlanned(s, po.includes(key) ? key : po[0]); } // key card: most copies and value
-          const so = E.AD.startRelicOptions(s); if (so.length) { const best = [...so].sort((x, y) => Pol.relicRank(x) - Pol.relicRank(y))[0]; if (Pol.relicRank(best) < Pol.relicRank(s.artifacts[0])) E.AD.chooseStartRelic(s, best); s.adv.startOffers = []; }
+          const so = E.AD.startRelicOptions?.(s) || []; if (so.length) { const best = [...so].sort((x, y) => Pol.relicRank(x) - Pol.relicRank(y))[0]; if (Pol.relicRank(best) < Pol.relicRank(s.artifacts[0])) E.AD.chooseStartRelic(s, best); s.adv.startOffers = []; }
         }
         break;
       }
@@ -190,7 +207,7 @@ function playRun(deck, seed, pol, opt) {
       case 'encounterWin': G.leave(s); break;
       case 'recruit': { const id = Pol.recruitPick(s, s.offers); if (!id || !G.recruit(s, id)) G.leave(s); break; }
       case 'upgrade': { const c = Pol.bestUpgradeTarget(s); if (!c || !G.upgrade(s, c.uid)) G.skipUpgrade(s); else if (s.phase === 'upgrade') G.leave(s); break; }
-      case 'relic': { if (E.AD?.canReroll(s) && (process.env.GJ_EYE_POLICY === 'strict' ? (!s.offers.some(id => G.packBag([...s.artifacts, id], s)) || Math.min(...s.offers.map(Pol.relicRank)) > 14) : Math.min(...s.offers.map(Pol.relicRank)) > 10)) E.AD.rerollRelic(s); const ids = [...s.offers].sort((a, b) => Pol.relicRank(a) - Pol.relicRank(b)); const fit = ids.find(id => G.packBag([...s.artifacts, id], s)); if (fit && G.claimRelic(s, fit) !== false) { Pol.placeRelic(s, true); if (s.phase === 'relic') G.leave(s); } else G.leave(s); break; }
+      case 'relic': { rec.relicOffers = (rec.relicOffers || 0) + 1; if (process.env.GJ_NO_RELICS === '1') { G.leave(s); break; } if (!s.offers.some(id => G.packBag([...s.artifacts, id], s))) rec.relicNoFit = (rec.relicNoFit || 0) + 1; if (E.AD?.canReroll(s) && (process.env.GJ_EYE_POLICY === 'strict' ? (!s.offers.some(id => G.packBag([...s.artifacts, id], s)) || Math.min(...s.offers.map(Pol.relicRank)) > 14) : Math.min(...s.offers.map(Pol.relicRank)) > 10)) E.AD.rerollRelic(s); const ids = [...s.offers].sort((a, b) => Pol.relicRank(a) - Pol.relicRank(b)); const fit = ids.find(id => G.packBag([...s.artifacts, id], s)); if (fit && G.claimRelic(s, fit) !== false) { Pol.placeRelic(s, true); if (s.phase === 'relic') G.leave(s); } else G.leave(s); break; }
       case 'shop': doShop(s, pol, rec); G.leave(s); break;
       case 'event': {
         const nodeId = s.current?.id ?? ('L' + s.layer);
@@ -205,12 +222,14 @@ function playRun(deck, seed, pol, opt) {
         break;
       }
       case 'tree': {
+        const tw0 = Tree.ensure(s), win0 = { act: A.act(s), kind: tw0?.session?.kind || 'boss', xp: tw0?.xp || 0, n0: rec.treeBought.length }; // R3: per-window log
         let bought = true; while (bought) { bought = false; for (const id of TREE_BUY_ORDER) if (Tree.buy(s, id)) { rec.treeBought.push(id); bought = true; break; }
           // career mode (--treebuy all): after the fixed order, keep buying the cheapest connected node (combat branches first)
           if (!bought && pol.treeBuy === 'all') { const t = Tree.ensure(s), have = Tree.profile().unlocked;
-            const cand = TreeData.nodes.filter(n => !have.includes(n.id) && Tree.connected(n.id) && n.cost <= (Tree.available ? Tree.available() : t.xp)).sort((x, y) => x.cost - y.cost || (x.category === 'expedition') - (y.category === 'expedition'));
+            const cand = TreeData.nodes.filter(n => !have.includes(n.id) && Tree.connected(n.id) && n.cost <= (Tree.available ? Tree.available(s) : t.xp)).sort((x, y) => x.cost - y.cost || (x.category === 'expedition') - (y.category === 'expedition'));
             if (cand.length && Tree.buy(s, cand[0].id)) { rec.treeBought.push(cand[0].id); bought = true; } } }
         rec.xpLeft = (rec.xpLeft || 0) + (Tree.ensure(s)?.xp || 0);
+        win0.left = Tree.ensure(s)?.xp || 0; win0.bought = rec.treeBought.slice(win0.n0); delete win0.n0; (rec.windows ??= []).push(win0);
         Tree.continueRun(s); break;
       }
       case 'actComplete': if (!A.advance(s)) { rec.result = 'act-stuck'; return finalize(s, rec); } break;
@@ -221,9 +240,44 @@ function playRun(deck, seed, pol, opt) {
   }
   rec.result = 'step-limit'; return finalize(s, rec);
 }
+
+/* BOSS LAB (GJ_BOSS_LAB=1, round 3): at each map boss, the SAME player state (deck, tree, cards, relics, gold) fights every
+ * candidate order boss of that map from a copy of the run; the real run then continues with its own boss. Paired comparison.
+ * Candidates: every regular Ironbound / Blackfang / Dawncrest leader; on map 3 also the True Bosses of those orders.
+ * The global profile is restored after each copy. Raids (Titans) are not included (persistent-HP system). */
+function bossLab(s, node, pol, rec, dt) {
+  const B = globalThis.JourneyBosses, data = globalThis.JourneyIronboundData || {}, act = A.act(s);
+  const ib = Object.keys(data).filter(id => data[id].order === 'ironbound' && !data[id].true);
+  const cands = [...ib.map(id => ['ironbound', id, false]), ...['goblin', 'troll', 'orc'].map(id => ['blackfang', id, false]), ...['meowri', 'centaur', 'highelf', 'forestelf'].map(id => ['dawncrest', id, false])];
+  if (act === 3) cands.push(['ironbound', 'ib_wayfarer', true], ['blackfang', 'darkelf', true], ['dawncrest', 'fairy', true]);
+  if (process.env.GJ_LAB_ONLY) { const keep = process.env.GJ_LAB_ONLY.split(','); for (let i = cands.length - 1; i >= 0; i--) if (!keep.includes(cands[i][1])) cands.splice(i, 1); }
+  const prof = JSON.stringify(P.profile), out = (rec.bossLab ??= []);
+  for (const [order, id, isTrue] of cands) {
+    const c = structuredClone(s), r = c.campaignRoute ??= {};
+    r.monsterNodes = []; r.defeatedForces = order === 'blackfang' ? ['lab1', 'lab2'] : []; r.dawncrestForces = order === 'dawncrest' ? ['lab1', 'lab2'] : [];
+    const j = A.ensure(c); if (act === 3) j.history = j.history.map((h, i) => ({ ...h, order: isTrue || i === 0 ? order : (order === 'ironbound' ? 'blackfang' : 'ironbound') }));
+    const cn = c.map[node.layer].find(v => v.id === node.id); delete cn.campaign; delete cn.forceId; delete cn.trueBoss; cn.bossId = id; delete c.bossEncounter;
+    let res = 'error';
+    try {
+      if (G.enter(c, cn.id) && c.phase === 'prep') {
+        const got = c.bossEncounter?.id;
+        const f = { fights: [] }; playFight(c, pol, f, dt);
+        res = got !== id ? 'mismatch:' + got : (['victory', 'actComplete'].includes(c.phase) || (c.phase === 'tree' && Tree.ensure(c)?.session?.kind !== 'defeat')) ? 'win' : c.phase === 'defeat' ? 'loss' : 'other:' + c.phase + ':' + (c.bossEncounter?.form || '');
+      }
+    } catch (e) { res = 'error:' + e.message.slice(0, 60); }
+    const back = JSON.parse(prof); for (const k of Object.keys(P.profile)) delete P.profile[k]; Object.assign(P.profile, back);
+    out.push({ act, order, id, trueBoss: isTrue, res, score: c.score ? [...c.score] : null, form: c.bossEncounter?.form || null });
+  }
+}
 function finalize(s, rec) {
   if (s.challenges) { rec.challenges = s.challenges; rec.challengeLevel = s.challengeLevel; rec.insignia = s.meta?.insignia || 0; }
   if (Tree.level) { rec.treeXp = Tree.profile().totalXp; rec.treeLevel = Tree.level(); }
+  { const t = Tree.ensure?.(s); if (t?.earned) { const xa = [0, 0, 0], xb = [0, 0, 0]; // round 3: XP earned per map (fights / boss), from the engine's own award keys
+      for (const k of t.earned) { const [a, id] = String(k).split(':'), i = Number(a) - 1; if (!(i >= 0 && i < 3)) continue; const isBoss = /boss/.test(id);
+        const node = Tree.kindOf ? (s.map || []).flat().find(n => n.id === id) : null; // R3: kind-weighted XP (map nodes of the current act only)
+        (isBoss ? xb : xa)[i] += Tree.kindOf && node && i + 1 === A.act(s) ? Tree.xpFor(i + 1, Tree.kindOf(node)) : Tree.xpFor(i + 1, isBoss); }
+      rec.xpFight = xa; rec.xpBoss = xb; rec.xpLostAtEnd = t.xp || 0;
+      if (Tree.kindOf) rec.xpR3 = { earned: t.gain || 0, spent: rec.treeBought.reduce((x, id) => x + TreeData.by[id].cost, 0), lost: t.lost || 0 }; } }
   rec.act = A.act(s); rec.layer = s.layer; rec.goldEnd = s.gold; rec.mapBattles = s.mapBattles;
   rec.cards = s.cards.length; rec.levels = [0, 1, 2].map(l => s.cards.filter(c => c.level === l && !Pol.isCurse(c)).length); rec.curses = s.cards.filter(Pol.isCurse).length;
   rec.relics = [...s.artifacts]; rec.reserve = [...(s.reserve || [])];
@@ -233,7 +287,7 @@ function finalize(s, rec) {
 }
 
 if (require.main === module) {
-  const opt = args(), pol = { challenges: opt.challenges, advantages: opt.advantages, prep: opt.prep, route: opt.route, events: opt.events, tree: opt.tree, shop: opt.shop, order: opt.order, forcewin: opt.forcewin };
+  const opt = args(), pol = { challenges: opt.challenges, advantages: opt.advantages, prep: opt.prep, route: opt.route, events: opt.events, tree: opt.tree, shop: opt.shop, order: opt.order, forcewin: opt.forcewin, treeBuy: opt.treebuy };
   const out = opt.out ? fs.createWriteStream(opt.out) : null;
   const t0 = Date.now();
   for (const deck of opt.decks) for (const seed of opt.seeds) {
@@ -245,4 +299,4 @@ if (require.main === module) {
   if (out) out.end();
   console.error('total', ((Date.now() - t0) / 1000).toFixed(1) + 's');
 }
-module.exports = { playRun, TREE_PRESETS, treePreset };
+module.exports = { playRun, TREE_PRESETS, treePreset, allocate, allocateNodes };

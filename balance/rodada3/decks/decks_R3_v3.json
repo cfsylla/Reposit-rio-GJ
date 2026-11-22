@@ -1,0 +1,123 @@
+{
+ "note": "R3 deck proposal v3 (teste: relíquia)",
+ "decks": [
+  {
+   "id": "fireline_a",
+   "name": "Linha de Fogo [a]",
+   "theme": "Muitos atiradores atrás de poucos defensores",
+   "startRelic": "banner",
+   "counts": {
+    "ranger": 3,
+    "archer": 2,
+    "crossbowman": 3,
+    "bastion": 3,
+    "musketeer": 3,
+    "gunner": 2,
+    "cannoneer": 2,
+    "priestess": 2
+   },
+   "cp2_change": {
+    "warrior": -2,
+    "archer": -1,
+    "priestess": 2,
+    "musketeer": 1
+   },
+   "r3change": {
+    "base": "fireline",
+    "remove": [],
+    "add": [],
+    "relic": "banner",
+    "why": "relíquia scope -> banner"
+   }
+  },
+  {
+   "id": "fireline_b",
+   "name": "Linha de Fogo [b]",
+   "theme": "Muitos atiradores atrás de poucos defensores",
+   "startRelic": "banner",
+   "counts": {
+    "ranger": 2,
+    "archer": 2,
+    "crossbowman": 3,
+    "bastion": 4,
+    "musketeer": 3,
+    "gunner": 2,
+    "cannoneer": 3,
+    "priestess": 1
+   },
+   "cp2_change": {
+    "warrior": -2,
+    "archer": -1,
+    "priestess": 2,
+    "musketeer": 1
+   },
+   "r3change": {
+    "base": "fireline",
+    "remove": [
+     "priestess",
+     "ranger"
+    ],
+    "add": [
+     "bastion",
+     "cannoneer"
+    ],
+    "relic": "banner",
+    "why": "v2 + banner"
+   }
+  },
+  {
+   "id": "arcane_a",
+   "name": "Círculo Arcano [a]",
+   "theme": "Arcane: especiais encadeados protegidos por suportes",
+   "startRelic": "banner",
+   "counts": {
+    "bastion": 3,
+    "warrior": 3,
+    "mage": 3,
+    "sorceress": 3,
+    "gladiator": 2,
+    "bard": 2,
+    "sage": 2,
+    "priestess": 2
+   },
+   "v2": "Ranger → Gladiador: frente para proteger os magos",
+   "r3change": {
+    "base": "arcane",
+    "remove": [],
+    "add": [],
+    "relic": "banner",
+    "why": "relíquia tome -> banner"
+   }
+  },
+  {
+   "id": "arcane_b",
+   "name": "Círculo Arcano [b]",
+   "theme": "Arcane: especiais encadeados protegidos por suportes",
+   "startRelic": "banner",
+   "counts": {
+    "bastion": 4,
+    "warrior": 4,
+    "mage": 2,
+    "sorceress": 2,
+    "gladiator": 2,
+    "bard": 2,
+    "sage": 2,
+    "priestess": 2
+   },
+   "v2": "Ranger → Gladiador: frente para proteger os magos",
+   "r3change": {
+    "base": "arcane",
+    "remove": [
+     "sorceress",
+     "mage"
+    ],
+    "add": [
+     "warrior",
+     "bastion"
+    ],
+    "relic": "banner",
+    "why": "v2 + banner"
+   }
+  }
+ ]
+}

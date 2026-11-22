@@ -1,0 +1,73 @@
+{
+ "note": "Círculo Arcano: −1 Sage (Sage −45% dano)",
+ "decks": [
+  {
+   "id": "arcane_glad",
+   "name": "Círculo Arcano [gladiator]",
+   "subtitle": "Especiais encadeados",
+   "desc": "Magos Arcane protegidos por defensores e suportes.",
+   "ids": [
+    "bastion",
+    "warrior",
+    "mage",
+    "sorceress",
+    "gladiator",
+    "bard",
+    "sage",
+    "priestess"
+   ],
+   "counts": {
+    "bastion": 4,
+    "warrior": 4,
+    "mage": 2,
+    "sorceress": 2,
+    "gladiator": 3,
+    "bard": 2,
+    "sage": 1,
+    "priestess": 2
+   },
+   "faces": [
+    "bastion",
+    "warrior",
+    "mage"
+   ],
+   "strategy": "arcane",
+   "startRelic": "tome"
+  },
+  {
+   "id": "arcane_lanc",
+   "name": "Círculo Arcano [lancer]",
+   "subtitle": "Especiais encadeados",
+   "desc": "Magos Arcane protegidos por defensores e suportes.",
+   "ids": [
+    "bastion",
+    "warrior",
+    "mage",
+    "sorceress",
+    "gladiator",
+    "bard",
+    "sage",
+    "priestess",
+    "lancer"
+   ],
+   "counts": {
+    "bastion": 4,
+    "warrior": 4,
+    "mage": 2,
+    "sorceress": 2,
+    "gladiator": 2,
+    "bard": 2,
+    "sage": 1,
+    "priestess": 2,
+    "lancer": 1
+   },
+   "faces": [
+    "bastion",
+    "warrior",
+    "mage"
+   ],
+   "strategy": "arcane",
+   "startRelic": "tome"
+  }
+ ]
+}

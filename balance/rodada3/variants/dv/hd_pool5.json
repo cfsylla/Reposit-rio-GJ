@@ -1,0 +1,33 @@
+{
+ "note": "desafios/vantagens passo 2",
+ "challengeTune": {
+  "veterans": 8,
+  "commanders": 2,
+  "commanderRelics": 2,
+  "tough": 0.1,
+  "relentless": 0.08,
+  "bossStats": 0.06,
+  "reinforceFromRound": 1,
+  "raidfury": 0.25,
+  "raidDamage": 0.08,
+  "inflation": 0.3,
+  "lightpurse": 0.27,
+  "bagCells": 5,
+  "heavyCards": 5,
+  "fewRelics": 3,
+  "curses": [
+   "exhaustion",
+   "exhaustion"
+  ],
+  "heavyMode": "pool"
+ },
+ "advTune": {
+  "interest": 1.0,
+  "interestMax": 150,
+  "eliteGold": 20,
+  "blessingLevels": [
+   1,
+   1
+  ]
+ }
+}

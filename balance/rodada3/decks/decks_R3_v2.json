@@ -1,0 +1,123 @@
+{
+ "note": "R3 deck proposal v2 (teste)",
+ "decks": [
+  {
+   "id": "arcane",
+   "name": "Círculo Arcano",
+   "theme": "Arcane: especiais encadeados protegidos por suportes",
+   "startRelic": "tome",
+   "counts": {
+    "bastion": 4,
+    "warrior": 4,
+    "mage": 2,
+    "sorceress": 2,
+    "gladiator": 2,
+    "bard": 2,
+    "sage": 2,
+    "priestess": 2
+   },
+   "v2": "Ranger → Gladiador: frente para proteger os magos",
+   "r3change": {
+    "remove": [
+     "sorceress",
+     "mage"
+    ],
+    "add": [
+     "warrior",
+     "bastion"
+    ],
+    "why": "rápido: menos dano mágico"
+   }
+  },
+  {
+   "id": "executioners",
+   "name": "Executores",
+   "theme": "Impiedoso: focam e finalizam os feridos",
+   "startRelic": "execution",
+   "counts": {
+    "kinoichi": 2,
+    "cowboy": 2,
+    "musketeer": 3,
+    "gladiator": 3,
+    "bastion": 2,
+    "crossbowman": 2,
+    "huntress": 2,
+    "sheriff": 2,
+    "fighter": 2
+   },
+   "v3": "Fighter → Bastion",
+   "v6": "Musketeer 3→2, Bastion mantido, Warrior→Fighter 1 (versão B)",
+   "cp2_change": {
+    "kinoichi": -1,
+    "fighter": 1
+   },
+   "r3change": {
+    "remove": [
+     "cowboy"
+    ],
+    "add": [
+     "musketeer"
+    ],
+    "why": "lento: 1 troca"
+   }
+  },
+  {
+   "id": "fireline",
+   "name": "Linha de Fogo",
+   "theme": "Muitos atiradores atrás de poucos defensores",
+   "startRelic": "scope",
+   "counts": {
+    "ranger": 2,
+    "archer": 2,
+    "crossbowman": 3,
+    "bastion": 4,
+    "musketeer": 3,
+    "gunner": 2,
+    "cannoneer": 3,
+    "priestess": 1
+   },
+   "cp2_change": {
+    "warrior": -2,
+    "archer": -1,
+    "priestess": 2,
+    "musketeer": 1
+   },
+   "r3change": {
+    "remove": [
+     "priestess",
+     "ranger"
+    ],
+    "add": [
+     "bastion",
+     "cannoneer"
+    ],
+    "why": "rápido: menos cura, unidades mais caras"
+   }
+  },
+  {
+   "id": "verdant",
+   "name": "Círculo Verdejante",
+   "theme": "Verdant Covenant: vegetação que reduz dano + druidas",
+   "startRelic": "plating",
+   "counts": {
+    "ranger": 3,
+    "archer": 3,
+    "bear_druid": 2,
+    "eagle_druid": 3,
+    "crossbowman": 2,
+    "lancer": 3,
+    "priestess": 2,
+    "fighter": 2
+   },
+   "r3change": {
+    "remove": [
+     "bear_druid"
+    ],
+    "add": [
+     "lancer"
+    ],
+    "why": "rápido: 1 troca"
+   }
+  }
+ ]
+}

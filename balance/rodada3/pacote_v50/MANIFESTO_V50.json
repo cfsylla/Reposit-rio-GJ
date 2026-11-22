@@ -1,0 +1,693 @@
+{
+  "publishedVersion": 50,
+  "internalContentVersion": 56,
+  "commit": "aed07ed41c8a002ab1d149882e068b7a7f6c4415",
+  "sourceFiles": 137,
+  "files": [
+    {
+      "path": "fonte_v50/dist/acts-engine.js",
+      "sha256": "81c10e977da5fb9c1f21deaf612e16558bd8771280e0a5b60f802cd5ba6f63bb",
+      "bytes": 9449
+    },
+    {
+      "path": "fonte_v50/dist/acts-ui.js",
+      "sha256": "562579c711c6a57d0373a0e92d814be207f983f916fb871b983efbdd3894861f",
+      "bytes": 6838
+    },
+    {
+      "path": "fonte_v50/dist/advantages.js",
+      "sha256": "a08213001d26c9b0b09d940d48e4a500fdf037a52479c0b0893e2c0f87ccd8bb",
+      "bytes": 13925
+    },
+    {
+      "path": "fonte_v50/dist/bag-drag.js",
+      "sha256": "cd9531f25837c6e78b415ae4751cdb1a9669c23f9ed5cccf7f52e184638873eb",
+      "bytes": 6659
+    },
+    {
+      "path": "fonte_v50/dist/balance-p1.js",
+      "sha256": "d44a274592850295dced3e186e61bbbb26641c6bd46089f979a813f4d5009a31",
+      "bytes": 1937
+    },
+    {
+      "path": "fonte_v50/dist/battle-speed.js",
+      "sha256": "750349fb7a87833f832a8681df0492592b42341ad879035edaab7fc2b198c5aa",
+      "bytes": 546
+    },
+    {
+      "path": "fonte_v50/dist/blackfang-assets.js",
+      "sha256": "2ae4d0ee18b0607dead2ea247209c60a535a5e7e304f3a3d5e13abe074b91a09",
+      "bytes": 4134
+    },
+    {
+      "path": "fonte_v50/dist/boss-assets.js",
+      "sha256": "941c025432d6f25949fb7ae870f6b418862f4aa06fd3536ff3cb91099d927c2d",
+      "bytes": 3490
+    },
+    {
+      "path": "fonte_v50/dist/boss-cards.js",
+      "sha256": "870ec017a9107fd724aec3cff3aa27b0326f6d236882bdda770a3c85dd6f081d",
+      "bytes": 3916
+    },
+    {
+      "path": "fonte_v50/dist/boss-engine.js",
+      "sha256": "8d105498dac407538a32048181d6f0cbda6a95f1c8543d51ac50c73c632e5288",
+      "bytes": 21720
+    },
+    {
+      "path": "fonte_v50/dist/boss-ui.js",
+      "sha256": "e6cae4b0df51725628380197fe01996a1bc71b52bc6ff7ab4c87d93392c0d189",
+      "bytes": 7755
+    },
+    {
+      "path": "fonte_v50/dist/challenges.js",
+      "sha256": "f441cfa12af42e6aa94c8bb83f3acfee668ff5523d695ef07bcfa53188102d4c",
+      "bytes": 10919
+    },
+    {
+      "path": "fonte_v50/dist/content-ui-v53.js",
+      "sha256": "c98ca85dd2a698a75cdf64e7a2d15cf3615701161d70840c95eb84d3dff50b1b",
+      "bytes": 21884
+    },
+    {
+      "path": "fonte_v50/dist/content-v53.js",
+      "sha256": "e6ad66758f7ff41930a74760ef93274746594d39e04f6dcd8c87106fcf90efaf",
+      "bytes": 27841
+    },
+    {
+      "path": "fonte_v50/dist/cycle-data.js",
+      "sha256": "264802f1886d2e06f9299d26899ed1bfb16ec5d58c43c4b5dca8b665a9c2441b",
+      "bytes": 570
+    },
+    {
+      "path": "fonte_v50/dist/decks-p3.js",
+      "sha256": "868082f8bcfc1086ea3c7a05af116fc712773a46d19a04e5801742c3b035d856",
+      "bytes": 19196
+    },
+    {
+      "path": "fonte_v50/dist/encounter-memory.js",
+      "sha256": "43991e25fadb9af2c89303747b6fa665e2c037f2c816c25e3a8c6c3dfcc4035d",
+      "bytes": 718
+    },
+    {
+      "path": "fonte_v50/dist/enemy-decks-p4.js",
+      "sha256": "e6e244a91ee93c1d9e0fe97e19d26da4a4f55e3aa484fb1efc82f8b577b9b706",
+      "bytes": 3515
+    },
+    {
+      "path": "fonte_v50/dist/enemy-inspect-ui.js",
+      "sha256": "2687fcefb11d44d7813717d129caf1e423843a78ab0bc5a8f60fa79d37574bb1",
+      "bytes": 8296
+    },
+    {
+      "path": "fonte_v50/dist/game-0.js",
+      "sha256": "845e49c12387ecbb94bade6f5bbfc017fc649d925b44179a0a24a8544bdc2674",
+      "bytes": 176718
+    },
+    {
+      "path": "fonte_v50/dist/game-1.js",
+      "sha256": "a08cbcdb2daf5b404c25364db6a887638d745dda8ddb276b7dd0acf4a827a05c",
+      "bytes": 23796
+    },
+    {
+      "path": "fonte_v50/dist/game-10.js",
+      "sha256": "92624a40718dcd67f01511daeb82485621349d9115c9cd07cd4521dae264e09b",
+      "bytes": 41574
+    },
+    {
+      "path": "fonte_v50/dist/game-2.js",
+      "sha256": "03761bd9fe1c858d73cd9b6ab3a5bf12453534e03dc4adeab8bef2726b0d3dbc",
+      "bytes": 9873
+    },
+    {
+      "path": "fonte_v50/dist/game-3.js",
+      "sha256": "32f20863dd91fb33e1b734e4f070059253a6f9430aee2d71b3d9f2bdbf2a0882",
+      "bytes": 8498
+    },
+    {
+      "path": "fonte_v50/dist/game-4.js",
+      "sha256": "823d149d9b2c92c7e46faab24bf8529c06957c8f2842aa6ca8d6fa6dc3558a9c",
+      "bytes": 6669
+    },
+    {
+      "path": "fonte_v50/dist/game-5.js",
+      "sha256": "dcff934dde485f002bd2a82c0bf0827381a4add5fcf7d07b6a6b6adffea82d03",
+      "bytes": 111665
+    },
+    {
+      "path": "fonte_v50/dist/game-6.js",
+      "sha256": "9a06ef1ba8fc9a5d8c1ded3afe89fc259d5ca72bb6eb2835025f61623693b03a",
+      "bytes": 14147
+    },
+    {
+      "path": "fonte_v50/dist/game-7.js",
+      "sha256": "d350a4b21bb4de78e910dc377ce0af7c51333abc2126ec74dcb9358ae1eebb79",
+      "bytes": 138631
+    },
+    {
+      "path": "fonte_v50/dist/game-8.js",
+      "sha256": "318328e6c859b7b2e4718253bc50d4629d7fa115381ab9932d719e4ff2f02527",
+      "bytes": 13717
+    },
+    {
+      "path": "fonte_v50/dist/game-9.js",
+      "sha256": "f0d5d42328f045434c391e6546e8d37843e920833f400ae98f7283f3ba78a518",
+      "bytes": 3954
+    },
+    {
+      "path": "fonte_v50/dist/index.html",
+      "sha256": "2b0b40b7d742fff7cb024349c72a7c52e0235a006b6aa6ad4284eabcf51e5759",
+      "bytes": 4396
+    },
+    {
+      "path": "fonte_v50/dist/ironbound-assets.js",
+      "sha256": "2d012e69cac49016493aa1d80f95d29b5511381e9f6fbb6fbb595f293b86b035",
+      "bytes": 2272
+    },
+    {
+      "path": "fonte_v50/dist/ironbound-data.js",
+      "sha256": "90eea3df20c4b9aba95c50a94d0064d065eb6f15bca0fdcbc0f3aa2053cd1be2",
+      "bytes": 5149
+    },
+    {
+      "path": "fonte_v50/dist/journey-debug.js",
+      "sha256": "54f5bd73c77cf7e5d2dc97944c5817e88db674e2283939ddc3858460de2c8115",
+      "bytes": 2677
+    },
+    {
+      "path": "fonte_v50/dist/map-notes-ui.js",
+      "sha256": "7001f81659c4e5a696d8e70067248f790f0a41a744ad9c84e52671978ec71c5d",
+      "bytes": 4298
+    },
+    {
+      "path": "fonte_v50/dist/map-notes.js",
+      "sha256": "8b18008500525456f79eef324f02277149d64c04ef6260547be78c349f04bb47",
+      "bytes": 1083
+    },
+    {
+      "path": "fonte_v50/dist/map-variety.js",
+      "sha256": "8661499d4ae46454822aa6552a39495615b8c600f0f1a1c76d5aee79df396aa4",
+      "bytes": 1343
+    },
+    {
+      "path": "fonte_v50/dist/menu-scroll.js",
+      "sha256": "ff2de7e2b3c184180ce8543b285a08c8123e93ad482184f4f70920feae8d0784",
+      "bytes": 2700
+    },
+    {
+      "path": "fonte_v50/dist/milestones-ui-v56.js",
+      "sha256": "38e0fef4adee3eda7a7e5b867c5702b5a6cdd4bf85ae33d8c2b4eeaf0da169d3",
+      "bytes": 2488
+    },
+    {
+      "path": "fonte_v50/dist/monster-assets.js",
+      "sha256": "c11373f7c1fb1a3108bc7dbbe5233698f2bd3db21eade7087db90fe87b18c8ab",
+      "bytes": 3972
+    },
+    {
+      "path": "fonte_v50/dist/monster-engine.js",
+      "sha256": "eed87423b847ea48b6df4d3a27c734d344374ee6dc8d503666d98c7354dfa036",
+      "bytes": 18548
+    },
+    {
+      "path": "fonte_v50/dist/monster-ui.js",
+      "sha256": "c8e37b10484640696c017ed83f0651b9490293ac8cbe403818e1a3b73e8e5ec4",
+      "bytes": 7752
+    },
+    {
+      "path": "fonte_v50/dist/playtest-p2-ui.js",
+      "sha256": "193c1e37506c445cf93f408689814b4288960f6c3d352be8a17254e7bd06fd26",
+      "bytes": 1719
+    },
+    {
+      "path": "fonte_v50/dist/playtest-p3-engine.js",
+      "sha256": "d872b9f8744cbf4b43c52dcae3a522b03c6dd0e73da34a02dd823e04fdd5395a",
+      "bytes": 2660
+    },
+    {
+      "path": "fonte_v50/dist/playtest-p3-ui.js",
+      "sha256": "2eb16a8b2f02707833c3204cef7440ea7b8e738c0501796ae71f71f81d3dd456",
+      "bytes": 8178
+    },
+    {
+      "path": "fonte_v50/dist/portrait-renderer.js",
+      "sha256": "77887f812d9ffae486cd43306dc278b74bd78d100ed9f9f86be34042c922fdc2",
+      "bytes": 3201
+    },
+    {
+      "path": "fonte_v50/dist/postgame-ui.js",
+      "sha256": "99671035d137b31a7284380261f1f1a6e192f88a4f1c8eaac4f758084190f50d",
+      "bytes": 9579
+    },
+    {
+      "path": "fonte_v50/dist/progression-v56.js",
+      "sha256": "7872d378b53eb8b313c0b29f60a1b58a3f3d71c2e0cc759c3b511c755ecbcc48",
+      "bytes": 11211
+    },
+    {
+      "path": "fonte_v50/dist/raid-assets.js",
+      "sha256": "fc6e258f10ffbce13a0bce140d2522869845672982c8e1df5e5a449b6d781053",
+      "bytes": 451
+    },
+    {
+      "path": "fonte_v50/dist/raid-engine.js",
+      "sha256": "afed845f9090fcb7c4d61658a70aa7785110754841c900a0102bc87d929ac515",
+      "bytes": 7828
+    },
+    {
+      "path": "fonte_v50/dist/raid-ui.js",
+      "sha256": "8fb3779ed018ef70aa5359fe11107b42d93a25644d8aa491b2de8023d0ef6de3",
+      "bytes": 9202
+    },
+    {
+      "path": "fonte_v50/dist/roster-v37-assets.js",
+      "sha256": "578e6e978b038eb4ecfbdd2177ad1789e2599a7ffeb0afafefdd034d6ddd1044",
+      "bytes": 5332
+    },
+    {
+      "path": "fonte_v50/dist/style.css",
+      "sha256": "3dfd71eabfb641b3602350c8f78a267387907f53b035f14b2d578a379fd357a6",
+      "bytes": 144565
+    },
+    {
+      "path": "fonte_v50/dist/supports-b.js",
+      "sha256": "1d93293c880a68e858b6f1e6fa23ec197e41696649411eae0908ce18f13f56f6",
+      "bytes": 6224
+    },
+    {
+      "path": "fonte_v50/dist/training-engine.js",
+      "sha256": "5ab5f580cc081722a1fa1d9bada09af2bbcf0b2df6c0bc04851aacf12a6072b3",
+      "bytes": 2695
+    },
+    {
+      "path": "fonte_v50/dist/training-ui.js",
+      "sha256": "0108b52c7787de0b83d6614f71e796b40096fdff29abc09f0b49d88ec8b1fe7b",
+      "bytes": 16865
+    },
+    {
+      "path": "fonte_v50/dist/trait-assets.js",
+      "sha256": "9524a6e09d1ec3ccceabfae692ebcce542b6f044500863a53d147ae6fe95790b",
+      "bytes": 2949
+    },
+    {
+      "path": "fonte_v50/dist/traits-ui-v54.js",
+      "sha256": "25e33e0081a68e31eca830423ca5fb8a341e48e20054b216460756f26dd4ece2",
+      "bytes": 6605
+    },
+    {
+      "path": "fonte_v50/dist/traits-v54.js",
+      "sha256": "2fbcc5bde59245626003dc3b680913889cb4bb6b1ae885d983b5b9644096581b",
+      "bytes": 24827
+    },
+    {
+      "path": "fonte_v50/dist/tree-data.js",
+      "sha256": "da13aeab92de5350f816536d8f2fea21d27c3ad44efb709dc13692861ddcf73e",
+      "bytes": 10374
+    },
+    {
+      "path": "fonte_v50/dist/tree-engine.js",
+      "sha256": "55f3f826671f768b3f3853a88312b3d0ff179fc9d5334df07bf3ab74a99c4369",
+      "bytes": 14303
+    },
+    {
+      "path": "fonte_v50/dist/tree-ui.js",
+      "sha256": "0f77781db24ef42e14675f688e6aa721fd291fd8f308ec93f49a27d37a78a56b",
+      "bytes": 12724
+    },
+    {
+      "path": "fonte_v50/dist/tutorial-flow.js",
+      "sha256": "e56bccdfa98a3207172caa1cc7b6aaffad381e5bd6e3cfc3ed077081e0732fbc",
+      "bytes": 3653
+    },
+    {
+      "path": "fonte_v50/dist/v52-ui.js",
+      "sha256": "4e6e95f190916d1878b8760b52f4b5f0634e3f389312fbf7ed0459ea6b67e747",
+      "bytes": 6224
+    },
+    {
+      "path": "fonte_v50/dist/vfx-data.js",
+      "sha256": "8a8b495a441612cf07f298c2b13e164d9e765a9ca76a326d3b1f9d8eb0bea679",
+      "bytes": 2188
+    },
+    {
+      "path": "fonte_v50/docs/IRONBOUND_ASSETS.md",
+      "sha256": "7745a1270351eae46ce6c5a5927387f24eca92339177425088e0340b5efdf46e",
+      "bytes": 5422
+    },
+    {
+      "path": "fonte_v50/docs/IRONBOUND_V55.md",
+      "sha256": "6bd7da53d3b7cffaaa63e658f23251e9f872092bab8b598fdab655bcad23d39f",
+      "bytes": 4413
+    },
+    {
+      "path": "fonte_v50/docs/PORTRAIT_REPAIR.md",
+      "sha256": "984ffae21e6ca97d29dbc38e9f2dce7212adcfdef1fa1ef24db9298448044454",
+      "bytes": 1816
+    },
+    {
+      "path": "fonte_v50/docs/PROGRESSION_V56.md",
+      "sha256": "73e6cac6371b27ed71153f120a32a4c04f14ede4ffacf5c244762f7e8053d684",
+      "bytes": 10218
+    },
+    {
+      "path": "fonte_v50/scripts/blackfang-data-v26.json",
+      "sha256": "6ab9b2a6ffbebf7afcd4b2966ca3d5912c23425ded0d5a037a52c5885866b9fb",
+      "bytes": 23573
+    },
+    {
+      "path": "fonte_v50/scripts/check-release-ui.cjs",
+      "sha256": "f784114198759e2ba75828dca4720ba1c6463245f23d6bdb62c3dee468989208",
+      "bytes": 791
+    },
+    {
+      "path": "fonte_v50/scripts/create-menu-qa.cjs",
+      "sha256": "a6116be17d34cbe6d2c5951ca0d5fb916a61837b3b44a7ea778416ab1aa03e76",
+      "bytes": 811
+    },
+    {
+      "path": "fonte_v50/scripts/import-vfx-v21.py",
+      "sha256": "bde937b025ab4b969b5587381e56940df6b8990e38e949d412ebcaab0a8cf9c1",
+      "bytes": 4556
+    },
+    {
+      "path": "fonte_v50/scripts/validate-balance-base.cjs",
+      "sha256": "377067ae924746c4f790943c1eea3a49b0c77c063f1d1148ba1bd1913e5c6b06",
+      "bytes": 2069
+    },
+    {
+      "path": "fonte_v50/scripts/warrior-animation-packing-v27.json",
+      "sha256": "eef2ee4204f913e4d3d12bb7ed6bdf7d97755b7a06ccb83cbeee8372a5e4e248",
+      "bytes": 2452
+    },
+    {
+      "path": "fonte_v50/tests/acts-v47.cjs",
+      "sha256": "ce49be4749bd270714211e7457f30fd4446077534fbaf519aaff1bf5782e3727",
+      "bytes": 7661
+    },
+    {
+      "path": "fonte_v50/tests/advantages-p5.cjs",
+      "sha256": "0beb3218ef0c7d45e645231282d44aa9a6c6aae035876d0feaad7dc18ea8e6ed",
+      "bytes": 6573
+    },
+    {
+      "path": "fonte_v50/tests/balance-p2.cjs",
+      "sha256": "2bcfbff8afa543369efebe23000e076d88e4ce849422161e96b336e4006258c7",
+      "bytes": 4359
+    },
+    {
+      "path": "fonte_v50/tests/blackfang-v26.cjs",
+      "sha256": "eb953054e0cde57106aa67c2e782c33d9015da6ecd94d97665765c7ae165c44d",
+      "bytes": 8432
+    },
+    {
+      "path": "fonte_v50/tests/bosses-v50.cjs",
+      "sha256": "cb6b278b482e666def7ce9589981cc1442294e957b6514ee24b592c352099f1c",
+      "bytes": 7201
+    },
+    {
+      "path": "fonte_v50/tests/challenges-p5.cjs",
+      "sha256": "7df813a97000c5e29fd3f1371cc561a2a28e608e42418ba1c6fe5dbe9d6e76d0",
+      "bytes": 8052
+    },
+    {
+      "path": "fonte_v50/tests/combat-replay-v21.cjs",
+      "sha256": "9243bcb9409c378936b5adc217cdcd57a4dba15eb2ae7053805c95eb1c118232",
+      "bytes": 1347
+    },
+    {
+      "path": "fonte_v50/tests/content-v53.cjs",
+      "sha256": "7c1a2a4f1d5e4a5e9f647c487a6b344b5ed7cc6180a47135738b35a72f3a3620",
+      "bytes": 12514
+    },
+    {
+      "path": "fonte_v50/tests/decks-p3.cjs",
+      "sha256": "b05f3f0227fef10e8e41409310c5d138c20b145ccfa867ef017990ad410cbe86",
+      "bytes": 3177
+    },
+    {
+      "path": "fonte_v50/tests/difficulty-p4.cjs",
+      "sha256": "b9f9236b290d406c90ff8d9ec79966f7b462cdba59f161a5a3c7eac4d364fb3e",
+      "bytes": 2942
+    },
+    {
+      "path": "fonte_v50/tests/drag-origin-v19-1.cjs",
+      "sha256": "867716ebadc7c495d0036c3bae356451d17b30ae588c52a7e7b4fa77af887148",
+      "bytes": 1439
+    },
+    {
+      "path": "fonte_v50/tests/encounter-memory.cjs",
+      "sha256": "db6b91d69fcfa20da6cda296dccfdd74af1e4880beb90ec413c4ca3877a1a649",
+      "bytes": 1953
+    },
+    {
+      "path": "fonte_v50/tests/fixes-v52.cjs",
+      "sha256": "688660f62a8b64da18465ed35c58975c12ef66d280a7a40c438eb72ff8c923bb",
+      "bytes": 5467
+    },
+    {
+      "path": "fonte_v50/tests/fixtures/cp1/v54-active.json",
+      "sha256": "a08197dbcfe9c5b4923c46ca4e4f7f393f609beb56a66e9a0ef4ad966b1a20e4",
+      "bytes": 20520
+    },
+    {
+      "path": "fonte_v50/tests/fixtures/cp1/v54-prep.json",
+      "sha256": "32d8616ef64c9f0f68918b3dd767511e2ed8244e8b904728d68049cd1f0bca31",
+      "bytes": 9052
+    },
+    {
+      "path": "fonte_v50/tests/fixtures/menu-qa.js",
+      "sha256": "dadf3460f314745ea8692537d6eb42abdf39b5482aa854549af5cf6729a6cad6",
+      "bytes": 4996
+    },
+    {
+      "path": "fonte_v50/tests/freeze-v20.cjs",
+      "sha256": "8677a4a97effdb5dd714b2c19e509841e3855b6ab907de3bd56eba2d119e056c",
+      "bytes": 1811
+    },
+    {
+      "path": "fonte_v50/tests/integration-cp1.cjs",
+      "sha256": "1b9d9c3d1f83edf39e0cfe68a50ae1fd1567996bfeefc6d7f03107e9289e6be2",
+      "bytes": 2187
+    },
+    {
+      "path": "fonte_v50/tests/integration-cp2.cjs",
+      "sha256": "70106972a883fa1f1040599f89128ddb6e71a1e897f4209c353bf494f95a9e94",
+      "bytes": 4900
+    },
+    {
+      "path": "fonte_v50/tests/interface-v28.cjs",
+      "sha256": "c181694194b7e7d3c206430a829a0e5f9635679c2c40b1b9f4f352b185043f7a",
+      "bytes": 4020
+    },
+    {
+      "path": "fonte_v50/tests/ironbound-v55.cjs",
+      "sha256": "131d08d55b3a7adb90109a4aab2af88b86ea3c96c359343f9e1ef89e911e90f1",
+      "bytes": 4502
+    },
+    {
+      "path": "fonte_v50/tests/legacy-replay-v37.cjs",
+      "sha256": "6357d5bae2fc007ca0f426a629e2ecd9ac9501caee7392904455b1fa69940124",
+      "bytes": 1365
+    },
+    {
+      "path": "fonte_v50/tests/legacy-replay-v39.cjs",
+      "sha256": "d041d0658ab75ec1c34cfab0668f9a5eec63ba807841c416c791ed5b0fed280a",
+      "bytes": 1385
+    },
+    {
+      "path": "fonte_v50/tests/manticore-v46.cjs",
+      "sha256": "d87b7636172136e3d64d2170362dfbc19e4aa8558816c5d70e6e96079a461240",
+      "bytes": 3939
+    },
+    {
+      "path": "fonte_v50/tests/map-notes-v49.cjs",
+      "sha256": "f3112dd922a0fc33cc5dfef9986ebd4989ce89c1947cdd1aa86f5d89cb7de333",
+      "bytes": 2832
+    },
+    {
+      "path": "fonte_v50/tests/map-v43.cjs",
+      "sha256": "88bab76744ed571fb2fe1dd6f5b074800f985b4a400b23f6634eb14836a34bcc",
+      "bytes": 2140
+    },
+    {
+      "path": "fonte_v50/tests/menu-scroll.cjs",
+      "sha256": "e0794bfd39ae92face7a23231195ec0d2f68b9537b263a0b0a74a4ab77946957",
+      "bytes": 2369
+    },
+    {
+      "path": "fonte_v50/tests/menu-tour.cjs",
+      "sha256": "0493049124282ed1f06134645098623d90de1523f6e2ddd4a4dffebfab392e8c",
+      "bytes": 1571
+    },
+    {
+      "path": "fonte_v50/tests/monsters-v42.cjs",
+      "sha256": "f52dcb770a694bf00d3910781df9189c4257cf44f3d61778e285f863fc82fcb2",
+      "bytes": 7289
+    },
+    {
+      "path": "fonte_v50/tests/movement-v30.cjs",
+      "sha256": "dee4ae96f0b0e262a053e49bb86177e2844748f618c363128b8609ca2156cf3e",
+      "bytes": 2250
+    },
+    {
+      "path": "fonte_v50/tests/pending-v22.cjs",
+      "sha256": "789098e4ef3c2327ac21b502930566942a6a2a108090beb5ef2003676c38c34c",
+      "bytes": 3929
+    },
+    {
+      "path": "fonte_v50/tests/playtest-p1.cjs",
+      "sha256": "0a20aeb495d85179d49b6bf77def589c210320cc9041e8c9231d417b77760cfd",
+      "bytes": 3291
+    },
+    {
+      "path": "fonte_v50/tests/playtest-p3.cjs",
+      "sha256": "4c3f34f00a336bead5a1b51396efbb3ce7aeba53934f2c008c13d211ed414e48",
+      "bytes": 2820
+    },
+    {
+      "path": "fonte_v50/tests/portrait-alpha.cjs",
+      "sha256": "40800392904f586126c540124aba06dc519ca0b57ee2cf4534df5f27e46d766a",
+      "bytes": 2791
+    },
+    {
+      "path": "fonte_v50/tests/progression-v56.cjs",
+      "sha256": "72f6f5822177040805091ebdeaa2e0bcf7a425b44bc2537de684dea6384c6b96",
+      "bytes": 9569
+    },
+    {
+      "path": "fonte_v50/tests/raid-balance-v39.cjs",
+      "sha256": "bbc4e2e35b190f66157364b0f968077c93a7040d6aa3ac65c25bfa1c88b71a24",
+      "bytes": 1785
+    },
+    {
+      "path": "fonte_v50/tests/raid-balance-v41.cjs",
+      "sha256": "588fbadbfcf4c9f39f225a9be41c877addcd380c7dfdc5f24fe98e66229f8de1",
+      "bytes": 1993
+    },
+    {
+      "path": "fonte_v50/tests/raid-balance-v42.cjs",
+      "sha256": "a430bd2e0f85ce326fc198cbb45aed5a37182b9dc4f6a7bbe85ddb3851735e5a",
+      "bytes": 2173
+    },
+    {
+      "path": "fonte_v50/tests/raid-balance-v45.cjs",
+      "sha256": "7e83da8de48124dfe5456695c6ffb75ff499330dacc6fcd158d2b56cdb342be8",
+      "bytes": 2210
+    },
+    {
+      "path": "fonte_v50/tests/raid-v39.cjs",
+      "sha256": "24476321685fe44f4b07c5b8bb94c23391bfc277fdcb44e8871e3e4c5bd8f581",
+      "bytes": 6878
+    },
+    {
+      "path": "fonte_v50/tests/raid-v40.cjs",
+      "sha256": "47bb6b4ed726c1d74a69827dddc7333830339282b109c628a1e8395ef1609976",
+      "bytes": 2012
+    },
+    {
+      "path": "fonte_v50/tests/raid-v41.cjs",
+      "sha256": "ccb572250e17c1e365ae5adc0c269f8119b90b6439c79925c10c233698bd96c0",
+      "bytes": 1975
+    },
+    {
+      "path": "fonte_v50/tests/raids-v45.cjs",
+      "sha256": "70fda85e5fdd06e7bfc53faefea5d42b07d6c454c7a078d3dc0f8026e4ea2f3a",
+      "bytes": 4896
+    },
+    {
+      "path": "fonte_v50/tests/revisions-v32.cjs",
+      "sha256": "e45f6e0ddee0c5d23741001c31c2561d3f0ea089025f922ffd148c1c13b11675",
+      "bytes": 3640
+    },
+    {
+      "path": "fonte_v50/tests/revisions-v33.cjs",
+      "sha256": "d10ab5b1cff446320bbec4b2635742525b1a1eaeda613c2d16f47bb0d12f6e88",
+      "bytes": 2509
+    },
+    {
+      "path": "fonte_v50/tests/roster-v37.cjs",
+      "sha256": "b22c3160c22ade6e6cd69ba633c96cf36ddcf2599101ba9841c5c02013b4af36",
+      "bytes": 12277
+    },
+    {
+      "path": "fonte_v50/tests/save-compat-cp1.cjs",
+      "sha256": "921b36788afe3d975bef46a521db54a7d79e52ac04286f469aa068bc595a065a",
+      "bytes": 1587
+    },
+    {
+      "path": "fonte_v50/tests/setup-v19.cjs",
+      "sha256": "8975635eb6b699d643727124fc69b189cca0cf6b17e17b9c5aa45b1fc0f340b5",
+      "bytes": 4056
+    },
+    {
+      "path": "fonte_v50/tests/setup-v20-1.cjs",
+      "sha256": "9d9a10ffe8ddaf1ed10cbdcbfb9b607368410827ea87851978887305b915bb6b",
+      "bytes": 1811
+    },
+    {
+      "path": "fonte_v50/tests/systems-v18.cjs",
+      "sha256": "1268798ef7cbb088456747e9a36d64b24b349620eeffcc7080d55e8447eb9c33",
+      "bytes": 7943
+    },
+    {
+      "path": "fonte_v50/tests/training-v31.cjs",
+      "sha256": "5e9f3d583fed745c94ad76c7b06331f31af434dcb3c2bfe4d2d9ea12258e726f",
+      "bytes": 3521
+    },
+    {
+      "path": "fonte_v50/tests/traits-cost-v21.cjs",
+      "sha256": "c929c552b632e24c781d783c04eec5f6a58d1c519f85b12c19c0d73652cf795f",
+      "bytes": 1803
+    },
+    {
+      "path": "fonte_v50/tests/traits-v54.cjs",
+      "sha256": "62c0ee37c270d7b7409f2e4fe7d7ce74c390adceb333ff493a142bf7bf5ad843",
+      "bytes": 11287
+    },
+    {
+      "path": "fonte_v50/tests/tree-v51.cjs",
+      "sha256": "572f4683d8f4302027eb8f2bcc5b99e6a2ad4c9f8366c1db2b589373b77cc14b",
+      "bytes": 11445
+    },
+    {
+      "path": "fonte_v50/tests/tutorial-guard-v23.cjs",
+      "sha256": "7bb36f7caa1266ee8752d301e53a693e85bf555a7fc07023c36cc9f3f8d133ce",
+      "bytes": 1781
+    },
+    {
+      "path": "fonte_v50/tests/tutorial-ui-v24.cjs",
+      "sha256": "7a97092151594b789391847d6cde969071cfd102901f1e428091bbed935a9c9e",
+      "bytes": 4230
+    },
+    {
+      "path": "fonte_v50/tests/tutorial-v23.cjs",
+      "sha256": "a3b5390ae79211cbb093b2f7aab4b5a7429b8271d71fad4636ee31670712a002",
+      "bytes": 2033
+    },
+    {
+      "path": "fonte_v50/tests/tutorial-v24.cjs",
+      "sha256": "e8534628d1b574520c5e73f3829eea28e1aab03969ae8883991ef70ea1656283",
+      "bytes": 2772
+    },
+    {
+      "path": "fonte_v50/tests/tutorial-v25.cjs",
+      "sha256": "15d5d1a8b201ec9bc8ab0f0d64daee2db86e8a573013165607c478f4196cb9d9",
+      "bytes": 1924
+    },
+    {
+      "path": "fonte_v50/tests/update-v29.cjs",
+      "sha256": "0472845cfcba3618107ae081eb30a2237247246988f594f5f378ff36b78e4c0e",
+      "bytes": 2081
+    },
+    {
+      "path": "fonte_v50/tests/update-v38.cjs",
+      "sha256": "8778a588c7d3261b1d4658e0bec67b1c6a95a470d455c1d4fd31a4eea4e6614c",
+      "bytes": 2203
+    },
+    {
+      "path": "fonte_v50/tests/vfx-v21.cjs",
+      "sha256": "d5af05e72d8a048081b65f639cc89941801eadfc4263a1ef9b8f4ec691d7dac0",
+      "bytes": 3500
+    }
+  ]
+}

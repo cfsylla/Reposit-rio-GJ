@@ -1,0 +1,35 @@
+{
+ "note": "versão B1: sem cura, buff compensado (Sage +29%, Bard +31%, demais +10 a +15%; Goblin King igual)",
+ "supportSpec": {
+  "sage": {
+   "heal": 0,
+   "buff": {
+    "skill": 0.62
+   }
+  },
+  "bard": {
+   "heal": 0,
+   "buff": {
+    "atk": 0.34
+   }
+  },
+  "snow_troll": {
+   "heal": 0,
+   "buff": {
+    "guard": 0.31
+   }
+  },
+  "feline_arcanist": {
+   "heal": 0,
+   "buff": {
+    "haste": 0.32
+   }
+  },
+  "feline_drummer": {
+   "heal": 0,
+   "buff": {
+    "haste": 0.39
+   }
+  }
+ }
+}

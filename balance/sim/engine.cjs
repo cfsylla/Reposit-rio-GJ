@@ -16,13 +16,21 @@ if (require('node:fs').existsSync(path.join(ROOT, 'dist', 'supports-b.js'))) MOD
 if (require('node:fs').existsSync(path.join(ROOT, 'dist', 'challenges.js'))) MODULES.push('challenges');
 if (require('node:fs').existsSync(path.join(ROOT, 'dist', 'advantages.js'))) MODULES.push('advantages');
 // Variant values read by the game modules at load time (level model) must be set before loading.
-if (process.env.GJ_TREE_VARIANT) { const tv0 = JSON.parse(require('node:fs').readFileSync(process.env.GJ_TREE_VARIANT, 'utf8')); if (tv0.level) globalThis.JOURNEY_TREE_LEVEL = tv0.level; if (tv0.challengeTune) globalThis.JOURNEY_CHALLENGE_TUNE = tv0.challengeTune; if (tv0.treeTune) globalThis.JOURNEY_TREE_TUNE = tv0.treeTune; if (tv0.advTune) globalThis.JOURNEY_ADVANTAGE_TUNE = tv0.advTune; }
+if (process.env.GJ_TREE_VARIANT) { const tv0 = JSON.parse(require('node:fs').readFileSync(process.env.GJ_TREE_VARIANT, 'utf8')); if (tv0.level) globalThis.JOURNEY_TREE_LEVEL = tv0.level; if (tv0.challengeTune) globalThis.JOURNEY_CHALLENGE_TUNE = tv0.challengeTune; if (tv0.treeTune) globalThis.JOURNEY_TREE_TUNE = tv0.treeTune; if (tv0.advTune) globalThis.JOURNEY_ADVANTAGE_TUNE = tv0.advTune; if (tv0.bossTune) globalThis.JOURNEY_BOSS_TUNE = tv0.bossTune; if (tv0.barrierTune) globalThis.JOURNEY_BARRIER_TUNE = tv0.barrierTune; if (tv0.relicTune) globalThis.JOURNEY_RELIC_TUNE = { ...tv0.relicTune }; if (tv0.supportSpec) globalThis.SUPPORT_B_SPEC = tv0.supportSpec; }
+// v50+ copies (progression-v56.js present): load exactly like the official loader (carregar_motor_v50.cjs):
+// every script of dist/index.html, in order, up to (not including) game-2.js (first UI-bound script).
+if (require('node:fs').existsSync(path.join(ROOT, 'dist', 'progression-v56.js'))) {
+  globalThis.window = globalThis;
+  const html = require('node:fs').readFileSync(path.join(ROOT, 'dist', 'index.html'), 'utf8');
+  const all = [...html.matchAll(/src="([^"?]+)\.js/g)].map(m => m[1]);
+  MODULES.length = 0; MODULES.push(...all.slice(0, all.indexOf('game-2')));
+}
 for (const m of MODULES) require(path.join(ROOT, 'dist', m + '.js'));
 const g = globalThis;
 module.exports = {
   ROOT, MODULES,
   G: g.Game, P: g.Progress, C: g.JourneyContent, T: g.JourneyTraits, A: g.JourneyActs, R: g.JourneyRaid,
-  B: g.JourneyBosses, Tree: g.JourneyTree, CH: g.JourneyChallenges, AD: g.JourneyAdvantages, TreeData: g.JourneyTreeData, Training: g.Training,
+  B: g.JourneyBosses, Tree: g.JourneyTree, BC: g.JourneyBossCards, MS: g.JourneyMilestones, PG: g.JourneyProgression, SB: g.JourneySupportB, CH: g.JourneyChallenges, AD: g.JourneyAdvantages, TreeData: g.JourneyTreeData, Training: g.Training,
 };
 
 /* PROPOSAL OVERRIDES (testing only; the game files are not modified).
@@ -55,6 +63,8 @@ if (process.env.GJ_TREE_VARIANT) {
   const D = g.JourneyTreeData, T = g.JourneyTree, P = g.Progress, A = g.JourneyActs;
   if (tv.costDepth) for (const n of D.nodes) if (n.type === 'basic' && tv.costDepth[n.depth] !== undefined) n.cost = tv.costDepth[n.depth];
   if (tv.power) for (const [i, v] of tv.power.entries()) { if (!g.JourneyActs.SPEC[i + 1]) throw Error('variant: no act ' + (i + 1)); g.JourneyActs.SPEC[i + 1].power = v; }
+  // basicScale: { "<depth>": k } multiplies the effect values of BASIC nodes at that depth (proposal testing only)
+  if (tv.basicScale) for (const n of D.nodes) { const k = tv.basicScale[n.depth]; if (n.type === 'basic' && k && n.effect) for (const key of Object.keys(n.effect)) n.effect[key] *= k; }
   if (tv.costs) for (const [id, c] of Object.entries(tv.costs)) { if (!D.by[id]) throw Error('variant: unknown node ' + id); D.by[id].cost = c; }
   if (tv.xpFight || tv.xpBoss) {
     const inner = P.encounterWin;
@@ -69,4 +79,33 @@ if (process.env.GJ_TREE_VARIANT) {
     };
   }
   module.exports.TREE_VARIANT = tv;
+}
+
+/* MÉTODO NOVO DAS RELÍQUIAS (Carlos 09/11, só medição; nenhum arquivo do jogo muda).
+ * GJ_TEST_FORMATS=1: cria relíquias VAZIAS (sem efeito) 'vazia_<formato>' só no mapa de formatos, para GJ_FORCE_RELIC;
+ *   não entram em ARTIFACTS, então nunca são oferecidas nem usadas por inimigos.
+ * GJ_PURE_BONUS="atk:0.1" (lista separada por vírgula): bônus puro para todas as unidades do jogador, sem relíquia.
+ *   atk/hp/skill = multiplicador; crit = pontos de chance (0.1 = +10); speed = velocidade de ataque;
+ *   shield = escudo (fração da vida máxima) no início de cada luta (6 s, como Placas); charge = carga inicial (fração). */
+if (process.env.GJ_TEST_FORMATS === '1') {
+  for (const f of ['dot', 'domino', 'diag2', 'bridge', 'line3', 'L3', 'diag3', 'square', 'T', 'S', 'line4', 'L4', 'cross', 'U', 'P', 'L5']) g.Game.RELIC_FORMATS['vazia_' + f] = f;
+  // só a relíquia forçada entra no catálogo (o jogo procura nele as relíquias possuídas); por ser possuída desde o início, nunca é oferecida
+  const F = process.env.GJ_FORCE_RELIC; if (F && F.startsWith('vazia_') && !g.Game.ARTIFACTS.some(a => a.id === F)) g.Game.ARTIFACTS.push({ id: F, name: F, namePT: F, desc: 'sem efeito (teste)', descPT: 'sem efeito (teste)', icon: '□', rarity: 0, price: 30, shape: g.Game.RELIC_FORMATS[F], playerOnly: true, category: 'test' });
+}
+if (process.env.GJ_PURE_BONUS) {
+  const PB = Object.fromEntries(process.env.GJ_PURE_BONUS.split(',').map(x => { const [k, v] = x.split(':'); return [k, Number(v)]; }));
+  const base = g.JourneyTree.stats;
+  g.JourneyTree.stats = function (st, c, s, enemy) {
+    st = base(st, c, s, enemy) || st;
+    if (!enemy) { if (PB.atk) st.atk *= 1 + PB.atk; if (PB.hp) st.hp *= 1 + PB.hp; if (PB.skill) st.skill *= 1 + PB.skill; if (PB.speed) st.rate /= 1 + PB.speed; if (PB.crit) st.crit = Math.min(.75, (st.crit || 0) + PB.crit); }
+    return st;
+  };
+  if (PB.shield || PB.charge) {
+    const T = g.JourneyTraits, bs = T.beforeStep;
+    T.beforeStep = function (b) { const r = bs.apply(this, arguments);
+      if (!b.pbInit) { b.pbInit = true; for (const u of b.units) { if (u.side) continue;
+        if (PB.shield) { u.shield = (u.shield || 0) + u.maxhp * PB.shield; u.shieldTime = Math.max(u.shieldTime || 0, 6); }
+        if (PB.charge && g.Game.BY[u.type]?.kind === 'active' && u.charge > 0) u.progress = Math.min(u.charge, (u.progress || 0) + u.charge * PB.charge); } }
+      return r; };
+  }
 }
