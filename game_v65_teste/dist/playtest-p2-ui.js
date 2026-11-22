@@ -1,0 +1,8 @@
+'use strict';
+(function(){
+ const confirm=serviceConfirm;serviceConfirm=function(kind,uid){confirm(kind,uid);const panel=document.querySelector('#overlay>.modal');if(panel){panel.dataset.serviceConfirm=kind;for(const el of panel.querySelectorAll('[data-act="close"]'))el.dataset.act='service-back';}};
+ const guard=JourneyTraining.guard;JourneyTraining.guard=function(e){const el=e.target.closest?.('[data-act]'),d=el?.dataset;if(!d||!['buy-service','service-back'].includes(d.act))return guard(e);if(e.type!=='click'&&!(e.type==='keydown'&&['Enter',' '].includes(e.key)))return guard(e);e.preventDefault();e.stopImmediatePropagation();if(el.disabled)return true;const kind=d.kind||document.querySelector('#overlay>.modal')?.dataset.serviceConfirm;
+ if(d.act==='service-back'){shopServiceView(kind);return true;}
+ if(S?.phase==='shop'&&G.shopService(S,kind,d.id)){closeModal();render();shopServiceView(kind);save();sound(700);}return true;};
+ const prepare=prep;prep=function(){prepare();const memory=JourneyEncounterMemory.previous(S),fog=document.querySelector('.preparation .hidden-enemy');if(!memory||!fog)return;fog.classList.add('previous-enemy');fog.innerHTML='';const layer=document.createElement('div');layer.className='previous-enemy-formation';layer.setAttribute('role','group');layer.setAttribute('aria-label',L('Enemy starting formation from round ','Formação inicial inimiga da rodada ')+memory.round);layer.innerHTML=memory.units.map((u,i)=>'<button type="button" data-enemy-index="'+i+'" class="enemy-memory-unit '+(u.large?'large':'')+'" style="left:'+u.x/430*100+'%;top:'+u.y/540*100+'%" title="'+esc(G.BY[u.type]?.name||u.type)+'">'+P.sprite(u.type)+'</button>').join('');fog.after(layer);};
+})();

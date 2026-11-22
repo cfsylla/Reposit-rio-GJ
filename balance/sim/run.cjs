@@ -56,7 +56,7 @@ const TREE_BUY_ORDER = ['pow_atk_1', 'vit_hp_1', 'def_armor_1', 'agi_rate_1', 'p
 function playFight(s, pol, rec, dt) {
   const fight = { act: A.act(s), layer: s.layer, type: s.current.type, campaign: s.current.campaign || null, force: s.current.forceId || null, bossId: s.current.bossId || null, raid: s.raid ? s.raid.kind || s.current.raidKind : null,
     event: !!s.eventEncounter, enemyRelics: [...(s.ai?.artifacts || [])], enemyLevels: s.ai?.cards ? [s.ai.cards.filter(c => c.level === 1).length, s.ai.cards.filter(c => c.level === 2).length] : null,
-    relicOpp: s.relicOpportunities, stageGlobal: s.mapBattles, stageLocal: A.localStage(s), rounds: [], fusions: 0, energyLeft: [], playerLevels: [s.cards.filter(c => c.level === 1).length, s.cards.filter(c => c.level === 2).length], gold: s.gold, relics: [...s.artifacts] };
+    relicOpp: s.relicOpportunities, reinf: s.ai?.reinforcedSwaps, challengeElite: !!s.current.challengeElite, supportConverted: !!s.current.supportConverted, stageGlobal: s.mapBattles, stageLocal: A.localStage(s), rounds: [], fusions: 0, energyLeft: [], playerLevels: [s.cards.filter(c => c.level === 1).length, s.cards.filter(c => c.level === 2).length], gold: s.gold, relics: [...s.artifacts] };
   for (let guard = 0; guard < 40; guard++) {
     if (s.phase === 'prep') {
       if (C.stuck(s)) { C.concede(s); fight.conceded = true; break; }
@@ -208,7 +208,7 @@ function playRun(deck, seed, pol, opt) {
       case 'recruit': { const id = Pol.recruitPick(s, s.offers); if (!id || !G.recruit(s, id)) G.leave(s); break; }
       case 'upgrade': { const c = Pol.bestUpgradeTarget(s); if (!c || !G.upgrade(s, c.uid)) G.skipUpgrade(s); else if (s.phase === 'upgrade') G.leave(s); break; }
       case 'relic': { rec.relicOffers = (rec.relicOffers || 0) + 1; if (process.env.GJ_NO_RELICS === '1') { G.leave(s); break; } if (!s.offers.some(id => G.packBag([...s.artifacts, id], s))) rec.relicNoFit = (rec.relicNoFit || 0) + 1; if (E.AD?.canReroll(s) && (process.env.GJ_EYE_POLICY === 'strict' ? (!s.offers.some(id => G.packBag([...s.artifacts, id], s)) || Math.min(...s.offers.map(Pol.relicRank)) > 14) : Math.min(...s.offers.map(Pol.relicRank)) > 10)) E.AD.rerollRelic(s); const ids = [...s.offers].sort((a, b) => Pol.relicRank(a) - Pol.relicRank(b)); const fit = ids.find(id => G.packBag([...s.artifacts, id], s)); if (fit && G.claimRelic(s, fit) !== false) { Pol.placeRelic(s, true); if (s.phase === 'relic') G.leave(s); } else G.leave(s); break; }
-      case 'shop': doShop(s, pol, rec); G.leave(s); break;
+      case 'shop': (rec.shopOffers ??= []).push([s.offers.cards.length, s.offers.artifacts.length]); doShop(s, pol, rec); G.leave(s); break;
       case 'event': {
         const nodeId = s.current?.id ?? ('L' + s.layer);
         if (s.offers && !s.offers.resolved && !rec.events.some(e => e.node === nodeId)) { doEvent(s, pol, rec); rec.events.at(-1).node = nodeId; if (s.phase !== 'event') break; }
@@ -271,6 +271,7 @@ function bossLab(s, node, pol, rec, dt) {
 }
 function finalize(s, rec) {
   if (s.challenges) { rec.challenges = s.challenges; rec.challengeLevel = s.challengeLevel; rec.insignia = s.meta?.insignia || 0; }
+  if (s.lgLost) rec.lgLost = s.lgLost; if (s.crCurses) rec.crCurses = s.crCurses;
   if (Tree.level) { rec.treeXp = Tree.profile().totalXp; rec.treeLevel = Tree.level(); }
   { const t = Tree.ensure?.(s); if (t?.earned) { const xa = [0, 0, 0], xb = [0, 0, 0]; // round 3: XP earned per map (fights / boss), from the engine's own award keys
       for (const k of t.earned) { const [a, id] = String(k).split(':'), i = Number(a) - 1; if (!(i >= 0 && i < 3)) continue; const isBoss = /boss/.test(id);
