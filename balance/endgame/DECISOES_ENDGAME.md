@@ -84,6 +84,6 @@ Atualizado em 22/11/2026 (2ª rodada de decisões). Chat dedicado ao endgame.
 1. **Catálogo:** são 15 desafios + 7 candidatos = 22 peças. Os 15 finais (e os blocos) saem depois da medição.
 ## 10. Vantagens: novas (22/11)
 - **Aprovadas para entrar:** Troféu de Boss (cada boss de mapa vencido: +3% de vida e ataque até o fim da run) e Vitória Limpa (vencer um confronto sem perder rodada: +8 de ouro). Valores provisórios.
-- **Emboscada** (antes "Primeiro Golpe": na 1ª rodada de cada confronto, exceto bosses, o inimigo coloca 1 unidade a menos): vai para a **reserva**, mas entra nos testes.
-- **Final Union** (antes "Pureza"): patamar extra das traits, com efeito visual marcante (o símbolo da trait aparece no início da rodada; se várias ativarem, uma depois da outra). Regra de ativação em estudo (os personagens de várias facções não chegam a 6, e com 6 em campo só existe a 5ª rodada).
-- Com isso, o catálogo chega a 18 vantagens: 15 atuais + Troféu de Boss + Vitória Limpa + Final Union.
+- **Emboscada** (antes "Primeiro Golpe": na 1ª rodada de cada confronto, exceto bosses, o inimigo coloca 1 unidade a menos): **entra no catálogo** no lugar da Final Union (pode ser forte; os testes vão dizer).
+- **Final Union** (antes "Pureza"): patamar extra das traits, com efeito visual marcante (o símbolo da trait aparece no início da rodada; se várias ativarem, uma depois da outra). **Fica para depois**, precisa amadurecer. Motivos: só 2 facções têm 6 personagens recrutáveis (Fada 1, Orc e Centauro 3, Wild West, Troll e Forest Elf 4, outras 6 facções 5), e 6 personagens em campo só existem na 5ª rodada. Regra estudada: ≥ 4 personagens diferentes e todo o campo com a trait (relíquias de trait contam +1); força = patamar de 4 × 1,3.
+- **Catálogo: 18 vantagens** = 15 atuais + Troféu de Boss + Vitória Limpa + Emboscada. Nada rodado ainda.
