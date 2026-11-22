@@ -19,4 +19,5 @@ for N in 1 3 5 8 10 12 15; do
     done
   done
 done
+sed -i "s/[[:space:]]*\$//" $J  # linhas com espaço no fim fazem o xargs -L juntar com a seguinte
 wc -l $J
