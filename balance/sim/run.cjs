@@ -13,7 +13,7 @@ function args() {
   for (let i = 0; i < v.length; i += 2) a[v[i].replace(/^--/, '')] = v[i + 1];
   const range = x => { if (!x) return [1]; return x.split(',').flatMap(p => { const [lo, hi] = p.split('-').map(Number); return hi ? Array.from({ length: hi - lo + 1 }, (_, i) => lo + i) : [lo]; }); };
   return { decks: (a.decks || 'vanguard').split(','), seeds: range(a.seeds), prep: a.prep || 'smart', route: a.route || 'greedy', events: a.events || 'decline',
-    tree: a.tree || 'none', challenges: a.challenges ? a.challenges.split(',').filter(Boolean) : null, blocks: a.blocks ? a.blocks.split('|').map(b => b.split(',').filter(Boolean)) : null, level: a.level ? Number(a.level) : null, advantages: a.advantages || null, forcewin: a.forcewin === '1', shop: a.shop || 'upgrade-first', out: a.out, dt: Number(a.dt || 1 / 60), order: a.order || null, verbose: !!a.verbose, treebuy: a.treebuy || null };
+    tree: a.tree || 'none', challenges: a.challenges ? a.challenges.split(',').filter(Boolean) : null, blocks: a.blocks ? a.blocks.split('|').map(b => b.split(',').filter(Boolean)) : null, level: a.level ? Number(a.level) : null, advBlocks: a.advblocks ? a.advblocks.split('|').map(b => b.split(',').filter(Boolean)) : null, advantages: a.advantages || null, forcewin: a.forcewin === '1', shop: a.shop || 'upgrade-first', out: a.out, dt: Number(a.dt || 1 / 60), order: a.order || null, verbose: !!a.verbose, treebuy: a.treebuy || null };
 }
 
 /* Permanent tree presets (profile state BEFORE the run; in-run purchases still happen after each boss). */
@@ -176,6 +176,12 @@ function playRun(deck, seed, pol, opt) {
     for (const b of pol.blocks) { if (left <= 0) break; const pick = [...b]; for (let i = pick.length - 1; i > 0; i--) { const j = Math.floor(r() * (i + 1)); [pick[i], pick[j]] = [pick[j], pick[i]]; }
       sel.push(...pick.slice(0, Math.min(left, b.length))); left -= b.length; }
     pol = { ...pol, challenges: sel }; }
+  // ENDGAME (23/11): vantagens por blocos. --advblocks "a,b,c|..." com --level N: N − 1 vantagens (1 Insígnia por nível vencido),
+  // blocos anteriores inteiros + sorteio (por seed) dentro do bloco atual.
+  if (pol.advBlocks && pol.level) { const r = G.rng((seed ^ 0xad7b1) >>> 0), sel = []; let left = pol.level - 1;
+    for (const b of pol.advBlocks) { if (left <= 0) break; const pick = [...b]; for (let i = pick.length - 1; i > 0; i--) { const j = Math.floor(r() * (i + 1)); [pick[i], pick[j]] = [pick[j], pick[i]]; }
+      sel.push(...pick.slice(0, Math.min(left, b.length))); left -= b.length; }
+    pol = { ...pol, advantages: sel.join(',') || null }; }
   if (E.CH) { const pc = E.CH.profile(); pc.unlocked = !!pol.challenges; pc.available = E.CH.MAX_LEVEL; pc.selected = [...(pol.challenges || [])]; }
   if (E.AD) { const ids = !pol.advantages ? [] : pol.advantages === 'all' ? E.AD.LIST.map(a => a.id) : String(pol.advantages).split(',').filter(Boolean); P.profile.advantages = [...ids]; }
   const custom = CUSTOM[deck];
@@ -301,7 +307,7 @@ function finalize(s, rec) {
 }
 
 if (require.main === module) {
-  const opt = args(), pol = { challenges: opt.challenges, advantages: opt.advantages, prep: opt.prep, route: opt.route, events: opt.events, tree: opt.tree, shop: opt.shop, order: opt.order, forcewin: opt.forcewin, treeBuy: opt.treebuy, blocks: opt.blocks, level: opt.level };
+  const opt = args(), pol = { challenges: opt.challenges, advantages: opt.advantages, prep: opt.prep, route: opt.route, events: opt.events, tree: opt.tree, shop: opt.shop, order: opt.order, forcewin: opt.forcewin, treeBuy: opt.treebuy, blocks: opt.blocks, level: opt.level, advBlocks: opt.advBlocks };
   const out = opt.out ? fs.createWriteStream(opt.out) : null;
   const t0 = Date.now();
   for (const deck of opt.decks) for (const seed of opt.seeds) {
