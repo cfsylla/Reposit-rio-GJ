@@ -122,6 +122,7 @@ Nada rodado ainda.
 - **Cartas de boss: nova regra de liberação (Carlos, 23/11).**
   - **Hoje** (`progression-v56.js`, `grantBossCards`): vencer o True Boss de uma ordem libera **de uma vez** todas as cartas de boss daquela ordem.
   - **Novo:** vencer o True Boss dá **acesso** às cartas. Cada carta só é liberada ao **vencer o boss dela**. Os bosses vencidos na própria run em que o True Boss caiu também liberam as cartas deles.
-  - **A confirmar:**
-    - o acesso vale por ordem (True Boss da ordem X → cartas dos bosses da ordem X), como hoje?
-    - o que fazer com as cartas já liberadas nos saves atuais?
+  - **Confirmado:**
+    - o acesso vale **por ordem**: o True Boss da ordem X dá acesso só às cartas dos bosses da ordem X;
+    - nos saves atuais, as cartas liberadas pela regra antiga **voltam a ficar bloqueadas** até vencer o boss de cada uma.
+  - Entra no próximo pacote. Não montar pacote por enquanto: Carlos segue com os playtests.
