@@ -7,8 +7,8 @@
 (function(root){'use strict';
 const G=root.Game,P=root.Progress,CH=root.JourneyChallenges,T=root.JourneyTree,R=root.JourneyRaid,A=root.JourneyActs,C=root.JourneyContent;
 if(!G||!CH)return;
-/* Valores decididos por Carlos em 22/11: escala 2%, Fadiga −3%, Menos Apoio 2 camadas, Inimigos Fortalecidos +10% vida / +8% dano; blocos 6×3. */
-const TUNE=CH.TUNE,DEF={globalScale:.02,fatigue:.03,fortifiedHp:.10,fortifiedAtk:.08,cursedRelicChance:1/3,cursedRelicPool:['burden','chains'],lostGoldPerRound:1/3,moreElitesLayers:2,lessSupportLayers:2,reinforcedSwaps:2,reinforcedTeamSwaps:1,smallShopCards:2,smallShopRelics:1,blocks:[['reinforcements','fortified','moreelites'],['commanders','fatigue','cursedrelics'],['lesssupport','heavydeck','smallshop'],['inflation','cursed','bossrounds'],['lightpurse','veterans','dissipate'],['reinforceddecks','lostgold','bag']]};
+/* Valores decididos por Carlos em 22/11: escala 1% (23/11; era 2% em 22/11), Fadiga −3%, Menos Apoio 2 camadas, Inimigos Fortalecidos +10% vida / +8% dano; blocos 6×3. */
+const TUNE=CH.TUNE,DEF={globalScale:.01,fatigue:.03,fortifiedHp:.10,fortifiedAtk:.08,cursedRelicChance:1/3,cursedRelicPool:['burden','chains'],lostGoldPerRound:1/3,moreElitesLayers:2,lessSupportLayers:2,reinforcedSwaps:2,reinforcedTeamSwaps:1,smallShopCards:2,smallShopRelics:1,blocks:[['reinforcements','fortified','moreelites'],['commanders','fatigue','cursedrelics'],['lesssupport','heavydeck','smallshop'],['inflation','cursed','bossrounds'],['lightpurse','veterans','dissipate'],['reinforceddecks','lostgold','bag']]};
 for(const [k,v] of Object.entries(DEF))if(!(k in TUNE))TUNE[k]=v;
 const NEW=[
  {id:'fortified',en:'Fortified Enemies',pt:'Inimigos Fortalecidos',enDesc:'Enemy health +10% and damage +8%.',ptDesc:'Vida dos inimigos +10% e dano +8%.'},

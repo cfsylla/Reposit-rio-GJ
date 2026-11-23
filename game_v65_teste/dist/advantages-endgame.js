@@ -8,7 +8,10 @@
 (function(root){'use strict';
 const G=root.Game,P=root.Progress,T=root.JourneyTree,A=root.JourneyActs,AD=root.JourneyAdvantages,CH=root.JourneyChallenges;
 if(!AD)return;
-const TUNE=Object.assign(AD.TUNE,{trophyHp:.03,trophyAtk:.03,cleanGold:8,ambushUnits:1,...(root.JOURNEY_ADVANTAGE_TUNE||{})});
+const TUNE=Object.assign(AD.TUNE,{trophyHp:.03,trophyAtk:.03,cleanGold:8,ambushUnits:1,
+ /* Blocos de vantagens (decisão de 23/11): 6 blocos de 3, liberados em sequência. O bloco seguinte abre quando o atual está inteiro
+  * (ou seja, na 4ª, 7ª, 10ª, 13ª e 16ª Insígnia). Escolha livre dentro do bloco aberto. null = sem restrição. */
+ advBlocks:[['elite_experience','elite_hunter','ambush'],['cleanse','trained_eye','travel_relic'],['second_chance','flex_prep','planned_hand'],['boss_trophy','full_purse','interest'],['clean_victory','saved_energy','efficient_fusion'],['path_blessing','pretraining','rehearsal']],...(root.JOURNEY_ADVANTAGE_TUNE||{})});
 const NEW=[
  {id:'boss_trophy',en:'Boss Trophy',pt:'Troféu de Boss',enDesc:'Each map boss defeated grants all your units +3% health and attack until the end of the run.',ptDesc:'Cada boss de mapa vencido dá +3% de vida e ataque a todas as suas unidades até o fim da run.'},
  {id:'clean_victory',en:'Clean Victory',pt:'Vitória Limpa',enDesc:'Winning a confrontation without losing a round grants +8 gold.',ptDesc:'Vencer um confronto sem perder rodada concede +8 de ouro.'},
@@ -42,6 +45,14 @@ function rerollRecruit(s){if(!canRerollRecruit(s))return false;const out=G.choic
 /* Segunda Chance nas raids: raid-engine marca 'defeat' sem passar por Progress.finish. */
 const gf=G.finish;G.finish=function(s,result){const r=gf(s,result);if(s.raid&&s.phase==='defeat'&&AD.TUNE.secondMode==='extra')AD.secondChance(s);return r;};
 
-root.JourneyAdvantagesEndgame={NEW,canRerollRecruit,rerollRecruit};
+/* Blocos de vantagens: mesma regra dos blocos de desafios (challenges.js blockValid). */
+function advBlocks(){return Array.isArray(TUNE.advBlocks)&&TUNE.advBlocks.length?TUNE.advBlocks:null;}
+function advBlockValid(sel){const B=advBlocks();if(!B)return true;const set=new Set(sel);let i=0;while(i<B.length&&B[i].every(id=>set.has(id)))i++;const allowed=new Set([...B.slice(0,i).flat(),...(B[i]||[])]);return sel.every(id=>allowed.has(id));}
+function advBlockOf(id){const B=advBlocks();return B?B.findIndex(b=>b.includes(id)):-1;}
+function advAvailable(id){return advBlockValid([...AD.owned(),id]);}
+const buy0=AD.buy;function buy(id){if(!advBlockValid([...AD.owned(),id]))return false;return buy0(id);}
+const deact0=AD.deactivate;function deactivate(id){if(!advBlockValid(AD.owned().filter(x=>x!==id)))return false;return deact0(id);}
+root.JourneyAdvantagesEndgame={NEW,canRerollRecruit,rerollRecruit,advBlocks,advBlockValid,advBlockOf,advAvailable};
+Object.assign(AD,{buy,deactivate,advBlocks,advBlockValid,advBlockOf,advAvailable});
 Object.assign(AD,{canRerollRecruit,rerollRecruit});
 })(typeof globalThis!=='undefined'?globalThis:this);

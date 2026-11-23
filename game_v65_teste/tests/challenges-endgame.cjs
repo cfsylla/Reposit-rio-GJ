@@ -10,7 +10,7 @@ function run(sel, deck = 'vanguard', seed = 1) {
 // catálogo (22/11): 18 desafios (5 na reserva), nível máximo 18; valores decididos
 assert.equal(CH.catalog().length, 18); assert.equal(CH.MAX_LEVEL, 18);
 for (const id of ['tough', 'relentless', 'raidfury', 'scarce', 'fewrelics']) assert.ok(CH.BY[id].reserve && !CH.clean([id]).length, id);
-assert.equal(CH.TUNE.globalScale, .02); assert.equal(CH.TUNE.fatigue, .03); assert.equal(CH.TUNE.lessSupportLayers, 2);
+assert.equal(CH.TUNE.globalScale, .01); assert.equal(CH.TUNE.fatigue, .03); assert.equal(CH.TUNE.lessSupportLayers, 2);
 assert.equal(CH.TUNE.reinforceFromRound, 3); assert.equal(CH.TUNE.lightpurse, .30); assert.equal(CH.TUNE.bagCells, 4);
 // blocos (6 de 3): blocos anteriores inteiros + parte do bloco seguinte
 assert.equal(CH.blocks().length, 6); assert.ok(CH.blocks().flat().length === 18 && new Set(CH.blocks().flat()).size === 18);
@@ -21,14 +21,14 @@ assert.ok(!CH.select(['commanders'])); assert.ok(CH.select(['reinforcements', 'f
 assert.ok(!CH.toggle('moreelites'), 'não pode tirar desafio do bloco anterior enquanto há desafio do bloco seguinte');
 // vencer o nível 3 (bloco 1 inteiro) libera o nível 4, ou seja, o bloco 2
 { const s = { challenges: ['reinforcements', 'fortified', 'moreelites'] }; pc.available = 3; CH.recordVictory(s); assert.equal(CH.profile().available, 4); }
-// escala geral: 3 desafios × 2% = ×1,06 em vida, ataque e defesa dos inimigos
+// escala geral: 3 desafios × 1% = ×1,03 em vida, ataque e defesa dos inimigos
 CH.TUNE.blocks = null; // testes de mecânica sem a restrição de blocos
 let s = run(['inflation', 'lightpurse', 'bag']);
 let st = CH.enemyStats(s, s.ai.cards[0], { hp: 100, atk: 10, defense: 10 });
-assert.ok(Math.abs(st.hp - 106) < 1e-9 && Math.abs(st.atk - 10.6) < 1e-9 && Math.abs(st.defense - 10.6) < 1e-9);
-// Inimigos Fortalecidos: +10% vida e +8% dano, somados à escala (1 desafio × 2%)
+assert.ok(Math.abs(st.hp - 103) < 1e-9 && Math.abs(st.atk - 10.3) < 1e-9 && Math.abs(st.defense - 10.3) < 1e-9);
+// Inimigos Fortalecidos: +10% vida e +8% dano, somados à escala (1 desafio × 1%)
 s = run(['fortified']); st = CH.enemyStats(s, s.ai.cards[0], { hp: 100, atk: 10, defense: 10 });
-assert.ok(Math.abs(st.hp - 100 * 1.1 * 1.02) < 1e-9 && Math.abs(st.atk - 10 * 1.08 * 1.02) < 1e-9);
+assert.ok(Math.abs(st.hp - 100 * 1.1 * 1.01) < 1e-9 && Math.abs(st.atk - 10 * 1.08 * 1.01) < 1e-9);
 // Fadiga: −3% em vida, ataque, defesa e velocidade de ataque do jogador
 s = run(['fatigue']);
 st = T.stats({ hp: 100, atk: 10, defense: 10, rate: 1, crit: 0, speed: 1 }, s.cards[0], s, false);

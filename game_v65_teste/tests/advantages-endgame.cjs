@@ -33,3 +33,10 @@ for (const type of ['battle', 'elite', 'boss']) {
 { const s = run(['trained_eye']); s.phase = 'recruit'; s.current = { id: 'rec1', type: 'recruit' }; s.offers = G.choices(s); const before = [...s.offers];
   assert.ok(AD.canRerollRecruit(s)); assert.ok(AD.rerollRecruit(s)); assert.ok(s.offers.every(id => !before.includes(id))); assert.ok(!AD.rerollRecruit(s)); }
 console.log('PASS advantages-endgame: 18 vantagens, Bolsa Cheia 40, Preparação Flexível por confronto, Limpeza em cada loja, Segunda Chance (inclusive boss), Troféu de Boss, Emboscada, Olho Treinado no recrutamento');
+// Blocos de vantagens (23/11): 6 de 3; bloco seguinte abre com o atual inteiro; não pode desativar do bloco anterior com o seguinte em uso
+{ assert.equal(AD.advBlocks().length, 6); assert.equal(new Set(AD.advBlocks().flat()).size, 18); assert.ok(AD.advBlocks().flat().every(id => AD.BY[id]));
+  P.load(P.freshProfile()); P.profile.insignia = 18;
+  assert.ok(!AD.buy('cleanse'), 'bloco 2 fechado'); assert.ok(AD.buy('ambush')); assert.ok(AD.buy('elite_hunter')); assert.ok(!AD.advAvailable('trained_eye'));
+  assert.ok(AD.buy('elite_experience')); assert.ok(AD.buy('trained_eye'), 'bloco 2 aberto com o 1 inteiro');
+  assert.ok(!AD.deactivate('ambush'), 'bloco 1 preso enquanto há vantagem do bloco 2'); assert.ok(AD.deactivate('trained_eye')); assert.ok(AD.deactivate('ambush'));
+  console.log('PASS blocos de vantagens'); }

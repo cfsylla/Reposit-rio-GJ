@@ -98,3 +98,12 @@ Atualizado em 22/11/2026 (2ª rodada de decisões). Chat dedicado ao endgame.
 Nada rodado ainda.
 
 - Confirmações: Segunda Chance igual em raids/Titãs/True Boss forma 2; rodada extra conta para Derrota Custa Ouro; Olho Treinado vale no nó de recrutamento.
+## 12. Fechamento (23/11)
+- **Escala de força inimiga: +1%** de vida, ataque e defesa por desafio ativo (substitui os 2% da seção 6). Medido: nível 18 com 32% no simulador, contra 5% com 2%.
+- **Alvo de vitória:** 40 a 70% para o humano. O simulador joga cerca de 10 pontos pior, então o alvo nele é de 30 a 60%.
+- **Sem teto e sem condições** do tipo "vale a partir do mapa 2".
+- **Desafios:** 6 blocos de 3, cumulativos (seção 8 e pacote).
+- **Vantagens:** 6 blocos de 3: Experiência de Elite, Caçador de Elites e Emboscada | Limpeza, Olho Treinado e Relíquia de Viagem | Segunda Chance, Preparação Flexível e Mão Planejada | Troféu de Boss, Bolsa Cheia e Juros | Vitória Limpa, Energia Guardada e Fusão Eficiente | Bênção do Caminho, Treino Prévio e Ensaio. O bloco seguinte abre com o atual inteiro (4ª, 7ª, 10ª, 13ª e 16ª Insígnia).
+- **Pendente de validação em playtest:** o vale dos níveis 7 a 11 (18 a 27% no simulador). A campanha completa simulada fica para depois.
+- **Final Union:** adiada.
+- **Pacote para o ChatGPT:** `balance/endgame/pacote_endgame/`.

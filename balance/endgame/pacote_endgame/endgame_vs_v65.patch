@@ -1,0 +1,468 @@
+diff -ruN -x node_modules game_v65/dist/advantages-endgame.js game_v65_teste/dist/advantages-endgame.js
+--- game_v65/dist/advantages-endgame.js	1970-01-01 00:00:00.000000000 +0000
++++ game_v65_teste/dist/advantages-endgame.js	2026-11-23 02:35:08.245451067 +0000
+@@ -0,0 +1,58 @@
++/* Endgame (teste, 22/11/2026): vantagens novas e ajustes que dependem dos desafios do endgame.
++ * Carregado depois de challenges-endgame.js.
++ * - Troféu de Boss: cada boss de mapa vencido dá +3% de vida e ataque às unidades do jogador até o fim da run.
++ * - Vitória Limpa: vencer um confronto sem perder rodada dá +8 de ouro (bônus; não é afetado por Derrota Custa Ouro).
++ * - Emboscada: na 1ª rodada de cada confronto (exceto bosses e raids), o inimigo coloca 1 unidade a menos (mínimo 1).
++ * - Olho Treinado: 1 renovação grátis também em todo nó de recrutamento.
++ * - Segunda Chance: também nas raids (o motor da raid não chama Progress.finish) e conta a rodada extra em Derrota Custa Ouro. */
++(function(root){'use strict';
++const G=root.Game,P=root.Progress,T=root.JourneyTree,A=root.JourneyActs,AD=root.JourneyAdvantages,CH=root.JourneyChallenges;
++if(!AD)return;
++const TUNE=Object.assign(AD.TUNE,{trophyHp:.03,trophyAtk:.03,cleanGold:8,ambushUnits:1,
++ /* Blocos de vantagens (decisão de 23/11): 6 blocos de 3, liberados em sequência. O bloco seguinte abre quando o atual está inteiro
++  * (ou seja, na 4ª, 7ª, 10ª, 13ª e 16ª Insígnia). Escolha livre dentro do bloco aberto. null = sem restrição. */
++ advBlocks:[['elite_experience','elite_hunter','ambush'],['cleanse','trained_eye','travel_relic'],['second_chance','flex_prep','planned_hand'],['boss_trophy','full_purse','interest'],['clean_victory','saved_energy','efficient_fusion'],['path_blessing','pretraining','rehearsal']],...(root.JOURNEY_ADVANTAGE_TUNE||{})});
++const NEW=[
++ {id:'boss_trophy',en:'Boss Trophy',pt:'Troféu de Boss',enDesc:'Each map boss defeated grants all your units +3% health and attack until the end of the run.',ptDesc:'Cada boss de mapa vencido dá +3% de vida e ataque a todas as suas unidades até o fim da run.'},
++ {id:'clean_victory',en:'Clean Victory',pt:'Vitória Limpa',enDesc:'Winning a confrontation without losing a round grants +8 gold.',ptDesc:'Vencer um confronto sem perder rodada concede +8 de ouro.'},
++ {id:'ambush',en:'Ambush',pt:'Emboscada',enDesc:'In the first round of each confrontation (except bosses), the enemy fields 1 fewer unit.',ptDesc:'Na 1ª rodada de cada confronto (exceto bosses), o inimigo coloca 1 unidade a menos.'},
++];
++for(const a of NEW)if(!AD.BY[a.id]){AD.LIST.push(a);AD.BY[a.id]=a;}
++const has=AD.has,act=s=>A?.act(s)||1;
++const isBoss=s=>s.current?.type==='boss'||!!s.bossEncounter;
++
++/* Troféu de Boss: conta na 1ª chamada de vitória do boss de cada mapa (antes da sessão da árvore). */
++const finish=P.finish;P.finish=function(s,reason){
++ if(reason==='victory'&&has(s,'boss_trophy')&&s.adv&&s.current?.type==='boss'&&!s.meta?.ended){s.adv.trophies??=[];if(!s.adv.trophies.includes(act(s)))s.adv.trophies.push(act(s));}
++ return finish(s,reason);};
++if(T?.stats){const stats=T.stats;T.stats=function(st,c,s,enemy){st=stats(st,c,s,enemy)||st;const k=!enemy&&has(s,'boss_trophy')?(s.adv?.trophies?.length||0):0;if(k){st.hp*=1+TUNE.trophyHp*k;st.atk*=1+TUNE.trophyAtk*k;}return st;};}
++
++/* Vitória Limpa e Segunda Chance em Derrota Custa Ouro. A marca de Derrota Custa Ouro (s.lgPending) é posta pelo
++ * encounterWin de challenges-endgame; o bônus é pago sem consumi-la. */
++const ew=P.encounterWin;P.encounterWin=function(s){
++ const clean=(s.score?.[1]||0)===0,before=s.meta?.encounters?.length||0,r=ew(s),recorded=(s.meta?.encounters?.length||0)>before;
++ if(recorded&&s.adv?.secondAt!=null&&s.adv.secondAt===s.encounters&&s.lgPending!=null)s.lgPending+=1;
++ if(recorded&&clean&&has(s,'clean_victory')&&!s.eventEncounter){const L=s.lgPending;s.lgPending=null;G.rewardGold?G.rewardGold(s,TUNE.cleanGold):(s.gold+=TUNE.cleanGold);s.lgPending=L;s.adv.clean=(s.adv.clean||0)+1;}
++ return r;};
++
++/* Emboscada: o limite de unidades do inimigo usa JourneyChallenges.extraUnits (Reforços); aqui ele desconta 1 na 1ª rodada. */
++if(CH?.extraUnits){const xu=CH.extraUnits;CH.extraUnits=function(s){const base=xu(s)||0;if(has(s,'ambush')&&(s.round||1)===1&&!s.raid&&!isBoss(s)&&!s.training)return base-TUNE.ambushUnits;return base;};}
++
++/* Olho Treinado no nó de recrutamento: 1 renovação grátis por nó. */
++function canRerollRecruit(s){return has(s,'trained_eye')&&!!s.adv&&s.phase==='recruit'&&Array.isArray(s.offers)&&s.offers.length>0&&!(s.adv.eyeRecruit||[]).includes(act(s)+':'+s.current?.id);}
++function rerollRecruit(s){if(!canRerollRecruit(s))return false;const out=G.choices(s,s.offers.length,s.offers);if(!out.length)return false;s.offers=out;G.setRecruitLevels?.(s,out);(s.adv.eyeRecruit??=[]).push(act(s)+':'+s.current.id);return true;}
++
++/* Segunda Chance nas raids: raid-engine marca 'defeat' sem passar por Progress.finish. */
++const gf=G.finish;G.finish=function(s,result){const r=gf(s,result);if(s.raid&&s.phase==='defeat'&&AD.TUNE.secondMode==='extra')AD.secondChance(s);return r;};
++
++/* Blocos de vantagens: mesma regra dos blocos de desafios (challenges.js blockValid). */
++function advBlocks(){return Array.isArray(TUNE.advBlocks)&&TUNE.advBlocks.length?TUNE.advBlocks:null;}
++function advBlockValid(sel){const B=advBlocks();if(!B)return true;const set=new Set(sel);let i=0;while(i<B.length&&B[i].every(id=>set.has(id)))i++;const allowed=new Set([...B.slice(0,i).flat(),...(B[i]||[])]);return sel.every(id=>allowed.has(id));}
++function advBlockOf(id){const B=advBlocks();return B?B.findIndex(b=>b.includes(id)):-1;}
++function advAvailable(id){return advBlockValid([...AD.owned(),id]);}
++const buy0=AD.buy;function buy(id){if(!advBlockValid([...AD.owned(),id]))return false;return buy0(id);}
++const deact0=AD.deactivate;function deactivate(id){if(!advBlockValid(AD.owned().filter(x=>x!==id)))return false;return deact0(id);}
++root.JourneyAdvantagesEndgame={NEW,canRerollRecruit,rerollRecruit,advBlocks,advBlockValid,advBlockOf,advAvailable};
++Object.assign(AD,{buy,deactivate,advBlocks,advBlockValid,advBlockOf,advAvailable});
++Object.assign(AD,{canRerollRecruit,rerollRecruit});
++})(typeof globalThis!=='undefined'?globalThis:this);
+diff -ruN -x node_modules game_v65/dist/advantages.js game_v65_teste/dist/advantages.js
+--- game_v65/dist/advantages.js	2026-11-21 21:12:46.000000000 +0000
++++ game_v65_teste/dist/advantages.js	2026-11-22 23:33:33.605687545 +0000
+@@ -8,22 +8,22 @@
+ const LIST=[
+  {id:'travel_relic',en:'Travel Relic',pt:'Relíquia de Viagem',enDesc:'Start each run with +1 random common relic that fits the bag.',ptDesc:'Começa cada run com +1 relíquia comum aleatória que caiba na bolsa.'},
+  {id:'pretraining',en:'Pre-Training',pt:'Treino Prévio',enDesc:'2 random deck cards start with upgrade 1.',ptDesc:'2 cartas aleatórias do deck começam com upgrade 1.'},
+- {id:'flex_prep',en:'Flexible Preparation',pt:'Preparação Flexível',enDesc:'Once per round, refresh your hand for free.',ptDesc:'Uma vez por rodada, renova a mão de graça.'},
++ {id:'flex_prep',en:'Flexible Preparation',pt:'Preparação Flexível',enDesc:'Once per confrontation, refresh your hand for free.',ptDesc:'Uma vez por confronto, renova a mão de graça.'},
+  {id:'efficient_fusion',en:'Efficient Fusion',pt:'Fusão Eficiente',enDesc:'Every fusion completed refunds 1 energy.',ptDesc:'Toda fusão concluída devolve 1 de energia.'},
+- {id:'full_purse',en:'Full Purse',pt:'Bolsa Cheia',enDesc:'+20 starting gold.',ptDesc:'+20 de ouro inicial.'},
++ {id:'full_purse',en:'Full Purse',pt:'Bolsa Cheia',enDesc:'+40 starting gold.',ptDesc:'+40 de ouro inicial.'},
+  {id:'elite_experience',en:'Elite Experience',pt:'Experiência de Elite',enDesc:'Each elite defeated grants all your units +0.5% health and attack until the end of the run.',ptDesc:'Cada elite vencida dá +0,5% de vida e ataque a todas as suas unidades até o fim da run.'},
+- {id:'trained_eye',en:'Trained Eye',pt:'Olho Treinado',enDesc:'One free reroll on every relic choice.',ptDesc:'1 renovação grátis em toda escolha de relíquia.'},
++ {id:'trained_eye',en:'Trained Eye',pt:'Olho Treinado',enDesc:'One free reroll on every relic choice and every recruit node.',ptDesc:'1 renovação grátis em toda escolha de relíquia e em todo nó de recrutamento.'},
+  {id:'rehearsal',en:'Rehearsal',pt:'Ensaio',enDesc:'The first card bought in each shop comes with upgrade 2.',ptDesc:'A primeira carta comprada em cada loja vem com upgrade 2.'},
+  {id:'planned_hand',en:'Planned Hand',pt:'Mão Planejada',enDesc:'Before the run, choose a deck card: one copy starts in your hand in every other confrontation (1st, 3rd, 5th...).',ptDesc:'Antes da run, escolhe uma carta do deck: uma cópia começa na mão em confrontos alternados (1º, 3º, 5º...).'},
+  {id:'saved_energy',en:'Saved Energy',pt:'Energia Guardada',enDesc:'+1 energy in the first round of each confrontation.',ptDesc:'+1 de energia na primeira rodada de cada confronto.'},
+- {id:'cleanse',en:'Cleanse',pt:'Limpeza',enDesc:'One free card removal in the first shop of each map.',ptDesc:'Uma remoção de carta grátis na primeira loja de cada mapa.'},
++ {id:'cleanse',en:'Cleanse',pt:'Limpeza',enDesc:'One free card removal in every shop.',ptDesc:'Uma remoção de carta grátis em cada loja.'},
+  {id:'path_blessing',en:'Path Blessing',pt:'Bênção do Caminho',enDesc:'Entering maps 2 and 3 upgrades 2 random deck cards to level 1.',ptDesc:'Ao entrar nos mapas 2 e 3, 2 cartas aleatórias do deck recebem upgrade 1.'},
+  {id:'interest',en:'Interest',pt:'Juros',enDesc:'Defeating each map boss grants 100% of your saved gold (max. 150).',ptDesc:'Vencer o boss de cada mapa concede 100% do ouro guardado (máx. 150).'},
+  {id:'elite_hunter',en:'Elite Hunter',pt:'Caçador de Elites',enDesc:'Defeating an elite grants +20 gold.',ptDesc:'Vencer uma elite concede +20 de ouro.'},
+- {id:'second_chance',en:'Second Chance',pt:'Segunda Chance',enDesc:'Once per run, losing a confrontation (except bosses) replays only the last round: the score is kept and the enemy loses 1 point.',ptDesc:'Uma vez por run, perder um confronto (exceto bosses) repete só a última rodada: o placar continua e o inimigo perde 1 ponto.'},
++ {id:'second_chance',en:'Second Chance',pt:'Segunda Chance',enDesc:'Once per run, losing a confrontation (bosses included) grants one more round: the defeat limit rises by 1.',ptDesc:'Uma vez por run, perder um confronto (inclusive boss) dá mais uma rodada: o limite de derrotas sobe em 1.'},
+ ];
+ const BY=Object.fromEntries(LIST.map(a=>[a.id,a]));
+-const TUNE=root.JOURNEY_ADVANTAGE_TUNE={pretraining:2,pretrainingLevel:1,pretrainingLevels:[1,1],rehearsalLevel:2,eyeMode:'every',secondMode:'round',blessingLevel:1,blessingCount:1,blessingLevels:[1,1],flexUses:1,flexScope:'round',fusionRefund:1,fusionPerRound:99,plannedCount:1,plannedFreq:'alternate',eliteHp:.005,eliteAtk:.005,eliteCap:99,fullPurse:20,/* R3 (Carlos 08/11/2026): Juros e Caçador de Elites para +2 a +7 */interest:1,interestMax:150,eliteGold:20,...(root.JOURNEY_ADVANTAGE_TUNE||{})};
++const TUNE=root.JOURNEY_ADVANTAGE_TUNE={pretraining:2,pretrainingLevel:1,pretrainingLevels:[1,1],rehearsalLevel:2,eyeMode:'every',secondMode:'extra',blessingLevel:1,blessingCount:1,blessingLevels:[1,1],flexUses:1,flexScope:'confront',fusionRefund:1,fusionPerRound:99,plannedCount:1,plannedFreq:'alternate',eliteHp:.005,eliteAtk:.005,eliteCap:99,fullPurse:40,cleanseScope:'shop',/* R3 (Carlos 08/11/2026): Juros e Caçador de Elites para +2 a +7 */interest:1,interestMax:150,eliteGold:20,...(root.JOURNEY_ADVANTAGE_TUNE||{})};
+ 
+ function owned(){const p=P.profile;p.advantages=[...new Set((p.advantages||[]).filter(id=>BY[id]))];return p.advantages;}
+ function eligible(s){return !!s&&!s.training&&!s.tutorialReplay;}
+@@ -76,17 +76,22 @@
+ if(C?.draw){const draw=C.draw;C.draw=function(s,n){if(has(s,'planned_hand')&&s.adv?.planned&&s.round===1&&!s.hand.length&&s.adv.plannedAt!==s.encounters&&s.phase==='prep'){s.adv.plannedAt=s.encounters;if(plannedApplies(s))for(let k=0;k<TUNE.plannedCount;k++){const i=s.draw.findIndex(id=>s.cards.find(c=>c.uid===id)?.type===s.adv.planned);if(i>=0){const [id]=s.draw.splice(i,1);s.draw.push(id);}}}return draw(s,n);};}
+ /* Experiência de Elite: additive stacks, player units only, whole run. */
+ if(T?.stats){const stats=T.stats;T.stats=function(st,c,s,enemy){st=stats(st,c,s,enemy)||st;const k=!enemy&&has(s,'elite_experience')?Math.min(TUNE.eliteCap,s.adv?.eliteStacks||0):0;if(k){st.hp*=1+TUNE.eliteHp*k;st.atk*=1+TUNE.eliteAtk*k;}return st;};}
++/* Limpeza (22/11): uma remoção grátis em cada loja (cleanseScope 'shop'); 'map' = 1ª loja de cada mapa (antigo). */
++function cleanseFree(s){if(!s.adv)return false;if(TUNE.cleanseScope==='shop')return !s.adv.cleanse.includes(s.current.id);return !s.adv?.cleanse.includes(act(s))&&(!s.adv?.firstShops?.[act(s)]||s.adv.firstShops[act(s)]===s.current.id);}
+ function energy(s,enemy){return !enemy&&has(s,'saved_energy')&&s.round===1?1:0;}
+-if(T){const price=T.price;T.price=function(s,kind,base,merchant){const a=price(s,kind,base,merchant);if(kind==='remove'&&has(s,'cleanse')&&s.current?.type==='shop'&&!s.adv?.cleanse.includes(act(s))&&(!s.adv?.firstShops?.[act(s)]||s.adv.firstShops[act(s)]===s.current.id))return 0;return a;};}
+-const service=G.shopService;G.shopService=function(s,kind,id){const free=kind==='remove'&&has(s,'cleanse')&&s.current?.type==='shop'&&!s.adv?.cleanse.includes(act(s))&&(!s.adv?.firstShops?.[act(s)]||s.adv.firstShops[act(s)]===s.current.id);const ok=service(s,kind,id);if(ok&&free)s.adv.cleanse.push(act(s));return ok;};
++if(T){const price=T.price;T.price=function(s,kind,base,merchant){const a=price(s,kind,base,merchant);if(kind==='remove'&&has(s,'cleanse')&&s.current?.type==='shop'&&cleanseFree(s))return 0;return a;};}
++const service=G.shopService;G.shopService=function(s,kind,id){const free=kind==='remove'&&has(s,'cleanse')&&s.current?.type==='shop'&&cleanseFree(s);const ok=service(s,kind,id);if(ok&&free)s.adv.cleanse.push(TUNE.cleanseScope==='shop'?s.current.id:act(s));return ok;};
+ const purchase=G.buy;G.buy=function(s,kind,index){const before=s.cards.length,ok=purchase(s,kind,index);if(ok&&kind==='cards'&&has(s,'rehearsal')&&s.current?.type==='shop'&&!s.adv?.shops[s.current.id]&&s.cards.length>before){const c=s.cards[s.cards.length-1];if(c.level<TUNE.rehearsalLevel){const level=c.level;c.level=TUNE.rehearsalLevel;root.JourneyTelemetry?.upgrade(s,c,level);}s.adv.shops[s.current.id]=true;}return ok;};
+ const advance=A.advance;A.advance=function(s){const before=act(s),ok=advance(s);if(ok&&has(s,'path_blessing')&&act(s)>before&&act(s)>=2)for(const L of (TUNE.blessingLevels||Array(TUNE.blessingCount).fill(TUNE.blessingLevel))){const c=pick(s,s.cards.filter(c=>!C?.isCurse(c)&&c.level<L));if(c)c.level=L;}return ok;};
+ const encounter=P.encounterWin;P.encounterWin=function(s){const before=s.meta?.encounters?.length||0,r=encounter(s),recorded=(s.meta?.encounters?.length||0)>before;if(recorded&&has(s,'elite_experience')&&s.current?.type==='elite'&&!s.eventEncounter&&s.adv)s.adv.eliteStacks=(s.adv.eliteStacks||0)+1;if(recorded&&has(s,'elite_hunter')&&s.current?.type==='elite'&&!s.eventEncounter)G.rewardGold?G.rewardGold(s,TUNE.eliteGold):(s.gold+=TUNE.eliteGold);return r;};
++/* Segunda Chance (22/11): 1 vez por run, ao perder qualquer confronto (inclusive boss, raid, Titã e 2ª forma do True Boss), o limite de derrotas sobe em 1: o placar fica com uma derrota a menos do limite e joga mais uma rodada. A rodada extra perdida conta para Derrota Custa Ouro (s.adv.secondAt). */
++function secondChance(s){if(!eligible(s)||s.meta?.ended||!has(s,'second_chance')||!s.adv||s.adv.second||!s.current||s.phase!=='defeat')return false;s.adv.second=s.current.id;s.adv.secondAt=s.encounters;s.secondChanceNotice=true;s.score[1]=Math.max(0,(s.score[1]||1)-1);s.phase='roundResult';return true;}
+ const finish=P.finish;P.finish=function(s,reason){
+- if(eligible(s)&&reason==='defeat'&&!s.meta?.ended&&has(s,'second_chance')&&!s.adv?.second&&s.current&&['battle','elite'].includes(s.current.type)&&!s.eventEncounter&&!s.raid){
++ if(TUNE.secondMode==='extra'&&reason==='defeat'&&secondChance(s))return false;
++ if(TUNE.secondMode!=='extra'&&eligible(s)&&reason==='defeat'&&!s.meta?.ended&&has(s,'second_chance')&&!s.adv?.second&&s.current&&['battle','elite'].includes(s.current.type)&&!s.eventEncounter&&!s.raid){
+   s.adv.second=s.current.id;if(TUNE.secondMode==='round'){s.score[1]=Math.max(0,G.winsNeeded(s)-1);s.phase='roundResult';G.nextRound(s);return false;}s.mapBattles=Math.max(0,(s.mapBattles||1)-1);s.encounters=Math.max(0,(s.encounters||1)-1);G.startConfront(s,s.current);return false;}
+  if(eligible(s)&&reason==='victory'&&has(s,'interest')&&s.current?.type==='boss'&&s.adv&&!s.adv.interest.includes(act(s))){s.adv.interest.push(act(s));s.gold+=Math.min(TUNE.interestMax,Math.floor(s.gold*TUNE.interest));}
+  return finish(s,reason);};
+ 
+-root.JourneyAdvantages={LIST,flexLeft,plannedOptions,choosePlanned,BY,TUNE,owned,has,buy,deactivate,reset,start,canReroll,rerollRelic,energy};
++root.JourneyAdvantages={secondChance,LIST,flexLeft,plannedOptions,choosePlanned,BY,TUNE,owned,has,buy,deactivate,reset,start,canReroll,rerollRelic,energy};
+ })(typeof globalThis!=='undefined'?globalThis:this);
+diff -ruN -x node_modules game_v65/dist/challenges-endgame.js game_v65_teste/dist/challenges-endgame.js
+--- game_v65/dist/challenges-endgame.js	1970-01-01 00:00:00.000000000 +0000
++++ game_v65_teste/dist/challenges-endgame.js	2026-11-23 02:35:08.200119574 +0000
+@@ -0,0 +1,84 @@
++/* Endgame (Claude, 22/11/2026) — TESTE. Escala geral e 7 desafios candidatos. Nada é ativado por padrão:
++ * - escala geral: TUNE.globalScale (0 = desligada); vida, ataque e defesa dos inimigos × (1 + globalScale × nº de desafios ativos),
++ *   em todo combate e todo boss (raids, Titãs e forma 2 do True Boss pelo fator da raid: vida e dano);
++ * - Inimigos Fortalecidos (fortified) substitui Tropas Resistentes e Ataques Implacáveis (agora na reserva);
++ * - candidatos (só valem quando escolhidos na run): moreelites, cursedrelics, fatigue, reinforceddecks, lesssupport, smallshop, lostgold.
++ * Carregar depois de challenges.js e advantages.js (index.html). Decisões em balance/endgame/DECISOES_ENDGAME.md. */
++(function(root){'use strict';
++const G=root.Game,P=root.Progress,CH=root.JourneyChallenges,T=root.JourneyTree,R=root.JourneyRaid,A=root.JourneyActs,C=root.JourneyContent;
++if(!G||!CH)return;
++/* Valores decididos por Carlos em 22/11: escala 1% (23/11; era 2% em 22/11), Fadiga −3%, Menos Apoio 2 camadas, Inimigos Fortalecidos +10% vida / +8% dano; blocos 6×3. */
++const TUNE=CH.TUNE,DEF={globalScale:.01,fatigue:.03,fortifiedHp:.10,fortifiedAtk:.08,cursedRelicChance:1/3,cursedRelicPool:['burden','chains'],lostGoldPerRound:1/3,moreElitesLayers:2,lessSupportLayers:2,reinforcedSwaps:2,reinforcedTeamSwaps:1,smallShopCards:2,smallShopRelics:1,blocks:[['reinforcements','fortified','moreelites'],['commanders','fatigue','cursedrelics'],['lesssupport','heavydeck','smallshop'],['inflation','cursed','bossrounds'],['lightpurse','veterans','dissipate'],['reinforceddecks','lostgold','bag']]};
++for(const [k,v] of Object.entries(DEF))if(!(k in TUNE))TUNE[k]=v;
++const NEW=[
++ {id:'fortified',en:'Fortified Enemies',pt:'Inimigos Fortalecidos',enDesc:'Enemy health +10% and damage +8%.',ptDesc:'Vida dos inimigos +10% e dano +8%.'},
++ {id:'moreelites',en:'More Elites',pt:'Mais Elites no Mapa',enDesc:'In each map, 2 whole layers of simple battles become elite battles.',ptDesc:'Em cada mapa, 2 camadas inteiras de batalhas simples viram batalhas de elite.'},
++ {id:'cursedrelics',en:'Cursed Relics',pt:'Relíquias Amaldiçoadas',enDesc:'Each relic you obtain has a 33% chance to add Burden or Chains to your deck.',ptDesc:'Cada relíquia obtida tem 33% de chance de adicionar Fardo ou Correntes ao deck.'},
++ {id:'fatigue',en:'Journey Fatigue',pt:'Fadiga da Jornada',enDesc:'Your units have −3% attack, health, defense and attack speed.',ptDesc:'Suas unidades têm −3% de ataque, vida, defesa e velocidade de ataque.'},
++ {id:'reinforceddecks',en:'Reinforced Decks',pt:'Decks Reforçados',enDesc:'Elites and bosses swap their weakest cards for stronger ones.',ptDesc:'Elites e bosses trocam as cartas mais fracas por outras mais fortes.'},
++ {id:'lesssupport',en:'Less Support',pt:'Menos Apoio no Mapa',enDesc:'In each map, 2 support layers become layers of battles.',ptDesc:'Em cada mapa, 2 camadas de apoio viram camadas de batalhas.'},
++ {id:'smallshop',en:'Smaller Shop',pt:'Loja com Menos Opções',enDesc:'Shops offer 2 recruits and 1 relic.',ptDesc:'A loja oferece 2 recrutas e 1 relíquia.'},
++ {id:'lostgold',en:'Costly Victories',pt:'Derrota Custa Ouro',enDesc:'Each lost round removes 33% of the victory gold of that fight.',ptDesc:'Cada rodada perdida tira 33% do ouro da vitória daquela luta.'},
++];
++for(const c of NEW)if(!CH.BY[c.id]){CH.LIST.push(c);CH.BY[c.id]=c;}
++const active=(s,id)=>CH.active(s,id);
++/* scaleLevel: só para medição (simulador); quando definido, substitui a contagem de desafios ativos. */
++const count=s=>(s&&!s.training&&!s.tutorialReplay&&Array.isArray(s.challenges))?(TUNE.scaleLevel??s.challenges.length):0;
++const scaleOf=s=>1+(TUNE.globalScale||0)*count(s);
++const rand=(s,salt)=>G.rng(((s.seed>>>0)^Math.imul(salt>>>0,0x9e3779b1))>>>0)();
++
++/* 1) Escala geral: inimigos fora de raid (comum, elite, ordem, evento, boss de mapa, forma 1 do True Boss). */
++/* Inimigos Fortalecidos (junta Tropas Resistentes e Ataques Implacáveis): mesmos valores, fora das raids (como antes). */
++const es=CH.enemyStats;CH.enemyStats=function(s,c,st){es(s,c,st);if(active(s,'fortified')){st.hp*=1+TUNE.fortifiedHp;st.atk*=1+TUNE.fortifiedAtk;}const k=scaleOf(s);if(k!==1){st.hp*=k;st.atk*=k;st.defense*=k;}return st;};
++/* Raids, Titãs e forma 2 do True Boss: fator da raid (vida e dano). */
++if(R?.initialize){const init=R.initialize;R.initialize=function(s,kind,scale,...rest){const k=scaleOf(s);if(k!==1&&scale){rest[1]=[...(rest[1]||[{source:'raid:'+kind,...scale}]),{source:'challenge:globalScale',hp:k,damage:k}];scale={...scale,hp:scale.hp*k,damage:scale.damage*k,minions:(scale.minions||1)*k};}return init.call(this,s,kind,scale,...rest);};}
++
++/* 2) Fadiga da Jornada: debuff fixo nas unidades do jogador (não mexe na árvore). */
++if(T?.stats){const st0=T.stats;T.stats=function(st,c,s,enemy){st=st0(st,c,s,enemy)||st;if(!enemy&&active(s,'fatigue')){const f=1-TUNE.fatigue;st.hp*=f;st.atk*=f;st.defense*=f;st.rate/=f;}return st;};}
++
++/* 3) Mapa: Menos Apoio (1 camada de apoio vira batalhas) e depois Mais Elites (2 camadas de batalhas simples viram elite). */
++const SUPPORT=['recruit','upgrade','event','shop','relic'];
++function pick(list,n,s,salt,ok){const out=[],pool=[...list];let k=0;while(out.length<n&&pool.length){const i=Math.floor(rand(s,salt+(k++))*pool.length),x=pool.splice(i,1)[0];if(!ok||ok(x,out))out.push(x);}return out;}
++function shapeMap(s){const map=s.map;if(!map||s.mapShaped===(A?.act?.(s)||1))return;const act=A?.act?.(s)||1;s.mapShaped=act;
++ if(active(s,'lesssupport')){const layers=map.map((row,i)=>i).filter(i=>i>0&&i<13&&map[i].every(n=>SUPPORT.includes(n.type)));
++  for(const i of pick(layers,TUNE.lessSupportLayers,s,act*101+1))for(const n of map[i]){n.type='battle';n.name='Confronto';n.supportConverted=true;}}
++ if(active(s,'moreelites')){const first=map.findIndex(row=>row.some(n=>['battle','elite'].includes(n.type)));
++  const layers=map.map((row,i)=>i).filter(i=>i!==first&&i<13&&map[i].some(n=>n.type==='battle'&&!n.campaign)&&map[i].every(n=>!n.campaign&&['battle','elite'].includes(n.type)));
++  for(const i of pick(layers,TUNE.moreElitesLayers,s,act*101+7,(x,out)=>out.every(y=>Math.abs(x-y)>1)))for(const n of map[i])if(n.type==='battle'){n.type='elite';n.name='Companhia de elite';n.challengeElite=true;}}}
++if(A?.advance){const adv=A.advance;A.advance=function(s){const ok=adv(s);if(ok)shapeMap(s);return ok;};}
++
++/* 4) Decks Reforçados: elites e bosses trocam as cartas mais fracas (índice L0 do laboratório lab2, R3) pelas mais fortes
++ *    da mesma facção que não estão no deck; sem melhor na facção, do mesmo trait. Times de 4 cópias: troca 1 personagem. */
++const RANK={"cannoneer":[1.157,"Seasalt Crew"],"pirate_admiral":[1.114,"Seasalt Crew"],"shaman":[1.112,"Frostborn Clans"],"goblin_king":[1.11,"Goblin"],"snow_troll":[1.11,"Troll"],"troll":[1.092,"Troll"],"sage":[1.087,"Arcane"],"elf_noble":[1.085,"High Elf"],"dark_elf_noble":[1.077,"Dark Elf"],"goblin_bomber":[1.075,"Goblin"],"centaur_crossbow":[1.075,"Centaur"],"centaur_lancer":[1.075,"Centaur"],"shaolin":[1.073,"Legends of the East"],"feline_drummer":[1.073,"Meowri"],"pirate_captain":[1.069,"Seasalt Crew"],"dark_elf_archer":[1.067,"Dark Elf"],"sheriff":[1.067,"Wild West"],"huntress":[1.063,"Frostborn Clans"],"blackfang_guardian":[1.063,"Dark Elf"],"feline_arcanist":[1.058,"Meowri"],"woodland_predator":[1.058,"Forest Elf"],"cavalier":[1.056,"Dawnward Order"],"elf_guardian":[1.054,"High Elf"],"shinobi":[1.052,"Legends of the East"],"musketeer":[1.048,"Dawnward Order"],"crossbowman":[1.044,"Verdant Covenant"],"archer":[1.042,"Verdant Covenant"],"bear_druid":[1.042,"Verdant Covenant"],"orc_berserker":[1.041,"Orc"],"priestess":[1.039,"Arcane"],"mountain_troll":[1.037,"Troll"],"woodland_scout":[1.037,"Forest Elf"],"omnamusha":[1.035,"Legends of the East"],"eagle_druid":[1.035,"Verdant Covenant"],"ronin":[1.033,"Legends of the East"],"mage":[1.033,"Arcane"],"elf_harpist":[1.033,"High Elf"],"bard":[1.033,"Arcane"],"goblin_rider":[1.031,"Goblin"],"orc_warrior":[1.031,"Orc"],"shieldmaiden":[1.029,"Frostborn Clans"],"feline_rogue":[1.029,"Meowri"],"orc_fighter":[1.027,"Orc"],"cowboy":[1.026,"Wild West"],"gunner":[1.022,"Wild West"],"ranger":[1.022,"Verdant Covenant"],"duelist":[1.02,"Dawnward Order"],"bastion":[1.02,"Dawnward Order"],"kinoichi":[1.018,"Legends of the East"],"samurai":[1.018,"Legends of the East"],"martial_artist":[1.018,"Legends of the East"],"swordsman":[1.016,"Dawnward Order"],"dark_elf_mage":[1.016,"Dark Elf"],"gladiator":[1.016,"Dawnward Order"],"sorceress":[1.013,"Arcane"],"goblin_brute":[1.011,"Goblin"],"feline_fighter":[1.011,"Meowri"],"elf_halberdier":[1.007,"High Elf"],"woodland_flailer":[1.004,"Forest Elf"],"goblin_archer":[1.002,"Goblin"],"flower_fairy":[1,"Fairy"],"glutton":[0.996,"Frostborn Clans"],"elf_archer":[0.993,"High Elf"],"berserker":[0.991,"Frostborn Clans"],"cave_troll":[0.989,"Troll"],"dark_elf_warrior":[0.986,"Dark Elf"],"miner":[0.979,"Wild West"],"woodland_lancer":[0.977,"Forest Elf"],"centaur_swordsman":[0.977,"Centaur"],"warrior":[0.972,"Dawnward Order"],"pirate":[0.972,"Seasalt Crew"],"goblin_spearman":[0.97,"Goblin"],"feline_swordsman":[0.968,"Meowri"],"lancer":[0.963,"Dawnward Order"],"shackled_pirate":[0.963,"Seasalt Crew"],"viking":[0.954,"Frostborn Clans"],"fighter":[0.951,"Legends of the East"]};
++const idx=t=>RANK[t]?.[0];
++function reinforce(s){const ai=s.ai,n=s.current;if(!ai?.cards?.length||ai.reinforced||!['elite','boss'].includes(n?.type)||s.raid)return;
++ const types=[...new Set(ai.cards.map(c=>c.type))],counts=Object.fromEntries(types.map(t=>[t,ai.cards.filter(c=>c.type===t).length]));
++ const team=types.every(t=>counts[t]>=4),swaps=team?TUNE.reinforcedTeamSwaps:TUNE.reinforcedSwaps;
++ const weak=types.filter(t=>idx(t)!==undefined).sort((a,b)=>idx(a)-idx(b)).slice(0,swaps),changed=[];
++ for(const w of weak){const have=new Set(ai.cards.map(c=>c.type)),cand=t=>G.BY[t]&&!have.has(t)&&!String(t).startsWith('hero_')&&idx(t)>idx(w);
++  let best=Object.keys(RANK).filter(t=>cand(t)&&RANK[t][1]===RANK[w][1]).sort((a,b)=>idx(b)-idx(a))[0];
++  if(!best){const tr=new Set(G.BY[w]?.traits||[]);best=Object.keys(RANK).filter(t=>cand(t)&&(G.BY[t].traits||[]).some(x=>tr.has(x))).sort((a,b)=>idx(b)-idx(a))[0];}
++  if(!best)continue;for(const c of ai.cards)if(c.type===w)c.type=best;changed.push([w,best]);}
++ ai.reinforced=true;ai.reinforcedSwaps=changed;}
++
++/* 5) Relíquias Amaldiçoadas: cada relíquia nova (fora a inicial e a da Relíquia de Viagem) tem 33% de chance de dar Fardo ou Correntes. */
++function curseSweep(s){if(!active(s,'cursedrelics'))return;const owned=[...(s.artifacts||[]),...(s.reserve||[])];s.crSeen??=[...owned];
++ for(const id of owned){if(s.crSeen.includes(id))continue;s.crSeen.push(id);const k=s.crSeen.length;if(rand(s,7001+k)<TUNE.cursedRelicChance){const pool=TUNE.cursedRelicPool,c=pool[Math.floor(rand(s,9001+k)*pool.length)];C?.addCurse(s,c);(s.crCurses??=[]).push([id,c]);}}}
++
++/* 6) Loja com Menos Opções: 2 recrutas e 1 relíquia, também depois de renovar. */
++function trimShop(s){if(!active(s,'smallshop')||s.phase!=='shop'||!s.offers)return;if(Array.isArray(s.offers.cards))s.offers.cards=s.offers.cards.slice(0,TUNE.smallShopCards);if(Array.isArray(s.offers.artifacts))s.offers.artifacts=s.offers.artifacts.slice(0,TUNE.smallShopRelics);}
++for(const fn of ['rerollOffers']){const f=G[fn];if(f)G[fn]=function(s,...a){const r=f.call(this,s,...a);trimShop(s);return r;};}
++if(T?.refreshShop){const f=T.refreshShop;T.refreshShop=function(s,...a){const r=f.call(this,s,...a);trimShop(s);return r;};}
++
++/* 7) Derrota Custa Ouro: o ouro base da vitória (comum, elite, ordem, raid) perde 1/3 por rodada perdida; 3 ou mais zeram.
++ *    Bônus (Caçador de Elites, eventos) não mudam: a marca é posta depois de encounterWin e consumida pelo ouro da vitória. */
++if(P?.encounterWin){const ew=P.encounterWin;P.encounterWin=function(s){const r=ew(s);if(active(s,'lostgold')&&s.current?.type!=='boss'&&!s.eventEncounter)s.lgPending=s.score?.[1]||0;return r;};}
++if(T?.gold){const g0=T.gold;T.gold=function(s,base){if(s&&active(s,'lostgold')&&s.lgPending!==undefined&&s.lgPending!==null){const L=s.lgPending;s.lgPending=null;const k=Math.max(0,1-L*TUNE.lostGoldPerRound+1e-9);const out=g0(s,base*(k<1e-6?0:k));s.lgLost=(s.lgLost||0)+Math.round(base*(1-(k<1e-6?0:k)));return out;}return g0(s,base);};}
++
++/* Ganchos de navegação: forma do mapa do mapa 1, decks reforçados, maldições e loja. */
++const enter=G.enter;G.enter=function(s,id){if(s&&!s.training&&!s.tutorialReplay&&!s.challenges&&G.available(s).some(n=>n.id===id))CH.start(s);if(s?.challenges)shapeMap(s);curseSweep(s);if(s)s.lgPending=null;const r=enter(s,id);if(r){if(active(s,'reinforceddecks'))reinforce(s);trimShop(s);}return r;};
++for(const fn of ['leave','commitBag','claimRelic','buy','skipUpgrade']){const f=G[fn];if(typeof f==='function')G[fn]=function(s,...a){const r=f.call(this,s,...a);curseSweep(s);return r;};}
++if(P?.finish){const fin=P.finish;P.finish=function(s,...a){curseSweep(s);return fin.call(this,s,...a);};}
++
++root.JourneyChallengesEndgame={NEW,scaleOf,shapeMap,reinforce,curseSweep,trimShop,RANK};
++})(typeof globalThis!=='undefined'?globalThis:this);
+diff -ruN -x node_modules game_v65/dist/challenges.js game_v65_teste/dist/challenges.js
+--- game_v65/dist/challenges.js	2026-11-21 21:12:46.000000000 +0000
++++ game_v65_teste/dist/challenges.js	2026-11-22 14:08:41.785869768 +0000
+@@ -10,38 +10,46 @@
+ const G=root.Game,P=root.Progress,T=root.JourneyTree,C=root.JourneyContent,R=root.JourneyRaid,B=root.JourneyBosses;
+ const LIST=[
+  {id:'veterans',en:'Veterans',pt:'Veteranos',enDesc:'Regular enemies have +8 upgrades.',ptDesc:'Inimigos comuns têm +8 upgrades.'},
+- {id:'tough',en:'Tough Troops',pt:'Tropas Resistentes',enDesc:'Enemy health +10%.',ptDesc:'Vida dos inimigos +10%.'},
+- {id:'relentless',en:'Relentless Attacks',pt:'Ataques Implacáveis',enDesc:'Enemy damage +8%.',ptDesc:'Dano dos inimigos +8%.'},
++ {id:'tough',reserve:true,en:'Tough Troops',pt:'Tropas Resistentes',enDesc:'Enemy health +10%.',ptDesc:'Vida dos inimigos +10%.'},
++ {id:'relentless',reserve:true,en:'Relentless Attacks',pt:'Ataques Implacáveis',enDesc:'Enemy damage +8%.',ptDesc:'Dano dos inimigos +8%.'},
+  {id:'commanders',en:'Prepared Commanders',pt:'Comandantes Preparados',enDesc:'Elites, orders and bosses gain +2 relics and +2 upgrades.',ptDesc:'Elites, ordens e bosses ganham +2 relíquias e +2 upgrades.'},
+  {id:'bossrounds',en:'Relentless Bosses',pt:'Bosses Implacáveis',enDesc:'Map bosses (team and leader) have +7% health and damage.',ptDesc:'Bosses de mapa (time e líder) têm +7% de vida e de dano.'},
+- {id:'reinforcements',en:'Enemy Reinforcements',pt:'Reforços Inimigos',enDesc:'From the 1st round on, regular and elite enemies field +1 unit.',ptDesc:'Desde a 1ª rodada, inimigos comuns e elites colocam +1 unidade em campo.'},
+- {id:'raidfury',en:'Raid Fury',pt:'Fúria das Raids',enDesc:'Raid health +25% and damage +8%.',ptDesc:'Raids com +25% de vida e +8% de dano.'},
++ {id:'reinforcements',en:'Enemy Reinforcements',pt:'Reforços Inimigos',enDesc:'From the 3rd round on, regular and elite enemies field +1 unit.',ptDesc:'A partir da 3ª rodada, inimigos comuns e elites colocam +1 unidade em campo.'},
++ {id:'raidfury',reserve:true,en:'Raid Fury',pt:'Fúria das Raids',enDesc:'Raid health +25% and damage +8%.',ptDesc:'Raids com +25% de vida e +8% de dano.'},
+  {id:'inflation',en:'Inflated Market',pt:'Mercado Inflacionado',enDesc:'Shop prices +30%.',ptDesc:'Preços da loja +30%.'},
+- {id:'lightpurse',en:'Light Purse',pt:'Bolsa Leve',enDesc:'Gold from victories −27%.',ptDesc:'Ouro por vitória −27%.'},
+- {id:'scarce',en:'Scarce Resources',pt:'Recursos Escassos',enDesc:'−1 energy in the first round against bosses.',ptDesc:'−1 de energia na primeira rodada contra bosses.'},
+- {id:'bag',en:'Limited Luggage',pt:'Bagagem Limitada',enDesc:'Blocks 5 Relic Bag cells.',ptDesc:'Bloqueia 5 casas da bolsa de relíquias.'},
++ {id:'lightpurse',en:'Light Purse',pt:'Bolsa Leve',enDesc:'Gold from victories −30%.',ptDesc:'Ouro por vitória −30%.'},
++ {id:'scarce',reserve:true,en:'Scarce Resources',pt:'Recursos Escassos',enDesc:'−1 energy in the first round against bosses.',ptDesc:'−1 de energia na primeira rodada contra bosses.'},
++ {id:'bag',en:'Limited Luggage',pt:'Bagagem Limitada',enDesc:'Blocks the bottom row of the Relic Bag (4 cells).',ptDesc:'Bloqueia a fileira de baixo da bolsa de relíquias (4 casas).'},
+  {id:'heavydeck',en:'Heavy Deck',pt:'Deck Pesado',enDesc:'Start the run with +2 random basic generic cards (Warrior, Lancer, Fighter, Martial Artist, Miner, Pirate, Ranger or Shackled Pirate).',ptDesc:'Começa a run com +2 cartas básicas genéricas aleatórias (Warrior, Lancer, Fighter, Martial Artist, Miner, Pirate, Ranger ou Shackled Pirate).'},
+  {id:'dissipate',en:'Dissipating Energy',pt:'Energia Dissipada',enDesc:'Lose 1 of the energy left over at the end of each round.',ptDesc:'Perde 1 da energia que sobrar ao fim de cada rodada.'},
+- {id:'fewrelics',en:'Scarce Relics',pt:'Relíquias Escassas',enDesc:'Relic choices offer 2 options less (minimum 1).',ptDesc:'Escolhas de relíquia oferecem 2 opções a menos (mínimo 1).'},
++ {id:'fewrelics',reserve:true,en:'Scarce Relics',pt:'Relíquias Escassas',enDesc:'Relic choices offer 2 options less (minimum 1).',ptDesc:'Escolhas de relíquia oferecem 2 opções a menos (mínimo 1).'},
+  {id:'cursed',en:'Cursed Path',pt:'Caminho Amaldiçoado',enDesc:'Start the run with 2 Exhaustion curses.',ptDesc:'Começa a run com 2 maldições Exaustão.'},
+ ];
+ const BY=Object.fromEntries(LIST.map(c=>[c.id,c]));
+-const MAX_LEVEL=LIST.length;
++/* Endgame (22/11): o catálogo são os desafios sem 'reserve'; desafios novos podem ser acrescentados depois (challenges-endgame.js). */
++const catalog=()=>LIST.filter(c=>!c.reserve);
++const maxLevel=()=>catalog().length;
+ // Single intensity per challenge (revision 2: the level is the number of active challenges). Calibrated by simulation.
+-const TUNE=root.JOURNEY_CHALLENGE_TUNE={/* R3 (Carlos 08/11/2026): recalibrados para −7 a −12 pontos cada (23 nós) */veterans:8,commanders:2,commanderRelics:2,tough:.10,relentless:.08,bossRounds:0,bossStats:.07,raidfury:.25,raidDamage:.08,inflation:.30,lightpurse:.27,bagCells:5,curses:['exhaustion','exhaustion'],reinforceFromRound:1,heavyCards:2,heavyMode:'pool',dissipateMode:'fixed',dissipateFixed:1,dissipateKeep:2,scarceRounds:1,heavyPool:['warrior','lancer','fighter','martial_artist','miner','pirate','ranger','shackled_pirate'],fewRelics:2,...(root.JOURNEY_CHALLENGE_TUNE||{})};
++const TUNE=root.JOURNEY_CHALLENGE_TUNE={/* R3 (Carlos 08/11/2026): recalibrados para −7 a −12 pontos cada (23 nós). Endgame (Carlos 22/11): Reforços a partir da 3ª rodada, Bolsa −30%, Bagagem 4 casas (fileira de baixo) */veterans:8,commanders:2,commanderRelics:2,tough:.10,relentless:.08,bossRounds:0,bossStats:.07,raidfury:.25,raidDamage:.08,inflation:.30,lightpurse:.30,bagCells:4,curses:['exhaustion','exhaustion'],reinforceFromRound:3,heavyCards:2,heavyMode:'pool',dissipateMode:'fixed',dissipateFixed:1,dissipateKeep:2,scarceRounds:1,heavyPool:['warrior','lancer','fighter','martial_artist','miner','pirate','ranger','shackled_pirate'],fewRelics:2,...(root.JOURNEY_CHALLENGE_TUNE||{})};
+ const BAG_CELLS=[[3,3],[2,3],[1,3],[0,3],[3,2]];
+ 
+-function profile(){const p=P.profile;const pc=p.challenges??={};pc.unlocked=!!pc.unlocked;pc.available=Math.max(pc.unlocked?1:0,Math.min(MAX_LEVEL,Math.floor(pc.available||0)));
+- pc.won=[...new Set((pc.won||[]).filter(n=>Number.isInteger(n)&&n>=1&&n<=MAX_LEVEL))];pc.completed=[...new Set((pc.completed||[]).filter(id=>BY[id]))];pc.selected=clean(pc.selected);if(pc.selected.length>pc.available)pc.selected=pc.selected.slice(0,pc.available);
++function profile(){const p=P.profile;const pc=p.challenges??={};pc.unlocked=!!pc.unlocked;pc.available=Math.max(pc.unlocked?1:0,Math.min(maxLevel(),Math.floor(pc.available||0)));
++ pc.won=[...new Set((pc.won||[]).filter(n=>Number.isInteger(n)&&n>=1&&n<=maxLevel()))];pc.completed=[...new Set((pc.completed||[]).filter(id=>BY[id]))];pc.selected=clean(pc.selected);if(pc.selected.length>pc.available)pc.selected=pc.selected.slice(0,pc.available);
+  p.insignia=Number.isFinite(p.insignia)?p.insignia:0;return pc;}
+-function clean(sel){const ids=Array.isArray(sel)?sel:Object.keys(sel||{});return [...new Set(ids.filter(id=>BY[id]))];}
++function clean(sel){const ids=Array.isArray(sel)?sel:Object.keys(sel||{});return [...new Set(ids.filter(id=>BY[id]&&!BY[id].reserve))];}
++/* Blocos (Carlos 22/11): os blocos acumulam. Seleção válida = blocos anteriores inteiros + qualquer parte do bloco seguinte.
++ * Como o nível segue sendo a quantidade de desafios ativos e vencer N libera N+1, o bloco seguinte só aparece depois de vencer
++ * uma run com o bloco atual inteiro ligado. TUNE.blocks = lista de blocos (ids). Sem blocos definidos, a escolha é livre. */
++function blocks(){return Array.isArray(TUNE.blocks)&&TUNE.blocks.length?TUNE.blocks:null;}
++function blockValid(sel){const B=blocks();if(!B)return true;const set=new Set(sel);let i=0;while(i<B.length&&B[i].every(id=>set.has(id)))i++;const allowed=new Set([...B.slice(0,i).flat(),...(B[i]||[])]);return sel.every(id=>allowed.has(id));}
++function blockOf(id){const B=blocks();return B?B.findIndex(b=>b.includes(id)):-1;}
+ function level(sel){return clean(sel).length;}
+ function highestWon(){return Math.max(0,...profile().won);}
+ function eligible(s){return !!s&&!s.training&&!s.tutorialReplay;}
+ function active(s,id){return eligible(s)&&!!s.challenges?.includes?.(id);}
+ /* Selection: free combination, limited to the unlocked level (number of challenges). */
+-function select(ids){const pc=profile();const list=clean(ids);if(Array.isArray(ids)&&ids.some(id=>!BY[id]))return false;if(!pc.unlocked||list.length>pc.available)return false;pc.selected=list;return true;}
+-function toggle(id){const pc=profile();if(!pc.unlocked||!BY[id])return false;const on=pc.selected.includes(id);if(!on&&pc.selected.length>=pc.available)return false;pc.selected=on?pc.selected.filter(x=>x!==id):[...pc.selected,id];return true;}
++function select(ids){const pc=profile();const list=clean(ids);if(Array.isArray(ids)&&ids.some(id=>!BY[id]))return false;if(!pc.unlocked||list.length>pc.available||!blockValid(list))return false;pc.selected=list;return true;}
++function toggle(id){const pc=profile();if(!pc.unlocked||!BY[id])return false;const on=pc.selected.includes(id);if(!on&&pc.selected.length>=pc.available)return false;const next=on?pc.selected.filter(x=>x!==id):[...pc.selected,id];if(!blockValid(next))return false;pc.selected=next;return true;}
+ function start(s){if(!eligible(s)||s.challenges)return;const pc=profile();s.challenges=pc.unlocked?clean(s.pendingChallenges??pc.selected).slice(0,pc.available):[];delete s.pendingChallenges;s.challengeLevel=s.challenges.length;
+  if(active(s,'cursed'))for(const id of TUNE.curses)C?.addCurse(s,id);if(active(s,'heavydeck')&&TUNE.heavyMode==='copy')for(let i=0;i<TUNE.heavyCards;i++){const ts=[...new Set(s.cards.filter(c=>!C?.isCurse(c)).map(c=>c.type))].filter(t=>G.copies(s,t)<G.MAX_COPIES);if(ts.length)G.newCard(s,ts[Math.floor(G.random(s)*ts.length)]);}if(active(s,'heavydeck')&&TUNE.heavyMode!=='copy')for(let i=0;i<TUNE.heavyCards;i++){const pool=TUNE.heavyPool.filter(t=>G.BY[t]&&G.copies(s,t)<G.MAX_COPIES);if(pool.length)G.newCard(s,pool[Math.floor(G.random(s)*pool.length)]);}if(active(s,'bag'))G.ensureBag(s);root.JourneyAdvantages?.start?.(s);}
+ const enter=G.enter;G.enter=function(s,id){if(!G.available(s).some(n=>n.id===id))return false;start(s);return enter(s,id);};
+@@ -74,12 +82,13 @@
+  * counts as completed. Defeats change nothing. */
+ function recordVictory(s){const pc=profile(),n=(s.challenges||[]).length,out={level:n,insignia:0,unlocked:false};
+  if(!pc.unlocked){pc.unlocked=true;pc.available=Math.max(pc.available,1);out.unlocked=true;}
+- if(n>=1){if(!pc.won.includes(n)){pc.won.push(n);P.profile.insignia+=1;out.insignia=1;}pc.available=Math.min(MAX_LEVEL,Math.max(pc.available,n+1));for(const id of s.challenges)if(!pc.completed.includes(id))pc.completed.push(id);}
++ if(n>=1){if(!pc.won.includes(n)){pc.won.push(n);P.profile.insignia+=1;out.insignia=1;}pc.available=Math.min(maxLevel(),Math.max(pc.available,n+1));for(const id of s.challenges)if(!pc.completed.includes(id))pc.completed.push(id);}
+  return out;}
+ function recordFinished(s){if(!eligible(s)||!s.meta?.ended||s.meta.reason!=='victory'||s.meta.challengesRecorded)return;const got=recordVictory(s);s.meta.challengesRecorded=true;s.meta.challengeLevel=got.level;s.meta.insignia=got.insignia;s.meta.challengesUnlocked=got.unlocked;s.meta.completedChallenges=[...(s.challenges||[])];}
+ const finish=P.finish;P.finish=function(s,reason){const r=finish(s,reason);recordFinished(s);return r;};
+ // The tree closes the run through its captured finish function, so record that route too.
+ if(T?.continueRun){const next=T.continueRun;T.continueRun=function(s){const r=next(s);recordFinished(s);return r;};}
+ 
+-root.JourneyChallenges={LIST,roundEnd,BY,TUNE,MAX_LEVEL,profile,clean,level,highestWon,select,toggle,start,active,upgrades,enemyRelics,extraUnits,extraBossRounds,energy,bagBlocked,cellBlocked,enemyStats,recordVictory};
++root.JourneyChallenges={LIST,catalog,blocks,blockValid,blockOf,roundEnd,BY,TUNE,profile,clean,level,highestWon,select,toggle,start,active,upgrades,enemyRelics,extraUnits,extraBossRounds,energy,bagBlocked,cellBlocked,enemyStats,recordVictory};
++Object.defineProperty(root.JourneyChallenges,'MAX_LEVEL',{get:maxLevel,enumerable:true});
+ })(typeof globalThis!=='undefined'?globalThis:this);
+diff -ruN -x node_modules game_v65/dist/index.html game_v65_teste/dist/index.html
+--- game_v65/dist/index.html	2026-11-21 21:12:46.000000000 +0000
++++ game_v65_teste/dist/index.html	2026-11-22 23:33:59.870038242 +0000
+@@ -1 +1 @@
+-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#111c25"><title>Grand Journey v57 — Review R3</title><meta name="description" content="An offline strategy roguelite with collectible heroes and automatic battles."><link rel="stylesheet" href="style.css?v=70-ranger-relics"><meta name="description" content="Grand Journey — um jogo de estratégia, cartas e relíquias."><link rel="preload" href="assets/vt323-v36.ttf" as="font" type="font/ttf" crossorigin></head><body><main id="app"></main><script defer src="game-0.js?v=72-physical-fx"></script><script defer src="balance-p1.js?v=63-r3-v57"></script><script defer src="decks-p3.js?v=66-annex-d"></script><script defer src="training-engine.js?v=63-r3-v57"></script><script defer src="raid-engine.js?v=63-r3-v57"></script><script defer src="monster-engine.js?v=63-r3-v57"></script><script defer src="acts-engine.js?v=63-r3-v57"></script><script defer src="enemy-decks-p4.js?v=63-r3-v57"></script><script defer src="ironbound-data.js?v=63-r3-v57"></script><script defer src="boss-engine.js?v=69-boss-balance"></script><script defer src="map-variety.js?v=63-r3-v57"></script><script defer src="tree-data.js?v=63-r3-v57"></script><script defer src="tree-engine.js?v=69-boss-balance"></script><script defer src="journey-debug.js?v=63-r3-v57"></script><script defer src="content-v53.js?v=69-boss-balance"></script><script defer src="traits-v54.js?v=70-ranger-relics"></script><script defer src="supports-b.js?v=63-r3-v57"></script><script defer src="challenges.js?v=68-run-fixes"></script><script defer src="advantages.js?v=69-boss-balance"></script><script defer src="playtest-p3-engine.js?v=69-boss-balance"></script><script defer src="relics-r3.js?v=63-r3-v57"></script><script defer src="encounter-memory.js?v=63-r3-v57"></script><script defer src="map-notes.js?v=63-r3-v57"></script><script defer src="cycle-data.js?v=63-r3-v57"></script><script defer src="game-1.js?v=63-r3-v57"></script><script defer src="blackfang-assets.js?v=63-r3-v57"></script><script defer src="roster-v37-assets.js?v=63-r3-v57"></script><script defer src="raid-assets.js?v=63-r3-v57"></script><script defer src="monster-assets.js?v=63-r3-v57"></script><script defer src="boss-assets.js?v=63-r3-v57"></script><script defer src="ironbound-assets.js?v=63-r3-v57"></script><script defer src="boss-cards.js?v=71-cards-r3"></script><script defer src="card-rarities-r3.js?v=71-cards-r3"></script><script defer src="progression-v56.js?v=66-annex-d"></script><script defer src="portrait-renderer.js?v=63-r3-v57"></script><script defer src="playtest-save.js?v=69-boss-balance"></script><script defer src="physical-vfx.js?v=72-physical-fx"></script><script defer src="game-2.js?v=63-r3-v57"></script><script defer src="trait-assets.js?v=63-r3-v57"></script><script defer src="game-3.js?v=63-r3-v57"></script><script defer src="game-4.js?v=63-r3-v57"></script><script defer src="game-5.js?v=63-r3-v57"></script><script defer src="game-6.js?v=63-r3-v57"></script><script defer src="bag-drag.js?v=68-run-fixes"></script><script defer src="battle-speed.js?v=63-r3-v57"></script><script defer src="combat-animation.js?v=67-walk-facing"></script><script defer src="game-7.js?v=70-ranger-relics"></script><script defer src="game-8.js?v=68-run-fixes"></script><script defer src="vfx-data.js?v=72-physical-fx"></script><script defer src="game-9.js?v=72-physical-fx"></script><script defer src="tutorial-flow.js?v=63-r3-v57"></script><script defer src="game-10.js?v=68-run-fixes"></script><script defer src="training-ui.js?v=68-run-fixes"></script><script defer src="raid-ui.js?v=63-r3-v57"></script><script defer src="monster-ui.js?v=63-r3-v57"></script><script defer src="acts-ui.js?v=63-r3-v57"></script><script defer src="map-notes-ui.js?v=63-r3-v57"></script><script defer src="boss-ui.js?v=63-r3-v57"></script><script defer src="tree-ui.js?v=68-run-fixes"></script><script defer src="v52-ui.js?v=63-r3-v57"></script><script defer src="content-ui-v53.js?v=68-run-fixes"></script><script defer src="traits-ui-v54.js?v=68-run-fixes"></script><script defer src="postgame-ui.js?v=63-r3-v57"></script><script defer src="menu-scroll.js?v=63-r3-v57"></script><script defer src="playtest-p2-ui.js?v=63-r3-v57"></script><script defer src="playtest-p3-ui.js?v=68-run-fixes"></script><script defer src="enemy-inspect-ui.js?v=63-r3-v57"></script><script defer src="milestones-ui-v56.js?v=66-annex-d"></script><script defer src="cp3-ui.js?v=63-r3-v57"></script><script defer src="relic-filters.js?v=70-ranger-relics"></script></body></html>
++<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#111c25"><title>Grand Journey v57 — Review R3</title><meta name="description" content="An offline strategy roguelite with collectible heroes and automatic battles."><link rel="stylesheet" href="style.css?v=70-ranger-relics"><meta name="description" content="Grand Journey — um jogo de estratégia, cartas e relíquias."><link rel="preload" href="assets/vt323-v36.ttf" as="font" type="font/ttf" crossorigin></head><body><main id="app"></main><script defer src="game-0.js?v=72-physical-fx"></script><script defer src="balance-p1.js?v=63-r3-v57"></script><script defer src="decks-p3.js?v=66-annex-d"></script><script defer src="training-engine.js?v=63-r3-v57"></script><script defer src="raid-engine.js?v=63-r3-v57"></script><script defer src="monster-engine.js?v=63-r3-v57"></script><script defer src="acts-engine.js?v=63-r3-v57"></script><script defer src="enemy-decks-p4.js?v=63-r3-v57"></script><script defer src="ironbound-data.js?v=63-r3-v57"></script><script defer src="boss-engine.js?v=69-boss-balance"></script><script defer src="map-variety.js?v=63-r3-v57"></script><script defer src="tree-data.js?v=63-r3-v57"></script><script defer src="tree-engine.js?v=69-boss-balance"></script><script defer src="journey-debug.js?v=63-r3-v57"></script><script defer src="content-v53.js?v=69-boss-balance"></script><script defer src="traits-v54.js?v=70-ranger-relics"></script><script defer src="supports-b.js?v=63-r3-v57"></script><script defer src="challenges.js?v=68-run-fixes"></script><script defer src="advantages.js?v=69-boss-balance"></script><script defer src="challenges-endgame.js?v=endgame-teste"></script><script defer src="advantages-endgame.js?v=endgame-teste"></script><script defer src="playtest-p3-engine.js?v=69-boss-balance"></script><script defer src="relics-r3.js?v=63-r3-v57"></script><script defer src="encounter-memory.js?v=63-r3-v57"></script><script defer src="map-notes.js?v=63-r3-v57"></script><script defer src="cycle-data.js?v=63-r3-v57"></script><script defer src="game-1.js?v=63-r3-v57"></script><script defer src="blackfang-assets.js?v=63-r3-v57"></script><script defer src="roster-v37-assets.js?v=63-r3-v57"></script><script defer src="raid-assets.js?v=63-r3-v57"></script><script defer src="monster-assets.js?v=63-r3-v57"></script><script defer src="boss-assets.js?v=63-r3-v57"></script><script defer src="ironbound-assets.js?v=63-r3-v57"></script><script defer src="boss-cards.js?v=71-cards-r3"></script><script defer src="card-rarities-r3.js?v=71-cards-r3"></script><script defer src="progression-v56.js?v=66-annex-d"></script><script defer src="portrait-renderer.js?v=63-r3-v57"></script><script defer src="playtest-save.js?v=69-boss-balance"></script><script defer src="physical-vfx.js?v=72-physical-fx"></script><script defer src="game-2.js?v=63-r3-v57"></script><script defer src="trait-assets.js?v=63-r3-v57"></script><script defer src="game-3.js?v=63-r3-v57"></script><script defer src="game-4.js?v=63-r3-v57"></script><script defer src="game-5.js?v=63-r3-v57"></script><script defer src="game-6.js?v=63-r3-v57"></script><script defer src="bag-drag.js?v=68-run-fixes"></script><script defer src="battle-speed.js?v=63-r3-v57"></script><script defer src="combat-animation.js?v=67-walk-facing"></script><script defer src="game-7.js?v=70-ranger-relics"></script><script defer src="game-8.js?v=68-run-fixes"></script><script defer src="vfx-data.js?v=72-physical-fx"></script><script defer src="game-9.js?v=72-physical-fx"></script><script defer src="tutorial-flow.js?v=63-r3-v57"></script><script defer src="game-10.js?v=68-run-fixes"></script><script defer src="training-ui.js?v=68-run-fixes"></script><script defer src="raid-ui.js?v=63-r3-v57"></script><script defer src="monster-ui.js?v=63-r3-v57"></script><script defer src="acts-ui.js?v=63-r3-v57"></script><script defer src="map-notes-ui.js?v=63-r3-v57"></script><script defer src="boss-ui.js?v=63-r3-v57"></script><script defer src="tree-ui.js?v=68-run-fixes"></script><script defer src="v52-ui.js?v=63-r3-v57"></script><script defer src="content-ui-v53.js?v=68-run-fixes"></script><script defer src="traits-ui-v54.js?v=68-run-fixes"></script><script defer src="postgame-ui.js?v=63-r3-v57"></script><script defer src="menu-scroll.js?v=63-r3-v57"></script><script defer src="playtest-p2-ui.js?v=63-r3-v57"></script><script defer src="playtest-p3-ui.js?v=68-run-fixes"></script><script defer src="enemy-inspect-ui.js?v=63-r3-v57"></script><script defer src="milestones-ui-v56.js?v=66-annex-d"></script><script defer src="cp3-ui.js?v=63-r3-v57"></script><script defer src="relic-filters.js?v=70-ranger-relics"></script></body></html>
+diff -ruN -x node_modules game_v65/dist/playtest-save.js game_v65_teste/dist/playtest-save.js
+--- game_v65/dist/playtest-save.js	2026-11-21 21:12:46.000000000 +0000
++++ game_v65_teste/dist/playtest-save.js	2026-11-22 14:09:39.058015416 +0000
+@@ -58,6 +58,8 @@
+   list.push({source:'barrier:'+kind,hp:A.barrier(s),damage:A.barrier(s)});
+   if(C.active(s,'tough'))list.push({source:'challenge:tough',hp:1+c.tough});
+   if(C.active(s,'relentless'))list.push({source:'challenge:relentless',damage:1+c.relentless});
++  if(C.active(s,'fortified'))list.push({source:'challenge:fortified',hp:1+c.fortifiedHp,damage:1+c.fortifiedAtk});
++  {const k=root.JourneyChallengesEndgame?.scaleOf?.(s)||1;if(k!==1)list.push({source:'challenge:globalScale',hp:k,damage:k,defense:k});}
+   if(c.bossStats&&C.active(s,'bossrounds')&&s.current.type==='boss'&&!s.current.trueBoss)list.push({source:'challenge:bossrounds',hp:1+c.bossStats,damage:1+c.bossStats});
+   const elite=['boss','elite'].includes(s.current.type),addLevel=C.upgrades(s,elite,s.current.type==='boss');
+   if(addLevel)list.push({source:'challenge:'+(elite?'commanders':'veterans'),addLevel});
+diff -ruN -x node_modules game_v65/tests/advantages-endgame.cjs game_v65_teste/tests/advantages-endgame.cjs
+--- game_v65/tests/advantages-endgame.cjs	1970-01-01 00:00:00.000000000 +0000
++++ game_v65_teste/tests/advantages-endgame.cjs	2026-11-23 02:35:08.246238346 +0000
+@@ -0,0 +1,42 @@
++// Endgame (teste, 22/11): 18 vantagens (15 + Troféu de Boss, Vitória Limpa, Emboscada) e 5 revisões.
++const assert = require('node:assert/strict');
++const { G, P } = require('./cp4-engine.cjs');
++const AD = JourneyAdvantages, T = JourneyTree, CH = JourneyChallenges;
++function run(adv, deck = 'vanguard', seed = 1) {
++  P.load(P.freshProfile()); P.completeTutorial(); P.profile.mapsUnlocked = 3; P.profile.advantages = [...adv];
++  const s = G.fresh(deck, seed); assert.ok(G.enter(s, G.available(s)[0].id)); return s;
++}
++assert.equal(AD.LIST.length, 18);
++for (const id of ['boss_trophy', 'clean_victory', 'ambush']) assert.ok(AD.BY[id], id);
++assert.equal(AD.TUNE.fullPurse, 40); assert.equal(AD.TUNE.flexScope, 'confront'); assert.equal(AD.TUNE.secondMode, 'extra'); assert.equal(AD.TUNE.cleanseScope, 'shop');
++// Bolsa Cheia: +40
++{ const a = run([]), b = run(['full_purse']); assert.equal(b.gold - a.gold, 40); }
++// Preparação Flexível: 1 por confronto (não por rodada)
++{ const s = run(['flex_prep']); assert.equal(AD.flexLeft(s), 1); s.adv.flex = { [String(s.encounters)]: 1 }; s.round = 3; assert.equal(AD.flexLeft(s), 0); }
++// Limpeza: remoção grátis em cada loja, uma vez por loja
++{ const s = run(['cleanse']); s.current = { id: 'shopA', type: 'shop' }; assert.equal(G.price(s, 'remove', s.cards[0].uid), 0);
++  s.adv.cleanse.push('shopA'); assert.ok(G.price(s, 'remove', s.cards[0].uid) > 0); s.current = { id: 'shopB', type: 'shop' }; assert.equal(G.price(s, 'remove', s.cards[0].uid), 0); }
++// Segunda Chance: inclusive boss; limite de derrotas +1, uma vez por run
++for (const type of ['battle', 'elite', 'boss']) {
++  const s = run(['second_chance']); s.current = { ...s.current, type }; s.score = [1, type === 'boss' ? 4 : 3]; s.phase = 'defeat';
++  assert.equal(P.finish(s, 'defeat'), false); assert.equal(s.phase, 'roundResult'); assert.equal(s.score[1], type === 'boss' ? 3 : 2); assert.ok(s.secondChanceNotice);
++  s.score[1]++; s.phase = 'defeat'; assert.ok(!AD.secondChance(s), 'só uma vez por run');
++}
++// Troféu de Boss: +3% vida e ataque por boss de mapa vencido
++{ const s = run(['boss_trophy']); s.current = { ...s.current, type: 'boss' }; P.finish(s, 'victory'); assert.deepEqual(s.adv.trophies, [1]);
++  const st = T.stats({ hp: 100, atk: 10, defense: 10, rate: 1, crit: 0, speed: 1 }, s.cards[0], s, false); const st0 = T.stats({ hp: 100, atk: 10, defense: 10, rate: 1, crit: 0, speed: 1 }, s.cards[0], run([]), false);
++  assert.ok(Math.abs(st.hp / st0.hp - 1.03) < 1e-9 && Math.abs(st.atk / st0.atk - 1.03) < 1e-9); }
++// Emboscada: 1ª rodada, inimigo com 1 unidade a menos (mínimo 1); não vale em boss
++{ const s = run(['ambush']); s.round = 1; assert.equal(CH.extraUnits(s), -1); assert.equal(G.maxUnits(s, true), 1); s.round = 2; assert.equal(CH.extraUnits(s), 0);
++  s.round = 1; s.current = { ...s.current, type: 'boss' }; assert.equal(CH.extraUnits(s), 0); }
++// Olho Treinado: 1 renovação grátis no nó de recrutamento
++{ const s = run(['trained_eye']); s.phase = 'recruit'; s.current = { id: 'rec1', type: 'recruit' }; s.offers = G.choices(s); const before = [...s.offers];
++  assert.ok(AD.canRerollRecruit(s)); assert.ok(AD.rerollRecruit(s)); assert.ok(s.offers.every(id => !before.includes(id))); assert.ok(!AD.rerollRecruit(s)); }
++console.log('PASS advantages-endgame: 18 vantagens, Bolsa Cheia 40, Preparação Flexível por confronto, Limpeza em cada loja, Segunda Chance (inclusive boss), Troféu de Boss, Emboscada, Olho Treinado no recrutamento');
++// Blocos de vantagens (23/11): 6 de 3; bloco seguinte abre com o atual inteiro; não pode desativar do bloco anterior com o seguinte em uso
++{ assert.equal(AD.advBlocks().length, 6); assert.equal(new Set(AD.advBlocks().flat()).size, 18); assert.ok(AD.advBlocks().flat().every(id => AD.BY[id]));
++  P.load(P.freshProfile()); P.profile.insignia = 18;
++  assert.ok(!AD.buy('cleanse'), 'bloco 2 fechado'); assert.ok(AD.buy('ambush')); assert.ok(AD.buy('elite_hunter')); assert.ok(!AD.advAvailable('trained_eye'));
++  assert.ok(AD.buy('elite_experience')); assert.ok(AD.buy('trained_eye'), 'bloco 2 aberto com o 1 inteiro');
++  assert.ok(!AD.deactivate('ambush'), 'bloco 1 preso enquanto há vantagem do bloco 2'); assert.ok(AD.deactivate('trained_eye')); assert.ok(AD.deactivate('ambush'));
++  console.log('PASS blocos de vantagens'); }
+diff -ruN -x node_modules game_v65/tests/challenges-endgame.cjs game_v65_teste/tests/challenges-endgame.cjs
+--- game_v65/tests/challenges-endgame.cjs	1970-01-01 00:00:00.000000000 +0000
++++ game_v65_teste/tests/challenges-endgame.cjs	2026-11-23 02:34:55.146757442 +0000
+@@ -0,0 +1,65 @@
++// Endgame (teste): escala geral e 7 desafios candidatos (dist/challenges-endgame.js).
++const assert = require('node:assert/strict');
++const { G, P } = require('./cp4-engine.cjs');
++const CH = JourneyChallenges, EG = JourneyChallengesEndgame, T = JourneyTree;
++function run(sel, deck = 'vanguard', seed = 1) {
++  P.load(P.freshProfile()); P.completeTutorial(); P.profile.mapsUnlocked = 3;
++  const pc = CH.profile(); pc.unlocked = true; pc.available = 15; pc.selected = sel;
++  const s = G.fresh(deck, seed); assert.ok(G.enter(s, G.available(s)[0].id)); return s;
++}
++// catálogo (22/11): 18 desafios (5 na reserva), nível máximo 18; valores decididos
++assert.equal(CH.catalog().length, 18); assert.equal(CH.MAX_LEVEL, 18);
++for (const id of ['tough', 'relentless', 'raidfury', 'scarce', 'fewrelics']) assert.ok(CH.BY[id].reserve && !CH.clean([id]).length, id);
++assert.equal(CH.TUNE.globalScale, .01); assert.equal(CH.TUNE.fatigue, .03); assert.equal(CH.TUNE.lessSupportLayers, 2);
++assert.equal(CH.TUNE.reinforceFromRound, 3); assert.equal(CH.TUNE.lightpurse, .30); assert.equal(CH.TUNE.bagCells, 4);
++// blocos (6 de 3): blocos anteriores inteiros + parte do bloco seguinte
++assert.equal(CH.blocks().length, 6); assert.ok(CH.blocks().flat().length === 18 && new Set(CH.blocks().flat()).size === 18);
++assert.ok(CH.blockValid(['moreelites'])); assert.ok(!CH.blockValid(['commanders']));
++assert.ok(CH.blockValid(['reinforcements', 'fortified', 'moreelites', 'fatigue'])); assert.ok(!CH.blockValid(['reinforcements', 'fortified', 'fatigue']));
++P.load(P.freshProfile()); let pc = CH.profile(); pc.unlocked = true; pc.available = 4;
++assert.ok(!CH.select(['commanders'])); assert.ok(CH.select(['reinforcements', 'fortified', 'moreelites', 'fatigue']));
++assert.ok(!CH.toggle('moreelites'), 'não pode tirar desafio do bloco anterior enquanto há desafio do bloco seguinte');
++// vencer o nível 3 (bloco 1 inteiro) libera o nível 4, ou seja, o bloco 2
++{ const s = { challenges: ['reinforcements', 'fortified', 'moreelites'] }; pc.available = 3; CH.recordVictory(s); assert.equal(CH.profile().available, 4); }
++// escala geral: 3 desafios × 1% = ×1,03 em vida, ataque e defesa dos inimigos
++CH.TUNE.blocks = null; // testes de mecânica sem a restrição de blocos
++let s = run(['inflation', 'lightpurse', 'bag']);
++let st = CH.enemyStats(s, s.ai.cards[0], { hp: 100, atk: 10, defense: 10 });
++assert.ok(Math.abs(st.hp - 103) < 1e-9 && Math.abs(st.atk - 10.3) < 1e-9 && Math.abs(st.defense - 10.3) < 1e-9);
++// Inimigos Fortalecidos: +10% vida e +8% dano, somados à escala (1 desafio × 1%)
++s = run(['fortified']); st = CH.enemyStats(s, s.ai.cards[0], { hp: 100, atk: 10, defense: 10 });
++assert.ok(Math.abs(st.hp - 100 * 1.1 * 1.01) < 1e-9 && Math.abs(st.atk - 10 * 1.08 * 1.01) < 1e-9);
++// Fadiga: −3% em vida, ataque, defesa e velocidade de ataque do jogador
++s = run(['fatigue']);
++st = T.stats({ hp: 100, atk: 10, defense: 10, rate: 1, crit: 0, speed: 1 }, s.cards[0], s, false);
++assert.ok(Math.abs(st.hp - 97) < 1e-9 && Math.abs(st.atk - 9.7) < 1e-9 && Math.abs(st.rate - 1 / .97) < 1e-9);
++// Mais Elites: 2 camadas inteiras de batalhas simples viram elite, nunca a 1ª batalha, sem camadas vizinhas, nunca a 13
++for (let seed = 1; seed <= 20; seed++) {
++  s = run(['moreelites'], 'vanguard', seed);
++  const L = s.map.map((row, i) => row.some(n => n.challengeElite) ? i : -1).filter(i => i >= 0);
++  assert.equal(L.length, 2, 'seed ' + seed); assert.ok(L[1] - L[0] > 1 && !L.includes(0) && !L.includes(13));
++  for (const i of L) assert.ok(s.map[i].every(n => n.type === 'elite'));
++}
++// Menos Apoio: 2 camadas de apoio viram camadas de batalhas, nunca a 13
++for (let seed = 1; seed <= 20; seed++) {
++  s = run(['lesssupport'], 'vanguard', seed);
++  const L = s.map.map((row, i) => row.some(n => n.supportConverted) ? i : -1).filter(i => i >= 0);
++  assert.equal(L.length, 2); assert.ok(L.every(i => i !== 13 && s.map[i].every(n => n.type === 'battle')));
++}
++// Menos Apoio + Mais Elites: a camada convertida pode virar elite (elegível)
++// Loja com Menos Opções: 2 recrutas e 1 relíquia
++s = run(['smallshop']); s.phase = 'shop'; s.offers = { cards: ['a', 'b', 'c'], artifacts: ['x', 'y'] }; EG.trimShop(s);
++assert.deepEqual([s.offers.cards.length, s.offers.artifacts.length], [2, 1]);
++// Derrota Custa Ouro: 3×1 perde 1/3, 3×2 perde 2/3, 3 derrotas zeram; sem o desafio, nada muda
++s = run(['lostgold']);
++for (const [L, want] of [[0, 18], [1, 12], [2, 6], [3, 0], [4, 0]]) { s.lgPending = L; assert.equal(T.gold(s, 18), want); }
++s = run([]); s.lgPending = 2; assert.equal(T.gold(s, 18), 18);
++// Relíquias Amaldiçoadas: só relíquias novas; a inicial não conta
++s = run(['cursedrelics']); const before = s.cards.length; EG.curseSweep(s); assert.equal(s.cards.length, before);
++let cursed = 0; for (let k = 0; k < 60; k++) { s.artifacts.push('fake_' + k); EG.curseSweep(s); } cursed = (s.crCurses || []).length;
++assert.ok(cursed > 10 && cursed < 30, 'maldições ' + cursed); assert.ok(s.crCurses.every(([, c]) => ['burden', 'chains'].includes(c)));
++// Decks Reforçados: elites e bosses trocam as 2 cartas mais fracas (times de 4 cópias: 1)
++s = run(['reinforceddecks']); s.current = { type: 'elite' }; s.ai.reinforced = false;
++s.ai.cards = [['warrior', 3], ['lancer', 3], ['cannoneer', 2]].flatMap(([t, n]) => Array.from({ length: n }, (_, i) => ({ uid: t + i, type: t, level: 0 })));
++EG.reinforce(s); assert.equal(s.ai.reinforcedSwaps.length, 2); assert.equal(s.ai.cards.length, 8);
++console.log('PASS challenges-endgame: catálogo 18 em 6 blocos, valores de 22/11, Inimigos Fortalecidos, escala geral, Fadiga, Mais Elites, Menos Apoio, Loja, Derrota Custa Ouro, Relíquias Amaldiçoadas, Decks Reforçados');
+diff -ruN -x node_modules game_v65/tests/playtest-save.cjs game_v65_teste/tests/playtest-save.cjs
+--- game_v65/tests/playtest-save.cjs	2026-11-21 21:12:48.000000000 +0000
++++ game_v65_teste/tests/playtest-save.cjs	2026-11-22 14:09:54.388511047 +0000
+@@ -4,11 +4,11 @@
+ 
+ P.load(P.freshProfile());
+ P.completeTutorial();
+-P.profile.challenges={unlocked:true,available:3,selected:['tough','relentless','reinforcements']};
++P.profile.challenges={unlocked:true,available:3,selected:['reinforcements','fortified','moreelites']};
+ let s=G.fresh('vanguard',56);
+ const node=G.available(s)[0];
+ assert(G.enter(s,node.id));
+-assert.deepEqual(s.meta.challenges,['tough','relentless','reinforcements']);
++assert.deepEqual(s.meta.challenges,['reinforcements','fortified','moreelites']);
+ 
+ function round(slot, handicap) {
+   s.board.fill(null);
+@@ -46,8 +46,8 @@
+ assert.notEqual(e.rounds[0].player.formation[0].x,e.rounds[1].player.formation[0].x);
+ assert.deepEqual(e.player,e.rounds[0].player);
+ assert.equal(e.player.bagCellsUsed,e.player.relics.reduce((sum,r)=>sum+r.cells.length,0));
+-assert(e.enemyScaleSources.some(x=>x.source==='challenge:tough'));
+-assert(e.enemyScaleSources.some(x=>x.source==='challenge:relentless'));
++assert(e.enemyScaleSources.some(x=>x.source==='challenge:fortified'));
++assert(e.enemyScaleSources.some(x=>x.source==='challenge:globalScale'));
+ assert.equal(e.units[0].deaths,3);
+ assert.equal(P.profile.stats.bosses,0);
+ 
+@@ -79,6 +79,8 @@
+ 
+ // In the engine's formation and in the exported encounter, round 1 really is 2v3.
+ P.load(P.freshProfile());P.completeTutorial();
++// Endgame (22/11): o Reforços passou a valer a partir da 3ª rodada; este teste confere só a telemetria, então usa a regra antiga.
++const reinforceFrom=JourneyChallenges.TUNE.reinforceFromRound;JourneyChallenges.TUNE.reinforceFromRound=1;
+ P.profile.challenges={unlocked:true,available:1,selected:['reinforcements']};
+ s=G.fresh('vanguard',56);
+ assert(G.enter(s,G.available(s)[0].id));
+@@ -92,6 +94,7 @@
+ assert.equal(reinforcementExample.rounds[0].player.formation.length,2);
+ assert.equal(reinforcementExample.rounds[0].enemy.formation.length,3);
+ assert(reinforcementExample.rounds[0].enemyScaleSources.some(source=>source.source==='challenge:reinforcements'));
++JourneyChallenges.TUNE.reinforceFromRound=reinforceFrom;
+ 
+ const backup={format:'grand-journey',schema:JourneyTelemetry.exportSchema,profile:P.profile,state:s};
+ assert(JourneyTelemetry.validExport(JSON.parse(JSON.stringify(backup))));
