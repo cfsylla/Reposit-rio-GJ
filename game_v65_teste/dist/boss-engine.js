@@ -35,7 +35,7 @@ function near(a,t,r){return Math.hypot(a.x-t.x,a.y-t.y)<=r;}
 function freshMinion(type,uid,x,y,hp=450){const t=G.BY[type];const m={uid,type,side:1,level:0,x,y,hp,maxhp:hp,atk:t.atk,defense:t.defense,rate:t.rate,speed:t.speed,crit:t.crit||0,range:t.range,armor:0,skill:1,charge:0,progress:0,cooldown:.5,hits:0,received:0,flash:0,dead:false};m.charge=G.skillLimit(m);return m;}
 const create=G.createBattle;G.createBattle=function(s){if(!s.training&&!s.tutorialReplay&&s.current?.type==='boss'&&!s.bossEncounter&&select(s,s.current))attach(s,s.current);const b=create(s);if(!b||!s.bossEncounter)return b;const e=s.bossEncounter,d=D[e.id],u=leader(b);b.boss={id:e.id,form:e.form,next:10,casts:0,used:false,hitCount:0,instability:0,staggerUntil:0,head:(s.round-1)%3};if(e.form===1&&u){const p=A.power(s);const k=tune(e.id,A.act(s))
 u.telemetryModifiers=[
- {source:'map:'+A.act(s),hp:A.SPEC[A.act(s)].power,damage:A.SPEC[A.act(s)].power},
+ {source:'map:'+A.act(s),hp:A.mapPower?.(A.act(s))??A.SPEC[A.act(s)].power,damage:A.mapPower?.(A.act(s))??A.SPEC[A.act(s)].power},
  {source:'barrier:'+(s.current.trueBoss?'trueBoss':'boss'),hp:A.barrier(s),damage:A.barrier(s)},
  {source:'boss:'+e.id,hp:k.hp,damage:k.atk}
 ];

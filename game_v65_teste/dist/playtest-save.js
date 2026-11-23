@@ -49,7 +49,7 @@ function barrier(s){
 }
 function sources(s){
  const act=A.act(s),kind=barrier(s),C=root.JourneyChallenges,c=C.TUNE,raid=s.raid;
- const list=[{source:'map:'+act,hp:A.SPEC[act].power,damage:A.SPEC[act].power}];
+ const list=[{source:'map:'+act,hp:A.mapPower?.(act)??A.SPEC[act].power,damage:A.mapPower?.(act)??A.SPEC[act].power}];
  if(raid){
   return raid.scaleSources||[{source:'raid:'+raid.kind,...raid.scale}];
  }else{

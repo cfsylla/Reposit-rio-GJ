@@ -167,6 +167,8 @@ function playRun(deck, seed, pol, opt) {
   P.load(P.freshProfile()); P.completeTutorial();
   // ENDGAME (v65, 22/11): trava de mapas da Review R3. Premissa do endgame = 3 mapas liberados (GJ_MAPS para mudar).
   if ('mapsUnlocked' in P.profile) P.profile.mapsUnlocked = Number(process.env.GJ_MAPS || 3);
+  // 1ª vitória já obtida (GJ_WINS): o endgame começa depois dela; usado pelo fator de mapa por marco (teste de 23/11).
+  if (process.env.GJ_WINS) { P.profile.stats ??= {}; P.profile.stats.wins = Number(process.env.GJ_WINS); }
   const prof = Tree.profile(); prof.unlocked = [...(Array.isArray(pol.tree) ? pol.tree : treePreset(pol.tree) || [])];
   // level model (game_p5+): banked XP = given career XP, or exactly the cost of the preset (no free points)
   if (Tree.level) prof.totalXp = pol.treeXp ?? prof.unlocked.reduce((t, id) => t + TreeData.by[id].cost, 0);

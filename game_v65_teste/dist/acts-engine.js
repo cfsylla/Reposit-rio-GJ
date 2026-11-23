@@ -16,7 +16,16 @@ function act(s){return eligible(s)?s.journey?.act||1:1;}
 /* valores calibrados na etapa 4 (iteração 10, carreiras: 1ª vitória run 15 com 17 nós) */
 const BARRIER=root.JOURNEY_BARRIER_TUNE={order:[1.122,1.12,1.2],entrance:[1,1.118,1.24],other:[1,1,1],raid:[1.3,1.37,1.46],raidBoss:[1.04,1.04,1.04],boss:[1.022,1.071,1.2],entranceFights:2,...(root.JOURNEY_BARRIER_TUNE||{})};
 function barrier(s){const n=s?.current;if(!eligible(s)||!n||n.campaign==='monsters'||s.raid)return 1;const a=Math.max(0,Math.min(2,act(s)-1));if(n.type==='boss')return BARRIER.boss[a]||1;if(n.campaign==='blackfang'||n.campaign==='dawncrest')return BARRIER.order[a]||1;return (localStage(s)<=BARRIER.entranceFights?BARRIER.entrance[a]:BARRIER.other[a])||1;}
-function power(s){return (SPEC[act(s)]?.power||1)*barrier(s);}
+/* Teste (23/11): fator do mapa sobe uma vez em cada marco da carreira, mantendo mapa 1 < mapa 2 < mapa 3:
+ * liberar o mapa 2 sobe o mapa 1 (afterMap2), liberar o mapa 3 sobe o mapa 2 (afterMap3), a 1ª vitória sobe o mapa 3 (afterVictory).
+ * JOURNEY_MAP_TUNE = {afterMap2:{1:x}, afterMap3:{2:y}, afterVictory:{3:z}}; vazio = valores de SPEC (hoje). */
+const MAP_TUNE=root.JOURNEY_MAP_TUNE||{};
+function mapPower(a){const p=P.profile||{},base=SPEC[a]?.power||1,u=Number(p.mapsUnlocked)||1,won=(p.stats?.wins||0)>0;
+ if(a===1&&u>=2&&MAP_TUNE.afterMap2?.[1])return MAP_TUNE.afterMap2[1];
+ if(a===2&&u>=3&&MAP_TUNE.afterMap3?.[2])return MAP_TUNE.afterMap3[2];
+ if(a===3&&won&&MAP_TUNE.afterVictory?.[3])return MAP_TUNE.afterVictory[3];
+ return base;}
+function power(s){return mapPower(act(s))*barrier(s);}
 function localStage(s,upcoming=false){return Math.max(1,(s.mapBattles||0)-(s.journey?.battleStart||0)+(upcoming?1:0));}
 function played(s){const j=ensure(s),seen=new Set(j?.seenMonsters||[]),ids=new Set([...(s.route||[]),...(s.campaignRoute?.monsterNodes||[])]);for(const n of s.map?.flat()||[])if(n.campaign==='monsters'&&ids.has(n.id))seen.add(n.raidKind||'tree');return seen;}
 function prepareBoss(s,n){const j=ensure(s);if(!j||n.type!=='boss')return n;n.trueBoss=j.act===3&&!!n.campaign&&['blackfang','dawncrest','monsters','ironbound'].includes(n.campaign)&&j.history.length===2&&j.history.every(h=>h.order===n.campaign);n.finalBoss=j.act===3;root.JourneyBosses?.select(s,n);return n;}
@@ -55,5 +64,5 @@ const attach=R.attachRun;R.attachRun=function(s,n){if(!eligible(s)||!ensure(s))r
   {source:'map:'+act(s),hp:map*hp,damage:map*other,minions:map*other},
   {source:'barrier:'+(n.type==='boss'?'titan':'raid'),hp:fight,damage:fight,minions:fight}
  ]);}};
-root.JourneyActs={SPEC,BARRIER,barrier,ensure,act,chapterEnd,power,currentCounts,orderHistory,orderTotals,localStage,played,prepareBoss,generate,recordBoss,advance};
+root.JourneyActs={SPEC,BARRIER,barrier,ensure,act,chapterEnd,power,mapPower,currentCounts,orderHistory,orderTotals,localStage,played,prepareBoss,generate,recordBoss,advance};
 })(typeof globalThis!=='undefined'?globalThis:this);
