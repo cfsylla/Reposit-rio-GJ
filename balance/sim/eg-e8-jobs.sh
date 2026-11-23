@@ -10,7 +10,7 @@ A36="elite_experience,elite_hunter,ambush,cleanse,trained_eye,travel_relic|secon
 for N in $(seq 1 18); do
   XP=$((300 + 115 * (N - 1))); [ $XP -ge 1754 ] && T=full || T=cap$XP
   NN=$(printf %02d $N)
-  for v in 63 36; do B=B$v; A=A$v; for d in $D; do
+  for v in 63; do B=B$v; A=A$v; for d in $D; do
     echo "W${v}N${NN} $T $d 1-15 --blocks ${!B} --advblocks ${!A} --level $N" >> $J
   done; done
 done
