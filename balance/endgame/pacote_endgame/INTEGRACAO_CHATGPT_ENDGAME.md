@@ -16,7 +16,7 @@ A implementação de referência foi escrita para medir no simulador, não para 
 - **Conta:** a quantidade de desafios ativos na run.
 - **Pontos de entrada no código:**
   - `JourneyChallenges.enemyStats` (fora das raids);
-  - o fator de escala da raid (`JourneyRaid.initialize`), em vida, dano e lacaios. É ele que cobre as raids, os Titãs e a 2ª forma do True Boss.
+  - o fator de escala da raid (`JourneyRaid.initialize`), em vida, dano e lacaios. É ele que cobre as raids, os Titãs e a 2ª forma do True Boss. **Nas raids, a defesa não muda** (confirmado em 23/11).
 - **Telemetria do save:** fontes `challenge:globalScale` e `challenge:fortified` (já incluídas em `playtest-save.js`).
 
 ### 1.2 Catálogo e blocos de desafios
@@ -69,14 +69,14 @@ A implementação de referência foi escrita para medir no simulador, não para 
 ### Desafios novos
 | Desafio | Efeito |
 |---|---|
-| **Inimigos Fortalecidos** | Une Tropas Resistentes e Ataques Implacáveis. Inimigos com **+10% de vida e +8% de dano**, somados à escala |
+| **Inimigos Fortalecidos** | Une Tropas Resistentes e Ataques Implacáveis. Inimigos com **+10% de vida e +8% de dano**, **multiplicados** pela escala (com 1 desafio: +11,1% de vida e +9,08% de ataque). **Não vale nas raids**, como Tropas Resistentes e Ataques Implacáveis |
 | **Mais Elites no Mapa** | Em cada mapa, **2 camadas inteiras de batalhas simples** viram elite (todas as pistas da camada). Ordens não contam. Nunca a 1ª batalha do mapa, nunca 2 camadas vizinhas, nunca a camada logo antes do boss. A camada de apoio convertida por Menos Apoio pode virar elite. As elites convertidas dão a recompensa normal de elite |
-| **Relíquias Amaldiçoadas** | Cada relíquia obtida tem **33% de chance** de adicionar uma maldição ao deck, **Fardo ou Correntes** (sorteada). Não contam a relíquia inicial nem a de Relíquia de Viagem. As maldições contam para o Ídolo profano |
+| **Relíquias Amaldiçoadas** | Cada relíquia obtida tem **⅓ de chance** (texto: 33%) de adicionar uma maldição ao deck, **Fardo ou Correntes** (sorteada). Não contam a relíquia inicial nem a de Relíquia de Viagem. As maldições contam para o Ídolo profano |
 | **Fadiga da Jornada** | Unidades do jogador com **−3% de ataque, vida, defesa e velocidade de ataque**. Não mexe na árvore |
 | **Decks Reforçados** | **Elites e bosses** trocam as **2 cartas mais fracas** do deck (ranking do laboratório `lab2`, tabela `RANK` em `challenges-endgame.js`) pelas **2 mais fortes da mesma facção** que não estão no deck. Se não houver, entram as da mesma trait. Times com 4 cópias por personagem trocam 1 personagem. Obrigatório quando o desafio está ativo |
 | **Menos Apoio no Mapa** | Em cada mapa, **2 camadas de apoio** (loja, upgrade, evento, relíquia ou recrutamento) viram **camadas de batalhas**. O número de camadas não muda. Nunca a camada logo antes do boss |
 | **Loja com Menos Opções** | A loja oferece **2 recrutas e 1 relíquia** (hoje: 3 e 2), também depois do refresh |
-| **Derrota Custa Ouro** | Cada rodada perdida tira **33% do ouro base da vitória** daquela luta: 3×1 perde 33%, 3×2 perde 66%, e 3 ou mais derrotas zeram. Vale em qualquer luta. Nas raids e na 2ª forma do True Boss, cada derrota conta como rodada perdida. **Bônus** (Caçador de Elites, Vitória Limpa) **não são afetados** |
+| **Derrota Custa Ouro** | Cada rodada perdida tira **⅓ do ouro base da vitória** (texto: 33%) daquela luta: 3×1 perde 33%, 3×2 perde 66%, e 3 ou mais derrotas zeram. Vale em qualquer luta. Nas raids e na 2ª forma do True Boss, cada derrota conta como rodada perdida. **Bônus** (Caçador de Elites, Vitória Limpa) **não são afetados** |
 
 ### Desafios atuais com valor alterado
 | Desafio | Antes (v65) | Agora |
