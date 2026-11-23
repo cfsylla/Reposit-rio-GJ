@@ -126,3 +126,12 @@ Nada rodado ainda.
     - o acesso vale **por ordem**: o True Boss da ordem X dá acesso só às cartas dos bosses da ordem X;
     - nos saves atuais, as cartas liberadas pela regra antiga **voltam a ficar bloqueadas** até vencer o boss de cada uma.
   - Entra no próximo pacote. Não montar pacote por enquanto: Carlos segue com os playtests.
+- **Run teste 2:** Blades, nível 1 com Inimigos Fortalecidos, 21 nós, sem vantagens.
+  - Mapas 1 e 2 fáceis (lutas por 3×0 ou 3×1); boss do mapa 2 vencido por 4×3.
+  - **Derrota na entrada do mapa 3** (1×3), com os inimigos com 1,36 de vida (barreira de entrada × fator do mapa 3).
+  - Simulador para o mesmo cenário: 30% de vitória.
+- **Run teste 3:** Blades, nível 1 com Reforços Inimigos, 21 nós, sem vantagens.
+  - Mapas 1 e 2 fáceis: só a ordem do mapa 2 foi a 3×2; boss do mapa 1 vencido por 4×0 e do mapa 2 por 4×1.
+  - **Derrota na 2ª luta de entrada do mapa 3** (2×3). Nas rodadas 3 a 5, o inimigo tinha 5, 6 e 7 unidades contra 4, 5 e 6 do jogador.
+  - Simulador para o mesmo cenário: 20% de vitória, e a camada 2 do mapa 3 é um dos pontos de morte mais comuns.
+- **Padrão das runs 2 e 3:** mapas 1 e 2 fáceis, e um salto de dificuldade na entrada do mapa 3. Vem das barreiras do jogo base: as lutas comuns do mapa 1 ficam abaixo de 1,0 de vida; a entrada do mapa 3 fica em 1,24 a 1,36.
