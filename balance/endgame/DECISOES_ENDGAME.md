@@ -107,3 +107,15 @@ Nada rodado ainda.
 - **Pendente de validação em playtest:** o vale dos níveis 7 a 11 (18 a 27% no simulador). A campanha completa simulada fica para depois.
 - **Final Union:** adiada.
 - **Pacote para o ChatGPT:** `balance/endgame/pacote_endgame/`.
+## 13. Playtest e pendências (23/11)
+- **Run teste 1:** Linha de Fogo, nível 1 só com Mais Elites, 21 nós, sem vantagens. Vitória com 25 de 28 lutas por 3×0: muito fácil.
+  - **Mais Elites ajuda** no simulador (+4 a +25).
+  - **Linha de Fogo** é o deck mais forte: 60% com 20 nós no simulador, contra 41% na média.
+- **Pendente, depois de mais runs:**
+  - trocar Mais Elites (bloco 1) com Fadiga da Jornada (bloco 2);
+  - decidir a Linha de Fogo (balanceamento de deck).
+- **Ideia do Carlos, pendente:** cartas de boss (por exemplo, o Grand Oracle, muito forte) só entram em campo a partir da 4ª rodada, como emergência.
+  - Nas lutas comuns e nas elites, a 4ª rodada só existe depois de uma derrota.
+  - Nos bosses (4 vitórias), a 4ª rodada acontece sempre.
+  - Falta definir a regra e medir.
+- **Run teste 2 (próxima):** Blades (40% com 20 nós no simulador), nível 1 com Inimigos Fortalecidos, os mesmos 21 nós do início da run 1, sem vantagens.
