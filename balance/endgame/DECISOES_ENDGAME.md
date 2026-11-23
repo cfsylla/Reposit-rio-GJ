@@ -119,3 +119,9 @@ Nada rodado ainda.
   - Nos bosses (4 vitórias), a 4ª rodada acontece sempre.
   - Falta definir a regra e medir.
 - **Run teste 2 (próxima):** Blades (40% com 20 nós no simulador), nível 1 com Inimigos Fortalecidos, os mesmos 21 nós do início da run 1, sem vantagens.
+- **Cartas de boss: nova regra de liberação (Carlos, 23/11).**
+  - **Hoje** (`progression-v56.js`, `grantBossCards`): vencer o True Boss de uma ordem libera **de uma vez** todas as cartas de boss daquela ordem.
+  - **Novo:** vencer o True Boss dá **acesso** às cartas. Cada carta só é liberada ao **vencer o boss dela**. Os bosses vencidos na própria run em que o True Boss caiu também liberam as cartas deles.
+  - **A confirmar:**
+    - o acesso vale por ordem (True Boss da ordem X → cartas dos bosses da ordem X), como hoje?
+    - o que fazer com as cartas já liberadas nos saves atuais?
